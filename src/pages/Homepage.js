@@ -1,10 +1,17 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+
+import Hero from "../components/Hero";
+import HowItWorks from "../components/HowItWorks";
+import MusicShowcase from "../components/MusicShowcase";
+import ReminderSection from "../components/ReminderSection";
 
 function Homepage() {
   return (
     <div>
-      <Navbar />
+      <Hero />
+      <HowItWorks />
+      <MusicShowcase />
+      <ReminderSection />
     </div>
   );
 }

@@ -1,0 +1,15 @@
+#music-showcase {
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 5px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid black;
+    }
+  }
+}
