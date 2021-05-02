@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavbarStyles.scss";
-import logo from "../assets/images/bnglogo.svg";
+import logo from "../../assets/images/bnglogo.svg";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,12 +31,36 @@ function Navbar() {
             <img src={logo} alt="logo" />
           </Link>
         </div>
+        {/* Desktop Navigation Links */}
+        <div className="desktop-navlinks">
+          <ul className="general-links">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/faq">FAQ</Link>
+            </li>
+          </ul>
+          <ul className="login-links">
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/artists">Artists</Link>
+            </li>
+          </ul>
+        </div>
+        {/* Hamburger */}
         <label for="check">
           <input type="checkbox" id="check" />
           <span></span>
           <span></span>
           <span></span>
           <p>MENU</p>
+          {/* Mobile Navigation */}
           <aside className="mobile-nav">
             <ul>
               <li>
@@ -57,30 +81,6 @@ function Navbar() {
             </ul>
           </aside>
         </label>
-
-        {/* <div className="navlinks">
-        <ul>
-          <div>
-            <li>
-              <a href="">HOME</a>
-            </li>
-            <li>
-              <a href="">ABOUT</a>
-            </li>
-            <li>
-              <a href="">FAQ</a>
-            </li>
-          </div>
-          <div>
-            <li>
-              <a href="">LOGIN</a>
-            </li>
-            <li>
-              <a href="">ARTISTS</a>
-            </li>
-          </div>
-        </ul>
-      </div> */}
       </nav>
     </header>
   );

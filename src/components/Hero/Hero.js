@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeroStyles.scss";
-import albumCover from "../assets/images/808s_&_Heartbreak.png";
-import soundBars from "../assets/images/bars 2.png";
+import albumCover from "../../assets/images/808s_&_Heartbreak.png";
+import soundBars from "../../assets/images/bars 2.png";
 
 function Hero() {
   return (

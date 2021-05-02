@@ -2,18 +2,30 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  padding: 0 10px;
+  padding: 5px;
+
   background-color: yellow;
-  border-bottom: 5px solid yellow;
+  // border-bottom: 5px solid yellow;
 
   .logo {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    width: 25%;
 
-    img {
-      width: 50%;
+    a {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      width: 100%;
+      img {
+        width: 150%;
+        @media (min-width: 768px) {
+          width: 80%;
+        }
+      }
     }
   }
 
@@ -23,18 +35,21 @@ nav {
     justify-content: center;
     cursor: pointer;
     padding: 5px;
+    @media (min-width: 770px) {
+      display: none;
+    }
 
     .mobile-nav {
       display: flex;
       visibility: hidden;
       background-color: black;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
       width: 100%;
-      transition: 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      left: 0%;
+      padding: 10px;
+      transition: 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
       position: absolute;
-      bottom: 50%;
-      right: 0%;
 
       ul {
         list-style: none;
@@ -46,11 +61,33 @@ nav {
     }
   }
 
+  .desktop-navlinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+
+    @media (max-width: 770px) {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      li {
+        padding: 2px;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
   span {
     background: black;
     height: 7px;
     margin: 0 0 4px 0;
-    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transition: 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
 
   span:nth-of-type(1) {
@@ -69,9 +106,8 @@ nav {
     display: none;
   }
   input[type="checkbox"]:checked ~ .mobile-nav {
-    transform: translateY(130px);
+    transform: translateY(87px);
     visibility: visible;
-    bottom: 50%;
   }
 
   input[type="checkbox"]:checked ~ span:nth-of-type(1) {
@@ -91,6 +127,10 @@ nav {
     // transform: rotatez(-45deg) translate(2px, -19px);
     width: 100%;
     background-color: green;
+  }
+
+  @media (max-width: 768px) {
+    height: 70px;
   }
 }
 
