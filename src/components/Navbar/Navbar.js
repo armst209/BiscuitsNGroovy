@@ -28,7 +28,7 @@ function Navbar() {
       <nav>
         <div className="logo">
           <Link to="/home">
-            <img src={logo} alt="logo" />
+            <img className="bg" src={logo} alt="logo" />
           </Link>
         </div>
         {/* Desktop Navigation Links */}
@@ -54,7 +54,7 @@ function Navbar() {
           </ul>
         </div>
         {/* Hamburger */}
-        <label for="check">
+        <label htmlFor="check">
           <input type="checkbox" id="check" />
           <span></span>
           <span></span>

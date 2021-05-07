@@ -3,6 +3,7 @@ import React from "react";
 function FPHomePage() {
   return (
     <div>
+      <h1>Your Library</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste eos
         veritatis facilis debitis ex excepturi quibusdam nulla eum maxime

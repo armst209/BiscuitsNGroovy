@@ -5,6 +5,10 @@ function MusicShowcase() {
   return (
     <section id="music-showcase">
       <h1>MUSIC SHOWCASE</h1>
+      <p>
+        Browse our current and upcoming releases. Click on a title for more
+        details
+      </p>
       <div className="showcase-grid">
         <div>1</div>
         <div>2</div>

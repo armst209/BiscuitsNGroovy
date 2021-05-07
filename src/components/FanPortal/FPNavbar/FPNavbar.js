@@ -10,13 +10,13 @@ function FPNavbar() {
           <Link to="/fanportal/home">Home</Link>
         </li>
         <li>
-          <Link to="/fanportal/profile">Profile</Link>
+          <Link to="/fanportal/profile">Search</Link>
         </li>
         <li>
-          <Link to="/fanportal/home">Home</Link>
+          <Link to="/fanportal/home">Your Library</Link>
         </li>
         <li>
-          <Link to="/fanportal/home">Home</Link>
+          <Link to="/fanportal/home">Account</Link>
         </li>
       </ul>
     </div>

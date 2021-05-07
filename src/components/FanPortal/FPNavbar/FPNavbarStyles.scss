@@ -1,7 +1,16 @@
 #fan-port-nav {
   background-color: black;
-  padding: 5px;
-  a {
-    color: white;
+  padding: 10px 5px;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 0 5px;
+    }
   }
 }
