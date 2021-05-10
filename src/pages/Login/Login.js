@@ -1,48 +1,48 @@
 import React, { useState } from "react";
 import "./LoginStyles.scss";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
 function Login() {
-  const [email, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
   const [token, setToken] = useState("");
   const submit = (event) => {
     event.preventDefault();
+
     const baseURL =
       "https://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
-    const data = {
-      email,
-      password,
-    };
 
-    const config = {
-      "x-access-token": token,
-    };
-
-    const response = axios
-      .get(`${baseURL}/login`, config, data)
+    const response = axios({
+      method: "get",
+      url: `${baseURL}/login`,
+      body: { username, password },
+      headers: {
+        "x-access-token": token,
+      },
+    })
       .then((res) => {
-        console.log(res);
+        setToken(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
 
     if (response) {
-      localStorage.setItem("token", setToken(token));
-
-      setRedirect(true);
+      localStorage.setItem("token", token);
+      // setRedirect(true);
+      console.log(response);
     } else {
       alert("You are not logged in");
     }
   };
 
-  if (redirect) {
-    return <Redirect to="/fanportal" />;
-  }
+  // if (redirect) {
+  //   return <Redirect to="/fanportal" />;
+  // }
 
   return (
     <div id="login">

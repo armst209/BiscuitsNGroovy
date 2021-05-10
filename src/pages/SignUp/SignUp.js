@@ -1,28 +1,47 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
+import axios from "axios";
 
 const SignUp = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
+  const [token, setToken] = useState("");
 
-  const submit = async (event) => {
+  const submit = (event) => {
     event.preventDefault();
-    const baseURL = "ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
-    await fetch(`${baseURL}/registration`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ firstName, lastName, email, password }),
-    });
-    setRedirect(true);
-  };
 
-  if (redirect) {
-    return <Redirect to="/login" />;
-  }
+    const baseURL =
+      "https://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+
+    const response = axios({
+      method: "post",
+      url: `${baseURL}/registration`,
+      data: { email, first_name, last_name, username, password },
+    })
+      .then((res) => {
+        setToken(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    if (response) {
+      localStorage.setItem("token", token);
+      // setRedirect(true);
+      console.log(response);
+    } else {
+      alert("You are not logged in");
+    }
+  };
+  // if (redirect) {
+  //   return <Redirect to="/login" />;
+  // }
 
   return (
     <div id="signup">
@@ -38,25 +57,31 @@ const SignUp = () => {
           <input
             type="text"
             placeholder="First Name"
-            name="firstName"
+            // name="firstName"
             onChange={(event) => setFirstName(event.target.value)}
           />
           <input
             type="text"
             placeholder="Last Name"
-            name="lastName"
+            // name="lastName"
             onChange={(event) => setLastName(event.target.value)}
           />
           <input
             type="email"
             placeholder="email"
-            name="email"
+            // name="email"
             onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="username"
+            // name="email"
+            onChange={(event) => setUserName(event.target.value)}
           />
           <input
             type="password"
             placeholder="password"
-            name="password"
+            // name="password"
             onChange={(event) => setPassword(event.target.value)}
           />
           <button type="submit">Login</button>
