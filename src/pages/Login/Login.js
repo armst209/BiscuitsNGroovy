@@ -13,7 +13,7 @@ function Login() {
     event.preventDefault();
 
     const baseURL =
-      "https://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
 
     const response = axios({
       method: "get",
