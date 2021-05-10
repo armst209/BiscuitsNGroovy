@@ -1,8 +1,48 @@
+// import axios from "axios";
 import React from "react";
+// import { useState, useEffect } from "react";
 
 function FPHomePage() {
+  // let [releases, setReleases] = useState("");
+  // const API_KEY =
+  //   "Authorization: 563492ad6f91700001000001a13e5fd97c1345dea9b26801e3f21c20";
+  // const URL = "https://api.pexels.com/v1/";
+
+  // useEffect(() => {
+  //   getAllReleases();
+  // }, []);
+
+  // const getAllReleases = () => {
+  //   axios
+  //     .get(URL)
+  //     .then((res) => {
+  //       setReleases(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const displayReleases = () => {
+  //   if (releases.length > 0) {
+  //     return releases.map((release) => {
+  //       console.log(release);
+  //       return (
+  //         <div>
+  //           <h3>{release.title}</h3>
+  //           <p>{release.body}</p>
+  //         </div>
+  //       );
+  //     });
+  //   } else {
+  //     return <h3>No posts yet</h3>;
+  //   }
+  // };
+
   return (
     <div>
+      <div id="gallery">{/* {displayReleases()} */}</div>
       <h1>Your Library</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste eos

@@ -1,35 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LoginStyles.scss";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import axios from "axios";
 
 function Login() {
-  //   document
-  //     .getElementById("login-submit")
-  //     .addEventListener("click", loginRequest);
+  const [email, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+  const [token, setToken] = useState("");
+  const submit = (event) => {
+    event.preventDefault();
+    const baseURL =
+      "https://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    const data = {
+      email,
+      password,
+    };
 
-  //   function loginRequest() {
-  //     console.log("hit");
-  //     // fetch("https://TODO/login")
-  //     //   .then((res) => res.json())
-  //     //   .then(
-  //     //     (result) => {
-  //     //       this.setState({
-  //     //         isLoaded: true,
-  //     //         items: result.items,
-  //     //       });
-  //     //     },
-  //     //     // Note: it's important to handle errors here
-  //     //     // instead of a catch() block so that we don't swallow
-  //     //     // exceptions from actual bugs in components.
-  //     //     (error) => {
-  //     //       this.setState({
-  //     //         isLoaded: true,
-  //     //         error,
-  //     //       });
-  //     //     }
-  //     //   );
-  //   }
+    const config = {
+      "x-access-token": token,
+    };
+
+    const response = axios
+      .get(`${baseURL}/login`, config, data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    if (response) {
+      localStorage.setItem("token", setToken(token));
+
+      setRedirect(true);
+    } else {
+      alert("You are not logged in");
+    }
+  };
+
+  if (redirect) {
+    return <Redirect to="/fanportal" />;
+  }
 
   return (
     <div id="login">
@@ -44,10 +57,20 @@ function Login() {
               <Link to="/signup">Sign Up</Link>
             </span>
           </p>
-          <form action="">
-            <input type="email" placeholder="email" name="" />
-            <input type="password" placeholder="password" name="" />
-            <button id="login-submit" type="submit">
+          <form onSubmit={submit}>
+            <input
+              type="text"
+              placeholder="username"
+              name=""
+              onChange={(event) => setUserName(event.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="password"
+              name=""
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <button className="button" type="submit">
               Login
             </button>
           </form>
