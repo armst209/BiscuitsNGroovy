@@ -10,33 +10,34 @@ const SignUp = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   // const [redirect, setRedirect] = useState(false);
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
 
   const submit = (event) => {
     event.preventDefault();
 
-    const baseURL = "ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    const baseURL =
+      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
 
-    const response = axios({
+    axios({
       method: "post",
       url: `${baseURL}/registration`,
       data: { email, first_name, last_name, username, password },
     })
       .then((res) => {
-        setToken(res.data);
+        // setToken(res.data);
         console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
 
-    if (response) {
-      localStorage.setItem("token", token);
-      // setRedirect(true);
-      console.log(response);
-    } else {
-      alert("You are not logged in");
-    }
+    // if (response) {
+    //   localStorage.setItem("token", token);
+    //   // setRedirect(true);
+    //   console.log(response);
+    // } else {
+    //   alert("You are not logged in");
+    // }
   };
   // if (redirect) {
   //   return <Redirect to="/login" />;
@@ -56,31 +57,31 @@ const SignUp = () => {
           <input
             type="text"
             placeholder="First Name"
-            // name="firstName"
+            autoComplete="on"
             onChange={(event) => setFirstName(event.target.value)}
           />
           <input
             type="text"
             placeholder="Last Name"
-            // name="lastName"
+            autoComplete="on"
             onChange={(event) => setLastName(event.target.value)}
           />
           <input
             type="email"
-            placeholder="email"
-            // name="email"
+            placeholder="Email"
+            autoComplete="on"
             onChange={(event) => setEmail(event.target.value)}
           />
           <input
             type="text"
-            placeholder="username"
-            // name="email"
+            placeholder="Username"
+            autoComplete="on"
             onChange={(event) => setUserName(event.target.value)}
           />
           <input
-            type="password"
+            type="Password"
             placeholder="password"
-            // name="password"
+            autoComplete="on"
             onChange={(event) => setPassword(event.target.value)}
           />
           <button type="submit">Login</button>

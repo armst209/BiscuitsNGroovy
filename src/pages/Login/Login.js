@@ -7,37 +7,37 @@ import axios from "axios";
 function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  // const [token, setToken] = useState("");
   // const [redirect, setRedirect] = useState(false);
-  const [token, setToken] = useState("");
+
   const submit = (event) => {
     event.preventDefault();
 
     const baseURL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
 
-    const response = axios({
-      method: "get",
+    axios({
+      method: "post",
       url: `${baseURL}/login`,
-      body: { username, password },
-      headers: {
-        "x-access-token": token,
-      },
+      data: { username: username, password: password },
     })
       .then((res) => {
-        setToken(res.data);
-        console.log(res.data);
+        localStorage.setItem("token", res.data.token);
+        // setToken(res.data.token);
+        // setRedirect(true);
+        // if (localStorage.token === token) {
+        // } else {
+        //   alert("You are not logged in");
+        // }
+
+        // console.log(username, password);
+        // console.log(res);
+        // console.log(res.data.token);
       })
       .catch((err) => {
         console.log(err);
+        alert("password is or username is incorrect");
       });
-
-    if (response) {
-      localStorage.setItem("token", token);
-      // setRedirect(true);
-      console.log(response);
-    } else {
-      alert("You are not logged in");
-    }
   };
 
   // if (redirect) {
@@ -61,13 +61,13 @@ function Login() {
             <input
               type="text"
               placeholder="username"
-              name=""
+              // autoComplete="on"
               onChange={(event) => setUserName(event.target.value)}
             />
             <input
               type="password"
               placeholder="password"
-              name=""
+              // autoComplete="on"
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="button" type="submit">
