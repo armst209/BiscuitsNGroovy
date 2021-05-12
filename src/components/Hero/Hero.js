@@ -1,13 +1,14 @@
 import React from "react";
 import "./HeroStyles.scss";
 import albumCover from "../../assets/images/808s_&_Heartbreak.png";
-import soundBars from "../../assets/images/bars 2.png";
-import Background from "../Background/Background";
+// import soundBars from "../../assets/images/bars 2.png";
+import HeroBackground from "../Background/HeroBackground";
+import SoundBars from "../SoundBars/SoundBar";
 
 function Hero() {
   return (
     <section id="hero">
-      <Background />
+      <HeroBackground />
       <div className="hero-titles">
         <div className="hero-text">
           <h1>MUSIC</h1>
@@ -55,12 +56,7 @@ function Hero() {
         </div>
       </div>
       <div>
-        <img
-          className="sound-bars"
-          id="above-howto"
-          src={soundBars}
-          alt="sound bars"
-        />
+        <SoundBars />
       </div>
     </section>
   );

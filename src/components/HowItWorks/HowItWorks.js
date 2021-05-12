@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import "./HowItWorksStyles.scss";
 // import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import bgImage from "../../assets/images/blackslant.svg";
 
 function HowItWorks() {
   const [content1, setContent1] = useState(false);
@@ -9,6 +10,7 @@ function HowItWorks() {
   const [content3, setContent3] = useState(false);
   return (
     <section id="how-it-works">
+      <img src={bgImage} alt="background" />
       <h1>HOW IT WORKS</h1>
       <div className="boxes">
         <div className="box" onClick={() => setContent1(!content1)}>

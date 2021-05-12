@@ -1,8 +1,8 @@
 import React from "react";
-import "./Background.scss";
+import "./HeroBackgroundStyles.scss";
 import bgImage from "../../assets/images/bg-image.png";
 
-function Background() {
+function HeroBackground() {
   return (
     <div className="background">
       <img src={bgImage} alt="background" />
@@ -10,4 +10,4 @@ function Background() {
   );
 }
 
-export default Background;
+export default HeroBackground;
