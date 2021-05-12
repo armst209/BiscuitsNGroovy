@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Redirect } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
@@ -7,8 +7,8 @@ import axios from "axios";
 function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  // const [token, setToken] = useState("");
-  // const [redirect, setRedirect] = useState(false);
+  const [token, setToken] = useState("");
+  const [input, setInput] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
@@ -22,27 +22,32 @@ function Login() {
       data: { username: username, password: password },
     })
       .then((res) => {
+        console.log(res);
         localStorage.setItem("token", res.data.token);
+        setToken(localStorage.getItem("token"));
+
+        if (
+          token === res.data.token
+          // password === res.data.password &&
+          // username === res.data.username
+        ) {
+          <Redirect to="/fanportal" />;
+        } else {
+          alert("you are not authenticated");
+          <Redirect to="/login" />;
+        }
         // setToken(res.data.token);
         // setRedirect(true);
-        // if (localStorage.token === token) {
-        // } else {
-        //   alert("You are not logged in");
-        // }
-
         // console.log(username, password);
         // console.log(res);
         // console.log(res.data.token);
       })
       .catch((err) => {
         console.log(err);
+
         alert("password is or username is incorrect");
       });
   };
-
-  // if (redirect) {
-  //   return <Redirect to="/fanportal" />;
-  // }
 
   return (
     <div id="login">
@@ -62,7 +67,10 @@ function Login() {
               type="text"
               placeholder="username"
               // autoComplete="on"
-              onChange={(event) => setUserName(event.target.value)}
+              onChange={(event) => {
+                setUserName(event.target.value);
+                setInput(true);
+              }}
             />
             <input
               type="password"
