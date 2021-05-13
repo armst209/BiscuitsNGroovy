@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./FooterStyles.scss";
 
 function Footer() {
@@ -12,16 +13,16 @@ function Footer() {
       </section>
       <section className="footer-links">
         <ul>
-          <li>LINK</li>
-          <li>LINK</li>
-          <li>LINK</li>
+          <Link to="/home">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/faq">FAQ</Link>
         </ul>
         <ul>
-          <li>LINK</li>
-          <li>LINK</li>
-          <li>LINK</li>
+          <Link to="/login">Login</Link>
+          <Link to="/artists">Artists</Link>
         </ul>
       </section>
+      <p>© Biscuits & Groovy {new Date().getFullYear()}</p>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ReminderSectionStyles.scss";
+import "../Hero/HeroStyles.scss";
 
 function ReminderSection() {
   return (
@@ -12,7 +13,7 @@ function ReminderSection() {
         <Link to="/artists">here</Link>
       </p>
       <a className="button-link" href="#above-howto">
-        <button>Start Your Collection</button>
+        <button className="hero-button">Start Your Collection</button>
       </a>
     </div>
   );

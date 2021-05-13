@@ -2,6 +2,7 @@
   font-family: var(--font2);
   background-color: black;
   padding: 10px 5px;
+  border-bottom: 5px solid var(--color1);
   ul {
     display: flex;
     flex-direction: row;
@@ -14,4 +15,12 @@
       padding: 0 5px;
     }
   }
+}
+
+.scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }

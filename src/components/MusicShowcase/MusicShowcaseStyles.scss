@@ -1,17 +1,31 @@
 #music-showcase {
+  background-color: black;
+  color: white;
   padding: 5px;
-  border: 2px solid black;
+  font-family: var(--font2);
+  h1 {
+    margin-top: 2em;
+    font-family: var(--font1);
+    font-family: var(--font1);
+    letter-spacing: 0.04cm;
+    text-align: center;
+  }
+
+  p {
+    text-align: left;
+    padding: 20px 10px;
+  }
+
   .showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     div {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid black;
     }
   }
 }

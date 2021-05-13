@@ -5,7 +5,9 @@
   color: white;
   background-color: black;
   border-top: 5px solid #f5ee0d;
+  font-family: var(--font2);
   .footer-content {
+    padding: 20px 10px;
   }
   .footer-links {
     display: flex;
@@ -15,5 +17,8 @@
       text-decoration: none;
       color: white;
     }
+  }
+  p {
+    text-align: center;
   }
 }

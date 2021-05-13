@@ -3,6 +3,10 @@ import "./HowItWorksStyles.scss";
 // import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import bgImage from "../../assets/images/blackslant.svg";
+import loveSong from "../../assets/images/love-song2.svg";
+import voice from "../../assets/images/voice.svg";
+import collect from "../../assets/images/headphones2.svg";
+import bottomWave from "../../assets/images/blackslant2.svg";
 // import arrowDown from "../../assets/images/arrow-down.svg";
 
 function HowItWorks() {
@@ -19,20 +23,23 @@ function HowItWorks() {
             <h3>
               New Releases <br /> for true fans only
             </h3>
+            <div className="how-icon">
+              <img src={loveSong} alt="love-icon" />
+            </div>
             <div className="read-more" onClick={() => setContent1(!content1)}>
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
                   d="M17.25 13.75L12 19.25L6.75 13.75"
                 />
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
                   d="M12 18.25V4.75"
                 />
               </svg>
@@ -57,26 +64,31 @@ function HowItWorks() {
           </CSSTransition>
         </div>
         <div className="box" onClick={() => setContent2(!content2)}>
-          <h3>
-            Stream Here /<br /> before the other guys
-          </h3>
-          <div className="read-more" onClick={() => setContent2(!content2)}>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M17.25 13.75L12 19.25L6.75 13.75"
-              />
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M12 18.25V4.75"
-              />
-            </svg>
+          <div className="box-border">
+            <h3>
+              Stream Here /<br /> before the other guys
+            </h3>
+            <div className="how-icon">
+              <img src={voice} alt="voice-icon" />
+            </div>
+            <div className="read-more" onClick={() => setContent2(!content2)}>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="M17.25 13.75L12 19.25L6.75 13.75"
+                />
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="M12 18.25V4.75"
+                />
+              </svg>
+            </div>
           </div>
           <CSSTransition
             classNames="content"
@@ -93,33 +105,37 @@ function HowItWorks() {
                 else. Get it while it’s hot, since it’s only on BnG for a
                 limited time.
               </p>
-
               <button>Read More</button>
             </div>
           </CSSTransition>
         </div>
         <div className="box" onClick={() => setContent3(!content3)}>
-          <h3>
-            Collect & Share / <br />
-            your exclusive records
-          </h3>
-          <div className="read-more" onClick={() => setContent3(!content3)}>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M17.25 13.75L12 19.25L6.75 13.75"
-              />
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M12 18.25V4.75"
-              />
-            </svg>
+          <div className="box-border">
+            <h3>
+              Collect & Share / <br />
+              your exclusive records
+            </h3>
+            <div className="how-icon">
+              <img src={collect} alt="collect-icon" />
+            </div>
+            <div className="read-more" onClick={() => setContent3(!content3)}>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="M17.25 13.75L12 19.25L6.75 13.75"
+                />
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="M12 18.25V4.75"
+                />
+              </svg>
+            </div>
           </div>
           <CSSTransition
             classNames="content"
@@ -143,6 +159,7 @@ function HowItWorks() {
           </CSSTransition>
         </div>
       </div>
+      <img src={bottomWave} alt="bottom-wave" />
     </section>
   );
 }

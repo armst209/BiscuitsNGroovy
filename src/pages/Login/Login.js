@@ -31,7 +31,7 @@ function Login(props) {
         let token = localStorage.getItem("token");
 
         if (token) {
-          props.history.push("/fanportal");
+          props.history.push("/fanportal/home");
         } else {
           alert("you are not authenticated");
           props.history.push("/login");

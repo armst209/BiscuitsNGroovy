@@ -1,19 +1,26 @@
 #reminder {
   padding: 5px;
-  border: 2px solid black;
 
+  font-family: var(--font2);
+  font-weight: bold;
+  text-align: left;
+  padding: 20px 10px;
   .button-link {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
+    text-decoration: none;
+
     button {
       padding: 20px;
       width: 225px;
       height: 70px;
       border-radius: 10px;
       border: none;
-      background-color: #25c1a9;
+      background-color: var(--color2);
+      font-family: var(--font1);
+      filter: drop-shadow(5px 5px 8px black);
     }
   }
 }
