@@ -1,14 +1,18 @@
-import React, { useState, Redirect } from "react";
+import React, { useState } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
-function Login() {
+function Login(props) {
+  // console.log(props);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
-  const [input, setInput] = useState(false);
+  // const [redirect] = useState(false);
+
+  // const [isAuthenticated, setAuthentication] = useState(false);
+  // const [token, setToken] = useState("");
+  // const [input, setInput] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
@@ -22,25 +26,16 @@ function Login() {
       data: { username: username, password: password },
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         localStorage.setItem("token", res.data.token);
-        setToken(localStorage.getItem("token"));
+        let token = localStorage.getItem("token");
 
-        if (
-          token === res.data.token
-          // password === res.data.password &&
-          // username === res.data.username
-        ) {
-          <Redirect to="/fanportal" />;
+        if (token) {
+          props.history.push("/fanportal");
         } else {
           alert("you are not authenticated");
-          <Redirect to="/login" />;
+          props.history.push("/login");
         }
-        // setToken(res.data.token);
-        // setRedirect(true);
-        // console.log(username, password);
-        // console.log(res);
-        // console.log(res.data.token);
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +64,7 @@ function Login() {
               // autoComplete="on"
               onChange={(event) => {
                 setUserName(event.target.value);
-                setInput(true);
+                // setInput(true);
               }}
             />
             <input

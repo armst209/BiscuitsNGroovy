@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -24,8 +24,14 @@ const SignUp = () => {
       data: { email, first_name, last_name, username, password },
     })
       .then((res) => {
-        // setToken(res.data);
         console.log(res.data);
+        let token = res.data.token;
+
+        if (token) {
+          props.history.push("/home");
+        } else {
+          alert("something was input incorrectly");
+        }
       })
       .catch((err) => {
         console.log(err);
