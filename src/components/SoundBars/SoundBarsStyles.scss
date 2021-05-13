@@ -9,9 +9,10 @@ $desired-height: 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 3px solid yellow;
+  border-top: 5px solid yellow;
   position: relative;
   z-index: 0;
+  background-color: black;
 
   .container {
     width: 10 * ($width + $margin) - $margin;

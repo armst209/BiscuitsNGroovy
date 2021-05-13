@@ -1,7 +1,6 @@
 import React from "react";
 import "./HeroStyles.scss";
 import albumCover from "../../assets/images/808s_&_Heartbreak.png";
-// import soundBars from "../../assets/images/bars 2.png";
 import HeroBackground from "../Background/HeroBackground";
 import SoundBars from "../SoundBars/SoundBar";
 
@@ -9,6 +8,7 @@ function Hero() {
   return (
     <section id="hero">
       <HeroBackground />
+
       <div className="hero-titles">
         <div className="hero-text">
           <h1>MUSIC</h1>
@@ -55,6 +55,7 @@ function Hero() {
           <p>Featured Artist: Kanye West</p>
         </div>
       </div>
+
       <div>
         <SoundBars />
       </div>

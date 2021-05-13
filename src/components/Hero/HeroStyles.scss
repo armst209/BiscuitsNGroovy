@@ -1,6 +1,10 @@
 #hero {
   padding: 0;
-  background-color: black;
+  margin: 0;
+
+  background-size: contain;
+  background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
+    center center black;
 
   .hero-titles {
     display: flex;
@@ -10,16 +14,17 @@
     padding: 30px 10px 10px 10px;
     position: relative;
     z-index: 12;
-    // font-family: "Bowlby One SC", cursive;
 
     .hero-text {
       color: black;
       font-weight: bold;
       h1 {
         font-size: 40px;
+        font-family: var(--font1);
       }
       h3 {
         font-size: 15px;
+        font-family: var(--font2);
       }
     }
 
@@ -60,6 +65,8 @@
         border-radius: 10px;
         border: none;
         background-color: #25c1a9;
+        font-family: var(--font1);
+        filter: drop-shadow(5px 5px 8px black);
       }
     }
   }

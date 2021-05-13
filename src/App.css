@@ -1,4 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+@font-face {
+  font-family: 'resotedreamregular';
+  src: url('./assets/fonts/resotedream-jraem-webfont.woff2') format('woff2'), url('./assets/fonts/resotedream-jraem-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manjaribold';
+  src: url('./assets/fonts/Manjari/manjari-bold-webfont.woff2') format('woff2'), url('./assets/fonts/Manjari/manjari-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manjariregular';
+  src: url('./assets/fonts/Manjari/manjari-regular-webfont.woff2') format('woff2'), url('./assets/fonts/Manjari/manjari-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manjarithin';
+  src: url('./assets/fonts/Manjari/manjari-thin-webfont.woff2') format('woff2'), url('./assets/fonts/Manjari/manjari-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +33,6 @@
   overflow-x: visible;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  --font1: 'resotedreamregular';
+  --font2: 'manjariregular';
 }
