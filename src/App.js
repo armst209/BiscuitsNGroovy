@@ -24,8 +24,7 @@ function App() {
         <Route path="/artists" component={Artists} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-
-        <Route exact path="/fanportal" component={FanPortal} />
+        <Route path="/fanportal" component={FanPortal} />
       </Switch>
       <Footer />
     </div>

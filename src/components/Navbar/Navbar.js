@@ -56,9 +56,9 @@ function Navbar() {
         {/* Hamburger */}
         <label htmlFor="check">
           <input type="checkbox" id="check" />
-          <span></span>
-          <span></span>
-          <span></span>
+          <div className="menu-bars"></div>
+          <div className="menu-bars"></div>
+          <div className="menu-bars"></div>
           <p>MENU</p>
           {/* Mobile Navigation */}
           <aside className="mobile-nav">
