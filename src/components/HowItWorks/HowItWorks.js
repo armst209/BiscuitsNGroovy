@@ -7,6 +7,7 @@ import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
 import collect from "../../assets/images/headphones2.svg";
 import bottomWave from "../../assets/images/blackslant2.svg";
+
 // import arrowDown from "../../assets/images/arrow-down.svg";
 
 function HowItWorks() {
@@ -159,7 +160,8 @@ function HowItWorks() {
           </CSSTransition>
         </div>
       </div>
-      <img src={bottomWave} alt="bottom-wave" />
+
+      <img src={bottomWave} alt="bottom-wave" className="bottom-wave" />
     </section>
   );
 }
