@@ -8,6 +8,7 @@ function Login(props) {
   // console.log(props);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   // const [redirect] = useState(false);
 
   // const [isAuthenticated, setAuthentication] = useState(false);
@@ -16,6 +17,20 @@ function Login(props) {
 
   const submit = (event) => {
     event.preventDefault();
+
+    const handleSuccess = (res) => {
+      localStorage.setItem("token", res.data.token);
+      let token = localStorage.getItem("token");
+      if (token) {
+        props.history.push("/fanportal/home");
+      } else {
+        setMessage("Login information not found. Please Sign Up.");
+      }
+    };
+    const handleFailure = (err) => {
+      console.log(err);
+      setMessage("Username or Password is incorrect. Please try again.");
+    };
 
     const baseURL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
@@ -26,21 +41,10 @@ function Login(props) {
       data: { username: username, password: password },
     })
       .then((res) => {
-        // console.log(res);
-        localStorage.setItem("token", res.data.token);
-        let token = localStorage.getItem("token");
-
-        if (token) {
-          props.history.push("/fanportal/home");
-        } else {
-          alert("you are not authenticated");
-          props.history.push("/login");
-        }
+        handleSuccess(res);
       })
       .catch((err) => {
-        console.log(err);
-
-        alert("password is or username is incorrect");
+        handleFailure(err);
       });
   };
 
@@ -61,7 +65,7 @@ function Login(props) {
             <input
               type="text"
               placeholder="username"
-              // autoComplete="on"
+              autoComplete="off"
               onChange={(event) => {
                 setUserName(event.target.value);
                 // setInput(true);
@@ -70,7 +74,7 @@ function Login(props) {
             <input
               type="password"
               placeholder="password"
-              // autoComplete="on"
+              autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="button" type="submit">
@@ -78,6 +82,7 @@ function Login(props) {
             </button>
           </form>
           <Link to="">Forgot Password?</Link>
+          <div className="login-messages">{message}</div>
           <div className="or-fold">
             <hr></hr>
             <p>or</p>

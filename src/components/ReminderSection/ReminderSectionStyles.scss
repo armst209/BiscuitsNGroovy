@@ -2,14 +2,26 @@
   // display: flex;
   // justify-content: center;
   // align-items: center;
+  position: relative;
   font-family: var(--font2);
   font-weight: bold;
   text-align: left;
   color: white;
   width: 100%;
   div {
+    display: flex;
+    width: 100%;
     p {
+      width: 100%;
       color: white;
     }
+
+    .empty-div {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      width: 40%;
+    }
   }
+
 }

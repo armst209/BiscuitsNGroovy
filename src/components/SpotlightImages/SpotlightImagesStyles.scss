@@ -1,21 +1,12 @@
 .spotlight-bg {
   position: relative;
   .spotlight1 {
-    width: 100%;
-    height: 700px;
-
-    object-fit: contain;
+    object-fit: cover;
     position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .spotlight2 {
-    width: 100%;
-
-    // object-fit: contain;
-    position: relative;
-    top: 0;
-    left: 0;
     z-index: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    // transform: rotatez(90deg);
   }
 }

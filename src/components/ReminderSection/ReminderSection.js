@@ -7,13 +7,16 @@ function ReminderSection() {
   return (
     <section id="reminder">
       <div>
-        <p>
-          Artists -- Tired of earning pennies from streaming? We’ll help you
-          earn more money and connect with your top fans. Read more about the
-          benefits of releasing on BnG <Link to="/artists">here</Link>
-        </p>
+        <div>
+          <p>
+            Artists -- Tired of earning pennies from streaming? We’ll help you
+            earn more money and connect with your top fans. Read more about the
+            benefits of releasing on BnG <Link to="/artists">here</Link>
+          </p>
+        </div>
+
+        <div className="empty-div"></div>
       </div>
-      <div></div>
     </section>
   );
 }
