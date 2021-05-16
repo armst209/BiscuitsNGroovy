@@ -1,24 +1,28 @@
 #music-showcase {
-  background: url("../../assets/images/spotlight-down2.png") black no-repeat;
-
-  background-size: cover;
-  background-position: bottom center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   color: white;
-
   font-family: var(--font2);
+  background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
+    center center black;
 
   h1 {
-    // padding-top: 2em;
     font-family: var(--font1);
     letter-spacing: 0.04cm;
     width: 100%;
     padding: 10px;
+    text-align: center;
     position: relative;
-    // top: 5%;
-    // z-index: 5;
     color: black;
+  }
+
+  .show-case-p {
+    text-align: center;
+    padding: 0 20px;
+    font-weight: bolder;
   }
 
   p {
@@ -32,7 +36,6 @@
 
   .showcase-grid {
     position: relative;
-    // top: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,13 +50,12 @@
   }
 
   .reminder-section {
-    // position: absolute;
-    // top: 70%;
     right: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: black;
   }
 
   .spot-light {

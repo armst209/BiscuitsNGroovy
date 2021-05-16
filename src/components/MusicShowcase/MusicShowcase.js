@@ -1,22 +1,18 @@
 import React from "react";
-import HeroBackground from "../Background/HeroBackground";
-// import spotlight from "../../assets/images/spotlight2rotate.svg";
+import ReminderBackground from "../Background/ReminderBackground";
+import ReminderBackground2 from "../Background/ReminderBackground2";
 import LibrarySwiper from "../FanPortal/LibrarySwiper";
 import ReminderSection from "../ReminderSection/ReminderSection";
-
-// import MusicShowcaseCarousel from "./MusicShowcaseCarousel";
 import "./MusicShowcaseStyles.scss";
 
 function MusicShowcase() {
   return (
     <section id="music-showcase">
-      {/* <div className="spot-light">
-        <img src={spotlight} alt="spotlight" />
-      </div> */}
+      <ReminderBackground />
       <h1>MUSIC SHOWCASE</h1>
-      <p>
-        Browse our current and upcoming releases. Click on a title for more
-        details
+      <p className="show-case-p">
+        Browse our current and upcoming releases. <br />
+        Click on a title for more details
       </p>
       <div className="showcase-grid">
         <LibrarySwiper />
@@ -24,6 +20,7 @@ function MusicShowcase() {
       <div className="reminder-section">
         <ReminderSection />
       </div>
+      {/* <ReminderBackground2 /> */}
     </section>
   );
 }

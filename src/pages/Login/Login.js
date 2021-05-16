@@ -27,6 +27,7 @@ function Login(props) {
         setMessage("Login information not found. Please Sign Up.");
       }
     };
+
     const handleFailure = (err) => {
       console.log(err);
       setMessage("Username or Password is incorrect. Please try again.");
