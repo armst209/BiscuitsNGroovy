@@ -1,23 +1,41 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-// import FanPortalNav from "../../../components/FanPortal/FPNavbar/FPNavbar";
+import { React, useLayoutEffect, useEffect, useState } from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
 import FPHomepage from "../../../components/FanPortal/FPHomePage/FPHomePage";
 import FPProfile from "../../../components/FanPortal/FPProfile/FPProfile";
 import "./FanPortalStyles.scss";
 import Navbar from "../../../components/Navbar/Navbar";
+import FPNavbar from "../../../components/FanPortal/FPNavbar/FPNavbar";
 
 function FanPortal(props) {
-  console.log(props);
-  let token = localStorage.getItem("token");
+  const [scrolled, setScrolled] = useState(false);
 
-  if (token) {
-    console.log("is authenticated");
-  } else {
-    props.history.push("/login");
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 0) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  let FPnavbarClasses = ["nav"];
+  if (scrolled) {
+    FPnavbarClasses.push("scrolled");
   }
+
   return (
     <section id="fan-portal">
-      <Navbar />
+      <nav className={FPnavbarClasses.join(" ")}>
+        <Navbar />
+        <FPNavbar />
+      </nav>
 
       <Switch>
         <Route exact path="/fanportal/home" component={FPHomepage} />
@@ -27,4 +45,4 @@ function FanPortal(props) {
   );
 }
 
-export default FanPortal;
+export default withRouter(FanPortal);

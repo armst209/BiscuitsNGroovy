@@ -5,27 +5,17 @@ import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
 function Login(props) {
-  // console.log(props);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  // const [redirect] = useState(false);
-
-  // const [isAuthenticated, setAuthentication] = useState(false);
-  // const [token, setToken] = useState("");
-  // const [input, setInput] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
 
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
-      let token = localStorage.getItem("token");
-      if (token) {
-        props.history.push("/fanportal/home");
-      } else {
-        setMessage("Login information not found. Please Sign Up.");
-      }
+      console.log("Authenticated");
+      props.history.push("/fanportal");
     };
 
     const handleFailure = (err) => {

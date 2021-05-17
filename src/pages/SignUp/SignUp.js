@@ -6,8 +6,7 @@ import Navbar from "../../components/Navbar/Navbar";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   // const [redirect, setRedirect] = useState(false);
@@ -22,7 +21,7 @@ const SignUp = (props) => {
     axios({
       method: "post",
       url: `${baseURL}/registration`,
-      data: { email, first_name, last_name, username, password },
+      data: { email, name, username, password },
     })
       .then((res) => {
         console.log(res.data);
@@ -64,36 +63,31 @@ const SignUp = (props) => {
           </p>
           <form onSubmit={submit}>
             <input
-              type="text"
-              placeholder="First Name"
-              autoComplete="on"
-              onChange={(event) => setFirstName(event.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              autoComplete="on"
-              onChange={(event) => setLastName(event.target.value)}
-            />
-            <input
               type="email"
               placeholder="Email"
               required
-              autoComplete="on"
+              autoComplete="off"
               onChange={(event) => setEmail(event.target.value)}
             />
             <input
               type="text"
+              placeholder="Name"
+              autoComplete="off"
+              onChange={(event) => setName(event.target.value)}
+            />
+
+            <input
+              type="text"
               placeholder="Username"
               required
-              autoComplete="on"
+              autoComplete="off"
               onChange={(event) => setUserName(event.target.value)}
             />
             <input
               type="Password"
               placeholder="password"
               required
-              autoComplete="on"
+              autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
             <button type="submit">Login</button>

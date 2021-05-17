@@ -6,9 +6,11 @@ import About from "./pages/About/About";
 import Artists from "./pages/Artists";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import FanPortal from "./pages/Portals/FanPortal/FanPortal";
+
 import Footer from "./components/Footer/Footer";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
+import ProtectedRoute from "./ProtectedRoute";
+import FanPortal from "./pages/Portals/FanPortal/FanPortal";
 
 function App() {
   return (
@@ -23,8 +25,11 @@ function App() {
         <Route path="/artists" component={Artists} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/fanportal" component={FanPortal} />
+        <ProtectedRoute exact={true} path="/fanportal" component={FanPortal} />
+        <ProtectedRoute component={FanPortal} />
+        {/* <ProtectedRoute path="fanportal/home" component={FanPortal} /> */}
       </Switch>
+
       <Footer />
     </div>
   );

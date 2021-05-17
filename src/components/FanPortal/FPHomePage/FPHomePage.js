@@ -1,14 +1,14 @@
 // import axios from "axios";
 import React from "react";
-import FPNavbar from "../FPNavbar/FPNavbar";
 import LibrarySwiper from "../LibrarySwiper";
 
 function FPHomePage() {
   return (
-    <div>
-      <FPNavbar />
+    <section id="fp-homepage">
       <div id="gallery"></div>
       <h1>Your Library</h1>
+      <LibrarySwiper />
+      <h1>Browse</h1>
       <LibrarySwiper />
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa similique
@@ -22,7 +22,7 @@ function FPHomePage() {
         officiis odio impedit ipsum natus culpa a unde quisquam animi, ad
         dignissimos.
       </p>
-    </div>
+    </section>
   );
 }
 
