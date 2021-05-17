@@ -1,18 +1,19 @@
-#about {
-  background-color: black;
+#artists {
   color: white;
+  background-color: black;
+
   h1 {
     font-family: var(--font1);
     color: black;
     text-align: center;
     background-color: var(--color1);
     padding: 10px 5px;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     position: relative;
-    // text-decoration: underline 7px solid var(--color2);
 
     img {
       width: 50px;
@@ -21,18 +22,34 @@
       position: absolute;
     }
   }
-  .about-contents-1,
-  .about-contents-2 {
+
+  .artists-content {
     padding: 10px;
-    p {
-      padding: 5px 0;
+    .header-paragraph {
       font-family: var(--font2);
     }
+
     ol {
       padding: 5px 20px;
       li {
         padding-bottom: 10px;
       }
+    }
+    p {
+      padding: 15px 0;
+      font-family: var(--font2);
+      //   font-weight: bold;
+    }
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    input {
+      padding: 5px;
     }
   }
 }

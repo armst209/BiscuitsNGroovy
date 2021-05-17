@@ -2,16 +2,18 @@
   img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    // object-fit: contain;
     position: absolute;
     top: 0;
     left: 0;
   }
 
-  // @media (max-width: 415px) {
-  //   img {
-  //     height: 80%;
-  //   }
+  @media (min-width: 768px) {
+    img {
+      height: 100%;
+      // object-fit: cover;
+    }
+  }
   // }
   // @media (max-width: 365px) {
   //   img {

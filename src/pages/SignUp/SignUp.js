@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
+import Navbar from "../../components/Navbar/Navbar";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -51,47 +52,53 @@ const SignUp = (props) => {
 
   return (
     <div id="signup">
-      <div className="signup-contents">
-        <h1>Sign Up</h1>
-        <p>
-          Already have an account?
-          <span>
-            <Link to="/login">Login</Link>
-          </span>
-        </p>
-        <form onSubmit={submit}>
-          <input
-            type="text"
-            placeholder="First Name"
-            autoComplete="on"
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            autoComplete="on"
-            onChange={(event) => setLastName(event.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            autoComplete="on"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Username"
-            autoComplete="on"
-            onChange={(event) => setUserName(event.target.value)}
-          />
-          <input
-            type="Password"
-            placeholder="password"
-            autoComplete="on"
-            onChange={(event) => setPassword(event.target.value)}
-          />
-          <button type="submit">Login</button>
-        </form>
+      <Navbar />
+      <div className="signup-container">
+        <div className="signup-contents">
+          <h1>Sign Up</h1>
+          <p>
+            Already have an account?
+            <span>
+              <Link to="/login">Login</Link>
+            </span>
+          </p>
+          <form onSubmit={submit}>
+            <input
+              type="text"
+              placeholder="First Name"
+              autoComplete="on"
+              onChange={(event) => setFirstName(event.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              autoComplete="on"
+              onChange={(event) => setLastName(event.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              autoComplete="on"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              autoComplete="on"
+              onChange={(event) => setUserName(event.target.value)}
+            />
+            <input
+              type="Password"
+              placeholder="password"
+              required
+              autoComplete="on"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   );

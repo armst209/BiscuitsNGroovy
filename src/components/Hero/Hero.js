@@ -11,6 +11,7 @@ function Hero() {
 
       <div className="hero-titles">
         <div className="hero-text">
+          <h1>NEW</h1>
           <h1>MUSIC</h1>
           <h1>IS OUR </h1>
           <h1>JAM</h1>

@@ -1,14 +1,12 @@
 import { React, useState } from "react";
 import "./HowItWorksStyles.scss";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import bgImage from "../../assets/images/blackslant.svg";
 import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
 import collect from "../../assets/images/headphones2.svg";
 import bottomWave from "../../assets/images/blackslant2.svg";
-
-// import arrowDown from "../../assets/images/arrow-down.svg";
 
 function HowItWorks() {
   const [content1, setContent1] = useState(false);
@@ -21,9 +19,10 @@ function HowItWorks() {
       <div className="boxes">
         <div className="box" onClick={() => setContent1(!content1)}>
           <div className="box-border">
-            <h3>
-              New Releases <br /> for true fans only
-            </h3>
+            <div className="headers">
+              <h4>New Releases</h4>
+              <h6>for true fans only</h6>
+            </div>
             <div className="how-icon">
               <img src={loveSong} alt="love-icon" />
             </div>
@@ -66,9 +65,10 @@ function HowItWorks() {
         </div>
         <div className="box" onClick={() => setContent2(!content2)}>
           <div className="box-border">
-            <h3>
-              Stream Here /<br /> before the other guys
-            </h3>
+            <div className="headers">
+              <h4>Stream Here</h4>
+              <h6>before the other guys</h6>
+            </div>
             <div className="how-icon">
               <img src={voice} alt="voice-icon" />
             </div>
@@ -112,10 +112,10 @@ function HowItWorks() {
         </div>
         <div className="box" onClick={() => setContent3(!content3)}>
           <div className="box-border">
-            <h3>
-              Collect & Share / <br />
-              your exclusive records
-            </h3>
+            <div className="headers">
+              <h4>Collect & Share</h4>
+              <h6> your exclusive records</h6>
+            </div>
             <div className="how-icon">
               <img src={collect} alt="collect-icon" />
             </div>
@@ -148,11 +148,10 @@ function HowItWorks() {
           >
             <div className="content">
               <p>
-                After our streaming window expires, you keep a
-                <strong>limited-edition digital album cover NFT</strong>
-                limited-edition digital album cover NFT. Stored on the
-                blockchain, these assets let you own a piece of music history
-                and prove you’re a top fan. Build your library and show it off!
+                After our streaming period ends, you keep a limited-edition
+                digital album cover NFT. Stored on the blockchain, these assets
+                let you own a piece of music history and <em>prove</em> you’re a
+                top fan. Build your library and show it off!
               </p>
 
               <button>Read More</button>
@@ -160,8 +159,13 @@ function HowItWorks() {
           </CSSTransition>
         </div>
       </div>
-
-      <img src={bottomWave} alt="bottom-wave" className="bottom-wave" />
+      <div className="bottom-tag">
+        <p>
+          Get answers and learn more about our eco-friendly NFTs on our{" "}
+          <Link to="/faq">FAQ</Link> page
+        </p>
+        <img src={bottomWave} alt="bottom-wave" className="bottom-wave" />
+      </div>
     </section>
   );
 }

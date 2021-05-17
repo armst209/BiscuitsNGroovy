@@ -1,6 +1,5 @@
 import React from "react";
 import ReminderBackground from "../Background/ReminderBackground";
-import ReminderBackground2 from "../Background/ReminderBackground2";
 import LibrarySwiper from "../FanPortal/LibrarySwiper";
 import ReminderSection from "../ReminderSection/ReminderSection";
 import "./MusicShowcaseStyles.scss";
