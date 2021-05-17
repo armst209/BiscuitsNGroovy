@@ -1,6 +1,5 @@
 import "./App.css";
 import { Redirect, Route, Switch } from "react-router-dom";
-
 import Home from "./pages/Homepage";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About/About";

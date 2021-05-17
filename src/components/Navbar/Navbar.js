@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavbarStyles.scss";
 import logo from "../../assets/images/bnglogo.svg";
@@ -17,6 +17,9 @@ function Navbar() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let navbarClasses = ["nav"];
   if (scrolled) {
