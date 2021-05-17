@@ -1,13 +1,21 @@
 import { React, useLayoutEffect, useEffect, useState } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, withRouter } from "react-router-dom";
 import FPHomepage from "../../../components/FanPortal/FPHomePage/FPHomePage";
 import FPProfile from "../../../components/FanPortal/FPProfile/FPProfile";
 import "./FanPortalStyles.scss";
-import Navbar from "../../../components/Navbar/Navbar";
 import FPNavbar from "../../../components/FanPortal/FPNavbar/FPNavbar";
+import ProtectedRoute from "../../../ProtectedRoute";
 
 function FanPortal(props) {
   const [scrolled, setScrolled] = useState(false);
+
+  //LOGOUT START
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.setItem("token", "");
+    props.history.push("/login");
+  };
+  //LOGOUT END
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -33,13 +41,12 @@ function FanPortal(props) {
   return (
     <section id="fan-portal">
       <nav className={FPnavbarClasses.join(" ")}>
-        <Navbar />
-        <FPNavbar />
+        <FPNavbar handleLogout={handleLogout} />
       </nav>
 
       <Switch>
-        <Route exact path="/fanportal/home" component={FPHomepage} />
-        <Route exact path="/fanportal/profile" component={FPProfile} />
+        <ProtectedRoute exact path="/fanportal" component={FPHomepage} />
+        <ProtectedRoute exact path="/fanportal/profile" component={FPProfile} />
       </Switch>
     </section>
   );

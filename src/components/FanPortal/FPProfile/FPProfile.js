@@ -1,14 +1,7 @@
 import React from "react";
 import "./FPProfileStyles.scss";
 
-function FPProfile(props) {
-  let token = localStorage.getItem("token");
-
-  if (token) {
-    console.log("is authenticated");
-  } else {
-    props.history.push("/login");
-  }
+function FPProfile() {
   return (
     <section id="fp-profile">
       <p>
