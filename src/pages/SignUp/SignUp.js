@@ -51,7 +51,7 @@ const SignUp = (props) => {
 
   return (
     <div id="signup">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="signup-container">
         <div className="signup-contents">
           <h1>Sign Up</h1>

@@ -41,7 +41,7 @@ function Login(props) {
 
   return (
     <div id="login">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="login-container">
         <h3>Start your collection today</h3>
         <div className="login-contents">

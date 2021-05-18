@@ -6,7 +6,7 @@ import spotlight from "../assets/images/spotlight2.png";
 function FAQ() {
   return (
     <section id="faq">
-      <Navbar />
+      {/* <Navbar /> */}
       <h1>
         <div>FAQ</div>
         <div>

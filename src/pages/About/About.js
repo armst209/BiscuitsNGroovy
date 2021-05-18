@@ -6,7 +6,6 @@ import spotlight from "../../assets/images/spotlight2.png";
 function About() {
   return (
     <section id="about">
-      <Navbar />
       <h1>
         <div>OUR MISSION</div>
         <div>

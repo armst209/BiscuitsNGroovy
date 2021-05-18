@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./NavbarStyles.scss";
 import logo from "../../assets/images/bnglogo.svg";
 
-function Navbar() {
+function Navbar(props) {
   const [scrolled, setScrolled] = useState(false);
+  const [status, setStatus] = useState(<i className="fas fa-door-open"></i>);
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 100) {
@@ -16,10 +17,16 @@ function Navbar() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  });
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
+
+    let storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setStatus(<i className="fas fa-door-closed"></i>);
+    }
   }, []);
+
+  // useLayoutEffect(() => {
+  //   window.scrollTo(0, 0);
+  // });
 
   let navbarClasses = ["nav"];
   if (scrolled) {
@@ -48,9 +55,11 @@ function Navbar() {
             </li>
           </ul>
           <ul className="login-links">
-            <li>
-              <Link to="/login">Login</Link>
+            <li className="login-status">
+              <Link to="/fanportal">Your Portal</Link>
+              <div>{status}</div>
             </li>
+
             <li>
               <Link to="/artists">Artists</Link>
             </li>
@@ -75,8 +84,9 @@ function Navbar() {
               <li>
                 <Link to="/faq">FAQ</Link>
               </li>
-              <li>
-                <Link to="/login">Login</Link>
+              <li className="login-status">
+                <Link to="/fanportal">Your Portal</Link>
+                <div>{status}</div>
               </li>
               <li>
                 <Link to="/artists">Artists</Link>

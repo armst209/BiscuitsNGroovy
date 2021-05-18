@@ -5,6 +5,7 @@ import FPProfile from "../../../components/FanPortal/FPProfile/FPProfile";
 import "./FanPortalStyles.scss";
 import FPNavbar from "../../../components/FanPortal/FPNavbar/FPNavbar";
 import ProtectedRoute from "../../../ProtectedRoute";
+import Navbar from "../../../components/Navbar/Navbar";
 
 function FanPortal(props) {
   const [scrolled, setScrolled] = useState(false);
@@ -45,8 +46,8 @@ function FanPortal(props) {
       </nav>
 
       <Switch>
-        <ProtectedRoute exact path="/fanportal" component={FPHomepage} />
-        <ProtectedRoute exact path="/fanportal/profile" component={FPProfile} />
+        <ProtectedRoute path="/fanportal" component={FPHomepage} />
+        <ProtectedRoute path="/fanportal/profile" component={FPProfile} />
       </Switch>
     </section>
   );

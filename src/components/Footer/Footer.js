@@ -1,9 +1,12 @@
-import React from "react";
+import { React, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import SocialMedia from "../Social Media/SocialMedia";
 import "./FooterStyles.scss";
 
 function Footer() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <section id="footer">
       <div className="footer-content">

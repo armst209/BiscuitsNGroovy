@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar/Navbar";
 function Homepage() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <HowItWorks />
       <MusicShowcase />

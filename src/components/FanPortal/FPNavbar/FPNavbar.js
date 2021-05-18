@@ -15,7 +15,7 @@ function FPNavbar(props) {
           <Link to="/fanportal/profile">Search</Link>
         </li>
         <li>
-          <Link to="/fanportal">Your Library</Link>
+          <Link to="/fanportal">Library</Link>
         </li>
         <li>
           <Link to="/fanportal">Account</Link>

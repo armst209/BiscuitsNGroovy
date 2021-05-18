@@ -1,4 +1,11 @@
 #fan-portal {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    nav {
+      width: 50%;
+    }
+  }
 }
