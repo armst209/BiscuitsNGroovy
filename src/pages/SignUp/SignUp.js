@@ -86,7 +86,7 @@ const SignUp = (props) => {
               autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit">Login</button>
+            <button type="submit">Sign Up</button>
           </form>
           <div className="error-message">{errorMessage}</div>
         </div>

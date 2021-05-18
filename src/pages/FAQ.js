@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import "./FAQStyles.scss";
 import spotlight from "../assets/images/spotlight2.png";

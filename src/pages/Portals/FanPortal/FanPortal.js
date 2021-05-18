@@ -6,6 +6,7 @@ import "./FanPortalStyles.scss";
 import FPNavbar from "../../../components/FanPortal/FPNavbar/FPNavbar";
 import ProtectedRoute from "../../../ProtectedRoute";
 import Navbar from "../../../components/Navbar/Navbar";
+import Footer from "../../../components/Footer/Footer";
 
 function FanPortal(props) {
   const [scrolled, setScrolled] = useState(false);
@@ -20,7 +21,7 @@ function FanPortal(props) {
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 0) {
+    if (offset > 400) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -28,8 +29,12 @@ function FanPortal(props) {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  });
+    const abortCont = new AbortController();
+    window.addEventListener("scroll", handleScroll, {
+      signal: abortCont.signal,
+    });
+    return () => abortCont.abort();
+  }, []);
 
   let FPnavbarClasses = ["nav"];
   if (scrolled) {
@@ -47,6 +52,7 @@ function FanPortal(props) {
         <ProtectedRoute path="/fanportal" component={FPHomepage} />
         <ProtectedRoute path="/fanportal/profile" component={FPProfile} />
       </Switch>
+      <Footer />
     </section>
   );
 }

@@ -4,34 +4,32 @@ import "./NavbarStyles.scss";
 import logo from "../../assets/images/bnglogo.svg";
 
 function Navbar(props) {
-  const [status, setStatus] = useState(<i className="fas fa-door-open"></i>);
-  // const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // let navbarClasses = ["nav"];
-  // if (scrolled) {
-  //   navbarClasses.push("scrolled");
-  // }
-  // className={navbarClasses.join(" ")}
+  let navbarClasses = ["nav"];
+  if (scrolled) {
+    navbarClasses.push("scrolled");
+  }
 
   useEffect(() => {
-    // const handleScroll = () => {
-    //   const offset = window.scrollY;
-    //   if (offset > 100) {
-    //     setScrolled(true);
-    //   } else {
-    //     setScrolled(false);
-    //   }
-    // };
-    // window.addEventListener("scroll", handleScroll);
+    const abortCont = new AbortController();
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, {
+      signal: abortCont.signal,
+    });
 
-    let storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      setStatus(<i className="fas fa-door-closed"></i>);
-    }
+    return () => abortCont.abort();
   }, []);
 
   return (
-    <header>
+    <header className={navbarClasses.join(" ")}>
       <nav>
         <div className="logo">
           <Link to="/home">
@@ -54,7 +52,7 @@ function Navbar(props) {
           <ul className="login-links">
             <li className="login-status">
               <Link to="/fanportal">Your Portal</Link>
-              <div>{status}</div>
+              {/* <div>{props.status}</div> */}
             </li>
 
             <li>
@@ -83,7 +81,7 @@ function Navbar(props) {
               </li>
               <li className="login-status">
                 <Link to="/fanportal">Your Portal</Link>
-                <div>{status}</div>
+                {/* <div>{props.status}</div> */}
               </li>
               <li>
                 <Link to="/artists">Artists</Link>

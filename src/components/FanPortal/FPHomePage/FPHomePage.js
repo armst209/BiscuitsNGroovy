@@ -1,15 +1,21 @@
 // import axios from "axios";
-import React from "react";
-import LibrarySwiper from "../LibrarySwiper";
+import { React, Suspense, lazy } from "react";
+const LibrarySwiper = lazy(() => import("../LibrarySwiper"));
 
 function FPHomePage() {
   return (
     <section id="fp-homepage">
       <div id="gallery"></div>
       <h1>Your Library</h1>
-      <LibrarySwiper />
+      <Suspense>
+        <LibrarySwiper />
+      </Suspense>
+
       <h1>Browse</h1>
-      <LibrarySwiper />
+      <Suspense>
+        <LibrarySwiper />
+      </Suspense>
+
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa similique
         eligendi, eos quasi sed architecto, atque quibusdam aliquam ratione
