@@ -3,6 +3,7 @@ import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
+import Footer from "../../components/Footer/Footer";
 
 function Login(props) {
   const [username, setUserName] = useState("");
@@ -40,8 +41,8 @@ function Login(props) {
   };
 
   return (
-    <div id="login">
-      {/* <Navbar /> */}
+    <section id="login">
+      <Navbar />
       <div className="login-container">
         <h3>Start your collection today</h3>
         <div className="login-contents">
@@ -85,7 +86,8 @@ function Login(props) {
           <button>Log In with Facebook</button>
         </div>
       </div>
-    </div>
+      <Footer />
+    </section>
   );
 }
 

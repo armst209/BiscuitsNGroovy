@@ -3,14 +3,23 @@ import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  // const [redirect, setRedirect] = useState(false);
-  // const [token, setToken] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSignUp = (res) => {
+    let token = res.data.token;
+    if (token) {
+      props.history.push("/home");
+    } else {
+      alert("something was input incorrectly");
+    }
+  };
 
   const submit = (event) => {
     event.preventDefault();
@@ -24,34 +33,21 @@ const SignUp = (props) => {
       data: { email, name, username, password },
     })
       .then((res) => {
-        console.log(res.data);
-        let token = res.data.token;
-
-        if (token) {
-          props.history.push("/home");
-        } else {
-          alert("something was input incorrectly");
-        }
+        handleSignUp(res);
       })
       .catch((err) => {
         console.log(err);
+        if (err) {
+          setErrorMessage(
+            "Username or Password has already been taken. Please input different information"
+          );
+        }
       });
-
-    // if (response) {
-    //   localStorage.setItem("token", token);
-    //   // setRedirect(true);
-    //   console.log(response);
-    // } else {
-    //   alert("You are not logged in");
-    // }
   };
-  // if (redirect) {
-  //   return <Redirect to="/login" />;
-  // }
 
   return (
-    <div id="signup">
-      {/* <Navbar /> */}
+    <section id="signup">
+      <Navbar />
       <div className="signup-container">
         <div className="signup-contents">
           <h1>Sign Up</h1>
@@ -92,9 +88,11 @@ const SignUp = (props) => {
             />
             <button type="submit">Login</button>
           </form>
+          <div className="error-message">{errorMessage}</div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </section>
   );
 };
 

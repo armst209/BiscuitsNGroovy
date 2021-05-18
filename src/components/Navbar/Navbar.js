@@ -1,22 +1,28 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavbarStyles.scss";
 import logo from "../../assets/images/bnglogo.svg";
 
 function Navbar(props) {
-  const [scrolled, setScrolled] = useState(false);
   const [status, setStatus] = useState(<i className="fas fa-door-open"></i>);
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    if (offset > 100) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  // const [scrolled, setScrolled] = useState(false);
+
+  // let navbarClasses = ["nav"];
+  // if (scrolled) {
+  //   navbarClasses.push("scrolled");
+  // }
+  // className={navbarClasses.join(" ")}
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    // const handleScroll = () => {
+    //   const offset = window.scrollY;
+    //   if (offset > 100) {
+    //     setScrolled(true);
+    //   } else {
+    //     setScrolled(false);
+    //   }
+    // };
+    // window.addEventListener("scroll", handleScroll);
 
     let storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -24,17 +30,8 @@ function Navbar(props) {
     }
   }, []);
 
-  // useLayoutEffect(() => {
-  //   window.scrollTo(0, 0);
-  // });
-
-  let navbarClasses = ["nav"];
-  if (scrolled) {
-    navbarClasses.push("scrolled");
-  }
-
   return (
-    <header className={navbarClasses.join(" ")}>
+    <header>
       <nav>
         <div className="logo">
           <Link to="/home">

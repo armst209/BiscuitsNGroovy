@@ -2,11 +2,12 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import "./FAQStyles.scss";
 import spotlight from "../assets/images/spotlight2.png";
+import Footer from "../components/Footer/Footer";
 
 function FAQ() {
   return (
     <section id="faq">
-      {/* <Navbar /> */}
+      <Navbar />
       <h1>
         <div>FAQ</div>
         <div>
@@ -154,15 +155,13 @@ function FAQ() {
           like in the market for art or shoes or trading cards.
         </p>
         <p className="important-info">
-          <div>
-            So you may want to hang onto all your album covers to curate the
-            perfect original collection. That way everyone can see you were an
-            OG fan, before that band blew up. Or you may want to capitalize on a
-            record that spikes in resale value, and cash in on your favorite
-            artist’s crazy success. After all, you knew they would make it big.
-            The best part? The artist benefits too, since they get 5% back on
-            every NFT resale of their work.
-          </div>
+          So you may want to hang onto all your album covers to curate the
+          perfect original collection. That way everyone can see you were an OG
+          fan, before that band blew up. Or you may want to capitalize on a
+          record that spikes in resale value, and cash in on your favorite
+          artist’s crazy success. After all, you knew they would make it big.
+          The best part? The artist benefits too, since they get 5% back on
+          every NFT resale of their work.
         </p>
         <p>
           Unlike other NFT marketplaces, BnG will be artist and fan-friendly,
@@ -221,6 +220,7 @@ function FAQ() {
         <p></p>
         <p></p>
       </div>
+      <Footer />
     </section>
   );
 }

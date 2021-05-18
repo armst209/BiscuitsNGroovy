@@ -7,7 +7,7 @@ import "./ArtistsStyles.scss";
 function Artists() {
   return (
     <section id="artists">
-      {/* <Navbar /> */}
+      <Navbar />
       <h1>
         <div>ARTISTS</div>
         <div>

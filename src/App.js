@@ -2,9 +2,8 @@ import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
+import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoute";
-import Navbar from "./components/Navbar/Navbar";
 const Home = lazy(() => import("./pages/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -17,8 +16,7 @@ const FanPortal = lazy(() => import("./pages/Portals/FanPortal/FanPortal"));
 function App(props) {
   return (
     <div className="App">
-      <Navbar />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/">
@@ -38,8 +36,6 @@ function App(props) {
           {/* <ProtectedRoute component={FanPortal} /> */}
         </Switch>
       </Suspense>
-
-      <Footer />
     </div>
   );
 }

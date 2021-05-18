@@ -1,16 +1,19 @@
-import React from "react";
+import { React } from "react";
 import Hero from "../components/Hero/Hero";
 import HowItWorks from "../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../components/MusicShowcase/MusicShowcase";
-import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import "./HomepageStyles.scss";
+import FixedNavbarContainer from "../components/FixedNavbarContainer/FixedNavbarContainer";
 
 function Homepage() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <FixedNavbarContainer />
       <Hero />
       <HowItWorks />
       <MusicShowcase />
+      <Footer />
     </div>
   );
 }

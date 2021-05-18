@@ -1,4 +1,4 @@
-import { React, useLayoutEffect, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Switch, withRouter } from "react-router-dom";
 import FPHomepage from "../../../components/FanPortal/FPHomePage/FPHomePage";
 import FPProfile from "../../../components/FanPortal/FPProfile/FPProfile";
@@ -30,9 +30,6 @@ function FanPortal(props) {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   let FPnavbarClasses = ["nav"];
   if (scrolled) {
@@ -42,6 +39,7 @@ function FanPortal(props) {
   return (
     <section id="fan-portal">
       <nav className={FPnavbarClasses.join(" ")}>
+        <Navbar />
         <FPNavbar handleLogout={handleLogout} />
       </nav>
 

@@ -2,10 +2,12 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./AboutStyles.scss";
 import spotlight from "../../assets/images/spotlight2.png";
+import Footer from "../../components/Footer/Footer";
 
 function About() {
   return (
     <section id="about">
+      <Navbar />
       <h1>
         <div>OUR MISSION</div>
         <div>
@@ -25,13 +27,15 @@ function About() {
           these stories to be told. ​
         </p>
         <p>
-          Our approach is twofold:{" "}
-          <ol>
-            <li>Treat artists as creators rather than commodities</li>
-            <li>
-              Deliver fans the most intentional and powerful music experience
-            </li>
-          </ol>{" "}
+          <strong>Our approach is twofold: </strong>
+        </p>
+        <ol className="ol-section">
+          <li>Treat artists as creators rather than commodities</li>
+          <li>
+            Deliver fans the most intentional and powerful music experience
+          </li>
+        </ol>
+        <p>
           We partner with artists to debut their new releases to their most
           devoted fans. These are the people who get goosebumps when their
           favorite song comes on, who dance in public to the music playing in
@@ -92,6 +96,7 @@ function About() {
         </p>
         <p>[needs the biscuit quote]</p>
       </div>
+      <Footer />
     </section>
   );
 }
