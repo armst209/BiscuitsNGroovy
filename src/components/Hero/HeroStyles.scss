@@ -1,9 +1,14 @@
 #hero {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   background-size: contain;
   background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
     center center black;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 
   .hero-titles {
     display: flex;
@@ -13,6 +18,11 @@
     padding: 30px 10px 10px 10px;
     position: relative;
     z-index: 12;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
 
     .hero-text {
       color: black;
@@ -20,52 +30,67 @@
       h1 {
         font-size: 40px;
         font-family: var(--font1);
+
+        @media (min-width: 1000px) {
+          font-size: 100px;
+        }
       }
       h3 {
         font-size: 15px;
         font-family: var(--font2);
+        @media (min-width: 1000px) {
+          font-size: 40px;
+        }
       }
-    }
 
-    .hero-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: black;
-      cursor: pointer;
-      padding: 10px;
+      .hero-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        padding: 10px 0;
+        @media (min-width: 768px) {
+          justify-content: left;
+        }
 
-      button {
-        padding: 20px;
-        width: 225px;
-        height: 70px;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--color2);
-        font-family: var(--font1);
-        filter: drop-shadow(5px 5px 8px black);
+        button {
+          padding: 20px;
+          width: 225px;
+          height: 70px;
+          border-radius: 10px;
+          border: none;
+          background-color: var(--color2);
+          font-family: var(--font1);
+          filter: drop-shadow(5px 5px 8px black);
+          cursor: pointer;
+          @media (min-width: 1000px) {
+            width: 500px;
+            height: 150px;
+            font-size: 30px;
+          }
+        }
       }
     }
   }
 
   .hero-content {
     display: flex;
-
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     color: white;
     width: 100%;
-    // padding: 5rem 10px;
     position: relative;
     z-index: 12;
+    @media (min-width: 768px) {
+      flex-direction: column;
+      width: 50%;
+    }
 
     @media (max-width: 768px) {
       visibility: hidden;
-    }
-    @media (max-width: 370px) {
-      // padding: 0 10px 5rem 10px;
     }
 
     div {
@@ -73,17 +98,21 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      width: 50%;
+      width: 25%;
     }
 
     img {
-      width: 70%;
+      width: 100%;
       border: 3px solid black;
     }
   }
-  .sound-bars {
-    width: 100%;
-    position: relative;
-    z-index: 3;
+  .soundbar-content {
+    padding: 30px 0 0 0;
+
+    @media (min-width: 768px) {
+      top: 50%;
+      left: 0;
+      z-index: 55555;
+    }
   }
 }

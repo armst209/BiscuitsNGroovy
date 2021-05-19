@@ -21,14 +21,14 @@ function Hero() {
             <br />
             and, exclusive NFT album art
           </h3>
-        </div>
-
-        <div>
-          <a className="hero-button" href="#above-howto">
-            <button>Start Your Collection</button>
-          </a>
+          <div>
+            <a className="hero-button" href="#above-howto">
+              <button>Start Your Collection</button>
+            </a>
+          </div>
         </div>
       </div>
+
       <div className="hero-content">
         <div>
           <img src={albumCover} alt="album cover" />
@@ -38,7 +38,7 @@ function Hero() {
         </div>
       </div>
 
-      <div>
+      <div className="soundbar-content">
         <SoundBars />
       </div>
     </section>

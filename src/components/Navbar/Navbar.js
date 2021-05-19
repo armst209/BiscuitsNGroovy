@@ -49,9 +49,15 @@ function Navbar(props) {
               <Link to="/faq">FAQ</Link>
             </li>
           </ul>
+          <ul className="middle-links">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
           <ul className="login-links">
-            <li className="login-status">
-              <Link to="/fanportal">Your Portal</Link>
+            <li>
+              <Link to="/fanportal">Portal</Link>
               {/* <div>{props.status}</div> */}
             </li>
 

@@ -21,8 +21,13 @@
       position: absolute;
     }
   }
+  .about-contents-wrapper {
+    padding: 10px;
+  }
   .about-contents-1,
   .about-contents-2 {
+    border: 7px solid var(--color2);
+    border-radius: 20px;
     padding: 10px;
     p {
       padding: 5px 0;
