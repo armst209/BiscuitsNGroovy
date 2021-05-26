@@ -159,11 +159,11 @@ function HowItWorks() {
           </CSSTransition>
         </div>
       </div>
+      <p className="p-info">
+        Get answers and learn more about our eco-friendly NFTs on our{" "}
+        <Link to="/faq">FAQ</Link> page
+      </p>
       <div className="bottom-tag">
-        <p>
-          Get answers and learn more about our eco-friendly NFTs on our{" "}
-          <Link to="/faq">FAQ</Link> page
-        </p>
         <img src={bottomWave} alt="bottom-wave" className="bottom-wave" />
       </div>
     </section>

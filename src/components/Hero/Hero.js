@@ -3,11 +3,13 @@ import "./HeroStyles.scss";
 import albumCover from "../../assets/images/808s_&_Heartbreak.png";
 import HeroBackground from "../Background/HeroBackground";
 import SoundBars from "../SoundBars/SoundBar";
+import DesktopBackground from "../Background/DesktopBackground";
 
 function Hero() {
   return (
     <section id="hero">
       <HeroBackground />
+      <DesktopBackground />
 
       <div className="hero-titles">
         <div className="hero-text">

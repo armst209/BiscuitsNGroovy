@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  @media (min-width: 768px) {
+
+  .fanportal-content {
+    display: flex;
     flex-direction: row;
-    nav {
-      // width: 50%;
-    }
+    width: 100%;
   }
 }

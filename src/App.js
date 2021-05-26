@@ -13,7 +13,7 @@ const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const FanPortal = lazy(() => import("./pages/Portals/FanPortal/FanPortal"));
 
-function App(props) {
+function App() {
   return (
     <div className="App">
       <Suspense fallback={<Loading />}>

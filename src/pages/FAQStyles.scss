@@ -8,12 +8,13 @@
     text-align: center;
     background-color: var(--color1);
     padding: 10px 5px;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     position: relative;
+    // text-decoration: underline 5px solid var(--color2);
+    border-bottom: 7px solid var(--color2);
 
     img {
       width: 50px;
@@ -25,9 +26,63 @@
 
   .faq-content {
     padding: 10px;
+    @media (min-width: 768px) {
+      padding: 30px;
+    }
+
+    .answer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      padding: 10px;
+      width: 100%;
+      z-index: 1;
+      border: 7px solid var(--color2);
+      margin-bottom: 10px;
+      // border-radius: 20px;
+
+      ul {
+        font-family: var(--font2);
+        @media (min-width: 768px) {
+          font-size: 20px;
+        }
+        li {
+          display: flex;
+          flex-direction: row;
+          padding: 5px 5px 5px 0;
+          list-style-type: circle;
+
+          a {
+            text-decoration: none;
+            color: var(--color1);
+            font-weight: bolder;
+            padding: 0 3px;
+          }
+        }
+      }
+    }
+
+    .answer-enter {
+      opacity: 0;
+      transform: translateY(0);
+      z-index: 1;
+    }
+    .answer-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 100ms, transform 100ms ease-in-out;
+    }
+    .answer-exit {
+    }
+    .answer-exit-active {
+    }
+
     .header-p {
       font-family: var(--font2);
+      font-size: 20px;
       padding: 10px 5px;
+      margin-bottom: 10px;
     }
     h2,
     h3 {
@@ -38,6 +93,10 @@
       padding: 5px;
     }
     h5 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
       font-weight: bolder;
       font-size: 20px;
       font-family: var(--font1);
@@ -46,6 +105,28 @@
       background-color: var(--color1);
       padding: 5px;
       border-left: 7px solid var(--color2);
+      margin-bottom: 10px;
+      cursor: pointer;
+
+      .dropdown {
+        width: 8%;
+        margin: 5px;
+
+        @media (min-width: 768px) {
+          width: 4%;
+        }
+        @media (min-width: 1000px) {
+          width: 2%;
+        }
+      }
+
+      @media (min-width: 768px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 300px) {
+        font-size: 15px;
+      }
     }
     p {
       padding: 15px 0;
@@ -53,7 +134,9 @@
       //   font-weight: bold;
     }
     .important-info {
-      border: 7px solid var(--color2);
+      border: 5px solid var(--color1);
+      font-weight: bold;
+      // font-style: italic;
       padding: 5px;
     }
   }

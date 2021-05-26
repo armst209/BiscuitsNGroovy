@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { Switch, withRouter } from "react-router-dom";
+import { Switch, withRouter, Route } from "react-router-dom";
 import FPHomepage from "../../../components/FanPortal/FPHomePage/FPHomePage";
 import FPProfile from "../../../components/FanPortal/FPProfile/FPProfile";
 import "./FanPortalStyles.scss";
@@ -43,15 +43,17 @@ function FanPortal(props) {
 
   return (
     <section id="fan-portal">
-      <nav className={FPnavbarClasses.join(" ")}>
-        <Navbar />
-        <FPNavbar handleLogout={handleLogout} />
-      </nav>
+      <Navbar />
+      <div className="fanportal-content">
+        <nav className={FPnavbarClasses.join(" ")}>
+          <FPNavbar handleLogout={handleLogout} />
+        </nav>
 
-      <Switch>
-        <ProtectedRoute path="/fanportal" component={FPHomepage} />
-        <ProtectedRoute path="/fanportal/profile" component={FPProfile} />
-      </Switch>
+        <Switch>
+          <Route path="/fanportal" component={FPHomepage} />
+          <Route path="/fanportal/profile" component={FPProfile} />
+        </Switch>
+      </div>
       <Footer />
     </section>
   );
