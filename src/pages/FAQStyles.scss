@@ -107,6 +107,10 @@
       border-left: 7px solid var(--color2);
       margin-bottom: 10px;
       cursor: pointer;
+      &:hover {
+        transition: 0.2s ease;
+        transform: scale(1.03);
+      }
 
       .dropdown {
         width: 8%;

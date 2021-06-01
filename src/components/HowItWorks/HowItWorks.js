@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import "./HowItWorksStyles.scss";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import bgImage from "../../assets/images/blackslant.svg";
+// import bgImage from "../../assets/images/small-slant.svg";
 import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
 import collect from "../../assets/images/headphones2.svg";
@@ -14,7 +14,7 @@ function HowItWorks() {
   const [content3, setContent3] = useState(false);
   return (
     <section id="how-it-works">
-      <img src={bgImage} alt="background" />
+      {/* <img className="small-slant" src={bgImage} alt="background" /> */}
       <h1>HOW IT WORKS</h1>
       <div className="boxes">
         <div className="box" onClick={() => setContent1(!content1)}>

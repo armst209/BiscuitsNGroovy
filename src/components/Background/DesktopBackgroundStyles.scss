@@ -1,34 +1,16 @@
 .desktop-background {
   img {
     width: 100%;
-    height: auto;
-    position: absolute;
-    object-fit: fill;
-    top: 0;
-    left: 0;
+    height: 100vh;
+    position: relative;
+    z-index: 2;
   }
-
-  @media (max-width: 2000px) {
-    img {
-      height: 140%;
-    }
-  }
-
-  @media (max-width: 1500px) {
+  @media (max-width: 1025px) {
     img {
       height: 100%;
     }
   }
-  @media (max-width: 1100px) {
-    img {
-      height: 160%;
-    }
-  }
-  @media (max-width: 1000px) {
-    img {
-      height: 100%;
-    }
-  }
+
   @media (max-width: 767px) {
     img {
       display: none;

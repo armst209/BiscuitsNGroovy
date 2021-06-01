@@ -1,7 +1,9 @@
 #footer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  padding: 10px 5px;
+  padding: 10px 5px 20px 5px;
   color: white;
   width: 100%;
   background-color: black;
@@ -9,10 +11,9 @@
   font-family: var(--font2);
   .footer-content {
     padding: 20px 10px;
-    p {
-      display: flex;
-      text-align: left;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .button-link {
     display: flex;
@@ -34,20 +35,36 @@
   }
 
   .social-media {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
   .footer-links {
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-family: var(--font1);
 
     ul {
       display: flex;
-      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem 0;
+      @media (min-width: 768px) {
+        font-size: 1.3rem;
+        justify-content: space-around;
+      }
+
+      @media (min-width: 400px) {
+        flex-direction: row;
+      }
 
       a {
         text-decoration: none;
@@ -58,5 +75,11 @@
   }
   p {
     text-align: center;
+  }
+  .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 }

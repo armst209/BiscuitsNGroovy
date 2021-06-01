@@ -127,6 +127,7 @@ function Artists() {
           </form>
         </div>
       </div>
+
       <Footer />
     </section>
   );

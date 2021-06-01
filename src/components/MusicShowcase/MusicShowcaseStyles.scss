@@ -11,6 +11,8 @@
 
   h1 {
     font-family: var(--font1);
+    font-size: 2rem;
+    margin-top: 1em;
     letter-spacing: 0.04cm;
     width: 100%;
     padding: 10px;
@@ -34,28 +36,56 @@
     color: black;
   }
 
-  .showcase-grid {
+  .showcase-grid-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    padding: 1rem 0;
+
+    .albums {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      width: 300px;
+      height: 300px;
+      border: 2px solid yellow;
+      background-color: black;
+
+      &:hover {
+        transition: 0.2s ease;
+        transform: scale(1.2);
+      }
+    }
+
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .showcase-grid-mobile {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    @media (min-width: 500px) {
+      display: none;
+    }
+    @media (max-width: 500px) {
+      display: flex;
+    }
 
     div {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-  }
-
-  .reminder-section {
-    right: 0%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: black;
   }
 
   .spot-light {

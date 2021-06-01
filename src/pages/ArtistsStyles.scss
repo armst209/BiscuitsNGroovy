@@ -8,7 +8,6 @@
     text-align: center;
     background-color: var(--color1);
     padding: 10px 5px;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -25,6 +24,10 @@
 
   .artists-content {
     padding: 10px;
+    border: 7px solid var(--color2);
+    border-radius: 20px;
+    padding: 20px;
+
     .header-paragraph {
       font-family: var(--font2);
     }

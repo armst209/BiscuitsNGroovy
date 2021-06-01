@@ -1,34 +1,23 @@
-$margin: 10px;
+$margin: 5px;
 $width: 20px;
-$num-dots: 10;
+$num-dots: 50;
 $initial-height: $width;
 $desired-height: 200px;
 
-#sound-bar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-top: 5px solid var(--color1);
-  position: relative;
-  // z-index: 0;
-  background-color: black;
-
-  @media (min-width: 768px) {
+#sound-bar-desktop {
+  width: 50%;
+  @media (max-width: 768px) {
     display: none;
   }
 
-  .container {
+  .container-desktop {
     width: 10 * ($width + $margin) - $margin;
-    height: 20px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
 
     @media (min-width: 768px) {
     }
-    @media (max-width: 300px) {
+    @media (max-width: 285px) {
       display: none;
     }
 
@@ -36,7 +25,7 @@ $desired-height: 200px;
       display: flex;
     }
 
-    .dot {
+    .dot-desktop {
       display: flex;
       align-items: center;
       position: absolute;

@@ -4,7 +4,7 @@ import FPHomepage from "../../../components/FanPortal/FPHomePage/FPHomePage";
 import FPProfile from "../../../components/FanPortal/FPProfile/FPProfile";
 import "./FanPortalStyles.scss";
 import FPNavbar from "../../../components/FanPortal/FPNavbar/FPNavbar";
-import ProtectedRoute from "../../../ProtectedRoute";
+// import ProtectedRoute from "../../../ProtectedRoute";
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 
