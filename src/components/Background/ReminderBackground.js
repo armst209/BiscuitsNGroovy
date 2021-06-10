@@ -1,5 +1,5 @@
 import React from "react";
-import spotlight from "../../assets/images/spotlight-upward2.png";
+import spotlight from "../../assets/images/spotlight_upward2_nolamp.png";
 import "./ReminderBackgroundStyles.scss";
 
 function ReminderBackground() {

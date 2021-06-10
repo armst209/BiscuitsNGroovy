@@ -172,17 +172,28 @@
     z-index: 5;
   }
   .album-cover {
-    display: none;
     img {
       position: absolute;
       top: 0;
-      left: 30%;
-      height: 90%;
-      width: 70%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      // border: 5px solid var(--color1);
     }
 
     @media (max-width: 768px) {
       display: none;
+    }
+  }
+
+  .album-active {
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 100%;
     }
   }
 }

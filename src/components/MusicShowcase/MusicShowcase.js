@@ -1,6 +1,5 @@
 import { React, Suspense, lazy } from "react";
 import ReminderBackground from "../Background/ReminderBackground";
-import ReminderSection from "../ReminderSection/ReminderSection";
 import "./MusicShowcaseStyles.scss";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 

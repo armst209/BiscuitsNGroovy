@@ -59,7 +59,7 @@ function HowItWorks() {
                 exclusively on Biscuits n Groovy. Show your loyalty and support
                 your favorite artists directly with each purchase.
               </div>
-              <div>Read More</div>
+              <Link to="/faq">Read More</Link>
             </div>
           </CSSTransition>
         </div>
@@ -106,7 +106,7 @@ function HowItWorks() {
                 else. Get it while it’s hot, since it’s only on BnG for a
                 limited time.
               </p>
-              <button>Read More</button>
+              <Link to="/faq">Read More</Link>
             </div>
           </CSSTransition>
         </div>
@@ -153,8 +153,7 @@ function HowItWorks() {
                 let you own a piece of music history and <em>prove</em> you’re a
                 top fan. Build your library and show it off!
               </p>
-
-              <button>Read More</button>
+              <Link to="/faq">Read More</Link>
             </div>
           </CSSTransition>
         </div>

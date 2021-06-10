@@ -34,6 +34,7 @@ function SoundBarDesktop() {
         <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
+        {/* <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
@@ -53,8 +54,7 @@ function SoundBarDesktop() {
         <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
         <div className="dot-desktop"></div>
-        <div className="dot-desktop"></div>
-        <div className="dot-desktop"></div>
+        <div className="dot-desktop"></div> */}
       </div>
     </section>
   );

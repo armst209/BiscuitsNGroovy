@@ -27,6 +27,7 @@ function App() {
           <Route path="/artists" component={Artists} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/loading" component={Loading} />
           <ProtectedRoute
             exact={true}
             path="/fanportal"

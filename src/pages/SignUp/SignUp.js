@@ -49,12 +49,12 @@ const SignUp = (props) => {
     <section id="signup">
       <Navbar />
       <div className="signup-container">
+        <h1>Start your collection today</h1>
         <div className="signup-contents">
-          <h1>Sign Up</h1>
+          <h2>Sign Up</h2>
           <p>
-            Already have an account?
             <span>
-              <Link to="/login">Login</Link>
+              Already have an account? <Link to="/login">Login</Link>
             </span>
           </p>
           <form onSubmit={submit}>
@@ -81,12 +81,12 @@ const SignUp = (props) => {
             />
             <input
               type="Password"
-              placeholder="password"
+              placeholder="Password"
               required
               autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit">Sign Up</button>
+            <button type="submit">SIGN UP</button>
           </form>
           <div className="error-message">{errorMessage}</div>
         </div>

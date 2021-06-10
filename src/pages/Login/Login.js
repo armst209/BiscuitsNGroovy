@@ -44,19 +44,17 @@ function Login(props) {
     <section id="login">
       <Navbar />
       <div className="login-container">
-        <h3>Start your collection today</h3>
         <div className="login-contents">
-          <h1>LOGIN</h1>
+          <h2>Sign In</h2>
           <p>
-            Don't have an account?
             <span>
-              <Link to="/signup">Sign Up</Link>
+              New user? <Link to="/signup">Create an account</Link>
             </span>
           </p>
           <form onSubmit={submit}>
             <input
               type="text"
-              placeholder="username"
+              placeholder="Username"
               required
               autoComplete="off"
               onChange={(event) => {
@@ -66,24 +64,36 @@ function Login(props) {
             />
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               required
               autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
-            <button className="button" type="submit">
-              Login
-            </button>
+            <div className="login-btn-password">
+              <div className="forgot-password">
+                <Link to="">Forgot Password?</Link>
+              </div>
+              <div className="login-button">
+                <button className="button" type="submit">
+                  LOGIN
+                </button>
+              </div>
+            </div>
           </form>
-          <Link to="">Forgot Password?</Link>
+
           <div className="login-messages">{message}</div>
           <div className="or-fold">
             <hr></hr>
             <p>or</p>
             <hr></hr>
           </div>
-          <button>Log In with Google</button>
-          <button>Log In with Facebook</button>
+          <button>
+            <i class="fab fa-google"></i> <span>Sign In with Google</span>
+          </button>
+          <button>
+            <i class="fab fa-facebook-square"></i>
+            <span>Sign In with Facebook</span>
+          </button>
         </div>
       </div>
       <Footer />

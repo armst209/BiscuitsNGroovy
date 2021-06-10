@@ -145,9 +145,16 @@ header {
 
       .middle-links {
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: row;
         color: white;
         list-style: none;
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
       .login-links {
         display: flex;

@@ -1,11 +1,11 @@
 import React from "react";
-import SoundBar from "../SoundBars/SoundBar";
+import LoadingSoundBar from "../SoundBars/LoadingSoundBar";
 import "./LoadingStyles.scss";
 
 function Loading() {
   return (
     <div id="loading">
-      <SoundBar />
+      <LoadingSoundBar />
     </div>
   );
 }
