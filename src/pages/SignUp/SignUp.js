@@ -4,6 +4,7 @@ import "./SignUpStyles.scss";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import spotlight from "../../assets/images/spotlight2.png";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -48,8 +49,13 @@ const SignUp = (props) => {
   return (
     <section id="signup">
       <Navbar />
+      <h1>
+        <div>Start your collection today</div>
+        <div>
+          <img src={spotlight} alt="spotlight" />
+        </div>
+      </h1>
       <div className="signup-container">
-        <h1>Start your collection today</h1>
         <div className="signup-contents">
           <h2>Sign Up</h2>
           <p>

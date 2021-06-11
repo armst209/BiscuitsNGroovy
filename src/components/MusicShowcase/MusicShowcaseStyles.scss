@@ -6,26 +6,38 @@
   position: relative;
   color: white;
   font-family: var(--font2);
-  background: var(--color-light);
-  // background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
-  //   center center black;
+  background: white;
+  background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
+    center center black;
 
   h1 {
     font-family: var(--font1);
     font-size: 2rem;
-    margin-top: 1em;
+
     letter-spacing: 0.04cm;
     width: 100%;
-    padding: 10px;
+    padding: 10px 10px 1rem 10px;
     text-align: center;
     position: relative;
     color: black;
+    @media (max-width: 300px) {
+      font-size: 1.8rem;
+    }
   }
 
   .show-case-p {
     text-align: center;
     padding: 0 20px;
     font-weight: bolder;
+    margin-bottom: 1rem;
+    @media (max-width: 380px) {
+      padding: 0 50px 0 50px;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 300px) {
+      padding: 0 50px 0 50px;
+      font-size: 0.7rem;
+    }
   }
 
   p {

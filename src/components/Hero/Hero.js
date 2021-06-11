@@ -18,6 +18,7 @@ function Hero() {
     <section id="hero">
       <HeroBackground />
       <DesktopBackground />
+
       <div className="hero-main">
         <div className="hero-titles">
           <div className="hero-text">

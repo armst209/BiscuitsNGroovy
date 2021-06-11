@@ -41,6 +41,7 @@ function PortalNavbar(props) {
   return (
     <header className={navbarClasses.join(" ")}>
       <nav>
+        <div className="nav-back-portal"></div>
         <div className="logo">
           <Link to="/home">
             <img className="bg" src={logo} alt="logo" />
@@ -60,10 +61,7 @@ function PortalNavbar(props) {
             </li>
           </ul>
           <ul className="middle-links">
-            {/* <li>.</li> */}
-            {/* <li>2</li>
-            <li>3</li>
-            <li>4</li> */}
+            <li>|</li>
           </ul>
           <ul className="login-links">
             <li>
@@ -105,8 +103,10 @@ function PortalNavbar(props) {
           </aside>
         </label>
       </nav>
-      <FPNavbar handleLogout={handleLogout} />
-      <FPNavbarMobile handleLogout={handleLogout} />
+      <div>
+        <FPNavbar handleLogout={handleLogout} />
+        <FPNavbarMobile handleLogout={handleLogout} />
+      </div>
     </header>
   );
 }

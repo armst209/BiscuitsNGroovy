@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./NavbarStyles.scss";
+import "./HomepageNavbarStyles.scss";
 import logo from "../../assets/images/newlogo.svg";
 
 function Navbar(props) {
@@ -8,7 +8,7 @@ function Navbar(props) {
 
   let navbarClasses = ["nav"];
   if (scrolled) {
-    navbarClasses.push("scrolled");
+    navbarClasses.push("scrolled-home");
   }
 
   useEffect(() => {
@@ -30,9 +30,8 @@ function Navbar(props) {
 
   return (
     <header className={navbarClasses.join(" ")}>
-      <nav>
-        <div className="nav-back-rest"></div>
-        <div className="logo-rest">
+      <nav className="nav-home">
+        <div className="logo-home">
           <Link to="/home">
             <img className="bg" src={logo} alt="logo" />
           </Link>

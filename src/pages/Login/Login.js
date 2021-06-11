@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
+import spotlight from "../../assets/images/spotlight2.png";
 
 function Login(props) {
   const [username, setUserName] = useState("");
@@ -43,6 +44,12 @@ function Login(props) {
   return (
     <section id="login">
       <Navbar />
+      <h1>
+        <div>PORTAL</div>
+        <div>
+          <img src={spotlight} alt="spotlight" />
+        </div>
+      </h1>
       <div className="login-container">
         <div className="login-contents">
           <h2>Sign In</h2>

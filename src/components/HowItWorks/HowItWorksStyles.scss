@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--color-light);
+  background: white;
   // border-top: 5px solid var(--color1);
 
   h1 {
@@ -234,7 +234,17 @@
   font-family: var(--font2);
   padding: 20px 5px;
 
+  a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 5px solid var(--color2);
+    &:visited {
+      color: black;
+    }
+  }
+
   @media (min-width: 769px) {
+    font-size: 1.5rem;
   }
 }
 
@@ -246,7 +256,7 @@
   align-items: center;
 
   .bottom-wave {
-    border-bottom: 5px solid var(--color1);
+    // border-bottom: 5px solid var(--color1);
   }
 
   @media (min-width: 769px) {

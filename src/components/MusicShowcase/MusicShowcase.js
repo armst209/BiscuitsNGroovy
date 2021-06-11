@@ -1,12 +1,17 @@
 import { React, Suspense, lazy } from "react";
 import ReminderBackground from "../Background/ReminderBackground";
+import ReminderBackground2 from "../Background/ReminderBackground2";
+import ReminderBackground3 from "../Background/ReminderBackground3";
 import "./MusicShowcaseStyles.scss";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 
 function MusicShowcase() {
   return (
     <section id="music-showcase">
+      <ReminderBackground2 />
+      <ReminderBackground3 />
       <ReminderBackground />
+
       <h1>MUSIC SHOWCASE</h1>
       <p className="show-case-p">
         Browse our current and upcoming releases. <br />

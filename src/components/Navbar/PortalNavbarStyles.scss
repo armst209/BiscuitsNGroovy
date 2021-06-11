@@ -9,15 +9,41 @@ header {
     align-items: center;
     width: 100%;
     height: 70px;
-    padding: 5px;
-    border-bottom: 5px solid #f5ee0d;
+    padding: 5px 5px 5px 0;
+    border-bottom: 5px solid var(--color1);
     background-color: black;
     font-size: 18px;
+    @media (max-width: 550px) {
+      border-bottom: none;
+    }
 
     a {
       color: white;
       &:visited {
         color: inherit;
+      }
+    }
+
+    .nav-back-portal {
+      background-color: var(--color1);
+      width: 20%;
+      height: 87%;
+      position: absolute;
+      -webkit-clip-path: polygon(0% 0%, 89% 0%, 100% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 89% 0%, 100% 100%, 0% 100%);
+      z-index: 0;
+      @media (max-width: 1500px) {
+        width: 31.7%;
+      }
+      @media (max-width: 1300px) {
+        width: 31.7%;
+      }
+      @media (max-width: 450px) {
+        width: 50%;
+        height: 57%;
+        -webkit-clip-path: polygon(0% 0%, 0% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        border-right: 5px solid var(--color2);
       }
     }
 
@@ -118,11 +144,11 @@ header {
 
     .desktop-navlinks {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
-      width: 75%;
+      width: 50%;
       z-index: 9999;
-      margin-right: 30px;
+      padding-right: 2rem;
 
       @media (max-width: 770px) {
         display: none;
@@ -155,6 +181,8 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 0 1rem;
+          color: var(--color1);
         }
       }
       .login-links {

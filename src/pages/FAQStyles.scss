@@ -1,6 +1,6 @@
 #faq {
   color: white;
-  background-color: black;
+  background-color: var(--bg-dark);
 
   h1 {
     font-family: var(--font1);
@@ -14,7 +14,7 @@
     align-items: center;
     position: relative;
     // text-decoration: underline 5px solid var(--color2);
-    border-bottom: 7px solid var(--color2);
+    // border-bottom: 7px solid var(--color2);
 
     img {
       width: 50px;
