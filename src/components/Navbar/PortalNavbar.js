@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./NavbarStyles.scss";
+import { Link, Redirect } from "react-router-dom";
+import "./PortalNavbarStyles.scss";
 import logo from "../../assets/images/newlogo.svg";
+import FPNavbar from "../FanPortal/FPNavbar/FPNavbar";
+import FPNavbarMobile from "../FanPortal/FPNavbar/FPNavbarMobile";
 
-function Navbar(props) {
+function PortalNavbar(props) {
   const [scrolled, setScrolled] = useState(false);
+
+  //LOGOUT START
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.setItem("token", "");
+    <Redirect to="/login" />;
+  };
+  //LOGOUT END
 
   let navbarClasses = ["nav"];
   if (scrolled) {
@@ -87,7 +97,6 @@ function Navbar(props) {
               </li>
               <li className="login-status">
                 <Link to="/fanportal">Your Portal</Link>
-                {/* <div>{props.status}</div> */}
               </li>
               <li>
                 <Link to="/artists">Artists</Link>
@@ -96,8 +105,10 @@ function Navbar(props) {
           </aside>
         </label>
       </nav>
+      <FPNavbar handleLogout={handleLogout} />
+      <FPNavbarMobile handleLogout={handleLogout} />
     </header>
   );
 }
 
-export default Navbar;
+export default PortalNavbar;

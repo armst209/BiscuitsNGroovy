@@ -12,6 +12,9 @@ const Login = lazy(() => import("./pages/Login/Login"));
 const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const FanPortal = lazy(() => import("./pages/Portals/FanPortal/FanPortal"));
+const FanPortalProfile = lazy(() =>
+  import("./pages/Portals/FanPortalProfile.js")
+);
 
 function App() {
   return (
@@ -32,6 +35,11 @@ function App() {
             exact={true}
             path="/fanportal"
             component={FanPortal}
+          />
+          <ProtectedRoute
+            exact={true}
+            path="/fanportal/profile"
+            component={FanPortalProfile}
           />
           <Route path="*" component={NotFound} />
           {/* <ProtectedRoute component={FanPortal} /> */}

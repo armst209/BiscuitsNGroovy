@@ -20,8 +20,8 @@ function FPNavbar(props) {
         <li>
           <Link to="/fanportal">Account</Link>
         </li>
-        <li>
-          <button onClick={props.handleLogout}>Logout</button>
+        <li onClick={props.handleLogout}>
+          <Link>Logout</Link>
         </li>
       </ul>
     </div>

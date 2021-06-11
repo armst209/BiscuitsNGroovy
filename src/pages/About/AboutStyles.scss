@@ -1,5 +1,5 @@
 #about {
-  background-color: black;
+  background: var(--color-light);
   color: white;
   h1 {
     font-family: var(--font1);
@@ -32,10 +32,11 @@
     border: 7px solid var(--color2);
     border-radius: 20px;
     padding: 10px;
+    background-color: black;
 
     @media (min-width: 768px) {
       height: auto;
-      margin: 0 50px;
+      margin: 50px 100px;
       font-size: 30px;
       padding: 10px 20px;
     }

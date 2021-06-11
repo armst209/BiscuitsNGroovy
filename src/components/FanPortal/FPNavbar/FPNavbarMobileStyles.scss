@@ -1,0 +1,80 @@
+#fan-port-mobile-nav {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font2);
+  background-color: var(--color1);
+  padding: 10px 5px;
+  border-bottom: 5px solid var(--color1);
+  font-family: var(--font1);
+  width: 100%;
+  @media (max-width: 450px) {
+    display: flex;
+  }
+
+  .portal-dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 30px;
+      font-weight: bold;
+    }
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 0 5px;
+  }
+
+  .port-nav-mobile {
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      width: 100%;
+      font-size: 30px;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .portal-nav-mobile-enter {
+    // opacity: 0;
+    // transform: translateY(-150px);
+    // z-index: 1;
+  }
+  .portal-nav-mobile-enter-active {
+    // opacity: 1;
+    // transform: translateY(0);
+    // transition: opacity 100ms, transform 100ms ease-in-out;
+    // z-index: -1;
+  }
+  .portal-nav-mobile-exit {
+    // opacity: 1;
+    // transform: translateY(0);
+    // z-index: 1;
+  }
+  .portal-nav-mobile-exit-active {
+    // opacity: 0;
+    // transform: translateY(-150px);
+    // transition: opacity 100ms, transform 100ms ease-in-out;
+  }
+}
+
+.fp-scrolled {
+  position: sticky;
+  top: 11%;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}

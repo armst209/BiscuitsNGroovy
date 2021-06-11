@@ -114,7 +114,7 @@ function Artists() {
           record or distribution deals, so regardless of your situation, we’d
           love to hear from you.
         </p>
-        <div>
+        <div className="form-container">
           <form action="">
             <input type="text" placeholder="Artist Name" required />
             <input type="text" placeholder="Preferred Name" />
@@ -122,8 +122,9 @@ function Artists() {
             <input type="phone" placeholder="Phone" />
             <input type="text" placeholder="Manager/Agent Name" />
             <input type="email" placeholder="Manager/Agent Email" />
-            <input type="text" placeholder="Type your message:" size="100" />
-            <button type="submit">Submit</button>
+            <label htmlFor="text-box">Type Your Message Below:</label>
+            <input className="text-box" type="text" />
+            <button type="submit">SUBMIT</button>
           </form>
         </div>
       </div>

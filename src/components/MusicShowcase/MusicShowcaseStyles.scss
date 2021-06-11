@@ -6,8 +6,9 @@
   position: relative;
   color: white;
   font-family: var(--font2);
-  background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
-    center center black;
+  background: var(--color-light);
+  // background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
+  //   center center black;
 
   h1 {
     font-family: var(--font1);
@@ -44,7 +45,7 @@
     align-items: center;
     position: relative;
     z-index: 5;
-    padding: 1rem 0;
+    padding: 1rem 1em 4em 1em;
 
     .albums {
       display: flex;

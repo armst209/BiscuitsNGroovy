@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: var(--color-light);
   // border-top: 5px solid var(--color1);
 
   h1 {
@@ -19,6 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+
     // display: grid;
     // grid-template-columns: 1fr;
     // grid-template-rows: auto;
