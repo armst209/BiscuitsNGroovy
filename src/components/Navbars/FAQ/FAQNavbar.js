@@ -31,7 +31,7 @@ function FAQNavbar(props) {
   return (
     <div className={navbarClasses.join(" ")}>
       <header id="faq-navigation">
-        <nav className="faq-home">
+        <nav className="nav-faq">
           <div className="nav-back-faq"></div>
           <div className="logo-faq">
             <Link to="/home">
@@ -69,9 +69,9 @@ function FAQNavbar(props) {
           {/* Hamburger */}
           <label htmlFor="check-faq">
             <input type="checkbox" id="check-faq" />
-            <div className="menu-bars"></div>
-            <div className="menu-bars"></div>
-            <div className="menu-bars"></div>
+            <div className="menu-bars-faq"></div>
+            <div className="menu-bars-faq"></div>
+            <div className="menu-bars-faq"></div>
             <p>MENU</p>
             {/* Mobile Navigation */}
             <aside className="mobile-nav-faq">

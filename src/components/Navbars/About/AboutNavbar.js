@@ -87,7 +87,6 @@ function AboutNavbar(props) {
                 </li>
                 <li className="login-status-about">
                   <Link to="/fanportal">Your Portal</Link>
-                  {/* <div>{props.status}</div> */}
                 </li>
                 <li>
                   <Link to="/artists">Artists</Link>

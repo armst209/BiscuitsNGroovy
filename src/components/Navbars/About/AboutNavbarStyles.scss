@@ -1,4 +1,5 @@
 #about-navigation {
+  position: relative;
   font-family: var(--font1);
 
   .nav-about {
@@ -276,10 +277,5 @@
 
   .nav-back-about {
     display: none;
-  }
-
-  .logo-about {
-    img {
-    }
   }
 }
