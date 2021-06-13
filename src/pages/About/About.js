@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import AboutNavbar from "../../components/Navbars/About/AboutNavbar";
 import "./AboutStyles.scss";
 import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
 
 function About() {
   return (
-    <section id="about">
-      <Navbar />
+    <div id="about">
+      <AboutNavbar />
       <h1>
         <div>OUR MISSION</div>
         <div>
@@ -99,7 +99,7 @@ function About() {
         </div>
       </div>
       <Footer />
-    </section>
+    </div>
   );
 }
 

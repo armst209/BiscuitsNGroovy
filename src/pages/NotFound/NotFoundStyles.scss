@@ -6,10 +6,20 @@
   align-items: center;
   background-color: black;
   .not-found-content {
-    padding: 20px;
+    padding: 2rem;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      letter-spacing: 1px;
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
     img {
-      color: var(--color1);
+      width: 50%;
     }
   }
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import spotlight from "../assets/images/spotlight2.png";
+import ArtistsNavbar from "../../components/Navbars/Artists/ArtistsNavbar";
+import spotlight from "../../assets/images/spotlight2.png";
 import "./ArtistsStyles.scss";
-import Footer from "../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 function Artists() {
   return (
     <section id="artists">
-      <Navbar />
+      <ArtistsNavbar />
       <h1>
         <div>ARTISTS</div>
         <div>

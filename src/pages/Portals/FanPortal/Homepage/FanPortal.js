@@ -1,12 +1,11 @@
 import { React } from "react";
 import { withRouter } from "react-router-dom";
-import FPHomepage from "../../../components/FanPortal/FPHomePage/FPHomePage";
+import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
 import "./FanPortalStyles.scss";
+import Footer from "../../../../components/Footer/Footer";
+import PortalNavbar from "../../../../components/Navbars/Portal/MainNavbar/PortalNavbar";
 
-import Footer from "../../../components/Footer/Footer";
-import PortalNavbar from "../../../components/Navbar/PortalNavbar";
-
-function FanPortal(props) {
+function FanPortal() {
   return (
     <section id="fan-portal">
       <PortalNavbar />

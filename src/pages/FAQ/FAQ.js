@@ -1,10 +1,10 @@
 import { React, useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import FAQNavbar from "../../components/Navbars/FAQ/FAQNavbar";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
-import spotlight from "../assets/images/spotlight2.png";
-import Footer from "../components/Footer/Footer";
-import dropdown from "../assets/images/double-down.svg";
+import spotlight from "../../assets/images/spotlight2.png";
+import Footer from "../../components/Footer/Footer";
+import dropdown from "../../assets/images/double-down.svg";
 
 //CSS Transition is a node package that handles CSS transitions in React and is imported above
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
@@ -28,7 +28,7 @@ function FAQ(props) {
 
   return (
     <section id="faq">
-      <Navbar />
+      <FAQNavbar />
       <h1>
         <div>FAQ</div>
         <div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbars/Navbar";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import spotlight from "../../assets/images/spotlight2.png";

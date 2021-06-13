@@ -18,6 +18,19 @@
     position: relative;
     width: 100%;
 
+    .h1-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      @media (max-width: 600px) {
+        font-size: 1.3rem;
+
+        flex-direction: column;
+      }
+    }
+
     img {
       width: 50px;
       top: -20%;

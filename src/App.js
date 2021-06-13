@@ -4,16 +4,18 @@ import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoute";
-const Home = lazy(() => import("./pages/Homepage"));
-const FAQ = lazy(() => import("./pages/FAQ"));
+const Home = lazy(() => import("./pages/Homepage/Homepage"));
+const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
-const Artists = lazy(() => import("./pages/Artists"));
+const Artists = lazy(() => import("./pages/Artists/Artists"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-const FanPortal = lazy(() => import("./pages/Portals/FanPortal/FanPortal"));
+const FanPortalHome = lazy(() =>
+  import("./pages/Portals/FanPortal/Homepage/FanPortal")
+);
 const FanPortalProfile = lazy(() =>
-  import("./pages/Portals/FanPortalProfile.js")
+  import("./pages/Portals/FanPortal/Profile/FanPortalProfile.js")
 );
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
           <ProtectedRoute
             exact={true}
             path="/fanportal"
-            component={FanPortal}
+            component={FanPortalHome}
           />
           <ProtectedRoute
             exact={true}

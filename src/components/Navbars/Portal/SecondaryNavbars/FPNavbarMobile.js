@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import "./FPNavbarMobileStyles.scss";
-import dropdown from "../../../assets/images/double-down.svg";
+import dropdown from "../../../../assets/images/double-down.svg";
 import { CSSTransition } from "react-transition-group";
 
 function FPNavbarMobile(props) {

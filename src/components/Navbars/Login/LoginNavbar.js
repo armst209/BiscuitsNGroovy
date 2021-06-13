@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
-import "./PortalNavbarStyles.scss";
+import { Link } from "react-router-dom";
+import "./NavbarStyles.scss";
 import logo from "../../assets/images/newlogo.svg";
-import FPNavbar from "../FanPortal/FPNavbar/FPNavbar";
-import FPNavbarMobile from "../FanPortal/FPNavbar/FPNavbarMobile";
 
-function PortalNavbar(props) {
+function LoginNavbar(props) {
+  //NAVBAR SCROLL
   const [scrolled, setScrolled] = useState(false);
-
-  //LOGOUT START
-  const handleLogout = (e) => {
-    e.preventDefault();
-    localStorage.setItem("token", "");
-    <Redirect to="/login" />;
-  };
-  //LOGOUT END
-
   let navbarClasses = ["nav"];
   if (scrolled) {
-    navbarClasses.push("scrolled");
+    navbarClasses.push("scrolled-login");
   }
 
   useEffect(() => {
+    //NAVBAR SCROLL - Once page reloads, prevents navbar from changing position and causing view errors
     const abortCont = new AbortController();
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -41,15 +32,16 @@ function PortalNavbar(props) {
   return (
     <header className={navbarClasses.join(" ")}>
       <nav>
-        <div className="nav-back-portal"></div>
-        <div className="logo">
+        <div className="nav-back-login"></div>
+        <div className="logo-login">
           <Link to="/home">
-            <img className="bg" src={logo} alt="logo" />
+            <img className="bg-login" src={logo} alt="logo" />
           </Link>
         </div>
+
         {/* Desktop Navigation Links */}
-        <div className="desktop-navlinks">
-          <ul className="general-links">
+        <div className="desktop-navlinks-login">
+          <ul className="general-links-login">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -60,13 +52,12 @@ function PortalNavbar(props) {
               <Link to="/faq">FAQ</Link>
             </li>
           </ul>
-          <ul className="middle-links">
+          <ul className="middle-links-login">
             <li>|</li>
           </ul>
-          <ul className="login-links">
+          <ul className="login-links-login">
             <li>
               <Link to="/fanportal">Portal</Link>
-              {/* <div>{props.status}</div> */}
             </li>
 
             <li>
@@ -75,14 +66,14 @@ function PortalNavbar(props) {
           </ul>
         </div>
         {/* Hamburger */}
-        <label htmlFor="check">
-          <input type="checkbox" id="check" />
-          <div className="menu-bars"></div>
-          <div className="menu-bars"></div>
-          <div className="menu-bars"></div>
+        <label htmlFor="check-login">
+          <input type="checkbox" id="check-login" />
+          <div className="menu-bars-login"></div>
+          <div className="menu-bars-login"></div>
+          <div className="menu-bars-login"></div>
           <p>MENU</p>
           {/* Mobile Navigation */}
-          <aside className="mobile-nav">
+          <aside className="mobile-nav-login">
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -93,7 +84,7 @@ function PortalNavbar(props) {
               <li>
                 <Link to="/faq">FAQ</Link>
               </li>
-              <li className="login-status">
+              <li className="login-status-login">
                 <Link to="/fanportal">Your Portal</Link>
               </li>
               <li>
@@ -103,12 +94,8 @@ function PortalNavbar(props) {
           </aside>
         </label>
       </nav>
-      <div>
-        <FPNavbar handleLogout={handleLogout} />
-        <FPNavbarMobile handleLogout={handleLogout} />
-      </div>
     </header>
   );
 }
 
-export default PortalNavbar;
+export default LoginNavbar;

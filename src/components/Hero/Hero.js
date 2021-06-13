@@ -6,6 +6,7 @@ import SoundBars from "../SoundBars/SoundBar";
 import DesktopBackground from "../Background/DesktopBackground";
 // import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
 import { CSSTransition } from "react-transition-group";
+import BackgroundImage from "../Background/BackgroundImage";
 
 function Hero() {
   const [openAlbum, setOpenAlbum] = useState("false");
@@ -18,6 +19,7 @@ function Hero() {
     <section id="hero">
       <HeroBackground />
       <DesktopBackground />
+      <BackgroundImage />
 
       <div className="hero-main">
         <div className="hero-titles">

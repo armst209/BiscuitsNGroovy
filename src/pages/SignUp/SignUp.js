@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbars/Navbar";
 import Footer from "../../components/Footer/Footer";
 import spotlight from "../../assets/images/spotlight2.png";
 
@@ -50,7 +50,10 @@ const SignUp = (props) => {
     <section id="signup">
       <Navbar />
       <h1>
-        <div>Start your collection today</div>
+        <div className="h1-title">
+          <div>Start your</div>
+          <div>collection today</div>
+        </div>
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
