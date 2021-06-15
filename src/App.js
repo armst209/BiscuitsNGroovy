@@ -4,6 +4,7 @@ import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoute";
+import AlbumPopup from "./components/AlbumPopup";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -17,6 +18,7 @@ const FanPortalHome = lazy(() =>
 const FanPortalProfile = lazy(() =>
   import("./pages/Portals/FanPortal/Profile/FanPortalProfile.js")
 );
+const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 
 function App() {
   return (
@@ -42,6 +44,16 @@ function App() {
             exact={true}
             path="/fanportal/profile"
             component={FanPortalProfile}
+          />
+          <ProtectedRoute
+            exact={true}
+            path="/fanportal/checkout"
+            component={Checkout}
+          />
+          <ProtectedRoute
+            exact={true}
+            path="/fanportal/popup"
+            component={AlbumPopup}
           />
           <Route path="*" component={NotFound} />
           {/* <ProtectedRoute component={FanPortal} /> */}

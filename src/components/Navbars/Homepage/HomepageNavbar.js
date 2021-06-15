@@ -6,10 +6,16 @@ import logo from "../../../assets/images/newlogo.svg";
 function Navbar(props) {
   const [scrolled, setScrolled] = useState(false);
 
+  const [xButton, setXButton] = useState(true);
+
   let navbarClasses = ["nav"];
   if (scrolled) {
     navbarClasses.push("scrolled-home");
   }
+
+  const closeNavigation = () => {
+    setXButton(!xButton);
+  };
 
   useEffect(() => {
     const abortCont = new AbortController();
@@ -74,6 +80,11 @@ function Navbar(props) {
             <p>MENU</p>
             {/* Mobile Navigation */}
             <aside className="mobile-nav-home">
+              <div className="mobile-nav-header">
+                <img src={logo} alt="logo" />
+                <div onClick={closeNavigation}>X</div>
+              </div>
+
               <ul>
                 <li>
                   <Link to="/">Home</Link>

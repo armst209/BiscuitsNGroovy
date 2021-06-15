@@ -5,6 +5,10 @@ import ReminderBackground3 from "../Background/ReminderBackground3";
 import "./MusicShowcaseStyles.scss";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 
+//Promise
+//release
+//loop through
+
 function MusicShowcase() {
   return (
     <section id="music-showcase">
