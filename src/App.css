@@ -26,6 +26,41 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'cunia';
+  src: url('./assets/fonts/cunia/cunia.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'outer-sans';
+  src: url('./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'outer-sans-thin';
+  src: url('./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'adequate';
+  src: url('./assets/fonts/adequate/Adequate-ExtraLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'keep-calm';
+  src: url('./assets/fonts/keep-calm/KeepCalm-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -33,15 +68,15 @@
   overflow-x: visible;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  --font1: 'resotedreamregular';
-  --font2: 'manjariregular';
+  --font1: 'outer-sans';
+  --font2: 'outer-sans-thin';
   --color1: #f5ee0d;
   --color2: #25c1a9;
+  --bg-color: #040609;
   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --color-light: #f1f5f9;
   --color-grayish: #dadce0;
-  --bg-dark: black;
-  /* --bg-dark: #18191a; */
+  --bg-color: #040609;
 }
 
 .App {

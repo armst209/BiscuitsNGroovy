@@ -46,7 +46,7 @@ function Footer() {
           </ul>
         </div>
         <div className="copyright">
-          <p>© {new Date().getFullYear()} Biscuits & Groovy </p>
+          <p>© {new Date().getFullYear()} Biscuits & Groovy, LLC </p>
         </div>
       </div>
     </section>

@@ -6,105 +6,103 @@
   position: relative;
   color: white;
   font-family: var(--font2);
-  background: white;
-  background: url("../../assets/images/1_XpQiGH0DMQUijuDiHoPWcw.jpeg") repeat
-    center center black;
+  background-size: cover;
+  background: url("../../assets/images/Dance-Show.jpg") no-repeat center center
+    var(--bg-color);
 
-  h1 {
-    font-family: var(--font1);
-    font-size: 2rem;
-
-    letter-spacing: 0.04cm;
+  .music-showcase-container {
+    background-color: rgba(0, 0, 0, 0.74);
     width: 100%;
-    padding: 10px 10px 1rem 10px;
-    text-align: center;
-    position: relative;
-    color: black;
-    @media (max-width: 300px) {
-      font-size: 1.8rem;
-    }
-  }
 
-  .show-case-p {
-    text-align: center;
-    padding: 0 20px;
-    font-weight: bolder;
-    margin-bottom: 1rem;
-    @media (max-width: 380px) {
-      padding: 0 50px 0 50px;
-      font-size: 0.8rem;
-    }
-    @media (max-width: 300px) {
-      padding: 0 50px 0 50px;
-      font-size: 0.7rem;
-    }
-  }
+    .content-container {
+      width: 100%;
+      padding: 15rem;
 
-  p {
-    width: 100%;
-    text-align: left;
-    font-size: 15px;
-    padding: 20px 40px 10px 10px;
-    position: relative;
-    color: black;
-  }
+      h1 {
+        font-family: var(--font1);
+        font-size: 3rem;
+        letter-spacing: 0.04cm;
+        width: 100%;
+        padding: 10px 10px 1rem 10px;
+        text-align: center;
+        position: relative;
+        color: var(--bg-color);
+        @media (max-width: 300px) {
+          font-size: 1.8rem;
+        }
+      }
 
-  .showcase-grid-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-    padding: 1rem 1em 4em 1em;
+      .show-case-p {
+        text-align: center;
+        padding: 0 20px;
+        font-weight: bolder;
+        margin-bottom: 1rem;
+        position: relative;
+        color: var(--bg-color);
 
-    .albums {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      width: 300px;
-      height: 300px;
-      border: 2px solid yellow;
-      background-color: black;
+        @media (max-width: 380px) {
+          padding: 0 50px 0 50px;
+          font-size: 0.8rem;
+        }
+        @media (max-width: 300px) {
+          padding: 0 50px 0 50px;
+          font-size: 0.7rem;
+        }
+      }
 
-      &:hover {
-        transition: 0.2s ease;
-        transform: scale(1.2);
+      .showcase-grid-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        z-index: 5;
+        padding: 1rem 1em 4em 1em;
+
+        .albums {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2rem;
+          width: 300px;
+          height: 300px;
+          border: 2px solid var(--color1);
+          background-color: var(--bg-color);
+          cursor: pointer;
+
+          &:hover {
+            transition: 0.2s ease;
+            transform: scale(1.2);
+          }
+        }
+
+        @media (max-width: 500px) {
+          display: none;
+        }
+      }
+
+      .showcase-grid-mobile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        @media (min-width: 500px) {
+          display: none;
+        }
+        @media (max-width: 500px) {
+          display: flex;
+        }
+
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
-
-    @media (max-width: 500px) {
-      display: none;
-    }
-  }
-
-  .showcase-grid-mobile {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    @media (min-width: 500px) {
-      display: none;
-    }
-    @media (max-width: 500px) {
-      display: flex;
-    }
-
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .spot-light {
-    position: absolute;
-    width: 20%;
-    top: 0;
-    left: 80%;
   }
 }

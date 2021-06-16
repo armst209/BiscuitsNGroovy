@@ -4,6 +4,7 @@ import "./ReminderSectionStyles.scss";
 import "../Hero/HeroStyles.scss";
 import spotlight from "../../assets/images/spotlight2.png";
 import spotlight_reverse from "../../assets/images/spotlight2_reverse.png";
+import artist from "../../assets/images/artist-turntables.jpg";
 // import spotlight_middle from "../../assets/images/idea.png";
 
 function ReminderSection() {
@@ -14,19 +15,21 @@ function ReminderSection() {
           <img src={spotlight} alt="spotlight" className="light-left" />
         </div>
         <div className="artist-message">
-          <p className="title">Artists -- </p>
+          <h1>Are you an artist? </h1>
           <p>
-            {" "}
             Tired of earning pennies from streaming? We’ll help you earn more
             money and connect with your top fans. Read more about the benefits
-            of releasing on BnG{" "}
+            of releasing on BnG
           </p>
 
-          <p className="title">
-            <Link to="/artists">here</Link>
-          </p>
+          <Link to="/artists">
+            <button>For Artists </button>
+          </Link>
         </div>
-        {/* <img src={spotlight_middle} alt="spotlight" className="light-middle" /> */}
+
+        <div className="artist-image">
+          <img src={artist} alt="dj" />
+        </div>
         <div>
           <img
             src={spotlight_reverse}

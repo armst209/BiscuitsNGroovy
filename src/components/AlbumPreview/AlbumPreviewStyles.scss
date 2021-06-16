@@ -1,0 +1,33 @@
+#album-preview-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.747);
+
+  .x-close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 3rem;
+    align-items: center;
+    div {
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .album-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

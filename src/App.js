@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoute";
 import AlbumPopup from "./components/AlbumPopup";
+import AlbumPreview from "./components/AlbumPreview/AlbumPreview";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -34,7 +35,7 @@ function App() {
           <Route path="/artists" component={Artists} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/loading" component={Loading} />
+          <Route path="/album" component={AlbumPreview} />
           <ProtectedRoute
             exact={true}
             path="/fanportal"

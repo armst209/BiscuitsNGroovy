@@ -37,55 +37,17 @@ function Navbar(props) {
   return (
     <div className={navbarClasses.join(" ")}>
       <header id="homepage-navigation">
-        <nav className="nav-home">
-          <div className="logo-home">
-            <Link to="/home">
-              <img className="bg-home" src={logo} alt="logo" />
-            </Link>
-          </div>
+        <div className="nav-home-container">
+          <nav className="nav-home">
+            <div className="logo-home">
+              <Link to="/home">
+                <img className="bg-home" src={logo} alt="logo" />
+              </Link>
+            </div>
 
-          {/* Desktop Navigation Links */}
-          <div className="desktop-navlinks-home">
-            <ul className="general-links-home">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/faq">FAQ</Link>
-              </li>
-            </ul>
-            <ul className="middle-links-home">
-              <li>|</li>
-            </ul>
-            <ul className="login-links-home">
-              <li>
-                <Link to="/fanportal">Portal</Link>
-                {/* <div>{props.status}</div> */}
-              </li>
-
-              <li>
-                <Link to="/artists">Artists</Link>
-              </li>
-            </ul>
-          </div>
-          {/* Hamburger */}
-          <label htmlFor="check-home">
-            <input type="checkbox" id="check-home" />
-            <div className="menu-bars-home"></div>
-            <div className="menu-bars-home"></div>
-            <div className="menu-bars-home"></div>
-            <p>MENU</p>
-            {/* Mobile Navigation */}
-            <aside className="mobile-nav-home">
-              <div className="mobile-nav-header">
-                <img src={logo} alt="logo" />
-                <div onClick={closeNavigation}>X</div>
-              </div>
-
-              <ul>
+            {/* Desktop Navigation Links */}
+            <div className="desktop-navlinks-home">
+              <ul className="general-links-home">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -95,17 +57,61 @@ function Navbar(props) {
                 <li>
                   <Link to="/faq">FAQ</Link>
                 </li>
-                <li className="login-status-home">
-                  <Link to="/fanportal">Your Portal</Link>
-                  {/* <div>{props.status}</div> */}
+              </ul>
+              <ul className="middle-links-home">
+                <li>|</li>
+              </ul>
+              <ul className="login-links-home">
+                <li>
+                  <Link to="/artists">For Artists</Link>
                 </li>
                 <li>
-                  <Link to="/artists">Artists</Link>
+                  <Link to="/fanportal">Login</Link>
+                  {/* <div>{props.status}</div> */}
+                </li>
+                <li className="signup-link">
+                  <button>
+                    <Link to="/signup">Sign Up</Link>
+                  </button>
                 </li>
               </ul>
-            </aside>
-          </label>
-        </nav>
+            </div>
+            {/* Hamburger */}
+            <label htmlFor="check-home">
+              <input type="checkbox" id="check-home" />
+              <div className="menu-bars-home"></div>
+              <div className="menu-bars-home"></div>
+              <div className="menu-bars-home"></div>
+              <p>MENU</p>
+              {/* Mobile Navigation */}
+              <aside className="mobile-nav-home">
+                <div className="mobile-nav-header">
+                  <img src={logo} alt="logo" />
+                  <div onClick={closeNavigation}>X</div>
+                </div>
+
+                <ul>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/faq">FAQ</Link>
+                  </li>
+                  <li className="login-status-home">
+                    <Link to="/fanportal">Your Portal</Link>
+                    {/* <div>{props.status}</div> */}
+                  </li>
+                  <li>
+                    <Link to="/artists">Artists</Link>
+                  </li>
+                </ul>
+              </aside>
+            </label>
+          </nav>
+        </div>
       </header>
     </div>
   );
