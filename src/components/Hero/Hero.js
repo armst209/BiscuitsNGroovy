@@ -1,13 +1,12 @@
 import { React, useState } from "react";
 import "./HeroStyles.scss";
-import albumCover from "../../assets/images/808s_&_Heartbreak.png";
-import HeroBackground from "../Background/HeroBackground";
 import SoundBars from "../SoundBars/SoundBar";
 import DesktopBackground from "../Background/DesktopBackground";
-import HeroSpotlightBackground from "../Background/HeroSpotlightBackground";
+import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundRight";
+import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
 import spotlight from "../../assets/images/spotlight2_white.png";
 // import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
-import { CSSTransition } from "react-transition-group";
+
 // import BackgroundImage from "../Background/BackgroundImage";
 
 function Hero() {
@@ -46,7 +45,8 @@ function Hero() {
           </div>
 
           <div className="hero-images">
-            <HeroSpotlightBackground />
+            <HeroSpotlightBackgroundLeft />
+            <HeroSpotlightBackgroundRight />
             <div className="hero-image-container">
               <DesktopBackground />
 

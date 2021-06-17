@@ -17,9 +17,10 @@ function HowItWorks() {
   return (
     <section id="how-it-works">
       {/* <img className="small-slant" src={bgImage} alt="background" /> */}
-      <h1>HOW IT WORKS</h1>
+
       <div className="how-it-works-container">
         <div className="box-image">
+          <h1>HOW IT WORKS</h1>
           <img src={iphone_listen} alt="listening" />
         </div>
         <div className="boxes">

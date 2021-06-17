@@ -2,7 +2,6 @@
   width: 100%;
   font-family: var(--font1);
   height: 70px;
-
   position: absolute;
 
   .nav-home-container {
@@ -137,11 +136,15 @@
               background: var(--color1);
               border: none;
               border-radius: 10px;
+              color: white;
               a {
+                color: var(--bg-color);
                 &:hover {
                   border-bottom: none;
+                  color: white;
                 }
               }
+              color: white;
               &:hover {
                 background: transparent;
                 color: white;

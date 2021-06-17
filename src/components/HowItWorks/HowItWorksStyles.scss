@@ -5,12 +5,8 @@
   justify-content: center;
   align-items: center;
   background: white;
-  h1 {
-    text-align: center;
-    margin-top: 6rem;
-    font-family: var(--font1);
-    font-size: 3rem;
-  }
+  padding-top: 8rem;
+
   // border-top: 5px solid var(--color1);
   .how-it-works-container {
     width: 1140px;
@@ -21,8 +17,18 @@
     .box-image {
       width: 50%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
+
+      h1 {
+        text-align: center;
+        margin-top: 6rem;
+        font-family: var(--font1);
+        font-size: 4rem;
+        width: 100%;
+        padding-bottom: 4rem;
+      }
       img {
         width: 500px;
       }

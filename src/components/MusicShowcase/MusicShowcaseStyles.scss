@@ -78,6 +78,32 @@
           }
         }
 
+        .preview {
+        }
+
+        .preview-enter {
+          opacity: 0;
+          transform: translateY(-150px);
+          z-index: 1;
+        }
+        .preview-enter-active {
+          // opacity: 1;
+          transform: translateY(0);
+          transition: opacity 100ms, transform 100ms ease-in-out;
+          z-index: -1;
+        }
+        .preview-exit {
+          // opacity: 1;
+          transform: translateY(0);
+          z-index: 1;
+        }
+        .preview-exit-active {
+          opacity: 0;
+          transform: translateY(-150px);
+          transition: opacity 100ms, transform 100ms ease-in-out;
+          z-index: -1;
+        }
+
         @media (max-width: 500px) {
           display: none;
         }
