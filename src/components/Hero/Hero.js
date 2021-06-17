@@ -34,7 +34,7 @@ function Hero() {
                 and exclusive NFT album art
               </h3>
               <div className="hero-buttons">
-                <a href="#">
+                <a href="#dont-know">
                   <button className="start">Start Your Collection</button>
                 </a>
                 <a href="#how-it-works">

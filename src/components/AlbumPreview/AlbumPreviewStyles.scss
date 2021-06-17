@@ -1,10 +1,15 @@
 #album-preview-container {
   width: 100%;
   height: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.747);
-
-  .x-close {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.884);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font1);
+  z-index: 999999999;
+  .close-btn {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -21,11 +26,13 @@
     position: absolute;
     left: 50%;
     top: 50%;
+    color: white;
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
     border: 3px solid white;
     display: flex;
+    background: var(--bg-color);
     flex-direction: column;
     justify-content: center;
     align-items: center;
