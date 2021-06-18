@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import FAQNavbar from "../../components/Navbars/FAQ/FAQNavbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
 import spotlight from "../../assets/images/spotlight2.png";
@@ -28,13 +28,13 @@ function FAQ(props) {
 
   return (
     <section id="faq">
-      <FAQNavbar />
-      <h1>
+      <Navbar />
+      {/* <h1>
         <div>FAQ</div>
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
-      </h1>
+      </h1> */}
 
       <div className="faq-content">
         <h5 onClick={() => setQuestion1(!question1)}>

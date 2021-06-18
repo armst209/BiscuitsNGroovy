@@ -17,26 +17,51 @@ function FPHomePage(props) {
   const token = localStorage.getItem("token");
   const baseURL =
     "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
-  const handleSuccess = (res) => {
+  const handleLibrarySuccess = (res) => {
     console.log(res);
   };
 
-  const handleFailure = (err) => {
+  const handleLibraryFailure = (err) => {
     console.log(err);
   };
 
+  const handleBrowseSuccess = (res) => {
+    console.log(res.data.releases[0].price);
+  };
+
+  const handleBrowseFailure = (err) => {
+    console.log(err);
+  };
+  //Request for Library
   axios({
     method: "get",
-    url: `${baseURL}/releases`,
+    url: `${baseURL}/users/releases`,
     token: token,
     //need to get individual users ID through request to show unique library/purchases
     // data: { token: token },
   })
     .then((res) => {
-      handleSuccess(res);
+      handleLibrarySuccess(res);
     })
     .catch((err) => {
-      handleFailure(err);
+      handleLibraryFailure(err);
+    });
+
+  //Request for Browse
+  axios({
+    method: "get",
+    url: `${baseURL}/releases`,
+    headers: {
+      "x-access-token": token,
+    },
+    //need to get individual users ID through request to show unique library/purchases
+    // data: { token: token },
+  })
+    .then((res) => {
+      handleBrowseSuccess(res);
+    })
+    .catch((err) => {
+      handleBrowseFailure(err);
     });
 
   return (
@@ -62,18 +87,7 @@ function FPHomePage(props) {
 
       <h1>Browse</h1>
 
-      <div className="browse-select">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-      </div>
+      <div className="browse-select">{}</div>
       {/* <Suspense>
         <LibrarySwiper />
       </Suspense> */}

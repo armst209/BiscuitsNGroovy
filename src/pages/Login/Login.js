@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbars/Navbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import spotlight from "../../assets/images/spotlight2.png";
@@ -10,14 +10,15 @@ function Login(props) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
   const submit = (event) => {
     event.preventDefault();
-
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       console.log("Authenticated");
       props.history.push("/fanportal");
+      // setTimeout(() => {
+
+      // }, 2000);
     };
 
     const handleFailure = (err) => {
@@ -44,12 +45,12 @@ function Login(props) {
   return (
     <section id="login">
       <Navbar />
-      <h1>
+      {/* <h1>
         <div>PORTAL</div>
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
-      </h1>
+      </h1> */}
       <div className="login-container">
         <div className="login-contents">
           <h2>Sign In</h2>

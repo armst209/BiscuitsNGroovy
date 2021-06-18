@@ -6,12 +6,12 @@ import ReminderSection from "../../components/ReminderSection/ReminderSection";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import Footer from "../../components/Footer/Footer";
 import "./HomepageStyles.scss";
-import HomepageNavbar from "../../components/Navbars/Homepage/HomepageNavbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 
 function Homepage() {
   return (
     <div>
-      <HomepageNavbar />
+      <Navbar />
       <Hero />
       <HowItWorks />
       <MusicShowcase />

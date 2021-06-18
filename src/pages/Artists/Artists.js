@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ArtistsNavbar from "../../components/Navbars/Artists/ArtistsNavbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import spotlight from "../../assets/images/spotlight2.png";
 import "./ArtistsStyles.scss";
 import Footer from "../../components/Footer/Footer";
@@ -8,13 +8,13 @@ import Footer from "../../components/Footer/Footer";
 function Artists() {
   return (
     <section id="artists">
-      <ArtistsNavbar />
-      <h1>
+      <Navbar />
+      {/* <h1>
         <div>ARTISTS</div>
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
-      </h1>
+      </h1> */}
 
       <div className="artists-content">
         <p className="header-paragraph">

@@ -3,7 +3,8 @@ import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
+import CredentialsCheck from "./ProtectedRoutes/CredentialsProtectedRoute";
 import AlbumPopup from "./components/AlbumPopup";
 import AlbumPreview from "./components/AlbumPreview/AlbumPreview";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
@@ -33,8 +34,14 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/faq" component={FAQ} />
           <Route path="/artists" component={Artists} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
+          {/* <CredentialsCheck exact={true} path="/auth/login" component={Login} />
+          <CredentialsCheck
+            exact={true}
+            path="/auth/register"
+            component={SignUp}
+          /> */}
+          <Route path="/auth/login" component={Login} />
+          <Route path="/auth/register" component={SignUp} />
           <Route path="/album" component={AlbumPreview} />
           <ProtectedRoute
             exact={true}
@@ -56,6 +63,12 @@ function App() {
             path="/fanportal/popup"
             component={AlbumPopup}
           />
+          {/* Route for Stripe Cancellation */}
+          {/* <ProtectedRoute
+            exact={true}
+            path="/cancel"
+            component={}
+          /> */}
           <Route path="*" component={NotFound} />
           {/* <ProtectedRoute component={FanPortal} /> */}
         </Switch>

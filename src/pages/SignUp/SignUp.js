@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
-import Navbar from "../../components/Navbars/Navbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import Footer from "../../components/Footer/Footer";
 import spotlight from "../../assets/images/spotlight2.png";
 
@@ -49,7 +49,7 @@ const SignUp = (props) => {
   return (
     <section id="signup">
       <Navbar />
-      <h1>
+      {/* <h1>
         <div className="h1-title">
           <div>Start your</div>
           <div>collection today</div>
@@ -57,7 +57,7 @@ const SignUp = (props) => {
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
-      </h1>
+      </h1> */}
       <div className="signup-container">
         <div className="signup-contents">
           <h2>Sign Up</h2>

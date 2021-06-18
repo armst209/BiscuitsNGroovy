@@ -1,5 +1,6 @@
 import React from "react";
 import AboutNavbar from "../../components/Navbars/About/AboutNavbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import "./AboutStyles.scss";
 import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
@@ -7,13 +8,13 @@ import Footer from "../../components/Footer/Footer";
 function About() {
   return (
     <div id="about">
-      <AboutNavbar />
-      <h1>
+      <Navbar />
+      {/* <h1>
         <div>OUR MISSION</div>
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
-      </h1>
+      </h1> */}
       <div className="about-contents-wrapper">
         <div className="about-contents-1">
           <p>
