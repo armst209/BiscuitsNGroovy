@@ -1,17 +1,16 @@
 import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
-import CredentialsCheck from "./ProtectedRoutes/CredentialsProtectedRoute";
 import AlbumPopup from "./components/AlbumPopup";
 import AlbumPreview from "./components/AlbumPreview/AlbumPreview";
+import Login from "./components/Login/Login";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
-const Login = lazy(() => import("./pages/Login/Login"));
 const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const FanPortalHome = lazy(() =>
@@ -23,24 +22,35 @@ const FanPortalProfile = lazy(() =>
 const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 
 function App() {
+  const [loginPopup, showLoginPopup] = useState(false);
   return (
     <div className="App">
+      <Login trigger={loginPopup} setTrigger={showLoginPopup} />
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route exact path="/home" component={Home} />
+          <Route
+            exact
+            path="/home"
+            render={(props) => <Home {...props} setTrigger={showLoginPopup} />}
+          />
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <Route path="/about" component={About} />
-          <Route path="/faq" component={FAQ} />
-          <Route path="/artists" component={Artists} />
-          {/* <CredentialsCheck exact={true} path="/auth/login" component={Login} />
-          <CredentialsCheck
-            exact={true}
-            path="/auth/register"
-            component={SignUp}
-          /> */}
-          <Route path="/auth/login" component={Login} />
+          <Route
+            path="/about"
+            render={(props) => <About {...props} setTrigger={showLoginPopup} />}
+          />
+          <Route
+            path="/faq"
+            render={(props) => <FAQ {...props} setTrigger={showLoginPopup} />}
+          />
+          <Route
+            path="/artists"
+            render={(props) => (
+              <Artists {...props} setTrigger={showLoginPopup} />
+            )}
+          />
+
           <Route path="/auth/register" component={SignUp} />
           <Route path="/album" component={AlbumPreview} />
           <ProtectedRoute

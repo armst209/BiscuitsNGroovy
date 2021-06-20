@@ -5,17 +5,12 @@ import DesktopBackground from "../Background/DesktopBackground";
 import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundRight";
 import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
 import spotlight from "../../assets/images/spotlight2_white.png";
+
 // import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
 
 // import BackgroundImage from "../Background/BackgroundImage";
 
-function Hero() {
-  const [openAlbum, setOpenAlbum] = useState("false");
-
-  const albumCoverTransition = () => {
-    setOpenAlbum(!openAlbum);
-    console.log("hit");
-  };
+function Hero(props) {
   return (
     <section id="hero">
       <div className="hero-container">
@@ -27,7 +22,7 @@ function Hero() {
               <h1>IS OUR </h1>
               <h1>JAM</h1>
 
-              <h3 onClick={albumCoverTransition}>
+              <h3>
                 Get early access to new releases <br /> from your favorite
                 artists,
                 <br />

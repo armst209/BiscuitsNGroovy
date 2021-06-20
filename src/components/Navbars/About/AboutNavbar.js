@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./AboutNavbarStyles.scss";
+
 import logo from "../../../assets/images/newlogo.svg";
 
 function AboutNavbar(props) {

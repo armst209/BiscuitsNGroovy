@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import "./LoginStyles.scss";
-import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
+import { Link, Redirect } from "react-router-dom";
+// import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import axios from "axios";
-import Footer from "../../components/Footer/Footer";
-import spotlight from "../../assets/images/spotlight2.png";
+// import Footer from "../../components/Footer/Footer";
+// import spotlight from "../../assets/images/spotlight2.png";
 
 function Login(props) {
+  console.log(props);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const submit = (event) => {
     event.preventDefault();
-    const handleSuccess = (res) => {
+    let handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       console.log("Authenticated");
-      props.history.push("/fanportal");
-      // setTimeout(() => {
-
-      // }, 2000);
+      setTimeout(() => {
+        // return <Redirect to="/home" />;
+        window.location.replace("http://localhost:3000/home");
+      }, 1000);
     };
 
     const handleFailure = (err) => {
@@ -42,9 +43,9 @@ function Login(props) {
       });
   };
 
-  return (
+  return props.trigger ? (
     <section id="login">
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <h1>
         <div>PORTAL</div>
         <div>
@@ -53,6 +54,9 @@ function Login(props) {
       </h1> */}
       <div className="login-container">
         <div className="login-contents">
+          <div className="close-btn" onClick={() => props.setTrigger(false)}>
+            <div>X</div>
+          </div>
           <h2>Sign In</h2>
           <p>
             <span>
@@ -104,8 +108,10 @@ function Login(props) {
           </button>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </section>
+  ) : (
+    ""
   );
 }
 

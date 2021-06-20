@@ -5,10 +5,10 @@ import spotlight from "../../assets/images/spotlight2.png";
 import "./ArtistsStyles.scss";
 import Footer from "../../components/Footer/Footer";
 
-function Artists() {
+function Artists(props) {
   return (
     <section id="artists">
-      <Navbar />
+      <Navbar showLoginPopup={props.setTrigger} />
       {/* <h1>
         <div>ARTISTS</div>
         <div>

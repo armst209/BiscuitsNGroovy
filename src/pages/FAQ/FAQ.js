@@ -11,8 +11,6 @@ import dropdown from "../../assets/images/double-down.svg";
 //useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
 
 function FAQ(props) {
-  console.log(props);
-
   const [question1, setQuestion1] = useState(false);
   const [question2, setQuestion2] = useState(false);
   const [question3, setQuestion3] = useState(false);
@@ -28,7 +26,7 @@ function FAQ(props) {
 
   return (
     <section id="faq">
-      <Navbar />
+      <Navbar showLoginPopup={props.setTrigger} />
       {/* <h1>
         <div>FAQ</div>
         <div>

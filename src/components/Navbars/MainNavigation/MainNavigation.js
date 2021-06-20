@@ -5,12 +5,21 @@ import logo from "../../../assets/images/newlogo.svg";
 import user_image from "../../../assets/images/user_white.webp";
 
 function HomepageNavbar(props) {
+  console.log(props);
   const [scrolled, setScrolled] = useState(false);
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
 
   const isAuthenticated = localStorage.getItem("token");
+
+  //LOGOUT START
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/home");
+  };
+  //LOGOUT END
 
   let navbarClasses = ["nav"];
   if (scrolled) {
@@ -25,15 +34,17 @@ function HomepageNavbar(props) {
     if (isAuthenticated) {
       setSignUpClassName("signup-no-display");
       setIsLoggedIn(
-        <Link to="/fanportal/profile">
+        <Link to="/fanportal/profile" onClick={handleLogout}>
           <div className="user-container">
-            <div>Name</div>
+            <div>Logout</div>
             <img src={user_image} alt="user" />
           </div>
         </Link>
       );
     } else {
-      setIsLoggedIn(<Link to="/auth/login">Login</Link>);
+      setIsLoggedIn(
+        <div onClick={() => props.showLoginPopup(true)}>Login</div>
+      );
     }
 
     const abortCont = new AbortController();
@@ -91,6 +102,7 @@ function HomepageNavbar(props) {
                 </li>
               </ul>
             </div>
+
             {/* Hamburger */}
             <label htmlFor="check-home">
               <input type="checkbox" id="check-home" />
@@ -117,7 +129,6 @@ function HomepageNavbar(props) {
                   </li>
                   <li className="login-status-home">
                     <Link to="/fanportal">Your Portal</Link>
-                    {/* <div>{props.status}</div> */}
                   </li>
                   <li>
                     <Link to="/artists">Artists</Link>

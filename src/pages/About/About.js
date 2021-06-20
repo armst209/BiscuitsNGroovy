@@ -1,14 +1,13 @@
 import React from "react";
-import AboutNavbar from "../../components/Navbars/About/AboutNavbar";
 import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import "./AboutStyles.scss";
 import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
 
-function About() {
+function About(props) {
   return (
     <div id="about">
-      <Navbar />
+      <Navbar showLoginPopup={props.setTrigger} />
       {/* <h1>
         <div>OUR MISSION</div>
         <div>

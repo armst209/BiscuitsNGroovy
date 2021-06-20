@@ -8,9 +8,7 @@ class ProtectedRoute extends React.Component {
     return isAuthenticated ? (
       <Component />
     ) : (
-      <Redirect
-        to={{ pathname: "/auth/login", state: { from: this.props.location } }}
-      />
+      <Redirect to={{ pathname: "/", state: { from: this.props.location } }} />
     );
   }
 }

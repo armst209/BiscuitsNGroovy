@@ -1,5 +1,5 @@
 import axios from "axios";
-import { React } from "react";
+import { React, useState } from "react";
 import "./FPHomePageStyles.scss";
 
 function FPHomePage(props) {
@@ -13,39 +13,41 @@ function FPHomePage(props) {
   */
   //Create hooks for properties and triggers
   //5. Pass down properties through props to Album Review component specific to uniqueID
+  const [releases, setReleases] = useState("");
 
   const token = localStorage.getItem("token");
   const baseURL =
     "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
-  const handleLibrarySuccess = (res) => {
-    console.log(res);
-  };
+  // const handleLibrarySuccess = (res) => {
+  //   console.log(res);
+  // };
 
-  const handleLibraryFailure = (err) => {
-    console.log(err);
-  };
+  // const handleLibraryFailure = (err) => {
+  //   console.log(err);
+  // };
 
   const handleBrowseSuccess = (res) => {
-    console.log(res.data.releases[0].price);
+    // setReleases(res.data);
+    console.log(res.data);
   };
 
   const handleBrowseFailure = (err) => {
     console.log(err);
   };
   //Request for Library
-  axios({
-    method: "get",
-    url: `${baseURL}/users/releases`,
-    token: token,
-    //need to get individual users ID through request to show unique library/purchases
-    // data: { token: token },
-  })
-    .then((res) => {
-      handleLibrarySuccess(res);
-    })
-    .catch((err) => {
-      handleLibraryFailure(err);
-    });
+  // axios({
+  //   method: "get",
+  //   url: `${baseURL}/users/releases`,
+  //   token: token,
+  //   //need to get individual users ID through request to show unique library/purchases
+  //   // data: { token: token },
+  // })
+  //   .then((res) => {
+  //     handleLibrarySuccess(res);
+  //   })
+  //   .catch((err) => {
+  //     handleLibraryFailure(err);
+  //   });
 
   //Request for Browse
   axios({
