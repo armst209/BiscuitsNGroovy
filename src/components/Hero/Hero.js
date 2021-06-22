@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./HeroStyles.scss";
 import SoundBars from "../SoundBars/SoundBar";
 import DesktopBackground from "../Background/DesktopBackground";

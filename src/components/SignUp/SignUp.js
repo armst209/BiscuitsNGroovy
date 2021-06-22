@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
-import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
-import Footer from "../../components/Footer/Footer";
-import spotlight from "../../assets/images/spotlight2.png";
+
+// import spotlight from "../../assets/images/spotlight2.png";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -46,9 +45,8 @@ const SignUp = (props) => {
       });
   };
 
-  return (
+  return props.trigger ? (
     <section id="signup">
-      <Navbar />
       {/* <h1>
         <div className="h1-title">
           <div>Start your</div>
@@ -60,10 +58,22 @@ const SignUp = (props) => {
       </h1> */}
       <div className="signup-container">
         <div className="signup-contents">
+          <div
+            className="close-btn-signup"
+            onClick={() => props.setTrigger(false)}
+          >
+            <div>X</div>
+          </div>
           <h2>Sign Up</h2>
           <p>
-            <span>
-              Already have an account? <Link to="/login">Login</Link>
+            Already have an account?
+            <span
+              onClick={() => {
+                props.setTrigger(false);
+                props.showLogIn(true);
+              }}
+            >
+              <span className="login-redirect"> Login</span>
             </span>
           </p>
           <form onSubmit={submit}>
@@ -100,8 +110,9 @@ const SignUp = (props) => {
           <div className="error-message">{errorMessage}</div>
         </div>
       </div>
-      <Footer />
     </section>
+  ) : (
+    ""
   );
 };
 

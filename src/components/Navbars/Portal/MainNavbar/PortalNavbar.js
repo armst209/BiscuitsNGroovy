@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+// import { Link, Redirect } from "react-router-dom";
 import "./PortalNavbarStyles.scss";
-import logo from "../../../../assets/images/newlogo.svg";
+// import logo from "../../../../assets/images/newlogo.svg";
 import FPNavbar from "../SecondaryNavbars/FPNavbar";
 import FPNavbarMobile from "../SecondaryNavbars/FPNavbarMobile";
 import MainNavigation from "../../MainNavigation/MainNavigation";
 
 function PortalNavbar(props) {
+  console.log(props);
   const [scrolled, setScrolled] = useState(false);
 
   //LOGOUT START
@@ -43,7 +44,7 @@ function PortalNavbar(props) {
   return (
     <div className={navbarClasses.join(" ")}>
       <div>
-        <MainNavigation />
+        <MainNavigation showLoginPopUp={props.showLoginPopup} />
         <FPNavbar handleLogout={handleLogout} />
         <FPNavbarMobile handleLogout={handleLogout} />
       </div>

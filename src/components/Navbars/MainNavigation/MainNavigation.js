@@ -5,12 +5,11 @@ import logo from "../../../assets/images/newlogo.svg";
 import user_image from "../../../assets/images/user_white.webp";
 
 function HomepageNavbar(props) {
-  console.log(props);
   const [scrolled, setScrolled] = useState(false);
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
-
+  const [passedProps] = useState(props);
   const isAuthenticated = localStorage.getItem("token");
 
   //LOGOUT START
@@ -43,7 +42,7 @@ function HomepageNavbar(props) {
       );
     } else {
       setIsLoggedIn(
-        <div onClick={() => props.showLoginPopup(true)}>Login</div>
+        <div onClick={() => passedProps.showLoginPopup(true)}>Login</div>
       );
     }
 
@@ -61,7 +60,7 @@ function HomepageNavbar(props) {
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, passedProps]);
 
   return (
     <div className={navbarClasses.join(" ")}>
@@ -95,11 +94,13 @@ function HomepageNavbar(props) {
                   <Link to="/artists">For Artists</Link>
                 </li>
                 <li>{isLoggedIn}</li>
-                <li className={signUpClassName}>
-                  <Link to="/auth/register">
-                    <button>Sign Up</button>
-                  </Link>
+                <li
+                  className={signUpClassName}
+                  onClick={() => props.showSignUpPopUp(true)}
+                >
+                  <button>Sign Up</button>
                 </li>
+                <li>Modal</li>
               </ul>
             </div>
 

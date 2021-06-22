@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import Hero from "../../components/Hero/Hero";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
@@ -9,10 +9,12 @@ import "./HomepageStyles.scss";
 import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 
 function Homepage(props) {
-  console.log(props);
   return (
     <div>
-      <Navbar showLoginPopup={props.setTrigger} />
+      <Navbar
+        showLoginPopup={props.setTrigger}
+        showSignUpPopUp={props.showSignUp}
+      />
       <Hero />
       <HowItWorks />
       <MusicShowcase />

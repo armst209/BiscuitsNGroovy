@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import "./LoginStyles.scss";
-import { Link, Redirect } from "react-router-dom";
-// import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
+import { Link } from "react-router-dom";
 import axios from "axios";
-// import Footer from "../../components/Footer/Footer";
-// import spotlight from "../../assets/images/spotlight2.png";
 
 function Login(props) {
-  console.log(props);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
   const submit = (event) => {
     event.preventDefault();
-    let handleSuccess = (res) => {
+    const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       console.log("Authenticated");
       setTimeout(() => {
-        // return <Redirect to="/home" />;
         window.location.replace("http://localhost:3000/home");
       }, 1000);
     };
@@ -45,22 +41,24 @@ function Login(props) {
 
   return props.trigger ? (
     <section id="login">
-      {/* <Navbar /> */}
-      {/* <h1>
-        <div>PORTAL</div>
-        <div>
-          <img src={spotlight} alt="spotlight" />
-        </div>
-      </h1> */}
       <div className="login-container">
         <div className="login-contents">
-          <div className="close-btn" onClick={() => props.setTrigger(false)}>
+          <div
+            className="close-btn-login"
+            onClick={() => props.setTrigger(false)}
+          >
             <div>X</div>
           </div>
           <h2>Sign In</h2>
           <p>
-            <span>
-              New user? <Link to="/signup">Create an account</Link>
+            <span
+              onClick={() => {
+                props.setTrigger(false);
+                props.showSignUp(true);
+              }}
+            >
+              New user?{" "}
+              <span className="signup-redirect">Create an account</span>
             </span>
           </p>
           <form onSubmit={submit}>
@@ -100,10 +98,10 @@ function Login(props) {
             <hr></hr>
           </div>
           <button>
-            <i class="fab fa-google"></i> <span>Sign In with Google</span>
+            <i className="fab fa-google"></i> <span>Sign In with Google</span>
           </button>
           <button>
-            <i class="fab fa-facebook-square"></i>
+            <i className="fab fa-facebook-square"></i>
             <span>Sign In with Facebook</span>
           </button>
         </div>

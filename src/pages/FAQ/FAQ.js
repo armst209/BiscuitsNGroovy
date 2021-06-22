@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
-import spotlight from "../../assets/images/spotlight2.png";
+// import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
 import dropdown from "../../assets/images/double-down.svg";
 
@@ -26,7 +26,10 @@ function FAQ(props) {
 
   return (
     <section id="faq">
-      <Navbar showLoginPopup={props.setTrigger} />
+      <Navbar
+        showLoginPopup={props.setTrigger}
+        showSignUpPopUp={props.showSignUp}
+      />
       {/* <h1>
         <div>FAQ</div>
         <div>

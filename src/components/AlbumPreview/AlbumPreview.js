@@ -1,6 +1,6 @@
 import React from "react";
 import "./AlbumPreviewStyles.scss";
-import kanye_album from "../../assets/images/808s_&_Heartbreak.png";
+
 import Checkout from "../../pages/Payment/Checkout";
 
 function AlbumPreview(props) {
@@ -15,17 +15,7 @@ function AlbumPreview(props) {
         <div className="close-btn" onClick={() => props.setTrigger(false)}>
           <div>X</div>
         </div>
-        <div className="album-image">
-          <img src={kanye_album} alt="album" />
-        </div>
-        <div className="album-text">
-          808s & Heartbreak is the fourth studio album by American producer and
-          vocalist Kanye West. It was released on November 24, 2008, by Def Jam
-          Recordings and Roc-A-Fella Records.
-        </div>
-        <div>
-          <Checkout />
-        </div>
+        <Checkout />
       </div>
     </div>
   ) : (

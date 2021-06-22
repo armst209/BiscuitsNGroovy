@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
-import spotlight from "../../assets/images/spotlight2.png";
+// import spotlight from "../../assets/images/spotlight2.png";
 import "./ArtistsStyles.scss";
 import Footer from "../../components/Footer/Footer";
 
 function Artists(props) {
   return (
     <section id="artists">
-      <Navbar showLoginPopup={props.setTrigger} />
+      <Navbar
+        showLoginPopup={props.setTrigger}
+        showSignUpPopUp={props.showSignUp}
+      />
       {/* <h1>
         <div>ARTISTS</div>
         <div>

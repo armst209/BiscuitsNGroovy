@@ -45,11 +45,11 @@ const productName = "Kanye Album";
 const ProductDisplay = ({ handleClick, product }) => (
   <section>
     <div className="product">
-      <img src={productImages[0]} alt="product" />
+      {/* <img src={productImages[0]} alt="product" />
       <div className="description">
         <h5>${productPrice}</h5>
         <h5>${productName}</h5>
-      </div>
+      </div> */}
     </div>
     <button
       type="button"

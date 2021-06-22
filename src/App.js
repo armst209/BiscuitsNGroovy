@@ -7,11 +7,11 @@ import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import AlbumPopup from "./components/AlbumPopup";
 import AlbumPreview from "./components/AlbumPreview/AlbumPreview";
 import Login from "./components/Login/Login";
+import SignUp from "./components/SignUp/SignUp";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
-const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
@@ -23,40 +23,78 @@ const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 
 function App() {
   const [loginPopup, showLoginPopup] = useState(false);
+  const [signUpPopup, showSignUpPopup] = useState(false);
+
   return (
     <div className="App">
-      <Login trigger={loginPopup} setTrigger={showLoginPopup} />
+      <Login
+        trigger={loginPopup}
+        setTrigger={showLoginPopup}
+        showSignUp={showSignUpPopup}
+      />
+
+      <SignUp
+        trigger={signUpPopup}
+        setTrigger={showSignUpPopup}
+        showLogIn={showLoginPopup}
+      />
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route
             exact
             path="/home"
-            render={(props) => <Home {...props} setTrigger={showLoginPopup} />}
+            render={(props) => (
+              <Home
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
           <Route
             path="/about"
-            render={(props) => <About {...props} setTrigger={showLoginPopup} />}
+            render={(props) => (
+              <About
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
           <Route
             path="/faq"
-            render={(props) => <FAQ {...props} setTrigger={showLoginPopup} />}
+            render={(props) => (
+              <FAQ
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
           <Route
             path="/artists"
             render={(props) => (
-              <Artists {...props} setTrigger={showLoginPopup} />
+              <Artists
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
             )}
           />
-
-          <Route path="/auth/register" component={SignUp} />
           <Route path="/album" component={AlbumPreview} />
-          <ProtectedRoute
+          <Route
             exact={true}
             path="/fanportal"
-            component={FanPortalHome}
+            render={(props) => (
+              <FanPortalHome
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
           <ProtectedRoute
             exact={true}
@@ -68,19 +106,23 @@ function App() {
             path="/fanportal/checkout"
             component={Checkout}
           />
-          <ProtectedRoute
-            exact={true}
-            path="/fanportal/popup"
-            component={AlbumPopup}
-          />
+          <Route path="/fanportal/popup" component={AlbumPopup} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}
             path="/cancel"
             component={}
           /> */}
-          <Route path="*" component={NotFound} />
-          {/* <ProtectedRoute component={FanPortal} /> */}
+          <Route
+            path="*"
+            render={(props) => (
+              <NotFound
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
         </Switch>
       </Suspense>
     </div>

@@ -7,7 +7,10 @@ import Footer from "../../components/Footer/Footer";
 function About(props) {
   return (
     <div id="about">
-      <Navbar showLoginPopup={props.setTrigger} />
+      <Navbar
+        showLoginPopup={props.setTrigger}
+        showSignUpPopUp={props.showSignUp}
+      />
       {/* <h1>
         <div>OUR MISSION</div>
         <div>

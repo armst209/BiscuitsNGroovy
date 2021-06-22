@@ -7,7 +7,10 @@ import "./NotFoundStyles.scss";
 function NotFound(props) {
   return (
     <div id="not-found">
-      <Navbar showLoginPopup={props.setTrigger} />
+      <Navbar
+        showLoginPopup={props.setTrigger}
+        showSignUpPopUp={props.showSignUp}
+      />
       <div className="not-found-content">
         <h1>Sorry, we can't find the page you were looking for...</h1>
         <img src={magnifyingGlass} alt="magnifying glass" />
