@@ -1,0 +1,40 @@
+#release-preview {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999999999;
+  background: black;
+
+  .release-preview-container {
+    border: 3px solid white;
+    background: var(--bg-color);
+
+    .close-release-info {
+      font-family: var(--font1);
+      width: 100%;
+      padding: 5px;
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+    }
+
+    .release-preview-content {
+      padding: 1rem;
+      display: flex;
+      height: 500px;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        color: white;
+      }
+    }
+  }
+}

@@ -5,10 +5,11 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import AlbumPopup from "./components/AlbumPopup";
-import AlbumPreview from "./components/AlbumPreview/AlbumPreview";
+import ReleasePreview from "./components/ReleasePreview/ReleasePreview";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+import Logout from "./pages/Logout/Logout";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -85,7 +86,7 @@ function App() {
               />
             )}
           />
-          <Route path="/album" component={AlbumPreview} />
+          <Route path="/release-preview" component={ReleasePreview} />
           <ProtectedRoute
             exact={true}
             path="/fanportal"
@@ -97,7 +98,18 @@ function App() {
               />
             )}
           />
-          <ProtectedRoute exact={true} path="/fanportal/profile" />
+          <ProtectedRoute
+            exact={true}
+            path="/fanportal/profile"
+            render={(props) => (
+              <FanPortalProfile
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+
           <ProtectedRoute
             exact={true}
             path="/fanportal/checkout"
@@ -105,6 +117,7 @@ function App() {
           />
           <Route path="/fanportal/popup" component={AlbumPopup} />
           <Route path="/music" component={MusicPlayer} />
+          <Route path="/logout" component={Logout} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}

@@ -10,7 +10,6 @@ function FPHomePage(props) {
   const [albumInfo, setAlbumInfo] = useState(false);
 
   useEffect(() => {
-    //Request for Browse
     const token = localStorage.getItem("token");
     const baseURL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
@@ -97,8 +96,26 @@ function FPHomePage(props) {
       console.log(err);
     };
 
+    //Request for Browse
+
+    axios({
+      method: "get",
+      // url: `${testURL}/users`,
+      url: `${baseURL}/releases`,
+      headers: {
+        "x-access-token": token,
+      },
+    })
+      .then((res) => {
+        handleBrowseSuccess(res);
+      })
+      .catch((err) => {
+        handleBrowseFailure(err);
+      });
+
     const handleBrowseSuccess = (res) => {
-      let releases = res.data;
+      console.log(res.data);
+      let releases = res.data.releases;
       let showAllReleases = releases.map((release) => {
         return release ? (
           <div key={release.id}>
@@ -115,7 +132,7 @@ function FPHomePage(props) {
           </div>
         );
       });
-      // console.log(showAllReleases);
+      console.log(showAllReleases);
       setAlbumReleases(showAllReleases);
     };
     const handleBrowseFailure = (err) => {

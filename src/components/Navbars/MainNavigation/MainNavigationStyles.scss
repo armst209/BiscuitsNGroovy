@@ -4,7 +4,7 @@
   height: 70px;
   position: fixed;
   //change to sticky once we figure out hero background position
-  z-index: 99999999999;
+  z-index: 9999;
   background: transparent;
 
   .dropdown-content {
@@ -19,7 +19,7 @@
     width: 300px;
     height: 200px;
     font-size: 1.2rem;
-    background: transparent;
+    background: var(--bg-color);
     border: 1px solid white;
     z-index: 99999999999;
 
@@ -416,7 +416,7 @@
   height: 70px;
   position: fixed;
   //change to sticky once we figure out hero background position
-  z-index: 99999999999;
+  z-index: 9999;
   background: var(--bg-color);
   .dropdown-content {
     display: flex;
@@ -822,7 +822,7 @@
 }
 
 .scrolled-home {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
