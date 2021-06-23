@@ -2,6 +2,7 @@
   position: relative;
   background: var(--bg-dark);
   color: white;
+
   h1 {
     font-family: var(--font1);
     color: black;
@@ -29,6 +30,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 5rem;
+    background: var(--bg-color);
   }
   .about-contents-1,
   .about-contents-2 {

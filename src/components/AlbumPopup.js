@@ -1,8 +1,7 @@
 import React from "react";
 import "./AlbumPopupStyles.scss";
 import Checkout from "../pages/Payment/Checkout";
-import ReactJkMusicPlayer from "react-jinke-music-player";
-import "react-jinke-music-player/assets/index.css";
+import MusicPlayer from "../components/MusicPlayer/MusicPlayer";
 
 function AlbumPopup(props) {
   const handleClick = () => {
@@ -19,12 +18,15 @@ function AlbumPopup(props) {
           <div>{props.description}</div>
           <div>{props.price}</div>
           <div>
-            <Checkout albumName={props.name} albumPrice={props.price} />
+            <div>
+              <Checkout albumName={props.name} albumPrice={props.price} />
+            </div>
+            <div className="music-player">
+              <MusicPlayer />
+            </div>
           </div>
         </div>
       </div>
-
-      <ReactJkMusicPlayer className="music-player" />
     </section>
   );
 }

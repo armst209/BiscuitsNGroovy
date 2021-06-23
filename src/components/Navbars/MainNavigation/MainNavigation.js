@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import logo from "../../../assets/images/newlogo.svg";
 import user_image from "../../../assets/images/user_white.webp";
+import arrow_down from "../../../assets/images/arrow-bottom.svg";
 
 function HomepageNavbar(props) {
   const [scrolled, setScrolled] = useState(false);
@@ -10,35 +11,39 @@ function HomepageNavbar(props) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [passedProps] = useState(props);
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [homeNavId, setHomeNavId] = useState("homepage-navigation");
   const isAuthenticated = localStorage.getItem("token");
-
-  //LOGOUT START
+  //Navbar scrolling
+  const navbarClasses = ["nav"];
+  if (scrolled) {
+    navbarClasses.push("scrolled-home");
+  }
+  //Function for close button in mobile navigation popup
+  const closeNavigation = () => {
+    setXButton(!xButton);
+  };
+  //LOGOUT Function
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
     window.location.replace("http://localhost:3000/home");
   };
-  //LOGOUT END
-
-  let navbarClasses = ["nav"];
-  if (scrolled) {
-    navbarClasses.push("scrolled-home");
-  }
-
-  const closeNavigation = () => {
-    setXButton(!xButton);
-  };
-
   useEffect(() => {
+    //Menu Dropdown Function
+    const viewDropDown = () => {
+      setShowDropDown(!showDropDown);
+    };
+    //Authentication Check - Displays "Logout" in navigation
     if (isAuthenticated) {
       setSignUpClassName("signup-no-display");
       setIsLoggedIn(
-        <Link to="/fanportal/profile" onClick={handleLogout}>
-          <div className="user-container">
-            <div>Logout</div>
+        <div className="user-container">
+          <div className="user" onClick={viewDropDown}>
             <img src={user_image} alt="user" />
+            <img className="arrow" src={arrow_down} alt="arrow" />
           </div>
-        </Link>
+        </div>
       );
     } else {
       setIsLoggedIn(
@@ -50,8 +55,10 @@ function HomepageNavbar(props) {
     const handleScroll = () => {
       const offset = window.scrollY;
       if (offset > 100) {
+        setHomeNavId("homepage-navigation-scrolled");
         setScrolled(true);
       } else {
+        setHomeNavId("homepage-navigation");
         setScrolled(false);
       }
     };
@@ -60,11 +67,11 @@ function HomepageNavbar(props) {
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated, passedProps]);
+  }, [isAuthenticated, passedProps, showDropDown]);
 
   return (
-    <div className={navbarClasses.join(" ")}>
-      <header id="homepage-navigation">
+    <div id="scrolled-home-before" className={navbarClasses.join(" ")}>
+      <header id={homeNavId}>
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">
@@ -100,7 +107,7 @@ function HomepageNavbar(props) {
                 >
                   <button>Sign Up</button>
                 </li>
-                <li>Modal</li>
+                {/* <li>Modal</li> */}
               </ul>
             </div>
 
@@ -138,6 +145,20 @@ function HomepageNavbar(props) {
               </aside>
             </label>
           </nav>
+        </div>
+        <div>
+          {showDropDown ? (
+            <div className="dropdown-content">
+              <Link to="/fanportal">Your Portal</Link>
+              <Link to="/fanportal/profile">Profile</Link>
+              <Link>Settings</Link>
+              <div className="logout-button" onClick={handleLogout}>
+                Logout
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </header>
     </div>

@@ -28,11 +28,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
-
-    .music-player {
-      position: relative;
-      z-index: 99999999;
+      .music-player {
+        position: relative;
+      }
     }
   }
 }

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ComponentLoading from "../Loading/ComponentLoading";
 
 function Login(props) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
@@ -30,6 +32,7 @@ function Login(props) {
       method: "post",
       url: `${baseURL}/login`,
       data: { username: username, password: password },
+      loading: false,
     })
       .then((res) => {
         handleSuccess(res);
@@ -106,7 +109,6 @@ function Login(props) {
           </button>
         </div>
       </div>
-      {/* <Footer /> */}
     </section>
   ) : (
     ""

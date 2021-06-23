@@ -77,6 +77,7 @@
   --color-light: #f1f5f9;
   --color-grayish: #dadce0;
   --bg-color: #040609;
+  --highest-index: 9999999999999;
 }
 
 .App {

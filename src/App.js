@@ -8,6 +8,7 @@ import AlbumPopup from "./components/AlbumPopup";
 import AlbumPreview from "./components/AlbumPreview/AlbumPreview";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -85,7 +86,7 @@ function App() {
             )}
           />
           <Route path="/album" component={AlbumPreview} />
-          <Route
+          <ProtectedRoute
             exact={true}
             path="/fanportal"
             render={(props) => (
@@ -96,17 +97,14 @@ function App() {
               />
             )}
           />
-          <ProtectedRoute
-            exact={true}
-            path="/fanportal/profile"
-            component={FanPortalProfile}
-          />
+          <ProtectedRoute exact={true} path="/fanportal/profile" />
           <ProtectedRoute
             exact={true}
             path="/fanportal/checkout"
             component={Checkout}
           />
           <Route path="/fanportal/popup" component={AlbumPopup} />
+          <Route path="/music" component={MusicPlayer} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}
