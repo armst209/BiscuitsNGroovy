@@ -27,8 +27,9 @@
 
   .faq-content {
     padding: 10px;
+    background: var(--bg-color);
     @media (min-width: 768px) {
-      padding: 30px;
+      padding: 5rem 30px 30px 30px;
     }
 
     .answer {

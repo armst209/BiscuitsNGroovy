@@ -1,21 +1,62 @@
-
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
+import { assertExistsTypeAnnotation } from "@babel/types";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe("pk_test_51IoVPgGQOOYUPUkxLc3Pp0Xs9aIAgNF0Ref6QStISTEd5vDwVRXbXel7xY6Ajo8Siuvmy3jPR84LnZzaQ8x7sCaw00YrlUeC94");
 
-const ProductDisplay = ({ handleClick, product }) => (
+//Releases Request
+// const baseURL = "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+// const token = localStorage.getItem("token");
+
+// const handleSuccess = (res) => {
+//   console.log(res.data.releases);
+// };
+
+// const handleFailure = (err) => {
+//   console.log(err);
+// };
+
+// axios({
+//   method: "get",
+//   url: `${baseURL}/releases`,
+//   token: token,
+//   //need to get individual users ID through request to show unique library/purchases
+//   // data: { token: token },
+// })
+//   .then((res) => {
+//     handleSuccess(res);
+//   })
+//   .catch((err) => {
+//     handleFailure(err);
+//   });
+
+//STRIPE
+const stripePromise = loadStripe(
+  "pk_test_51IoVPgGQOOYUPUkxLc3Pp0Xs9aIAgNF0Ref6QStISTEd5vDwVRXbXel7xY6Ajo8Siuvmy3jPR84LnZzaQ8x7sCaw00YrlUeC94"
+);
+
+const productImages = [
+  "https://bng-resources.s3.us-east-2.amazonaws.com/5/art/808s_%26_Heartbreak.png",
+];
+console.log(productImages[0]);
+const productPrice = 10.0;
+const productName = "Kanye Album";
+const ProductDisplay = ({ handleClick, props }) => (
   <section>
     <div className="product">
-      <img
-        src={product.img}
-      />
+      {/* <img src={productImages[0]} alt="product" />
       <div className="description">
-        <h5>${product.price}</h5>
-      </div>
+        <h5>${productPrice}</h5>
+        <h5>${productName}</h5>
+      </div> */}
     </div>
-    <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+    <button
+      type="button"
+      id="checkout-button"
+      role="link"
+      onClick={handleClick}
+    >
       Checkout
     </button>
   </section>
@@ -27,7 +68,7 @@ const Message = ({ message }) => (
   </section>
 );
 
-export default function CheckoutButton(product) {
+export default function CheckoutButton(props) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -47,16 +88,25 @@ export default function CheckoutButton(product) {
 
   const handleClick = async (event) => {
     const stripe = await stripePromise;
-    const URL = 'ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/create-checkout-session'
-    const response = await fetch(URL, {
+    const URL =
+      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
+    console.log(props.name);
+    console.log(props.images);
+    console.log(props.price);
+    const response = await axios(URL, {
       method: "POST",
+      data: {
+        productName: props.name,
+        productImages: props.images,
+        productPrice: parseInt(props.price*100),
+      },
     });
-
-    const session = await response.json();
+    console.log(response);
+    const sessionId = await response.data.id;
 
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
+      sessionId: sessionId,
     });
 
     if (result.error) {
@@ -69,6 +119,6 @@ export default function CheckoutButton(product) {
   return message ? (
     <Message message={message} />
   ) : (
-    <ProductDisplay handleClick={handleClick} product={product} />
+    <ProductDisplay handleClick={handleClick} props={props} />
   );
 }

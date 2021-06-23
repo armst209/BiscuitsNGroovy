@@ -1,15 +1,19 @@
 import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
+import AlbumPopup from "./components/AlbumPopup";
+import ReleasePreview from "./components/ReleasePreview/ReleasePreview";
+import Login from "./components/Login/Login";
+import SignUp from "./components/SignUp/SignUp";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+import Logout from "./pages/Logout/Logout";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
-const Login = lazy(() => import("./pages/Login/Login"));
-const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
@@ -17,34 +21,119 @@ const FanPortalHome = lazy(() =>
 const FanPortalProfile = lazy(() =>
   import("./pages/Portals/FanPortal/Profile/FanPortalProfile.js")
 );
+const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 
 function App() {
+  const [loginPopup, showLoginPopup] = useState(false);
+  const [signUpPopup, showSignUpPopup] = useState(false);
+
   return (
     <div className="App">
+      <Login
+        trigger={loginPopup}
+        setTrigger={showLoginPopup}
+        showSignUp={showSignUpPopup}
+      />
+
+      <SignUp
+        trigger={signUpPopup}
+        setTrigger={showSignUpPopup}
+        showLogIn={showLoginPopup}
+      />
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route exact path="/home" component={Home} />
+          <Route
+            exact
+            path="/home"
+            render={(props) => (
+              <Home
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <Route path="/about" component={About} />
-          <Route path="/faq" component={FAQ} />
-          <Route path="/artists" component={Artists} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/loading" component={Loading} />
+          <Route
+            path="/about"
+            render={(props) => (
+              <About
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            path="/faq"
+            render={(props) => (
+              <FAQ
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            path="/artists"
+            render={(props) => (
+              <Artists
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+          <Route path="/release-preview" component={ReleasePreview} />
           <ProtectedRoute
             exact={true}
             path="/fanportal"
-            component={FanPortalHome}
+            render={(props) => (
+              <FanPortalHome
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
           <ProtectedRoute
             exact={true}
             path="/fanportal/profile"
-            component={FanPortalProfile}
+            render={(props) => (
+              <FanPortalProfile
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
-          <Route path="*" component={NotFound} />
-          {/* <ProtectedRoute component={FanPortal} /> */}
+
+          <ProtectedRoute
+            exact={true}
+            path="/fanportal/checkout"
+            component={Checkout}
+          />
+          <Route path="/fanportal/popup" component={AlbumPopup} />
+          <Route path="/music" component={MusicPlayer} />
+          <Route path="/logout" component={Logout} />
+          {/* Route for Stripe Cancellation */}
+          {/* <ProtectedRoute
+            exact={true}
+            path="/cancel"
+            component={}
+          /> */}
+          <Route
+            path="*"
+            render={(props) => (
+              <NotFound
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
         </Switch>
       </Suspense>
     </div>

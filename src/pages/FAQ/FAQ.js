@@ -1,8 +1,8 @@
 import { React, useState } from "react";
-import FAQNavbar from "../../components/Navbars/FAQ/FAQNavbar";
+import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
-import spotlight from "../../assets/images/spotlight2.png";
+// import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
 import dropdown from "../../assets/images/double-down.svg";
 
@@ -11,8 +11,6 @@ import dropdown from "../../assets/images/double-down.svg";
 //useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
 
 function FAQ(props) {
-  console.log(props);
-
   const [question1, setQuestion1] = useState(false);
   const [question2, setQuestion2] = useState(false);
   const [question3, setQuestion3] = useState(false);
@@ -28,13 +26,16 @@ function FAQ(props) {
 
   return (
     <section id="faq">
-      <FAQNavbar />
-      <h1>
+      <Navbar
+        showLoginPopup={props.setTrigger}
+        showSignUpPopUp={props.showSignUp}
+      />
+      {/* <h1>
         <div>FAQ</div>
         <div>
           <img src={spotlight} alt="spotlight" />
         </div>
-      </h1>
+      </h1> */}
 
       <div className="faq-content">
         <h5 onClick={() => setQuestion1(!question1)}>

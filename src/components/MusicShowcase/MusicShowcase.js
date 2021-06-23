@@ -1,38 +1,107 @@
-import { React, Suspense, lazy } from "react";
+import { React, Suspense, lazy, useState, useEffect } from "react";
+import axios from "axios";
+import ComponentLoading from "../../components/Loading/ComponentLoading";
 import ReminderBackground from "../Background/ReminderBackground";
 import ReminderBackground2 from "../Background/ReminderBackground2";
 import ReminderBackground3 from "../Background/ReminderBackground3";
+import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
+import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 
+//Promise
+//release
+//loop through
+
 function MusicShowcase() {
+  const [displayReleases, setDisplayReleases] = useState("");
+  const [releaseInfo, setReleaseInfo] = useState(false);
+  const token = localStorage.getItem("token");
+  const baseURL =
+    "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+  // const testURL = "https://jsonplaceholder.typicode.com";
+  useEffect(() => {
+    axios({
+      method: "get",
+      // url: `${testURL}/users`,
+      url: `${baseURL}/releases`,
+      headers: {
+        "x-access-token": token,
+      },
+    })
+      .then((res) => {
+        handleSuccess(res);
+      })
+      .catch((err) => {
+        handleFailure(err);
+      });
+
+    const handleSuccess = (res) => {
+      console.log(res.data.releases);
+      // let releases = res.data.releases;
+      //Main Function - looping through response, displaying response in Homepage Releases section & creating individual "ReleasePreview"s
+      // let displayAllReleases = releases.map((release) => {
+      //   //Toggle to Close ReleasePreview
+      //   // const closeReleaseInfo = () => {
+      //   //   setReleaseInfo(!releaseInfo);
+      //   // };
+      //   //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
+      //   // const showReleaseInfo = (release) => {
+      //   //   setReleaseInfo(
+      //   //     <ReleasePreview
+      //   //       toggleClose={closeReleaseInfo}
+      //   //       name={release.name}
+      //   //     />
+      //   //   );
+      //   // };
+      //   return release ? (
+      //     <div
+      //       onClick={() => showReleaseInfo(release)}
+      //       key={`${"release-container" + release.id}`}
+      //       className="release-divs"
+      //     >
+      //       <div>{release.name}</div>
+      //     </div>
+      //   ) : (
+      //     <div className="loading-animation">
+      //       <ComponentLoading />
+      //     </div>
+      //   );
+      // });
+      // //This Hook displays return/result of main function in "Releases"
+      // setDisplayReleases(displayAllReleases);
+    };
+    const handleFailure = (err) => {
+      console.log(err);
+    };
+  }, [releaseInfo, token]);
+
   return (
     <section id="music-showcase">
       <ReminderBackground2 />
       <ReminderBackground3 />
       <ReminderBackground />
 
-      <h1>MUSIC SHOWCASE</h1>
-      <p className="show-case-p">
-        Browse our current and upcoming releases. <br />
-        Click on a title for more details
-      </p>
-      <div className="showcase-grid-desktop">
-        <div className="albums">1</div>
-        <div className="albums">2</div>
-        <div className="albums">3</div>
-        <div className="albums">4</div>
-        <div className="albums">5</div>
-        <div className="albums">6</div>
-        <div className="albums">7</div>
-        <div className="albums">8</div>
-        <div className="albums">9</div>
-        <div className="albums">10</div>
-      </div>
-      <div className="showcase-grid-mobile">
-        <Suspense>
-          <LibrarySwiper />
-        </Suspense>
+      <div className="music-showcase-container">
+        <div className="content-container">
+          <h1>RELEASES</h1>
+          <p className="show-case-p">
+            Browse our current and upcoming releases. <br />
+            Click on a title for more details
+          </p>
+          <div className="showcase-grid-desktop">
+            <div className="displayed-releases">
+              <ReleaseCalendar />
+              {/* {displayReleases}
+              <div className="release-popup">{releaseInfo}</div> */}
+            </div>
+          </div>
+          <div className="showcase-grid-mobile">
+            <Suspense>
+              <LibrarySwiper />
+            </Suspense>
+          </div>
+        </div>
       </div>
     </section>
   );

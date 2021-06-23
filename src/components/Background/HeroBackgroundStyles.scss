@@ -2,44 +2,35 @@
   img {
     width: 100%;
     height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 10;
     filter: drop-shadow(0 0 5px black);
   }
 
-  @media (min-width: 768px) {
-    img {
-      display: none;
-    }
-  }
+  // @media (max-width: 768px) {
+  //   img {
+  //     height: 80%;
+  //   }
+  // }
+  // @media (max-width: 540px) {
+  //   img {
+  //     height: 70%;
+  //   }
+  // }
 
-  @media (max-width: 768px) {
-    img {
-      height: 80%;
-    }
-  }
-  @media (max-width: 540px) {
-    img {
-      height: 70%;
-    }
-  }
+  // @media (max-width: 415px) {
+  //   img {
+  //     height: 60%;
+  //   }
+  // }
 
-  @media (max-width: 415px) {
-    img {
-      height: 60%;
-    }
-  }
-
-  @media (max-width: 325px) {
-    img {
-      height: 55%;
-    }
-  }
-  @media (max-width: 300px) {
-    img {
-      height: 60%;
-    }
-  }
+  // @media (max-width: 325px) {
+  //   img {
+  //     height: 55%;
+  //   }
+  // }
+  // @media (max-width: 300px) {
+  //   img {
+  //     height: 60%;
+  //   }
+  // }
 }
