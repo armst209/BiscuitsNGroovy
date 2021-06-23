@@ -12,14 +12,14 @@ function FPHomePage(props) {
   useEffect(() => {
     //Request for Browse
     const token = localStorage.getItem("token");
-    // const baseURL =
-    //   "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
-    const testURL = "https://jsonplaceholder.typicode.com";
+    const baseURL =
+      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    // const testURL = "https://jsonplaceholder.typicode.com";
 
     axios({
       method: "get",
-      url: `${testURL}/users`,
-      // url: `${baseURL}/releases`,
+      // url: `${testURL}/users`,
+      url: `${baseURL}/releases`,
       headers: {
         "x-access-token": token,
       },
@@ -34,8 +34,8 @@ function FPHomePage(props) {
     //Request for Library
     axios({
       method: "get",
-      url: `${testURL}/users`,
-      // url: `${baseURL}/releases`,
+      // url: `${testURL}/users`,
+      url: `${baseURL}/releases`,
       headers: {
         "x-access-token": token,
       },
@@ -48,36 +48,38 @@ function FPHomePage(props) {
       });
 
     const handleLibrarySuccess = (res) => {
-      let albums = res.data;
+      let releases = res.data.releases;
       //Main Function - looping through response, displaying repsonse in "Your Library" & creating individual "AlbumPopup"s
-      let showAllAlbumCovers = albums.map((album) => {
+      let showAllAlbumCovers = releases.map((release) => {
         //Toggle to Close AlbumPopUp
         const closeAlbumInfo = () => {
           setAlbumInfo(!albumInfo);
         };
         //Set albumInfo Hook and displays each "album" information inside "Your Library"
-        const showAlbumInfo = (album) => {
+        const showAlbumInfo = (release) => {
+          console.log(release);
           setAlbumInfo(
             <AlbumPopup
               toggle={closeAlbumInfo}
-              name={album.name}
-              price={album.phone}
-              description={album.address.city}
+              name={release.name}
+              price={release.price}
+              description={release.description}
+              images={[release.art_url]}
             />
           );
         };
         //Return - what's currently being displayed in the "Your Library" section through Hooks
-        return album ? (
+        return release ? (
           <div
-            onClick={() => showAlbumInfo(album)}
+            onClick={() => showAlbumInfo(release)}
             className={` ${"view-album-cover"}`}
-            key={`${"album-container" + album.id}`}
+            key={`${"album-container" + release.id}`}
           >
             <div>
-              {/* <img src={album.art_url} alt={album.name} /> */}
-              <div>{album.name}</div>
-              <div>{album.address.city}</div>
-              <div>{album.phone}</div>
+              <img src={release.art_url} alt={release.name} />
+              <div>{release.name}</div>
+              <div>{release.description}</div>
+              <div>{release.price}</div>
             </div>
           </div>
         ) : (

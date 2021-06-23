@@ -42,7 +42,7 @@ const productImages = [
 console.log(productImages[0]);
 const productPrice = 10.0;
 const productName = "Kanye Album";
-const ProductDisplay = ({ handleClick, product }) => (
+const ProductDisplay = ({ handleClick, props }) => (
   <section>
     <div className="product">
       {/* <img src={productImages[0]} alt="product" />
@@ -68,7 +68,7 @@ const Message = ({ message }) => (
   </section>
 );
 
-export default function CheckoutButton(product) {
+export default function CheckoutButton(props) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -90,20 +90,23 @@ export default function CheckoutButton(product) {
     const stripe = await stripePromise;
     const URL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
-    const response = await fetch(URL, {
+    console.log(props.name);
+    console.log(props.images);
+    console.log(props.price);
+    const response = await axios(URL, {
       method: "POST",
       data: {
-        productName: productName,
-        productImages: productImages,
-        productPrice: productPrice,
+        productName: props.name,
+        productImages: props.images,
+        productPrice: parseInt(props.price*100),
       },
     });
-
-    const session = await response.json();
+    console.log(response);
+    const sessionId = await response.data.id;
 
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
+      sessionId: sessionId,
     });
 
     if (result.error) {
@@ -116,6 +119,6 @@ export default function CheckoutButton(product) {
   return message ? (
     <Message message={message} />
   ) : (
-    <ProductDisplay handleClick={handleClick} product={product} />
+    <ProductDisplay handleClick={handleClick} props={props} />
   );
 }

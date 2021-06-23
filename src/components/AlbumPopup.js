@@ -1,6 +1,6 @@
 import React from "react";
 import "./AlbumPopupStyles.scss";
-import Checkout from "../pages/Payment/Checkout";
+import CheckoutButton from "../pages/Payment/Checkout";
 import MusicPlayer from "../components/MusicPlayer/MusicPlayer";
 
 function AlbumPopup(props) {
@@ -19,7 +19,7 @@ function AlbumPopup(props) {
           <div>{props.price}</div>
           <div>
             <div>
-              <Checkout albumName={props.name} albumPrice={props.price} />
+              <CheckoutButton name={props.name} price={props.price} description={props.description} images={props.images} />
             </div>
             <div className="music-player">
               <MusicPlayer />
