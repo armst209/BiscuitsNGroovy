@@ -4,7 +4,6 @@ import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
 import "./FanPortalStyles.scss";
 import Footer from "../../../../components/Footer/Footer";
 import Navbar from "../../../../components/Navbars/MainNavigation/MainNavigation";
-import AlbumPreview from "../../../../components/AlbumPreview/AlbumPreview";
 
 function FanPortal(props) {
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger
@@ -18,7 +17,7 @@ function FanPortal(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <FPHomepage setTrigger={showAlbumDetails} />
-      <AlbumPreview trigger={albumDetails} setTrigger={showAlbumDetails} />
+      {/* <ReleasePreview trigger={albumDetails} setTrigger={showAlbumDetails} /> */}
       <Footer />
     </section>
   );

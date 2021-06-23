@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./MainNavigationStyles.scss";
+import Logout from "../../../pages/Logout/Logout";
 import logo from "../../../assets/images/newlogo.svg";
 import user_image from "../../../assets/images/user_white.webp";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
@@ -13,6 +14,7 @@ function HomepageNavbar(props) {
   const [passedProps] = useState(props);
   const [showDropDown, setShowDropDown] = useState(false);
   const [homeNavId, setHomeNavId] = useState("homepage-navigation");
+  const [loggedOut, setLoggedOut] = useState(false);
   const isAuthenticated = localStorage.getItem("token");
   //Navbar scrolling
   const navbarClasses = ["nav"];
@@ -27,7 +29,14 @@ function HomepageNavbar(props) {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
-    window.location.replace("http://localhost:3000/home");
+    setShowDropDown(false);
+    setTimeout(() => {
+      setLoggedOut(!loggedOut);
+    }, 500);
+
+    setTimeout(() => {
+      window.location.replace("http://localhost:3000/home");
+    }, 3000);
   };
   useEffect(() => {
     //Menu Dropdown Function
@@ -160,6 +169,7 @@ function HomepageNavbar(props) {
             ""
           )}
         </div>
+        <div>{loggedOut ? <Logout /> : ""}</div>
       </header>
     </div>
   );
