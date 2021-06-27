@@ -4,7 +4,7 @@ import ComponentLoading from "../../components/Loading/ComponentLoading";
 import ReminderBackground from "../Background/ReminderBackground";
 import ReminderBackground2 from "../Background/ReminderBackground2";
 import ReminderBackground3 from "../Background/ReminderBackground3";
-import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
+// import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
@@ -91,7 +91,7 @@ function MusicShowcase() {
           </p>
           <div className="showcase-grid-desktop">
             <div className="displayed-releases">
-              <ReleaseCalendar />
+              {/* <ReleaseCalendar /> */}
               {/* {displayReleases}
               <div className="release-popup">{releaseInfo}</div> */}
             </div>

@@ -13,11 +13,11 @@ const SignUp = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSignUp = (res) => {
-    let token = res.data.token;
+    const token = res.data.token;
     if (token) {
-      props.history.push("/home");
+      window.location.replace("http://localhost:3000/home");
     } else {
-      alert("something was input incorrectly");
+      alert("A token was not set, please try signing up again.");
     }
   };
 
@@ -37,11 +37,9 @@ const SignUp = (props) => {
       })
       .catch((err) => {
         console.log(err);
-        if (err) {
-          setErrorMessage(
-            "Username or Password has already been taken. Please input different information"
-          );
-        }
+        setErrorMessage(
+          "Username or Password has already been taken. Please input different information"
+        );
       });
   };
 

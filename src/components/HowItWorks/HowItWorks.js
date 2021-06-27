@@ -7,7 +7,6 @@ import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
 import collect from "../../assets/images/headphones2.svg";
 import bottomWave from "../../assets/images/blackslant2.svg";
-import iphone_listen from "../../assets/images/iphone-listen.jpg";
 import light_upward from "../../assets/images/light_upward.svg";
 
 function HowItWorks() {
@@ -16,12 +15,9 @@ function HowItWorks() {
   const [content3, setContent3] = useState(false);
   return (
     <section id="how-it-works">
-      {/* <img className="small-slant" src={bgImage} alt="background" /> */}
-
       <div className="how-it-works-container">
-        <div className="box-image">
+        <div className="box-title">
           <h1>HOW IT WORKS</h1>
-          <img src={iphone_listen} alt="listening" />
         </div>
         <div className="boxes">
           <div className="box" onClick={() => setContent1(!content1)}>
@@ -38,11 +34,11 @@ function HowItWorks() {
                   </div>
                 </div>
                 <div className="content">
-                  <img
+                  {/* <img
                     className="light-upward"
                     src={light_upward}
                     alt="light"
-                  />
+                  /> */}
                   <div>
                     We partner with trendsetting artists to debut their new
                     music exclusively on Biscuits n Groovy. Show your loyalty
@@ -66,12 +62,12 @@ function HowItWorks() {
                   </div>
                 </div>
                 <div className="content">
-                  <p>
+                  <div>
                     We're not another unlimited subscription. Buy the music you
                     can't wait to hear, and stream with us before it drops
                     anywhere else. Get it while it’s hot, since it’s only on BnG
                     for a limited time.
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -90,13 +86,13 @@ function HowItWorks() {
                 </div>
 
                 <div className="content">
-                  <p>
+                  <div>
                     After our streaming period ends, you keep a limited-edition
                     digital album cover NFT. Stored on the blockchain, these
                     assets let you own a piece of music history and{" "}
                     <em>prove</em> you’re a top fan. Build your library and show
                     it off!
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@
   .light-right {
     width: 40px;
     top: 1%;
-    right: 1%;
+    right: 5%;
     position: absolute;
     transform: rotateZ(-130deg);
     @media (max-width: 1020px) {
@@ -32,7 +32,7 @@
   .light-left {
     width: 40px;
     top: 1%;
-    left: 1%;
+    left: 5%;
     position: absolute;
     transform: rotateZ(130deg);
     @media (max-width: 1020px) {
@@ -52,7 +52,7 @@
   .artist-reminder {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -63,20 +63,23 @@
       justify-content: left;
       align-items: center;
       color: black;
-      padding: 0 50px;
+      padding: 2rem 1rem;
+
       letter-spacing: 0.5px;
-      line-height: 30px;
-      width: 50%;
+
       h1 {
-        font-size: 3rem;
+        font-size: 2rem;
+        text-align: center;
       }
 
       p {
-        text-align: left;
-        padding: 2rem 0;
+        text-align: center;
+        width: 100%;
+        padding: 2rem 0 1rem 0;
       }
 
       a {
+        width: 100%;
         text-decoration: none;
         &:visited {
           color: black;
@@ -91,6 +94,7 @@
           font-size: 1rem;
           cursor: pointer;
           color: black;
+          margin-bottom: 1rem;
           &:hover {
             transition: 0.2s ease;
             transform: scale(1.05);
@@ -102,7 +106,6 @@
     }
 
     .artist-image {
-      width: 50%;
     }
   }
 }

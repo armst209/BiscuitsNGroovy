@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import Logout from "../../../pages/Logout/Logout";
-import logo from "../../../assets/images/newlogo.svg";
+import logo from "../../../assets/images/bng_logo.svg";
+import mobile_logo from "../../../assets/images/bng_mobile_logo.svg";
 import user_image from "../../../assets/images/user_white.webp";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
 
@@ -84,8 +85,11 @@ function HomepageNavbar(props) {
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">
-              <Link to="/home">
-                <img className="bg-home" src={logo} alt="logo" />
+              <Link className="bng-home" to="/home">
+                <img src={logo} alt="logo" />
+              </Link>
+              <Link className="bng-home-mobile" to="/home">
+                <img src={mobile_logo} alt="logo" />
               </Link>
             </div>
 
@@ -93,13 +97,35 @@ function HomepageNavbar(props) {
             <div className="desktop-navlinks-home">
               <ul className="general-links-home">
                 <li>
-                  <Link to="/">Home</Link>
+                  <NavLink
+                    activeStyle={{
+                      color: "var(--color1)",
+                    }}
+                    to="/home"
+                  >
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/about">About</Link>
+                  <NavLink
+                    activeStyle={{
+                      color: "var(--color1)",
+                      // textDecoration: "2px underline var(--color1)",
+                    }}
+                    to="/about"
+                  >
+                    About
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/faq">FAQ</Link>
+                  <NavLink
+                    activeStyle={{
+                      color: "var(--color1)",
+                    }}
+                    to="/faq"
+                  >
+                    FAQ
+                  </NavLink>
                 </li>
               </ul>
               <ul className="middle-links-home">
@@ -107,7 +133,14 @@ function HomepageNavbar(props) {
               </ul>
               <ul className="login-links-home">
                 <li>
-                  <Link to="/artists">For Artists</Link>
+                  <NavLink
+                    activeStyle={{
+                      color: "var(--color1)",
+                    }}
+                    to="/artists"
+                  >
+                    Artists
+                  </NavLink>
                 </li>
                 <li>{isLoggedIn}</li>
                 <li
@@ -116,7 +149,6 @@ function HomepageNavbar(props) {
                 >
                   <button>Sign Up</button>
                 </li>
-                {/* <li>Modal</li> */}
               </ul>
             </div>
 
@@ -136,16 +168,44 @@ function HomepageNavbar(props) {
 
                 <ul>
                   <li>
-                    <Link to="/">Home</Link>
+                    <NavLink
+                      activeStyle={{
+                        color: "var(--color1)",
+                      }}
+                      to="/home"
+                    >
+                      Home
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/about">About</Link>
+                    <NavLink
+                      activeStyle={{
+                        color: "var(--color1)",
+                      }}
+                      to="/about"
+                    >
+                      About
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/faq">FAQ</Link>
+                    <NavLink
+                      activeStyle={{
+                        color: "var(--color1)",
+                      }}
+                      to="/faq"
+                    >
+                      FAQ
+                    </NavLink>
                   </li>
                   <li className="login-status-home">
-                    <Link to="/fanportal">Your Portal</Link>
+                    <NavLink
+                      activeStyle={{
+                        color: "var(--color1)",
+                      }}
+                      to="/fanportal"
+                    >
+                      Portal
+                    </NavLink>
                   </li>
                   <li>
                     <Link to="/artists">Artists</Link>

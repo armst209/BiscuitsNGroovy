@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { wrapHistory } from "oaf-react-router";
+// import { BrowserRouter as Router } from "react-router-dom";
+// import ScrollToTop from "./ScrollToTop/ScrollToTop";
+
 import App from "./App";
 
+const history = createBrowserHistory(); // or createHashHistory()
+wrapHistory(history);
+
 ReactDOM.render(
-  // onUpdate={() => window.scrollTo(0, 0)}
-  <BrowserRouter>
+  // <BrowserRouter> </BrowserRouter>
+  <Router history={history}>
     <App />
-  </BrowserRouter>,
+  </Router>,
   document.getElementById("root")
 );

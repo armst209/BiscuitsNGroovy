@@ -86,8 +86,8 @@ function App() {
               />
             )}
           />
-          <Route path="/release-preview" component={ReleasePreview} />
-          <ProtectedRoute
+
+          <Route
             exact={true}
             path="/fanportal"
             render={(props) => (
@@ -115,9 +115,12 @@ function App() {
             path="/fanportal/checkout"
             component={Checkout}
           />
+
+          {/* Route Testing */}
           <Route path="/fanportal/popup" component={AlbumPopup} />
           <Route path="/music" component={MusicPlayer} />
           <Route path="/logout" component={Logout} />
+          <Route path="/release-preview" component={ReleasePreview} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}
