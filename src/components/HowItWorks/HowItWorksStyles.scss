@@ -4,7 +4,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: var(--bg-color);
+  padding-bottom: 5rem;
+
   // padding-top: 2rem;
 
   // border-top: 5px solid var(--color1);
@@ -15,6 +17,7 @@
     flex-direction: column;
     padding: 2rem 0;
     width: 100%;
+
     .box-title {
       display: flex;
       flex-direction: column;
@@ -28,6 +31,7 @@
         font-size: 2rem;
         width: 100%;
         padding-bottom: 2rem;
+        color: white;
       }
     }
     .boxes {
@@ -48,12 +52,11 @@
         justify-content: center;
         // flex-grow: 1;
         align-items: center;
-        width: 250px;
-        height: 500px;
+        width: 450px;
 
         // background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-        background: black;
-        border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+        // background: black;
+        // border-color: rgba(209, 213, 219, var(--tw-border-opacity));
         border-width: 1px;
         color: white;
         font-family: var(--font1);
@@ -62,7 +65,7 @@
         position: relative;
         cursor: pointer;
         // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-        box-shadow: 0 16px 20px 0 rgb(232 228 234 / 50%);
+        // box-shadow: 0 16px 20px 0 rgb(232 228 234 / 50%);
 
         h3 {
           text-align: center;
@@ -84,7 +87,7 @@
 
             .icon-headers {
               padding: 2rem 0 1rem 0;
-              border-bottom: 2px solid var(--color1);
+              // border-bottom: 2px solid var(--color1);
               .headers {
                 display: flex;
                 flex-direction: column;
@@ -107,7 +110,7 @@
                 align-items: center;
                 padding: 1rem;
                 img {
-                  width: 40%;
+                  width: 176px;
                 }
               }
             }
@@ -117,7 +120,7 @@
               justify-content: center;
               align-items: center;
               padding: 1rem;
-              color: white;
+
               font-family: var(--font2);
               font-weight: bold;
               letter-spacing: 0.01cm;

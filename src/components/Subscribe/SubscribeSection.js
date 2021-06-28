@@ -6,7 +6,9 @@ function SubscribeSection() {
     <section id="subscribe">
       <h1>KEEP IN TOUCH WITH US</h1>
       <form action="">
-        <label htmlFor="email"></label>
+        <label htmlFor="name" />
+        <input type="text" name="name" placeholder="Please enter your name" />
+        <label htmlFor="email" />
         <input
           type="email"
           name="email"

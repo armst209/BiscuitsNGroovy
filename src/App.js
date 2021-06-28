@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 import Logout from "./pages/Logout/Logout";
+import Carousel from "./components/MusicShowcase/ReleasesCarousel";
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -118,6 +119,7 @@ function App() {
 
           {/* Route Testing */}
           <Route path="/fanportal/popup" component={AlbumPopup} />
+          <Route path="/carousel" component={Carousel} />
           <Route path="/music" component={MusicPlayer} />
           <Route path="/logout" component={Logout} />
           <Route path="/release-preview" component={ReleasePreview} />

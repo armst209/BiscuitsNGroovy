@@ -4,6 +4,7 @@ import "./SocialMediaStyles.scss";
 const SocialMedia = () => {
   return (
     <div className="social-media">
+      <h4>Connect With Us</h4>
       <ul>
         <li>
           <a href="https://www.instagram.com/bngroovymusic/">

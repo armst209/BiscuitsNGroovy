@@ -18,8 +18,13 @@ function Homepage(props) {
       <Hero />
       <HowItWorks />
       <MusicShowcase />
-      <ReminderSection />
-      <SubscribeSection />
+      <div className="reminder-subscribe">
+        <div className="reminder-subscribe-wrapper">
+          <ReminderSection />
+          <SubscribeSection />
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

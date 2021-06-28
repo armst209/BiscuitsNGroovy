@@ -92,7 +92,6 @@
 
     .nav-home {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 0;
@@ -124,19 +123,28 @@
           height: 100%;
           display: none;
           background: white;
-          @media screen and (min-width: 768px) {
+          @media screen and (min-width: 769px) {
             display: flex;
+            width: 50%;
           }
         }
         .bng-home-mobile {
           justify-content: left;
           align-items: center;
-          width: 50%;
+          width: 40%;
           height: 100%;
           display: none;
+          border: white 2px solid;
 
           @media screen and (max-width: 768px) {
+            width: 20%;
             display: flex;
+          }
+          @media screen and (max-width: 540px) {
+            width: 25%;
+          }
+          @media screen and (max-width: 285px) {
+            width: 35%;
           }
         }
       }
@@ -147,10 +155,10 @@
         align-items: center;
         height: 100%;
         z-index: 9999;
-
         @media (max-width: 770px) {
           display: none;
         }
+
         .general-links-home {
           display: flex;
           padding: 0;
@@ -189,7 +197,7 @@
         .login-links-home {
           display: flex;
           flex-direction: row;
-          justify-content: space-evenly;
+          justify-content: center;
           align-items: center;
           list-style: none;
           color: white;
@@ -210,6 +218,7 @@
               border-radius: 10px;
               color: black;
               cursor: pointer;
+              width: 100px;
 
               &:hover {
                 color: white;
@@ -238,6 +247,7 @@
           }
         }
       }
+
       label {
         display: flex;
         flex-direction: column;
@@ -291,6 +301,32 @@
             width: 100%;
             height: 100%;
             padding-top: 5rem;
+            .login-btn {
+              font-family: var(--font1);
+              font-size: 3rem;
+              background: none;
+              border: none;
+              color: white;
+            }
+
+            .signup-btn {
+              font-family: var(--font1);
+              font-size: 3rem;
+              padding: 10px;
+              background: var(--color1);
+              border: none;
+              margin-top: 5px;
+              border-radius: 10px;
+              color: black;
+              cursor: pointer;
+
+              &:hover {
+                color: white;
+                background: transparent;
+                transition: 0.2s ease;
+                transform: scale(1.1);
+              }
+            }
 
             li {
               width: 100%;
@@ -479,7 +515,6 @@
 
     .nav-home {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 0;
@@ -511,19 +546,28 @@
           height: 100%;
           display: none;
           background: white;
-          @media screen and (min-width: 768px) {
+          @media screen and (min-width: 769px) {
             display: flex;
+            width: 50%;
           }
         }
         .bng-home-mobile {
           justify-content: left;
           align-items: center;
-          width: 50%;
+          width: 40%;
           height: 100%;
           display: none;
+          border: white 2px solid;
 
           @media screen and (max-width: 768px) {
+            width: 20%;
             display: flex;
+          }
+          @media screen and (max-width: 540px) {
+            width: 25%;
+          }
+          @media screen and (max-width: 285px) {
+            width: 35%;
           }
         }
 
@@ -590,6 +634,20 @@
           color: white;
           width: 100%;
           height: 100%;
+          .login-home-link {
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+
+            // line-height: 22px;
+            a {
+              line-height: 22px;
+
+              &:hover {
+                border-bottom: 3px solid var(--color2);
+              }
+            }
+          }
 
           li {
             cursor: pointer;
@@ -686,7 +744,32 @@
             width: 100%;
             height: 100%;
             padding-top: 5rem;
+            .login-btn {
+              font-family: var(--font1);
+              font-size: 3rem;
+              background: none;
+              border: none;
+              color: white;
+            }
 
+            .signup-btn {
+              font-family: var(--font1);
+              font-size: 3rem;
+              padding: 10px;
+              background: var(--color1);
+              border: none;
+              margin-top: 5px;
+              border-radius: 10px;
+              color: black;
+              cursor: pointer;
+
+              &:hover {
+                color: white;
+                background: transparent;
+                transition: 0.2s ease;
+                transform: scale(1.1);
+              }
+            }
             li {
               width: 100%;
               font-size: 3rem;

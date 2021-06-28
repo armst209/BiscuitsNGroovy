@@ -24,13 +24,12 @@ function HowItWorks() {
             <div className="box-border">
               <div className="box-content">
                 <div className="icon-headers">
+                  <div className="how-icon">
+                    <img src={loveSong} alt="love-icon" />
+                  </div>
                   <div className="headers">
                     <h4>NEW RELEASES</h4>
                     <h6>FOR TRUE FANS ONLY</h6>
-                  </div>
-
-                  <div className="how-icon">
-                    <img src={loveSong} alt="love-icon" />
                   </div>
                 </div>
                 <div className="content">
@@ -53,12 +52,12 @@ function HowItWorks() {
             <div className="box-border">
               <div className="box-content">
                 <div className="icon-headers">
+                  <div className="how-icon">
+                    <img src={voice} alt="voice-icon" />
+                  </div>
                   <div className="headers">
                     <h4>STREAM HERE</h4>
                     <h6>BEFORE THE OTHER GUYS</h6>
-                  </div>
-                  <div className="how-icon">
-                    <img src={voice} alt="voice-icon" />
                   </div>
                 </div>
                 <div className="content">
@@ -76,12 +75,12 @@ function HowItWorks() {
             <div className="box-border">
               <div className="box-content">
                 <div className="icon-headers">
+                  <div className="how-icon">
+                    <img src={collect} alt="collect-icon" />
+                  </div>
                   <div className="headers">
                     <h4>COLLECT & SHARE</h4>
                     <h6> YOUR EXCLUSIVE RECORDS</h6>
-                  </div>
-                  <div className="how-icon">
-                    <img src={collect} alt="collect-icon" />
                   </div>
                 </div>
 
@@ -103,9 +102,9 @@ function HowItWorks() {
         Get answers and learn more about our eco-friendly NFTs on our{" "}
         <Link to="/faq">FAQ</Link> page
       </p>
-      <div className="bottom-tag">
+      {/* <div className="bottom-tag">
         <img src={bottomWave} alt="bottom-wave" className="bottom-wave" />
-      </div>
+      </div> */}
     </section>
   );
 }

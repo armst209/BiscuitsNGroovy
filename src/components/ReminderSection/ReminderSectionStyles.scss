@@ -1,9 +1,4 @@
 #reminder {
-  // border-top: 5px solid black;
-  // border-right: 5px solid black;
-  // border-left: 5px solid black;
-  // border-bottom: 5px solid black;
-  padding: 20px 0 20px 0;
   position: relative;
   font-family: var(--font1);
   font-size: 20px;
@@ -15,7 +10,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: var(--color1);
+  color: white;
 
   .light-right {
     width: 40px;
@@ -48,64 +43,68 @@
   //   position: absolute;
   //   transform: translate(-50, -50);
   // }
-
-  .artist-reminder {
+  .artist-reminder-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
 
-    .artist-message {
+    .artist-reminder {
       display: flex;
       flex-wrap: wrap;
-      justify-content: left;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      color: black;
-      padding: 2rem 1rem;
+      width: 100%;
 
-      letter-spacing: 0.5px;
+      .artist-message {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+        letter-spacing: 0.5px;
 
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-
-      p {
-        text-align: center;
-        width: 100%;
-        padding: 2rem 0 1rem 0;
-      }
-
-      a {
-        width: 100%;
-        text-decoration: none;
-        &:visited {
-          color: black;
+        h1 {
+          font-size: 2rem;
+          text-align: center;
         }
-        button {
-          border: 2px solid black;
-          background: transparent;
-          width: 200px;
-          height: 70px;
-          border-radius: 10px;
-          font-family: var(--font1);
-          font-size: 1rem;
-          cursor: pointer;
-          color: black;
-          margin-bottom: 1rem;
-          &:hover {
-            transition: 0.2s ease;
-            transform: scale(1.05);
-            background: black;
+
+        p {
+          text-align: center;
+          width: 100%;
+          padding: 2rem 0 1rem 0;
+          font-size: 0.9rem;
+        }
+
+        a {
+          width: 100%;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:visited {
             color: white;
+          }
+          button {
+            border: 2px solid white;
+            background: transparent;
+            width: 200px;
+            height: 70px;
+            border-radius: 10px;
+            font-family: var(--font1);
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            margin-bottom: 1rem;
+            &:hover {
+              transition: 0.2s ease;
+              transform: scale(1.05);
+              background: black;
+              color: white;
+            }
           }
         }
       }
-    }
-
-    .artist-image {
     }
   }
 }

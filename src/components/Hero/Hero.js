@@ -1,7 +1,6 @@
 import { React } from "react";
 import "./HeroStyles.scss";
 import { Link } from "react-router-dom";
-import SoundBars from "../SoundBars/SoundBar";
 import DesktopBackground from "../Background/DesktopBackground";
 import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundRight";
 import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
@@ -37,26 +36,21 @@ function Hero(props) {
             </div>
           </div>
 
-          {/* <div className="hero-images"> */}
-          <HeroSpotlightBackgroundLeft />
-          <HeroSpotlightBackgroundRight />
-          {/* <div className="hero-image-container">
+          <div className="hero-images">
+            {/* <HeroSpotlightBackgroundLeft />
+          <HeroSpotlightBackgroundRight /> */}
+            <div className="hero-image-container">
               <DesktopBackground />
-
-           
             </div>
-
             <div className="featured">
               <h1>
                 <div>Featured Artist: Kanye West</div>
-
-                <div>
+                {/* <div>
                   <img src={spotlight} alt="spotlight" />
-                </div>
+                </div> */}
               </h1>
             </div>
-            <SoundBars /> */}
-          {/* </div> */}
+          </div>
         </div>
       </div>
       {/* <HeroBackground /> */}

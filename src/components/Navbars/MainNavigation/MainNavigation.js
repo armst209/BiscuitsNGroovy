@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import Logout from "../../../pages/Logout/Logout";
-import logo from "../../../assets/images/bng_logo.svg";
+import logo from "../../../assets/images/Website Header.jpg";
 import mobile_logo from "../../../assets/images/bng_mobile_logo.svg";
 import user_image from "../../../assets/images/user_white.webp";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
@@ -57,7 +57,9 @@ function HomepageNavbar(props) {
       );
     } else {
       setIsLoggedIn(
-        <div onClick={() => passedProps.showLoginPopup(true)}>Login</div>
+        <NavLink to="" onClick={() => passedProps.showLoginPopup(true)}>
+          Login
+        </NavLink>
       );
     }
 
@@ -127,11 +129,6 @@ function HomepageNavbar(props) {
                     FAQ
                   </NavLink>
                 </li>
-              </ul>
-              <ul className="middle-links-home">
-                <li>|</li>
-              </ul>
-              <ul className="login-links-home">
                 <li>
                   <NavLink
                     activeStyle={{
@@ -142,7 +139,12 @@ function HomepageNavbar(props) {
                     Artists
                   </NavLink>
                 </li>
-                <li>{isLoggedIn}</li>
+              </ul>
+              <ul className="middle-links-home">
+                <li>|</li>
+              </ul>
+              <ul className="login-links-home">
+                <li className="login-home-link">{isLoggedIn}</li>
                 <li
                   className={signUpClassName}
                   onClick={() => props.showSignUpPopUp(true)}
@@ -208,7 +210,23 @@ function HomepageNavbar(props) {
                     </NavLink>
                   </li>
                   <li>
-                    <Link to="/artists">Artists</Link>
+                    <NavLink
+                      activeStyle={{
+                        color: "var(--color1)",
+                      }}
+                      to="/artists"
+                    >
+                      Artists
+                    </NavLink>
+                  </li>
+                  <li>
+                    <button className="login-btn">{isLoggedIn}</button>
+                  </li>
+                  <li
+                    className={signUpClassName}
+                    onClick={() => props.showSignUpPopUp(true)}
+                  >
+                    <button className="signup-btn">Sign Up</button>
                   </li>
                 </ul>
               </aside>

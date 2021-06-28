@@ -7,6 +7,7 @@ import ReminderBackground3 from "../Background/ReminderBackground3";
 // import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
+import ReleasesCarousel from "./ReleasesCarousel";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 
 //Promise
@@ -78,9 +79,9 @@ function MusicShowcase() {
 
   return (
     <section id="music-showcase">
-      <ReminderBackground2 />
+      {/* <ReminderBackground2 />
       <ReminderBackground3 />
-      <ReminderBackground />
+      <ReminderBackground /> */}
 
       <div className="music-showcase-container">
         <div className="content-container">
@@ -97,8 +98,8 @@ function MusicShowcase() {
             </div>
           </div>
           <div className="showcase-grid-mobile">
-            <Suspense>
-              <LibrarySwiper />
+            <Suspense fallback={<ComponentLoading />}>
+              {/* <ReleasesCarousel /> */}
             </Suspense>
           </div>
         </div>
