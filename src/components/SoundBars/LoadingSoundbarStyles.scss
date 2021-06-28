@@ -1,7 +1,7 @@
-$margin: 10px;
-$width: 20px;
+$margin: 30px;
+$width: 30px;
 $num-dots: 10;
-$initial-height: $width;
+$initial-height: 300px;
 $desired-height: 200px;
 
 #sound-bar {
@@ -15,8 +15,9 @@ $desired-height: 200px;
   background-color: black;
 
   .container {
-    width: 10 * ($width + $margin) - $margin;
-    height: 20px;
+    // width: 10 * ($width + $margin) - $margin;
+    width: 32%;
+    height: 300px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -35,12 +36,9 @@ $desired-height: 200px;
       position: absolute;
       width: $width;
       height: $initial-height;
-      background: #ff0000;
-      // border-top-right-radius: 50px;
-      // border-top-left-radius: 50px;
-      // border-bottom-right-radius: 50px;
-      // border-bottom-left-radius: 50px;
-      animation: scale 2s infinite, rainbow 10s infinite;
+      background: var(--color2);
+
+      animation: scale 2s infinite;
     }
 
     @for $i from 1 through $num-dots {
@@ -57,7 +55,6 @@ $desired-height: 200px;
       20% {
         height: $desired-height;
         transform: translate(0, -60%);
-        // background-color: #fff;
       }
       70% {
         height: $initial-height;

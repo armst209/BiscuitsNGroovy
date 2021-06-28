@@ -123,6 +123,7 @@ function App() {
           <Route path="/music" component={MusicPlayer} />
           <Route path="/logout" component={Logout} />
           <Route path="/release-preview" component={ReleasePreview} />
+          <Route path="/loading" component={Loading} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}
