@@ -8,11 +8,18 @@ $desired-height: 200px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   border-top: 5px solid var(--color1);
   position: relative;
   // z-index: 0;
   background-color: black;
+  img {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   .container {
     // width: 10 * ($width + $margin) - $margin;

@@ -1,12 +1,11 @@
 .hero-spotlight-right {
-  display: none;
   img {
-    width: 55%;
+    width: 45%;
     height: 90%;
     position: absolute;
-    top: 55%;
-    left: 75%;
-    transform: translate(-50%, -50%) rotateZ(0);
+    top: -7%;
+    left: 85%;
+    transform: translate(-50%, -50%) rotateZ(200deg);
     filter: drop-shadow(0 0 10px black);
     z-index: 0;
 

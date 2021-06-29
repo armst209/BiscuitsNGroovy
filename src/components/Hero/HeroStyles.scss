@@ -1,25 +1,56 @@
 #hero {
   display: flex;
   flex-direction: column;
-  position: relative;
+  justify-content: center;
+  align-items: center;
   z-index: 0;
   width: 100%;
   height: 100vh;
   padding: 0;
   margin: 0;
-  // background-size: fill;
-  // background: url("../../assets/images/kanye-west-fan-climbs-floating-stage.jpg")
-  //   no-repeat var(--bg-color);
-  background: black;
+  background-size: fill;
+  background: url("../../assets/images/kanye-west-fan-climbs-floating-stage.jpg")
+    no-repeat;
+
+  // @media screen and (min-width: 1400px) {
+  //   height: 100vh;
+  // }
+  @media screen and (orientation: landscape) and(max-device-width: 768px) {
+    padding-top: 3rem;
+    height: 450px;
+  }
+  //Iphone 5
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    height: 750px;
+  }
+  //Ipad Pro
+  @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    height: 850px;
+  }
 
   .hero-container {
     width: 100%;
-    height: 100vh;
+    height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.74);
-    padding-top: 5rem;
+
+    @media screen and (min-width: 769px) {
+      padding-top: 4.4rem;
+    }
+
+    @media screen and (orientation: landscape) and (max-device-width: 768px) {
+      height: 450px;
+    }
+    //Ipad
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+      height: 100vh;
+    }
+    //Ipad Pro
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+      height: 850px;
+    }
 
     .hero-main {
       position: relative;
@@ -68,26 +99,109 @@
           @media screen and (min-width: 769px) {
             align-items: flex-start;
           }
-          h1 {
-            font-size: 3.5rem;
-            font-family: var(--font1);
+          .h1-wrapper {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            @media screen and (orientation: landscape) and (max-device-width: 550px) {
+              flex-direction: column;
+            }
+            h1 {
+              font-size: 3.5rem;
+              font-family: var(--font1);
 
-            @media screen and (min-width: 1100px) {
-              font-size: 6rem;
+              @media screen and (orientation: landscape) and (max-device-width: 768px) {
+                font-size: 2rem;
+              }
+
+              @media screen and (min-width: 1100px) {
+                font-size: 6rem;
+              }
+              @media screen and (max-width: 1099px) {
+                font-size: 4rem;
+                line-height: 4rem;
+              }
+              @media screen and (max-width: 300px) {
+                font-size: 3rem;
+                line-height: 3rem;
+              }
             }
-            @media screen and (max-width: 1099px) {
-              font-size: 4rem;
-              line-height: 4rem;
+
+            .new-music {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              width: 100%;
+              //Ipad
+              @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+                align-items: center;
+              }
+              //Ipad Pro
+              @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+                align-items: flex-start;
+              }
+              @media screen and (orientation: landscape) and (max-device-width: 768px) {
+                flex-direction: row;
+                align-items: center;
+              }
+              @media screen and (orientation: portrait) and (max-device-width: 768px) {
+                align-items: center;
+              }
+              .h1-new {
+                @media screen and (orientation: landscape) and (max-device-width: 768px) {
+                  padding-right: 10px;
+                }
+                @media screen and (orientation: portrait) and (max-device-width: 768px) {
+                  padding-right: 0;
+                }
+              }
             }
-            @media screen and (max-width: 300px) {
-              font-size: 3rem;
-              line-height: 3rem;
+            .is-our-jam {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              @media screen and (orientation: landscape) and (max-device-width: 768px) {
+                flex-direction: row;
+              }
+              .is-our {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                @media screen and (orientation: landscape) and (max-device-width: 768px) {
+                  padding-right: 10px;
+                }
+                @media screen and (orientation: portrait) and (max-device-width: 768px) {
+                  padding-right: 0;
+                }
+                .is-h1 {
+                  padding-right: 10px;
+                }
+              }
+              .jam {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                @media screen and (orientation: portrait) and (max-device-width: 768px) {
+                  justify-content: center;
+                }
+                //Ipad
+                @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+                  justify-content: center;
+                }
+                //Ipad Pro
+                @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+                  justify-content: flex-start;
+                }
+              }
             }
           }
+
           h3 {
             font-size: 1rem;
             font-family: var(--font2);
@@ -96,6 +210,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            @media screen and (orientation: landscape) and (max-device-width: 550px) {
+              padding-left: 5rem;
+              padding-right: 5rem;
+            }
 
             @media screen and (min-width: 1100px) {
               line-height: 2rem;

@@ -45,6 +45,9 @@
       justify-content: center;
       align-items: center;
       padding: 2rem 0;
+      @media screen and (max-width: 1440px) {
+        width: 1140px;
+      }
 
       .box {
         display: flex;

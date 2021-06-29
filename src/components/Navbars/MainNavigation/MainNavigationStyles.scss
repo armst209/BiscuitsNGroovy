@@ -5,7 +5,16 @@
   position: fixed;
   //change to sticky once we figure out hero background position
   z-index: 9999;
-  background: transparent;
+  transition: transform 0.35s, background 0.35s,
+    box-shadow 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+
+  &:hover {
+    background: var(--bg-color);
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgb(203 213 226 / 0%), 0px 1px 1px rgb(0 0 0 / 10%);
+  }
 
   .dropdown-content {
     display: flex;
@@ -100,6 +109,7 @@
       width: 1140px;
       height: 100%;
       font-size: 18px;
+      // border-bottom: 2px solid rgb(146, 143, 143);
 
       a {
         color: white;
@@ -281,6 +291,17 @@
           transition: 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
           position: absolute;
           font-size: 30px;
+          @media screen and (orientation: landscape) and(max-device-width: 768px) {
+            height: 450px;
+          }
+          //Iphone 5
+          @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            height: 320px;
+          }
+          //Galaxy Fold
+          @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+            height: 281px;
+          }
 
           .mobile-nav-header {
             display: flex;
@@ -300,13 +321,34 @@
             list-style: none;
             width: 100%;
             height: 100%;
-            padding-top: 5rem;
+            padding-top: 2rem;
+            @media screen and (orientation: landscape) and(max-device-width: 768px) {
+              padding-top: 1rem;
+              display: flex;
+              flex-direction: column;
+            }
+            //Galaxy Fold
+            @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+              padding-top: 0;
+            }
+
             .login-btn {
               font-family: var(--font1);
               font-size: 3rem;
               background: none;
               border: none;
               color: white;
+              @media screen and (orientation: landscape) and(max-device-width: 768px) {
+                font-size: 1.8rem;
+              }
+              //Iphone 5
+              @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: 1.5rem;
+              }
+              //Galaxy Fold
+              @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+                font-size: 1.3rem;
+              }
             }
 
             .signup-btn {
@@ -319,6 +361,17 @@
               border-radius: 10px;
               color: black;
               cursor: pointer;
+              @media screen and (orientation: landscape) and(max-device-width: 768px) {
+                font-size: 1.8rem;
+              }
+              //Iphone 5
+              @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: 1.5rem;
+              }
+              //Galaxy Fold
+              @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+                font-size: 1.3rem;
+              }
 
               &:hover {
                 color: white;
@@ -331,6 +384,19 @@
             li {
               width: 100%;
               font-size: 3rem;
+              @media screen and (orientation: landscape) and(max-device-width: 768px) {
+                font-size: 1.8rem;
+                display: flex;
+                justify-content: center;
+              }
+              //Iphone 5
+              @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: 1.5rem;
+              }
+              //Galaxy Fold
+              @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+                font-size: 1.3rem;
+              }
             }
             a {
               text-decoration: none;
@@ -663,6 +729,7 @@
               border-radius: 10px;
               color: black;
               cursor: pointer;
+              width: 100px;
 
               &:hover {
                 color: white;
@@ -724,6 +791,17 @@
           transition: 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
           position: absolute;
           font-size: 30px;
+          @media screen and (orientation: landscape) and(max-device-width: 768px) {
+            height: 450px;
+          }
+          //Iphone 5
+          @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            height: 320px;
+          }
+          //Galaxy Fold
+          @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+            height: 281px;
+          }
 
           .mobile-nav-header {
             display: flex;
@@ -743,13 +821,33 @@
             list-style: none;
             width: 100%;
             height: 100%;
-            padding-top: 5rem;
+            // padding-top: 2rem;
+            @media screen and (orientation: landscape) and(max-device-width: 768px) {
+              display: flex;
+              flex-direction: column;
+            }
+            //Galaxy Fold
+            @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+              padding-top: 0;
+            }
+
             .login-btn {
               font-family: var(--font1);
               font-size: 3rem;
               background: none;
               border: none;
               color: white;
+              @media screen and (orientation: landscape) and(max-device-width: 768px) {
+                font-size: 1.8rem;
+              }
+              //Iphone 5
+              @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: 1.5rem;
+              }
+              //Galaxy Fold
+              @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+                font-size: 1.3rem;
+              }
             }
 
             .signup-btn {
@@ -762,6 +860,17 @@
               border-radius: 10px;
               color: black;
               cursor: pointer;
+              @media screen and (orientation: landscape) and(max-device-width: 768px) {
+                font-size: 1.8rem;
+              }
+              //Iphone 5
+              @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: 1.5rem;
+              }
+              //Galaxy Fold
+              @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+                font-size: 1.3rem;
+              }
 
               &:hover {
                 color: white;
@@ -773,10 +882,19 @@
             li {
               width: 100%;
               font-size: 3rem;
-              // position: relative;
-              // right: -1000px;
-              // transition: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-              // visibility: hidden;
+              @media screen and (orientation: landscape) and(max-device-width: 768px) {
+                font-size: 1.8rem;
+                display: flex;
+                justify-content: center;
+              }
+              //Iphone 5
+              @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: 1.5rem;
+              }
+              //Galaxy Fold
+              @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+                font-size: 1.3rem;
+              }
             }
             a {
               text-decoration: none;

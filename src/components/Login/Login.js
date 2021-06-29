@@ -65,23 +65,26 @@ function Login(props) {
             </span>
           </p>
           <form onSubmit={submit}>
-            <input
-              type="text"
-              placeholder="Username"
-              required
-              autoComplete="off"
-              onChange={(event) => {
-                setUserName(event.target.value);
-                // setInput(true);
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              autoComplete="off"
-              onChange={(event) => setPassword(event.target.value)}
-            />
+            <div className="input-styles">
+              <input
+                type="text"
+                placeholder="Username"
+                required
+                autoComplete="off"
+                onChange={(event) => {
+                  setUserName(event.target.value);
+                  // setInput(true);
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                autoComplete="off"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </div>
+
             <div className="login-btn-password">
               <div className="forgot-password">
                 <Link to="">Forgot Password?</Link>
