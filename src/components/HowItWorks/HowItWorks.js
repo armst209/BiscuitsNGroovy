@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // import bgImage from "../../assets/images/small-slant.svg";
 import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
-import collect from "../../assets/images/headphones2.svg";
+import collect from "../../assets/images/shared-folder.svg";
 import bottomWave from "../../assets/images/blackslant2.svg";
 import light_upward from "../../assets/images/light_upward.svg";
 

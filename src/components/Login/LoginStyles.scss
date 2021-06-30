@@ -61,29 +61,9 @@
     position: absolute;
     z-index: 99999999;
   }
+
   @media screen and (orientation: portrait) and (max-device-width: 325px) {
     padding-top: 4rem;
-  }
-
-  h1 {
-    font-family: var(--font1);
-    color: black;
-    text-align: center;
-    background-color: var(--color1);
-    padding: 10px 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-
-    img {
-      width: 50px;
-      top: -20%;
-      right: 0%;
-      position: absolute;
-    }
   }
 
   .login-container {
@@ -114,6 +94,26 @@
       @media screen and (orientation: portrait) and (max-device-width: 325px) {
         height: 500px;
       }
+      @media screen and (orientation: portrait) and (max-device-width: 365px) and (max-device-height: 645px) {
+        height: 550px;
+      }
+
+      .google {
+        background: #4285f4;
+        border: none;
+        color: white;
+        font-family: var(--font);
+      }
+      .facebook {
+        background: #3b5998;
+        border: none;
+        color: white;
+        font-family: var(--font2);
+      }
+      .logo {
+        width: 40%;
+        padding: 0.5rem;
+      }
 
       .close-btn-login {
         display: flex;
@@ -134,7 +134,8 @@
 
       h2 {
         color: black;
-        font-size: 2.5rem;
+        font-size: 1rem;
+        text-align: center;
         margin-bottom: 10px;
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
           // font-size: 1.5rem;
@@ -166,27 +167,25 @@
           flex-direction: column;
         }
 
-        .forgot-password {
-          width: 100%;
-          a {
-            text-decoration: none;
-            font-weight: bold;
-            color: var(--color2);
-            &:visited {
-              color: var(--color2);
-            }
-          }
-        }
-
         .login-button {
           width: 100%;
 
           .button {
-            height: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            img {
+              position: absolute;
+              width: 10%;
+              right: 5%;
+            }
+            height: 70px;
             margin: 5px 0;
-            background: var(--color2);
+            background: var(--color1);
             border: none;
-            border-radius: 10px;
+            // border-radius: 10px;
             font-size: 20px;
             font-weight: bold;
             box-shadow: var(--shadow-large);
@@ -222,9 +221,7 @@
 
       p {
         padding: 5px 0;
-        @media screen and (orientation: portrait) and (max-device-width: 285px) {
-          text-align: center;
-        }
+        text-align: center;
       }
 
       form {
@@ -236,10 +233,25 @@
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
           // flex-direction: row;
         }
+        .forgot-password {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          a {
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--color2);
+            &:visited {
+              color: var(--color2);
+            }
+          }
+        }
       }
+
       .input-styles {
         display: flex;
         flex-direction: column;
+        width: 100%;
 
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
           // padding: 10px;
@@ -257,7 +269,7 @@
           padding: 0.75rem 1.25rem;
           border: none;
           outline: none;
-          border-radius: 2rem;
+          // border-radius: 2rem;
           color: var(--color-black);
           background: var(--color-light);
           text-transform: unset;

@@ -155,12 +155,13 @@ function HomepageNavbar(props) {
               <div className="menu-bars-home"></div>
               <div className="menu-bars-home"></div>
               <div className="menu-bars-home"></div>
-              <p>MENU</p>
+              <p className="menu-p">MENU</p>
+              <p className="close-p">CLOSE</p>
               {/* Mobile Navigation */}
               <aside className="mobile-nav-home">
                 <div className="mobile-nav-header">
                   <img src={logo} alt="logo" />
-                  <div onClick={closeNavigation}>X</div>
+                  {/* <div onClick={closeNavigation}>X</div> */}
                 </div>
 
                 <ul>
@@ -217,11 +218,15 @@ function HomepageNavbar(props) {
                   <li>
                     <button className="login-btn">{isLoggedIn}</button>
                   </li>
-                  <li
-                    className={signUpClassName}
-                    onClick={() => props.showSignUpPopUp(true)}
-                  >
-                    <button className="signup-btn">Sign Up</button>
+                  <li className={signUpClassName}>
+                    <button className="signup-btn">
+                      <NavLink
+                        to=""
+                        onClick={() => props.showSignUpPopUp(true)}
+                      >
+                        Sign Up
+                      </NavLink>
+                    </button>
                   </li>
                 </ul>
               </aside>

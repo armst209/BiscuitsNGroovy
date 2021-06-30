@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
+import logo from "../../assets/images/bng_mobile_logo.svg";
 
 // import spotlight from "../../assets/images/spotlight2.png";
 
@@ -45,15 +46,6 @@ const SignUp = (props) => {
 
   return props.trigger ? (
     <section id="signup">
-      {/* <h1>
-        <div className="h1-title">
-          <div>Start your</div>
-          <div>collection today</div>
-        </div>
-        <div>
-          <img src={spotlight} alt="spotlight" />
-        </div>
-      </h1> */}
       <div className="signup-container">
         <div className="signup-contents">
           <div
@@ -61,6 +53,9 @@ const SignUp = (props) => {
             onClick={() => props.setTrigger(false)}
           >
             <div>X</div>
+          </div>
+          <div className="logo">
+            <img src={logo} alt="logo" />
           </div>
           <h2>Sign Up</h2>
           <p>

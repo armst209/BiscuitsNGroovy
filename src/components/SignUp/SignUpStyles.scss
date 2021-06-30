@@ -130,6 +130,10 @@
       background-color: white;
       font-family: var(--font2);
       position: relative;
+      .logo {
+        width: 40%;
+        padding: 0.5rem;
+      }
       .close-btn-signup {
         display: flex;
         justify-content: flex-end;
