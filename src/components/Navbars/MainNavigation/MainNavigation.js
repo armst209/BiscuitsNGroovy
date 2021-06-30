@@ -94,7 +94,9 @@ function HomepageNavbar(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      color: "var(--color1)",
+                      // color: "var(--color1)",
+                      // textDecoration: "underline 3px solid var(--color2)",
+                      borderBottom: "3px solid var(--color2)",
                     }}
                     to="/home"
                   >
@@ -104,8 +106,9 @@ function HomepageNavbar(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      color: "var(--color1)",
+                      // color: "var(--color1)",
                       // textDecoration: "2px underline var(--color1)",
+                      borderBottom: "3px solid var(--color2)",
                     }}
                     to="/about"
                   >
@@ -115,7 +118,8 @@ function HomepageNavbar(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      color: "var(--color1)",
+                      // color: "var(--color1)",
+                      borderBottom: "3px solid var(--color2)",
                     }}
                     to="/faq"
                   >
@@ -125,7 +129,8 @@ function HomepageNavbar(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      color: "var(--color1)",
+                      // color: "var(--color1)",
+                      borderBottom: "3px solid var(--color2)",
                     }}
                     to="/artists"
                   >
