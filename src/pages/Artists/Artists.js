@@ -16,12 +16,11 @@ function Artists(props) {
         <div className="artists-content">
           <p className="header-paragraph">
             Biscuits n Groovy is a new kind of streaming platform, empowering
-            you create and capture lasting value for new music. We offer
-            superfans early access to new releases plus exclusive album art they
-            can collect and trade. By partnering with us, you’ll tap into your
-            existing network of devoted fans and earn an additional revenue
-            stream from your music, without any impact to your existing
-            distribution channels.
+            you to create and capture lasting value for new music. We offer
+            superfans access to exclusive music and digital album art they can
+            collect and trade. By partnering with us, you’ll tap into your
+            network of superfans and earn an additional revenue stream, without
+            any impact to your existing distribution channels.
           </p>
           <p>
             <strong>
@@ -56,14 +55,13 @@ function Artists(props) {
           <div className="important">
             <p>
               <strong>Heard about NFTs but don’t know where to start?</strong>{" "}
-              Our unique album cover NFTs make it easy for you to get in on the
-              action and preserve the hype of your new releases. When your music
-              does well, those NFTs can increase in value as collectors resell
-              them, giving you a whole new way to earn money.
+              We make it easy for you to get in on the action and capture hype
+              for your music. When your release does well, your album art NFTs
+              can increase in value as collectors resell them, giving you a
+              whole new way to earn money.
             </p>
             <p>
-              Biscuits n Groovy is built for artists, not crypto experts. We
-              handle the entire technical process so you can spend your time
+              We handle the entire technical process so you can spend your time
               making music, instead of worrying about the blockchain. We also
               make it easy for your fans to start collecting -- all they need is
               a credit card, not cryptocurrency.
@@ -71,19 +69,12 @@ function Artists(props) {
             <p>
               In fact, everything on BnG is in dollars and common sense, unlike
               other NFT marketplaces full of confusing crypto charts and
-              leaderboards. We strive to be the most artist-friendly platform
-              and to keep the spotlight where it should: on you and your music.
-              Learn more about NFTs on our FAQ page <Link to="/faq">here</Link>{" "}
-              .
+              auctions. We strive to be the most artist-friendly platform and to
+              keep the spotlight where it should: on you and your music. Learn
+              more about NFTs <Link to="/faq">here</Link> .
             </p>
           </div>
 
-          <p className="second-header-paragraph">
-            Helping artists thrive is our #1 priority, so we’ll work with you
-            one-on-one to make these decisions and put together a personalized
-            marketing plan for your release. We strive to make every release as
-            successful as possible with minimal work for you.
-          </p>
           <p>
             <strong>
               Why release with us? Here’s a few of the benefits we provide
@@ -92,29 +83,34 @@ function Artists(props) {
 
             <ol>
               <li>
-                Make more money - We're not another subscription pool. Your fans
-                purchase your music directly, and since you set the price,
-                you'll know exactly what you're earning.
+                Make more money - We're not another subscription pool. You set
+                the price, and fans buy your music directly. Plus BnG is
+                designed to be used in addition to (not instead of) other
+                streaming services, so the money you earn with us is
+                supplemental.
               </li>
               <li>
                 Connect with your top fans - BnG is built for superfans. We help
-                you discover who they are, and build a dedicated following
-                through limited releases and NFTs
+                you discover who they are, and keep them engaged with exclusive
+                content & collectibles.
               </li>
               <li>
-                Stand out from the crowd - Consumers are overwhelmed by content.
-                With BnG, you'll create more hype for each drop and show fans
-                that great music is worth collecting.
+                Stand out from the crowd - Consumers are overwhelmed by free
+                content. With BnG, you'll create more hype for each drop and
+                show fans that great music is worth collecting.
               </li>
             </ol>
           </p>
 
-          <p className="third-header-paragraph">
+          <h2>
             Interested in joining us? Fill out the form below and we’ll be in
-            touch ASAP. We work with both independent artists and those signed
-            to record or distribution deals, so regardless of your situation,
-            we’d love to hear from you.
-          </p>
+            touch ASAP.
+          </h2>
+          <h5>
+            We work with both independent artists and those signed to record or
+            distribution deals, so regardless of your situation, we’d love to
+            hear from you.
+          </h5>
           <div className="form-container">
             <form action="">
               <input type="text" placeholder="Artist Name" required />

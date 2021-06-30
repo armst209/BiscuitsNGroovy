@@ -18,9 +18,9 @@ function ReminderSection() {
           <div className="artist-message">
             <h1>Are you an artist?</h1>
             <p>
-              Tired of earning pennies from streaming? We’ll help you earn more
+              Tired of earning pennies from streaming?We’ll help you earn more
               money and connect with your top fans. Read more about the benefits
-              of releasing on BnG:
+              of releasing your music on BnG :
             </p>
 
             <Link to="/artists">

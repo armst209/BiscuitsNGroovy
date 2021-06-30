@@ -57,7 +57,10 @@ function Hero(props) {
             </div>
             <div className="featured">
               <h1>
-                <div>Featured Artist: Kanye West</div>
+                <div>
+                  <div>Featured Artist:</div>
+                  <div>Kanye West</div>
+                </div>
                 {/* <div>
                   <img src={spotlight} alt="spotlight" />
                 </div> */}

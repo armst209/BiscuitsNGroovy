@@ -2,18 +2,22 @@
   color: white;
   background-color: var(--bg-dark);
 
-  h1 {
+  #NFTsExplained {
     font-family: var(--font1);
     color: black;
     text-align: center;
-    background-color: var(--color1);
-    padding: 10px 5px;
+
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
     font-size: 2rem;
+    div {
+      padding: 10px 5px;
+      background-color: var(--color1);
+    }
     // text-decoration: underline 5px solid var(--color2);
     // border-bottom: 7px solid var(--color2);
 
@@ -25,6 +29,13 @@
     }
   }
 
+  h3 {
+    padding: 10px 5px;
+    background-color: var(--color1);
+    color: black;
+    font-family: var(--font1);
+    font-size: 1.5rem;
+  }
   .faq-content {
     padding: 10px;
     background: var(--bg-color);
@@ -86,6 +97,7 @@
       font-size: 20px;
       padding: 10px 5px;
       margin-bottom: 10px;
+      border: 7px solid var(--color2);
     }
     h2,
     h3 {

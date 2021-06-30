@@ -151,7 +151,7 @@
         width: 40%;
         height: 100%;
         display: none;
-        border: white 2px solid;
+        // border: white 2px solid;
 
         @media screen and (max-width: 768px) {
           width: 20%;
@@ -274,6 +274,7 @@
       color: white;
       z-index: 9999;
       font-family: var(--font1);
+
       @media (min-width: 770px) {
         display: none;
       }
@@ -298,17 +299,6 @@
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
         font-size: 30px;
-        // @media screen and (orientation: landscape) and(max-device-width: 768px) {
-        //   height: 450px;
-        // }
-        // //Iphone 5
-        // @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-        //   height: 320px;
-        // }
-        // //Galaxy Fold
-        // @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
-        //   height: 281px;
-        // }
 
         .mobile-nav-header {
           display: flex;
@@ -425,6 +415,7 @@
 
     .close-p {
       display: none;
+      font-size: 0.72rem;
     }
 
     .menu-bars-home:nth-of-type(1) {

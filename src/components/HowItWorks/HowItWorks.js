@@ -28,8 +28,8 @@ function HowItWorks() {
                     <img src={loveSong} alt="love-icon" />
                   </div>
                   <div className="headers">
-                    <h4>NEW RELEASES</h4>
-                    <h6>FOR TRUE FANS ONLY</h6>
+                    <h4>EXCLUSIVE MUSIC</h4>
+                    <h6>FOR SUPERFANS</h6>
                   </div>
                 </div>
                 <div className="content">
@@ -39,8 +39,8 @@ function HowItWorks() {
                     alt="light"
                   /> */}
                   <div>
-                    We partner with trendsetting artists to debut their new
-                    music exclusively on Biscuits n Groovy. Show your loyalty
+                    We partner with trendsetting artists to debut their
+                    unreleased music on Biscuits n Groovy. Show your loyalty,
                     and support your favorite artists directly with each
                     purchase.
                   </div>
@@ -57,15 +57,15 @@ function HowItWorks() {
                   </div>
                   <div className="headers">
                     <h4>STREAM HERE</h4>
-                    <h6>BEFORE THE OTHER GUYS</h6>
+                    <h6>BEFORE IT'S GONE</h6>
                   </div>
                 </div>
                 <div className="content">
                   <div>
                     We're not another unlimited subscription. Buy the music you
-                    can't wait to hear, and stream with us before it drops
-                    anywhere else. Get it while it’s hot, since it’s only on BnG
-                    for a limited time.
+                    want to hear, and stream with us before it drops anywhere
+                    else. Get it while it’s hot, since it’s only on BnG for a
+                    limited time.
                   </div>
                 </div>
               </div>

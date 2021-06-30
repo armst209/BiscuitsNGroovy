@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import logo from "../../assets/images/bng_mobile_logo.svg";
+import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
-import ComponentLoading from "../Loading/ComponentLoading";
+// import ComponentLoading from "../Loading/ComponentLoading";
 
 function Login(props) {
   const [username, setUserName] = useState("");

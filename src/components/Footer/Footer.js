@@ -1,7 +1,7 @@
-import { React, useLayoutEffect } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 import SocialMedia from "../Social Media/SocialMedia";
-import footer_logo from "../../assets/images/bng_mobile_logo.svg";
+import footer_logo from "../../assets/images/bng_test.svg";
 import "./FooterStyles.scss";
 
 function Footer() {
@@ -59,8 +59,8 @@ function Footer() {
       </div>
       <div className="footer-paragraph">
         <p>
-          True fans listen first on Biscuits n Groovy Get early access to new
-          releases from your favorite artists, and exclusive NFT album art
+          True fans get more on Biscuits n Groovy. Stream exclusive music from
+          your favorite artists, and collect NFT album art
         </p>
       </div>
       <div className="copyright">

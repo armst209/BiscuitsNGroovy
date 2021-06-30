@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import Logout from "../../../pages/Logout/Logout";
-import logo from "../../../assets/images/Website Header.jpg";
-import mobile_logo from "../../../assets/images/bng_mobile_logo.svg";
+import logo from "../../../assets/images/bng_header_test.svg";
+import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user_white.webp";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
 
@@ -53,9 +53,7 @@ function HomepageNavbar(props) {
       );
     } else {
       setIsLoggedIn(
-        <NavLink to="" onClick={() => passedProps.showLoginPopup(true)}>
-          Login
-        </NavLink>
+        <div onClick={() => passedProps.showLoginPopup(true)}>Login</div>
       );
     }
 
@@ -220,12 +218,9 @@ function HomepageNavbar(props) {
                   </li>
                   <li className={signUpClassName}>
                     <button className="signup-btn">
-                      <NavLink
-                        to=""
-                        onClick={() => props.showSignUpPopUp(true)}
-                      >
+                      <div onClick={() => props.showSignUpPopUp(true)}>
                         Sign Up
-                      </NavLink>
+                      </div>
                     </button>
                   </li>
                 </ul>

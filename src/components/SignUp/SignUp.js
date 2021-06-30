@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
-import logo from "../../assets/images/bng_mobile_logo.svg";
+import logo from "../../assets/images/bng_test.svg";
 
 // import spotlight from "../../assets/images/spotlight2.png";
 
