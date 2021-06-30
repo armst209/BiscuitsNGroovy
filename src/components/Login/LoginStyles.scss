@@ -7,6 +7,63 @@
   height: 100vh;
   z-index: 9999999;
   background: rgba(0, 0, 0, 0.774);
+  @media screen and (orientation: landscape) and (max-device-width: 850px) {
+    top: -500%;
+    height: 5000px;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 830px) and (max-device-height: 400px) {
+    height: 7100px;
+    top: -840%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 750px) and (max-device-height: 550px) {
+    height: 6800px;
+    top: -550%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 740px) and (max-device-height: 420px) {
+    height: 7000px;
+    top: -750%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 735px) and (max-device-height: 450px) {
+    height: 7000px;
+    top: -750%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 670px) and (max-device-height: 400px) {
+    height: 7000px;
+    top: -830%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 660px) {
+    height: 5000px;
+    top: -575%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 600px) and (max-device-height: 350px) {
+    height: 5800px;
+    top: -780%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 653px) and (max-device-height: 285px) {
+    height: 6500px;
+    top: -1020%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: portrait) and (max-device-width: 325px) {
+    padding-top: 4rem;
+  }
 
   h1 {
     font-family: var(--font1);
@@ -49,10 +106,13 @@
       font-family: var(--font2);
       position: relative;
       @media screen and (orientation: landscape) and (max-device-width: 850px) {
-        width: 100vw;
-        height: inherit;
-        padding: 10px 20px;
-        top: 5%;
+        // width: 100vw;
+        // height: inherit;
+        // padding: 10px 20px;
+        // top: 5%;
+      }
+      @media screen and (orientation: portrait) and (max-device-width: 325px) {
+        height: 500px;
       }
 
       .close-btn-login {
@@ -77,7 +137,7 @@
         font-size: 2.5rem;
         margin-bottom: 10px;
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          font-size: 1.5rem;
+          // font-size: 1.5rem;
         }
       }
       span {
@@ -99,7 +159,10 @@
         justify-content: space-evenly;
         align-items: center;
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          width: 50%;
+          // width: 50%;
+          // flex-direction: column;
+        }
+        @media screen and (orientation: portrait) and (max-device-width: 285px) {
           flex-direction: column;
         }
 
@@ -159,8 +222,8 @@
 
       p {
         padding: 5px 0;
-        @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          padding: 0;
+        @media screen and (orientation: portrait) and (max-device-width: 285px) {
+          text-align: center;
         }
       }
 
@@ -171,7 +234,7 @@
         align-items: center;
         width: 100%;
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          flex-direction: row;
+          // flex-direction: row;
         }
       }
       .input-styles {
@@ -179,8 +242,8 @@
         flex-direction: column;
 
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          padding: 10px;
-          width: 50%;
+          // padding: 10px;
+          // width: 50%;
         }
         input {
           margin: 5px 0;
@@ -211,7 +274,7 @@
         width: 100%;
         margin: 10px 0;
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          margin: 0;
+          // margin: 0;
         }
         p {
           margin: 0 10px;
@@ -227,7 +290,7 @@
         font-weight: bold;
         padding: 5px;
         @media screen and (orientation: landscape) and (max-device-width: 800px) {
-          padding: 0;
+          // padding: 0;
         }
       }
     }

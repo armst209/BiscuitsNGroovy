@@ -8,20 +8,16 @@ import user_image from "../../../assets/images/user_white.webp";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
 
 function HomepageNavbar(props) {
-  const [scrolled, setScrolled] = useState(false);
+  // const [scrolled, setScrolled] = useState(false);
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [passedProps] = useState(props);
   const [showDropDown, setShowDropDown] = useState(false);
-  const [homeNavId, setHomeNavId] = useState("homepage-navigation");
+  const [scrolledNavClass, setScrolledNavClass] = useState("");
   const [loggedOut, setLoggedOut] = useState(false);
   const isAuthenticated = localStorage.getItem("token");
-  //Navbar scrolling
-  const navbarClasses = ["nav"];
-  if (scrolled) {
-    navbarClasses.push("scrolled-home");
-  }
+
   //Function for close button in mobile navigation popup
   const closeNavigation = () => {
     setXButton(!xButton);
@@ -64,14 +60,13 @@ function HomepageNavbar(props) {
     }
 
     const abortCont = new AbortController();
+    //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
       if (offset > 50) {
-        setHomeNavId("homepage-navigation-scrolled");
-        setScrolled(true);
+        setScrolledNavClass("scrolled-navigation");
       } else {
-        setHomeNavId("homepage-navigation");
-        setScrolled(false);
+        setScrolledNavClass("");
       }
     };
     window.addEventListener("scroll", handleScroll, {
@@ -82,8 +77,8 @@ function HomepageNavbar(props) {
   }, [isAuthenticated, passedProps, showDropDown]);
 
   return (
-    <div id="scrolled-home-before" className={navbarClasses.join(" ")}>
-      <header id={homeNavId}>
+    <div id="scrolled-home-before">
+      <header className={`homepage-navigation ${scrolledNavClass}`}>
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">

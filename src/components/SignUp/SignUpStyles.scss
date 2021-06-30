@@ -7,6 +7,74 @@
   height: 100vh;
   z-index: 9999999;
   background: rgba(0, 0, 0, 0.774);
+  @media screen and (orientation: landscape) and (max-device-width: 850px) {
+    top: -500%;
+    height: 5000px;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 830px) and (max-device-height: 420px) {
+    height: 7100px;
+    top: -780%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 812px) and (max-device-height: 375px) {
+    height: 7100px;
+    top: -780%;
+    position: absolute;
+    z-index: 99999999;
+  }
+
+  @media screen and (orientation: landscape) and (max-device-width: 750px) and (max-device-height: 550px) {
+    height: 6800px;
+    top: -550%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 740px) and (max-device-height: 420px) {
+    height: 7000px;
+    top: -760%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 735px) and (max-device-height: 450px) {
+    height: 7000px;
+    top: -770%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 670px) and (max-device-height: 400px) {
+    height: 7000px;
+    top: -830%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 660px) {
+    height: 5000px;
+    top: -600%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 600px) and (max-device-height: 350px) {
+    height: 5800px;
+    top: -780%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 653px) and (max-device-height: 285px) {
+    height: 6500px;
+    top: -1050%;
+    position: absolute;
+    z-index: 99999999;
+  }
+  @media screen and (orientation: landscape) and (max-device-width: 570px) and (max-device-height: 325px) {
+    height: 6500px;
+    top: -910%;
+    position: absolute;
+    z-index: 99999999;
+  }
+
   h1 {
     font-family: var(--font1);
     color: black;
@@ -46,6 +114,9 @@
     justify-content: center;
     align-items: center;
     padding: 100px 20px 100px 20px;
+    @media screen and (orientation: portrait) and (max-device-width: 285px) {
+      text-align: center;
+    }
 
     .signup-contents {
       width: 400px;
@@ -82,8 +153,10 @@
         font-size: 40px;
         margin-bottom: 10px;
       }
+
       span {
         font-weight: bold;
+
         a {
           font-weight: bold;
           text-decoration: none;
