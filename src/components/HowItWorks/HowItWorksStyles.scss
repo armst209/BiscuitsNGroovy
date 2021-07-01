@@ -36,8 +36,8 @@
     }
     .boxes {
       display: flex;
-      // flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: row;
+      // flex-wrap: wrap;
       // flex-grow: 1;
       // width: 1140px;
       gap: 2rem;
@@ -47,6 +47,9 @@
       padding: 2rem 0;
       @media screen and (max-width: 1440px) {
         width: 1140px;
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
       }
 
       .box {

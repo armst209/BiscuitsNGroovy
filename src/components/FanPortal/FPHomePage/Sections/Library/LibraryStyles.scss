@@ -1,0 +1,24 @@
+.lib-albums {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.lib-info {
+  width: 100%;
+
+  background: black;
+}
+
+.release-container {
+  border: 5px solid white;
+  width: 400px;
+  height: 300px;
+  img {
+    width: 277px;
+    height: 182px;
+  }
+}

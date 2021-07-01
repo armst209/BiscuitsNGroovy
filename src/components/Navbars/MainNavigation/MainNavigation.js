@@ -199,14 +199,14 @@ function HomepageNavbar(props) {
                     </NavLink>
                   </li>
                   <li className="login-status-home">
-                    <NavLink
+                    {/* <NavLink
                       activeStyle={{
                         color: "var(--color1)",
                       }}
                       to="/fanportal"
                     >
                       Portal
-                    </NavLink>
+                    </NavLink> */}
                   </li>
                   <li>
                     <NavLink

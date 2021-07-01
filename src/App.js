@@ -4,7 +4,6 @@ import React, { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
-import AlbumPopup from "./components/AlbumPopup";
 import ReleasePreview from "./components/ReleasePreview/ReleasePreview";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
@@ -88,7 +87,7 @@ function App() {
             )}
           />
 
-          <Route
+          <ProtectedRoute
             exact={true}
             path="/fanportal"
             render={(props) => (
@@ -118,12 +117,12 @@ function App() {
           />
 
           {/* Route Testing */}
-          <Route path="/fanportal/popup" component={AlbumPopup} />
+          {/* 
           <Route path="/carousel" component={Carousel} />
           <Route path="/music" component={MusicPlayer} />
           <Route path="/logout" component={Logout} />
           <Route path="/release-preview" component={ReleasePreview} />
-          <Route path="/loading" component={Loading} />
+          <Route path="/loading" component={Loading} /> */}
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}

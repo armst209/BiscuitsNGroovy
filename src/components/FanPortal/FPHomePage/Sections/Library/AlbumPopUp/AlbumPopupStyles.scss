@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.651);
   height: 100vh;
   position: fixed;
   top: 0;
-  z-index: 999999999;
+  z-index: 9999999999999999;
   .album-popup-container {
     border: 3px solid white;
     background: var(--bg-color);
