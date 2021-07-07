@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
+import {initAccount} from "../../utils/flow"
 
 // import spotlight from "../../assets/images/spotlight2.png";
 
@@ -22,9 +23,8 @@ const SignUp = (props) => {
     }
   };
 
-  const submit = (event) => {
+  const submit = function(event){
     event.preventDefault();
-
     const baseURL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
 
@@ -69,6 +69,9 @@ const SignUp = (props) => {
               <span className="login-redirect"> Login</span>
             </span>
           </p>
+          <form>
+          <button onClick={initAccount}>Link Flow Account</button>
+          </form>
           <form onSubmit={submit}>
             <input
               type="email"
@@ -83,7 +86,6 @@ const SignUp = (props) => {
               autoComplete="off"
               onChange={(event) => setName(event.target.value)}
             />
-
             <input
               type="text"
               placeholder="Username"

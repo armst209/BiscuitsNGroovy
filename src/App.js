@@ -10,6 +10,14 @@ import SignUp from "./components/SignUp/SignUp";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 import Logout from "./pages/Logout/Logout";
 import Carousel from "./components/MusicShowcase/ReleasesCarousel";
+
+import {config} from "@onflow/fcl"
+//configure flow environment
+config()
+  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE) // Will let us use `0xProfile` in our Cadence
+
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));

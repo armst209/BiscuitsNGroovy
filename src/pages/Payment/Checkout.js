@@ -87,9 +87,13 @@ export default function CheckoutButton(props) {
   }, []);
 
   const handleClick = async (event) => {
+
+    //check if a user is signed in with a FLOW wallet
+
     const stripe = await stripePromise;
     const URL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
+
     console.log(props.name);
     console.log(props.images);
     console.log(props.price);
@@ -99,9 +103,9 @@ export default function CheckoutButton(props) {
         productName: props.name,
         productImages: props.images,
         productPrice: parseInt(props.price*100),
+        releaseID: props.release_id,
       },
     });
-    console.log(response);
     const sessionId = await response.data.id;
 
     // When the customer clicks on the button, redirect them to Checkout.

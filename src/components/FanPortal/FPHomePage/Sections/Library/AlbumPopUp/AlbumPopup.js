@@ -22,6 +22,7 @@ function AlbumPopup(props) {
           <div>
             <div>
               <CheckoutButton
+                release_id={props.release.id}
                 name={props.release.name}
                 price={props.release.price}
                 description={props.release.description}
