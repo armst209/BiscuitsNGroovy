@@ -15,11 +15,12 @@
     justify-content: center;
     align-items: center;
     font-family: var(--font1);
-    border: 3px solid white;
-    background: var(--bg-color);
+    border: 5px solid var(--color2);
+    background: black;
+    width: 400px;
     height: 400px;
     padding: 1rem;
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
     .message {
       p {
         font-size: 2rem;

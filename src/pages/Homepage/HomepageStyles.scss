@@ -3,15 +3,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-color);
+  background: black;
+  padding: 2rem;
+  border: none;
+  min-height: 600px;
 
   .reminder-subscribe-wrapper {
     display: flex;
+    justify-content: center;
     flex-direction: row;
+    width: 100%;
+    gap: 2rem;
     @media screen and (min-width: 1140px) {
       width: 1140px;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
       flex-direction: column;
     }
   }

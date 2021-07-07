@@ -3,6 +3,8 @@
   font-family: var(--font1);
   height: 70px;
   position: fixed;
+  background: transparent;
+  border-bottom: 3px solid var(--color1);
   //change to sticky once we figure out hero background position
   z-index: 9999;
   transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
@@ -12,7 +14,7 @@
   -webkit-transform: 0.35s cubic-bezier(0.5, 0, 0.35, 1);
 
   &:hover {
-    background: var(--bg-color);
+    background: black;
     cursor: pointer;
     box-shadow: 0 10px 20px rgb(203 213 226 / 0%), 0px 1px 1px rgb(0 0 0 / 10%);
   }
@@ -22,22 +24,86 @@
     }
   }
 }
+.dropdown-content-desktop-container {
+  .dropdown-content-desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    color: white;
+    top: 70px;
+    right: 0%;
+    width: 500px;
+    height: 70px;
+    font-size: 1.2rem;
+    background: black;
+    border-left: 5px solid var(--color1);
+    // border-right: 5px solid var(--color1);
+    border-bottom: 5px solid var(--color1);
+    z-index: 99999999999;
+    transition: all 0.2s ease;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      // border-left: 5px solid var(--color1);
+      // border-right: 5px solid var(--color1);
+      // border-bottom: 5px solid var(--color1);
+      border: 5px solid var(--color1);
+      width: 98%;
+      background-color: black;
+      height: 70px;
+      position: absolute;
+      top: 10%;
+      right: 1%;
+      li {
+        list-style: none;
+        a {
+          &:visited {
+            color: white;
+          }
+          &:hover {
+            border-bottom: 3px solid var(--color2);
+          }
+        }
+      }
+      .logout-button {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        border: 3px solid var(--color2);
+        margin-left: 5px;
+        transition: 0.2s ease;
+        &:hover {
+          color: black;
+          background: var(--color2);
+        }
 
-.dropdown-content {
+        p {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-content-mobile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  color: white;
-  top: 70px;
-  right: 15%;
-  width: 300px;
-  height: 200px;
-  font-size: 1.2rem;
-  background: var(--bg-color);
-  border: 1px solid white;
-  z-index: 99999999999;
+  transition: all 0.2s ease;
+  position: relative;
+  background: black;
+  border-top: 5px solid var(--color1);
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  transition: display 1s ease;
+  font-size: 2rem;
 
   a {
     text-decoration: none;
@@ -47,9 +113,13 @@
     width: 100%;
     line-height: normal;
     padding: 5px 10px;
+    @media screen and (max-width: 769px) {
+      justify-content: left;
+      padding: 0;
+    }
 
     &:visited {
-      color: inherit;
+      color: white;
     }
     &:hover {
       background: var(--color2);
@@ -63,6 +133,10 @@
     align-items: center;
     width: 100%;
     padding: 5px;
+    @media screen and (max-width: 769px) {
+      justify-content: left;
+    }
+
     &:hover {
       background: var(--color2);
       color: black;
@@ -86,14 +160,18 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       &:hover {
         transform: scale(1.2);
         transition: 0.2s ease;
       }
       .arrow {
         width: 15px;
-        // padding-top: 10px;
         padding-left: 2px;
+        transition: transform 0.2s ease;
+      }
+      .arrow-360 {
+        transform: rotateZ(180deg);
       }
     }
 
@@ -130,6 +208,7 @@
       justify-content: left;
       align-items: center;
       height: auto;
+      position: relative;
       z-index: 9999;
       width: 50%;
 
@@ -151,7 +230,6 @@
         width: 40%;
         height: 100%;
         display: none;
-        // border: white 2px solid;
 
         @media screen and (max-width: 768px) {
           width: 20%;
@@ -196,36 +274,17 @@
         }
       }
 
-      .middle-links-home {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        color: white;
-        list-style: none;
-        li {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0 1rem;
-          color: var(--color1);
-        }
-      }
       .login-links-home {
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
+        padding: 0;
+        margin: 0;
         list-style: none;
         color: white;
-        width: 100%;
-        height: 100%;
-        div {
+
+        .login-home-link {
           &:hover {
-            transition: 0.2s ease;
-            transform: scale(1.1);
-            color: var(--color1);
-            //   text-decoration: underline 3px solid var(--color2);
           }
         }
 
@@ -234,22 +293,27 @@
         }
 
         .signup-link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
           button {
             font-family: var(--font1);
             font-size: 18px;
             padding: 10px;
-            background: var(--color1);
-            border: none;
-            border-radius: 10px;
-            color: black;
+            background: transparent;
+            border: 3px solid var(--color1);
+            border-radius: none;
+            color: white;
             cursor: pointer;
-            width: 100px;
+            width: 110px;
+            height: auto;
+            transition: all 0.2s ease;
 
             &:hover {
               color: black;
-
+              background-color: var(--color1);
               transition: 0.2s ease;
-              transform: scale(1.1);
             }
           }
         }
@@ -294,19 +358,28 @@
 
       .mobile-nav-home {
         flex-direction: column;
-        background-color: var(--bg-color);
+        // background-color: var(--bg-color);
+        background-color: black;
         justify-content: left;
         align-items: center;
-        width: 100%;
+        margin-top: 65px;
+        width: 80%;
         height: 100vh;
         top: 0;
         left: 0;
-        padding: 10px;
-        transition: all 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        padding: 0 0 10px 0;
         position: absolute;
         transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.2s ease-in-out;
+        border: 5px solid var(--color1);
+        // border-right: 0;
+        border-left: 0;
+        border-bottom: 0;
         font-size: 30px;
+
+        .signup-no-display {
+          display: none;
+        }
 
         .mobile-nav-header {
           display: flex;
@@ -325,8 +398,6 @@
         ul {
           list-style: none;
           width: 100%;
-          height: 100%;
-          padding-top: 2rem;
           @media screen and (orientation: landscape) and(max-device-width: 768px) {
             padding-top: 1rem;
             display: flex;
@@ -336,80 +407,79 @@
           @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
             padding-top: 0;
           }
-
-          .login-btn {
-            font-family: var(--font1);
-            font-size: 3rem;
-            background: none;
-            border: none;
+          .user-info-dropdown-select {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             color: white;
-            @media screen and (orientation: landscape) and(max-device-width: 768px) {
-              font-size: 1.8rem;
-            }
-            //Iphone 5
-            @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-              font-size: 1.5rem;
-            }
-            //Galaxy Fold
-            @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
-              font-size: 1.3rem;
-            }
-          }
-
-          .signup-btn {
-            font-family: var(--font1);
-            font-size: 3rem;
-            width: 230px;
-            padding: 10px;
-            background: var(--color1);
-            border: none;
-            margin-top: 5px;
-            border-radius: 10px;
-            color: black;
-            cursor: pointer;
-            a {
-              color: black;
-            }
-            @media screen and (orientation: landscape) and(max-device-width: 768px) {
-              font-size: 1.8rem;
-            }
-            //Iphone 5
-            @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-              font-size: 1.5rem;
-            }
-            //Galaxy Fold
-            @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
-              font-size: 1.3rem;
-            }
-
+            background: none;
+            border-bottom: 5px solid var(--color1);
+            cursor: auto;
             &:hover {
-              color: white;
-              background: transparent;
-              transition: 0.2s ease;
-              transform: scale(1.1);
+              background: black;
+              a {
+                color: white;
+              }
+            }
+
+            .login-btn {
+              font-family: var(--font1);
+              font-size: 1.2rem;
+              background: none;
+              border: none;
+
+              a {
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                padding: 0;
+              }
             }
           }
 
           li {
             width: 100%;
-            font-size: 3rem;
-            @media screen and (orientation: landscape) and(max-device-width: 768px) {
-              font-size: 1.8rem;
-              display: flex;
-              justify-content: center;
-            }
-            //Iphone 5
-            @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-              font-size: 1.5rem;
-            }
-            //Galaxy Fold
-            @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
-              font-size: 1.3rem;
+            font-size: 2rem;
+            padding: 1rem;
+            border-bottom: 0.5px solid grey;
+            &:hover {
+              background: var(--color2);
+              a {
+                color: black;
+              }
             }
           }
           a {
             text-decoration: none;
             color: white;
+            padding-right: 1rem;
+          }
+        }
+        .signup-btn-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .signup-btn {
+            font-family: var(--font1);
+            font-size: 2rem;
+            width: 230px;
+            padding: 10px;
+            background: transparent;
+            border: 5px solid var(--color2);
+            color: white;
+            cursor: pointer;
+            transition: 0.2s ease;
+            a {
+              color: white;
+            }
+
+            &:hover {
+              color: black;
+              background: var(--color2);
+            }
           }
         }
       }
@@ -418,7 +488,10 @@
     .menu-bars-home {
       background: white;
       height: 5px;
-      transition: 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      transition: 0.2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+    .menu-p {
+      margin-bottom: 0;
     }
 
     .close-p {
@@ -445,7 +518,7 @@
       display: none;
     }
     input[type="checkbox"]:checked ~ .mobile-nav-home {
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.2s ease-in-out;
       transform: translateX(0);
     }
 
@@ -504,7 +577,7 @@
     input[type="checkbox"]:checked ~ .close-p {
       display: flex;
       z-index: 9999999;
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.2s ease-in-out;
     }
 
     @media (max-width: 768px) {
@@ -516,9 +589,10 @@
 .scrolled-navigation {
   // transition: none;
   filter: drop-shadow(0 0 5px black);
-  background: var(--bg-color);
+  background: black;
+  // transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
   box-shadow: 0 10px 20px rgb(203 213 226 / 0%), 0px 1px 1px rgb(0 0 0 / 10%);
-  position: fixed;
+  // position: fixed;
   &:hover {
     cursor: auto;
   }

@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--bg-color);
+  background: black;
   padding-bottom: 5rem;
 
   // padding-top: 2rem;
@@ -28,7 +28,7 @@
         text-align: center;
         margin-top: 2rem;
         font-family: var(--font1);
-        font-size: 2rem;
+        font-size: 3rem;
         width: 100%;
         padding-bottom: 2rem;
         color: white;
@@ -48,7 +48,7 @@
       @media screen and (max-width: 1440px) {
         width: 1140px;
       }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1200px) {
         flex-direction: column;
       }
 
@@ -59,19 +59,29 @@
         // flex-grow: 1;
         align-items: center;
         width: 450px;
-
-        // background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-        // background: black;
-        // border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-        border-width: 1px;
+        height: 500px;
+        border: 5px solid var(--color2);
+        background: black;
+        border-radius: 0.5rem;
         color: white;
         font-family: var(--font1);
         letter-spacing: 0.05cm;
-        border-radius: 0.5rem;
         position: relative;
-        cursor: pointer;
+        @media screen and (max-width: 475px) {
+          width: 350px;
+        }
+        @media screen and (max-width: 375px) {
+          width: 300px;
+        }
+        @media screen and (max-width: 325px) {
+          height: 450px;
+        }
+        @media screen and (max-width: 300px) {
+          width: 270px;
+          height: 475px;
+        }
+
         // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-        // box-shadow: 0 16px 20px 0 rgb(232 228 234 / 50%);
 
         h3 {
           text-align: center;
@@ -104,6 +114,9 @@
 
                 h4 {
                   font-size: 1.5rem;
+                  @media screen and (max-width: 375px) {
+                    font-size: 1.2rem;
+                  }
                 }
                 h6 {
                   font-size: 1rem;
@@ -117,6 +130,9 @@
                 padding: 1rem;
                 img {
                   width: 176px;
+                  @media screen and (max-width: 375px) {
+                    width: 130px;
+                  }
                 }
               }
             }
@@ -126,14 +142,16 @@
               justify-content: center;
               align-items: center;
               padding: 1rem;
-
               font-family: var(--font2);
               font-weight: bold;
               letter-spacing: 0.01cm;
-              font-size: 1em;
+              font-size: 1rem;
               position: relative;
               div {
                 text-align: center;
+                @media screen and (max-width: 375px) {
+                  font-size: 0.9rem;
+                }
               }
 
               .light-upward {
@@ -172,16 +190,37 @@
 }
 
 .p-info {
-  width: 100%;
+  width: auto;
   text-align: center;
   color: white;
+  border-radius: 0.5rem;
   font-weight: bold;
   font-family: var(--font2);
   margin-top: 2rem;
-  padding: 20px 20px;
-  background: var(--bg-color);
+  padding: 1rem;
+  border: 5px solid var(--color2);
   position: relative;
-  z-index: 500;
+  @media screen and (max-width: 1000px) {
+    width: 800px;
+  }
+  @media screen and (max-width: 850px) {
+    width: 700px;
+  }
+  @media screen and (max-width: 725px) {
+    width: 600px;
+  }
+  @media screen and (max-width: 625px) {
+    width: 500px;
+  }
+  @media screen and (max-width: 525px) {
+    width: 400px;
+  }
+  @media screen and (max-width: 425px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 325px) {
+    width: 270px;
+  }
 
   a {
     color: white;

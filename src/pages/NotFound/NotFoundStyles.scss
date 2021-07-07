@@ -5,9 +5,10 @@
   justify-content: center;
   background-color: black;
   .not-found-content {
-    padding: 2rem;
+    padding: 70px 2rem 2rem 2rem;
     color: white;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;

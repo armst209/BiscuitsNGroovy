@@ -4,12 +4,13 @@ import React, { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
-import ReleasePreview from "./components/ReleasePreview/ReleasePreview";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
-import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
-import Logout from "./pages/Logout/Logout";
-import Carousel from "./components/MusicShowcase/ReleasesCarousel";
+// import ReleasePreview from "./components/ReleasePreview/ReleasePreview";
+// import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+// import Logout from "./pages/Logout/Logout";
+// import Carousel from "./components/MusicShowcase/ReleasesCarousel";
+
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -87,7 +88,7 @@ function App() {
             )}
           />
 
-          <ProtectedRoute
+          <Route
             exact={true}
             path="/fanportal"
             render={(props) => (
@@ -117,10 +118,11 @@ function App() {
           />
 
           {/* Route Testing */}
+          {/* <Route path="/logout" component={Logout} /> */}
           {/* 
           <Route path="/carousel" component={Carousel} />
           <Route path="/music" component={MusicPlayer} />
-          <Route path="/logout" component={Logout} />
+          
           <Route path="/release-preview" component={ReleasePreview} />
           <Route path="/loading" component={Loading} /> */}
           {/* Route for Stripe Cancellation */}
@@ -130,7 +132,6 @@ function App() {
             component={}
           /> */}
           <Route
-            path="*"
             render={(props) => (
               <NotFound
                 {...props}

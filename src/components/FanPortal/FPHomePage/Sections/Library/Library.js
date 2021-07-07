@@ -1,14 +1,17 @@
 import { React, useEffect, useState, Suspense } from "react";
 import axios from "axios";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
-import AlbumCoverHover from "./AlbumCoverHover/AlbumCoverHover";
-import { MDBRipple } from "mdb-react-ui-kit";
+import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import "swiper/swiper.scss";
 import "./LibraryStyles.scss";
+SwiperCore.use(Navigation, Pagination);
 
 function Library(props) {
   const [albumCovers, setAlbumCovers] = useState("");
   const [albumInfo, setAlbumInfo] = useState(false);
-  const [hoverInfo, setHoverInfo] = useState(false);
+  // const [hoverInfo, setHoverInfo] = useState("");
   const token = localStorage.getItem("token");
 
   const baseURL =
@@ -42,43 +45,40 @@ function Library(props) {
         };
         //Set albumInfo Hook and displays each "album" information inside "Your Library"
         const showHoverInfo = (release) => {
-          setHoverInfo(
-            <AlbumCoverHover
-              closeButton={props.popUpPassed}
-              setAlbumInfo={setAlbumInfo}
-              albumInfo={albumInfo}
-              release={release}
-              toggle={closeAlbumInfo}
-              showReleasePopUp={props.popUpPassed}
-            />
-          );
+          // setHoverInfo(
+          //   <AlbumCoverHover
+          //     closeButton={props.popUpPassed}
+          //     setAlbumInfo={setAlbumInfo}
+          //     albumInfo={albumInfo}
+          //     release={release}
+          //     toggle={closeAlbumInfo}
+          //     showReleasePopUp={props.popUpPassed}
+          //   />
+          // );
         };
 
         //Return - what's currently being displayed in the "Your Library" section through Hooks
         return release ? (
-          //One entire album/release
-          <div key={release.id}>
-            <MDBRipple
-              style={{ width: "auto", height: "auto" }}
-              className="bg-image hover-overlay shadow-1-strong rounded release-container"
-              onMouseEnter={() => showHoverInfo(release)}
-            >
-              <img src={release.art_url} alt={release.name} className="w-100" />
-              <a href="#!">
-                <div
-                  className="mask release-text"
-                  style={{
-                    backgroundColor: "rgba(251, 251, 251, 0.2)",
-                  }}
-                >
-                  {hoverInfo}
-                </div>
-              </a>
-            </MDBRipple>
-            <div>{release.description}</div>
-            <div>{release.price}</div>
-          </div>
+          // <SwiperSlide tag="li" key={`slide-${release.id}`}>
+          <figure class="hover-img">
+            <img
+              src={release.art_url}
+              alt={release.name}
+              style={{ width: "277px", height: "182px" }}
+            />
+            <figcaption>
+              <AlbumCoverHover
+                closeButton={props.popUpPassed}
+                setAlbumInfo={setAlbumInfo}
+                albumInfo={albumInfo}
+                release={release}
+                toggle={closeAlbumInfo}
+                showReleasePopUp={props.popUpPassed}
+              />
+            </figcaption>
+          </figure>
         ) : (
+          // </SwiperSlide>
           <ComponentLoading />
         );
       });
@@ -90,9 +90,53 @@ function Library(props) {
     const handleLibraryFailure = (err) => {
       console.log(err);
     };
-  }, [albumInfo, hoverInfo]);
-  //Individual albums/releases are displayed here
-  return <Suspense fallback={<ComponentLoading />}>{albumCovers}</Suspense>;
-}
+  }, [albumInfo]);
 
+  //Individual albums/releases are displayed here
+  return (
+    <Suspense fallback={<ComponentLoading />}>
+      {albumCovers}
+
+      {/* <Swiper
+        tag="section"
+        centeredSlides={true}
+        wrapperTag="ul"
+        loopAdditionalSlides={30}
+        roundLengths={true}
+        autoplay={{
+          delay: 2000,
+        }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        breakpoints={{
+          320: {
+            width: 320,
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          480: {
+            width: 480,
+            slidesPerView: 2,
+            spaceBetween: 0,
+          },
+          640: {
+            width: 640,
+            slidesPerView: 3,
+            spaceBetween: 0,
+          },
+        }}
+        pagination
+        spaceBetween={10}
+        slidesPerView={1}
+      >
+        {albumCovers}
+        <div class="swiper-button-next">Next</div>
+        <div class="swiper-button-prev">Previous</div>
+        <div class="swiper-pagination">SFSF</div>
+      </Swiper> */}
+    </Suspense>
+  );
+}
 export default Library;
