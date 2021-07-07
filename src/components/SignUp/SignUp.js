@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
-import {initAccount} from "../../utils/flow"
-
+import LinkFlowButton from "./LinkFlowButton";
 // import spotlight from "../../assets/images/spotlight2.png";
 
 const SignUp = (props) => {
@@ -44,6 +43,8 @@ const SignUp = (props) => {
       });
   };
 
+ 
+
   return props.trigger ? (
     <section id="signup">
       <div className="signup-container">
@@ -69,9 +70,7 @@ const SignUp = (props) => {
               <span className="login-redirect"> Login</span>
             </span>
           </p>
-          <form>
-          <button onClick={initAccount}>Link Flow Account</button>
-          </form>
+          <LinkFlowButton/>
           <form onSubmit={submit}>
             <input
               type="email"
@@ -101,7 +100,6 @@ const SignUp = (props) => {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button type="submit">SIGN UP</button>
-            <button>FLOW</button>
           </form>
           <div className="error-message">{errorMessage}</div>
         </div>
