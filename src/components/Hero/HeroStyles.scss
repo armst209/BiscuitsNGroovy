@@ -4,50 +4,74 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow-x: visible;
-  overflow-y: hidden;
+  // overflow-x: hidden;
+  // overflow-y: hidden;
   z-index: 0;
   width: 100%;
+
+  // border-bottom: 10px solid var(--color1);
   //fix if changed
-  height: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
-  max-height: 100rem;
+  // max-height: 100rem;
   // min-height: 50rem;
-  background-size: cover;
-  background: url("../../assets/images/kanye-west-fan-climbs-floating-stage.jpg");
-  @media screen and (orientation: landscape) and (max-width: 800px) {
-    height: 450px;
+  background-size: auto;
+  // background: url("../../assets/images/kanye-west-fan-climbs-floating-stage_2.png")
+  //   center center;
+  background-color: black;
+
+  @media screen and (max-width: 800px) {
+    height: 100%;
   }
-  @media screen and (min-device-width: 768px) and (max-device-height: 784px) {
-    height: 700px;
-  }
+  // @media screen and (orientation: landscape) and (max-width: 800px) {
+  //   height: 450px;
+  // }
+  // @media screen and (min-device-width: 768px) and (max-device-height: 784px) {
+  //   height: 700px;
+  // }
 
   .hero-container {
     width: 100%;
-    height: 100ch;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.74);
+    // background-color: rgb(0, 0, 0);
+    padding: 0 1rem;
 
     .hero-main {
       position: relative;
       display: flex;
-      justify-content: space-between;
+      justify-content: stretch;
       align-items: center;
       height: 100%;
-      padding: 0 1rem;
+      padding-top: 80px;
 
       @media screen and (min-width: 1100px) {
         width: 1140px;
       }
+      @media screen and (max-width: 850px) {
+        margin-top: 100px;
+      }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 900px) {
         flex-direction: column;
       }
       @media screen and (min-device-width: 768px) and (max-device-height: 784px) {
         // padding-top: 10rem;
+        // margin-top: 70px;
+      }
+      .hero-box {
+        display: none;
+        width: 700px;
+        height: 353px;
+        border: 5px solid var(--color1);
+        position: absolute;
+        left: -2%;
+        bottom: 30.5%;
+        z-index: 2;
+        background-color: black;
       }
 
       .hero-titles {
@@ -57,13 +81,22 @@
         align-items: center;
         position: relative;
         width: 100%;
+        z-index: 9999;
 
-        @media screen and (min-width: 768px) {
-          width: 50%;
-        }
+        // border: 5px solid var(--color1);
+        padding: 2rem 2rem 3rem 2rem;
+
+        // @media screen and (min-width: 768px) {
+        //   width: 50%;
+        // }
         @media screen and (max-width: 768px) {
           width: 100%;
           height: 100%;
+        }
+
+        .hero-bg {
+          position: relative;
+          z-index: 4;
         }
 
         .hero-text {
@@ -73,145 +106,38 @@
           align-items: center;
           color: white;
           font-weight: bold;
-          position: relative;
           z-index: 5;
-          width: 100%;
-          @media screen and (min-width: 1100px) {
-            line-height: 5rem;
-          }
-          @media screen and (min-width: 769px) {
-            align-items: flex-start;
-          }
+          position: absolute;
+          width: 700px;
+          left: 20%;
+          bottom: 35%;
+
           .h1-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            @media screen and (orientation: landscape) and (max-device-width: 550px) {
-              flex-direction: column;
+            .hero-blob {
+              display: none;
+              position: absolute;
+              width: 550px;
+              right: -28%;
             }
             h1 {
-              font-size: 3.5rem;
+              font-size: 6rem;
               font-family: var(--font1);
-
-              @media screen and (orientation: landscape) and (max-device-width: 768px) {
-                font-size: 2rem;
-              }
-
-              @media screen and (min-width: 1100px) {
-                font-size: 6rem;
-              }
-              @media screen and (max-width: 1099px) {
-                font-size: 4rem;
-                line-height: 4rem;
-              }
-              @media screen and (max-width: 300px) {
-                font-size: 3rem;
-                line-height: 3rem;
-              }
-            }
-
-            .new-music {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: flex-start;
-              width: 100%;
-              //Ipad
-              @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-                align-items: left;
-              }
-              //Ipad Pro
-              @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
-                align-items: flex-start;
-              }
-
-              @media screen and (orientation: landscape) and (max-device-width: 768px) {
-                flex-direction: row;
-                align-items: center;
-              }
-              @media screen and (orientation: portrait) and (max-device-width: 768px) {
-                align-items: center;
-              }
-              .h1-new {
-                @media screen and (orientation: landscape) and (max-device-width: 768px) {
-                  padding-right: 10px;
-                }
-                @media screen and (orientation: portrait) and (max-device-width: 768px) {
-                  padding-right: 0;
-                }
-              }
-            }
-            .is-our-jam {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              @media screen and (orientation: landscape) and (max-device-width: 768px) {
-                flex-direction: row;
-              }
-              .is-our {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                @media screen and (orientation: landscape) and (max-device-width: 768px) {
-                  padding-right: 10px;
-                }
-                @media screen and (orientation: portrait) and (max-device-width: 768px) {
-                  padding-right: 0;
-                }
-                .is-h1 {
-                  padding-right: 10px;
-                }
-              }
-              .jam {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                width: 100%;
-                @media screen and (orientation: portrait) and (max-device-width: 768px) {
-                  justify-content: center;
-                }
-                //Ipad
-                @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-                  justify-content: left;
-                }
-                //Ipad Pro
-                @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
-                  justify-content: flex-start;
-                }
-              }
+              font-weight: lighter;
+              position: relative;
+              line-height: 5rem;
             }
           }
 
           h3 {
-            font-size: 1rem;
+            font-size: 1.5rem;
             font-family: var(--font2);
+            line-height: normal;
             padding: 5px 0;
+            width: 80%;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            @media screen and (orientation: landscape) and (max-device-width: 550px) {
-              padding-left: 5rem;
-              padding-right: 5rem;
-            }
-
-            @media screen and (min-width: 1100px) {
-              line-height: 2rem;
-              text-align: left;
-              font-size: 1.8rem;
-            }
-            @media screen and (max-width: 1099px) {
-              font-size: 1.1rem;
-              text-align: left;
-            }
-            @media screen and (max-width: 769px) {
-              font-size: 1.1rem;
-              text-align: center;
-            }
+            text-align: left;
           }
 
           .hero-buttons {
@@ -222,7 +148,11 @@
             text-decoration: none;
             color: var(--bg-color);
             cursor: pointer;
-            padding-top: 1rem;
+            position: absolute;
+            bottom: -80.5%;
+            z-index: 999;
+            width: 100%;
+
             @media screen and (max-width: 400px) {
               flex-direction: column;
             }
@@ -258,14 +188,15 @@
                 }
               }
               .learn {
-                background-color: transparent;
+                background-color: black;
                 color: white;
-                border: 3px solid white;
+                border: 3px solid var(--color2);
                 margin: 0.2rem;
                 &:hover {
-                  background: var(--bg-color);
-                  transition: 0.2s ease;
-                  transform: scale(1.05);
+                  background: var(--color2);
+                  transition: all 0.2s ease;
+                  color: black;
+                  border: none;
                 }
               }
             }
@@ -274,18 +205,13 @@
       }
 
       .hero-images {
-        display: flex;
+        display: none;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         color: white;
-        width: 50%;
-        border-radius: 20%;
-        border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-        border-width: 1px;
-        @media screen and (min-width: 1100px) {
-          width: 50%;
-        }
+        width: 0%;
+
         @media screen and (max-width: 768px) {
           display: none;
           width: 0;
@@ -293,9 +219,13 @@
 
         .hero-image-container {
           width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           position: relative;
-          .album {
-            height: 500px;
+          z-index: 50;
+          img {
+            height: 400px;
           }
         }
         .featured {
@@ -304,9 +234,9 @@
           justify-content: center;
           align-items: center;
           text-align: center;
+          border: 3px solid var(--color2);
           // background-color: var(--bg-color);
-          z-index: 1;
-          height: 70px;
+          z-index: 50;
 
           h1 {
             font-family: var(--font1);

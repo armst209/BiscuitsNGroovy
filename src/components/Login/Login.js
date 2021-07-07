@@ -16,7 +16,6 @@ function Login(props) {
     event.preventDefault();
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
-      console.log("Authenticated");
       setTimeout(() => {
         window.location.replace("http://localhost:3000/home");
       }, 1000);

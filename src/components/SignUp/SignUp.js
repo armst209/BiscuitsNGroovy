@@ -101,6 +101,7 @@ const SignUp = (props) => {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button type="submit">SIGN UP</button>
+            <button>FLOW</button>
           </form>
           <div className="error-message">{errorMessage}</div>
         </div>

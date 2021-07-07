@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import Logout from "../../../pages/Logout/Logout";
 import logo from "../../../assets/images/bng_header_test.svg";
 import mobile_logo from "../../../assets/images/bng_test.svg";
-import user_image from "../../../assets/images/user_white.webp";
+import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
 
-function HomepageNavbar(props) {
+function MainNavigation(props) {
   // const [scrolled, setScrolled] = useState(false);
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
-  const [passedProps] = useState(props);
   const [showDropDown, setShowDropDown] = useState(false);
   const [scrolledNavClass, setScrolledNavClass] = useState("");
   const [loggedOut, setLoggedOut] = useState(false);
+  const [arrowMove, setArrowMove] = useState(false);
   const isAuthenticated = localStorage.getItem("token");
 
   //Function for close button in mobile navigation popup
@@ -25,20 +26,41 @@ function HomepageNavbar(props) {
   //LOGOUT Function
   const handleLogout = (e) => {
     e.preventDefault();
-    localStorage.clear();
     setShowDropDown(false);
+
     setTimeout(() => {
       setLoggedOut(!loggedOut);
-    }, 500);
+      localStorage.clear();
+    }, 200);
 
     setTimeout(() => {
       window.location.replace("http://localhost:3000/home");
-    }, 3000);
+    }, 1000);
   };
   useEffect(() => {
+    //User's name
+    // const token = localStorage.getItem("token");
+    // const baseURL =
+    //   "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+
+    // axios({
+    //   method: "get",
+    //   url: `${baseURL}/users/users`,
+    //   headers: {
+    //     "x-access-token": token,
+    //   },
+    // })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
     //Menu Dropdown Function
     const viewDropDown = () => {
       setShowDropDown(!showDropDown);
+      setArrowMove(!arrowMove);
     };
     //Authentication Check - Displays "Logout" in navigation
     if (isAuthenticated) {
@@ -47,13 +69,19 @@ function HomepageNavbar(props) {
         <div className="user-container">
           <div className="user" onClick={viewDropDown}>
             <img src={user_image} alt="user" />
-            <img className="arrow" src={arrow_down} alt="arrow" />
+            <img
+              className={`arrow ${arrowMove ? "arrow-360" : ""}`}
+              src={arrow_down}
+              alt="arrow"
+            />
           </div>
         </div>
       );
     } else {
       setIsLoggedIn(
-        <div onClick={() => passedProps.showLoginPopup(true)}>Login</div>
+        <Link to="#" onClick={() => props.showLoginPopup(true)}>
+          Login
+        </Link>
       );
     }
 
@@ -61,7 +89,7 @@ function HomepageNavbar(props) {
     //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 50) {
+      if (offset > 100) {
         setScrolledNavClass("scrolled-navigation");
       } else {
         setScrolledNavClass("");
@@ -72,7 +100,7 @@ function HomepageNavbar(props) {
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated, passedProps, showDropDown]);
+  }, [isAuthenticated, showDropDown]);
 
   return (
     <div id="scrolled-home-before">
@@ -138,9 +166,6 @@ function HomepageNavbar(props) {
                   </NavLink>
                 </li>
               </ul>
-              <ul className="middle-links-home">
-                <li>|</li>
-              </ul>
               <ul className="login-links-home">
                 <li className="login-home-link">{isLoggedIn}</li>
                 <li
@@ -149,6 +174,32 @@ function HomepageNavbar(props) {
                 >
                   <button>Sign Up</button>
                 </li>
+                <div>
+                  {showDropDown ? (
+                    <div>
+                      <div className="dropdown-content-desktop-container">
+                        <div className="dropdown-content-desktop">
+                          <ul>
+                            <li>
+                              <Link to="/fanportal">Your Portal</Link>
+                            </li>
+                            <li>
+                              <Link to="/fanportal/profile">Account</Link>
+                            </li>
+                            <li
+                              className="logout-button"
+                              onClick={handleLogout}
+                            >
+                              <p>Logout</p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </ul>
             </div>
 
@@ -168,11 +219,17 @@ function HomepageNavbar(props) {
                 </div>
 
                 <ul>
+                  <li className="user-info-dropdown-select">
+                    <div>Username</div>
+                    <button className="login-btn">{isLoggedIn}</button>
+                  </li>
+
                   <li>
                     <NavLink
-                      activeStyle={{
-                        color: "var(--color1)",
-                      }}
+                      // activeStyle={{
+                      //   borderBottom: "3px solid var(--color2)",
+                      //   // color: "var(--color2)",
+                      // }}
                       to="/home"
                     >
                       Home
@@ -180,9 +237,9 @@ function HomepageNavbar(props) {
                   </li>
                   <li>
                     <NavLink
-                      activeStyle={{
-                        color: "var(--color1)",
-                      }}
+                      // activeStyle={{
+                      //   color: "var(--color1)",
+                      // }}
                       to="/about"
                     >
                       About
@@ -190,67 +247,63 @@ function HomepageNavbar(props) {
                   </li>
                   <li>
                     <NavLink
-                      activeStyle={{
-                        color: "var(--color1)",
-                      }}
+                      // activeStyle={{
+                      //   color: "var(--color1)",
+                      // }}
                       to="/faq"
                     >
                       FAQ
                     </NavLink>
                   </li>
-                  <li className="login-status-home">
-                    {/* <NavLink
-                      activeStyle={{
-                        color: "var(--color1)",
-                      }}
-                      to="/fanportal"
-                    >
-                      Portal
-                    </NavLink> */}
-                  </li>
+
                   <li>
                     <NavLink
-                      activeStyle={{
-                        color: "var(--color1)",
-                      }}
+                      // activeStyle={{
+                      //   color: "var(--color1)",
+                      // }}
                       to="/artists"
                     >
                       Artists
                     </NavLink>
                   </li>
-                  <li>
-                    <button className="login-btn">{isLoggedIn}</button>
-                  </li>
-                  <li className={signUpClassName}>
-                    <button className="signup-btn">
-                      <div onClick={() => props.showSignUpPopUp(true)}>
-                        Sign Up
-                      </div>
-                    </button>
+
+                  <li
+                    className={`${signUpClassName}`}
+                    onClick={() => props.showSignUpPopUp(true)}
+                  >
+                    <div className="signup-btn-container">
+                      <button className="signup-btn">Sign Up</button>
+                    </div>
                   </li>
                 </ul>
+                <div>
+                  {showDropDown ? (
+                    <div className="dropdown-content-mobile">
+                      <ul>
+                        <li>
+                          <Link to="/fanportal">Your Portal</Link>
+                        </li>
+                        <li>
+                          <Link to="/fanportal/profile">Account</Link>
+                        </li>
+                        <li className="logout-button" onClick={handleLogout}>
+                          Logout
+                        </li>
+                      </ul>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </aside>
             </label>
           </nav>
         </div>
-        <div>
-          {showDropDown ? (
-            <div className="dropdown-content">
-              <Link to="/fanportal">Your Portal</Link>
-              <Link to="/fanportal/profile">Profile</Link>
-              <Link>Settings</Link>
-              <div className="logout-button" onClick={handleLogout}>
-                Logout
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+
         <div>{loggedOut ? <Logout /> : ""}</div>
       </header>
     </div>
   );
 }
 
-export default HomepageNavbar;
+export default MainNavigation;

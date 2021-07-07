@@ -1,52 +1,84 @@
-import React from "react";
-import Carousel from "react-multi-carousel";
-import "../../../node_modules/react-multi-carousel/lib/styles.css";
+import { React, useState, Fragment } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, Controller, Thumbs } from "swiper";
+import "swiper/swiper.scss";
+SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
+function ReleasesCarousel() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState(null);
 
-function ReleasesCarousel(props) {
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3, // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2, // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-  };
+  const slides = [];
+  for (let i = 0; i < 5; i += 1) {
+    slides.push(
+      <SwiperSlide key={`slide-${i}`} tag="li">
+        <img
+          src={`https://picsum.photos/id/${i + 1}/500/300`}
+          style={{ listStyle: "none" }}
+          alt={`Slide ${i}`}
+        />
+      </SwiperSlide>
+    );
+  }
+
+  const thumbs = [];
+  for (let i = 0; i < 5; i += 1) {
+    thumbs.push(
+      <SwiperSlide key={`thumb-${i}`} tag="li" style={{ listStyle: "none" }}>
+        <img
+          src={`https://picsum.photos/id/${i}/163/100`}
+          alt={`Thumbnail ${i}`}
+        ></img>
+      </SwiperSlide>
+    );
+  }
+
+  const slides2 = [];
+  for (let i = 9; i < 14; i += 1) {
+    slides2.push(
+      <SwiperSlide key={`slide-${i}`} tag="li">
+        <img
+          src={`https://picsum.photos/id/${i + 1}/500/300`}
+          style={{ listStyle: "none" }}
+          alt={`Slide ${i}`}
+        />
+      </SwiperSlide>
+    );
+  }
+
   return (
-    <Carousel
-      swipeable={false}
-      draggable={false}
-      showDots={true}
-      responsive={responsive}
-      ssr={true} // means to render carousel on server-side.
-      infinite={true}
-      // autoPlay={props.deviceType !== "mobile" ? true : false}
-      // autoPlaySpeed={1000}
-      keyBoardControl={true}
-      customTransition="all .5"
-      transitionDuration={500}
-      containerClass="carousel-container"
-      removeArrowOnDeviceType={["tablet", "mobile"]}
-      deviceType={props.deviceType}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
-    >
-      <div style={{ width: "400px", border: "3px solid black" }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, sequi!
-        Reiciendis deleniti delectus atque, eos modi recusandae repellat
-        voluptate iusto corporis velit assumenda nesciunt numquam sequi
-        similique soluta! Asperiores, quas.
-      </div>
-    </Carousel>
+    <div>
+      <Swiper
+        id="main"
+        thumbs={{ swiper: thumbsSwiper }}
+        controller={{ control: controlledSwiper }}
+        tag="section"
+        wrapperTag="ul"
+        navigation
+        pagination
+        spaceBetween={0}
+        slidesPerView={1}
+        onInit={(swiper) => console.log("Swiper initialized!", swiper)}
+        onSlideChange={(swiper) => {
+          console.log("Slide index changed to: ", swiper.activeIndex);
+        }}
+        onReachEnd={() => console.log("Swiper end reached")}
+      >
+        {slides}
+      </Swiper>
+
+      <Swiper
+        id="thumbs"
+        spaceBetween={5}
+        slidesPerView={3}
+        onSwiper={setThumbsSwiper}
+      >
+        {thumbs}
+      </Swiper>
+
+      <Swiper id="controller" onSwiper={setControlledSwiper}>
+        {slides2}
+      </Swiper>
+    </div>
   );
 }
-
 export default ReleasesCarousel;

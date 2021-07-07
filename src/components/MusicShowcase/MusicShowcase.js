@@ -39,38 +39,38 @@ function MusicShowcase() {
 
     const handleSuccess = (res) => {
       console.log(res.data.releases);
-      // let releases = res.data.releases;
-      //Main Function - looping through response, displaying response in Homepage Releases section & creating individual "ReleasePreview"s
-      // let displayAllReleases = releases.map((release) => {
-      //   //Toggle to Close ReleasePreview
-      //   // const closeReleaseInfo = () => {
-      //   //   setReleaseInfo(!releaseInfo);
-      //   // };
-      //   //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
-      //   // const showReleaseInfo = (release) => {
-      //   //   setReleaseInfo(
-      //   //     <ReleasePreview
-      //   //       toggleClose={closeReleaseInfo}
-      //   //       name={release.name}
-      //   //     />
-      //   //   );
-      //   // };
-      //   return release ? (
-      //     <div
-      //       onClick={() => showReleaseInfo(release)}
-      //       key={`${"release-container" + release.id}`}
-      //       className="release-divs"
-      //     >
-      //       <div>{release.name}</div>
-      //     </div>
-      //   ) : (
-      //     <div className="loading-animation">
-      //       <ComponentLoading />
-      //     </div>
-      //   );
-      // });
-      // //This Hook displays return/result of main function in "Releases"
-      // setDisplayReleases(displayAllReleases);
+      let releases = res.data.releases;
+      // Main Function - looping through response, displaying response in Homepage Releases section & creating individual "ReleasePreview"s
+      let displayAllReleases = releases.map((release) => {
+        //Toggle to Close ReleasePreview
+        const closeReleaseInfo = () => {
+          setReleaseInfo(!releaseInfo);
+        };
+        //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
+        const showReleaseInfo = (release) => {
+          setReleaseInfo(
+            <ReleasePreview
+              toggleClose={closeReleaseInfo}
+              name={release.name}
+            />
+          );
+        };
+        return release ? (
+          <div
+            onClick={() => showReleaseInfo(release)}
+            key={`${"release-container" + release.id}`}
+            className="release-divs"
+          >
+            <img src={release.art_url} alt={release.name} />
+          </div>
+        ) : (
+          <div className="loading-animation">
+            <ComponentLoading />
+          </div>
+        );
+      });
+      //This Hook displays return/result of main function in "Releases"
+      setDisplayReleases(displayAllReleases);
     };
     const handleFailure = (err) => {
       console.log(err);
@@ -79,9 +79,9 @@ function MusicShowcase() {
 
   return (
     <section id="music-showcase">
-      {/* <ReminderBackground2 />
+      <ReminderBackground2 />
       <ReminderBackground3 />
-      <ReminderBackground /> */}
+      <ReminderBackground />
 
       <div className="music-showcase-container">
         <div className="content-container">
@@ -93,8 +93,8 @@ function MusicShowcase() {
           <div className="showcase-grid-desktop">
             <div className="displayed-releases">
               {/* <ReleaseCalendar /> */}
-              {/* {displayReleases}
-              <div className="release-popup">{releaseInfo}</div> */}
+              {displayReleases}
+              {/* <div className="release-popup">{releaseInfo}</div>  */}
             </div>
           </div>
           <div className="showcase-grid-mobile">

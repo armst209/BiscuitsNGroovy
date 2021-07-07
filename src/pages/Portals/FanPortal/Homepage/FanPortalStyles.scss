@@ -3,6 +3,21 @@
   flex-direction: column;
   width: 100%;
 
+  .portal-content-wrapper {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .side-nav-bar {
+      background: var(--bg-color);
+      color: white;
+      display: flex;
+      width: 15%;
+      position: sticky;
+      height: 100vh;
+    }
+  }
+
   .fanportal-content {
     display: flex;
     flex-direction: row;

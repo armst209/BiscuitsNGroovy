@@ -17,6 +17,36 @@ function FanPortal(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <FPHomepage setTrigger={showAlbumDetails} />
+      {/* <div className="portal-content-wrapper"> */}
+      {/* <div className="side-nav-bar">
+          <nav>
+            <ul>
+              <li>shfklasfjlsakdfasf</li>
+              <li>dsgdsgsdgdsfgsd</li>
+              <li>dsgdsgsdfgsdgsd</li>
+              <li>shfklasfjlsakdfasf</li>
+              <li>dsgdsgsdgdsfgsd</li>
+              <li>dsgdsgsdfgsdgsd</li>
+              <li>shfklasfjlsakdfasf</li>
+              <li>dsgdsgsdgdsfgsd</li>
+              <li>dsgdsgsdfgsdgsd</li>
+            </ul>
+          </nav>
+        </div> */}
+
+      {/* </div> */}
+
+      {/* <div className="middle"> */}
+      {/* <nav className="portal-nav">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </nav> */}
+
+      {/* </div> */}
+
       {/* <ReleasePreview trigger={albumDetails} setTrigger={showAlbumDetails} /> */}
       <Footer />
     </section>
