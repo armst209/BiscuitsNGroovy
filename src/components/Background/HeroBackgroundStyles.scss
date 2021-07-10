@@ -1,36 +1,27 @@
 .background {
-  img {
+  .yellow-bg-desktop {
+    width: 90%;
+    height: 100vh;
+    z-index: 10;
+    // filter: drop-shadow(0 0 5px black);
+  }
+  @media (max-width: 1050px) {
+    display: none;
+  }
+}
+
+.background-mobile {
+  display: none;
+
+  .yellow-bg-mobile {
     width: 100%;
-    height: auto;
+    height: 100vh;
     z-index: 10;
     filter: drop-shadow(0 0 5px black);
   }
-
-  // @media (max-width: 768px) {
-  //   img {
-  //     height: 80%;
-  //   }
-  // }
-  // @media (max-width: 540px) {
-  //   img {
-  //     height: 70%;
-  //   }
-  // }
-
-  // @media (max-width: 415px) {
-  //   img {
-  //     height: 60%;
-  //   }
-  // }
-
-  // @media (max-width: 325px) {
-  //   img {
-  //     height: 55%;
-  //   }
-  // }
-  // @media (max-width: 300px) {
-  //   img {
-  //     height: 60%;
-  //   }
-  // }
+  @media (max-width: 1049px) {
+    display: flex;
+  }
+  @media (max-width: 500px) {
+  }
 }

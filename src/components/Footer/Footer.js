@@ -2,6 +2,7 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 import SocialMedia from "../Social Media/SocialMedia";
 import footer_logo from "../../assets/images/bng_test.svg";
+
 import "./FooterStyles.scss";
 
 function Footer() {
@@ -39,17 +40,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="button-plus-social">
-            {/* <div className="support">
-              <p>Support</p>
-              <div>
-                <p>Phone:(888)999-9999 </p>
-                <p>
-                  <a href="mailto:team@bngroovy.com">Email Us</a>
-                </p>
-              </div>
-            </div> */}
-          </div>
+          <div className="button-plus-social"></div>
 
           <div className="social-media">
             {/* <p>Stay Connected</p> */}

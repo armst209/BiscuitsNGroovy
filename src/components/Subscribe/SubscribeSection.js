@@ -9,11 +9,7 @@ function SubscribeSection() {
         <label htmlFor="name" />
         <input type="text" name="name" placeholder="Please enter your name" />
         <label htmlFor="email" />
-        <input
-          type="email"
-          name="email"
-          placeholder="Please enter your email"
-        />
+
         <button type="submit">SUBSCRIBE</button>
       </form>
     </section>

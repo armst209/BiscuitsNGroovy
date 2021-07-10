@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import Logout from "../../../pages/Logout/Logout";
+import Login from "../../../components/Login/Login";
 import logo from "../../../assets/images/bng_header_test.svg";
 import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
+import LoginTest from "../../Login/LoginTest";
 
 function MainNavigation(props) {
-  // const [scrolled, setScrolled] = useState(false);
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
@@ -17,6 +20,12 @@ function MainNavigation(props) {
   const [scrolledNavClass, setScrolledNavClass] = useState("");
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
+  const [userName, setUserName] = useState("Welcome");
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
   const isAuthenticated = localStorage.getItem("token");
 
   //Function for close button in mobile navigation popup
@@ -38,24 +47,24 @@ function MainNavigation(props) {
     }, 1000);
   };
   useEffect(() => {
-    //User's name
-    // const token = localStorage.getItem("token");
-    // const baseURL =
-    //   "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    // Getting user's information
+    const token = localStorage.getItem("token");
+    const baseURL =
+      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
 
-    // axios({
-    //   method: "get",
-    //   url: `${baseURL}/users/users`,
-    //   headers: {
-    //     "x-access-token": token,
-    //   },
-    // })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios({
+      method: "get",
+      url: `${baseURL}/users/me`,
+      headers: {
+        "x-access-token": token,
+      },
+    })
+      .then((res) => {
+        setUserName(res.data.user.username);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     //Menu Dropdown Function
     const viewDropDown = () => {
@@ -79,9 +88,13 @@ function MainNavigation(props) {
       );
     } else {
       setIsLoggedIn(
-        <Link to="#" onClick={() => props.showLoginPopup(true)}>
+        <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
           Login
-        </Link>
+        </NavLink>
+
+        // <NavLink to="#" onClick={onOpenModal}>
+        //   Login
+        // </NavLink>
       );
     }
 
@@ -89,7 +102,7 @@ function MainNavigation(props) {
     //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 100) {
+      if (offset > 50) {
         setScrolledNavClass("scrolled-navigation");
       } else {
         setScrolledNavClass("");
@@ -109,7 +122,7 @@ function MainNavigation(props) {
           <nav className="nav-home">
             <div className="logo-home">
               <Link className="bng-home" to="/home">
-                <img src={logo} alt="logo" />
+                <img className="bng-home-logo" src={logo} alt="logo" />
               </Link>
               <Link className="bng-home-mobile" to="/home">
                 <img src={mobile_logo} alt="logo" />
@@ -121,11 +134,11 @@ function MainNavigation(props) {
               <ul className="general-links-home">
                 <li>
                   <NavLink
-                    activeStyle={{
-                      // color: "var(--color1)",
-                      // textDecoration: "underline 3px solid var(--color2)",
-                      borderBottom: "3px solid var(--color2)",
-                    }}
+                    activeStyle={
+                      {
+                        // textDecoration: "underline 3.5px solid var(--color2)",
+                      }
+                    }
                     to="/home"
                   >
                     Home
@@ -134,9 +147,7 @@ function MainNavigation(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      // color: "var(--color1)",
-                      // textDecoration: "2px underline var(--color1)",
-                      borderBottom: "3px solid var(--color2)",
+                      textDecoration: "underline 3.5px solid var(--color2)",
                     }}
                     to="/about"
                   >
@@ -146,8 +157,7 @@ function MainNavigation(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      // color: "var(--color1)",
-                      borderBottom: "3px solid var(--color2)",
+                      textDecoration: "underline 3.5px solid var(--color2)",
                     }}
                     to="/faq"
                   >
@@ -157,8 +167,7 @@ function MainNavigation(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      // color: "var(--color1)",
-                      borderBottom: "3px solid var(--color2)",
+                      textDecoration: "underline 3.5px solid var(--color2)",
                     }}
                     to="/artists"
                   >
@@ -167,7 +176,12 @@ function MainNavigation(props) {
                 </li>
               </ul>
               <ul className="login-links-home">
-                <li className="login-home-link">{isLoggedIn}</li>
+                <li className="login-home-link">
+                  {isLoggedIn}
+                  {/* <Modal open={open} onClose={onCloseModal} center>
+                    <LoginTest />
+                  </Modal> */}
+                </li>
                 <li
                   className={signUpClassName}
                   onClick={() => props.showSignUpPopUp(true)}
@@ -220,51 +234,22 @@ function MainNavigation(props) {
 
                 <ul>
                   <li className="user-info-dropdown-select">
-                    <div>Username</div>
+                    <div>{userName}</div>
                     <button className="login-btn">{isLoggedIn}</button>
                   </li>
 
                   <li>
-                    <NavLink
-                      // activeStyle={{
-                      //   borderBottom: "3px solid var(--color2)",
-                      //   // color: "var(--color2)",
-                      // }}
-                      to="/home"
-                    >
-                      Home
-                    </NavLink>
+                    <NavLink to="/home">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      // activeStyle={{
-                      //   color: "var(--color1)",
-                      // }}
-                      to="/about"
-                    >
-                      About
-                    </NavLink>
+                    <NavLink to="/about">About</NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      // activeStyle={{
-                      //   color: "var(--color1)",
-                      // }}
-                      to="/faq"
-                    >
-                      FAQ
-                    </NavLink>
+                    <NavLink to="/faq">FAQ</NavLink>
                   </li>
 
                   <li>
-                    <NavLink
-                      // activeStyle={{
-                      //   color: "var(--color1)",
-                      // }}
-                      to="/artists"
-                    >
-                      Artists
-                    </NavLink>
+                    <NavLink to="/artists">Artists</NavLink>
                   </li>
 
                   <li

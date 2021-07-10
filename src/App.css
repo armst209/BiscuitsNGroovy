@@ -1,39 +1,4 @@
 @font-face {
-  font-family: 'resotedreamregular';
-  src: url('./assets/fonts/resotedream-jraem-webfont.woff2') format('woff2'), url('./assets/fonts/resotedream-jraem-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'manjaribold';
-  src: url('./assets/fonts/Manjari/manjari-bold-webfont.woff2') format('woff2'), url('./assets/fonts/Manjari/manjari-bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'manjariregular';
-  src: url('./assets/fonts/Manjari/manjari-regular-webfont.woff2') format('woff2'), url('./assets/fonts/Manjari/manjari-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'manjarithin';
-  src: url('./assets/fonts/Manjari/manjari-thin-webfont.woff2') format('woff2'), url('./assets/fonts/Manjari/manjari-thin-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'cunia';
-  src: url('./assets/fonts/cunia/cunia.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'outer-sans';
   src: url('./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff') format('woff');
   font-weight: normal;
@@ -43,20 +8,6 @@
 @font-face {
   font-family: 'outer-sans-thin';
   src: url('./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'adequate';
-  src: url('./assets/fonts/adequate/Adequate-ExtraLight.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'keep-calm';
-  src: url('./assets/fonts/keep-calm/KeepCalm-Medium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

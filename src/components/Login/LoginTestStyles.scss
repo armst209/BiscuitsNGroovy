@@ -1,0 +1,304 @@
+#login-test {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // position: fixed;
+  // width: 100%;
+  // height: 100vh;
+  // z-index: 9999999;
+  // background: rgba(0, 0, 0, 0.774);
+  // @media screen and (orientation: landscape) and (max-device-width: 850px) {
+  //   top: -500%;
+  //   height: 5000px;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 830px) and (max-device-height: 400px) {
+  //   height: 7100px;
+  //   top: -840%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 750px) and (max-device-height: 550px) {
+  //   height: 6800px;
+  //   top: -550%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 740px) and (max-device-height: 420px) {
+  //   height: 7000px;
+  //   top: -750%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 735px) and (max-device-height: 450px) {
+  //   height: 7000px;
+  //   top: -750%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 670px) and (max-device-height: 400px) {
+  //   height: 7000px;
+  //   top: -830%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 660px) {
+  //   height: 5000px;
+  //   top: -575%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 600px) and (max-device-height: 350px) {
+  //   height: 5800px;
+  //   top: -780%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 653px) and (max-device-height: 285px) {
+  //   height: 6500px;
+  //   top: -1020%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+
+  // @media screen and (orientation: portrait) and (max-device-width: 325px) {
+  //   padding-top: 4rem;
+  // }
+
+  .login-container-test {
+    .login-contents-test {
+      width: 400px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: var(--shadow-large);
+      padding: 60px 40px;
+      background-color: white;
+      font-family: var(--font2);
+      position: relative;
+      @media screen and (orientation: landscape) and (max-device-width: 850px) {
+        // width: 100vw;
+        // height: inherit;
+        // padding: 10px 20px;
+        // top: 5%;
+      }
+      @media screen and (orientation: portrait) and (max-device-width: 325px) {
+        height: 500px;
+      }
+      @media screen and (orientation: portrait) and (max-device-width: 365px) and (max-device-height: 645px) {
+        height: 550px;
+      }
+
+      .google {
+        background: #4285f4;
+        border: none;
+        color: white;
+        font-family: var(--font);
+      }
+      .facebook {
+        background: #3b5998;
+        border: none;
+        color: white;
+        font-family: var(--font2);
+      }
+      .logo {
+        width: 40%;
+        padding: 0.5rem;
+      }
+
+      .close-btn-login {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        align-items: center;
+        padding: 0.8rem;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.5rem;
+        cursor: pointer;
+        top: 0;
+      }
+      .signup-redirect {
+        color: var(--color2);
+        cursor: pointer;
+      }
+
+      h2 {
+        color: black;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 10px;
+        @media screen and (orientation: landscape) and (max-device-width: 800px) {
+          // font-size: 1.5rem;
+        }
+      }
+      span {
+        font-weight: bold;
+
+        a {
+          font-weight: bold;
+          text-decoration: none;
+          color: var(--color2);
+          &:visited {
+            color: var(--color2);
+          }
+        }
+      }
+      .login-btn-password {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        @media screen and (orientation: landscape) and (max-device-width: 800px) {
+          // width: 50%;
+          // flex-direction: column;
+        }
+        @media screen and (orientation: portrait) and (max-device-width: 285px) {
+          flex-direction: column;
+        }
+
+        .login-button-test {
+          width: 100%;
+
+          .button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            img {
+              position: absolute;
+              width: 10%;
+              right: 5%;
+            }
+            height: 70px;
+            margin: 5px 0;
+            background: var(--color1);
+            border: none;
+            // border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: var(--shadow-large);
+            cursor: pointer;
+          }
+        }
+      }
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin: 5px 0;
+        font-family: var(--font2);
+        border-radius: 2rem;
+        border: 2px solid var(--color-grayish);
+        background: transparent;
+        color: black;
+        font-weight: 500;
+        font-size: 0.95rem;
+        cursor: pointer;
+        .fa-facebook-square {
+          color: #2d88ff;
+          font-size: 20px;
+        }
+        svg {
+          color: red;
+          font-size: 20px;
+        }
+      }
+
+      p {
+        padding: 5px 0;
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        @media screen and (orientation: landscape) and (max-device-width: 800px) {
+          // flex-direction: row;
+        }
+        .forgot-password {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          a {
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--color2);
+            &:visited {
+              color: var(--color2);
+            }
+          }
+        }
+      }
+
+      .input-styles {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @media screen and (orientation: landscape) and (max-device-width: 800px) {
+          // padding: 10px;
+          // width: 50%;
+        }
+        input {
+          margin: 5px 0;
+          background: var(--color-light);
+          font-family: var(--font2);
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: inherit;
+          width: 100%;
+          height: auto;
+          padding: 0.75rem 1.25rem;
+          border: none;
+          outline: none;
+          // border-radius: 2rem;
+          color: var(--color-black);
+          background: var(--color-light);
+          text-transform: unset;
+          text-rendering: optimizeLegibility;
+        }
+      }
+
+      .or-fold {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
+        @media screen and (orientation: landscape) and (max-device-width: 800px) {
+          // margin: 0;
+        }
+        p {
+          margin: 0 10px;
+        }
+        hr {
+          width: 100%;
+          height: 1px;
+        }
+      }
+      .login-messages {
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px;
+        @media screen and (orientation: landscape) and (max-device-width: 800px) {
+          // padding: 0;
+        }
+      }
+    }
+  }
+}

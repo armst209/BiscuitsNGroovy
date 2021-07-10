@@ -102,9 +102,7 @@ function HowItWorks() {
         Get answers and learn more about our eco-friendly NFTs on our{" "}
         <Link to="/faq">FAQ</Link> page
       </p>
-      {/* <div className="bottom-tag">
-        <img src={bottomWave} alt="bottom-wave" className="bottom-wave" />
-      </div> */}
+      <div id="music-showcase-link"></div>
     </section>
   );
 }

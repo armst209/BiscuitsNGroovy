@@ -9,7 +9,7 @@
   z-index: 0;
   width: 100%;
 
-  // border-bottom: 10px solid var(--color1);
+  border-bottom: 3px solid var(--color1);
   //fix if changed
   height: 100vh;
   padding: 0;
@@ -35,68 +35,48 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    // background-color: rgb(0, 0, 0);
-    padding: 0 1rem;
+    // padding-bottom: 5rem;
+
+    // padding: 0 1rem;
 
     .hero-main {
-      position: relative;
       display: flex;
-      justify-content: stretch;
+      justify-content: center;
       align-items: center;
+      width: 100%;
       height: 100%;
-      padding-top: 80px;
+      padding: 0 0 0 3rem;
+      // padding-top: 80px;
 
-      @media screen and (min-width: 1100px) {
-        width: 1140px;
-      }
-      @media screen and (max-width: 850px) {
-        margin-top: 100px;
+      @media screen and (max-width: 1150px) {
+        padding: 0 0 0 1.5rem;
       }
 
-      @media screen and (max-width: 900px) {
+      @media screen and (max-width: 1050px) {
         flex-direction: column;
+        padding: 0;
+      }
+      @media screen and (orientation: landscape) and (max-width: 870px) {
+        margin-top: 100px;
       }
       @media screen and (min-device-width: 768px) and (max-device-height: 784px) {
         // padding-top: 10rem;
         // margin-top: 70px;
-      }
-      .hero-box {
-        display: none;
-        width: 700px;
-        height: 353px;
-        border: 5px solid var(--color1);
-        position: absolute;
-        left: -2%;
-        bottom: 30.5%;
-        z-index: 2;
-        background-color: black;
       }
 
       .hero-titles {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        z-index: 9999;
-
-        // border: 5px solid var(--color1);
-        padding: 2rem 2rem 3rem 2rem;
-
-        // @media screen and (min-width: 768px) {
-        //   width: 50%;
-        // }
-        @media screen and (max-width: 768px) {
+        align-items: left;
+        width: 50%;
+        height: 600px;
+        @media screen and (max-width: 1050px) {
           width: 100%;
-          height: 100%;
-        }
-
-        .hero-bg {
-          position: relative;
-          z-index: 4;
+          align-items: center;
         }
 
         .hero-text {
@@ -104,27 +84,90 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          color: white;
-          font-weight: bold;
-          z-index: 5;
-          position: absolute;
-          width: 700px;
-          left: 20%;
-          bottom: 35%;
+          position: relative;
+          z-index: 50;
+          height: 600px;
+          color: black;
+          width: 90%;
+          @media screen and (max-width: 1400px) {
+            width: 700px;
+            padding-right: 4rem;
+          }
+          @media screen and (max-width: 1080px) {
+            width: 450px;
+          }
+          @media screen and (max-width: 1050px) {
+            width: 100%;
+            height: auto;
+            padding-right: 1rem;
+            padding-left: 1rem;
+          }
 
-          .h1-wrapper {
-            .hero-blob {
-              display: none;
-              position: absolute;
-              width: 550px;
-              right: -28%;
+          .hero-text-wrapper {
+            @media screen and (max-width: 1050px) {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              width: 800px;
             }
+
             h1 {
-              font-size: 6rem;
+              font-size: 9rem;
               font-family: var(--font1);
               font-weight: lighter;
               position: relative;
-              line-height: 5rem;
+              line-height: 7rem;
+              height: auto;
+
+              @media screen and (max-width: 1700px) {
+                font-size: 7rem;
+                line-height: 5.5rem;
+              }
+
+              @media screen and (max-width: 1400px) {
+                font-size: 6.5rem;
+                line-height: 5rem;
+              }
+              @media screen and (max-width: 1400px) {
+                font-size: 6rem;
+                line-height: 5rem;
+              }
+              @media screen and (max-width: 1200px) {
+                font-size: 5.5rem;
+                line-height: 4.5rem;
+              }
+              @media screen and (max-width: 1080px) {
+                font-size: 5rem;
+                line-height: 4rem;
+              }
+              @media screen and (max-width: 1050px) {
+                width: 100%;
+                height: auto;
+                font-size: 8rem;
+                line-height: 6rem;
+              }
+              @media screen and (max-width: 1000px) {
+              }
+              @media screen and (max-width: 640px) {
+                font-size: 7rem;
+                line-height: 5.5rem;
+              }
+              @media screen and (max-width: 580px) {
+                font-size: 6rem;
+                line-height: 5rem;
+              }
+              @media screen and (max-width: 485px) {
+                font-size: 5rem;
+                line-height: 4rem;
+              }
+            }
+
+            .is-our {
+              display: flex;
+              .is-h1 {
+                padding-right: 10px;
+              }
             }
           }
 
@@ -133,47 +176,109 @@
             font-family: var(--font2);
             line-height: normal;
             padding: 5px 0;
-            width: 80%;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: left;
+            div {
+              @media screen and (max-width: 1050px) {
+                padding-right: 3rem;
+              }
+            }
+
+            @media screen and (min-width: 1700px) {
+              padding-right: 15rem;
+              font-size: 2rem;
+            }
+            @media screen and (max-width: 1250px) {
+              font-size: 1.3rem;
+            }
+            @media screen and (max-width: 1100px) {
+              font-size: 1.5rem;
+            }
+
+            @media screen and (max-width: 1050px) {
+              align-items: flex-start;
+            }
           }
 
           .hero-buttons {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-decoration: none;
-            color: var(--bg-color);
-            cursor: pointer;
-            position: absolute;
-            bottom: -80.5%;
-            z-index: 999;
             width: 100%;
+            @media screen and (min-width: 1700px) {
+              padding-top: 10px;
+            }
 
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 1100px) {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+            @media screen and (max-width: 1050px) {
+              flex-direction: row;
+            }
+            @media screen and (max-width: 880px) {
               flex-direction: column;
             }
             a {
               button {
-                border-radius: 10px;
-                border: none;
+                border-radius: 0.5rem;
+                border: transparent;
                 background-color: var(--color1);
                 font-family: var(--font1);
                 filter: drop-shadow(5px 5px 8px black);
+                margin: 0.2rem 0.4rem 0.2rem 0;
                 cursor: pointer;
-                @media screen and (min-width: 1100px) {
+                @media screen and (min-width: 1700px) {
+                  width: 300px;
+                  height: 100px;
+                  font-size: 1.5rem;
+                }
+
+                @media screen and (max-width: 1699px) {
                   width: 230px;
                   height: 80px;
                   font-size: 1rem;
                 }
                 @media screen and (max-width: 1099px) {
-                  width: 180px;
-                  height: 70px;
-                  font-size: 1rem;
+                  width: 400px;
+                  height: 100px;
+                  font-size: 1.5rem;
                 }
+                @media screen and (max-width: 880px) {
+                  width: 700px;
+                  height: 150px;
+                  font-size: 2rem;
+                  margin: 0.5rem 0 0.2rem 0;
+                }
+                @media screen and (max-width: 880px) {
+                  width: 650px;
+                  height: 150px;
+                  font-size: 2rem;
+                  margin: 0.5rem 0 0.2rem 0;
+                }
+                @media screen and (max-width: 745px) {
+                  width: 600px;
+                  height: 150px;
+                  font-size: 2rem;
+                  margin: 0.5rem 0 0.2rem 0;
+                }
+                @media screen and (max-width: 700px) {
+                  width: 550px;
+                  height: 150px;
+                  font-size: 2rem;
+                  margin: 0.5rem 0 0.2rem 0;
+                }
+                @media screen and (max-width: 640px) {
+                  width: 500px;
+                  height: 150px;
+                  font-size: 2rem;
+                  margin: 0.5rem 0 0.2rem 0;
+                }
+
                 @media screen and (max-width: 400px) {
                   width: 230px;
                   height: 80px;
@@ -181,20 +286,23 @@
                 }
               }
               .start {
-                margin: 0.2rem 0.4rem 0.2rem 0;
+                background-color: var(--color2);
+                color: black;
+
+                transition: all 0.2s ease;
                 &:hover {
-                  transition: 0.2s ease;
-                  transform: scale(1.05);
+                  filter: none;
                 }
               }
               .learn {
                 background-color: black;
                 color: white;
                 border: 3px solid var(--color2);
-                margin: 0.2rem;
+
+                transition: all 0.2s ease;
                 &:hover {
                   background: var(--color2);
-                  transition: all 0.2s ease;
+                  filter: none;
                   color: black;
                   border: none;
                 }
@@ -205,14 +313,16 @@
       }
 
       .hero-images {
-        display: none;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: white;
-        width: 0%;
-
-        @media screen and (max-width: 768px) {
+        position: relative;
+        width: 50%;
+        padding-bottom: 6rem;
+        z-index: 0;
+        @media screen and (max-width: 1050px) {
           display: none;
           width: 0;
         }
@@ -222,77 +332,98 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          position: relative;
-          z-index: 50;
+          // position: absolute;
+
+          height: 500px;
           img {
             height: 400px;
-          }
-        }
-        .featured {
-          width: auto;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          border: 3px solid var(--color2);
-          // background-color: var(--bg-color);
-          z-index: 50;
-
-          h1 {
-            font-family: var(--font1);
-            font-weight: normal;
-            color: white;
-            padding: 10px 5px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-
-            img {
-              width: 50px;
-              top: -20%;
-              right: -20%;
-              position: absolute;
-            }
-          }
-          // border: 5px solid var(--color1);
-          // // border-bottom: 5px solid var(--color1);
-
-          p {
-            width: 100%;
-            height: 100%;
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: var(--font1);
-            color: white;
-            @media (max-width: 768px) {
-              padding-left: 1rem;
-            }
           }
         }
       }
     }
   }
 
-  .soundbar-content {
+  .featured {
     width: 100%;
-    position: absolute;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-  }
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 70%;
+    // right: 0;
+    // bottom: 0.2%;
+    align-items: center;
+    border: 3px solid var(--color1);
+    border-right: 0;
+    z-index: -1;
 
-  .album-active {
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 50;
+    h1 {
+      width: 50%;
+      font-family: var(--font1);
+      font-weight: normal;
+      color: white;
+      padding: 10px 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
       width: 100%;
+
+      .featured-artist {
+        padding-right: 5px;
+      }
+      img {
+        width: 50px;
+        top: -20%;
+        right: -20%;
+        position: absolute;
+      }
+    }
+  }
+  .featured-mobile {
+    width: 100%;
+    height: 70px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0%;
+    align-items: center;
+    border: 3px solid var(--color1);
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    z-index: -1;
+
+    @media screen and (max-width: 1050px) {
+      display: flex;
+    }
+
+    h1 {
+      width: 50%;
+      font-family: var(--font1);
+      font-weight: normal;
+      color: white;
+      padding: 10px 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+
+      .featured-artist {
+        padding-right: 5px;
+      }
+      img {
+        width: 50px;
+        top: -20%;
+        right: -20%;
+        position: absolute;
+      }
     }
   }
 }
