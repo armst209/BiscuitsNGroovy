@@ -1,5 +1,6 @@
 import { React } from "react";
 import "./HeroStyles.scss";
+import "./HeroPhoneTabletQueries.scss";
 import { Link } from "react-router-dom";
 import blob from "../../assets/images/blob.svg";
 import hero_bg from "../../assets/images/hero-titles.svg";
