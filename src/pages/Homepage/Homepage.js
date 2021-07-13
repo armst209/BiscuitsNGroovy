@@ -15,6 +15,7 @@ function Homepage(props) {
         showLoginPopup={props.setTrigger}
         showSignUpPopUp={props.showSignUp}
       />
+
       <Hero />
       <HowItWorks />
       <MusicShowcase />

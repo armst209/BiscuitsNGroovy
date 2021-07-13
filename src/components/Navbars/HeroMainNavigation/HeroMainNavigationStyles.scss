@@ -1,11 +1,11 @@
-.homepage-navigation {
+.hero-navigation {
   width: 100%;
   font-family: var(--font1);
   height: 70px;
-  position: fixed;
-  background: transparent;
+  position: sticky;
+  background-color: black;
   border-bottom: 3px solid var(--color1);
-  z-index: 9999;
+  z-index: 9;
   transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
   transition: transform 0.35s, background 0.35s,
     box-shadow 0.35s cubic-bezier(0.5, 0, 0.35, 1);
@@ -440,6 +440,7 @@
 
       .mobile-nav-home {
         flex-direction: column;
+
         background-color: black;
         justify-content: left;
         align-items: center;
@@ -457,10 +458,6 @@
         border-top: 0;
         border-bottom: 0;
         font-size: 30px;
-        /* Galaxy Fold Landscape Portrait */
-        @media screen and (max-width: 300px) and (max-height: 655px) and (orientation: portrait) {
-          width: 100%;
-        }
 
         .signup-no-display {
           display: none;

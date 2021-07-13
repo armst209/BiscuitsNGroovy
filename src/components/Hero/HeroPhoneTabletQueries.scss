@@ -1,0 +1,79 @@
+#hero {
+  /* Ipad Landscape */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    height: 1000px;
+  }
+  /* Iphone 5 Landscape */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    height: 1000px;
+    padding-bottom: 10rem;
+  }
+  /* iPhone X Portrait */
+  @media only screen and (max-device-width: 375px) and (max-device-height: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    padding-top: 0;
+  }
+
+  /* Pixel2 & Pixel2 XL Landscape */
+  @media screen and (max-width: 850px) and (max-height: 450px) {
+    height: 1000px;
+    padding-bottom: 10rem;
+  }
+  /* Surface Duo Landscape */
+  @media screen and (max-width: 725px) and (max-height: 545px) and (orientation: landscape) {
+    height: 1000px;
+    padding-bottom: 10rem;
+  }
+
+  /* Galaxy S5 & Moto G4 Landscape */
+  @media screen and (max-width: 645px) and (max-height: 365px) {
+    height: 950px;
+    padding-bottom: 10rem;
+  }
+
+  /* Galaxy Fold Landscape Portrait */
+  @media screen and (max-width: 365px) and (max-height: 645px) and (orientation: portrait) {
+    height: 800px;
+    padding-bottom: 0;
+  }
+  /* IPhone 5 Portrait */
+  @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
+    height: 900px;
+    padding-bottom: 10rem;
+  }
+
+  .hero-container {
+    .hero-main {
+      .hero-titles {
+        .hero-text {
+          .hero-text-wrapper {
+            /* Galaxy Fold Landscape */
+            @media screen and (max-width: 300px) and (max-height: 670px) {
+              h1 {
+                font-size: 4rem;
+                line-height: 3.2rem;
+              }
+              h3 {
+                font-size: 1.1rem;
+              }
+            }
+
+            .hero-buttons {
+              /* Pixel2 & Pixel2 XL Landscape */
+              @media screen and (max-width: 850px) and (max-height: 450px) {
+                flex-direction: column;
+              }
+              /* Surface Duo Landscape */
+              @media screen and (max-width: 725px) and (max-height: 545px) and (orientation: landscape) {
+                flex-direction: column;
+              }
+              /* Galaxy S5 & Moto G4 Landscape */
+              @media screen and (max-width: 645px) and (max-height: 365px) {
+                flex-direction: column;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
