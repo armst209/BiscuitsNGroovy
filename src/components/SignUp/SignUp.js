@@ -4,6 +4,7 @@ import "./SignUpStyles.scss";
 import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
+import * as fcl from "@onflow/fcl"
 // import spotlight from "../../assets/images/spotlight2.png";
 
 const SignUp = (props) => {
@@ -22,7 +23,16 @@ const SignUp = (props) => {
     }
   };
 
-  const submit = function(event){
+  const submit = async function(event){
+    //if flow account is not linked throw error 
+    let currUser = await fcl.currentUser().snapshot();
+    if (currUser.addr === null) {
+      setErrorMessage(
+        "You must link your Biscuits n Groovy account with a Flow wallet."
+      );
+      return
+    }
+    let flow_address = currUser.addr;
     event.preventDefault();
     const baseURL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
@@ -30,7 +40,7 @@ const SignUp = (props) => {
     axios({
       method: "post",
       url: `${baseURL}/registration`,
-      data: { email, name, username, password },
+      data: { email, name, username, password, flow_address},
     })
       .then((res) => {
         handleSignUp(res);
@@ -70,7 +80,6 @@ const SignUp = (props) => {
               <span className="login-redirect"> Login</span>
             </span>
           </p>
-          <LinkFlowButton/>
           <form onSubmit={submit}>
             <input
               type="email"
@@ -99,7 +108,7 @@ const SignUp = (props) => {
               autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit">SIGN UP</button>
+            <LinkFlowButton/>
           </form>
           <div className="error-message">{errorMessage}</div>
         </div>

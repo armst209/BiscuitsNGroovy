@@ -5,6 +5,11 @@ import * as t from "@onflow/types"
 
 export async function accountIsInitialized() {
     let currUser = await fcl.currentUser().snapshot();
+    console.log("current user");
+    console.log(currUser);
+    if (currUser.loggedIn === null) {
+      return false;
+    }
     return await fcl
     .send([
         fcl.script`
@@ -27,17 +32,27 @@ export async function accountIsInitialized() {
         ])
     ])
     .then(fcl.decode)
+    .then(res => {
+      if (res == "Account is not setup"){
+        return false;
+      } else if (res == "Account is setup"){
+        return true;
+      } else {
+        console.log("error")
+        return false;
+      }
+    })
     .catch(err => {
         console.log(err);
     })
 }
 
 export async function initAccount() {
-  let newStatus = await accountIsInitialized();
-  if (newStatus === "Account is setup"){
+  let isInitialized = accountIsInitialized();
+  if (isInitialized === true){
     return;
   } else {
-    const txId = await fcl
+    await fcl
     .send([
       // Transactions use fcl.transaction instead of fcl.script
       // Their syntax is a little different too
@@ -60,8 +75,13 @@ export async function initAccount() {
       fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
       fcl.limit(1000), // set the compute limit
     ])
-    .then(fcl.decode);
-    fcl.tx(txId).onceSealed();
-    return;
+    .then(fcl.decode)
+    .then(txId => {
+      return fcl.tx(txId).onceSealed();
+    })
+    .catch(err => {
+      console.log("err: " + err.stack);
+      return;
+    })
   }
 }

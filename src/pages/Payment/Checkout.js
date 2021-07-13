@@ -93,21 +93,24 @@ export default function CheckoutButton(props) {
     const stripe = await stripePromise;
     const URL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
-
+    const token = localStorage.getItem("token");
     console.log(props.name);
     console.log(props.images);
     console.log(props.price);
     const response = await axios(URL, {
       method: "POST",
+      headers: {
+        "x-access-token": token,
+      },
       data: {
         productName: props.name,
-        productImages: props.images,
+        productImages: [props.images],
         productPrice: parseInt(props.price*100),
         releaseID: props.release_id,
       },
     });
     const sessionId = await response.data.id;
-
+    console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,

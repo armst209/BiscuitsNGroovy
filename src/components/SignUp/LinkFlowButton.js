@@ -1,11 +1,35 @@
-import React from 'react'
+import { React, useEffect, useState} from 'react'
 import {initAccount, accountIsInitialized} from "../../utils/flow"
+import * as fcl from "@onflow/fcl"
 function LinkFlowButton() {
-    let isInitialized = accountIsInitialized();
-    if(isInitialized == "Account is not setup") {
-        return (<div onClick={initAccount}>Link Flow Account</div>)
+
+    const [isInitialized, setIsInitialized] = useState(false);
+    async function updateInitializedComponent() { 
+        if (isInitialized == true) {
+            return;
+        }
+        await initAccount();
+        accountIsInitialized().then(firstAccountState => {
+            console.log(firstAccountState);
+            setIsInitialized(firstAccountState);
+        });
+    }
+
+    async function logOutOfFlow(){
+        fcl.unauthenticate();
+        accountIsInitialized().then(firstAccountState => {
+            console.log(firstAccountState);
+            setIsInitialized(firstAccountState);
+        });
+    }
+    
+    if(!isInitialized) {
+        return (<div onClick={updateInitializedComponent}>Link Flow Account</div>)
     } else {
-      return (<div>Flow Account Linked!</div>)
+      return (<div>
+          <button type="submit">SIGN UP</button>
+          <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
+          </div>)
     }
 }
 
