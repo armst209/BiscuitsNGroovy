@@ -102,7 +102,6 @@ function HowItWorks() {
         Get answers and learn more about our eco-friendly NFTs on our{" "}
         <Link to="/faq">FAQ</Link> page
       </p>
-      <div id="music-showcase-link"></div>
     </section>
   );
 }

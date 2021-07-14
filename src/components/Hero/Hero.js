@@ -52,7 +52,7 @@ function Hero(props) {
                   </div>
                 </h3>
                 <div className="hero-buttons">
-                  <Link to="#music-showcase-link">
+                  <Link to="#music-showcase">
                     <button className="start">Start Your Collection</button>
                   </Link>
                   <Link to="/artists">

@@ -7,6 +7,7 @@ import ReminderBackground3 from "../Background/ReminderBackground3";
 // import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
+import "./GalleryStyles.css";
 import ReleasesCarousel from "./ReleasesCarousel";
 const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 
@@ -17,6 +18,8 @@ const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
 function MusicShowcase() {
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState(false);
+
+  //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
   const baseURL =
     "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
@@ -59,9 +62,14 @@ function MusicShowcase() {
           <div
             onClick={() => showReleaseInfo(release)}
             key={`${"release-container" + release.id}`}
-            className="release-divs"
+            className="gallery-item"
+            tabindex="0"
           >
-            <img src={release.art_url} alt={release.name} />
+            <img
+              className="gallery-image"
+              src={release.art_url}
+              alt={release.name}
+            />
           </div>
         ) : (
           <div className="loading-animation">
@@ -90,8 +98,8 @@ function MusicShowcase() {
             Browse our current and upcoming releases. <br />
             Click on a title for more details
           </p>
-          <div className="showcase-grid-desktop">
-            <div className="displayed-releases">
+          <div className="container">
+            <div className="gallery">
               {/* <ReleaseCalendar /> */}
               {displayReleases}
               {/* <div className="release-popup">{releaseInfo}</div>  */}
@@ -99,7 +107,7 @@ function MusicShowcase() {
           </div>
           <div className="showcase-grid-mobile">
             <Suspense fallback={<ComponentLoading />}>
-              {/* <ReleasesCarousel /> */}
+              <ReleasesCarousel />
             </Suspense>
           </div>
         </div>

@@ -19,6 +19,7 @@
   overflow-x: visible;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   --font1: 'outer-sans';
   --font2: 'outer-sans-thin';
   --color1: #f5ee0d;
