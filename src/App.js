@@ -2,11 +2,11 @@ import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import React, { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Modal from "./components/Modal";
+import Loading from "./components/Loading/ComponentLoading";
 // import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 // import Logout from "./pages/Logout/Logout";
 // import Carousel from "./components/MusicShowcase/ReleasesCarousel";
@@ -131,9 +131,8 @@ function App() {
           {/* 
           <Route path="/carousel" component={Carousel} />
           <Route path="/music" component={MusicPlayer} />
-          
-          <Route path="/release-preview" component={ReleasePreview} />
-          <Route path="/loading" component={Loading} /> */}
+          <Route path="/release-preview" component={ReleasePreview} />*/}
+          <Route path="/loading" component={Loading} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}

@@ -39,13 +39,7 @@
       transform: rotateZ(-120deg);
     }
   }
-  // .light-middle {
-  //   width: 50px;
-  //   top: -30%;
-  //   left: 48.7%;
-  //   position: absolute;
-  //   transform: translate(-50, -50);
-  // }
+
   .artist-reminder-wrapper {
     display: flex;
     justify-content: center;
@@ -89,21 +83,32 @@
             color: white;
           }
           button {
-            border: 2px solid white;
+            border: 3px solid var(--color1);
             background: transparent;
             width: 200px;
             height: 70px;
-            border-radius: 10px;
             font-family: var(--font1);
             font-size: 1rem;
             cursor: pointer;
             color: white;
             margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            position: relative;
+            img {
+              width: 50px;
+              position: absolute;
+              bottom: -20%;
+              background-color: black;
+              border: 3px solid var(--color1);
+              right: -10%;
+              padding: 5px;
+              // left: 50%;
+              // transform: translate(-50%, -50%);
+            }
             &:hover {
-              transition: 0.2s ease;
+              background-color: var(--color1);
               transform: scale(1.05);
-              background: black;
-              color: white;
+              color: black;
             }
           }
         }

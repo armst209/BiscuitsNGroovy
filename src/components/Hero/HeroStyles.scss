@@ -240,7 +240,7 @@
             }
             a {
               button {
-                border-radius: 0.5rem;
+                // border-radius: 0.5rem;
                 border: transparent;
                 background-color: var(--color1);
                 font-family: var(--font1);
@@ -296,22 +296,24 @@
                 }
               }
               .start {
-                background-color: var(--color2);
-                color: black;
-
+                background-color: black;
+                color: white;
+                border: 3px solid var(--color2);
                 transition: all 0.2s ease;
                 &:hover {
                   filter: none;
+                  background-color: var(--color2);
+                  color: black;
                 }
               }
               .learn {
                 background-color: black;
                 color: white;
-                border: 3px solid var(--color2);
+                border: 3px solid var(--color1);
 
                 transition: all 0.2s ease;
                 &:hover {
-                  background: var(--color2);
+                  background: var(--color1);
                   filter: none;
                   color: black;
                   border: none;

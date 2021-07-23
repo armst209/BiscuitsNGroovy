@@ -1,8 +1,9 @@
 import { React, useEffect, useState, Suspense } from "react";
 import axios from "axios";
+// import { Link } from "react-router-dom";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper.scss";
 import "./LibraryStyles.scss";
@@ -11,6 +12,7 @@ SwiperCore.use(Navigation, Pagination);
 function Library(props) {
   const [albumCovers, setAlbumCovers] = useState("");
   const [albumInfo, setAlbumInfo] = useState(false);
+  const [noReleases, setNoReleases] = useState("");
   // const [hoverInfo, setHoverInfo] = useState("");
   const token = localStorage.getItem("token");
 
@@ -22,7 +24,7 @@ function Library(props) {
     axios({
       method: "get",
       // url: `${testURL}/users`,
-      url: `${baseURL}/releases`,
+      url: `${baseURL}/library`,
       headers: {
         "x-access-token": token,
       },
@@ -36,55 +38,51 @@ function Library(props) {
 
     const handleLibrarySuccess = (res) => {
       // let releases = res.data;
-      let releases = res.data.releases;
-      //Main Function - looping through response, displaying repsonse in "Your Library" & creating individual "AlbumPopup"s
-      let showAllAlbumCovers = releases.map((release) => {
-        //Toggle to Close AlbumPopUp
-        const closeAlbumInfo = () => {
-          setAlbumCovers("");
-        };
-        //Set albumInfo Hook and displays each "album" information inside "Your Library"
-        const showHoverInfo = (release) => {
-          // setHoverInfo(
-          //   <AlbumCoverHover
-          //     closeButton={props.popUpPassed}
-          //     setAlbumInfo={setAlbumInfo}
-          //     albumInfo={albumInfo}
-          //     release={release}
-          //     toggle={closeAlbumInfo}
-          //     showReleasePopUp={props.popUpPassed}
-          //   />
-          // );
-        };
-
-        //Return - what's currently being displayed in the "Your Library" section through Hooks
-        return release ? (
-          // <SwiperSlide tag="li" key={`slide-${release.id}`}>
-          <figure class="hover-img">
-            <img
-              src={release.art_url}
-              alt={release.name}
-              style={{ width: "277px", height: "182px" }}
-            />
-            <figcaption>
-              <AlbumCoverHover
-                closeButton={props.popUpPassed}
-                setAlbumInfo={setAlbumInfo}
-                albumInfo={albumInfo}
-                release={release}
-                toggle={closeAlbumInfo}
-                showReleasePopUp={props.popUpPassed}
-              />
-            </figcaption>
-          </figure>
-        ) : (
-          // </SwiperSlide>
-          <ComponentLoading />
+      console.log(res.data.library);
+      let libraryReleases = res.data.library;
+      if (libraryReleases.length == 0) {
+        setNoReleases(
+          <div className="no-releases-msg">
+            <h1>It looks like you have no releases yet...</h1>
+            <button>Start Your Collection</button>
+          </div>
         );
-      });
+      } else {
+        //Main Function - looping through response, displaying repsonse in "Your Library" & creating individual "AlbumPopup"s
+        let showAllAlbumCovers = libraryReleases.map((release) => {
+          //Toggle to Close AlbumPopUp
+          const closeAlbumInfo = () => {
+            setAlbumCovers("");
+          };
 
-      //This Hook displays return/result of main function in "Your Library"
-      setAlbumCovers(showAllAlbumCovers);
+          //Return - what's currently being displayed in the "Your Library" section through Hooks
+          return release ? (
+            // <SwiperSlide tag="li" key={`slide-${release.id}`}>
+            <figure class="hover-img">
+              <img
+                src={release.art_url}
+                alt={release.name}
+                style={{ width: "277px", height: "182px" }}
+              />
+              <figcaption>
+                <AlbumCoverHover
+                  closeButton={props.popUpPassed}
+                  setAlbumInfo={setAlbumInfo}
+                  albumInfo={albumInfo}
+                  release={release}
+                  toggle={closeAlbumInfo}
+                  showReleasePopUp={props.popUpPassed}
+                />
+              </figcaption>
+            </figure>
+          ) : (
+            <ComponentLoading />
+          );
+        });
+
+        //This Hook displays return/result of main function in "Your Library"
+        setAlbumCovers(showAllAlbumCovers);
+      }
     };
 
     const handleLibraryFailure = (err) => {
@@ -96,46 +94,7 @@ function Library(props) {
   return (
     <Suspense fallback={<ComponentLoading />}>
       {albumCovers}
-
-      {/* <Swiper
-        tag="section"
-        centeredSlides={true}
-        wrapperTag="ul"
-        loopAdditionalSlides={30}
-        roundLengths={true}
-        autoplay={{
-          delay: 2000,
-        }}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
-        breakpoints={{
-          320: {
-            width: 320,
-            slidesPerView: 1,
-            spaceBetween: 0,
-          },
-          480: {
-            width: 480,
-            slidesPerView: 2,
-            spaceBetween: 0,
-          },
-          640: {
-            width: 640,
-            slidesPerView: 3,
-            spaceBetween: 0,
-          },
-        }}
-        pagination
-        spaceBetween={10}
-        slidesPerView={1}
-      >
-        {albumCovers}
-        <div class="swiper-button-next">Next</div>
-        <div class="swiper-button-prev">Previous</div>
-        <div class="swiper-pagination">SFSF</div>
-      </Swiper> */}
+      {noReleases}
     </Suspense>
   );
 }

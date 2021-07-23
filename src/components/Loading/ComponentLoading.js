@@ -4,8 +4,9 @@ import "./ComponentLoadingStyles.scss";
 
 function ComponentLoading() {
   return (
-    <div>
+    <div className="loader-wrapper">
       <img src={pulse} alt="pulse loader" />
+      <hr />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Modal } from "react-responsive-modal";
 import Logout from "../../../pages/Logout/Logout";
 import Login from "../../../components/Login/Login";
 import logo from "../../../assets/images/bng_header_test.svg";
+import avatar_signin from "../../../assets/images/avatar.svg";
 import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
@@ -186,7 +187,10 @@ function MainNavigation(props) {
                   className={signUpClassName}
                   onClick={() => props.showSignUpPopUp(true)}
                 >
-                  <button>Sign Up</button>
+                  <button>
+                    <div>Sign Up </div>
+                    {/* <img src={avatar_signin} alt="avatar" /> */}
+                  </button>
                 </li>
                 <div>
                   {showDropDown ? (
@@ -237,7 +241,25 @@ function MainNavigation(props) {
                     <div>{userName}</div>
                     <button className="login-btn">{isLoggedIn}</button>
                   </li>
-
+                  <div>
+                    {showDropDown ? (
+                      <div className="dropdown-content-mobile">
+                        <ul>
+                          <li>
+                            <Link to="/fanportal">Your Portal</Link>
+                          </li>
+                          <li>
+                            <Link to="/fanportal/profile">Account</Link>
+                          </li>
+                          <li className="logout-button" onClick={handleLogout}>
+                            Logout
+                          </li>
+                        </ul>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                   <li>
                     <NavLink to="/home">Home</NavLink>
                   </li>
@@ -261,25 +283,6 @@ function MainNavigation(props) {
                     </div>
                   </li>
                 </ul>
-                <div>
-                  {showDropDown ? (
-                    <div className="dropdown-content-mobile">
-                      <ul>
-                        <li>
-                          <Link to="/fanportal">Your Portal</Link>
-                        </li>
-                        <li>
-                          <Link to="/fanportal/profile">Account</Link>
-                        </li>
-                        <li className="logout-button" onClick={handleLogout}>
-                          Logout
-                        </li>
-                      </ul>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
               </aside>
             </label>
           </nav>

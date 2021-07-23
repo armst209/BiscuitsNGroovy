@@ -7,6 +7,7 @@ import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import Footer from "../../components/Footer/Footer";
 import "./HomepageStyles.scss";
 import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
+import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
 
 function Homepage(props) {
   return (
@@ -19,6 +20,7 @@ function Homepage(props) {
       <Hero />
       <HowItWorks />
       <MusicShowcase />
+      <NFTBreakdown />
       <div className="reminder-subscribe">
         <div className="reminder-subscribe-wrapper">
           <ReminderSection />
