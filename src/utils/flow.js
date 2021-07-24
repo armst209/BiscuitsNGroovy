@@ -1,18 +1,18 @@
 // File: ./src/flow/init-account.tx.js
 
-import * as fcl from "@onflow/fcl"
-import * as t from "@onflow/types"
+import * as fcl from "@onflow/fcl";
+import * as t from "@onflow/types";
 
 export async function accountIsInitialized() {
-    let currUser = await fcl.currentUser().snapshot();
-    console.log("current user");
-    console.log(currUser);
-    if (currUser.loggedIn === null) {
-      return false;
-    }
-    return await fcl
+  let currUser = await fcl.currentUser().snapshot();
+  console.log("current user");
+  console.log(currUser);
+  if (currUser.loggedIn === null) {
+    return false;
+  }
+  return await fcl
     .send([
-        fcl.script`
+      fcl.script`
           import BnGNFTContract from 0xProfile
 
           pub fun main(targetAddress: Address) : String {
@@ -27,36 +27,34 @@ export async function accountIsInitialized() {
               return "Account is setup"
           }
         `,
-        fcl.args([
-        fcl.arg(currUser.addr, t.Address),
-        ])
+      fcl.args([fcl.arg(currUser.addr, t.Address)]),
     ])
     .then(fcl.decode)
-    .then(res => {
-      if (res == "Account is not setup"){
+    .then((res) => {
+      if (res == "Account is not setup") {
         return false;
-      } else if (res == "Account is setup"){
+      } else if (res == "Account is setup") {
         return true;
       } else {
-        console.log("error")
+        console.log("error");
         return false;
       }
     })
-    .catch(err => {
-        console.log(err);
-    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 export async function initAccount() {
   let isInitialized = accountIsInitialized();
-  if (isInitialized === true){
+  if (isInitialized === true) {
     return;
   } else {
     await fcl
-    .send([
-      // Transactions use fcl.transaction instead of fcl.script
-      // Their syntax is a little different too
-      fcl.transaction`
+      .send([
+        // Transactions use fcl.transaction instead of fcl.script
+        // Their syntax is a little different too
+        fcl.transaction`
         import BnGNFTContract from 0xProfile
 
         transaction {
@@ -70,18 +68,18 @@ export async function initAccount() {
             }
         }
       `,
-      fcl.payer(fcl.authz), // current user is responsible for paying for the transaction
-      fcl.proposer(fcl.authz), // current user acting as the nonce
-      fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
-      fcl.limit(1000), // set the compute limit
-    ])
-    .then(fcl.decode)
-    .then(txId => {
-      return fcl.tx(txId).onceSealed();
-    })
-    .catch(err => {
-      console.log("err: " + err.stack);
-      return;
-    })
+        fcl.payer(fcl.authz), // current user is responsible for paying for the transaction
+        fcl.proposer(fcl.authz), // current user acting as the nonce
+        fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
+        fcl.limit(1000), // set the compute limit
+      ])
+      .then(fcl.decode)
+      .then((txId) => {
+        return fcl.tx(txId).onceSealed();
+      })
+      .catch((err) => {
+        console.log("err: " + err.stack);
+        return;
+      });
   }
 }

@@ -70,6 +70,8 @@ function MusicShowcase() {
               src={release.art_url}
               alt={release.name}
             />
+            <div>{release.description}</div>
+            <div></div>
           </div>
         ) : (
           <div className="loading-animation">
