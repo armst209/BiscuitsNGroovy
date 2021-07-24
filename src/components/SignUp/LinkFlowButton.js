@@ -10,6 +10,7 @@ function LinkFlowButton() {
     }
     await initAccount();
     accountIsInitialized().then((firstAccountState) => {
+      console.log('stop spinner');
       console.log(firstAccountState);
       setIsInitialized(firstAccountState);
     });

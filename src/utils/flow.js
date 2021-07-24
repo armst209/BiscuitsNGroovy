@@ -4,12 +4,14 @@ import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 
 export async function accountIsInitialized() {
+    console.log('before current user');
     let currUser = await fcl.currentUser().snapshot();
     console.log("current user");
     console.log(currUser);
     if (currUser.loggedIn === null) {
       return false;
     }
+    console.log('after current user');
     return await fcl
     .send([
         fcl.script`
@@ -49,6 +51,7 @@ export async function accountIsInitialized() {
 
 export async function initAccount() {
   let isInitialized = accountIsInitialized();
+  console.log('acc initialize done');
   if (isInitialized === true){
     return;
   } else {
@@ -77,6 +80,7 @@ export async function initAccount() {
     ])
     .then(fcl.decode)
     .then(txId => {
+      console.log('spinner');
       return fcl.tx(txId).onceSealed();
     })
     .catch(err => {
