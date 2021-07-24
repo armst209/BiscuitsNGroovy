@@ -10,6 +10,8 @@ import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundR
 import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
 import spotlight from "../../assets/images/spotlight2_white.png";
 import headphones from "../../assets/images/808s_&_Heartbreak.png";
+import hero_artist_icon from "../../assets/images/karaoke_4796875.svg";
+import hero_record_icon from "../../assets/images/vinyl.svg";
 
 // import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
 
@@ -53,10 +55,16 @@ function Hero(props) {
                 </h3>
                 <div className="hero-buttons">
                   <Link to="#music-showcase">
-                    <button className="start">Start Your Collection</button>
+                    <button className="start">
+                      <div className="start-text">Start Your Collection</div>
+                      <img src={hero_record_icon} alt="record icon" />
+                    </button>
                   </Link>
                   <Link to="/artists">
-                    <button className="learn">For Artists</button>
+                    <button className="learn">
+                      For Artists
+                      <img src={hero_artist_icon} alt="artist icon" />
+                    </button>
                   </Link>
                 </div>
               </div>

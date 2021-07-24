@@ -1,6 +1,6 @@
 import { React, useEffect, useState, Suspense } from "react";
 import axios from "axios";
-import ComponentLoading from "../../../../Loading/ComponentLoading";
+import ComponentLoading from "../../../../Loading/Loading";
 import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";

@@ -12,11 +12,11 @@
   transform: translate3d(0, 0, 0);
   -webkit-transform: 0.35s cubic-bezier(0.5, 0, 0.35, 1);
 
-  &:hover {
-    background: black;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgb(203 213 226 / 0%), 0px 1px 1px rgb(0 0 0 / 10%);
-  }
+  // &:hover {
+  //   background: black;
+  //   cursor: pointer;
+  //   box-shadow: 0 10px 20px rgb(203 213 226 / 0%), 0px 1px 1px rgb(0 0 0 / 10%);
+  // }
   @media screen and (max-width: 1050px) {
     background-color: var(--color1);
   }
@@ -102,6 +102,9 @@
         border: 3px solid var(--color2);
         margin-left: 5px;
         transition: 0.2s ease;
+        img {
+          width: 50px;
+        }
         &:hover {
           color: black;
           background: var(--color2);
@@ -152,6 +155,13 @@
       color: black;
     }
   }
+  .portal {
+    img {
+      width: 40px;
+      margin-left: 5px;
+    }
+  }
+
   .logout-button {
     cursor: pointer;
     display: flex;
@@ -159,6 +169,10 @@
     align-items: center;
     width: 100%;
     padding: 5px;
+    img {
+      width: 50px;
+      margin-left: 5px;
+    }
     @media screen and (max-width: 769px) {
       justify-content: left;
     }
@@ -702,7 +716,7 @@
   &:hover {
     cursor: auto;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1050px) {
     background: var(--color1);
   }
 }

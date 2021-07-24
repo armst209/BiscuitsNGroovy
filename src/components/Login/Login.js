@@ -4,16 +4,29 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
+import login_loading from "../../assets/images/pulse_loader.svg";
 // import ComponentLoading from "../Loading/ComponentLoading";
 
 function Login(props) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loginStatus, setLoginStatus] = useState(
+    <>
+      <div>Login</div>
+      <img src={login_arrow} alt="arrow" />
+    </>
+  );
   const [loading, setLoading] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
+    setLoginStatus(
+      <>
+        <div>Logging In...</div>
+        <img src={login_loading} alt="pulse loader" />
+      </>
+    );
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       setTimeout(() => {
@@ -58,11 +71,11 @@ function Login(props) {
           </div>
           <h2>Sign in to Biscuits N Groovy</h2>
           <button className="google">
-            <i className="fab fa-google"></i> <span>SIGN IN WITH GOOGLE</span>
+            <i className="fab fa-google"></i> <span>Sign In With Google</span>
           </button>
           <button className="facebook">
             <i className="fab fa-facebook-square"></i>
-            <span>SIGN IN WITH FACEBOOK</span>
+            <span>Sign In with Facebook</span>
           </button>
           <div className="or-fold">
             <hr></hr>
@@ -92,8 +105,7 @@ function Login(props) {
             <div className="login-btn-password">
               <div className="login-button">
                 <button className="button" type="submit">
-                  <div>Join</div>
-                  <img src={login_arrow} alt="arrow" />
+                  {loginStatus}
                 </button>
               </div>
             </div>

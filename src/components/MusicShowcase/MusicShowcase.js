@@ -1,6 +1,6 @@
 import { React, Suspense, lazy, useState, useEffect } from "react";
 import axios from "axios";
-import ComponentLoading from "../../components/Loading/ComponentLoading";
+import ComponentLoading from "../Loading/Loading";
 import ReminderBackground from "../Background/ReminderBackground";
 import ReminderBackground2 from "../Background/ReminderBackground2";
 import ReminderBackground3 from "../Background/ReminderBackground3";

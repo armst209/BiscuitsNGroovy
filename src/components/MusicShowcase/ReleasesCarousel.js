@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Controller, Thumbs } from "swiper";
 import "swiper/swiper.scss";
 import "./ReleasesCarouselStyles.scss";
-import ComponentLoading from "../Loading/ComponentLoading";
+import ComponentLoading from "../Loading/Loading";
 SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
 function ReleasesCarousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);

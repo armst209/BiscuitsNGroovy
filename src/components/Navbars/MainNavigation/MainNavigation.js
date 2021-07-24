@@ -3,15 +3,13 @@ import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import "react-responsive-modal/styles.css";
-import { Modal } from "react-responsive-modal";
 import Logout from "../../../pages/Logout/Logout";
-import Login from "../../../components/Login/Login";
 import logo from "../../../assets/images/bng_header_test.svg";
-import avatar_signin from "../../../assets/images/avatar.svg";
 import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";
-import arrow_down from "../../../assets/images/arrow-bottom.svg";
-import LoginTest from "../../Login/LoginTest";
+import arrow_down from "../../../assets/images/double-down-white.svg";
+import logout_icon from "../../../assets/images/logout.svg";
+import portal_icon from "../../../assets/images/video.svg";
 
 function MainNavigation(props) {
   const [xButton, setXButton] = useState(true);
@@ -201,9 +199,9 @@ function MainNavigation(props) {
                             <li>
                               <Link to="/fanportal">Your Portal</Link>
                             </li>
-                            <li>
+                            {/* <li>
                               <Link to="/fanportal/profile">Account</Link>
-                            </li>
+                            </li> */}
                             <li
                               className="logout-button"
                               onClick={handleLogout}
@@ -245,14 +243,17 @@ function MainNavigation(props) {
                     {showDropDown ? (
                       <div className="dropdown-content-mobile">
                         <ul>
-                          <li>
-                            <Link to="/fanportal">Your Portal</Link>
+                          <li className="portal">
+                            <Link to="/fanportal">
+                              Your Portal
+                              {/* <img src={portal_icon} alt="portal icon" /> */}
+                            </Link>
                           </li>
-                          <li>
+                          {/* <li>
                             <Link to="/fanportal/profile">Account</Link>
-                          </li>
+                          </li> */}
                           <li className="logout-button" onClick={handleLogout}>
-                            Logout
+                            Logout <img src={logout_icon} alt="logout icon" />
                           </li>
                         </ul>
                       </div>
@@ -287,9 +288,8 @@ function MainNavigation(props) {
             </label>
           </nav>
         </div>
-
-        <div>{loggedOut ? <Logout /> : ""}</div>
       </header>
+      <div>{loggedOut ? <Logout /> : ""}</div>
     </div>
   );
 }

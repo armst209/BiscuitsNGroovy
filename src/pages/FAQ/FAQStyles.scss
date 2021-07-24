@@ -6,9 +6,7 @@
     font-family: var(--font1);
     color: black;
     text-align: center;
-
     width: 100%;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,11 +35,10 @@
     font-size: 1.5rem;
   }
   .faq-content {
-    padding: 10px;
-    background: var(--bg-color);
-    padding-top: 5rem;
-    @media (min-width: 768px) {
-      padding: 5rem 30px 30px 30px;
+    background: black;
+    padding: 7rem 30px 30px 30px;
+    @media (max-width: 1050px) {
+      padding: 7rem 1rem 2rem 1rem;
     }
 
     .answer {
@@ -52,12 +49,13 @@
       padding: 10px;
       width: 100%;
       z-index: 1;
-      border: 7px solid var(--color2);
+      border: 3px solid var(--color1);
       margin-bottom: 10px;
       // border-radius: 20px;
 
       ul {
         font-family: var(--font2);
+
         @media (min-width: 768px) {
           font-size: 20px;
         }
@@ -65,7 +63,6 @@
           display: flex;
           flex-direction: row;
           padding: 5px 5px 5px 0;
-          list-style-type: circle;
 
           a {
             text-decoration: none;
@@ -116,10 +113,14 @@
       font-size: 20px;
       font-family: var(--font1);
       width: 100%;
-      color: black;
-      background-color: var(--color1);
+      color: white;
+      background-color: black;
       padding: 5px;
-      border-left: 7px solid var(--color2);
+      border: 5px solid var(--color2);
+      border-radius: 0.5rem;
+      // border-top: 3px solid var(--color1);
+      // border-bottom: 3px solid var(--color1);
+      // border-left: 7px solid var(--color2);
       margin-bottom: 10px;
       cursor: pointer;
       &:hover {
@@ -137,6 +138,9 @@
         @media (min-width: 1000px) {
           width: 2%;
         }
+      }
+      .icon_rotate {
+        transform: rotateZ(180deg);
       }
 
       @media (min-width: 768px) {

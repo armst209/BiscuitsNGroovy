@@ -188,7 +188,8 @@
             font-size: 1.5rem;
             font-family: var(--font2);
             line-height: normal;
-            padding: 5px 0;
+            // padding: 5px 0;
+            padding: 1rem 0;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -197,7 +198,7 @@
             div {
               @media screen and (max-width: 1050px) {
                 text-align: center;
-                padding: 1rem 0;
+
                 color: white;
               }
             }
@@ -209,9 +210,9 @@
             @media screen and (max-width: 1250px) {
               font-size: 1.3rem;
             }
-            @media screen and (max-width: 1100px) {
-              font-size: 1.5rem;
-            }
+            // @media screen and (max-width: 1100px) {
+            //   font-size: 1.2rem;
+            // }
           }
 
           .hero-buttons {
@@ -239,6 +240,7 @@
               flex-direction: column;
             }
             a {
+              text-decoration: none;
               button {
                 // border-radius: 0.5rem;
                 border: transparent;
@@ -264,9 +266,9 @@
                   height: 80px;
                   font-size: 1rem;
                 }
-                @media screen and (max-width: 1099px) {
-                  width: 250px;
-                  height: 100px;
+                @media screen and (max-width: 1200px) {
+                  width: 200px;
+                  height: 80px;
                   font-size: 1.5rem;
                 }
                 @media screen and (max-width: 1050px) {
@@ -296,13 +298,22 @@
                 }
               }
               .start {
-                background-color: black;
-                color: white;
-                border: 3px solid var(--color2);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                background-color: var(--color2);
+                color: black;
                 transition: all 0.2s ease;
+                .start-text {
+                }
+                img {
+                  width: 60px;
+                  display: none;
+                }
                 &:hover {
                   filter: none;
-                  background-color: var(--color2);
+                  border: 3px solid black;
                   color: black;
                 }
               }
@@ -310,13 +321,33 @@
                 background-color: black;
                 color: white;
                 border: 3px solid var(--color1);
-
                 transition: all 0.2s ease;
+                position: relative;
+
                 &:hover {
-                  background: var(--color1);
+                  background-color: var(--color1);
                   filter: none;
                   color: black;
-                  border: none;
+                  border: 3px solid black;
+                }
+                img {
+                  width: 70px;
+                  position: absolute;
+                  bottom: -20%;
+                  background-color: black;
+                  border: 3px solid var(--color1);
+                  right: -5%;
+                  padding: 5px;
+                  // left: 50%;
+                  // transform: translate(-50%, -50%);
+
+                  @media screen and (max-width: 1800px) {
+                    width: 60px;
+                  }
+
+                  @media screen and (max-width: 450px) {
+                    width: 50px;
+                  }
                 }
               }
             }

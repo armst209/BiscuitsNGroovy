@@ -4,7 +4,7 @@ import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
 // import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
-import dropdown from "../../assets/images/double-down.svg";
+import dropdown from "../../assets/images/double-down-yellow.svg";
 
 //CSS Transition is a node package that handles CSS transitions in React and is imported above
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
@@ -20,9 +20,15 @@ function FAQ(props) {
   const [question7, setQuestion7] = useState(false);
   const [question8, setQuestion8] = useState(false);
   const [question9, setQuestion9] = useState(false);
-  const [question10, setQuestion10] = useState(false);
-  const [question11, setQuestion11] = useState(false);
-  const [question12, setQuestion12] = useState(false);
+  const [dropStyle1, setDropStyle1] = useState("dropdown");
+  const [dropStyle2, setDropStyle2] = useState("dropdown");
+  const [dropStyle3, setDropStyle3] = useState("dropdown");
+  const [dropStyle4, setDropStyle4] = useState("dropdown");
+  const [dropStyle5, setDropStyle5] = useState("dropdown");
+  const [dropStyle6, setDropStyle6] = useState("dropdown");
+  const [dropStyle7, setDropStyle7] = useState("dropdown");
+  const [dropStyle8, setDropStyle8] = useState("dropdown");
+  const [dropStyle9, setDropStyle9] = useState("dropdown");
 
   return (
     <section id="faq">
@@ -38,31 +44,43 @@ function FAQ(props) {
       </h1> */}
 
       <div className="faq-content">
-        <h5 onClick={() => setQuestion1(!question1)}>
+        <h5
+          onClick={() => {
+            setQuestion1(!question1);
+            setDropStyle1("icon_rotate");
+          }}
+        >
           <div>What do I get with my purchase?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle1}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question1}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion1(true)}
-          onExited={() => setQuestion1(false)}
+          onExited={() => {
+            setQuestion1(false);
+            setDropStyle1("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion1(!question1)}>
             <ul>
-              <li className="speaker">
-                - When you purchase a new release on BnG, you get access to
-                stream the music during its release period. These dates are
-                noted in three places: in the title details when browsing our
-                calendar, in your order confirmation, and in the My Collection
-                section of your profile. The release period is determined by the
-                artist, and once it ends, you can’t stream the music on BnG.
+              <li>
+                When you purchase a new release on BnG, you get access to stream
+                the music during its release period. These dates are noted in
+                three places: in the title details when browsing our calendar,
+                in your order confirmation, and in the My Collection section of
+                your profile. The release period is determined by the artist,
+                and once it ends, you can’t stream the music on BnG.
               </li>
               <li>
                 <div>
-                  - With your purchase, you also get a collectible digital album
+                  With your purchase, you also get a collectible digital album
                   cover NFT for no extra charge. The album art stays in Your
                   Collection forever, even once the music has expired. Read more
                   about our amazing NFTs
@@ -73,17 +91,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion2(!question2)}>
+        <h5
+          onClick={() => {
+            setQuestion2(!question2);
+            setDropStyle2("icon_rotate");
+          }}
+        >
           <div> Why does music expire?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle2}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question2}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion2(true)}
-          onExited={() => setQuestion2(false)}
+          onExited={() => {
+            setQuestion2(false);
+            setDropStyle2("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion2(!question2)}>
             <ul>
@@ -104,17 +134,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion3(!question3)}>
+        <h5
+          onClick={() => {
+            setQuestion3(!question3);
+            setDropStyle3("icon_rotate");
+          }}
+        >
           <div>Where do I find my purchased music?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle3}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question3}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion3(true)}
-          onExited={() => setQuestion3(false)}
+          onExited={() => {
+            setQuestion3(false);
+            setDropStyle3("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion3(!question3)}>
             <ul>
@@ -131,17 +173,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion4(!question4)}>
+        <h5
+          onClick={() => {
+            setQuestion4(!question4);
+            setDropStyle4("icon_rotate");
+          }}
+        >
           <div>Can I download my music?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle4}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question4}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion4(true)}
-          onExited={() => setQuestion4(false)}
+          onExited={() => {
+            setQuestion4(false);
+            setDropStyle4("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion4(!question4)}>
             <ul>
@@ -154,17 +208,30 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 id="NFT" onClick={() => setQuestion5(!question5)}>
+        <h5
+          id="NFT"
+          onClick={() => {
+            setQuestion5(!question5);
+            setDropStyle5("icon_rotate");
+          }}
+        >
           <div> What’s an NFT?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle5}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question5}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion5(true)}
-          onExited={() => setQuestion5(false)}
+          onExited={() => {
+            setQuestion5(false);
+            setDropStyle5("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion5(!question5)}>
             <ul>
@@ -190,17 +257,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion6(!question6)}>
+        <h5
+          onClick={() => {
+            setQuestion6(!question6);
+            setDropStyle6("icon_rotate");
+          }}
+        >
           <div>Do I need cryptocurrency to pay?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle6}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question6}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion6(true)}
-          onExited={() => setQuestion6(false)}
+          onExited={() => {
+            setQuestion6(false);
+            setDropStyle6("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion6(!question6)}>
             <ul>
@@ -218,17 +297,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion7(!question7)}>
+        <h5
+          onClick={() => {
+            setQuestion7(!question7);
+            setDropStyle7("icon_rotate");
+          }}
+        >
           <div>Is this a subscription?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle7}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question7}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion7(true)}
-          onExited={() => setQuestion7(false)}
+          onExited={() => {
+            setQuestion7(false);
+            setDropStyle7("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion7(!question7)}>
             <ul>
@@ -245,17 +336,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion8(!question8)}>
+        <h5
+          onClick={() => {
+            setQuestion8(!question8);
+            setDropStyle8("icon_rotate");
+          }}
+        >
           <div>Do you have an app?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle8}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question8}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion8(true)}
-          onExited={() => setQuestion8(false)}
+          onExited={() => {
+            setQuestion8(false);
+            setDropStyle8("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion8(!question8)}>
             <ul>
@@ -277,17 +380,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion9(!question9)}>
+        <h5
+          onClick={() => {
+            setQuestion9(!question9);
+            setDropStyle9("icon_rotate");
+          }}
+        >
           <div>How much does BnG pay artists?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle9}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question9}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion9(true)}
-          onExited={() => setQuestion9(false)}
+          onExited={() => {
+            setQuestion9(false);
+            setDropStyle9("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion9(!question9)}>
             <ul>

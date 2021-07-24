@@ -1,5 +1,5 @@
 import { React, useState, useEffect, lazy } from "react";
-import ComponentLoading from "../../Loading/ComponentLoading";
+import ComponentLoading from "../../Loading/Loading";
 import "./FPHomePageStyles.scss";
 import Browse from "./Sections/Browse/Browse";
 const Library = lazy(() => import("./Sections/Library/Library"));

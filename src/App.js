@@ -6,7 +6,7 @@ import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Modal from "./components/Modal";
-import Loading from "./components/Loading/ComponentLoading";
+import Loading from "./components/Loading/Loading";
 // import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 // import Logout from "./pages/Logout/Logout";
 // import Carousel from "./components/MusicShowcase/ReleasesCarousel";
