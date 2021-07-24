@@ -1,9 +1,10 @@
 // File: ./src/flow/init-account.tx.js
 
-import * as fcl from "@onflow/fcl"
-import * as t from "@onflow/types"
+import * as fcl from "@onflow/fcl";
+import * as t from "@onflow/types";
 
 export async function accountIsInitialized() {
+<<<<<<< HEAD
     console.log('before current user');
     let currUser = await fcl.currentUser().snapshot();
     console.log("current user");
@@ -13,8 +14,17 @@ export async function accountIsInitialized() {
     }
     console.log('after current user');
     return await fcl
+=======
+  let currUser = await fcl.currentUser().snapshot();
+  console.log("current user");
+  console.log(currUser);
+  if (currUser.loggedIn === null) {
+    return false;
+  }
+  return await fcl
+>>>>>>> 201ce365fb68369f13840356663ea6257ce0cc0e
     .send([
-        fcl.script`
+      fcl.script`
           import BnGNFTContract from 0xProfile
 
           pub fun main(targetAddress: Address) : String {
@@ -29,24 +39,22 @@ export async function accountIsInitialized() {
               return "Account is setup"
           }
         `,
-        fcl.args([
-        fcl.arg(currUser.addr, t.Address),
-        ])
+      fcl.args([fcl.arg(currUser.addr, t.Address)]),
     ])
     .then(fcl.decode)
-    .then(res => {
-      if (res == "Account is not setup"){
+    .then((res) => {
+      if (res == "Account is not setup") {
         return false;
-      } else if (res == "Account is setup"){
+      } else if (res == "Account is setup") {
         return true;
       } else {
-        console.log("error")
+        console.log("error");
         return false;
       }
     })
-    .catch(err => {
-        console.log(err);
-    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 export async function initAccount() {
@@ -56,10 +64,10 @@ export async function initAccount() {
     return;
   } else {
     await fcl
-    .send([
-      // Transactions use fcl.transaction instead of fcl.script
-      // Their syntax is a little different too
-      fcl.transaction`
+      .send([
+        // Transactions use fcl.transaction instead of fcl.script
+        // Their syntax is a little different too
+        fcl.transaction`
         import BnGNFTContract from 0xProfile
 
         transaction {

@@ -186,12 +186,11 @@
             justify-content: center;
             align-items: center;
             position: relative;
-
             height: 70px;
             margin: 5px 0;
-            background: var(--color1);
+            background-color: var(--color2);
             border: none;
-
+            color: black;
             font-size: 20px;
             font-weight: bold;
             box-shadow: var(--shadow-large);
@@ -204,6 +203,9 @@
             }
             &:hover {
               box-shadow: none;
+              background-color: var(--color2);
+              border: none;
+              color: black;
             }
           }
         }

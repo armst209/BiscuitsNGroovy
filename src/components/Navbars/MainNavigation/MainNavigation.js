@@ -196,17 +196,27 @@ function MainNavigation(props) {
                       <div className="dropdown-content-desktop-container">
                         <div className="dropdown-content-desktop">
                           <ul>
-                            <li>
-                              <Link to="/fanportal">Your Portal</Link>
+                            <li className="portal-desktop-link">
+                              <Link className="portal-link" to="/fanportal">
+                                Your Portal
+                              </Link>
                             </li>
                             {/* <li>
                               <Link to="/fanportal/profile">Account</Link>
                             </li> */}
                             <li
-                              className="logout-button"
+                              className="logout-button-desktop"
                               onClick={handleLogout}
                             >
-                              <p>Logout</p>
+                              <button>
+                                <p>Logout</p>
+
+                                <img
+                                  className="desktop-logout-icon"
+                                  src={logout_icon}
+                                  alt="logout icon"
+                                />
+                              </button>
                             </li>
                           </ul>
                         </div>
@@ -252,7 +262,10 @@ function MainNavigation(props) {
                           {/* <li>
                             <Link to="/fanportal/profile">Account</Link>
                           </li> */}
-                          <li className="logout-button" onClick={handleLogout}>
+                          <li
+                            className="logout-button-mobile"
+                            onClick={handleLogout}
+                          >
                             Logout <img src={logout_icon} alt="logout icon" />
                           </li>
                         </ul>
