@@ -59,7 +59,6 @@ function Library(props) {
 
           //Return - what's currently being displayed in the "Your Library" section through Hooks
           return release ? (
-            // <SwiperSlide tag="li" key={`slide-${release.id}`}>
             <figure class="hover-img">
               <img
                 src={release.art_url}

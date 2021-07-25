@@ -2,6 +2,7 @@
 
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
+import ComponentLoading from "../components/Loading/ComponentLoading";
 
 export async function accountIsInitialized() {
   console.log("before current user");
@@ -79,6 +80,7 @@ export async function initAccount() {
       .then(fcl.decode)
       .then((txId) => {
         console.log("spinner");
+
         return fcl.tx(txId).onceSealed();
       })
       .catch((err) => {

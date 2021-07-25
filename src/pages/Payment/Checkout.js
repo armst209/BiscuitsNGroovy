@@ -2,62 +2,27 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 import { assertExistsTypeAnnotation } from "@babel/types";
+import ex_music_icon from "../../assets/images/love-song2.svg";
+import "./CheckoutStyle.scss";
+import ComponentLoading from "../../components/Loading/ComponentLoading";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-
-//Releases Request
-// const baseURL = "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
-// const token = localStorage.getItem("token");
-
-// const handleSuccess = (res) => {
-//   console.log(res.data.releases);
-// };
-
-// const handleFailure = (err) => {
-//   console.log(err);
-// };
-
-// axios({
-//   method: "get",
-//   url: `${baseURL}/releases`,
-//   token: token,
-//   //need to get individual users ID through request to show unique library/purchases
-//   // data: { token: token },
-// })
-//   .then((res) => {
-//     handleSuccess(res);
-//   })
-//   .catch((err) => {
-//     handleFailure(err);
-//   });
 
 //STRIPE
 const stripePromise = loadStripe(
   "pk_test_51IoVPgGQOOYUPUkxLc3Pp0Xs9aIAgNF0Ref6QStISTEd5vDwVRXbXel7xY6Ajo8Siuvmy3jPR84LnZzaQ8x7sCaw00YrlUeC94"
 );
 
-const productImages = [
-  "https://bng-resources.s3.us-east-2.amazonaws.com/5/art/808s_%26_Heartbreak.png",
-];
-console.log(productImages[0]);
-const productPrice = 10.0;
-const productName = "Kanye Album";
-const ProductDisplay = ({ handleClick, props }) => (
+const ProductDisplay = ({ handleClick }) => (
   <section>
-    <div className="product">
-      {/* <img src={productImages[0]} alt="product" />
-      <div className="description">
-        <h5>${productPrice}</h5>
-        <h5>${productName}</h5>
-      </div> */}
-    </div>
     <button
       type="button"
       id="checkout-button"
       role="link"
       onClick={handleClick}
+      className="checkout-button"
     >
-      Checkout
+      BUY NOW <img src={ex_music_icon} alt="heart music icon" />
     </button>
   </section>
 );
@@ -87,7 +52,6 @@ export default function CheckoutButton(props) {
   }, []);
 
   const handleClick = async (event) => {
-
     //check if a user is signed in with a FLOW wallet
 
     const stripe = await stripePromise;
@@ -105,13 +69,15 @@ export default function CheckoutButton(props) {
       data: {
         productName: props.name,
         productImages: [props.images],
-        productPrice: parseInt(props.price*100),
+        productPrice: parseInt(props.price * 100),
         releaseID: props.release_id,
       },
     });
+
     const sessionId = await response.data.id;
     console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
+
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,
     });

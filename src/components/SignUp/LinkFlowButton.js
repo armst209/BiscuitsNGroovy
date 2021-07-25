@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { initAccount, accountIsInitialized } from "../../utils/flow";
 import * as fcl from "@onflow/fcl";
 import link_icon from "../../assets/images/link.svg";
+import "./SignUpStyles.scss";
 function LinkFlowButton() {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
@@ -10,7 +11,7 @@ function LinkFlowButton() {
     }
     await initAccount();
     accountIsInitialized().then((firstAccountState) => {
-      console.log('stop spinner');
+      console.log("stop spinner");
       console.log(firstAccountState);
       setIsInitialized(firstAccountState);
     });
@@ -27,14 +28,13 @@ function LinkFlowButton() {
   if (!isInitialized) {
     return (
       <>
-        <button className="flow-button" onClick={updateInitializedComponent}>
+        <button
+          className="flow-button flow"
+          onClick={updateInitializedComponent}
+        >
           Link Flow Account
           <img src={link_icon} alt="link icon" />
         </button>
-        <p>
-          Users must first link create or link their flow accounts before
-          signing up. (Change wording/possible popup)
-        </p>
       </>
     );
   } else {

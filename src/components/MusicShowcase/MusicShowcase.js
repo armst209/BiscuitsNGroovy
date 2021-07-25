@@ -1,14 +1,15 @@
 import { React, Suspense, lazy, useState, useEffect } from "react";
 import axios from "axios";
 import ComponentLoading from "../Loading/Loading";
-import ReminderBackground from "../Background/ReminderBackground";
-import ReminderBackground2 from "../Background/ReminderBackground2";
-import ReminderBackground3 from "../Background/ReminderBackground3";
+// import ReminderBackground from "../Background/ReminderBackground";
+// import ReminderBackground2 from "../Background/ReminderBackground2";
+// import ReminderBackground3 from "../Background/ReminderBackground3";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
-import ex_music_icon from "../../assets/images/love-song2.svg";
+// import ex_music_icon from "../../assets/images/love-song2.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import CheckoutButton from "../../pages/Payment/Checkout";
 
 function MusicShowcase() {
   const [displayReleases, setDisplayReleases] = useState("");
@@ -68,14 +69,20 @@ function MusicShowcase() {
             <div className="release-information">
               <div>{release.description}</div>
               <div>
-                <button>BUY NOW</button>
+                <CheckoutButton
+                  release_id={release.id}
+                  name={release.name}
+                  price={release.price}
+                  description={release.description}
+                  images={release.art_url}
+                />
               </div>
             </div>
-            <img
+            {/* <img
               className="ex-music-icon"
               src={ex_music_icon}
               alt="music icon"
-            />
+            /> */}
           </div>
         ) : (
           <div className="loading-animation">
