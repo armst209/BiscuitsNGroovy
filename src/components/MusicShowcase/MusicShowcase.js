@@ -4,16 +4,11 @@ import ComponentLoading from "../Loading/Loading";
 import ReminderBackground from "../Background/ReminderBackground";
 import ReminderBackground2 from "../Background/ReminderBackground2";
 import ReminderBackground3 from "../Background/ReminderBackground3";
-// import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
-import "./GalleryStyles.css";
-import ReleasesCarousel from "./ReleasesCarousel";
-const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
-
-//Promise
-//release
-//loop through
+import ex_music_icon from "../../assets/images/love-song2.svg";
+import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
+import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 function MusicShowcase() {
   const [displayReleases, setDisplayReleases] = useState("");
@@ -60,18 +55,27 @@ function MusicShowcase() {
         };
         return release ? (
           <div
-            onClick={() => showReleaseInfo(release)}
+            // onClick={() => showReleaseInfo(release)}
             key={`${"release-container" + release.id}`}
-            className="gallery-item"
-            tabindex="0"
+            className="grid-item"
+            // tabindex="0"
           >
             <img
-              className="gallery-image"
+              className="grid-image"
               src={release.art_url}
               alt={release.name}
             />
-            <div>{release.description}</div>
-            <div></div>
+            <div className="release-information">
+              <div>{release.description}</div>
+              <div>
+                <button>BUY NOW</button>
+              </div>
+            </div>
+            <img
+              className="ex-music-icon"
+              src={ex_music_icon}
+              alt="music icon"
+            />
           </div>
         ) : (
           <div className="loading-animation">
@@ -89,9 +93,19 @@ function MusicShowcase() {
 
   return (
     <section id="music-showcase">
-      <ReminderBackground2 />
+      <img
+        className="spotlight-top-left"
+        src={spotlight_yellow_left}
+        alt="spotlight icon"
+      />
+      <img
+        className="spotlight-top-right"
+        src={spotlight_yellow_right}
+        alt="spotlight icon"
+      />
+      {/* <ReminderBackground2 />
       <ReminderBackground3 />
-      <ReminderBackground />
+      <ReminderBackground /> */}
 
       <div className="music-showcase-container">
         <div className="content-container">
@@ -100,18 +114,14 @@ function MusicShowcase() {
             Browse our current and upcoming releases. <br />
             Click on a title for more details
           </p>
-          <div className="container">
-            <div className="gallery">
-              {/* <ReleaseCalendar /> */}
-              {displayReleases}
-              {/* <div className="release-popup">{releaseInfo}</div>  */}
-            </div>
-          </div>
-          <div className="showcase-grid-mobile">
+          <div className="showcase-grid-desktop">
+            {/* <ReleaseCalendar /> */}
             <Suspense fallback={<ComponentLoading />}>
-              <ReleasesCarousel />
+              {displayReleases}
             </Suspense>
+            {/* <div className="release-popup">{releaseInfo}</div>  */}
           </div>
+          <div className="showcase-grid-mobile"></div>
         </div>
       </div>
     </section>

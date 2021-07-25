@@ -15,31 +15,6 @@
   background: black;
   border-radius: 0.5rem;
 
-  .light-right {
-    width: 40px;
-    top: 1%;
-    right: 5%;
-    position: absolute;
-    transform: rotateZ(-130deg);
-    @media (max-width: 1020px) {
-      width: 50px;
-      top: 0%;
-      transform: rotateZ(120deg);
-    }
-  }
-  .light-left {
-    width: 40px;
-    top: 1%;
-    left: 5%;
-    position: absolute;
-    transform: rotateZ(130deg);
-    @media (max-width: 1020px) {
-      width: 50px;
-      top: 0%;
-      transform: rotateZ(-120deg);
-    }
-  }
-
   .artist-reminder-wrapper {
     display: flex;
     justify-content: center;
@@ -60,6 +35,15 @@
         align-items: center;
         padding: 2rem 1rem;
         letter-spacing: 0.5px;
+        img {
+          width: 70px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          padding: 5px;
+          // left: 50%;
+          // transform: translate(-50%, -50%);
+        }
 
         h1 {
           font-size: 2rem;
@@ -94,18 +78,7 @@
             margin-bottom: 1rem;
             transition: all 0.2s ease;
             position: relative;
-            img {
-              display: none;
-              width: 50px;
-              position: absolute;
-              bottom: -20%;
-              background-color: black;
-              border: 3px solid var(--color1);
-              right: -10%;
-              padding: 5px;
-              // left: 50%;
-              // transform: translate(-50%, -50%);
-            }
+
             &:hover {
               background-color: var(--color1);
               transform: scale(1.05);

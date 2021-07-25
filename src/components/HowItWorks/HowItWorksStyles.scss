@@ -6,10 +6,20 @@
   align-items: center;
   background: black;
   padding-bottom: 10rem;
+  position: relative;
+  .spotlight-top-left {
+    width: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .spotlight-top-right {
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
-  // padding-top: 2rem;
-
-  // border-top: 5px solid var(--color1);
   .how-it-works-container {
     display: flex;
     justify-content: center;
@@ -223,11 +233,11 @@
   }
 
   a {
-    color: white;
+    color: var(--color1);
     text-decoration: none;
     border-bottom: 5px solid var(--color2);
     &:visited {
-      color: white;
+      color: var(--color1);
     }
   }
 

@@ -10,7 +10,8 @@ import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
 import portal_icon from "../../../assets/images/video.svg";
-
+import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
+import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 function MainNavigation(props) {
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
@@ -20,6 +21,7 @@ function MainNavigation(props) {
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
+  const [rightSpotlight, setRightSpotlight] = useState("");
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
@@ -101,10 +103,12 @@ function MainNavigation(props) {
     //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 50) {
+      if (offset > 25) {
         setScrolledNavClass("scrolled-navigation");
+        setRightSpotlight("");
       } else {
         setScrolledNavClass("");
+        setRightSpotlight("");
       }
     };
     window.addEventListener("scroll", handleScroll, {
@@ -117,6 +121,17 @@ function MainNavigation(props) {
   return (
     <div id="scrolled-home-before">
       <header className={`homepage-navigation ${scrolledNavClass}`}>
+        <img
+          className="spotlight-top-left"
+          src={spotlight_yellow_left}
+          alt="spotlight icon"
+        />
+        <img
+          className={`spotlight-top-right ${rightSpotlight}`}
+          src={spotlight_yellow_right}
+          alt="spotlight icon"
+        />
+        {/* <div className="logo-nav-bg"></div> */}
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">

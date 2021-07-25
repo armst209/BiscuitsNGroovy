@@ -11,6 +11,19 @@
   background: black;
   border-top: 3px solid var(--color1);
   border-bottom: 3px solid var(--color1);
+  padding-bottom: 7rem;
+  .spotlight-top-left {
+    width: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .spotlight-top-right {
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
   .music-showcase-container {
     background-color: black;
@@ -25,6 +38,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding-top: 7rem;
 
       h1 {
         font-family: var(--font1);
@@ -33,7 +47,7 @@
         padding: 30px 10px 1rem 10px;
         text-align: center;
         position: relative;
-        color: black;
+        color: white;
         @media screen and (max-width: 300px) {
           font-size: 2rem;
         }
@@ -45,7 +59,7 @@
         font-weight: bolder;
         margin-bottom: 1rem;
         position: relative;
-        color: black;
+        color: white;
         font-size: 1rem;
 
         @media screen and (max-width: 1100px) {
@@ -81,97 +95,62 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      z-index: 5;
-      width: 100%;
-      .displayed-releases {
-        // position: relative;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: max-content;
-        align-self: center;
-        justify-items: center;
-        gap: 5px;
-        width: 100%;
+      flex-wrap: wrap;
+      gap: 1rem;
 
-        @media screen and (max-width: 1300px) {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        @media screen and (max-width: 930px) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        @media screen and (max-width: 768px) {
-          grid-template-columns: repeat(1, 1fr);
-        }
-
-        .release-divs {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 2rem;
-          width: 300px;
-          height: auto;
-
-          // border: 5px solid var(--color2);
-          border-radius: 0.5rem;
-          background-color: black;
-          cursor: pointer;
-
-          &:hover {
-            transition: 0.2s ease;
-            transform: scale(1.2);
-          }
-        }
-
-        .release-popup {
-          // display: flex;
-          // justify-content: center;
-          // align-items: center;
-          // width: 100%;
-          // background-color: rgba(0, 0, 0, 0.651);
-          // height: 100vh;
-          // position: absolute;
-          // top: 50%;
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid var(--color1);
+        border-radius: 0.5rem;
+        background-color: black;
+        position: relative;
+        .ex-music-icon {
+          width: 50px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          padding: 5px;
           // left: 50%;
           // transform: translate(-50%, -50%);
-          color: white;
-
-          z-index: 999999999999999999;
         }
-      }
 
-      .preview {
-      }
+        .grid-image {
+          width: 350px;
+          height: 300px;
+        }
+        .release-information {
+          border-top: 3px solid var(--color1);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          button {
+            border: 3px solid var(--color1);
+            background: transparent;
+            width: 200px;
+            height: 70px;
+            font-family: var(--font1);
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            position: relative;
 
-      .preview-enter {
-        opacity: 0;
-        transform: translateY(-150px);
-        z-index: 1;
-      }
-      .preview-enter-active {
-        // opacity: 1;
-        transform: translateY(0);
-        transition: opacity 100ms, transform 100ms ease-in-out;
-        z-index: -1;
-      }
-      .preview-exit {
-        // opacity: 1;
-        transform: translateY(0);
-        z-index: 1;
-      }
-      .preview-exit-active {
-        opacity: 0;
-        transform: translateY(-150px);
-        transition: opacity 100ms, transform 100ms ease-in-out;
-        z-index: -1;
-      }
-
-      @media (max-width: 500px) {
-        display: none;
+            &:hover {
+              background-color: var(--color1);
+              transform: scale(1.05);
+              color: black;
+            }
+          }
+        }
       }
     }
 
     .showcase-grid-mobile {
+      display: none;
       position: relative;
       display: flex;
       flex-direction: column;

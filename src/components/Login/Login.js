@@ -69,9 +69,9 @@ function Login(props) {
           <div className="logo">
             <img src={logo} alt="logo" />
           </div>
-          <h2>Sign in to Biscuits N Groovy</h2>
+          <h2>Sign in to Biscuits n Groovy</h2>
           <button className="google">
-            <i className="fab fa-google"></i> <span>Sign In With Google</span>
+            <i className="fab fa-google"></i> <span>Sign In with Google</span>
           </button>
           <button className="facebook">
             <i className="fab fa-facebook-square"></i>

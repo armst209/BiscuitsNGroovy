@@ -61,18 +61,17 @@
     color: white;
     transition: all 0.2s ease;
     position: relative;
-    img {
-      display: none;
-      width: 50px;
-      position: absolute;
-      bottom: -20%;
-      background-color: black;
-      border: 3px solid var(--color1);
-      right: -10%;
-      padding: 5px;
-      // left: 50%;
-      // transform: translate(-50%, -50%);
-    }
+    // img {
+    //   width: 50px;
+    //   position: absolute;
+    //   bottom: -20%;
+    //   background-color: black;
+    //   border: 3px solid var(--color1);
+    //   right: -10%;
+    //   padding: 5px;
+    //   // left: 50%;
+    //   // transform: translate(-50%, -50%);
+    // }
     &:hover {
       background-color: var(--color1);
       transform: scale(1.05);
