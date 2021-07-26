@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
 import "react-responsive-modal/styles.css";
-import Logout from "../../../pages/Logout/Logout";
+import Logout from "../../Logout/Logout";
 import logo from "../../../assets/images/bng_header_test.svg";
 import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";

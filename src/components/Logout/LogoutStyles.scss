@@ -21,21 +21,36 @@
     height: 400px;
     padding: 1rem;
     border-radius: 0.5rem;
+    @media screen and (max-width: 450px) {
+      width: 300px;
+      height: 300px;
+      padding: 0;
+    }
+    @media screen and (max-width: 285px) {
+      width: 250px;
+      height: 250px;
+      padding: 0;
+    }
     .message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       p {
         font-size: 2rem;
         color: white;
         width: 100%;
         padding: 0.8rem;
+        text-align: center;
+        @media screen and (max-width: 450px) {
+          font-size: 1.5rem;
+        }
       }
     }
 
-    .image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 400px;
+    img {
+      width: auto;
+      @media screen and (max-width: 450px) {
+        width: 100px;
       }
     }
   }

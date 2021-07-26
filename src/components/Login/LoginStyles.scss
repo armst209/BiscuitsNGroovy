@@ -72,6 +72,7 @@
     justify-content: center;
     align-items: center;
     padding: 70px 20px 100px 20px;
+    overflow-y: scroll;
 
     .login-contents {
       width: 400px;
@@ -85,6 +86,7 @@
       background-color: white;
       font-family: var(--font2);
       position: relative;
+
       @media screen and (orientation: landscape) and (max-device-width: 850px) {
         // width: 100vw;
         // height: inherit;

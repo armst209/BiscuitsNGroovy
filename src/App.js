@@ -8,7 +8,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Modal from "./components/Modal";
 import Loading from "./components/Loading/Loading";
 // import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
-// import Logout from "./pages/Logout/Logout";
+import Logout from "./components/Logout/Logout";
 // import Carousel from "./components/MusicShowcase/ReleasesCarousel";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
@@ -127,7 +127,7 @@ function App() {
 
           {/* Route Testing */}
           <Route path="/modal" component={Modal} />
-          {/* <Route path="/logout" component={Logout} /> */}
+          <Route path="/logout" component={Logout} />
           {/* 
           <Route path="/carousel" component={Carousel} />
           <Route path="/music" component={MusicPlayer} />

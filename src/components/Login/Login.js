@@ -36,6 +36,12 @@ function Login(props) {
 
     const handleFailure = (err) => {
       console.log(err);
+      setLoginStatus(
+        <>
+          <div>Login</div>
+          <img src={login_arrow} alt="arrow" />
+        </>
+      );
       setMessage("Username or Password is incorrect. Please try again.");
     };
 
