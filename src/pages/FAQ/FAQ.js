@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 // import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
 import dropdown from "../../assets/images/double-down-yellow.svg";
+import question from "../../assets/images/question2.svg";
 
 //CSS Transition is a node package that handles CSS transitions in React and is imported above
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
@@ -417,7 +418,13 @@ function FAQ(props) {
             </ul>
           </div>
         </CSSTransition>
-
+        <div className="header-p">
+          <img src={question} alt="question icon" />
+          <p>
+            More questions? We’ve got answers. If yours isn’t answered above,
+            feel free to contact us at support@bngroovy.com
+          </p>
+        </div>
         <h1 id="NFTsExplained">
           <div>NFTs Explained</div>
         </h1>
@@ -579,11 +586,6 @@ function FAQ(props) {
             </li>
           </ul>
         </div>
-
-        <p className="header-p">
-          More questions? We’ve got answers. If yours isn’t answered above, feel
-          free to contact us at support@bngroovy.com
-        </p>
       </div>
       <Footer />
     </section>

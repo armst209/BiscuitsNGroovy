@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
-import { assertExistsTypeAnnotation } from "@babel/types";
 import ex_music_icon from "../../assets/images/love-song2.svg";
 import "./CheckoutStyle.scss";
-import ComponentLoading from "../../components/Loading/ComponentLoading";
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 

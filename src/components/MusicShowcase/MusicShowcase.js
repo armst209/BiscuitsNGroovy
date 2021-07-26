@@ -81,9 +81,9 @@ function MusicShowcase(props) {
                 ) : (
                   <button
                     className="no-token-btn"
-                    onClick={() => props.showSignUpPopUp(true)}
+                    onClick={() => props.signUpPopUpNoToken(true)}
                   >
-                    BUY NOW{" "}
+                    BUY NOW
                     <img src={token_music_icon} alt="heart music icon" />
                   </button>
                 )}

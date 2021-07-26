@@ -12,19 +12,19 @@ import logout_icon from "../../../assets/images/logout.svg";
 import portal_icon from "../../../assets/images/video.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
-
-function useWindowSize() {
-  const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-  return size;
-}
+//window sizing
+// function useWindowSize() {
+//   const [size, setSize] = useState([0, 0]);
+//   useLayoutEffect(() => {
+//     function updateSize() {
+//       setSize([window.innerWidth, window.innerHeight]);
+//     }
+//     window.addEventListener("resize", updateSize);
+//     updateSize();
+//     return () => window.removeEventListener("resize", updateSize);
+//   }, []);
+//   return size;
+// }
 
 function MainNavigation(props) {
   const [xButton, setXButton] = useState(true);
@@ -36,8 +36,8 @@ function MainNavigation(props) {
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
   const [rightSpotlight, setRightSpotlight] = useState("");
-  const [signUpIcon, setSignUpIcon] = useState("Sign Up");
-  const [width, height] = useWindowSize();
+  // const [signUpIcon, setSignUpIcon] = useState("Sign Up");
+  // const [width, height] = useWindowSize();
 
   const isAuthenticated = localStorage.getItem("token");
 
@@ -133,9 +133,9 @@ function MainNavigation(props) {
 
   return (
     <div id="scrolled-home-before">
-      <span>
+      {/* <span>
         Window size: {width} x {height}
-      </span>
+      </span> */}
       <header className={`homepage-navigation ${scrolledNavClass}`}>
         <img
           className="spotlight-top-left"
@@ -217,7 +217,7 @@ function MainNavigation(props) {
                   onClick={() => props.showSignUpPopUp(true)}
                 >
                   <button>
-                    <div>{signUpIcon}</div>
+                    <div>Sign Up</div>
                     {/* <img src={avatar_signin} alt="avatar" /> */}
                   </button>
                 </li>

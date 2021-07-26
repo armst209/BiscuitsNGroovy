@@ -90,11 +90,38 @@
     }
 
     .header-p {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
       font-family: var(--font2);
-      font-size: 20px;
+      font-size: 2rem;
       padding: 10px 5px;
       margin-bottom: 10px;
-      border: 7px solid var(--color2);
+
+      @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      @media screen and (max-width: 335px) {
+        font-size: 1rem;
+      }
+
+      p {
+        @media screen and (max-width: 500px) {
+          text-align: center;
+        }
+      }
+      img {
+        width: 70px;
+        margin-right: 10px;
+        @media screen and (max-width: 400px) {
+          width: 50px;
+        }
+      }
     }
     h2,
     h3 {
