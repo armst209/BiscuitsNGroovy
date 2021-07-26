@@ -26,6 +26,7 @@
     "react-icons": "^4.2.0",
     "react-jinke-music-player": "^4.24.1",
     "react-multi-carousel": "^2.6.3",
+    "react-promise-tracker": "^2.1.0",
     "react-responsive-modal": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",

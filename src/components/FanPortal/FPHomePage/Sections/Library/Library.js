@@ -1,6 +1,6 @@
 import { React, useEffect, useState, Suspense } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,7 +44,9 @@ function Library(props) {
         setNoReleases(
           <div className="no-releases-msg">
             <h1>It looks like you have no releases yet...</h1>
-            <button>Start Your Collection</button>
+            <Link to="/home#music-showcase">
+              <button>Start Your Collection</button>
+            </Link>
           </div>
         );
       } else {
@@ -57,7 +59,6 @@ function Library(props) {
 
           //Return - what's currently being displayed in the "Your Library" section through Hooks
           return release ? (
-            // <SwiperSlide tag="li" key={`slide-${release.id}`}>
             <figure class="hover-img">
               <img
                 src={release.art_url}

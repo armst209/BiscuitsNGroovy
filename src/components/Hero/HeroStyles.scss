@@ -331,12 +331,11 @@
                   border: 3px solid black;
                 }
                 img {
-                  display: none;
                   width: 70px;
                   position: absolute;
                   bottom: -20%;
-                  background-color: black;
-                  border: 3px solid var(--color1);
+                  background-color: var(--color1);
+                  border: 3px solid black;
                   right: -5%;
                   padding: 5px;
                   // left: 50%;

@@ -10,7 +10,7 @@ import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundR
 import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
 import spotlight from "../../assets/images/spotlight2_white.png";
 import headphones from "../../assets/images/808s_&_Heartbreak.png";
-import hero_artist_icon from "../../assets/images/karaoke_4796875.svg";
+import hero_artist_icon from "../../assets/images/karaoke_black.svg";
 import hero_record_icon from "../../assets/images/vinyl.svg";
 
 // import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
@@ -36,15 +36,15 @@ function Hero(props) {
                   Our Jam
                 </h1> */}
                 <div className="new-music">
-                  <h1 className="h1-new">New</h1>
-                  <h1>Music</h1>
+                  <h1 className="h1-new">NEW</h1>
+                  <h1>MUSIC</h1>
                 </div>
                 <div className="is-our-jam">
                   <div className="is-our">
-                    <h1 className="is-h1">Is</h1> <h1>Our</h1>
+                    <h1 className="is-h1">IS</h1> <h1>OUR</h1>
                   </div>
                   <div className="jam">
-                    <h1>Jam</h1>
+                    <h1>JAM</h1>
                   </div>
                 </div>
                 <h3>

@@ -2,27 +2,18 @@
 
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
+import ComponentLoading from "../components/Loading/ComponentLoading";
 
 export async function accountIsInitialized() {
-<<<<<<< HEAD
-    console.log('before current user');
-    let currUser = await fcl.currentUser().snapshot();
-    console.log("current user");
-    console.log(currUser);
-    if (currUser.loggedIn === null) {
-      return false;
-    }
-    console.log('after current user');
-    return await fcl
-=======
+  console.log("before current user");
   let currUser = await fcl.currentUser().snapshot();
   console.log("current user");
   console.log(currUser);
   if (currUser.loggedIn === null) {
     return false;
   }
+  console.log("after current user");
   return await fcl
->>>>>>> 201ce365fb68369f13840356663ea6257ce0cc0e
     .send([
       fcl.script`
           import BnGNFTContract from 0xProfile
@@ -59,8 +50,8 @@ export async function accountIsInitialized() {
 
 export async function initAccount() {
   let isInitialized = accountIsInitialized();
-  console.log('acc initialize done');
-  if (isInitialized === true){
+  console.log("acc initialize done");
+  if (isInitialized === true) {
     return;
   } else {
     await fcl
@@ -81,19 +72,20 @@ export async function initAccount() {
             }
         }
       `,
-      fcl.payer(fcl.authz), // current user is responsible for paying for the transaction
-      fcl.proposer(fcl.authz), // current user acting as the nonce
-      fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
-      fcl.limit(1000), // set the compute limit
-    ])
-    .then(fcl.decode)
-    .then(txId => {
-      console.log('spinner');
-      return fcl.tx(txId).onceSealed();
-    })
-    .catch(err => {
-      console.log("err: " + err.stack);
-      return;
-    })
+        fcl.payer(fcl.authz), // current user is responsible for paying for the transaction
+        fcl.proposer(fcl.authz), // current user acting as the nonce
+        fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
+        fcl.limit(1000), // set the compute limit
+      ])
+      .then(fcl.decode)
+      .then((txId) => {
+        console.log("spinner");
+
+        return fcl.tx(txId).onceSealed();
+      })
+      .catch((err) => {
+        console.log("err: " + err.stack);
+        return;
+      });
   }
 }

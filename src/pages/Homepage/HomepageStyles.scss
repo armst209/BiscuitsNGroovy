@@ -14,6 +14,22 @@
   padding: 2rem;
   border: none;
   min-height: 600px;
+  position: relative;
+  @media screen and (max-width: 1200px) {
+    padding-top: 5rem;
+  }
+  .spotlight-top-left {
+    width: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .spotlight-top-right {
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
   .reminder-subscribe-wrapper {
     display: flex;

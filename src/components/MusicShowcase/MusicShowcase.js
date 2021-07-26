@@ -1,21 +1,18 @@
-import { React, Suspense, lazy, useState, useEffect } from "react";
+import { React, Suspense, useState, useEffect } from "react";
 import axios from "axios";
 import ComponentLoading from "../Loading/Loading";
-import ReminderBackground from "../Background/ReminderBackground";
-import ReminderBackground2 from "../Background/ReminderBackground2";
-import ReminderBackground3 from "../Background/ReminderBackground3";
-// import ReleaseCalendar from "../ReleaseCalendar/ReleaseCalendar";
+// import ReminderBackground from "../Background/ReminderBackground";
+// import ReminderBackground2 from "../Background/ReminderBackground2";
+// import ReminderBackground3 from "../Background/ReminderBackground3";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
-import "./GalleryStyles.css";
-import ReleasesCarousel from "./ReleasesCarousel";
-const LibrarySwiper = lazy(() => import("../FanPortal/LibrarySwiper"));
+// import ex_music_icon from "../../assets/images/love-song2.svg";
+import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
+import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import token_music_icon from "../../assets/images/love-song2.svg";
+import CheckoutButton from "../../pages/Payment/Checkout";
 
-//Promise
-//release
-//loop through
-
-function MusicShowcase() {
+function MusicShowcase(props) {
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState(false);
 
@@ -60,18 +57,43 @@ function MusicShowcase() {
         };
         return release ? (
           <div
-            onClick={() => showReleaseInfo(release)}
+            // onClick={() => showReleaseInfo(release)}
             key={`${"release-container" + release.id}`}
-            className="gallery-item"
-            tabindex="0"
+            className="grid-item"
+            // tabindex="0"
           >
             <img
-              className="gallery-image"
+              className="grid-image"
               src={release.art_url}
               alt={release.name}
             />
-            <div>{release.description}</div>
-            <div></div>
+            <div className="release-information">
+              <div>{release.description}</div>
+              <div>
+                {token ? (
+                  <CheckoutButton
+                    release_id={release.id}
+                    name={release.name}
+                    price={release.price}
+                    description={release.description}
+                    images={release.art_url}
+                  />
+                ) : (
+                  <button
+                    className="no-token-btn"
+                    onClick={() => props.showSignUpPopUp(true)}
+                  >
+                    BUY NOW{" "}
+                    <img src={token_music_icon} alt="heart music icon" />
+                  </button>
+                )}
+              </div>
+            </div>
+            {/* <img
+              className="ex-music-icon"
+              src={ex_music_icon}
+              alt="music icon"
+            /> */}
           </div>
         ) : (
           <div className="loading-animation">
@@ -89,9 +111,19 @@ function MusicShowcase() {
 
   return (
     <section id="music-showcase">
-      <ReminderBackground2 />
+      <img
+        className="spotlight-top-left"
+        src={spotlight_yellow_left}
+        alt="spotlight icon"
+      />
+      <img
+        className="spotlight-top-right"
+        src={spotlight_yellow_right}
+        alt="spotlight icon"
+      />
+      {/* <ReminderBackground2 />
       <ReminderBackground3 />
-      <ReminderBackground />
+      <ReminderBackground /> */}
 
       <div className="music-showcase-container">
         <div className="content-container">
@@ -100,18 +132,14 @@ function MusicShowcase() {
             Browse our current and upcoming releases. <br />
             Click on a title for more details
           </p>
-          <div className="container">
-            <div className="gallery">
-              {/* <ReleaseCalendar /> */}
-              {displayReleases}
-              {/* <div className="release-popup">{releaseInfo}</div>  */}
-            </div>
-          </div>
-          <div className="showcase-grid-mobile">
+          <div className="showcase-grid-desktop">
+            {/* <ReleaseCalendar /> */}
             <Suspense fallback={<ComponentLoading />}>
-              <ReleasesCarousel />
+              {displayReleases}
             </Suspense>
+            {/* <div className="release-popup">{releaseInfo}</div>  */}
           </div>
+          <div className="showcase-grid-mobile"></div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
@@ -10,6 +10,21 @@ import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
 import portal_icon from "../../../assets/images/video.svg";
+import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
+import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
+
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
 
 function MainNavigation(props) {
   const [xButton, setXButton] = useState(true);
@@ -20,10 +35,9 @@ function MainNavigation(props) {
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
-  const [open, setOpen] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const [rightSpotlight, setRightSpotlight] = useState("");
+  const [signUpIcon, setSignUpIcon] = useState("Sign Up");
+  const [width, height] = useWindowSize();
 
   const isAuthenticated = localStorage.getItem("token");
 
@@ -45,6 +59,7 @@ function MainNavigation(props) {
       window.location.replace("http://localhost:3000/home");
     }, 1000);
   };
+
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
@@ -101,10 +116,12 @@ function MainNavigation(props) {
     //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 50) {
+      if (offset > 25) {
         setScrolledNavClass("scrolled-navigation");
+        setRightSpotlight("");
       } else {
         setScrolledNavClass("");
+        setRightSpotlight("");
       }
     };
     window.addEventListener("scroll", handleScroll, {
@@ -116,7 +133,21 @@ function MainNavigation(props) {
 
   return (
     <div id="scrolled-home-before">
+      <span>
+        Window size: {width} x {height}
+      </span>
       <header className={`homepage-navigation ${scrolledNavClass}`}>
+        <img
+          className="spotlight-top-left"
+          src={spotlight_yellow_left}
+          alt="spotlight icon"
+        />
+        <img
+          className={`spotlight-top-right ${rightSpotlight}`}
+          src={spotlight_yellow_right}
+          alt="spotlight icon"
+        />
+        {/* <div className="logo-nav-bg"></div> */}
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">
@@ -186,7 +217,7 @@ function MainNavigation(props) {
                   onClick={() => props.showSignUpPopUp(true)}
                 >
                   <button>
-                    <div>Sign Up </div>
+                    <div>{signUpIcon}</div>
                     {/* <img src={avatar_signin} alt="avatar" /> */}
                   </button>
                 </li>
