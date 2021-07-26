@@ -61,6 +61,7 @@ export default function CheckoutButton(props) {
     console.log(props.name);
     console.log(props.images);
     console.log(props.price);
+
     const response = await axios(URL, {
       method: "POST",
       headers: {

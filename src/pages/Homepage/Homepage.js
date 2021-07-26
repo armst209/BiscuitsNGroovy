@@ -21,7 +21,7 @@ function Homepage(props) {
 
       <Hero />
       <HowItWorks />
-      <MusicShowcase />
+      <MusicShowcase showSignUpPopUp={props.showSignUp} />
       <NFTBreakdown />
       <div className="reminder-subscribe">
         <img

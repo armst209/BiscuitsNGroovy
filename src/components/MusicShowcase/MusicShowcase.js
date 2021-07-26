@@ -1,4 +1,4 @@
-import { React, Suspense, lazy, useState, useEffect } from "react";
+import { React, Suspense, useState, useEffect } from "react";
 import axios from "axios";
 import ComponentLoading from "../Loading/Loading";
 // import ReminderBackground from "../Background/ReminderBackground";
@@ -9,9 +9,10 @@ import "./MusicShowcaseStyles.scss";
 // import ex_music_icon from "../../assets/images/love-song2.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import token_music_icon from "../../assets/images/love-song2.svg";
 import CheckoutButton from "../../pages/Payment/Checkout";
 
-function MusicShowcase() {
+function MusicShowcase(props) {
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState(false);
 
@@ -69,13 +70,23 @@ function MusicShowcase() {
             <div className="release-information">
               <div>{release.description}</div>
               <div>
-                <CheckoutButton
-                  release_id={release.id}
-                  name={release.name}
-                  price={release.price}
-                  description={release.description}
-                  images={release.art_url}
-                />
+                {token ? (
+                  <CheckoutButton
+                    release_id={release.id}
+                    name={release.name}
+                    price={release.price}
+                    description={release.description}
+                    images={release.art_url}
+                  />
+                ) : (
+                  <button
+                    className="no-token-btn"
+                    onClick={() => props.showSignUpPopUp(true)}
+                  >
+                    BUY NOW{" "}
+                    <img src={token_music_icon} alt="heart music icon" />
+                  </button>
+                )}
               </div>
             </div>
             {/* <img
