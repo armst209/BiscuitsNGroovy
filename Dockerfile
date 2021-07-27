@@ -11,6 +11,8 @@ RUN npm install
 #copy source code
 COPY . .
 
-EXPOSE 3001
+EXPOSE 3000
 
-CMD [ "serve", "-s", "build"]
+CMD ["npm", "start"]
+
+#CMD [ "serve", "-s", "build"]
