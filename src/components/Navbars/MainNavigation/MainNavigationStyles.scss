@@ -119,6 +119,9 @@
           padding: 5px;
           height: 100%;
           transition: all 0.2s ease;
+          p {
+            font-weight: normal;
+          }
           &:hover {
             color: black;
           }
@@ -421,6 +424,7 @@
 
             font-family: var(--font1);
             font-size: 18px;
+            font-weight: normal;
             padding: 10px;
             background: transparent;
             border: 3px solid var(--color1);

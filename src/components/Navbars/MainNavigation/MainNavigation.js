@@ -57,7 +57,9 @@ function MainNavigation(props) {
     }, 200);
 
     setTimeout(() => {
-      window.location.replace("http://localhost:3000/home");
+      window.location.replace(
+        "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/home"
+      );
     }, 1000);
   };
 
