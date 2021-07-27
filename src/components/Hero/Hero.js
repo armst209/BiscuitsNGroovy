@@ -2,6 +2,7 @@ import { React } from "react";
 import "./HeroStyles.scss";
 import "./HeroPhoneTabletQueries.scss";
 import { Link } from "react-router-dom";
+import vinyl_bg from "../../assets/images/compact-disc-yellow.svg";
 import blob from "../../assets/images/blob.svg";
 import hero_bg from "../../assets/images/hero-titles.svg";
 import HeroBackground from "../Background/HeroBackground";
@@ -23,7 +24,7 @@ function Hero(props) {
       <HeroBackground />
       <div className="hero-container">
         <div className="hero-main">
-          {/* <div className="hero-box"></div> */}
+          <img className="vinyl-bg" src={vinyl_bg} alt="vinyl background" />
 
           <div className="hero-titles">
             {/* <img className="hero-bg" src={hero_bg} alt="hero background" /> */}

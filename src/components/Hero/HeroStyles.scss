@@ -6,7 +6,7 @@
   z-index: 0;
   width: 100%;
   border-bottom: 3px solid var(--color1);
-  height: 100vh;
+  height: 100%;
   margin: 0;
   background-size: auto;
   background-color: black;
@@ -15,8 +15,9 @@
     padding-top: 9rem;
   }
   .hero-container {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    //100vh
     display: flex;
     position: relative;
     justify-content: center;
@@ -42,6 +43,15 @@
       }
       @media screen and (orientation: landscape) and (max-width: 870px) {
         margin-top: 100px;
+      }
+
+      .vinyl-bg {
+        position: absolute;
+        width: 50%;
+        z-index: 0;
+        @media screen and(max-width: 1050px) {
+          display: none;
+        }
       }
 
       .hero-titles {

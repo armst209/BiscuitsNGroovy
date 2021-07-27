@@ -10,6 +10,7 @@ import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
 import portal_icon from "../../../assets/images/video.svg";
+import vinyl_logo from "../../../assets/images/vinyl_yellow.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 //window sizing
@@ -147,12 +148,13 @@ function MainNavigation(props) {
           src={spotlight_yellow_right}
           alt="spotlight icon"
         />
-        {/* <div className="logo-nav-bg"></div> */}
+
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">
               <Link className="bng-home" to="/home">
                 <img className="bng-home-logo" src={logo} alt="logo" />
+                <img className="vinyl-logo" src={vinyl_logo} alt="vinyl icon" />
               </Link>
               <Link className="bng-home-mobile" to="/home">
                 <img src={mobile_logo} alt="logo" />

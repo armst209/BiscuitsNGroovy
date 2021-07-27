@@ -13,6 +13,7 @@ const SignUp = (props) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [flowLoader, setFlowLoader] = useState("");
 
   const handleSignUp = (res) => {
     const token = res.data.token;
@@ -106,10 +107,11 @@ const SignUp = (props) => {
               autoComplete="off"
               onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit">Sign Up</button>
           </form>
-          <LinkFlowButton />
+          <LinkFlowButton flowBtnLoader={setFlowLoader} />
+
           <div className="error-message">{errorMessage}</div>
+          {flowLoader}
         </div>
       </div>
     </section>

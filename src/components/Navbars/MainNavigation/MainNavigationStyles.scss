@@ -213,7 +213,6 @@
 }
 
 .nav-home-container {
-  border-bottom: 3px solid var(--color1);
   width: 100%;
   height: 100%;
   padding: 0 0.5rem;
@@ -312,6 +311,11 @@
         }
         @media screen and (max-width: 1050px) {
           display: none;
+        }
+
+        .vinyl-logo {
+          display: none;
+          width: 18%;
         }
       }
       .bng-home-mobile {
@@ -741,6 +745,7 @@
 
 .scrolled-navigation {
   // transition: none;
+  border-bottom: 3px solid var(--color1);
   filter: drop-shadow(0 0 5px black);
   background: black;
   // transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
