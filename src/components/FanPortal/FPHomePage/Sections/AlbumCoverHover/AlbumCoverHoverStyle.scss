@@ -1,0 +1,32 @@
+#album-hover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .album-hover-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 100px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      &:hover {
+        // background: var(--bg-color);
+        // color: white;
+        transition: 0.2s ease;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .show-popup {
+  }
+  .close-popup {
+    display: none;
+  }
+}

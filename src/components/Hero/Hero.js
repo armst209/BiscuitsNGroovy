@@ -1,10 +1,18 @@
 import { React } from "react";
 import "./HeroStyles.scss";
-import SoundBars from "../SoundBars/SoundBar";
+import "./HeroPhoneTabletQueries.scss";
+import { Link } from "react-router-dom";
+import vinyl_bg from "../../assets/images/compact-disc-yellow.svg";
+import blob from "../../assets/images/blob.svg";
+import hero_bg from "../../assets/images/hero-titles.svg";
+import HeroBackground from "../Background/HeroBackground";
 import DesktopBackground from "../Background/DesktopBackground";
 import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundRight";
 import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
 import spotlight from "../../assets/images/spotlight2_white.png";
+import headphones from "../../assets/images/808s_&_Heartbreak.png";
+import hero_artist_icon from "../../assets/images/karaoke_black.svg";
+import hero_record_icon from "../../assets/images/vinyl.svg";
 
 // import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
 
@@ -13,55 +21,77 @@ import spotlight from "../../assets/images/spotlight2_white.png";
 function Hero(props) {
   return (
     <section id="hero">
+      <HeroBackground />
       <div className="hero-container">
         <div className="hero-main">
-          <div className="hero-titles">
-            <div className="hero-text">
-              <h1>NEW</h1>
-              <h1>MUSIC</h1>
-              <h1>IS OUR </h1>
-              <h1>JAM</h1>
+          <img className="vinyl-bg" src={vinyl_bg} alt="vinyl background" />
 
-              <h3>
-                Get early access to new releases <br /> from your favorite
-                artists,
-                <br />
-                and exclusive NFT album art
-              </h3>
-              <div className="hero-buttons">
-                <a href="#dont-know">
-                  <button className="start">Start Your Collection</button>
-                </a>
-                <a href="#how-it-works">
-                  <button className="learn">Learn How It Works</button>
-                </a>
+          <div className="hero-titles">
+            {/* <img className="hero-bg" src={hero_bg} alt="hero background" /> */}
+            <div className="hero-text">
+              <div className="hero-text-wrapper">
+                {/* <h1>
+                  New <br />
+                  Music Is
+                  <br />
+                  Our Jam
+                </h1> */}
+                <div className="new-music">
+                  <h1 className="h1-new">NEW</h1>
+                  <h1>MUSIC</h1>
+                </div>
+                <div className="is-our-jam">
+                  <div className="is-our">
+                    <h1 className="is-h1">IS</h1> <h1>OUR</h1>
+                  </div>
+                  <div className="jam">
+                    <h1>JAM</h1>
+                  </div>
+                </div>
+                <h3>
+                  <div>
+                    Get early access to new releases from your favorite artists,
+                    and exclusive NFT album art
+                  </div>
+                </h3>
+                <div className="hero-buttons">
+                  <Link to="#music-showcase">
+                    <button className="start">
+                      <div className="start-text">Start Your Collection</div>
+                      <img src={hero_record_icon} alt="record icon" />
+                    </button>
+                  </Link>
+                  <Link to="/artists">
+                    <button className="learn">
+                      For Artists
+                      <img src={hero_artist_icon} alt="artist icon" />
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-
           <div className="hero-images">
-            <HeroSpotlightBackgroundLeft />
-            <HeroSpotlightBackgroundRight />
+            {/* <HeroSpotlightBackgroundLeft />
+            <HeroSpotlightBackgroundRight /> */}
             <div className="hero-image-container">
-              <DesktopBackground />
-
-              {/* {openAlbum ? "album-cover" : "album-active"} */}
+              <img src={headphones} alt="hero section headphones" />
             </div>
-
             <div className="featured">
               <h1>
-                <div>Featured Artist: Kanye West</div>
-
-                <div>
-                  <img src={spotlight} alt="spotlight" />
-                </div>
+                <div className="featured-artist">Featured Artist:</div>
+                <div>Kanye West</div>
               </h1>
             </div>
-            <SoundBars />
           </div>
         </div>
       </div>
-      {/* <HeroBackground /> */}
+      <div className="featured-mobile">
+        <h1>
+          <div className="featured-artist">Featured Artist:</div>
+          <div>Kanye West</div>
+        </h1>
+      </div>
     </section>
   );
 }

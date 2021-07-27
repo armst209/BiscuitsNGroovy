@@ -11,26 +11,27 @@ function About(props) {
         showLoginPopup={props.setTrigger}
         showSignUpPopUp={props.showSignUp}
       />
-      {/* <h1>
-        <div>OUR MISSION</div>
-        <div>
-          <img src={spotlight} alt="spotlight" />
-        </div>
-      </h1> */}
+
       <div className="about-contents-wrapper">
+        <div className="about-header">
+          <h1>
+            At Biscuits n Groovy, our mission is simple: Create a more
+            intentional and equitable music experience
+          </h1>
+        </div>
         <div className="about-contents-1">
           <p>
-            Two forces have endured throughout all of human history: music and
-            stories.
+            We partner with artists to debut their new releases to their most
+            devoted fans.
           </p>
           <p>
-            It is no coincidence, then, that some of the greatest artists of our
-            generation are also some of the most talented storytellers. At
-            Biscuits n Groovy, our mission is simple: create a better platform
-            for these stories to be told. ​
+            By offering superfans a unique collector experience, we bring them
+            closer to the artists they love. In return, we’re able to pay
+            artists better, and give their music the lasting value it deserves.
           </p>
           <p>
-            <strong>Our approach is twofold: </strong>
+            Two principles guide everything we do - make text bold/stand out in
+            another color maybe
           </p>
           <ol className="ol-section">
             <li>Treat artists as creators rather than commodities</li>
@@ -38,22 +39,12 @@ function About(props) {
               Deliver fans the most intentional and powerful music experience
             </li>
           </ol>
+
           <p>
-            We partner with artists to debut their new releases to their most
-            devoted fans. These are the people who get goosebumps when their
-            favorite song comes on, who dance in public to the music playing in
-            their headphones, who show up first to a concert to get the best
-            spot. We offer these loyal listeners the uniquely intimate
-            experience of being the first to hear new music.
-          </p>
-          <p>
-            Music is the anthem of culture. Biscuits n Groovy cuts through the
-            endless shuffle to amplify what matters: the connection between
-            artists and fans.{" "}
-          </p>
-          <p>
-            We’re built not for those who passively stream music, but for those
-            who choose to listen.
+            Biscuits n Groovy cuts through the noise to amplify what matters:
+            the connection between artists and fans. We’re building a music
+            experience that goes beyond streaming, for those who believe in the
+            power of fandom.
           </p>
         </div>
       </div>
@@ -68,10 +59,10 @@ function About(props) {
           <p>
             The idea for Biscuits n Groovy started with a shared love for music.
             More specifically, with our founders’ carefully-curated collection
-            of vinyl records. While we love the convenience and variety of
-            digital streaming, there's a lot of things about the "old school"
-            approach that streaming just can’t compete with. No, we don't mean
-            the audio quality. It's about the <strong>experience.</strong>
+            of vinyl records. While we love the convenience of digital
+            streaming, there's a lot of things about the "old school" approach
+            that streaming just can’t compete with. No, we don't mean the audio
+            quality. It's about the <strong>experience.</strong>
           </p>
           <p>
             From admiring an album's cover art to carefully dropping the needle,

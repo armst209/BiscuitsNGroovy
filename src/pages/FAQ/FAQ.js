@@ -4,7 +4,8 @@ import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
 // import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
-import dropdown from "../../assets/images/double-down.svg";
+import dropdown from "../../assets/images/double-down-yellow.svg";
+import question from "../../assets/images/question2.svg";
 
 //CSS Transition is a node package that handles CSS transitions in React and is imported above
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
@@ -20,9 +21,15 @@ function FAQ(props) {
   const [question7, setQuestion7] = useState(false);
   const [question8, setQuestion8] = useState(false);
   const [question9, setQuestion9] = useState(false);
-  const [question10, setQuestion10] = useState(false);
-  const [question11, setQuestion11] = useState(false);
-  const [question12, setQuestion12] = useState(false);
+  const [dropStyle1, setDropStyle1] = useState("dropdown");
+  const [dropStyle2, setDropStyle2] = useState("dropdown");
+  const [dropStyle3, setDropStyle3] = useState("dropdown");
+  const [dropStyle4, setDropStyle4] = useState("dropdown");
+  const [dropStyle5, setDropStyle5] = useState("dropdown");
+  const [dropStyle6, setDropStyle6] = useState("dropdown");
+  const [dropStyle7, setDropStyle7] = useState("dropdown");
+  const [dropStyle8, setDropStyle8] = useState("dropdown");
+  const [dropStyle9, setDropStyle9] = useState("dropdown");
 
   return (
     <section id="faq">
@@ -38,31 +45,43 @@ function FAQ(props) {
       </h1> */}
 
       <div className="faq-content">
-        <h5 onClick={() => setQuestion1(!question1)}>
+        <h5
+          onClick={() => {
+            setQuestion1(!question1);
+            setDropStyle1("icon_rotate");
+          }}
+        >
           <div>What do I get with my purchase?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle1}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question1}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion1(true)}
-          onExited={() => setQuestion1(false)}
+          onExited={() => {
+            setQuestion1(false);
+            setDropStyle1("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion1(!question1)}>
             <ul>
-              <li className="speaker">
-                - When you purchase a new release on BnG, you get access to
-                stream the music during its release period. These dates are
-                noted in three places: in the title details when browsing our
-                calendar, in your order confirmation, and in the My Collection
-                section of your profile. The release period is determined by the
-                artist, and once it ends, you can’t stream the music on BnG.
+              <li>
+                When you purchase a new release on BnG, you get access to stream
+                the music during its release period. These dates are noted in
+                three places: in the title details when browsing our calendar,
+                in your order confirmation, and in the My Collection section of
+                your profile. The release period is determined by the artist,
+                and once it ends, you can’t stream the music on BnG.
               </li>
               <li>
                 <div>
-                  - With your purchase, you also get a collectible digital album
+                  With your purchase, you also get a collectible digital album
                   cover NFT for no extra charge. The album art stays in Your
                   Collection forever, even once the music has expired. Read more
                   about our amazing NFTs
@@ -73,17 +92,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion2(!question2)}>
+        <h5
+          onClick={() => {
+            setQuestion2(!question2);
+            setDropStyle2("icon_rotate");
+          }}
+        >
           <div> Why does music expire?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle2}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question2}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion2(true)}
-          onExited={() => setQuestion2(false)}
+          onExited={() => {
+            setQuestion2(false);
+            setDropStyle2("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion2(!question2)}>
             <ul>
@@ -104,17 +135,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion3(!question3)}>
+        <h5
+          onClick={() => {
+            setQuestion3(!question3);
+            setDropStyle3("icon_rotate");
+          }}
+        >
           <div>Where do I find my purchased music?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle3}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question3}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion3(true)}
-          onExited={() => setQuestion3(false)}
+          onExited={() => {
+            setQuestion3(false);
+            setDropStyle3("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion3(!question3)}>
             <ul>
@@ -131,17 +174,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion4(!question4)}>
+        <h5
+          onClick={() => {
+            setQuestion4(!question4);
+            setDropStyle4("icon_rotate");
+          }}
+        >
           <div>Can I download my music?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle4}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question4}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion4(true)}
-          onExited={() => setQuestion4(false)}
+          onExited={() => {
+            setQuestion4(false);
+            setDropStyle4("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion4(!question4)}>
             <ul>
@@ -154,17 +209,30 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 id="NFT" onClick={() => setQuestion5(!question5)}>
+        <h5
+          id="NFT"
+          onClick={() => {
+            setQuestion5(!question5);
+            setDropStyle5("icon_rotate");
+          }}
+        >
           <div> What’s an NFT?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle5}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question5}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion5(true)}
-          onExited={() => setQuestion5(false)}
+          onExited={() => {
+            setQuestion5(false);
+            setDropStyle5("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion5(!question5)}>
             <ul>
@@ -190,17 +258,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion6(!question6)}>
+        <h5
+          onClick={() => {
+            setQuestion6(!question6);
+            setDropStyle6("icon_rotate");
+          }}
+        >
           <div>Do I need cryptocurrency to pay?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle6}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question6}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion6(true)}
-          onExited={() => setQuestion6(false)}
+          onExited={() => {
+            setQuestion6(false);
+            setDropStyle6("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion6(!question6)}>
             <ul>
@@ -218,17 +298,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion7(!question7)}>
+        <h5
+          onClick={() => {
+            setQuestion7(!question7);
+            setDropStyle7("icon_rotate");
+          }}
+        >
           <div>Is this a subscription?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle7}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question7}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion7(true)}
-          onExited={() => setQuestion7(false)}
+          onExited={() => {
+            setQuestion7(false);
+            setDropStyle7("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion7(!question7)}>
             <ul>
@@ -245,17 +337,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion8(!question8)}>
+        <h5
+          onClick={() => {
+            setQuestion8(!question8);
+            setDropStyle8("icon_rotate");
+          }}
+        >
           <div>Do you have an app?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle8}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question8}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion8(true)}
-          onExited={() => setQuestion8(false)}
+          onExited={() => {
+            setQuestion8(false);
+            setDropStyle8("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion8(!question8)}>
             <ul>
@@ -277,17 +381,29 @@ function FAQ(props) {
           </div>
         </CSSTransition>
 
-        <h5 onClick={() => setQuestion9(!question9)}>
+        <h5
+          onClick={() => {
+            setQuestion9(!question9);
+            setDropStyle9("icon_rotate");
+          }}
+        >
           <div>How much does BnG pay artists?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
+          <img
+            className={`dropdown ${dropStyle9}`}
+            src={dropdown}
+            alt="dropdown"
+          />
         </h5>
         <CSSTransition
           classNames="answer"
           in={question9}
-          timeout={300}
+          timeout={100}
           unmountOnExit
           onEnter={() => setQuestion9(true)}
-          onExited={() => setQuestion9(false)}
+          onExited={() => {
+            setQuestion9(false);
+            setDropStyle9("");
+          }}
         >
           <div className="answer" onClick={() => setQuestion9(!question9)}>
             <ul>
@@ -302,211 +418,174 @@ function FAQ(props) {
             </ul>
           </div>
         </CSSTransition>
-
-        <h5 id="NFTsExplained" onClick={() => setQuestion10(!question10)}>
+        <div className="header-p">
+          <img src={question} alt="question icon" />
+          <p>
+            More questions? We’ve got answers. If yours isn’t answered above,
+            feel free to contact us at support@bngroovy.com
+          </p>
+        </div>
+        <h1 id="NFTsExplained">
           <div>NFTs Explained</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
-        </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question10}
-          timeout={300}
-          unmountOnExit
-          onEnter={() => setQuestion10(true)}
-          onExited={() => setQuestion10(false)}
-        >
-          <div className="answer" onClick={() => setQuestion10(!question10)}>
-            <ul>
-              <li>
-                <p>
-                  - An NFT, or non-fungible token, is a digital collectible
-                  whose ownership is recorded on a blockchain. NFTs have been
-                  around for several years, but recently exploded in popularity
-                  as a way for digital creators to authenticate and monetize
-                  their work.
-                </p>
-              </li>
-              <li>
-                <p>
-                  - When you purchase new music on Biscuits n Groovy, you
-                  automatically receive an NFT of the album cover. All BnG album
-                  art is limited-edition, meaning it’s different from what
-                  you’ll see once the music drops everywhere else. We do this so
-                  our artists can showcase something new and unique, and so true
-                  fans can stand out from the crowd. The NFT acts as a stamp of
-                  authenticity, proving it’s an original copy, and that you as
-                  the buyer were one of the first to hear that particular
-                  release.
-                </p>
-              </li>
-              <li>
-                <p>
-                  - You can view your album art in the My Collection page of
-                  your profile. All your art stays there permanently, regardless
-                  of when the music is streaming. Since each album cover is
-                  backed by an NFT, you can show it off with confidence and
-                  prove your loyalty to your favorite artists.
-                </p>
-              </li>
-              <li>
-                <p>
-                  - You don’t need a crypto wallet or cryptocurrency to collect
-                  NFTs on BnG. When you create an account and buy music with us,
-                  an ID is created for you behind the scenes, which gets
-                  recorded on the blockchain to identify you as the owner. We do
-                  this so you don’t have to worry about the technical details.
-                  And since our NFTs aren’t currently tradable on other
-                  platforms, there’s no reason you’d need the ID. Rest assured,
-                  though, if anything were to happen to our site, your NFTs are
-                  safely recorded and recoverable on the blockchain (that’s the
-                  point of it!)
-                </p>
-              </li>
-              <li>
-                <p>
-                  - Caring for our planet - now that’s groovy [highlight or put
-                  in a green box to stand out] Biscuits n Groovy is proudly
-                  built on Flow, the blockchain trusted by NBA Top Shot. Since
-                  the Flow blockchain doesn’t require “mining” of bitcoin or
-                  ethereum, we don’t produce tons of greenhouse gases like other
-                  NFT platforms. You can read more about Flow{" "}
-                  <a href="https://www.onflow.org/">here</a> .
-                </p>
-              </li>
-            </ul>
-          </div>
-        </CSSTransition>
+        </h1>
 
-        <h5 onClick={() => setQuestion11(!question11)}>
-          <div>Back up… what are blockchains and tokens anyways?</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
-        </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question11}
-          timeout={300}
-          unmountOnExit
-          onEnter={() => setQuestion11(true)}
-          onExited={() => setQuestion11(false)}
-        >
-          <div className="answer" onClick={() => setQuestion11(!question11)}>
-            <ul>
-              <li>
-                <p>
-                  - Many people hear “blockchain” or “crypto” and think of
-                  bitcoin, the most well-known cryptocurrency. While bitcoin’s
-                  creation in 2008 kicked things off, blockchain technology has
-                  grown a ton, and its applications go far beyond finance. A
-                  blockchain is simply a type of database, or online file
-                  cabinet, that records information, verifies it, and keeps it
-                  secure. The key advantage of blockchain is that once
-                  information is added to the chain, it’s there permanently and
-                  can’t be easily hacked or manipulated.
-                </p>
-              </li>
-              <li>
-                <p>
-                  - Blockchains are great for recording transactions, like a
-                  receipt that keeps getting added onto. These transactions are
-                  usually denominated in tokens. There are two types of tokens
-                  used with blockchains. Bitcoin and other cryptocurrencies like
-                  dogecoin are fungible tokens. Just like regular dollars,
-                  fungible tokens can be broken down into parts (cents), and
-                  interchanged with each other (trading one dollar for another
-                  dollar makes no difference to me).
-                </p>
-              </li>
-              <li>
-                <p>
-                  - Non-fungible tokens, on the other hand, are unique, which is
-                  why they’re great for representing collectibles. Think of them
-                  like baseball cards or concert tickets. Each one is unique.
-                  Sure, there may be 1,000 of the same rookie card in the world,
-                  and of course plenty of concertgoers have the same GA ticket,
-                  but each one has a serial number to identify which it is in
-                  the series.
-                </p>
-              </li>
-              <li>
-                <p>
-                  - In practice, though, this doesn’t always work in the real
-                  world. Counterfeit tickets and baseball cards pose a big
-                  problem. NFTs solve this issue for digital goods, since the
-                  “serial number” and rightful owner is verified and recorded on
-                  the blockchain, so they can’t be faked.
-                </p>
-              </li>
-              <li>
-                <p>
-                  - A common reaction to NFTs is “okay, but why are these worth
-                  anything? If it’s a digital work of art, and anyone can see it
-                  on the internet, why would I pay for it?” The answer is
-                  ownership. Every NFT has a unique identifier for itself and
-                  its rightful owner. That owner could be the original creator
-                  or, once it’s sold, the buyer. Sure, anyone might be able to
-                  see the image, but the blockchain proves who the true owner
-                  is. Think of the Mona Lisa: anyone can see it, print a picture
-                  of it, or buy a poster of it, but there’s only one real copy
-                  and owner.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </CSSTransition>
-
-        <h5 onClick={() => setQuestion12(!question12)}>
-          <div>The future of record collecting</div>
-          <img className="dropdown" src={dropdown} alt="dropdown" />
-        </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question12}
-          timeout={300}
-          unmountOnExit
-          onEnter={() => setQuestion12(true)}
-          onExited={() => setQuestion12(false)}
-        >
-          <div className="answer" onClick={() => setQuestion12(!question12)}>
-            <ul>
-              <li>
-                <p>
-                  - Biscuits n Groovy will soon be launching a marketplace where
-                  fans can trade and resell their NFT album covers. The
-                  fundamental idea behind our NFTs is that they represent the
-                  music and the story behind a release. The value of the NFT,
-                  then, will depend on factors like how the record performs, how
-                  it shapes the artist’s career, how rare or coveted it is among
-                  collectors, or any other events that make it extra special.
-                  These factors will influence prices in our marketplace, just
-                  like in the market for art or shoes or trading cards.
-                </p>
-              </li>
-              <li>
+        <div>
+          <ul>
+            <li>
+              <p>
+                - An NFT, or non-fungible token, is a digital collectible whose
+                ownership is recorded on a blockchain. NFTs have been around for
+                several years, but recently exploded in popularity as a way for
+                digital creators to authenticate and monetize their work.
+              </p>
+            </li>
+            <li>
+              <p>
+                - When you purchase a release on Biscuits n Groovy, you
+                automatically receive a digital album cover backed by an NFT.
+                This just means that a serial number is recorded on the
+                blockchain to identify the specific copy and buyer. All BnG
+                album art is limited-edition, and exclusive to our site. The NFT
+                acts as a stamp of authenticity, proving your art is original
+                and that you, the buyer, were one of the elite superfans who
+                listened to that release.
+              </p>
+            </li>
+            <li>
+              <p>
+                - You can view your album art in the My Collection page of your
+                profile. All your art stays there permanently, regardless of
+                when the music is streaming.
+              </p>
+            </li>
+            <li>
+              <p>
+                - You don’t need cryptocurrency to collect NFTs on BnG. When you
+                create an account and buy music with us, an ID is created for
+                you behind the scenes, which is used to identify you as the
+                owner of that NFT. We do this so you don’t have to worry about
+                the technical details. Rest assured, though, if anything were to
+                happen to our site, your NFTs are safely recorded and
+                recoverable on the blockchain (that’s the point of it!)
+              </p>
+            </li>
+            <li>
+              <p>
+                Caring for our planet — now that’s groovy{" "}
                 <p className="important-info">
-                  - So you may want to hang onto all your album covers to curate
-                  the perfect original collection. That way everyone can see you
-                  were an OG fan, before that band blew up. Or you may want to
-                  capitalize on a record that spikes in resale value, and cash
-                  in on your favorite artist’s crazy success. After all, you
-                  knew they would make it big. The best part? The artist
-                  benefits too, since they get 5% back on every NFT resale of
-                  their work.
+                  {" "}
+                  Biscuits n Groovy is proudly built on Flow, the blockchain
+                  trusted by NBA Top Shot. Since the Flow blockchain doesn’t
+                  require “mining” of bitcoin or ethereum, we don’t produce tons
+                  of greenhouse gases like other NFT platforms. You can read
+                  more about Flow here.{" "}
+                  <a href="https://www.onflow.org/">here</a>
                 </p>
-              </li>
-              <li>
-                <p>
-                  - Unlike other NFT marketplaces, BnG will be artist and
-                  fan-friendly, free of the crypto jargon and stock charts that
-                  make our heads spin. We can’t wait for you to start trading!
-                </p>
-              </li>
-            </ul>
-          </div>
-        </CSSTransition>
-        <p className="header-p">
-          More questions? We’ve got answers. If yours isn’t answered above, feel
-          free to contact us at support@bngroovy.com
-        </p>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <div>The future of record collecting</div>
+        </h3>
+
+        <div>
+          <ul>
+            <li>
+              <p>
+                - Biscuits n Groovy will soon be launching a marketplace where
+                fans can trade and resell their NFT album covers. Just like
+                markets for sneakers or trading cards or vinyl records, our
+                marketplace will bring together a community of collectors and
+                fans.
+              </p>
+            </li>
+            <li>
+              <p className="important-info">
+                - So you may want to hang onto all your album covers to curate
+                the perfect original collection. That way everyone can see you
+                were an OG fan, before that band blew up. Or you may want to
+                capitalize on a record that spikes in resale value, and cash in
+                on your favorite artist’s crazy success. After all, you knew
+                they would make it big. The best part? The artist benefits too,
+                since they earn 5% on every resale of their NFTs.
+              </p>
+            </li>
+            <li>
+              <p>
+                - Unlike other NFT marketplaces, BnG will be artist and
+                fan-friendly, free of the crypto jargon and stock charts that
+                make our heads spin. We can’t wait for you to start trading!
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          <div>Back up… what are blockchains and tokens anyways?</div>
+        </h3>
+
+        <div>
+          <ul>
+            <li>
+              <p>
+                - Many people hear “blockchain” or “crypto” and think of
+                bitcoin, the most well-known cryptocurrency. While bitcoin’s
+                creation in 2008 kicked things off, blockchain technology has
+                grown a ton, and its applications go far beyond finance. A
+                blockchain is simply a type of database, or online file cabinet,
+                that records information, verifies it, and keeps it secure. The
+                key advantage of blockchain is that once information is added to
+                the chain, it’s there permanently and can’t be easily hacked or
+                manipulated.
+              </p>
+            </li>
+            <li>
+              <p>
+                - Blockchains are great for recording transactions, like a
+                receipt that keeps getting added onto. These transactions are
+                usually denominated in tokens. There are two types of tokens
+                used with blockchains. Bitcoin and other cryptocurrencies like
+                dogecoin are fungible tokens. Just like regular dollars,
+                fungible tokens can be broken down into parts (cents), and
+                interchanged with each other (trading one dollar for another
+                dollar makes no difference to me).
+              </p>
+            </li>
+            <li>
+              <p>
+                - Non-fungible tokens, on the other hand, are unique, which is
+                why they’re great for representing collectibles. Think of them
+                like baseball cards or concert tickets. Each one is unique.
+                Sure, there may be 1,000 of the same rookie card in the world,
+                and of course plenty of concertgoers have the same GA ticket,
+                but each one has a serial number to identify which it is in the
+                series.
+              </p>
+            </li>
+            <li>
+              <p>
+                - In practice, though, this doesn’t always work in the real
+                world. Counterfeit tickets and baseball cards pose a big
+                problem. NFTs solve this issue for digital goods, since the
+                “serial number” and rightful owner is verified and recorded on
+                the blockchain, so they can’t be faked.
+              </p>
+            </li>
+            <li>
+              <p>
+                - A common reaction to NFTs is “okay, but why are these worth
+                anything? If it’s a digital work of art, and anyone can see it
+                on the internet, why would I pay for it?” The answer is
+                ownership. Every NFT has a unique identifier for itself and its
+                rightful owner. That owner could be the original creator or,
+                once it’s sold, the buyer. Sure, anyone might be able to see the
+                image, but the blockchain proves who the true owner is. Think of
+                the Mona Lisa: anyone can see it, print a picture of it, or buy
+                a poster of it, but there’s only one real copy and owner.
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
       <Footer />
     </section>

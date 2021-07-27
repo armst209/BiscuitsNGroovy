@@ -1,0 +1,95 @@
+#reminder {
+  position: relative;
+  font-family: var(--font1);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  border: 5px solid var(--color2);
+  background: black;
+  border-radius: 0.5rem;
+
+  .artist-reminder-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .artist-reminder {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .artist-message {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+        letter-spacing: 0.5px;
+        img {
+          width: 70px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          padding: 5px;
+          // left: 50%;
+          // transform: translate(-50%, -50%);
+        }
+
+        h1 {
+          font-size: 2rem;
+          text-align: center;
+          @media screen and (max-width: 285px) {
+            font-size: 1.3rem;
+          }
+        }
+
+        p {
+          text-align: center;
+          width: 100%;
+          padding: 2rem 0 1rem 0;
+          font-size: 0.9rem;
+        }
+
+        a {
+          width: 100%;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:visited {
+            color: white;
+          }
+          button {
+            border: 3px solid var(--color1);
+            background: transparent;
+            width: 200px;
+            height: 70px;
+            font-family: var(--font1);
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            position: relative;
+
+            &:hover {
+              background-color: var(--color1);
+              transform: scale(1.05);
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

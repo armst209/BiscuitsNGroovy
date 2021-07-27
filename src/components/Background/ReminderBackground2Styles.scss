@@ -1,7 +1,7 @@
 .upward-spotlight-left {
   img {
     width: 100%;
-    height: 110%;
+    height: 100%;
     position: absolute;
     top: 50%;
     left: 21%;
@@ -14,7 +14,7 @@
     @media (min-width: 1000px) {
       width: 40%;
     }
-    @media (max-width: 1020px) {
+    @media (max-width: 1120px) {
       display: none;
     }
   }

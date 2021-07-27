@@ -1,0 +1,36 @@
+#album-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.651);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 9999999999999999;
+  .album-popup-container {
+    border: 3px solid white;
+    background: var(--bg-color);
+    .close-album-info {
+      font-family: var(--font1);
+      width: 100%;
+      padding: 5px;
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+    }
+
+    .album-popup-content {
+      padding: 1rem;
+      display: flex;
+      height: 500px;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .music-player {
+        position: relative;
+      }
+    }
+  }
+}

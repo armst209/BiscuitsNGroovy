@@ -1,10 +1,10 @@
 #artists {
   color: white;
-  background: var(--bg-dark);
+  background: black;
 
   .artists-content-wrapper {
     padding-top: 5rem;
-    background: var(--bg-color);
+    background: black;
     h1 {
       font-family: var(--font1);
       color: black;
@@ -24,6 +24,18 @@
         right: 0%;
         position: absolute;
       }
+    }
+
+    h2 {
+      font-family: var(--font1);
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+    h5 {
+      font-family: var(--font2);
+      font-size: 1.5rem;
+      text-align: center;
+      padding-bottom: 1rem;
     }
 
     .artists-content {

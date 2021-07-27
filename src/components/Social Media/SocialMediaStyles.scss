@@ -1,15 +1,32 @@
 .social-media {
+  h4 {
+    color: var(--footer-gray);
+    padding-bottom: 0.5rem;
+    @media screen and (max-width: 400px) {
+      text-align: center;
+    }
+    @media screen and (max-width: 300px) {
+      display: none;
+    }
+  }
   ul {
     display: flex;
     flex-direction: row;
     list-style: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @media screen and (max-width: 380px) {
+      flex-direction: column;
+    }
 
     li {
+      padding: 0.5rem;
       a {
         color: white;
         text-decoration: none;
-        font-size: 40px;
-        padding: 0 5px;
+        font-size: 4rem;
 
         &:visited {
           color: inherit;

@@ -2,14 +2,23 @@ import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import React, { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Loading from "./components/Loading/Loading";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
-import AlbumPopup from "./components/AlbumPopup";
-import ReleasePreview from "./components/ReleasePreview/ReleasePreview";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
-import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
-import Logout from "./pages/Logout/Logout";
+import Modal from "./components/Modal";
+import Loading from "./components/Loading/Loading";
+// import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+import Logout from "./components/Logout/Logout";
+// import Carousel from "./components/MusicShowcase/ReleasesCarousel";
+//Importing Flow Configuration
+import { config } from "@onflow/fcl";
+
+//configure flow environment
+config()
+  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
@@ -86,8 +95,8 @@ function App() {
               />
             )}
           />
-          <Route path="/release-preview" component={ReleasePreview} />
-          <ProtectedRoute
+
+          <Route
             exact={true}
             path="/fanportal"
             render={(props) => (
@@ -115,9 +124,15 @@ function App() {
             path="/fanportal/checkout"
             component={Checkout}
           />
-          <Route path="/fanportal/popup" component={AlbumPopup} />
-          <Route path="/music" component={MusicPlayer} />
+
+          {/* Route Testing */}
+          <Route path="/modal" component={Modal} />
           <Route path="/logout" component={Logout} />
+          {/* 
+          <Route path="/carousel" component={Carousel} />
+          <Route path="/music" component={MusicPlayer} />
+          <Route path="/release-preview" component={ReleasePreview} />*/}
+          <Route path="/loading" component={Loading} />
           {/* Route for Stripe Cancellation */}
           {/* <ProtectedRoute
             exact={true}
@@ -125,7 +140,6 @@ function App() {
             component={}
           /> */}
           <Route
-            path="*"
             render={(props) => (
               <NotFound
                 {...props}

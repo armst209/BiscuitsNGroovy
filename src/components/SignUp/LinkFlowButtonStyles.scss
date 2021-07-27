@@ -1,0 +1,26 @@
+button {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font1);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 70px;
+  margin: 5px 0;
+  background: var(--color2);
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: var(--shadow-large);
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  img {
+    // position: absolute;
+    width: 10%;
+    // right: 5%;
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}

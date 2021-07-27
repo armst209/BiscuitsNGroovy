@@ -18,34 +18,7 @@ function MusicShowcaseCarousel() {
       </SwiperSlide>
     );
   }
-  return (
-    <Fragment>
-      <Swiper
-        id="main"
-        thumbs={{ swiper: thumbsSwiper }}
-        tag="section"
-        wrapperTag="ul"
-        // navigation
-        // pagination
-        spaceBetween={0}
-        slidesPerView={1}
-        onInit={(swiper) => console.log("Swiper initialized!", swiper)}
-        onSlideChange={(swiper) => {
-          console.log("Slide index changed to: ", swiper.activeIndex);
-        }}
-        onReachEnd={() => console.log("Swiper end reached")}
-      >
-        <Swiper
-          id="thumbs"
-          spaceBetween={5}
-          slidesPerView={3}
-          onSwiper={setThumbsSwiper}
-        >
-          {thumbs}
-        </Swiper>
-      </Swiper>
-    </Fragment>
-  );
+  return <Fragment></Fragment>;
 }
 
 export default MusicShowcaseCarousel;

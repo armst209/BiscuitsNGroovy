@@ -1,13 +1,14 @@
 .hero-spotlight-left {
   img {
-    width: 55%;
-    height: 130%;
+    width: 50%;
+    height: 95%;
     position: absolute;
-    top: 70%;
-    left: 72%;
-    transform: translate(-50%, -50%) rotateZ(20deg);
+    left: 40%;
+    bottom: 0;
+    // transform: translate(-50%, -50%) rotateZ(130deg);
+    transform: rotateZ(40deg);
     filter: drop-shadow(0 0 10px black);
-    z-index: 0;
+    z-index: 1;
 
     //   @media (min-width: 768px) {
     //     width: 50%;

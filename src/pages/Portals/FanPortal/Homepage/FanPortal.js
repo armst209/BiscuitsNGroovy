@@ -17,6 +17,7 @@ function FanPortal(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <FPHomepage setTrigger={showAlbumDetails} />
+
       {/* <ReleasePreview trigger={albumDetails} setTrigger={showAlbumDetails} /> */}
       <Footer />
     </section>
