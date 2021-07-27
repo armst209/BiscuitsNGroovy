@@ -30,7 +30,9 @@ function Login(props) {
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       setTimeout(() => {
-        window.location.replace("http://localhost:3000/home");
+        window.location.replace(
+          "http://ec2-54-227-47-80.compute-1.amazonaws.com:8081/home"
+        );
       }, 1000);
     };
 

@@ -18,7 +18,9 @@ const SignUp = (props) => {
   const handleSignUp = (res) => {
     const token = res.data.token;
     if (token) {
-      window.location.replace("http://localhost:3000/home");
+      window.location.replace(
+        "http://ec2-54-227-47-80.compute-1.amazonaws.com:8081/home"
+      );
     } else {
       alert("A token was not set, please try signing up again.");
     }
