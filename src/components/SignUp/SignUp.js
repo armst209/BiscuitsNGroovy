@@ -58,62 +58,64 @@ const SignUp = (props) => {
 
   return props.trigger ? (
     <section id="signup">
-      <div className="signup-container">
-        <div className="signup-contents">
-          <div
-            className="close-btn-signup"
-            onClick={() => props.setTrigger(false)}
-          >
-            <div>X</div>
-          </div>
-          <div className="logo">
-            <img src={logo} alt="logo" />
-          </div>
-          <h2>Sign Up</h2>
-          <p>
-            Already have an account?
-            <span
-              onClick={() => {
-                props.setTrigger(false);
-                props.showLogIn(true);
-              }}
+      <div className="signup-wrapper">
+        <div className="signup-container">
+          <div className="signup-contents">
+            <div
+              className="close-btn-signup"
+              onClick={() => props.setTrigger(false)}
             >
-              <span className="login-redirect"> Login</span>
-            </span>
-          </p>
-          <form onSubmit={submit}>
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              autoComplete="off"
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Name"
-              autoComplete="off"
-              onChange={(event) => setName(event.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Username"
-              required
-              autoComplete="off"
-              onChange={(event) => setUserName(event.target.value)}
-            />
-            <input
-              type="Password"
-              placeholder="Password"
-              required
-              autoComplete="off"
-              onChange={(event) => setPassword(event.target.value)}
-            />
-          </form>
-          <LinkFlowButton flowBtnLoader={setFlowLoader} />
+              <div>X</div>
+            </div>
+            <div className="logo">
+              <img src={logo} alt="logo" />
+            </div>
+            <h2>Sign Up</h2>
+            <p>
+              Already have an account?
+              <span
+                onClick={() => {
+                  props.setTrigger(false);
+                  props.showLogIn(true);
+                }}
+              >
+                <span className="login-redirect"> Login</span>
+              </span>
+            </p>
+            <form onSubmit={submit}>
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                autoComplete="off"
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Name"
+                autoComplete="off"
+                onChange={(event) => setName(event.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Username"
+                required
+                autoComplete="off"
+                onChange={(event) => setUserName(event.target.value)}
+              />
+              <input
+                type="Password"
+                placeholder="Password"
+                required
+                autoComplete="off"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </form>
+            <LinkFlowButton flowBtnLoader={setFlowLoader} />
 
-          <div className="error-message">{errorMessage}</div>
-          {flowLoader}
+            <div className="error-message">{errorMessage}</div>
+            {flowLoader}
+          </div>
         </div>
       </div>
     </section>

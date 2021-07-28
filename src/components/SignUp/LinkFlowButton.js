@@ -4,13 +4,18 @@ import * as fcl from "@onflow/fcl";
 import link_icon from "../../assets/images/link.svg";
 import "./SignUpStyles.scss";
 import "./LinkFlowButtonStyles.scss";
+import ComponentLoading from "../Loading/ComponentLoading";
 function LinkFlowButton(props) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
     if (isInitialized == true) {
       return;
     }
-    props.flowBtnLoader("working");
+    props.flowBtnLoader(
+      <div className="flow-loader">
+        <ComponentLoading />
+      </div>
+    );
     await initAccount();
     accountIsInitialized().then((firstAccountState) => {
       console.log("stop spinner");

@@ -16,11 +16,20 @@ button {
   width: 100%;
   transition: all 0.2s ease;
   img {
-    // position: absolute;
     width: 10%;
-    // right: 5%;
   }
   &:hover {
     box-shadow: none;
   }
+}
+
+.flow-loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

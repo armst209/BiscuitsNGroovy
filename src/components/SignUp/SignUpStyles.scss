@@ -10,194 +10,195 @@
   justify-content: center;
   align-items: center;
 
-  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   background: rgba(0, 0, 0, 0.9);
-
-  h1 {
-    font-family: var(--font1);
-    color: black;
-    text-align: center;
-    background-color: var(--color1);
-    padding: 10px 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-
-    .h1-title {
+  .signup-wrapper {
+    overflow-y: scroll;
+    h1 {
+      font-family: var(--font1);
+      color: black;
+      text-align: center;
+      background-color: var(--color1);
+      padding: 10px 5px;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      @media (max-width: 600px) {
-        font-size: 1.3rem;
+      position: relative;
+      width: 100%;
 
-        flex-direction: column;
+      .h1-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        @media (max-width: 600px) {
+          font-size: 1.3rem;
+
+          flex-direction: column;
+        }
+      }
+
+      img {
+        width: 50px;
+        top: -20%;
+        right: 0%;
+        position: absolute;
       }
     }
-
-    img {
-      width: 50px;
-      top: -20%;
-      right: 0%;
-      position: absolute;
-    }
-  }
-  .signup-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    @media screen and (orientation: portrait) and (max-device-width: 285px) {
-      text-align: center;
-    }
-
-    .signup-contents {
-      width: 400px;
-      height: 700px;
-      color: black;
+    .signup-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: var(--shadow-large);
-      padding: 60px 40px;
-      background-color: white;
-      font-family: var(--font2);
-      position: relative;
 
-      .logo {
-        width: 40%;
-        padding: 0.5rem;
-      }
-      .close-btn-signup {
-        display: flex;
-        justify-content: flex-end;
-        position: absolute;
-        align-items: center;
-        padding: 0.8rem;
-        width: 100%;
-        font-weight: bold;
-        font-size: 1.5rem;
-        cursor: pointer;
-        top: 0;
+      @media screen and (orientation: portrait) and (max-device-width: 285px) {
+        text-align: center;
       }
 
-      .login-redirect {
-        color: var(--color2);
-        cursor: pointer;
-      }
-
-      h2 {
+      .signup-contents {
+        width: 400px;
+        height: 700px;
         color: black;
-        font-size: 40px;
-        margin-bottom: 10px;
-      }
-
-      span {
-        font-weight: bold;
-
-        a {
-          font-weight: bold;
-          text-decoration: none;
-          color: var(--color2);
-          &:visited {
-            color: var(--color2);
-          }
-        }
-      }
-
-      form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        input {
-          margin: 5px 0;
-          background: var(--color-light);
-          font-family: var(--font2);
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: inherit;
+        box-shadow: var(--shadow-large);
+        padding: 60px 40px;
+        background-color: white;
+        font-family: var(--font2);
+        position: relative;
+
+        .logo {
+          width: 40%;
+          padding: 0.5rem;
+        }
+        .close-btn-signup {
+          display: flex;
+          justify-content: flex-end;
+          position: absolute;
+          align-items: center;
+          padding: 0.8rem;
           width: 100%;
-          height: auto;
-          padding: 0.75rem 1.25rem;
-          border: none;
-          outline: none;
-          border-radius: 2rem;
-          color: var(--color-black);
-          background: var(--color-light);
-          text-transform: unset;
-          text-rendering: optimizeLegibility;
+          font-weight: bold;
+          font-size: 1.5rem;
+          cursor: pointer;
+          top: 0;
         }
 
-        button {
+        .login-redirect {
+          color: var(--color2);
+          cursor: pointer;
+        }
+
+        h2 {
+          color: black;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+
+        span {
+          font-weight: bold;
+
+          a {
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--color2);
+            &:visited {
+              color: var(--color2);
+            }
+          }
+        }
+
+        form {
           display: flex;
-          flex-direction: row;
-          font-family: var(--font1);
+          flex-direction: column;
           justify-content: center;
           align-items: center;
-          position: relative;
-          height: 70px;
-          margin: 5px 0;
-          background: var(--color2);
-          border: none;
-          font-size: 20px;
-          font-weight: bold;
-          box-shadow: var(--shadow-large);
-          cursor: pointer;
           width: 100%;
-          transition: all 0.2s ease;
-          img {
-            // position: absolute;
-            width: 10%;
-            // right: 5%;
+          input {
+            margin: 5px 0;
+            background: var(--color-light);
+            font-family: var(--font2);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: inherit;
+            width: 100%;
+            height: auto;
+            padding: 0.75rem 1.25rem;
+            border: none;
+            outline: none;
+            border-radius: 2rem;
+            color: var(--color-black);
+            background: var(--color-light);
+            text-transform: unset;
+            text-rendering: optimizeLegibility;
           }
-          &:hover {
-            box-shadow: none;
+
+          button {
+            display: flex;
+            flex-direction: row;
+            font-family: var(--font1);
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 70px;
+            margin: 5px 0;
+            background: var(--color2);
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: var(--shadow-large);
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+            img {
+              // position: absolute;
+              width: 10%;
+              // right: 5%;
+            }
+            &:hover {
+              box-shadow: none;
+            }
           }
         }
-      }
 
-      .error-message {
-        color: red;
-        font-weight: bold;
-        text-align: center;
-        padding: 5px;
+        .error-message {
+          color: red;
+          font-weight: bold;
+          text-align: center;
+          padding: 5px;
+        }
       }
     }
-  }
 
-  .flow {
-    display: flex;
-    flex-direction: row;
-    font-family: var(--font1);
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 70px;
-    margin: 5px 0;
-    background: var(--color1);
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: var(--shadow-large);
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.2s ease;
-    img {
-      // position: absolute;
-      width: 10%;
-      // right: 5%;
-    }
-    &:hover {
-      box-shadow: none;
+    .flow {
+      display: flex;
+      flex-direction: row;
+      font-family: var(--font1);
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 70px;
+      margin: 5px 0;
+      background: var(--color1);
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: var(--shadow-large);
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
+      img {
+        // position: absolute;
+        width: 10%;
+        // right: 5%;
+      }
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 }
