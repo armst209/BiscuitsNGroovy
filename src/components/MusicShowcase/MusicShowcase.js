@@ -9,11 +9,13 @@ import "./MusicShowcaseStyles.scss";
 // import ex_music_icon from "../../assets/images/love-song2.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import { CSSTransition } from "react-transition-group";
 
 function MusicShowcase(props) {
   console.log(props);
   const [displayReleases, setDisplayReleases] = useState("");
-  const [releaseInfo, setReleaseInfo] = useState(false);
+  const [releaseInfo, setReleaseInfo] = useState("");
+  const [inProp, setInProp] = useState(false);
 
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
@@ -65,7 +67,6 @@ function MusicShowcase(props) {
             onClick={() => showReleaseInfo(release)}
             key={`${"release-container" + release.id}`}
             className="grid-item"
-            // tabindex="0"
           >
             <img
               className="grid-image"
@@ -118,7 +119,6 @@ function MusicShowcase(props) {
             <Suspense fallback={<ComponentLoading />}>
               {displayReleases}
             </Suspense>
-            {/* <div className="release-popup">{releaseInfo}</div>  */}
           </div>
           <div className="showcase-grid-mobile"></div>
         </div>

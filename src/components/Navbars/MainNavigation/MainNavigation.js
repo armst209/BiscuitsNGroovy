@@ -274,66 +274,66 @@ function MainNavigation(props) {
               <p className="close-p">CLOSE</p>
               {/* Mobile Navigation */}
               <aside className="mobile-nav-home">
-                <div className="mobile-nav-wrapper">
-                  <div className="mobile-nav-header">
-                    <img src={logo} alt="logo" />
-                    {/* <div onClick={closeNavigation}>X</div> */}
-                  </div>
+                <div className="mobile-nav-header">
+                  <img src={logo} alt="logo" />
+                  {/* <div onClick={closeNavigation}>X</div> */}
+                </div>
 
-                  <ul>
-                    <li className="user-info-dropdown-select">
-                      <div>{userName}</div>
-                      <button className="login-btn">{isLoggedIn}</button>
-                    </li>
-                    <div>
-                      {showDropDown ? (
-                        <div className="dropdown-content-mobile">
-                          <ul>
-                            <li className="portal">
-                              <Link to="/fanportal">
-                                Your Portal
-                                {/* <img src={portal_icon} alt="portal icon" /> */}
-                              </Link>
-                            </li>
-                            {/* <li>
+                <div className="user-info-dropdown-select">
+                  <div>{userName}</div>
+                  <div>
+                    <button className="login-btn">{isLoggedIn}</button>
+                  </div>
+                </div>
+                <ul>
+                  <div>
+                    {showDropDown ? (
+                      <div className="dropdown-content-mobile">
+                        <ul>
+                          <li className="portal">
+                            <Link to="/fanportal">
+                              Your Portal
+                              {/* <img src={portal_icon} alt="portal icon" /> */}
+                            </Link>
+                          </li>
+                          {/* <li>
                             <Link to="/fanportal/profile">Account</Link>
                           </li> */}
-                            <li
-                              className="logout-button-mobile"
-                              onClick={handleLogout}
-                            >
-                              Logout <img src={logout_icon} alt="logout icon" />
-                            </li>
-                          </ul>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <li>
-                      <NavLink to="/home">Home</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/about">About</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/faq">FAQ</NavLink>
-                    </li>
-
-                    <li>
-                      <NavLink to="/artists">Artists</NavLink>
-                    </li>
-
-                    <li
-                      className={`${signUpClassName}`}
-                      onClick={() => props.showSignUpPopUp(true)}
-                    >
-                      <div className="signup-btn-container">
-                        <button className="signup-btn">Sign Up</button>
+                          <li
+                            className="logout-button-mobile"
+                            onClick={handleLogout}
+                          >
+                            Logout <img src={logout_icon} alt="logout icon" />
+                          </li>
+                        </ul>
                       </div>
-                    </li>
-                  </ul>
-                </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <li>
+                    <NavLink to="/home">Home</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/about">About</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/faq">FAQ</NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink to="/artists">Artists</NavLink>
+                  </li>
+
+                  <li
+                    className={`${signUpClassName}`}
+                    onClick={() => props.showSignUpPopUp(true)}
+                  >
+                    <div className="signup-btn-container">
+                      <button className="signup-btn">Sign Up</button>
+                    </div>
+                  </li>
+                </ul>
               </aside>
             </label>
           </nav>
