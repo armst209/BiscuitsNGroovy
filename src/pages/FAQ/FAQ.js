@@ -251,7 +251,7 @@ function FAQ(props) {
               <li>
                 <p>
                   Want to really dig into NFTs? Read more{" "}
-                  <a href="#NFTsExplained">here</a>.
+                  <a href="#scrollhere">here</a>.
                 </p>
               </li>
             </ul>
@@ -425,7 +425,7 @@ function FAQ(props) {
             feel free to contact us at support@bngroovy.com
           </p>
         </div>
-        <h1 id="NFTsExplained">
+        <h1 id="NFTsExplained" style={{ scrollPaddingTop: "1rem" }}>
           <div>NFTs Explained</div>
         </h1>
 
@@ -440,6 +440,7 @@ function FAQ(props) {
               </p>
             </li>
             <li>
+              <div id="scrollhere"></div>
               <p>
                 - When you purchase a release on Biscuits n Groovy, you
                 automatically receive a digital album cover backed by an NFT.
@@ -479,7 +480,13 @@ function FAQ(props) {
                   require “mining” of bitcoin or ethereum, we don’t produce tons
                   of greenhouse gases like other NFT platforms. You can read
                   more about Flow here.{" "}
-                  <a href="https://www.onflow.org/">here</a>
+                  <a
+                    href="https://www.onflow.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
                 </p>
               </p>
             </li>

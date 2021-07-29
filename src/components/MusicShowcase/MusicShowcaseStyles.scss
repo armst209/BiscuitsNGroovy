@@ -105,6 +105,7 @@
         border-radius: 0.5rem;
         background-color: black;
         position: relative;
+        cursor: pointer;
         .ex-music-icon {
           width: 50px;
           position: absolute;
@@ -143,20 +144,6 @@
               background-color: var(--color1);
               transform: scale(1.05);
               color: black;
-            }
-          }
-          .no-token-btn {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            img {
-              position: absolute;
-              bottom: 0;
-              right: 0;
-              width: 30px;
-              margin: 2px;
             }
           }
         }

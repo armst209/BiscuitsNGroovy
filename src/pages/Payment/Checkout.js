@@ -3,6 +3,7 @@ import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 import ex_music_icon from "../../assets/images/love-song2.svg";
 import "./CheckoutStyle.scss";
+import ComponentLoading from "../../components/Loading/ComponentLoading";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -35,6 +36,7 @@ const Message = ({ message }) => (
 export default function CheckoutButton(props) {
   const [message, setMessage] = useState("");
 
+  console.log(props);
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -57,9 +59,6 @@ export default function CheckoutButton(props) {
     const URL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
     const token = localStorage.getItem("token");
-    console.log(props.name);
-    console.log(props.images);
-    console.log(props.price);
 
     const response = await axios(URL, {
       method: "POST",
@@ -75,7 +74,7 @@ export default function CheckoutButton(props) {
     });
 
     const sessionId = await response.data.id;
-    console.log(sessionId);
+    // console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
 
     const result = await stripe.redirectToCheckout({
@@ -87,6 +86,7 @@ export default function CheckoutButton(props) {
       // error, display the localized error message to your customer
       // using `result.error.message`.
     }
+    props.stripeLoaderMethod("");
   };
 
   return message ? (

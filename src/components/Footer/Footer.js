@@ -35,7 +35,9 @@ function Footer() {
                 <h4>Useful Links</h4>
                 <Link to="/home">Home</Link>
                 <Link to="/faq">FAQ</Link>
-                <Link to="/faq">Support</Link>
+                <a href="mailto:support@bngroovy.com?subject=Support">
+                  Support
+                </a>
               </ul>
             </div>
           </div>

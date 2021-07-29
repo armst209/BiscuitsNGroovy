@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import Hero from "../../components/Hero/Hero";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
@@ -12,6 +12,7 @@ import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_ye
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 function Homepage(props) {
+  const [releasePop, setReleasePop] = useState("hello");
   return (
     <div>
       <Navbar
@@ -21,7 +22,10 @@ function Homepage(props) {
 
       <Hero />
       <HowItWorks />
-      <MusicShowcase signUpPopUpNoToken={props.showSignUp} />
+      <MusicShowcase
+        signUpPopUpNoToken={props.showSignUp}
+        showReleasePopUp={setReleasePop}
+      />
       <NFTBreakdown />
       <div className="reminder-subscribe">
         <img
@@ -41,6 +45,8 @@ function Homepage(props) {
       </div>
 
       <Footer />
+      {/* Release Popup */}
+      {releasePop}
     </div>
   );
 }

@@ -6,10 +6,15 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   width: 100%;
   z-index: 9999999999;
-  background: black;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.774);
 
   .release-preview-container {
     border: 3px solid white;
@@ -34,6 +39,39 @@
       align-items: center;
       h1 {
         color: white;
+      }
+      button {
+        border: 3px solid var(--color1);
+        background: transparent;
+        width: 200px;
+        height: 70px;
+        font-family: var(--font1);
+        font-size: 1rem;
+        cursor: pointer;
+        color: white;
+        margin-bottom: 1rem;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover {
+          background-color: var(--color1);
+          transform: scale(1.05);
+          color: black;
+        }
+      }
+      .no-token-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 30px;
+          margin: 2px;
+        }
       }
     }
   }

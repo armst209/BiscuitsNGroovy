@@ -9,10 +9,9 @@ import "./MusicShowcaseStyles.scss";
 // import ex_music_icon from "../../assets/images/love-song2.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
-import token_music_icon from "../../assets/images/love-song2.svg";
-import CheckoutButton from "../../pages/Payment/Checkout";
 
 function MusicShowcase(props) {
+  console.log(props);
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState(false);
 
@@ -52,12 +51,18 @@ function MusicShowcase(props) {
             <ReleasePreview
               toggleClose={closeReleaseInfo}
               name={release.name}
+              albumCover={release.art_url}
+              description={release.description}
+              id={release.id}
+              price={release.price}
+              no_token_pop={props.signUpPopUpNoToken}
             />
           );
         };
+
         return release ? (
           <div
-            // onClick={() => showReleaseInfo(release)}
+            onClick={() => showReleaseInfo(release)}
             key={`${"release-container" + release.id}`}
             className="grid-item"
             // tabindex="0"
@@ -69,31 +74,7 @@ function MusicShowcase(props) {
             />
             <div className="release-information">
               <div>{release.description}</div>
-              <div>
-                {token ? (
-                  <CheckoutButton
-                    release_id={release.id}
-                    name={release.name}
-                    price={release.price}
-                    description={release.description}
-                    images={release.art_url}
-                  />
-                ) : (
-                  <button
-                    className="no-token-btn"
-                    onClick={() => props.signUpPopUpNoToken(true)}
-                  >
-                    BUY NOW
-                    <img src={token_music_icon} alt="heart music icon" />
-                  </button>
-                )}
-              </div>
             </div>
-            {/* <img
-              className="ex-music-icon"
-              src={ex_music_icon}
-              alt="music icon"
-            /> */}
           </div>
         ) : (
           <div className="loading-animation">
@@ -142,6 +123,7 @@ function MusicShowcase(props) {
           <div className="showcase-grid-mobile"></div>
         </div>
       </div>
+      {releaseInfo}
     </section>
   );
 }
