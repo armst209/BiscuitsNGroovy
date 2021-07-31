@@ -9,13 +9,18 @@ import "./MusicShowcaseStyles.scss";
 // import ex_music_icon from "../../assets/images/love-song2.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import ReactHover from "react-hover";
 import { CSSTransition } from "react-transition-group";
+import { Trigger } from "react-hover/dist/ReactHover";
+import Hover from "react-hover/dist/lib/Hover";
 
 function MusicShowcase(props) {
   console.log(props);
+
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState("");
-  const [inProp, setInProp] = useState(false);
+  const [isShown, setIsShown] = useState(false);
+  console.log(isShown);
 
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
@@ -47,6 +52,7 @@ function MusicShowcase(props) {
         const closeReleaseInfo = () => {
           setReleaseInfo(!releaseInfo);
         };
+        const releaseHover = () => {};
         //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
         const showReleaseInfo = (release) => {
           setReleaseInfo(
@@ -63,20 +69,24 @@ function MusicShowcase(props) {
         };
 
         return release ? (
-          <div
-            onClick={() => showReleaseInfo(release)}
-            key={`${"release-container" + release.id}`}
-            className="grid-item"
-          >
-            <img
-              className="grid-image"
-              src={release.art_url}
-              alt={release.name}
-            />
-            <div className="release-information">
-              <div>{release.description}</div>
+          <>
+            <div
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
+              onClick={() => showReleaseInfo(release)}
+              key={`${"release-container" + release.id}`}
+              className="grid-item"
+            >
+              <img
+                className="grid-image"
+                src={release.art_url}
+                alt={release.name}
+              />
+              <div className="release-information">
+                <div>View Release</div>
+              </div>
             </div>
-          </div>
+          </>
         ) : (
           <div className="loading-animation">
             <ComponentLoading />

@@ -664,12 +664,16 @@
     .menu-p {
       margin-bottom: 0;
       color: black;
+      padding: 0 !important;
+      font-family: var(--font1) !important;
     }
 
     .close-p {
       display: none;
       font-size: 0.72rem;
       color: black;
+      padding: 0 !important;
+      font-family: var(--font1) !important;
     }
 
     .menu-bars-home:nth-of-type(1) {

@@ -101,7 +101,7 @@
       .grid-item {
         display: flex;
         flex-direction: column;
-        border: 3px solid var(--color1);
+        border: 5px solid var(--color2);
         border-radius: 0.5rem;
         background-color: black;
         position: relative;
@@ -118,15 +118,21 @@
 
         .grid-image {
           width: 350px;
+          border-radius: 0.2rem 0.2rem 0 0;
           height: 300px;
         }
+
         .release-information {
-          border-top: 3px solid var(--color1);
+          border-top: 5px solid var(--color2);
           display: flex;
+          background-color: black;
+          color: white;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           padding: 10px;
+          font-family: var(--font1);
+
           button {
             border: 3px solid var(--color1);
             background: transparent;
@@ -164,20 +170,5 @@
       @media (max-width: 500px) {
       }
     }
-  }
-
-  .release-pop-enter {
-    opacity: 0;
-  }
-  .release-pop-enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
-  .release-pop-exit {
-    opacity: 1;
-  }
-  .release-pop-exit-active {
-    opacity: 0;
-    transition: opacity 200ms;
   }
 }
