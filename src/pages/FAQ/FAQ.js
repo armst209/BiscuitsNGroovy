@@ -421,13 +421,21 @@ function FAQ(props) {
             </ul>
           </div>
         </CSSTransition>
-        <div className="header-p" id="scrollhere">
-          <img src={question} alt="question icon" />
+        <div className="header-p">
+          <img src={question} alt="question icon" id="scrollhere" />
           <p>
-            More questions? We’ve got answers. If yours isn’t answered above,
-            feel free to contact us at support@bngroovy.com
+            <div>
+              More questions? We’ve got answers. If yours isn’t answered above,
+              feel free to contact us at:
+              <span>
+                <a href="mailto:support@bngroovy.com?subject=Support">
+                  support@bngroovy.com.
+                </a>
+              </span>
+            </div>
           </p>
         </div>
+        <hr />
         <div className="nft-section-wrapper">
           <h1 id="NFTsExplained">
             <div>NFTs Explained</div>
@@ -498,9 +506,9 @@ function FAQ(props) {
               </li>
               <li>
                 <p>
-                  <div className="p-image">
+                  {/* <div className="p-image">
                     <img src={record_bullet} alt="record icon" />
-                  </div>
+                  </div> */}
                   <div className="p-content">
                     <div className="caring-message">
                       Caring for our planet — now that’s groovy
@@ -553,15 +561,27 @@ function FAQ(props) {
                 </p>
               </li>
               <li>
-                <p className="important-info">
-                  - So you may want to hang onto all your album covers to curate
-                  the perfect original collection. That way everyone can see you
-                  were an OG fan, before that band blew up. Or you may want to
-                  capitalize on a record that spikes in resale value, and cash
-                  in on your favorite artist’s crazy success. After all, you
-                  knew they would make it big. The best part? The artist
-                  benefits too, since they earn 5% on every resale of their
-                  NFTs.
+                <p>
+                  <div className="p-content">
+                    <p className="important-info">
+                      <div className="important-content">
+                        <div className="important-img">
+                          <img src={important} alt="important icon" />
+                        </div>
+                        <div className="important-paragraph">
+                          So you may want to hang onto all your album covers to
+                          curate the perfect original collection. That way
+                          everyone can see you were an OG fan, before that band
+                          blew up. Or you may want to capitalize on a record
+                          that spikes in resale value, and cash in on your
+                          favorite artist’s crazy success. After all, you knew
+                          they would make it big. The best part? The artist
+                          benefits too, since they earn 5% on every resale of
+                          their NFTs.
+                        </div>
+                      </div>
+                    </p>
+                  </div>
                 </p>
               </li>
               <li>
