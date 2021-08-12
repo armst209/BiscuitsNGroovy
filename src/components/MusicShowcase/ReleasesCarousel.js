@@ -5,6 +5,7 @@ import SwiperCore, { Navigation, Pagination, Controller, Thumbs } from "swiper";
 import "swiper/swiper.scss";
 import "./ReleasesCarouselStyles.scss";
 import ComponentLoading from "../Loading/Loading";
+import env from "react-dotenv";
 SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
 function ReleasesCarousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -13,7 +14,7 @@ function ReleasesCarousel() {
   const [releaseInfo, setReleaseInfo] = useState(false);
   const token = localStorage.getItem("token");
   const baseURL =
-    "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    env.BACKEND_URL;
   useEffect(() => {
     axios({
       method: "get",

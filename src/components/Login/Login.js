@@ -5,6 +5,7 @@ import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
 import login_loading from "../../assets/images/pulse_loader_black.svg";
+import env from "react-dotenv";
 // import ComponentLoading from "../Loading/ComponentLoading";
 
 function Login(props) {
@@ -31,7 +32,7 @@ function Login(props) {
       localStorage.setItem("token", res.data.token);
       setTimeout(() => {
         window.location.replace(
-          "http://ec2-54-227-47-80.compute-1.amazonaws.com:8081/home"
+          env.FRONTEND_URL + "/home"
         );
       }, 1000);
     };
@@ -48,7 +49,7 @@ function Login(props) {
     };
 
     const baseURL =
-      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+      env.BACKEND_URL;
 
     axios({
       method: "post",

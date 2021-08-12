@@ -13,6 +13,7 @@ import ReactHover from "react-hover";
 import { CSSTransition } from "react-transition-group";
 import { Trigger } from "react-hover/dist/ReactHover";
 import Hover from "react-hover/dist/lib/Hover";
+import env from "react-dotenv";
 
 function MusicShowcase(props) {
   console.log(props);
@@ -25,7 +26,7 @@ function MusicShowcase(props) {
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
   const baseURL =
-    "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    env.BACKEND_URL;
   // const testURL = "https://jsonplaceholder.typicode.com";
   useEffect(() => {
     axios({
