@@ -40,6 +40,9 @@ function FAQ(props) {
         showLoginPopup={props.setTrigger}
         showSignUpPopUp={props.showSignUp}
       />
+      <div className="faq-title">
+        <h1>FAQ</h1>
+      </div>
       {/* <h1>
         <div>FAQ</div>
         <div>
@@ -87,8 +90,8 @@ function FAQ(props) {
                   With your purchase, you also get a collectible digital album
                   cover NFT for no extra charge. The album art stays in Your
                   Collection forever, even once the music has expired. Read more
-                  about our amazing NFTs
-                  <a href="#NFT">below</a> .
+                  about our amazing NFTs <Link to="/faq#scrollhere">below</Link>
+                  .
                 </div>
               </li>
             </ul>
@@ -123,7 +126,7 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - All music on BnG is released on a limited basis. That means
+                  All music on BnG is released on a limited basis. That means
                   when it drops on other platforms (the official release date),
                   you can no longer stream it on BnG. We do this so we can offer
                   affordable prices for fans, and still be able to pay artists
@@ -166,8 +169,8 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - Access your music and album art from the My Collection page
-                  of your profile. Simply login, click the dropdown menu, and
+                  Access your music and album art from the My Collection page of
+                  your profile. Simply login, click the dropdown menu, and
                   select My Collection. From here you’ll be able to click on a
                   title to listen during the release period. If the period has
                   ended, the title will be labelled “expired.”
@@ -204,9 +207,7 @@ function FAQ(props) {
           <div className="answer" onClick={() => setQuestion4(!question4)}>
             <ul>
               <li>
-                <p>
-                  - No, music purchased on BnG is not available for download.
-                </p>
+                <p>No, music purchased on BnG is not available for download.</p>
               </li>
             </ul>
           </div>
@@ -241,7 +242,7 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - We’re glad you asked! An NFT, or non-fungible token, is a
+                  We’re glad you asked! An NFT, or non-fungible token, is a
                   digital collectible whose ownership is recorded on the
                   blockchain. If that still sounds like gibberish to you, don’t
                   worry! You don’t need to be an NFT expert to use BnG (most of
@@ -289,7 +290,7 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - No, and in fact we don’t accept cryptocurrency at this time.
+                  No, and in fact we don’t accept cryptocurrency at this time.
                   Call us old-fashioned, but we like to stick with dollars
                   around here. BnG accepts all major credit cards as payment.
                   That means you don’t need a crypto wallet or cryptocurrency of
@@ -329,10 +330,10 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - No, BnG is not subscription-based. We give artists the
-                  freedom to price their own releases, so buying music on BnG is
-                  a one-time purchase. We don’t save your payment information,
-                  and you won’t be charged again (unless you buy more music, of
+                  No, BnG is not subscription-based. We give artists the freedom
+                  to price their own releases, so buying music on BnG is a
+                  one-time purchase. We don’t save your payment information, and
+                  you won’t be charged again (unless you buy more music, of
                   course!)
                 </p>
               </li>
@@ -368,15 +369,15 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - Currently we do not have an app. You can access BnG through
+                  Currently we do not have an app. You can access BnG through
                   any mobile browser, however, so you can still buy and stream
                   music on your phone.
                 </p>
               </li>
               <li>
                 <p>
-                  - We plan to roll out a companion app in the near future,
-                  where you can view Your Collection and stream music you’ve
+                  We plan to roll out a companion app in the near future, where
+                  you can view Your Collection and stream music you’ve
                   purchased. Stay tuned!
                 </p>
               </li>
@@ -412,10 +413,10 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  - BnG pays artists 75% of the sales they generate (net of
-                  taxes and other fees). Artists have full control over the
-                  pricing of their releases, and get a transparent view of their
-                  earnings since fans are supporting them directly.
+                  BnG pays artists 75% of the sales they generate (net of taxes
+                  and other fees). Artists have full control over the pricing of
+                  their releases, and get a transparent view of their earnings
+                  since fans are supporting them directly.
                 </p>
               </li>
             </ul>

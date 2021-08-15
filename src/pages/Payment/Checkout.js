@@ -55,10 +55,11 @@ export default function CheckoutButton(props) {
   const handleClick = async (event) => {
     //check if a user is signed in with a FLOW wallet
 
+    const token = localStorage.getItem("token");
+
     const stripe = await stripePromise;
     const URL =
       "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
-    const token = localStorage.getItem("token");
 
     const response = await axios(URL, {
       method: "POST",
@@ -74,19 +75,24 @@ export default function CheckoutButton(props) {
     });
 
     const sessionId = await response.data.id;
+
     // console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
-
+    console.log("hit");
+    props.stripeLoaderFromCO(
+      <div className="stripe-loader">
+        <div>LOADING...</div>
+      </div>
+    );
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,
     });
-
+    props.stripeLoaderFromCO("");
     if (result.error) {
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer
       // using `result.error.message`.
     }
-    props.stripeLoaderMethod("");
   };
 
   return message ? (

@@ -100,6 +100,10 @@
               text-decoration: none;
               color: white;
               font-size: 1.3rem;
+              transition: 0.2s ease;
+              &:hover {
+                color: var(--footer-gray);
+              }
             }
           }
         }
@@ -156,7 +160,23 @@
       }
     }
   }
+  .privacy-term-links {
+    display: flex;
+    flex-direction: row;
 
+    a {
+      color: var(--footer-gray);
+      text-decoration: none;
+      padding: 0 5px;
+      transition: 0.2s ease;
+      &:hover {
+        color: white;
+      }
+      &:visited {
+        color: var(--footer-gray);
+      }
+    }
+  }
   .copyright {
     display: flex;
     justify-content: center;

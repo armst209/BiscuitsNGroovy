@@ -5,8 +5,6 @@ import CheckoutButton from "../../pages/Payment/Checkout";
 import { CSSTransition } from "react-transition-group";
 
 function ReleasePreview(props) {
-  const [loadingStripe, setLoadingStripe] = useState("");
-
   const token = localStorage.getItem("token");
   const handleClose = () => {
     props.toggleClose();
@@ -31,7 +29,7 @@ function ReleasePreview(props) {
                   price={props.price}
                   description={props.description}
                   images={props.albumCover}
-                  stripeLoaderMethod={setLoadingStripe}
+                  stripeLoaderFromCO={props.stripeLoaderFromRP}
                 />
               ) : (
                 <button
@@ -46,7 +44,6 @@ function ReleasePreview(props) {
           </div>
         </CSSTransition>
       </div>
-      {loadingStripe}
     </section>
   );
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger

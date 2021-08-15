@@ -108,6 +108,8 @@ const SignUp = (props) => {
                 placeholder="Password"
                 required
                 autoComplete="off"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 onChange={(event) => setPassword(event.target.value)}
               />
             </form>

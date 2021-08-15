@@ -56,6 +56,10 @@ function Footer() {
           your favorite artists, and collect NFT album art
         </p>
       </div>
+      <div className="privacy-term-links">
+        <Link to="/privacy-policy">Terms of Service</Link>
+        <Link to="/privacy-policy">Privacy Policy</Link>
+      </div>
       <div className="copyright">
         <p>© {new Date().getFullYear()} Biscuits & Groovy, LLC </p>
       </div>

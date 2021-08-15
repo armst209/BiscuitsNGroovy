@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
 import "./MainNavigationStyles.scss";
@@ -9,8 +9,9 @@ import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
-import portal_icon from "../../../assets/images/video.svg";
-import vinyl_logo from "../../../assets/images/compact-disc-yellow.svg";
+import login_icon from "../../../assets/images/login_white.svg";
+// import portal_icon from "../../../assets/images/video.svg";
+// import vinyl_logo from "../../../assets/images/compact-disc-yellow.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 //window sizing
@@ -37,6 +38,8 @@ function MainNavigation(props) {
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
   const [rightSpotlight, setRightSpotlight] = useState("");
+  const [leftSpotlight, setLeftSpotlight] = useState("");
+  const [yellowBg, setYellowBg] = useState("");
   // const [signUpIcon, setSignUpIcon] = useState("Sign Up");
   // const [width, height] = useWindowSize();
 
@@ -108,10 +111,6 @@ function MainNavigation(props) {
         <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
           Login
         </NavLink>
-
-        // <NavLink to="#" onClick={onOpenModal}>
-        //   Login
-        // </NavLink>
       );
     }
 
@@ -121,10 +120,26 @@ function MainNavigation(props) {
       const offset = window.scrollY;
       if (offset > 25) {
         setScrolledNavClass("scrolled-navigation");
-        setRightSpotlight("");
+        setRightSpotlight(
+          <img
+            className={`spotlight-top-right ${rightSpotlight}`}
+            src={spotlight_yellow_right}
+            alt="spotlight icon"
+          />
+        );
+        setLeftSpotlight(
+          <img
+            className="spotlight-top-left"
+            src={spotlight_yellow_left}
+            alt="spotlight icon"
+          />
+        );
+        setYellowBg("logo-background-yellow");
       } else {
         setScrolledNavClass("");
         setRightSpotlight("");
+        setLeftSpotlight("");
+        setYellowBg("");
       }
     };
     window.addEventListener("scroll", handleScroll, {
@@ -140,23 +155,19 @@ function MainNavigation(props) {
         Window size: {width} x {height}
       </span> */}
       <header className={`homepage-navigation ${scrolledNavClass}`}>
-        <img
-          className="spotlight-top-left"
-          src={spotlight_yellow_left}
-          alt="spotlight icon"
-        />
-        <img
-          className={`spotlight-top-right ${rightSpotlight}`}
-          src={spotlight_yellow_right}
-          alt="spotlight icon"
-        />
+        {leftSpotlight}
+        {rightSpotlight}
 
         <div className="nav-home-container">
           <nav className="nav-home">
             <div className="logo-home">
               <Link className="bng-home" to="/home">
-                <img className="bng-home-logo" src={logo} alt="logo" />
-                <img className="vinyl-logo" src={vinyl_logo} alt="vinyl icon" />
+                <img
+                  className={`bng-home-logo ${yellowBg}`}
+                  src={logo}
+                  alt="logo"
+                />
+                {/* <img className="vinyl-logo" src={vinyl_logo} alt="vinyl icon" /> */}
               </Link>
               <Link className="bng-home-mobile" to="/home">
                 <img src={mobile_logo} alt="logo" />
@@ -181,7 +192,7 @@ function MainNavigation(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      textDecoration: "underline 3.5px solid var(--color2)",
+                      borderBottom: "4px solid var(--color1)",
                     }}
                     to="/about"
                   >
@@ -191,7 +202,7 @@ function MainNavigation(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      textDecoration: "underline 3.5px solid var(--color2)",
+                      borderBottom: "4px solid var(--color1)",
                     }}
                     to="/faq"
                   >
@@ -201,7 +212,7 @@ function MainNavigation(props) {
                 <li>
                   <NavLink
                     activeStyle={{
-                      textDecoration: "underline 3.5px solid var(--color2)",
+                      borderBottom: "4px solid var(--color1)",
                     }}
                     to="/artists"
                   >
@@ -210,12 +221,7 @@ function MainNavigation(props) {
                 </li>
               </ul>
               <ul className="login-links-home">
-                <li className="login-home-link">
-                  {isLoggedIn}
-                  {/* <Modal open={open} onClose={onCloseModal} center>
-                    <LoginTest />
-                  </Modal> */}
-                </li>
+                <li className="login-home-link">{isLoggedIn}</li>
                 <li
                   className={signUpClassName}
                   onClick={() => props.showSignUpPopUp(true)}
@@ -281,8 +287,9 @@ function MainNavigation(props) {
 
                 <div className="user-info-dropdown-select">
                   <div>{userName}</div>
-                  <div>
+                  <div className="login-mobile-btn">
                     <button className="login-btn">{isLoggedIn}</button>
+                    <img src={login_icon} alt="login icon" />
                   </div>
                 </div>
                 <ul>
@@ -311,19 +318,18 @@ function MainNavigation(props) {
                       ""
                     )}
                   </div>
-                  <li>
-                    <NavLink to="/home">Home</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/about">About</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/faq">FAQ</NavLink>
-                  </li>
-
-                  <li>
-                    <NavLink to="/artists">Artists</NavLink>
-                  </li>
+                  <NavLink to="/home">
+                    <li>Home</li>
+                  </NavLink>
+                  <NavLink to="/about">
+                    <li>About</li>
+                  </NavLink>
+                  <NavLink to="/faq">
+                    <li>FAQ</li>
+                  </NavLink>
+                  <NavLink to="/artists">
+                    <li>Artists</li>
+                  </NavLink>
 
                   <li
                     className={`${signUpClassName}`}

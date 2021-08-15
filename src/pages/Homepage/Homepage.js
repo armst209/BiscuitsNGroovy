@@ -12,7 +12,8 @@ import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_ye
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 function Homepage(props) {
-  const [releasePop, setReleasePop] = useState("hello");
+  const [releasePop, setReleasePop] = useState("");
+  const [loadingStripe, setLoadingStripe] = useState("loading");
   return (
     <div>
       <Navbar
@@ -25,6 +26,7 @@ function Homepage(props) {
       <MusicShowcase
         signUpPopUpNoToken={props.showSignUp}
         showReleasePopUp={setReleasePop}
+        stripeLoaderFromMS={setLoadingStripe}
       />
       <NFTBreakdown />
       <div className="reminder-subscribe">
@@ -47,6 +49,7 @@ function Homepage(props) {
       <Footer />
       {/* Release Popup */}
       {releasePop}
+      {loadingStripe}
     </div>
   );
 }

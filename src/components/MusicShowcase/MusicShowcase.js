@@ -64,6 +64,7 @@ function MusicShowcase(props) {
               id={release.id}
               price={release.price}
               no_token_pop={props.signUpPopUpNoToken}
+              stripeLoaderFromRP={props.stripeLoaderFromMS}
             />
           );
         };
