@@ -7,6 +7,7 @@ import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper.scss";
 import "./LibraryStyles.scss";
+import env from "react-dotenv";
 SwiperCore.use(Navigation, Pagination);
 
 function Library(props) {
@@ -17,7 +18,7 @@ function Library(props) {
   const token = localStorage.getItem("token");
 
   const baseURL =
-    "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    env.BACKEND_URL;
   // const testURL = "https://jsonplaceholder.typicode.com";
   useEffect(() => {
     //Request for Library

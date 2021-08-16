@@ -32,8 +32,11 @@ function Artists(props) {
             </div>
             <div className="artists-impt-text">
               <p>
-                Interested in joining us? Fill out the form below and we’ll be
-                in touch ASAP.
+                Interested in joining us? Fill out the form{" "}
+                <Link className="below-link" to="#artists-form">
+                  below
+                </Link>{" "}
+                and we’ll be in touch ASAP.
               </p>
               <p className="work-with-text">
                 We work with both independent artists and those signed to record
@@ -207,7 +210,7 @@ function Artists(props) {
             </p>
           </div>
         </div>
-        <div className="form-container">
+        <div id="artists-form" className="form-container">
           <form action="">
             <input type="text" placeholder="Artist Name" required />
             <input type="text" placeholder="Preferred Name" />

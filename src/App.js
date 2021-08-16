@@ -12,12 +12,15 @@ import Logout from "./components/Logout/Logout";
 // import Carousel from "./components/MusicShowcase/ReleasesCarousel";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
+import env from "react-dotenv";
+
+
 
 //configure flow environment
 config()
-  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 const Home = lazy(() => import("./pages/Homepage/Homepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));

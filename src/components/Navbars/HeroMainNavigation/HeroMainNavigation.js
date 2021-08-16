@@ -11,6 +11,7 @@ import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
 import LoginTest from "../../Login/LoginTest";
+import env from "react-dotenv";
 
 function HeroMainNavigation(props) {
   const [xButton, setXButton] = useState(true);
@@ -50,7 +51,7 @@ function HeroMainNavigation(props) {
     // Getting user's information
     const token = localStorage.getItem("token");
     const baseURL =
-      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+      env.BACKEND_URL;
 
     axios({
       method: "get",

@@ -14,6 +14,7 @@ import login_icon from "../../../assets/images/login_white.svg";
 // import vinyl_logo from "../../../assets/images/compact-disc-yellow.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
+import env from "react-dotenv";
 //window sizing
 // function useWindowSize() {
 //   const [size, setSize] = useState([0, 0]);
@@ -61,7 +62,7 @@ function MainNavigation(props) {
 
     setTimeout(() => {
       window.location.replace(
-        "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8081/home"
+        env.FRONTEND_URL + "/home"
       );
     }, 1000);
   };
@@ -70,7 +71,7 @@ function MainNavigation(props) {
     // Getting user's information
     const token = localStorage.getItem("token");
     const baseURL =
-      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+      env.BACKEND_URL;
 
     axios({
       method: "get",

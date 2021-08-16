@@ -5,6 +5,7 @@ import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
+import env from "react-dotenv";
 // import spotlight from "../../assets/images/spotlight2.png";
 
 const SignUp = (props) => {
@@ -19,7 +20,7 @@ const SignUp = (props) => {
     const token = res.data.token;
     if (token) {
       window.location.replace(
-        "http://ec2-54-227-47-80.compute-1.amazonaws.com:8081/home"
+        env.FRONTEND_URL
       );
     } else {
       alert("A token was not set, please try signing up again.");
@@ -38,7 +39,7 @@ const SignUp = (props) => {
     let flow_address = currUser.addr;
     event.preventDefault();
     const baseURL =
-      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+      env.BACKEND_URL;
 
     axios({
       method: "post",

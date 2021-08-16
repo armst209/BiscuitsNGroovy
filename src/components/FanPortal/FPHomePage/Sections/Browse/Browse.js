@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper.scss";
 import "./BrowseStyles.scss";
+import env from "react-dotenv";
 SwiperCore.use(Navigation, Pagination);
 
 function Browse(props) {
@@ -15,7 +16,7 @@ function Browse(props) {
   const token = localStorage.getItem("token");
 
   const baseURL =
-    "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080";
+    env.BACKEND_URL;
   // const testURL = "https://jsonplaceholder.typicode.com";
   useEffect(() => {
     //Request for Library
