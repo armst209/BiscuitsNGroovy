@@ -170,7 +170,7 @@
       padding: 0 5px;
       transition: 0.2s ease;
       &:hover {
-        color: white;
+        color: white !important;
       }
       &:visited {
         color: var(--footer-gray);

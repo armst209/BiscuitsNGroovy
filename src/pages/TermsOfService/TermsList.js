@@ -22,7 +22,9 @@ function TermsList() {
                 </Link>
               </li>
               <li>
-                <Link to="">Non-Fungible Tokens (NFTs)</Link>
+                <Link to="/terms-of-service/nft-terms">
+                  Non-Fungible Tokens (NFTs)
+                </Link>
               </li>
             </ul>
           </div>

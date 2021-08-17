@@ -20,10 +20,17 @@ function PurchaseOfMusic(props) {
                 <strong>Purpose of Agreement. </strong>
                 Biscuits n Groovy (“BnG”) is a music streaming service that
                 amplifies the connection between musical artists and their fans.
-                Learn more about BnG and read our mission at
-                https://www.bngroovy.com/about. These Terms Regarding Purchase
-                of Music outline what each Customer (“Customer” or “you”) will
-                receive upon purchasing from BnG.
+                Learn more about BnG and read our mission at{" "}
+                <a
+                  href="https://www.bngroovy.com/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://www.bngroovy.com/about
+                </a>
+                . These Terms Regarding Purchase of Music outline what each
+                Customer (“Customer” or “you”) will receive upon purchasing from
+                BnG.
               </li>
               <li>
                 <strong>Prerequisites to Purchase. </strong>
@@ -32,7 +39,14 @@ function PurchaseOfMusic(props) {
                 create an account with Blocto, which will be linked to your BnG
                 account. Blocto allows you to seamlessly access your NFTs
                 (non-fungible tokens) within your BnG collection. You can learn
-                more about Blocto at https://blocto.portto.io/en/
+                more about Blocto at{" "}
+                <a
+                  href="https://blocto.portto.io/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://blocto.portto.io/en/
+                </a>
               </li>
               <li>
                 <strong>Music. </strong>
@@ -58,7 +72,14 @@ function PurchaseOfMusic(props) {
                     You can stream the music as much as you like during the
                     release window. BnG does not allow downloads. Any means of
                     recording or saving the music is prohibited, as stated in
-                    our Terms of Service www.bngroovy.com/terms-of-service
+                    our Terms of Service{" "}
+                    <a
+                      href="www.bngroovy.com/terms-of-service/subscriber"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.bngroovy.com/terms-of-service/subscriber
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -68,7 +89,14 @@ function PurchaseOfMusic(props) {
                 (non-fungible token). NFTs are digital collectibles created and
                 stored on the blockchain, a database that keeps track of who the
                 owner is at all times. You can learn more about NFTs on our FAQ
-                page at www.bngroovy.com/faq
+                page at{" "}
+                <a
+                  href="www.bngroovy.com/faq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.bngroovy.com/faq
+                </a>
                 <ul className="nft-alpha-list">
                   <li>
                     When you purchase a release on BnG, an NFT of the album
@@ -95,11 +123,24 @@ function PurchaseOfMusic(props) {
                     Our NFTs are minted on the Flow blockchain. Flow is
                     environmentally friendly; unlike other blockchains (such as
                     Bitcoin or Ethereum) Flow does not consume high levels of
-                    electricity. Read more about Flow at https://www.onflow.org/
+                    electricity. Read more about Flow at{" "}
+                    <a
+                      href="https://www.onflow.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      https://www.onflow.org/
+                    </a>
                   </li>
                   <li>
-                    To read our full legal policy regarding NFTs, visit
-                    www.bngroovy.com/nft-terms 1
+                    To read our full legal policy regarding NFTs, visit{" "}
+                    <a
+                      href="www.bngroovy.com/nft-terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.bngroovy.com/nft-terms{" "}
+                    </a>
                   </li>
                 </ul>
               </li>

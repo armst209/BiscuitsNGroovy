@@ -31,6 +31,7 @@ const PurchaseOfMusic = lazy(() =>
 const Subscriber = lazy(() =>
   import("./pages/TermsOfService/Terms/Subscriber")
 );
+const NFTTerms = lazy(() => import("./pages/TermsOfService/Terms/NFTTerms"));
 
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
@@ -174,7 +175,7 @@ function App() {
             exact={true}
             path="/terms-of-service/nft-terms"
             render={(props) => (
-              <Subscriber
+              <NFTTerms
                 {...props}
                 setTrigger={showLoginPopup}
                 showSignUp={showSignUpPopup}

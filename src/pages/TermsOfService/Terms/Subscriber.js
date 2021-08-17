@@ -31,7 +31,7 @@ function Subscriber(props) {
                 raise the profile of musical artists at the time their music
                 debuts and give their fans an intentional and powerful musical
                 experience. BnG also enables Subscribers to acquire Non-Fungible
-                Tokens (“Tokens”) of the artwork relating to the featured music.
+                Tokens (“Tokens”) of the artwork relating to the featured music.{" "}
                 <a
                   href="https://www.bngroovy.com/about"
                   target="_blank"
@@ -63,11 +63,11 @@ function Subscriber(props) {
                 incorporates BnG’s “Terms Regarding Purchase of Music” located
                 at{" "}
                 <a
-                  href="www.bngroovy.com/music-purchase-terms"
+                  href="www.bngroovy.com/terms-of-service/music-purchase-terms"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.bngroovy.com/music-purchase-terms
+                  www.bngroovy.com/terms-of-service/music-purchase-terms
                 </a>
               </li>
               <li>
@@ -228,23 +228,25 @@ function Subscriber(props) {
                 shall update its terms of service and notify Subscriber
                 electronically of any amendment to this Agreement.
                 <br />
-                <br />
+                <br /> You may contact BnG at (BnG may update its contact
+                information in accordance with the terms for modification of
+                this Agreement:
                 <div className="bng-address">
-                  <div>
-                    {" "}
-                    You may contact BnG at (BnG may update its contact
-                    information in accordance with the terms for modification of
-                    this Agreement):
-                    <br />
-                    <br />
-                    Biscuits n Groovy, LLC
-                    <br />
-                    330 E. Liberty Street <br />
-                    Ann Arbor, Michigan 48104 USA
-                    <br />
-                    Email: support@bngroovy.com
-                    <br />
-                    https://www.bngroovy.com/
+                  <div className="address">
+                    <div>Biscuits n Groovy, LLC</div>
+                    <div>330 E. Liberty Street</div>
+                    <div>Ann Arbor, Michigan 48104 USA</div>
+                    <div>
+                      Email:{" "}
+                      <a href="mailto:support@bngroovy.com?subject=Support">
+                        support@bngroovy.com
+                      </a>{" "}
+                    </div>
+                    <div>
+                      <a href="https://www.bngroovy.com/">
+                        https://www.bngroovy.com/
+                      </a>
+                    </div>
                   </div>
                 </div>
               </li>

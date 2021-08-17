@@ -105,6 +105,7 @@ function MainNavigation(props) {
           </div>
         </div>
       );
+      //LoggedIn hook for mobile Login button
       setIsLoggedInMobile(
         <div className="user-container">
           <div className="user" onClick={viewDropDown}>
@@ -164,7 +165,7 @@ function MainNavigation(props) {
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated, showDropDown]);
+  }, [isAuthenticated, showDropDown, arrowMove, props, rightSpotlight]);
 
   return (
     <div id="scrolled-home-before">
