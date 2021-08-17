@@ -5,11 +5,8 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
-import Modal from "./components/Modal";
 import Loading from "./components/Loading/Loading";
-// import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
-import Logout from "./components/Logout/Logout";
-// import Carousel from "./components/MusicShowcase/ReleasesCarousel";
+
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
@@ -28,9 +25,13 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const TermsOfService = lazy(() =>
   import("./pages/TermsOfService/TermsOfService")
 );
+const PurchaseOfMusic = lazy(() =>
+  import("./pages/TermsOfService/Terms/PurchaseOfMusic")
+);
 const Subscriber = lazy(() =>
   import("./pages/TermsOfService/Terms/Subscriber")
 );
+
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
 );
@@ -59,7 +60,7 @@ function App() {
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route
-            exact
+            exact={true}
             path="/home"
             render={(props) => (
               <Home
@@ -73,6 +74,7 @@ function App() {
             <Redirect to="/home" />
           </Route>
           <Route
+            exact={true}
             path="/about"
             render={(props) => (
               <About
@@ -83,6 +85,7 @@ function App() {
             )}
           />
           <Route
+            exact={true}
             path="/faq"
             render={(props) => (
               <FAQ
@@ -93,6 +96,7 @@ function App() {
             )}
           />
           <Route
+            exact={true}
             path="/artists"
             render={(props) => (
               <Artists
@@ -131,9 +135,11 @@ function App() {
             path="/fanportal/checkout"
             component={Checkout}
           />
-
+          <Route exact path="terms/subscriber" component={Subscriber} />
+          {/* Terms of Service Components Render */}
           <Route
-            path="/terms-of-service"
+            exact={true}
+            path="/terms-of-service/menu"
             render={(props) => (
               <TermsOfService
                 {...props}
@@ -142,10 +148,9 @@ function App() {
               />
             )}
           />
-
           <Route
-            exact
-            path="/tos/subscriber"
+            exact={true}
+            path="/terms-of-service/subscriber"
             render={(props) => (
               <Subscriber
                 {...props}
@@ -154,21 +159,29 @@ function App() {
               />
             )}
           />
-
-          {/* Route Testing */}
-          <Route path="/modal" component={Modal} />
-          <Route path="/logout" component={Logout} />
-          {/* 
-          <Route path="/carousel" component={Carousel} />
-          <Route path="/music" component={MusicPlayer} />
-          <Route path="/release-preview" component={ReleasePreview} />*/}
-          <Route path="/loading" component={Loading} />
-          {/* Route for Stripe Cancellation */}
-          {/* <ProtectedRoute
+          <Route
             exact={true}
-            path="/cancel"
-            component={}
-          /> */}
+            path="/terms-of-service/music-purchase-terms"
+            render={(props) => (
+              <PurchaseOfMusic
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            exact={true}
+            path="/terms-of-service/nft-terms"
+            render={(props) => (
+              <Subscriber
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+          {/* Not Found Component Render */}
           <Route
             render={(props) => (
               <NotFound
@@ -178,6 +191,20 @@ function App() {
               />
             )}
           />
+          {/* Route Testing */}
+          {/* <Route path="/modal" component={Modal} />
+          <Route path="/logout" component={Logout} /> */}
+          {/* 
+          <Route path="/carousel" component={Carousel} />
+          <Route path="/music" component={MusicPlayer} />
+          <Route path="/release-preview" component={ReleasePreview} />*/}
+          {/* <Route path="/loading" component={Loading} /> */}
+          {/* Route for Stripe Cancellation */}
+          {/* <ProtectedRoute
+            exact={true}
+            path="/cancel"
+            component={}
+          /> */}
         </Switch>
       </Suspense>
     </div>

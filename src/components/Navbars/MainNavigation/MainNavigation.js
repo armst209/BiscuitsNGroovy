@@ -61,17 +61,14 @@ function MainNavigation(props) {
     }, 200);
 
     setTimeout(() => {
-      window.location.replace(
-        env.FRONTEND_URL + "/home"
-      );
+      window.location.replace(env.FRONTEND_URL + "/home");
     }, 1000);
   };
 
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
-    const baseURL =
-      env.BACKEND_URL;
+    const baseURL = env.BACKEND_URL;
 
     axios({
       method: "get",
