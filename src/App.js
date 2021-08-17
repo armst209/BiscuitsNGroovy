@@ -27,6 +27,7 @@ const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService/TermsOfService"));
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
 );
@@ -127,6 +128,15 @@ function App() {
             path="/fanportal/checkout"
             component={Checkout}
           />
+
+          <Route path="/terms_of_service" 
+            render={(props) => (
+              <TermsOfService
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}/>
 
           {/* Route Testing */}
           <Route path="/modal" component={Modal} />
