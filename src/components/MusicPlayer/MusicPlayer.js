@@ -26,6 +26,7 @@ function MusicPlayer(props) {
         // getAudioInstance={(instance) => {
         //   setAudioInstance(instance);
         // }}
+
         preload={true}
         mode={"full"}
         autoPlay={true}
