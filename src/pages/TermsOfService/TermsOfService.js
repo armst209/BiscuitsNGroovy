@@ -9,6 +9,12 @@ function TermsOfService(props) {
         showLoginPopup={props.setTrigger}
         showSignUpPopUp={props.showSignUp}
       />
+    <div>
+        
+     <ul>
+    
+     </ul>
+    </div>
       <Footer />
     </section>
   );
