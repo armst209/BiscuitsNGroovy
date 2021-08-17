@@ -32,6 +32,7 @@ import env from "react-dotenv";
 function MainNavigation(props) {
   const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
+  const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [showDropDown, setShowDropDown] = useState(false);
   const [scrolledNavClass, setScrolledNavClass] = useState("");
@@ -104,10 +105,28 @@ function MainNavigation(props) {
           </div>
         </div>
       );
+      setIsLoggedInMobile(
+        <div className="user-container">
+          <div className="user" onClick={viewDropDown}>
+            <img src={user_image} alt="user" />
+            <img
+              className={`arrow ${arrowMove ? "arrow-360" : ""}`}
+              src={arrow_down}
+              alt="arrow"
+            />
+          </div>
+        </div>
+      );
     } else {
       setIsLoggedIn(
         <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
           Login
+        </NavLink>
+      );
+
+      setIsLoggedInMobile(
+        <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
+          Login <img src={login_icon} alt="login icon" />
         </NavLink>
       );
     }
@@ -286,8 +305,7 @@ function MainNavigation(props) {
                 <div className="user-info-dropdown-select">
                   <div>{userName}</div>
                   <div className="login-mobile-btn">
-                    <button className="login-btn">{isLoggedIn}</button>
-                    <img src={login_icon} alt="login icon" />
+                    <button className="login-btn">{isLoggedInMobile}</button>
                   </div>
                 </div>
                 <ul>

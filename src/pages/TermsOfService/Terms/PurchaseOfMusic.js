@@ -17,29 +17,31 @@ function PurchaseOfMusic(props) {
           <p>
             <ol>
               <li>
-                Purpose of Agreement. Biscuits n Groovy (“BnG”) is a music
-                streaming service that amplifies the connection between musical
-                artists and their fans. Learn more about BnG and read our
-                mission at https://www.bngroovy.com/about. These Terms Regarding
-                Purchase of Music outline what each Customer (“Customer” or
-                “you”) will receive upon purchasing from BnG.
+                <strong>Purpose of Agreement. </strong>
+                Biscuits n Groovy (“BnG”) is a music streaming service that
+                amplifies the connection between musical artists and their fans.
+                Learn more about BnG and read our mission at
+                https://www.bngroovy.com/about. These Terms Regarding Purchase
+                of Music outline what each Customer (“Customer” or “you”) will
+                receive upon purchasing from BnG.
               </li>
               <li>
-                Prerequisites to Purchase. In order to purchase music on BnG,
-                you must first create a BnG account with a valid email address.
-                You will also be required to create an account with Blocto,
-                which will be linked to your BnG account. Blocto allows you to
-                seamlessly access your NFTs (non-fungible tokens) within your
-                BnG collection. You can learn more about Blocto at
-                https://blocto.portto.io/en/
+                <strong>Prerequisites to Purchase. </strong>
+                In order to purchase music on BnG, you must first create a BnG
+                account with a valid email address. You will also be required to
+                create an account with Blocto, which will be linked to your BnG
+                account. Blocto allows you to seamlessly access your NFTs
+                (non-fungible tokens) within your BnG collection. You can learn
+                more about Blocto at https://blocto.portto.io/en/
               </li>
               <li>
-                Music. When you purchase a Release on BnG, you receive access to
-                stream the music during its limited release window. The dates of
-                the release window are displayed with the release details and
-                price. The Artist determines the timing and duration of the
-                release window. The music is exclusive to BnG during its entire
-                release window, meaning it’s not available anywhere else.
+                <strong>Music. </strong>
+                When you purchase a Release on BnG, you receive access to stream
+                the music during its limited release window. The dates of the
+                release window are displayed with the release details and price.
+                The Artist determines the timing and duration of the release
+                window. The music is exclusive to BnG during its entire release
+                window, meaning it’s not available anywhere else.
                 <ul className="music-alpha-list">
                   <li>
                     Once the release window ends, you will no longer be able to
@@ -61,11 +63,12 @@ function PurchaseOfMusic(props) {
                 </ul>
               </li>
               <li>
-                NFTs. With your purchase, you also receive a digital album cover
-                NFT (non-fungible token). NFTs are digital collectibles created
-                and stored on the blockchain, a database that keeps track of who
-                the owner is at all times. You can learn more about NFTs on our
-                FAQ page at www.bngroovy.com/faq
+                <strong>NFTs. </strong>
+                With your purchase, you also receive a digital album cover NFT
+                (non-fungible token). NFTs are digital collectibles created and
+                stored on the blockchain, a database that keeps track of who the
+                owner is at all times. You can learn more about NFTs on our FAQ
+                page at www.bngroovy.com/faq
                 <ul className="nft-alpha-list">
                   <li>
                     When you purchase a release on BnG, an NFT of the album
