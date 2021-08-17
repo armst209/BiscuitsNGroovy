@@ -57,8 +57,7 @@ function Footer() {
         </p>
       </div>
       <div className="privacy-term-links">
-        <Link to="/terms_of_service">Terms of Service</Link>
-      
+        <Link to="/terms-of-service">Terms of Service</Link>
       </div>
       <div className="copyright">
         <p>© {new Date().getFullYear()} Biscuits & Groovy, LLC </p>

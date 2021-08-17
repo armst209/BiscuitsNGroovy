@@ -14,8 +14,6 @@ import Logout from "./components/Logout/Logout";
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 
-
-
 //configure flow environment
 config()
   .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
@@ -27,7 +25,12 @@ const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-const TermsOfService = lazy(() => import("./pages/TermsOfService/TermsOfService"));
+const TermsOfService = lazy(() =>
+  import("./pages/TermsOfService/TermsOfService")
+);
+const Subscriber = lazy(() =>
+  import("./pages/TermsOfService/Terms/Subscriber")
+);
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
 );
@@ -129,14 +132,28 @@ function App() {
             component={Checkout}
           />
 
-          <Route path="/terms_of_service" 
+          <Route
+            path="/terms-of-service"
             render={(props) => (
               <TermsOfService
                 {...props}
                 setTrigger={showLoginPopup}
                 showSignUp={showSignUpPopup}
               />
-            )}/>
+            )}
+          />
+
+          <Route
+            exact
+            path="/tos/subscriber"
+            render={(props) => (
+              <Subscriber
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
 
           {/* Route Testing */}
           <Route path="/modal" component={Modal} />
