@@ -1,7 +1,9 @@
 import { React, useEffect, useState } from "react";
 import "./MusicPlayerStyles.scss";
 import ReactJkMusicPlayer from "react-jinke-music-player";
-import "react-jinke-music-player/assets/index.css";
+import "./PlayerStyles.css";
+import play_icon from "../../assets/images/compact-disc-yellow.svg";
+// import "react-jinke-music-player/lib/styles/index.less";
 
 function MusicPlayer(props) {
   const [audioLists, setAudioList] = useState([]);
@@ -23,13 +25,18 @@ function MusicPlayer(props) {
   return (
     <>
       <ReactJkMusicPlayer
+        // icon={{ play: <img src={play_icon} /> }}
         // getAudioInstance={(instance) => {
         //   setAudioInstance(instance);
         // }}
-
+        theme="dark"
         preload={true}
         mode={"full"}
         autoPlay={true}
+        volumeFade={false}
+        showDownload={false}
+        showThemeSwitch={false}
+        showReload={false}
         // remember={true}
         // volumeFade={{ fadeIn: 500, fadeOut: 500 }}
         // showDestroy

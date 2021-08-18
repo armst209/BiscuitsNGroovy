@@ -21,6 +21,7 @@ function AlbumCoverHover(props) {
           }
         >
           <img src={play_button} alt="play button" />
+          <div>{props.release.name}</div>
         </button>
       </div>
     </div>
