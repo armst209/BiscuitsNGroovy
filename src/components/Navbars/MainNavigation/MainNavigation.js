@@ -347,15 +347,17 @@ function MainNavigation(props) {
                   <NavLink to="/artists">
                     <li>Artists</li>
                   </NavLink>
-
-                  <li
-                    className={`${signUpClassName}`}
-                    onClick={() => props.showSignUpPopUp(true)}
-                  >
-                    <div className="signup-btn-container">
+                  <NavLink to="#">
+                    {" "}
+                    <li
+                      className={`${signUpClassName}`}
+                      onClick={() => props.showSignUpPopUp(true)}
+                    >
+                      {/* <div className="signup-btn-container"> */}
                       <button className="signup-btn">Sign Up</button>
-                    </div>
-                  </li>
+                      {/* </div> */}
+                    </li>
+                  </NavLink>
                 </ul>
               </aside>
             </label>
