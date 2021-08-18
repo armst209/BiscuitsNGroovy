@@ -63,9 +63,15 @@
         padding: 2rem 2rem;
         background: black;
         margin: 25px 100px;
+        @media screen and (max-width: 1000px) {
+          width: 100%;
+        }
         .header-paragraph {
           font-family: var(--font2);
           font-size: 1.5rem;
+          @media screen and (max-width: 500px) {
+            font-size: 1rem;
+          }
         }
         .hiw-bullet {
           display: flex;
@@ -161,10 +167,17 @@
         align-items: center;
         width: 100%;
 
+        @media screen and (max-width: 600px) {
+          flex-direction: column;
+        }
+
         .artists-impt-img {
           display: flex;
           justify-content: center;
           align-items: center;
+          @media screen and (max-width: 600px) {
+            padding: 1rem;
+          }
 
           img {
             width: 100px;
@@ -178,6 +191,12 @@
           font-size: 2rem;
           text-align: center;
           font-family: var(--font1);
+          @media screen and (max-width: 600px) {
+            font-size: 1.5rem;
+          }
+          @media screen and (max-width: 500px) {
+            width: 100%;
+          }
           .below-link {
             text-decoration: underline 5px var(--color2);
             color: var(--color1);
@@ -208,16 +227,20 @@
           .work-with-text {
             font-size: 1.5rem;
             font-family: var(--font2);
+            @media screen and (max-width: 600px) {
+              padding: 10px;
+              font-size: 1.2rem;
+            }
           }
         }
       }
     }
     .form-container {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      color: black;
+
+      color: white;
       display: flex;
+      text-align: center;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -225,18 +248,23 @@
       padding: 60px 40px;
       background-color: black;
       font-family: var(--font2);
-      margin: 0 100px;
       margin-bottom: 3rem;
       border: 7px solid var(--color2);
       border-radius: 20px;
+      @media screen and (max-width: 1000px) {
+        width: 100%;
+      }
+      @media screen and (max-width: 800px) {
+        padding: 1rem;
+      }
+
       form {
-        @media (min-width: 768px) {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
         input {
           margin: 5px 0;
           background: var(--color-light);
@@ -266,17 +294,16 @@
           height: 500px;
         }
         button {
+          border: 3px solid var(--color1);
+          font-family: var(--font1);
+          font-size: 1rem;
+          background: transparent;
           width: 200px;
-          height: 50px;
-          margin: 5px 0;
-          background: var(--color2);
-          border: none;
-          border-radius: 10px;
-          font-size: 20px;
-          font-weight: bold;
-          box-shadow: var(--shadow-large);
+          height: 70px;
           cursor: pointer;
-          font-family: var(--font2);
+          color: white;
+          transition: all 0.2s ease;
+          position: relative;
         }
       }
     }

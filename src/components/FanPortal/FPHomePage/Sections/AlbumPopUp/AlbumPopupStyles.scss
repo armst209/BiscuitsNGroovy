@@ -9,12 +9,14 @@
   top: 0;
   z-index: 9999999999999999;
   .album-popup-container {
-    border: 3px solid white;
-    background: var(--bg-color);
+    border: 5px solid var(--color2);
+    background-color: black;
+    border-radius: 20px;
+
     .close-album-info {
       font-family: var(--font1);
       width: 100%;
-      padding: 5px;
+      padding: 10px;
       display: flex;
       justify-content: flex-end;
       cursor: pointer;
@@ -28,6 +30,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-family: var(--font2);
+      img {
+        width: 277px;
+        height: 182px;
+      }
       .music-player {
         position: relative;
       }
