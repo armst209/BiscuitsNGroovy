@@ -607,9 +607,11 @@ function FAQ(props) {
                           blew up. Or you may want to capitalize on a record
                           that spikes in resale value, and cash in on your
                           favorite artist’s crazy success. After all, you knew
-                          they would make it big. The best part? The artist
-                          benefits too, since they earn 5% on every resale of
-                          their NFTs.
+                          they would make it big.{" "}
+                          <strong>
+                            The best part? The artist benefits too
+                          </strong>{" "}
+                          , since they earn 5% on every resale of their NFTs.
                         </div>
                       </div>
                     </p>

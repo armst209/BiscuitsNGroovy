@@ -251,6 +251,9 @@
                   border: 5px solid var(--color2);
                   border-radius: 0.5rem;
                   padding: 10px;
+                  strong {
+                    color: var(--color1);
+                  }
                   .important-content {
                     width: 100%;
                     display: flex;
@@ -263,6 +266,7 @@
                       color: var(--color1);
                       text-decoration: none;
                       margin-left: 5px;
+                      font-weight: bolder;
                       &:visited {
                         color: var(--color1);
                       }

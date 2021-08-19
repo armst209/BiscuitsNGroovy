@@ -8,11 +8,10 @@ import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_
 import env from "react-dotenv";
 
 function MusicShowcase(props) {
-  // console.log(props);
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
-  console.log(isShown);
+  const [haveAllReleases, setHaveAllReleases] = useState("");
 
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
@@ -35,8 +34,14 @@ function MusicShowcase(props) {
       });
 
     const handleSuccess = (res) => {
-      console.log(res.data.releases);
       let releases = res.data.releases;
+      //checking whether user has purchased all current releases
+      releases.length === 0
+        ? setHaveAllReleases(
+            "You have all the releases. (SHOW RELEASE/UPCOMING RELEASE CALENDAR)"
+          )
+        : setHaveAllReleases(" ");
+
       // Main Function - looping through response, displaying response in Homepage Releases section & creating individual "ReleasePreview"s
       let displayAllReleases = releases.map((release) => {
         //Toggle to Close ReleasePreview
@@ -123,6 +128,8 @@ function MusicShowcase(props) {
           <div className="showcase-grid-desktop">
             <Suspense fallback={<ComponentLoading />}>
               {displayReleases}
+              {/* appears if user has purchased all current releases */}
+              {haveAllReleases}
             </Suspense>
           </div>
           <div className="showcase-grid-mobile"></div>

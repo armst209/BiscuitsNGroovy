@@ -17,8 +17,7 @@ function ArtistReminder() {
             <p>
               Tired of making pennies from streaming? <br /> We’ll help you earn
               more money and connect with your top fans. Learn more about the
-              benefits of releasing your music on BnG by clicking the button
-              below
+              benefits of releasing your music on BnG
             </p>
 
             <Link to="/artists">

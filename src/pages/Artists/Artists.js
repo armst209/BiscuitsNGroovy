@@ -96,16 +96,10 @@ function Artists(props) {
                     <img src={record_bullet} alt="record icon" />
                   </div>
                   <div className="bullet-text">
-                    <strong>Drop</strong> - Fans purchase your pre-release and
-                    can stream the music exclusively on BnG until the official
-                    drop date on other platforms. They also get a limited
-                    edition digital album cover as an NFT (non-fungible token)
-                    to add to their collection. We handle all the technical
-                    details of issuing NFTs so you don’t have to.Fans purchase
-                    your music and can stream it exclusively on BnG during that
-                    time. They also get a limited-edition digital album cover
-                    backed by an NFT (non-fungible token) to add to their
-                    collection.
+                    <strong>Drop</strong> - Fans purchase your music and can
+                    stream it exclusively on BnG during that time. They also get
+                    a limited-edition digital album cover backed by an NFT
+                    (non-fungible token) to add to their collection.
                   </div>
                 </div>
                 <div className="hiw-bullet">
@@ -113,12 +107,11 @@ function Artists(props) {
                     <img src={record_bullet} alt="record icon" />
                   </div>
                   <div className="bullet-text">
-                    <strong>Earn</strong> - After the BnG release period ends,
-                    you cash out and are free to release on all other platforms.
-                    We take 25% of net sales and give you the remaining 75%,
-                    plus a fully transparent breakdown of how your release
-                    performed. You’ll also earn 5% on all future resales of your
-                    album art, once our NFT marketplace goes live.
+                    <strong>Earn</strong> - After the BnG release window ends,
+                    you cash out and are free to release the music elsewhere if
+                    you like. We take 25% of net sales and give you the
+                    remaining 75%, plus a fully transparent breakdown of how
+                    your release performed.
                   </div>
                 </div>
               </div>
@@ -188,7 +181,7 @@ function Artists(props) {
                 <div className="bullet-text">
                   We handle the entire technical process so you can spend your
                   time making music, instead of worrying about the blockchain.
-                  We also make it easy for your fans to start collecting -- all
+                  We also make it easy for your fans to start collecting — all
                   they need is a credit card, not cryptocurrency.
                 </div>
               </div>
