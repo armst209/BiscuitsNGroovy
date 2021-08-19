@@ -44,8 +44,8 @@ export default function CheckoutButton(props) {
 
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
+      window.location.replace(env.FRONTEND_URL + "/purchase-success");
     }
-
     if (query.get("canceled")) {
       setMessage(
         "Order canceled -- continue to shop around and checkout when you're ready."

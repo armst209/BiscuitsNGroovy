@@ -40,6 +40,9 @@ const FanPortalProfile = lazy(() =>
   import("./pages/Portals/FanPortal/Profile/FanPortalProfile.js")
 );
 const Checkout = lazy(() => import("./pages/Payment/Checkout"));
+const SuccessfulPurchase = lazy(() =>
+  import("./pages/SuccessfulPurchase/SuccessBuy")
+);
 
 function App() {
   const [loginPopup, showLoginPopup] = useState(false);
@@ -135,6 +138,17 @@ function App() {
             exact={true}
             path="/fanportal/checkout"
             component={Checkout}
+          />
+          <ProtectedRoute
+            exact={true}
+            path="/purchase-success"
+            render={(props) => (
+              <SuccessfulPurchase
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
           />
           <Route exact path="terms/subscriber" component={Subscriber} />
           {/* Terms of Service Components Render */}
