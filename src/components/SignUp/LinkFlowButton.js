@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { initAccount, accountIsInitialized } from "../../utils/flow";
 import * as fcl from "@onflow/fcl";
 import link_icon from "../../assets/images/link.svg";
@@ -8,7 +8,7 @@ import ComponentLoading from "../Loading/ComponentLoading";
 function LinkFlowButton(props) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
-    if (isInitialized == true) {
+    if (isInitialized === true) {
       return;
     }
     props.flowBtnLoader(

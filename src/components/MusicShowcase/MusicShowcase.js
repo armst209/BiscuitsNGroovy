@@ -103,6 +103,8 @@ function MusicShowcase(props) {
     baseURL,
     props.signUpPopUpNoToken,
     props.stripeLoaderFromMS,
+    isShown,
+    setIsShown,
   ]);
 
   return (

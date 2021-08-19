@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./ReleasePreviewStyles.scss";
 import token_music_icon from "../../assets/images/love-song2.svg";
 import CheckoutButton from "../../pages/Payment/Checkout";

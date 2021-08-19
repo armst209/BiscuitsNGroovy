@@ -193,8 +193,8 @@ function App() {
             )}
           />
           {/* Route Testing */}
-          {/* <Route path="/modal" component={Modal} />
-          <Route path="/logout" component={Logout} /> */}
+
+          {/* <Route path="/logout" component={Logout} /> */}
           {/* 
           <Route path="/carousel" component={Carousel} />
           <Route path="/music" component={MusicPlayer} />

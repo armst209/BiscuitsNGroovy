@@ -78,12 +78,8 @@ export default function CheckoutButton(props) {
 
     // console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
-    console.log("hit");
-    props.stripeLoaderFromCO(
-      <div className="stripe-loader">
-        <div>LOADING...</div>
-      </div>
-    );
+
+    props.stripeLoaderFromCO(<ComponentLoading />);
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,
     });
