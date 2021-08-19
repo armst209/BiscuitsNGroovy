@@ -31,7 +31,7 @@ function Login(props) {
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       setTimeout(() => {
-        window.location.replace(env.FRONTEND_URL + "/home");
+        window.location.replace(env.FRONTEND_URL + "home");
       }, 1000);
     };
 

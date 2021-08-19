@@ -19,9 +19,7 @@ const SignUp = (props) => {
   const handleSignUp = (res) => {
     const token = res.data.token;
     if (token) {
-      window.location.replace(
-        env.FRONTEND_URL
-      );
+      window.location.replace(env.FRONTEND_URL + "home");
     } else {
       alert("A token was not set, please try signing up again.");
     }
@@ -38,8 +36,7 @@ const SignUp = (props) => {
     }
     let flow_address = currUser.addr;
     event.preventDefault();
-    const baseURL =
-      env.BACKEND_URL;
+    const baseURL = env.BACKEND_URL;
 
     axios({
       method: "post",

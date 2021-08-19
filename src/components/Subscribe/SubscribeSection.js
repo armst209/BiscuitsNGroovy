@@ -7,6 +7,7 @@ function SubscribeSection() {
     <section id="subscribe">
       <h1>SUBSCRIBE TO OUR NEWSLETTER</h1>
       <img src={connect_icon} alt="connect icon" />
+
       <form action="">
         <label htmlFor="name" />
         <input type="email" name="name" placeholder="Please enter your email" />

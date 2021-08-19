@@ -18,13 +18,6 @@ function FPHomePage(props) {
         {/* Passed prop to close album popup */}
         <Library popUpPassed={setShowPopup} />
       </div>
-      {/* 
-      <h1>Browse</h1>
-
-      <div className="browse-select"> */}
-      {/* Passed prop to close album popup */}
-      {/* <Browse popUpPassed={setShowPopup} />
-      </div> */}
     </section>
   );
 }

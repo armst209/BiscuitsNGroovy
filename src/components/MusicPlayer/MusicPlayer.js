@@ -9,6 +9,7 @@ function MusicPlayer(props) {
   const [audioLists, setAudioList] = useState([]);
 
   useEffect(() => {
+    console.log(props.songs);
     let trackListArray = props.songs;
     console.log(trackListArray);
     let trackList = [];
@@ -26,9 +27,6 @@ function MusicPlayer(props) {
     <>
       <ReactJkMusicPlayer
         // icon={{ play: <img src={play_icon} /> }}
-        // getAudioInstance={(instance) => {
-        //   setAudioInstance(instance);
-        // }}
         theme="dark"
         preload={true}
         mode={"full"}
@@ -37,19 +35,9 @@ function MusicPlayer(props) {
         showDownload={false}
         showThemeSwitch={false}
         showReload={false}
-        // remember={true}
-        // volumeFade={{ fadeIn: 500, fadeOut: 500 }}
-        // showDestroy
-        // onBeforeDestroy={onBeforeDestroy}
-        // onDestroyed={onDestroyed}
         audioLists={audioLists}
-        // defaultPosition={{ top: 50, left: 50 }}
-        // toggleMode={true}
-        // // showDestroy={true}
         className="music-player-component"
       />
-      {/* <button onClick={() => audioInstance.destroy()}>destroy player</button> */}
-      {/* <button onClick={showInfo}>ShowInfo</button> */}
     </>
   );
 }

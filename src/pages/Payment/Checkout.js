@@ -59,8 +59,7 @@ export default function CheckoutButton(props) {
     const token = localStorage.getItem("token");
 
     const stripe = await stripePromise;
-    const URL =
-      "http://ec2-18-220-73-140.us-east-2.compute.amazonaws.com:8080/payments/create-checkout-session";
+    const URL = `${env.BACKEND_URL}/payments/create-checkout-session`;
 
     const response = await axios(URL, {
       method: "POST",

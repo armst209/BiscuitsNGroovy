@@ -13,7 +13,7 @@ import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_
 
 function Homepage(props) {
   const [releasePop, setReleasePop] = useState("");
-  const [loadingStripe, setLoadingStripe] = useState("loading");
+  const [loadingStripe, setLoadingStripe] = useState("");
   return (
     <div>
       <Navbar
