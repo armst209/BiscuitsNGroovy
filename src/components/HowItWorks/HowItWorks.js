@@ -74,8 +74,8 @@ function HowItWorks() {
                   <div>
                     We're not another unlimited subscription. Buy the music you
                     want to hear, and stream with us before it drops anywhere
-                    else. Get it while it’s hot, since it’s only on BnG for a
-                    limited time.
+                    else. Get it while it’s hot, since it’s only only streaming
+                    for a limited time. limited time.
                   </div>
                 </div>
               </div>
@@ -104,11 +104,11 @@ function HowItWorks() {
 
                 <div className="content">
                   <div>
-                    After our streaming period ends, you keep a limited-edition
-                    digital album cover NFT. Stored on the blockchain, these
-                    assets let you own a piece of music history and{" "}
+                    With each release you collect a limited-edition digital
+                    album cover NFT. Stored on the blockchain, these assets let
+                    you own a permanent piece of music history and{" "}
                     <em>prove</em> you’re a top fan. Build your library and show
-                    it off!
+                    it off! you’re a top fan.
                   </div>
                 </div>
               </div>

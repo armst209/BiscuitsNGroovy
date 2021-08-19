@@ -2,8 +2,6 @@ import { React, useEffect, useState } from "react";
 import "./MusicPlayerStyles.scss";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "./PlayerStyles.css";
-import play_icon from "../../assets/images/compact-disc-yellow.svg";
-// import "react-jinke-music-player/lib/styles/index.less";
 
 function MusicPlayer(props) {
   const [audioLists, setAudioList] = useState([]);
@@ -21,7 +19,7 @@ function MusicPlayer(props) {
       });
     });
     setAudioList(trackList);
-  }, []);
+  }, [props.albumCover, props.albumName, props.songs]);
 
   return (
     <>
@@ -31,7 +29,6 @@ function MusicPlayer(props) {
         preload={true}
         mode={"full"}
         autoPlay={true}
-        volumeFade={false}
         showDownload={false}
         showThemeSwitch={false}
         showReload={false}

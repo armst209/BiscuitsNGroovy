@@ -24,6 +24,7 @@ function FAQ(props) {
   const [question7, setQuestion7] = useState(false);
   const [question8, setQuestion8] = useState(false);
   const [question9, setQuestion9] = useState(false);
+  const [question10, setQuestion10] = useState(false);
   const [dropStyle1, setDropStyle1] = useState("dropdown");
   const [dropStyle2, setDropStyle2] = useState("dropdown");
   const [dropStyle3, setDropStyle3] = useState("dropdown");
@@ -33,6 +34,7 @@ function FAQ(props) {
   const [dropStyle7, setDropStyle7] = useState("dropdown");
   const [dropStyle8, setDropStyle8] = useState("dropdown");
   const [dropStyle9, setDropStyle9] = useState("dropdown");
+  const [dropStyle10, setDropStyle10] = useState("dropdown");
 
   return (
     <section id="faq">
@@ -78,11 +80,11 @@ function FAQ(props) {
           <div className="answer" onClick={() => setQuestion1(!question1)}>
             <ul>
               <li>
-                When you purchase a new release on BnG, you get access to stream
-                the music during its release period. These dates are noted in
+                When you purchase a release on BnG, you get access to stream the
+                music during its limited release window. The dates are noted in
                 three places: in the title details when browsing our calendar,
                 in your order confirmation, and in the My Collection section of
-                your profile. The release period is determined by the artist,
+                your profile. The release window is determined by the artist,
                 and once it ends, you can’t stream the music on BnG.
               </li>
               <li>
@@ -126,15 +128,14 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  All music on BnG is released on a limited basis. That means
-                  when it drops on other platforms (the official release date),
-                  you can no longer stream it on BnG. We do this so we can offer
-                  affordable prices for fans, and still be able to pay artists
-                  better. Besides, we’re not just another streaming service. New
-                  music is our jam, so once it’s out everywhere we encourage you
-                  to listen on your favorite platform. But don’t worry, you
-                  always keep your collectible album covers, so everyone will
-                  know that you listened first.
+                  All music on BnG is released on a limited basis. So when it’s
+                  gone, it’s gone. We do this so we can offer affordable prices
+                  for fans, and still be able to pay artists better. Besides,
+                  we’re not just another streaming service. We’re built for
+                  superfans who want to experience music in the moment, setting
+                  themselves apart from the crowd. But don’t worry, you always
+                  keep your collectible album covers, so everyone will know that
+                  you’re a true fan.
                 </p>
               </li>
             </ul>
@@ -207,7 +208,11 @@ function FAQ(props) {
           <div className="answer" onClick={() => setQuestion4(!question4)}>
             <ul>
               <li>
-                <p>No, music purchased on BnG is not available for download.</p>
+                <p>
+                  No, music purchased on BnG is not available for download. You
+                  can stream the music as much as you’d like during the release
+                  window.
+                </p>
               </li>
             </ul>
           </div>
@@ -301,6 +306,38 @@ function FAQ(props) {
             </ul>
           </div>
         </CSSTransition>
+        <h5
+          onClick={() => {
+            setQuestion6(!question10);
+            setDropStyle6("icon_rotate");
+          }}
+        >
+          <div>What is a Blocto/Flow account and why do I need it?</div>
+          <img
+            className={`dropdown ${dropStyle10}`}
+            src={dropdown}
+            alt="dropdown"
+          />
+        </h5>
+        <CSSTransition
+          classNames="answer"
+          in={question10}
+          timeout={100}
+          unmountOnExit
+          onEnter={() => setQuestion10(true)}
+          onExited={() => {
+            setQuestion10(false);
+            setDropStyle10("");
+          }}
+        >
+          <div className="answer" onClick={() => setQuestion6(!question10)}>
+            <ul>
+              <li>
+                <p>N/A</p>
+              </li>
+            </ul>
+          </div>
+        </CSSTransition>
 
         <h5
           onClick={() => {
@@ -330,10 +367,10 @@ function FAQ(props) {
             <ul>
               <li>
                 <p>
-                  No, BnG is not subscription-based. We give artists the freedom
-                  to price their own releases, so buying music on BnG is a
-                  one-time purchase. We don’t save your payment information, and
-                  you won’t be charged again (unless you buy more music, of
+                  Nope, BnG is not subscription-based. We give artists the
+                  freedom to price their own releases, so buying music on BnG is
+                  a one-time purchase. We don’t save your payment information,
+                  and you won’t be charged again (unless you buy more music, of
                   course!)
                 </p>
               </li>
@@ -371,14 +408,7 @@ function FAQ(props) {
                 <p>
                   Currently we do not have an app. You can access BnG through
                   any mobile browser, however, so you can still buy and stream
-                  music on your phone.
-                </p>
-              </li>
-              <li>
-                <p>
-                  We plan to roll out a companion app in the near future, where
-                  you can view Your Collection and stream music you’ve
-                  purchased. Stay tuned!
+                  music on your phone. Stay tuned for an app in the future!
                 </p>
               </li>
             </ul>
@@ -416,7 +446,8 @@ function FAQ(props) {
                   BnG pays artists 75% of the sales they generate (net of taxes
                   and other fees). Artists have full control over the pricing of
                   their releases, and get a transparent view of their earnings
-                  since fans are supporting them directly.
+                  since fans are supporting them directly. Read more about how
+                  we help artists <Link to="/artists">here</Link>.
                 </p>
               </li>
             </ul>

@@ -9,6 +9,7 @@ import env from "react-dotenv";
 // import ComponentLoading from "../Loading/ComponentLoading";
 
 function Login(props) {
+  //Hooks
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -18,7 +19,6 @@ function Login(props) {
       <img src={login_arrow} alt="arrow" />
     </>
   );
-  const [loading, setLoading] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
@@ -30,9 +30,10 @@ function Login(props) {
     );
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
+      //timing out login redirect in case of hangup
       setTimeout(() => {
-        window.location.replace(env.FRONTEND_URL + "home");
-      }, 1000);
+        window.location.replace(env.FRONTEND_URL + "/home");
+      }, 0);
     };
 
     const handleFailure = (err) => {

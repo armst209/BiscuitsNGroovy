@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
 import "./AboutStyles.scss";
-import spotlight from "../../assets/images/spotlight2.png";
 import Footer from "../../components/Footer/Footer";
 import about_main_img from "../../assets/images/about_story.jpg";
 import bucket_hat from "../../assets/images/buckethats.png";
@@ -31,9 +30,9 @@ function About(props) {
         <div className="about-contents-1">
           <div className="contents-img-wrapper">
             <div className="contents-img">
-              <img src={bucket_hat} alt="about image" />
+              <img src={bucket_hat} alt="bucket hat" />
             </div>
-            <img src={disc_img} alt="disc image" className="disc_image" />
+            <img src={disc_img} alt="disc" className="disc_image" />
           </div>
 
           <div className="contents-1-text">
@@ -84,14 +83,14 @@ function About(props) {
             <p>
               <div className="contents-img-wrapper">
                 <div className="contents-img">
-                  <img src={about_main_img} alt="about image" />
+                  <img src={about_main_img} alt="about-main" />
                   <div className="bng-caption">
                     Some favorites from our co-founders’ collection. In vinyl
                     manufacturing, the puck-shaped disc that gets pressed into a
                     record is called “the biscuit”
                   </div>
                 </div>
-                <img src={disc_img} alt="disc image" className="disc_image" />
+                <img src={disc_img} alt="disc" className="disc_image" />
               </div>
               The idea for Biscuits n Groovy started with a shared love for
               music. More specifically, with our co-founders Matt & Alison’s

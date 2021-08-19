@@ -18,7 +18,11 @@ function NFTBreakdown() {
         src={spotlight_yellow_right}
         alt="spotlight icon"
       />
-      <h1>LIMITED-EDITION DIGITAL ALBUM COVER NFT</h1>
+      <h1>KNOW YOUR COLLECTION</h1>
+      <div className="kyc-subtitle">
+        Every purchase includes a limited-edition digital album cover NFT.
+        That’s a mouthful, so we’ve broken down what it means.
+      </div>
       <div className="nft-breakdown-wrapper">
         <div className="info-boxes">
           <img src={record_favorite} alt="record icon" />
@@ -30,8 +34,9 @@ function NFTBreakdown() {
         <div className="info-boxes">
           <img src={record_favorite} alt="record icon" />
           <p>
-            <span>Digital -</span> your art stays in your BnG collection, so
-            it's easy to access & share
+            <span>Digital -</span> album covers stay in your collection
+            permanently, even after the music is no longer streaming on BnG. Log
+            in to easily access & share your collection
           </p>
         </div>
         <div className="info-boxes">
@@ -46,7 +51,7 @@ function NFTBreakdown() {
           <p>
             <span>NFT(non-fungible token) - </span>a digital collectible whose
             ownership is recorded on the blockchain - aka a permanent,
-            democratized database. Our NFTs are simple, trusted, secure, and
+            democratized database. Our NFTs are simple, secure, and
             non-polluting. Learn more <Link to="/faq#NFTsExplained">here</Link>
           </p>
         </div>

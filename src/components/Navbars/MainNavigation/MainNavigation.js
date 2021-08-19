@@ -30,7 +30,6 @@ import env from "react-dotenv";
 // }
 
 function MainNavigation(props) {
-  const [xButton, setXButton] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
@@ -47,10 +46,6 @@ function MainNavigation(props) {
 
   const isAuthenticated = localStorage.getItem("token");
 
-  //Function for close button in mobile navigation popup
-  const closeNavigation = () => {
-    setXButton(!xButton);
-  };
   //LOGOUT Function
   const handleLogout = (e) => {
     e.preventDefault();

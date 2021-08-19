@@ -2,7 +2,6 @@
 
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
-import ComponentLoading from "../components/Loading/ComponentLoading";
 
 export async function accountIsInitialized() {
   console.log("before current user");
@@ -34,9 +33,9 @@ export async function accountIsInitialized() {
     ])
     .then(fcl.decode)
     .then((res) => {
-      if (res == "Account is not setup") {
+      if (res === "Account is not setup") {
         return false;
-      } else if (res == "Account is setup") {
+      } else if (res === "Account is setup") {
         return true;
       } else {
         console.log("error");

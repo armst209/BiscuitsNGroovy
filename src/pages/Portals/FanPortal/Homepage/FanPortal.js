@@ -9,7 +9,7 @@ function FanPortal(props) {
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger
   //Props are passing down the boolean albumDetails to AlbumPreview
 
-  const [albumDetails, showAlbumDetails] = useState(false);
+  const [showAlbumDetails] = useState(false);
   return (
     <section id="fan-portal">
       <Navbar
@@ -17,8 +17,6 @@ function FanPortal(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <FPHomepage setTrigger={showAlbumDetails} />
-
-      {/* <ReleasePreview trigger={albumDetails} setTrigger={showAlbumDetails} /> */}
       <Footer />
     </section>
   );

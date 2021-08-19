@@ -86,12 +86,9 @@ function Artists(props) {
                     <img src={record_bullet} alt="record icon" />
                   </div>
                   <div className="bullet-text">
-                    <strong>Choose</strong> - You choose your BnG drop date
-                    (anywhere from a few days to weeks prior to the official
-                    release). You also decide the price to charge fans, and if
-                    you'd like to cap the number of copies issued to make a
-                    release more rare. Unlike on other platforms, with BnG
-                    you’re in control!
+                    <strong>Choose</strong> - You choose the drop date for your
+                    release, how much to charge, and how long it’s available.
+                    Unlike on other platforms, with BnG you’re in control
                   </div>
                 </div>
                 <div className="hiw-bullet">
@@ -104,7 +101,11 @@ function Artists(props) {
                     drop date on other platforms. They also get a limited
                     edition digital album cover as an NFT (non-fungible token)
                     to add to their collection. We handle all the technical
-                    details of issuing NFTs so you don’t have to.
+                    details of issuing NFTs so you don’t have to.Fans purchase
+                    your music and can stream it exclusively on BnG during that
+                    time. They also get a limited-edition digital album cover
+                    backed by an NFT (non-fungible token) to add to their
+                    collection.
                   </div>
                 </div>
                 <div className="hiw-bullet">

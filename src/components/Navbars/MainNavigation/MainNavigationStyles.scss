@@ -19,11 +19,6 @@
       background: var(--color1);
     }
   }
-  @media screen and (max-width: 769px) {
-    &:hover {
-      // pointer-events: none;
-    }
-  }
 
   .spotlight-top-left {
     width: 50px;
@@ -391,9 +386,6 @@
               transform: scale(0, 1);
               transition: color 0.1s, transform 0.15s ease-out;
             }
-            &:active::before {
-              // background-color: #000;
-            }
 
             &:hover::before,
             &:focus::before {
@@ -412,9 +404,6 @@
         margin: 0;
         list-style: none;
         color: white;
-
-        .login-home-link {
-        }
 
         li {
           cursor: pointer;
@@ -487,9 +476,6 @@
               transform-origin: right top;
               transform: scale(0, 1);
               transition: color 0.1s, transform 0.15s ease-out;
-            }
-            &:active::before {
-              // background-color: #000;
             }
 
             &:hover::before,
@@ -718,37 +704,6 @@
     input[type="checkbox"]:checked ~ .mobile-nav-home {
       transition: transform 0.2s ease-in-out;
       transform: translateX(0);
-    }
-
-    input[type="checkbox"]:checked ~ .menu-bars-home {
-      // background-color: #ff0000;
-      // background-image: linear-gradient(
-      //   to bottom,
-      //   rgba(0, 0, 0, 0) 0%,
-      //   rgba(0, 0, 0, 1) 100%
-      // );
-      // animation: rainbow 10s infinite;
-      // @keyframes rainbow {
-      //   0%,
-      //   100% {
-      //     background-color: #ff0000;
-      //   }
-      //   16.66% {
-      //     background-color: #ffff00;
-      //   }
-      //   33.33% {
-      //     background-color: #00ff00;
-      //   }
-      //   50% {
-      //     background-color: #00ffff;
-      //   }
-      //   66.66% {
-      //     background-color: #0000ff;
-      //   }
-      //   83.33% {
-      //     background-color: #ff00ff;
-      //   }
-      // }
     }
 
     input[type="checkbox"]:checked ~ .menu-bars-home:nth-of-type(1) {

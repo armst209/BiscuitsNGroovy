@@ -1,12 +1,10 @@
-import { React, useState, useEffect, lazy } from "react";
-import ComponentLoading from "../../Loading/Loading";
+import { React, useState, lazy } from "react";
 import "./FPHomePageStyles.scss";
-import Browse from "./Sections/Browse/Browse";
+//lazy loading library section
 const Library = lazy(() => import("./Sections/Library/Library"));
 
 function FPHomePage(props) {
   console.log(props);
-  const [albumReleases] = useState("");
   const [showPopUp, setShowPopup] = useState("");
 
   return (

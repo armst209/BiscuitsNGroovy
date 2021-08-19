@@ -3,13 +3,7 @@ import "./HeroStyles.scss";
 import "./HeroPhoneTabletQueries.scss";
 import { Link } from "react-router-dom";
 import vinyl_bg from "../../assets/images/compact-disc-yellow.svg";
-import blob from "../../assets/images/blob.svg";
-import hero_bg from "../../assets/images/hero-titles.svg";
 import HeroBackground from "../Background/HeroBackground";
-import DesktopBackground from "../Background/DesktopBackground";
-import HeroSpotlightBackgroundRight from "../Background/HeroSpotlightBackgroundRight";
-import HeroSpotlightBackgroundLeft from "../Background/HeroSpotlightBackgroundLeft";
-import spotlight from "../../assets/images/spotlight2_white.png";
 import headphones from "../../assets/images/808s_&_Heartbreak.png";
 import hero_artist_icon from "../../assets/images/karaoke_black.svg";
 import hero_record_icon from "../../assets/images/vinyl.svg";
@@ -50,8 +44,9 @@ function Hero(props) {
                 </div>
                 <h3>
                   <div>
-                    Get early access to new releases from your favorite artists,
-                    and exclusive NFT album art
+                    Stream exclusive music from your favorite artists, and
+                    collect NFT album art Available only for a limited time,
+                    only for true fans.
                   </div>
                 </h3>
                 <div className="hero-buttons">

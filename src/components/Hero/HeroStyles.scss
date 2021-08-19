@@ -184,7 +184,7 @@
           }
 
           h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-family: var(--font2);
             line-height: normal;
             // padding: 5px 0;
@@ -203,7 +203,7 @@
 
             @media screen and (min-width: 1700px) {
               padding-right: 15rem;
-              font-size: 2rem;
+              font-size: 1.6rem;
             }
             @media screen and (max-width: 1250px) {
               font-size: 1.3rem;
@@ -337,6 +337,7 @@
                   border: 3px solid black;
                 }
                 img {
+                  display: none;
                   width: 70px;
                   position: absolute;
                   bottom: -20%;
@@ -344,8 +345,6 @@
                   border: 3px solid black;
                   right: -5%;
                   padding: 5px;
-                  // left: 50%;
-                  // transform: translate(-50%, -50%);
 
                   @media screen and (max-width: 1800px) {
                     width: 60px;

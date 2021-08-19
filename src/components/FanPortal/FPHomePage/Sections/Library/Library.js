@@ -3,28 +3,24 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
-// import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper.scss";
 import "./LibraryStyles.scss";
 import env from "react-dotenv";
-SwiperCore.use(Navigation, Pagination);
 
 function Library(props) {
+  //Hooks
   const [albumCovers, setAlbumCovers] = useState("");
   const [albumInfo, setAlbumInfo] = useState(false);
   const [noReleases, setNoReleases] = useState("");
-  // const [hoverInfo, setHoverInfo] = useState("");
-  const token = localStorage.getItem("token");
 
-  const baseURL =
-    env.BACKEND_URL;
-  // const testURL = "https://jsonplaceholder.typicode.com";
+  //Api call variables
+  const token = localStorage.getItem("token");
+  const baseURL = env.BACKEND_URL;
+
   useEffect(() => {
     //Request for Library
     axios({
       method: "get",
-      // url: `${testURL}/users`,
       url: `${baseURL}/library`,
       headers: {
         "x-access-token": token,
@@ -38,10 +34,8 @@ function Library(props) {
       });
 
     const handleLibrarySuccess = (res) => {
-      // let releases = res.data;
-      console.log(res.data.library);
       let libraryReleases = res.data.library;
-      if (libraryReleases.length == 0) {
+      if (libraryReleases.length === 0) {
         setNoReleases(
           <div className="no-releases-msg">
             <h1>It looks like you have no releases yet...</h1>
@@ -60,7 +54,8 @@ function Library(props) {
 
           //Return - what's currently being displayed in the "Your Library" section through Hooks
           return release ? (
-            <figure class="hover-img">
+            //Hover state for release
+            <figure className="hover-img" key={`hover-figure + ${release.id}`}>
               <img
                 src={release.art_url}
                 alt={release.name}
@@ -90,12 +85,14 @@ function Library(props) {
     const handleLibraryFailure = (err) => {
       console.log(err);
     };
-  }, [albumInfo]);
+  }, [albumInfo, baseURL, props.popUpPassed, token]);
 
   //Individual albums/releases are displayed here
   return (
     <Suspense fallback={<ComponentLoading />}>
+      {/* displays when user has releases */}
       {albumCovers}
+      {/* displays when user hasn't purchased any releases */}
       {noReleases}
     </Suspense>
   );
