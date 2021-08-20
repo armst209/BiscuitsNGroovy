@@ -561,6 +561,10 @@
           cursor: auto;
           padding: 0 1rem;
 
+          .welcome-username {
+            font-size: 1.2rem;
+          }
+
           &:hover {
             background: black;
             a {

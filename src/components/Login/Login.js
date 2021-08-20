@@ -65,8 +65,8 @@ function Login(props) {
 
   return props.trigger ? (
     <section id="login">
-      <div className="login-container">
-        <div className="login-wrapper">
+      <div className="login-wrapper">
+        <div className="login-container">
           <div className="login-contents">
             <div
               className="close-btn-login"
@@ -78,16 +78,16 @@ function Login(props) {
               <img src={logo} alt="logo" />
             </div>
             <h2>Sign in to Biscuits n Groovy</h2>
-            <button className="google">
+            {/* <button className="google">
               <i className="fab fa-google"></i> <span>Sign In with Google</span>
             </button>
             <button className="facebook">
               <i className="fab fa-facebook-square"></i>
               <span>Sign In with Facebook</span>
-            </button>
-            <div className="or-fold">
+            </button> */}
+            {/* <div className="or-fold">
               <hr></hr>
-            </div>
+            </div> */}
 
             <form onSubmit={submit}>
               <div className="input-styles">

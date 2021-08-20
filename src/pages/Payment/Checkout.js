@@ -37,7 +37,6 @@ const Message = ({ message }) => (
 export default function CheckoutButton(props) {
   const [message, setMessage] = useState("");
 
-  console.log(props);
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);

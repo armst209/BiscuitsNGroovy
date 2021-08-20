@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 
   -webkit-overflow-scrolling: touch;
   background: rgba(0, 0, 0, 0.9);
@@ -65,8 +66,6 @@
       }
 
       .signup-contents {
-        width: 400px;
-        height: 700px;
         color: white;
         display: flex;
         flex-direction: column;
@@ -77,6 +76,26 @@
         background-color: black;
         font-family: var(--font2);
         position: relative;
+        @media screen and (orientation: portrait) and (max-device-width: 370px) {
+          padding: 1rem 2rem;
+        }
+
+        @media screen and (orientation: portrait) and (max-device-width: 350px) {
+          padding: 1rem;
+          font-size: 0.8rem;
+          h1 {
+            font-size: 0.8rem;
+          }
+        }
+        .already-account {
+          text-align: center;
+          @media screen and (max-width: 370px) {
+            font-size: 0.9rem;
+          }
+          @media screen and (max-width: 300px) {
+            font-size: 0.7rem;
+          }
+        }
 
         .logo {
           width: 40%;
@@ -104,6 +123,9 @@
           color: white;
           font-size: 40px;
           margin-bottom: 10px;
+          @media screen and (max-width: 300px) {
+            font-size: 2rem;
+          }
         }
 
         span {
@@ -141,6 +163,9 @@
             background: black;
             text-transform: unset;
             text-rendering: optimizeLegibility;
+            @media screen and (max-width: 300px) {
+              font-size: 0.7rem;
+            }
             &::placeholder {
               color: white;
             }
@@ -184,7 +209,6 @@
     }
 
     .flow {
-      border: 3px solid var(--color1);
       display: flex;
       flex-direction: row;
       font-family: var(--font1);
@@ -193,22 +217,23 @@
       position: relative;
       height: 70px;
       margin: 5px 0;
-      background: transparent;
-      color: white;
+      background-color: var(--color1);
+      color: black;
       font-size: 20px;
       font-weight: bold;
       box-shadow: var(--shadow-large);
       cursor: pointer;
       width: 100%;
       transition: all 0.2s ease;
+      @media screen and (max-width: 300px) {
+        font-size: 1rem;
+      }
       img {
-        // position: absolute;
         width: 10%;
-        // right: 5%;
       }
       &:hover {
-        background-color: var(--color1);
-        color: black;
+        color: white;
+        background: black;
       }
     }
   }

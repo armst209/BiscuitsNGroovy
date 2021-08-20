@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
 import env from "react-dotenv";
-// import spotlight from "../../assets/images/spotlight2.png";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -69,7 +67,7 @@ const SignUp = (props) => {
               <img src={logo} alt="logo" />
             </div>
             <h2>Sign Up</h2>
-            <p>
+            <p className="already-account">
               Already have an account?
               <span
                 onClick={() => {

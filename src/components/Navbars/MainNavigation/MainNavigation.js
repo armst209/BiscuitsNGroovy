@@ -299,7 +299,7 @@ function MainNavigation(props) {
                 </div>
 
                 <div className="user-info-dropdown-select">
-                  <div>{userName}</div>
+                  <div className="welcome-username">{userName}</div>
                   <div className="login-mobile-btn">
                     <button className="login-btn">{isLoggedInMobile}</button>
                   </div>

@@ -1,89 +1,93 @@
 #login {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999999;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  z-index: 9999999;
-  background: rgba(0, 0, 0, 0.774);
-  @media screen and (orientation: landscape) and (max-device-width: 850px) {
-    top: -500%;
-    height: 5000px;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 830px) and (max-device-height: 400px) {
-    height: 7100px;
-    top: -840%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 750px) and (max-device-height: 550px) {
-    height: 6800px;
-    top: -550%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 740px) and (max-device-height: 420px) {
-    height: 7000px;
-    top: -750%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 735px) and (max-device-height: 450px) {
-    height: 7000px;
-    top: -750%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 670px) and (max-device-height: 400px) {
-    height: 7000px;
-    top: -830%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 660px) {
-    height: 5000px;
-    top: -575%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 600px) and (max-device-height: 350px) {
-    height: 5800px;
-    top: -780%;
-    position: absolute;
-    z-index: 99999999;
-  }
-  @media screen and (orientation: landscape) and (max-device-width: 653px) and (max-device-height: 285px) {
-    height: 6500px;
-    top: -1020%;
-    position: absolute;
-    z-index: 99999999;
-  }
+  align-items: center;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 0, 0, 0.9);
+  // @media screen and (orientation: landscape) and (max-device-width: 850px) {
+  //   top: -500%;
+  //   height: 5000px;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 830px) and (max-device-height: 400px) {
+  //   height: 7100px;
+  //   top: -840%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 750px) and (max-device-height: 550px) {
+  //   height: 6800px;
+  //   top: -550%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 740px) and (max-device-height: 420px) {
+  //   height: 7000px;
+  //   top: -750%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 735px) and (max-device-height: 450px) {
+  //   height: 7000px;
+  //   top: -750%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 670px) and (max-device-height: 400px) {
+  //   height: 7000px;
+  //   top: -830%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 660px) {
+  //   height: 5000px;
+  //   top: -575%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 600px) and (max-device-height: 350px) {
+  //   height: 5800px;
+  //   top: -780%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
+  // @media screen and (orientation: landscape) and (max-device-width: 653px) and (max-device-height: 285px) {
+  //   height: 6500px;
+  //   top: -1020%;
+  //   position: absolute;
+  //   z-index: 99999999;
+  // }
 
-  @media screen and (orientation: portrait) and (max-device-width: 325px) {
-    padding-top: 4rem;
-  }
+  .login-wrapper {
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    border: 5px solid var(--color2);
+    border-radius: 20px;
 
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 70px 20px 100px 20px;
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-    .login-wrapper {
-      overflow-y: scroll;
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
-      &::-webkit-scrollbar {
-        display: none;
+      @media screen and (orientation: portrait) and (max-device-width: 285px) {
+        text-align: center;
       }
-      border: 5px solid var(--color2);
-      border-radius: 20px;
+
       .login-contents {
-        width: 400px;
         color: white;
         display: flex;
         flex-direction: column;
@@ -94,18 +98,16 @@
         background-color: black;
         font-family: var(--font2);
         position: relative;
+        @media screen and (orientation: portrait) and (max-device-width: 370px) {
+          padding: 1rem 2rem;
+        }
 
-        @media screen and (orientation: landscape) and (max-device-width: 850px) {
-          // width: 100vw;
-          // height: inherit;
-          // padding: 10px 20px;
-          // top: 5%;
-        }
-        @media screen and (orientation: portrait) and (max-device-width: 325px) {
-          height: 500px;
-        }
-        @media screen and (orientation: portrait) and (max-device-width: 365px) and (max-device-height: 645px) {
-          height: 550px;
+        @media screen and (orientation: portrait) and (max-device-width: 350px) {
+          padding: 1rem;
+          font-size: 0.8rem;
+          h1 {
+            font-size: 0.8rem;
+          }
         }
 
         .google {
@@ -153,12 +155,12 @@
         }
 
         h2 {
-          color: black;
+          color: white;
           font-size: 1rem;
           text-align: center;
           margin-bottom: 10px;
-          @media screen and (orientation: landscape) and (max-device-width: 800px) {
-            // font-size: 1.5rem;
+          @media screen and (orientation: portrait) and (max-device-width: 350px) {
+            font-size: 0.8rem;
           }
         }
         span {
@@ -278,10 +280,6 @@
           flex-direction: column;
           width: 100%;
 
-          @media screen and (orientation: landscape) and (max-device-width: 800px) {
-            // padding: 10px;
-            // width: 50%;
-          }
           input {
             margin: 5px 0;
             background: var(--color-light);
@@ -298,9 +296,15 @@
             background: black;
             text-transform: unset;
             text-rendering: optimizeLegibility;
+            @media screen and (max-width: 300px) {
+              font-size: 0.7rem;
+            }
 
             &::placeholder {
               color: white;
+              @media screen and (orientation: portrait) and (max-device-width: 350px) {
+                font-size: 0.8rem;
+              }
             }
           }
         }
