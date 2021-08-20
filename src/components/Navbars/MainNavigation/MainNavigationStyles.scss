@@ -526,7 +526,7 @@
 
         /* Galaxy Fold Landscape Portrait */
         @media screen and (orientation: landscape) {
-          overflow-y: scroll;
+          // overflow-y: scroll;
         }
         @media screen and (max-width: 300px) and (max-height: 655px) and (orientation: portrait) {
           width: 100%;

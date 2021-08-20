@@ -76,6 +76,28 @@
     }
     border: 5px solid var(--color2);
     border-radius: 20px;
+    .error-message {
+      font-family: var(--font1);
+      border-radius: 20px;
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border: 3px solid var(--color2);
+      background: black;
+      bottom: 0;
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      padding: 1rem;
+
+      @media screen and (max-width: 600px) {
+        margin: 0 1rem;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 1rem;
+      }
+    }
 
     .login-container {
       display: flex;
@@ -279,6 +301,10 @@
           display: flex;
           flex-direction: column;
           width: 100%;
+          .input-error {
+            transition: 0.2s ease;
+            border: 3px solid red;
+          }
 
           input {
             margin: 5px 0;
@@ -326,15 +352,6 @@
           hr {
             width: 100%;
             height: 1px;
-          }
-        }
-        .login-messages {
-          color: red;
-          text-align: center;
-          font-weight: bold;
-          padding: 5px;
-          @media screen and (orientation: landscape) and (max-device-width: 800px) {
-            // padding: 0;
           }
         }
       }

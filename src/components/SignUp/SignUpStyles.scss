@@ -22,6 +22,21 @@
     }
     border: 5px solid var(--color2);
     border-radius: 20px;
+    .error-message {
+      font-family: var(--font1);
+      border-radius: 20px;
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border: 3px solid var(--color2);
+      background: black;
+      bottom: 0;
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      padding: 1rem;
+    }
     h1 {
       font-family: var(--font1);
       color: black;
@@ -202,13 +217,6 @@
               box-shadow: none;
             }
           }
-        }
-
-        .error-message {
-          color: red;
-          font-weight: bold;
-          text-align: center;
-          padding: 5px;
         }
       }
     }

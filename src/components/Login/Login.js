@@ -13,6 +13,7 @@ function Login(props) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [inputClass, setInputClass] = useState("");
   const [loginStatus, setLoginStatus] = useState(
     <>
       <div>Login</div>
@@ -44,7 +45,12 @@ function Login(props) {
           <img src={login_arrow} alt="arrow" />
         </>
       );
-      setMessage("Username or Password is incorrect. Please try again.");
+      setInputClass("input-error");
+      setMessage(
+        <div className="error-message">
+          Username or Password is incorrect. Please try again.
+        </div>
+      );
     };
 
     const baseURL = env.BACKEND_URL;
@@ -92,6 +98,7 @@ function Login(props) {
             <form onSubmit={submit}>
               <div className="input-styles">
                 <input
+                  className={inputClass}
                   type="text"
                   placeholder="Enter your username"
                   required
@@ -102,6 +109,7 @@ function Login(props) {
                   }}
                 />
                 <input
+                  className={inputClass}
                   type="password"
                   placeholder="Enter your password"
                   required
@@ -132,10 +140,9 @@ function Login(props) {
                 <Link to="">Forgot Password?</Link>
               </div>
             </form>
-
-            <div className="login-messages">{message}</div>
           </div>
         </div>
+        {message}
       </div>
     </section>
   ) : (

@@ -13,6 +13,7 @@ const SignUp = (props) => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [flowLoader, setFlowLoader] = useState("");
+  const [inputClass, setInputClass] = useState("");
 
   const handleSignUp = (res) => {
     const token = res.data.token;
@@ -27,8 +28,11 @@ const SignUp = (props) => {
     //if flow account is not linked throw error
     let currUser = await fcl.currentUser().snapshot();
     if (currUser.addr === null) {
+      setInputClass("input-error-signup");
       setErrorMessage(
-        "You must link your Biscuits n Groovy account with a Flow wallet."
+        <div className="error-message">
+          You must link your Biscuits n Groovy account with a Flow wallet.
+        </div>
       );
       return;
     }
@@ -46,8 +50,12 @@ const SignUp = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        setInputClass("input-error-signup");
         setErrorMessage(
-          "Username or Password has already been taken. Please input different information"
+          <div className="error-message">
+            Username or Password has already been taken. Please input different
+            information
+          </div>
         );
       });
   };
@@ -80,6 +88,7 @@ const SignUp = (props) => {
             </p>
             <form onSubmit={submit}>
               <input
+                className={inputClass}
                 type="email"
                 placeholder="Email"
                 required
@@ -87,12 +96,14 @@ const SignUp = (props) => {
                 onChange={(event) => setEmail(event.target.value)}
               />
               <input
+                className={inputClass}
                 type="text"
                 placeholder="Name"
                 autoComplete="off"
                 onChange={(event) => setName(event.target.value)}
               />
               <input
+                className={inputClass}
                 type="text"
                 placeholder="Username"
                 required
@@ -100,6 +111,7 @@ const SignUp = (props) => {
                 onChange={(event) => setUserName(event.target.value)}
               />
               <input
+                className={inputClass}
                 type="Password"
                 placeholder="Password"
                 required
@@ -111,10 +123,10 @@ const SignUp = (props) => {
             </form>
             <LinkFlowButton flowBtnLoader={setFlowLoader} />
 
-            <div className="error-message">{errorMessage}</div>
             {flowLoader}
           </div>
         </div>
+        {errorMessage}
       </div>
     </section>
   ) : (
