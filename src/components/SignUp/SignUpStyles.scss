@@ -88,6 +88,8 @@
           }
         }
         .already-account {
+          font-family: var(--font2);
+          font-weight: normal;
           text-align: center;
           @media screen and (max-width: 370px) {
             font-size: 0.9rem;
@@ -123,6 +125,8 @@
           color: white;
           font-size: 40px;
           margin-bottom: 10px;
+          font-family: var(--font1);
+          font-weight: normal;
           @media screen and (max-width: 300px) {
             font-size: 2rem;
           }
@@ -147,12 +151,13 @@
           justify-content: center;
           align-items: center;
           width: 100%;
+
           input {
             margin: 5px 0;
             background: var(--color-light);
-            font-family: var(--font2);
             font-size: 1rem;
-            font-weight: 400;
+            font-family: var(--font2);
+            font-weight: normal;
             line-height: inherit;
             width: 100%;
             height: auto;
@@ -217,23 +222,29 @@
       position: relative;
       height: 70px;
       margin: 5px 0;
-      background-color: var(--color1);
-      color: black;
+      background-color: black;
+      color: white;
       font-size: 20px;
-      font-weight: bold;
+      font-weight: normal;
       box-shadow: var(--shadow-large);
       cursor: pointer;
       width: 100%;
       transition: all 0.2s ease;
+      border: 3px solid var(--color1);
       @media screen and (max-width: 300px) {
         font-size: 1rem;
       }
       img {
-        width: 10%;
+        width: 8%;
+        right: 50px;
+        position: absolute;
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
       }
       &:hover {
-        color: white;
-        background: black;
+        color: black;
+        background-color: var(--color1);
       }
     }
   }

@@ -66,7 +66,7 @@ const SignUp = (props) => {
             <div className="logo">
               <img src={logo} alt="logo" />
             </div>
-            <h2>Sign Up</h2>
+            <h2>SIGN UP</h2>
             <p className="already-account">
               Already have an account?
               <span
