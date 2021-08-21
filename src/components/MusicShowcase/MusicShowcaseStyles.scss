@@ -111,6 +111,11 @@
           align-items: center;
           padding: 10px;
           font-family: var(--font1);
+          transition: all 0.2s ease;
+          &:hover {
+            background-color: var(--color2);
+            color: black;
+          }
 
           button {
             border: 3px solid var(--color1);

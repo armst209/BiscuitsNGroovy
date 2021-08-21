@@ -7,6 +7,8 @@ import bucket_hat from "../../assets/images/buckethats.png";
 import disc_img from "../../assets/images/compact-disc-yellow.svg";
 import two_icon from "../../assets/images/hand2_yellow.svg";
 import one_icon from "../../assets/images/hand1_yellow.svg";
+import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
+import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 function About(props) {
   return (
@@ -16,7 +18,19 @@ function About(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <div className="about-title">
-        <h1>ABOUT</h1>
+        <h1>
+          <img
+            className="spotlight-left"
+            src={spotlight_left}
+            alt="spotlight"
+          />
+          <img
+            className="spotlight-right"
+            src={spotlight_right}
+            alt="spotlight"
+          />
+          ABOUT
+        </h1>
       </div>
 
       <div className="about-contents-wrapper">

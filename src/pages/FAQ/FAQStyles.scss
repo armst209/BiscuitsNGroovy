@@ -19,6 +19,23 @@
       width: 100%;
       text-align: center;
       font-size: 3rem;
+      position: relative;
+      @media screen and (max-width: 350px) {
+        font-size: 2rem;
+      }
+
+      .spotlight-left {
+        width: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .spotlight-right {
+        width: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
   }
   hr {
@@ -69,10 +86,10 @@
           list-style: none;
 
           a {
-            text-decoration: none;
+            text-decoration: underline 3px var(--color2);
             color: var(--color1);
-
-            font-weight: bold;
+            font-family: var(--font1);
+            font-weight: normal;
             padding: 0 3px;
           }
         }
@@ -271,8 +288,8 @@
                     }
                     a {
                       color: var(--color1);
-                      text-decoration: none;
                       margin-left: 5px;
+                      text-decoration: underline 3px var(--color2);
 
                       &:visited {
                         color: var(--color1);

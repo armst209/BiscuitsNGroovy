@@ -10,8 +10,11 @@ import favorite_music_icon from "../../assets/images/3rd_icon_record_share.svg";
 import add_icon from "../../assets/images/add2_yellow.svg";
 import record_bullet from "../../assets/images/vinyl_yellow.svg";
 import important from "../../assets/images/speaker_yellow.svg";
-import two_icon from "../../assets/images/hand2_yellow.svg";
-import one_icon from "../../assets/images/hand1_yellow.svg";
+import two_icon from "../../assets/images/connect.svg";
+import one_icon from "../../assets/images/money-bag2_yellow.svg";
+import three_icon from "../../assets/images/3_standout.svg";
+import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
+import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 function Artists(props) {
   const sendToMail = () => {};
@@ -22,7 +25,19 @@ function Artists(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <div className="artists-title">
-        <h1>ARTISTS</h1>
+        <h1>
+          <img
+            className="spotlight-left"
+            src={spotlight_left}
+            alt="spotlight"
+          />
+          <img
+            className="spotlight-right"
+            src={spotlight_right}
+            alt="spotlight"
+          />
+          ARTISTS
+        </h1>
       </div>
       <div className="artists-wrapper">
         <div className="artists-important-msg">
@@ -149,7 +164,7 @@ function Artists(props) {
                   </div>
                   <div className="hiw-bullet">
                     <div className="artists-record-icon">
-                      <img src={record_bullet} alt="record icon" />
+                      <img src={three_icon} alt="record icon" />
                     </div>
                     <div className="bullet-text">
                       <strong>Stand out from the crowd</strong> - Consumers are
@@ -167,18 +182,19 @@ function Artists(props) {
                 {/* <div className="artists-record-icon">
               <img src={record_bullet} alt="record icon" />
             </div> */}
-                <div className="bullet-text">
+                <div className="bullet-text nft-p">
                   We make it easy for you to get in on the action and capture
                   hype for your music. When your release does well, your album
                   art NFTs can increase in value as collectors resell them,
                   giving you a whole new way to earn money.
                 </div>
               </div>
-              <div className="hiw-bullet">
+              <div className="hiw-bullet nft-p">
                 {/* <div className="artists-record-icon">
               <img src={record_bullet} alt="record icon" />
             </div> */}
-                <div className="bullet-text">
+
+                <div className="bullet-text nft-p">
                   We handle the entire technical process so you can spend your
                   time making music, instead of worrying about the blockchain.
                   We also make it easy for your fans to start collecting — all
@@ -189,13 +205,19 @@ function Artists(props) {
                 {/* <div className="artists-record-icon">
               <img src={record_bullet} alt="record icon" />
             </div> */}
-                <div className="bullet-text">
+                <div className="bullet-text nft-p">
                   In fact, everything on BnG is in dollars and common sense,
                   unlike other NFT marketplaces full of confusing crypto charts
                   and auctions. We strive to be the most artist-friendly
                   platform and to keep the spotlight where it should: on you and
                   your music. Learn more about NFTs{" "}
-                  <Link style={{ color: "var(--color1)" }} to="faq#scrollhere">
+                  <Link
+                    style={{
+                      color: "var(--color1)",
+                      fontFamily: "var(--font1)",
+                    }}
+                    to="faq#scrollhere"
+                  >
                     here
                   </Link>{" "}
                   .

@@ -74,11 +74,11 @@ function PurchaseOfMusic(props) {
                     recording or saving the music is prohibited, as stated in
                     our Terms of Service{" "}
                     <a
-                      href="www.bngroovy.com/terms-of-service/subscriber"
+                      href="www.bngroovy.com/privacy-terms-of-use/terms-of-service"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.bngroovy.com/terms-of-service/subscriber
+                      www.bngroovy.com/privacy-terms-of-use/terms-of-service
                     </a>
                   </li>
                 </ul>
@@ -135,11 +135,11 @@ function PurchaseOfMusic(props) {
                   <li>
                     To read our full legal policy regarding NFTs, visit{" "}
                     <a
-                      href="www.bngroovy.com/nft-terms"
+                      href="www.bngroovy.com/privacy-terms-of-use/nft-terms"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.bngroovy.com/nft-terms{" "}
+                      www.bngroovy.com/privacy-terms-of-use/nft-terms
                     </a>
                   </li>
                 </ul>

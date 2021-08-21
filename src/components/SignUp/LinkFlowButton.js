@@ -5,6 +5,7 @@ import link_icon from "../../assets/images/link.svg";
 import "./SignUpStyles.scss";
 import "./LinkFlowButtonStyles.scss";
 import ComponentLoading from "../Loading/ComponentLoading";
+import write from "../../assets/images/write.svg";
 function LinkFlowButton(props) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
@@ -49,7 +50,9 @@ function LinkFlowButton(props) {
   } else {
     return (
       <div>
-        <button type="submit">SIGN UP</button>
+        <button type="submit">
+          SIGN UP <img src={write} alt="signup icon" />
+        </button>
         <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
       </div>
     );

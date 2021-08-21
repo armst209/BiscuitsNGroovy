@@ -25,7 +25,9 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const TermsOfService = lazy(() =>
   import("./pages/TermsOfService/TermsOfService")
 );
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
+const PrivacyPolicy = lazy(() =>
+  import("./pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")
+);
 const PurchaseOfMusic = lazy(() =>
   import("./pages/TermsOfService/Terms/PurchaseOfMusic")
 );

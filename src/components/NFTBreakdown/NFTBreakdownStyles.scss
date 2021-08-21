@@ -81,6 +81,8 @@
         a {
           text-decoration: underline 3px var(--color2);
           color: var(--color1);
+          font-family: var(--font1);
+          font-weight: normal;
 
           &:visited {
             color: var(--color1);

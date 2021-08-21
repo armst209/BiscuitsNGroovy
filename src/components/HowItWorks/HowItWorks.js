@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // import bgImage from "../../assets/images/small-slant.svg";
 import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
-import collect from "../../assets/images/3rd_icon_record_share.svg";
+import collect from "../../assets/images/collectshare.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
@@ -86,15 +86,7 @@ function HowItWorks() {
               <div className="box-content">
                 <div className="icon-headers">
                   <div className="how-icon">
-                    <img
-                      src={collect}
-                      alt="collect-icon"
-                      style={{
-                        width: "55%",
-                        height: "176px",
-                        marginTop: "1.4rem",
-                      }}
-                    />
+                    <img src={collect} alt="collect-icon" />
                   </div>
                   <div className="headers">
                     <h4>COLLECT & SHARE</h4>

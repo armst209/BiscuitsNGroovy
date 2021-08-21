@@ -1,17 +1,21 @@
 import React from "react";
 import "./SubscribeSectionStyles.scss";
-import connect_icon from "../../assets/images/connect.svg";
+import letter_icon from "../../assets/images/letter2_yellow.svg";
 
 function SubscribeSection() {
   return (
     <section id="subscribe">
       <h1>SUBSCRIBE TO OUR NEWSLETTER</h1>
-      <img src={connect_icon} alt="connect icon" />
+      <img src={letter_icon} alt="connect icon" />
 
       <form action="">
-        <label htmlFor="name" />
-        <input type="email" name="name" placeholder="Please enter your email" />
         <label htmlFor="email" />
+        <input
+          type="email"
+          name="email"
+          placeholder="Please enter your email"
+          required
+        />
 
         <button type="submit">Subscribe</button>
       </form>

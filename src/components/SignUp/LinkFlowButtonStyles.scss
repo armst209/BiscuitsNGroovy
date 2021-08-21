@@ -7,14 +7,30 @@ button {
   position: relative;
   height: 70px;
   margin: 5px 0;
-  background: var(--color2);
+  background: var(--color1);
   border: none;
   font-size: 20px;
   font-weight: bold;
-  box-shadow: var(--shadow-large);
+  color: black;
+  font-weight: normal;
   cursor: pointer;
+  border: 3px solid var(--color1);
   width: 100%;
   transition: all 0.2s ease;
+  .signup-icon {
+    position: absolute;
+    right: 10px;
+    width: 5%;
+    @media screen and (max-width: 600px) {
+      width: 7%;
+    }
+    @media screen and (max-width: 400px) {
+      width: 8%;
+    }
+    @media screen and (max-width: 300px) {
+      width: 9%;
+    }
+  }
   img {
     width: 10%;
   }

@@ -17,6 +17,23 @@
       width: 100%;
       text-align: center;
       font-size: 3rem;
+      position: relative;
+      @media screen and (max-width: 350px) {
+        font-size: 2rem;
+      }
+
+      .spotlight-left {
+        width: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .spotlight-right {
+        width: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
   }
   .artists-wrapper {
@@ -68,6 +85,10 @@
         @media screen and (max-width: 1000px) {
           width: 100%;
         }
+        @media screen and (max-width: 450px) {
+          padding: 10px;
+        }
+
         .header-paragraph {
           font-family: var(--font2);
           font-size: 1.5rem;
@@ -83,6 +104,11 @@
           padding: 0.8rem;
           width: 100%;
           font-size: 1.2rem;
+          @media screen and (max-width: 500px) {
+            flex-direction: column;
+            padding: 0;
+          }
+
           .artists-record-icon {
             display: flex;
             justify-content: center;
@@ -91,15 +117,31 @@
             img {
               width: 75px;
             }
+            @media screen and (max-width: 1050px) {
+              margin-right: 1rem;
+            }
+            @media screen and (max-width: 500px) {
+              width: 15%;
+              margin-right: 0;
+              padding: 1rem 0;
+            }
           }
           .bullet-text {
             width: 90%;
             font-family: var(--font2);
+            @media screen and (max-width: 350px) {
+              font-size: 1rem;
+            }
+          }
+          .nft-p {
+            @media screen and (max-width: 500px) {
+              padding-bottom: 1rem;
+            }
           }
         }
 
         a {
-          text-decoration: underline solid var(--color2) 5px;
+          text-decoration: underline solid var(--color2) 3px;
 
           &:visited {
             color: white;
@@ -116,13 +158,15 @@
           padding: 15px 0;
           font-family: var(--font2);
           //   font-weight: bold;
+          @media screen and (max-width: 500px) {
+            // text-align: center;
+          }
         }
       }
 
       h1 {
         font-family: var(--font1);
         color: white;
-
         background-color: transparent;
         padding: 10px;
         display: flex;
@@ -139,6 +183,11 @@
           top: -20%;
           right: 0%;
           position: absolute;
+        }
+        @media screen and (max-width: 500px) {
+          text-align: center;
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
         }
       }
 
@@ -200,7 +249,8 @@
             width: 100%;
           }
           .below-link {
-            text-decoration: underline 5px var(--color2);
+            text-decoration: underline 3px var(--color2);
+            font-family: var(--font1);
             color: var(--color1);
             transition: all 0.2s ease;
             position: relative;
@@ -294,6 +344,9 @@
 
         .text-box {
           height: 500px;
+          @media screen and (max-width: 500px) {
+            height: 300px;
+          }
         }
         button {
           border: 3px solid var(--color1);
@@ -306,6 +359,10 @@
           color: white;
           transition: all 0.2s ease;
           position: relative;
+          &:hover {
+            color: black;
+            background-color: var(--color1);
+          }
         }
       }
     }

@@ -63,11 +63,11 @@ function Subscriber(props) {
                 incorporates BnG’s “Terms Regarding Purchase of Music” located
                 at{" "}
                 <a
-                  href="www.bngroovy.com/terms-of-service/music-purchase-terms"
+                  href="www.bngroovy.com/privacy-terms-of-use/music-purchase-terms"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.bngroovy.com/terms-of-service/music-purchase-terms
+                  www.bngroovy.com/privacy-terms-of-use/music-purchase-terms
                 </a>
               </li>
               <li>

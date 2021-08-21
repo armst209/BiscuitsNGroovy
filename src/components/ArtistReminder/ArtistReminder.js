@@ -23,7 +23,7 @@ function ArtistReminder() {
 
             <p>
               <div className="tired-header">
-                Tired of making pennies from streaming?
+                TIRED OF MAKING PENNIES FROM STREAMING?
               </div>
               We’ll help you earn more money and connect with your top fans.
               Learn more about the benefits of releasing your music on BnG

@@ -425,7 +425,6 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-
             font-family: var(--font1);
             font-size: 18px;
             font-weight: normal;
@@ -438,6 +437,9 @@
             width: auto;
             height: 50px;
             transition: all 0.2s ease;
+            @media screen and (max-width: 1200px) {
+              width: 125px;
+            }
 
             img {
               width: 30px;
@@ -645,16 +647,16 @@
             font-family: var(--font1);
             font-size: 2rem;
             font-weight: normal;
-            // width: 230px;
+            position: relative;
             padding: 10px;
             background: transparent;
-            // border: 5px solid var(--color2);
+            transition: 0.2s ease;
             color: white;
             cursor: pointer;
             @media screen and (orientation: landscape) {
               overflow-y: scroll;
             }
-            transition: 0.2s ease;
+
             a {
               color: white;
               &:hover {

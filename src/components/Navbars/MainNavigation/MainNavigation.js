@@ -5,13 +5,12 @@ import "./MainNavigationStyles.scss";
 import "react-responsive-modal/styles.css";
 import Logout from "../../Logout/Logout";
 import logo from "../../../assets/images/bng_header_test.svg";
-import mobile_logo from "../../../assets/images/bng_test.svg";
+
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
 import login_icon from "../../../assets/images/login_white.svg";
-// import portal_icon from "../../../assets/images/video.svg";
-// import vinyl_logo from "../../../assets/images/compact-disc-yellow.svg";
+import write from "../../../assets/images/write.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
@@ -349,7 +348,14 @@ function MainNavigation(props) {
                       onClick={() => props.showSignUpPopUp(true)}
                     >
                       {/* <div className="signup-btn-container"> */}
-                      <button className="signup-btn">Sign Up</button>
+                      <button className="signup-btn">
+                        Sign Up
+                        <img
+                          src={write}
+                          className="signup-icon"
+                          alt="signup icon"
+                        />
+                      </button>
                       {/* </div> */}
                     </li>
                   </NavLink>

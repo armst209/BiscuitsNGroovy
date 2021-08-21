@@ -10,8 +10,6 @@ function FPHomePage(props) {
   return (
     <section id="fp-homepage">
       {showPopUp}
-      <h1>Your Library</h1>
-
       <div className="library-select">
         {/* Passed prop to close album popup */}
         <Library popUpPassed={setShowPopup} />

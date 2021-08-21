@@ -38,6 +38,13 @@
           }
           strong {
             color: var(--color1);
+            font-family: var(--font1);
+            font-weight: normal;
+          }
+          em {
+            color: var(--color1);
+            font-family: var(--font1);
+            font-weight: normal;
           }
           .rights-nft-alpha-list {
             list-style-type: lower-alpha;
