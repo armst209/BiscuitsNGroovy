@@ -33,6 +33,15 @@ const SocialMedia = () => {
             <i className="fab fa-twitter-square"></i>
           </a>
         </li>
+        <li>
+          <a
+            href="https://discord.com/invite/CCeGre4Y4s"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-discord"></i>
+          </a>
+        </li>
       </ul>
     </div>
   );

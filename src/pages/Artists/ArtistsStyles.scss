@@ -23,6 +23,8 @@
     padding: 0 1rem;
     strong {
       color: var(--color1);
+      font-family: var(--font1);
+      font-weight: normal;
     }
 
     .artists-content-wrapper {
@@ -225,11 +227,11 @@
             }
           }
           .work-with-text {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-family: var(--font2);
             @media screen and (max-width: 600px) {
               padding: 10px;
-              font-size: 1.2rem;
+              font-size: 1rem;
             }
           }
         }

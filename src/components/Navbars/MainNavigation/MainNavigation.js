@@ -182,9 +182,9 @@ function MainNavigation(props) {
                 />
                 {/* <img className="vinyl-logo" src={vinyl_logo} alt="vinyl icon" /> */}
               </Link>
-              <Link className="bng-home-mobile" to="/home">
+              {/* <Link className="bng-home-mobile" to="/home">
                 <img src={mobile_logo} alt="logo" />
-              </Link>
+              </Link> */}
             </div>
 
             {/* Desktop Navigation Links */}

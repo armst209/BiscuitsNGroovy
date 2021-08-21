@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./ArtistReminderStyles.scss";
 import "../Hero/HeroStyles.scss";
 
-import artist_icon from "../../assets/images/karaoke_4796875.svg";
+import artist_icon from "../../assets/images/speaker_yellow.svg";
 
 function ArtistReminder() {
   return (
@@ -11,17 +11,26 @@ function ArtistReminder() {
       <div className="artist-reminder-wrapper">
         <div className="artist-reminder">
           <div className="artist-message">
-            <h1>ATTENTION ARTISTS</h1>
-            <img src={artist_icon} alt="artist icon" />
+            <div className="artist-header">
+              <img src={artist_icon} alt="artist icon" />
+              <h1>ATTENTION ARTISTS</h1>
+              <img
+                className="right-speaker"
+                src={artist_icon}
+                alt="artist icon"
+              />
+            </div>
 
             <p>
-              Tired of making pennies from streaming? <br /> We’ll help you earn
-              more money and connect with your top fans. Learn more about the
-              benefits of releasing your music on BnG
+              <div className="tired-header">
+                Tired of making pennies from streaming?
+              </div>
+              We’ll help you earn more money and connect with your top fans.
+              Learn more about the benefits of releasing your music on BnG
             </p>
 
             <Link to="/artists">
-              <button>Never Miss A Drop</button>
+              <button>For Artists</button>
             </Link>
           </div>
         </div>

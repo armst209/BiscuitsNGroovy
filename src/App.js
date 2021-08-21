@@ -25,6 +25,7 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const TermsOfService = lazy(() =>
   import("./pages/TermsOfService/TermsOfService")
 );
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
 const PurchaseOfMusic = lazy(() =>
   import("./pages/TermsOfService/Terms/PurchaseOfMusic")
 );
@@ -150,11 +151,23 @@ function App() {
               />
             )}
           />
-          <Route exact path="terms/subscriber" component={Subscriber} />
-          {/* Terms of Service Components Render */}
+
+          {/* Terms of Use & Privacy Policy Components Render */}
+
           <Route
             exact={true}
-            path="/terms-of-service/menu"
+            path="/privacy-terms-of-use/privacy-policy"
+            render={(props) => (
+              <PrivacyPolicy
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            exact={true}
+            path="/privacy-terms-of-use/menu"
             render={(props) => (
               <TermsOfService
                 {...props}
@@ -165,7 +178,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/terms-of-service/subscriber"
+            path="/privacy-terms-of-use/terms-of-service/"
             render={(props) => (
               <Subscriber
                 {...props}
@@ -176,7 +189,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/terms-of-service/music-purchase-terms"
+            path="/privacy-terms-of-use/music-purchase-terms"
             render={(props) => (
               <PurchaseOfMusic
                 {...props}
@@ -187,7 +200,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/terms-of-service/nft-terms"
+            path="/privacy-terms-of-use/nft-terms"
             render={(props) => (
               <NFTTerms
                 {...props}

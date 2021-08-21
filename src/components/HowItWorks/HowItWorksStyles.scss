@@ -234,6 +234,9 @@
   @media screen and (max-width: 325px) {
     width: 270px;
   }
+  span {
+    color: var(--color1);
+  }
 
   a {
     color: var(--color1);

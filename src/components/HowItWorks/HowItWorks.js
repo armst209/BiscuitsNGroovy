@@ -117,8 +117,8 @@ function HowItWorks() {
         </div>
       </div>
       <p className="p-info">
-        Get answers and learn more about our eco-friendly NFTs on our{" "}
-        <Link to="/faq">FAQ</Link> page
+        Get answers and learn more about our <span>eco-friendly</span> NFTs on
+        our <Link to="/faq">FAQ</Link> page
       </p>
     </section>
   );

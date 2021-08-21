@@ -5,7 +5,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 400px;
+  height: 500px;
   padding: 0.8rem;
   background: var(--bg-color);
   color: white;
@@ -13,12 +13,15 @@
   background: black;
   border-radius: 0.5rem;
   position: relative;
+  padding: 2rem 1rem;
+  @media screen and (max-width: 1140px) {
+    height: auto;
+  }
   img {
-    width: 70px;
-    position: absolute;
+    width: 100px;
     bottom: 0;
     right: 0;
-    padding: 5px;
+    margin: 0.5rem;
     // left: 50%;
     // transform: translate(-50%, -50%);
   }
@@ -26,8 +29,12 @@
   h1 {
     font-family: var(--font1);
     font-size: 2rem;
+    font-weight: bold;
     text-align: center;
-    @media screen and (max-width: 285px) {
+    @media screen and (max-width: 500px) {
+      font-size: 1.5rem;
+    }
+    @media screen and (max-width: 400px) {
       font-size: 1.3rem;
     }
   }

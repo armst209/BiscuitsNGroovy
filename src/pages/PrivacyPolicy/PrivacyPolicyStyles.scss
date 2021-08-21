@@ -1,0 +1,53 @@
+#privacy-policy {
+  background-color: black;
+  color: white;
+
+  .privacy-policy-wrapper {
+    padding: 8rem 1rem 8rem 1rem;
+
+    .privacy-policy-container {
+      font-family: var(--font2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 7px solid var(--color2);
+      border-radius: 20px;
+      padding: 5rem;
+
+      @media screen and (max-width: 700px) {
+        padding: 2rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 0.8rem;
+      }
+      h1 {
+        text-align: center;
+      }
+
+      ul,
+      ol {
+        li {
+          padding: 0.5rem 0;
+
+          a {
+            color: var(--color1);
+            &:visited {
+              color: var(--color1);
+            }
+          }
+          strong {
+            color: var(--color1);
+          }
+          .rights-nft-alpha-list {
+            list-style-type: lower-alpha;
+            padding-left: 4rem;
+            @media screen and (max-width: 500px) {
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -14,17 +14,22 @@ function TermsList() {
           <div className="list-container">
             <ul>
               <li>
-                <Link to="/terms-of-service/subscriber">Subscriber</Link>
-              </li>
-              <li>
-                <Link to="/terms-of-service/music-purchase-terms">
-                  Music Purchase
+                <Link to="/privacy-terms-of-use/privacy-policy">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-of-service/nft-terms">
-                  Non-Fungible Tokens (NFTs)
+                <Link to="/privacy-terms-of-use/terms-of-service/">
+                  Terms Of Service
                 </Link>
+              </li>
+              <li>
+                <Link to="/privacy-terms-of-use/music-purchase-terms">
+                  Music Purchase Terms
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy-terms-of-use/nft-terms">NFT Terms</Link>
               </li>
             </ul>
           </div>

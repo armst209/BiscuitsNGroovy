@@ -13,7 +13,7 @@ function TermsOfService(props) {
         showSignUpPopUp={props.showSignUp}
       />
       <div className="tos-title">
-        <h1>TERMS OF SERVICE</h1>
+        <h1>PRIVACY POLICY & TERMS OF USE </h1>
       </div>
       <TermsList />
 

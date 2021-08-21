@@ -23,18 +23,14 @@ function Footer() {
             <div className="footer-links">
               <ul>
                 <h4>Company</h4>
-                <Link to="/about">About</Link>
-              </ul>
-
-              <ul>
-                <h4>Communities</h4>
-                <Link to="/artists">Artists</Link>
-              </ul>
-
-              <ul>
-                <h4>Useful Links</h4>
                 <Link to="/home">Home</Link>
+                <Link to="/about">About</Link>
                 <Link to="/faq">FAQ</Link>
+              </ul>
+
+              <ul>
+                <h4>Reach Out</h4>
+                <Link to="/artists">Artists</Link>
                 <a href="mailto:support@bngroovy.com?subject=Support">
                   Support
                 </a>
@@ -57,7 +53,9 @@ function Footer() {
         </p>
       </div>
       <div className="privacy-term-links">
-        <Link to="/terms-of-service/menu">Terms of Service</Link>
+        <Link to="/privacy-terms-of-use/menu">
+          Privacy Policy & Terms of Use
+        </Link>
       </div>
       <div className="copyright">
         <p>© {new Date().getFullYear()} Biscuits & Groovy, LLC </p>

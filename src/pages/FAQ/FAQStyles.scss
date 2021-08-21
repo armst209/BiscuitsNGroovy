@@ -2,6 +2,7 @@
   color: white;
   background-color: black;
   // scroll-padding-top: 10rem;
+
   .faq-title {
     width: 100%;
     padding-top: 8rem;
@@ -26,6 +27,10 @@
   .faq-content {
     background: black;
     padding: 4rem 30px 30px 30px;
+    a {
+      font-family: var(--font1);
+      font-weight: normal;
+    }
     @media (max-width: 1050px) {
       padding: 7rem 1rem 2rem 1rem;
     }
@@ -253,6 +258,8 @@
                   padding: 10px;
                   strong {
                     color: var(--color1);
+                    font-family: var(--font1);
+                    font-weight: normal;
                   }
                   .important-content {
                     width: 100%;
@@ -266,7 +273,7 @@
                       color: var(--color1);
                       text-decoration: none;
                       margin-left: 5px;
-                      font-weight: bolder;
+
                       &:visited {
                         color: var(--color1);
                       }

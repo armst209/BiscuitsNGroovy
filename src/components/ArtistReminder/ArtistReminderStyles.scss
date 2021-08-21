@@ -20,6 +20,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 1140px) {
+      height: auto;
+    }
 
     .artist-reminder {
       display: flex;
@@ -37,19 +40,35 @@
         padding: 2rem 1rem;
         letter-spacing: 0.5px;
         font-weight: normal;
-        img {
-          width: 70px;
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          padding: 5px;
-          // left: 50%;
-          // transform: translate(-50%, -50%);
+
+        .artist-header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 70px;
+            bottom: 0;
+            right: 0;
+            padding: 5px;
+            // left: 50%;
+            // transform: translate(-50%, -50%);
+            @media screen and (max-width: 400px) {
+              display: none;
+            }
+          }
+          .right-speaker {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+          }
         }
 
         h1 {
           font-size: 2rem;
           text-align: center;
+          @media screen and (max-width: 500px) {
+            font-size: 1.5rem;
+          }
           @media screen and (max-width: 285px) {
             font-size: 1.3rem;
           }
@@ -59,7 +78,22 @@
           text-align: center;
           width: 100%;
           padding: 2rem 0 1rem 0;
-          font-size: 0.9rem;
+          font-size: 1.3rem;
+          letter-spacing: 0.01cm;
+          font-weight: bold;
+          font-family: var(--font2);
+          @media screen and (max-width: 400px) {
+            font-size: 1rem;
+          }
+          .tired-header {
+            @media screen and (max-width: 400px) {
+              font-size: 1rem;
+            }
+            font-family: var(--font2);
+            color: var(--color1);
+            font-size: 1.4rem;
+            font-weight: bolder;
+          }
         }
 
         a {
