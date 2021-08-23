@@ -37,6 +37,7 @@ function MainNavigation(props) {
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
+  const [linkUserName, setLinkUserName] = useState("");
   const [rightSpotlight, setRightSpotlight] = useState("");
   const [leftSpotlight, setLeftSpotlight] = useState("");
   const [yellowBg, setYellowBg] = useState("");
@@ -73,7 +74,13 @@ function MainNavigation(props) {
       },
     })
       .then((res) => {
-        setUserName(res.data.user.username);
+        if (token) {
+          setUserName(res.data.user.username);
+          setLinkUserName(res.data.user.username);
+        } else {
+          setUserName("");
+          setLinkUserName("");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -250,8 +257,8 @@ function MainNavigation(props) {
                         <div className="dropdown-content-desktop">
                           <ul>
                             <li className="portal-desktop-link">
-                              <Link className="portal-link" to="/fanportal">
-                                Your Portal
+                              <Link className="portal-link" to="/portal">
+                                {linkUserName + "'s"} Portal
                               </Link>
                             </li>
                             {/* <li>
@@ -309,8 +316,8 @@ function MainNavigation(props) {
                       <div className="dropdown-content-mobile">
                         <ul>
                           <li className="portal">
-                            <Link to="/fanportal">
-                              Your Portal
+                            <Link to="/portal">
+                              Portal
                               {/* <img src={portal_icon} alt="portal icon" /> */}
                             </Link>
                           </li>

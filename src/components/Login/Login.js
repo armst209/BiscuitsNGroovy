@@ -103,6 +103,7 @@ function Login(props) {
                   placeholder="Enter your username"
                   required
                   autoComplete="off"
+                  maxlength="15"
                   onChange={(event) => {
                     setUserName(event.target.value);
                     // setInput(true);
@@ -112,6 +113,7 @@ function Login(props) {
                   className={inputClass}
                   type="password"
                   placeholder="Enter your password"
+                  maxlength="15"
                   required
                   autoComplete="off"
                   onChange={(event) => setPassword(event.target.value)}

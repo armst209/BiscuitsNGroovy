@@ -1,10 +1,25 @@
-import { React } from "react";
+import { React, useState } from "react";
 import "./ReleasePreviewStyles.scss";
 import token_music_icon from "../../assets/images/love-song2.svg";
 import CheckoutButton from "../../pages/Payment/Checkout";
 import { CSSTransition } from "react-transition-group";
 
 function ReleasePreview(props) {
+  const [releaseTrackList, setReleaseTracklist] = useState(
+    <ul>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+      <li>Track #</li>
+    </ul>
+  );
+  console.log(props);
   const token = localStorage.getItem("token");
   const handleClose = () => {
     props.toggleClose();
@@ -18,9 +33,20 @@ function ReleasePreview(props) {
         </div>
         <CSSTransition timeout={100} classNames="release-popup">
           <div className="release-preview-content">
-            <img src={props.albumCover} alt="album cover" />
-            <h1>{props.name}</h1>
-            <div>{props.description}</div>
+            <img
+              className="release-image"
+              src={props.albumCover}
+              alt="album cover"
+            />
+            <div className="release-information">
+              <div className="release-tracklist">{releaseTrackList}</div>
+              <h1>
+                {props.name} - {"releaseTitle"}
+              </h1>
+
+              <div>{props.description}</div>
+            </div>
+
             <div>
               {token ? (
                 <CheckoutButton

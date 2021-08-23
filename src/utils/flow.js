@@ -78,8 +78,6 @@ export async function initAccount() {
       ])
       .then(fcl.decode)
       .then((txId) => {
-        console.log("spinner");
-
         return fcl.tx(txId).onceSealed();
       })
       .catch((err) => {

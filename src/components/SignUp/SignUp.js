@@ -71,9 +71,9 @@ const SignUp = (props) => {
             >
               <div>X</div>
             </div>
-            <div className="logo">
+            {/* <div className="logo">
               <img src={logo} alt="logo" />
-            </div>
+            </div> */}
             <h2>SIGN UP</h2>
             <p className="already-account">
               Already have an account?
@@ -95,17 +95,18 @@ const SignUp = (props) => {
                 autoComplete="off"
                 onChange={(event) => setEmail(event.target.value)}
               />
-              <input
+              {/* <input
                 className={inputClass}
                 type="text"
                 placeholder="Name"
                 autoComplete="off"
                 onChange={(event) => setName(event.target.value)}
-              />
+              /> */}
               <input
                 className={inputClass}
                 type="text"
                 placeholder="Username"
+                maxlength="15"
                 required
                 autoComplete="off"
                 onChange={(event) => setUserName(event.target.value)}
@@ -114,6 +115,7 @@ const SignUp = (props) => {
                 className={inputClass}
                 type="Password"
                 placeholder="Password"
+                maxlength="15"
                 required
                 autoComplete="off"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"

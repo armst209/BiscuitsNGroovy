@@ -25,7 +25,10 @@
     width: 100%;
     text-align: center;
     @media screen and (max-width: 400px) {
-      font-size: 2.2rem;
+      font-size: 2rem;
+    }
+    @media screen and (max-width: 300px) {
+      font-size: 1.5rem;
     }
   }
   .kyc-subtitle {
@@ -36,7 +39,10 @@
     font-size: 1.4rem;
     padding: 0 1rem;
     @media screen and (max-width: 400px) {
-      font-size: 1rem;
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 300px) {
+      font-size: 0.6rem;
     }
   }
   .nft-breakdown-wrapper {

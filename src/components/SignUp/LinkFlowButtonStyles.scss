@@ -49,3 +49,14 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.link-diff-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font2);
+  font-weight: bold;
+  div {
+    text-align: center;
+  }
+}

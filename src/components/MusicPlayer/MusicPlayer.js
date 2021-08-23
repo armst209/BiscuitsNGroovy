@@ -1,50 +1,42 @@
-import { React, useEffect, useState } from "react";
 // import "./MusicPlayerStyles.scss";
 // import ReactJkMusicPlayer from "react-jinke-music-player";
 // import "./PlayerStyles.css";
+import { useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
-import play_btn from "../../assets/images/compact-disc-yellow.svg";
+import "./MusicPlayerStyles.scss";
 
 function MusicPlayer(props) {
   // const [audioLists, setAudioList] = useState([]);
+  // const [playErrorMessage, setPlayErrorMessage] = useState("");
+  console.log(props.trackListArray);
 
-  let trackList = props.songs;
-  console.log(props.albumName);
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
 
-  const handleClickPrevious = () => {
-    setCurrentMusicIndex((prevState) => ({
-      currentMusicIndex:
-        prevState.currentMusicIndex === 0
-          ? trackList.length - 1
-          : prevState.currentMusicIndex - 1,
-    }));
+  const handleClickPrevious = (props) => {
+    setCurrentMusicIndex(currentMusicIndex - 1);
   };
   const handleClickNext = () => {
-    setCurrentMusicIndex((prevState) => ({
-      currentMusicIndex:
-        prevState.currentMusicIndex < trackList.length - 1
-          ? prevState.currentMusicIndex + 1
-          : 0,
-    }));
+    setCurrentMusicIndex(currentMusicIndex + 1);
   };
 
-  // useEffect((props) => {
-  //   let trackListArray = props.songs;
-  //   console.log(trackListArray);
-  //   // let trackList = [];
-  //   // trackListArray.forEach((tracks) => {
-  //   //   trackList.push({
-  //   //     cover: props.albumCover,
-  //   //     name: props.albumName,
-  //   //     musicSrc: tracks,
-  //   //   });
-  //   // });
+  // useEffect(
+  //   (props) => {
+  //     let trackListArray = props.songs;
+  //     console.log(trackListArray);
+  //     let trackList = [];
+  //     trackListArray.forEach((tracks) => {
+  //       trackList.push({
+  //         cover: props.albumCover,
+  //         name: props.albumName,
+  //         musicSrc: tracks,
+  //       });
+  //     });
 
-  //   // setAudioList(trackListListArray);
-  // }, [props.albumCover, props.albumName, props.songs]);
-  // console.log(audioLists[currentMusicIndex].musicSrc);
+  //     // setAudioList(trackListListArray);
+  //   },
+  //   [props.albumCover, props.albumName, props.songs]
+  // );
+
   return (
     <>
       <AudioPlayer
@@ -57,16 +49,26 @@ function MusicPlayer(props) {
           color: "white",
           textAlign: "center",
         }}
-        header={"Now Playing: " + props.albumName}
+        preload="auto"
+        hasDefaultKeyBindings={true}
         autoPlayAfterSrcChange={true}
         showSkipControls={true}
-        src={trackList[currentMusicIndex]}
+        showJumpControls={false}
+        header={"Now Playing: " + props.albumName}
+        src={props.trackListArray[currentMusicIndex]}
         // onPlay={(e) => console.log("onPlay")}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
-        // layout="horizontal"
+        // layout="stacked-reverse"
         // other props here
-        // customIcons={{ play: play_btn }}
+        // onError={setPlayErrorMessage("Could not load music file")}
+        // onPlayError={setPlayErrorMessage("Play error occured")}
+        // defaultCurrentTime="Loading"
+        // defaultDuration="Loading"
+        // customIcons={{
+        //   play: "playBtn",
+        // }}
+        // customAdditionalControls={[]}
       />
 
       {/* <ReactJkMusicPlayer

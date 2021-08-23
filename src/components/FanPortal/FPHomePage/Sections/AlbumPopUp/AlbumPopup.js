@@ -1,9 +1,11 @@
 import { React } from "react";
 import "./AlbumPopupStyles.scss";
-import MusicPlayer from "../../../../MusicPlayer/MusicPlayer";
+import MusicPlayer from "../../../../MusicPlayer/MusicPlayer.js";
+// import MusicPlayerTest from "../../../../MusicPlayer/MusicPlayerTest.tsx";
 import arrow_back from "../../../../../assets/images/arrow-back-yellow.svg";
 
 function AlbumPopup(props) {
+  console.log(props.release);
   const handleClose = () => {
     props.closeAlbumPopup("");
   };
@@ -27,10 +29,11 @@ function AlbumPopup(props) {
       </div>
       <div className="music-player">
         <MusicPlayer
-          songs={props.release.songs}
+          trackListArray={props.release.songs}
           albumName={props.release.name}
           albumCover={props.release.art_url}
         />
+        {/* <MusicPlayerTest albumTrackList={props.release.songs} /> */}
       </div>
     </section>
   );

@@ -34,6 +34,7 @@ function Library(props) {
       });
 
     const handleLibrarySuccess = (res) => {
+      console.log(res.data.library);
       let libraryReleases = res.data.library;
       if (libraryReleases.length === 0) {
         setNoReleases(

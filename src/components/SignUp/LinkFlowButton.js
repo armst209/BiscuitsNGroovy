@@ -43,17 +43,19 @@ function LinkFlowButton(props) {
           onClick={updateInitializedComponent}
         >
           Link Flow Account
-          <img src={link_icon} alt="link icon" />
+          {/* <img src={link_icon} alt="link icon" /> */}
         </button>
       </>
     );
   } else {
     return (
       <div>
-        <button type="submit">
+        <button className="flow" type="submit">
           SIGN UP <img src={write} alt="signup icon" />
         </button>
-        <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
+        <div className="link-diff-account">
+          <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
+        </div>
       </div>
     );
   }

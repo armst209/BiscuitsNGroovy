@@ -1,6 +1,7 @@
 import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
-import React, { Suspense, lazy, useState } from "react";
+import axios from "axios";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
@@ -10,6 +11,7 @@ import Loading from "./components/Loading/Loading";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
 
 //configure flow environment
 config()
@@ -50,6 +52,26 @@ const SuccessfulPurchase = lazy(() =>
 function App() {
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
+  const [urlUserName, setUrlUserName] = useState("");
+  useEffect(() => {
+    // Getting user's information
+    const token = localStorage.getItem("token");
+    const baseURL = env.BACKEND_URL;
+
+    axios({
+      method: "get",
+      url: `${baseURL}/users/me`,
+      headers: {
+        "x-access-token": token,
+      },
+    })
+      .then((res) => {
+        token ? setUrlUserName(res.data.user.username) : setUrlUserName("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [urlUserName]);
 
   return (
     <div className="App">
@@ -66,6 +88,7 @@ function App() {
       />
       <Suspense fallback={<Loading />}>
         <Switch>
+          <Route path="/musicplayer" component={MusicPlayer}></Route>
           <Route
             exact={true}
             path="/home"
@@ -114,9 +137,9 @@ function App() {
             )}
           />
 
-          <Route
+          <ProtectedRoute
             exact={true}
-            path="/fanportal"
+            path="/portal"
             render={(props) => (
               <FanPortalHome
                 {...props}
@@ -127,7 +150,7 @@ function App() {
           />
           <ProtectedRoute
             exact={true}
-            path="/fanportal/profile"
+            path="/portal/profile"
             render={(props) => (
               <FanPortalProfile
                 {...props}
@@ -139,7 +162,7 @@ function App() {
 
           <ProtectedRoute
             exact={true}
-            path="/fanportal/checkout"
+            path="/portal/checkout"
             component={Checkout}
           />
           <ProtectedRoute
@@ -221,7 +244,6 @@ function App() {
               />
             )}
           />
-          {/* Route Testing */}
         </Switch>
       </Suspense>
     </div>
