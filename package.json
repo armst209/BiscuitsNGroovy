@@ -15,6 +15,7 @@
     "axios-progress-bar": "^1.2.0",
     "bootstrap": "^4.6.0",
     "dotenv": "^10.0.0",
+    "framer-motion": "^4.1.17",
     "imagehover.css": "^2.0.0",
     "mdb-react-ui-kit": "^1.0.0-beta7",
     "micromodal": "^0.4.6",

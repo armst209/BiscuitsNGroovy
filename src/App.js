@@ -1,12 +1,15 @@
+import React from "react";
 import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import axios from "axios";
-import React, { Suspense, lazy, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Suspense, lazy, useState, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Loading from "./components/Loading/Loading";
+import Test from "../src/TESTS/FramerTest";
 
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
@@ -24,6 +27,9 @@ const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
+const PasswordRecovery = lazy(() =>
+  import("./pages/PasswordRecovery/PasswordRecoveryMain")
+);
 const TermsOfService = lazy(() =>
   import("./pages/TermsOfService/TermsOfService")
 );
@@ -53,6 +59,7 @@ function App() {
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
   const [urlUserName, setUrlUserName] = useState("");
+
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
@@ -86,8 +93,10 @@ function App() {
         setTrigger={showSignUpPopup}
         showLogIn={showLoginPopup}
       />
+
       <Suspense fallback={<Loading />}>
         <Switch>
+          <Route path="/test" component={Test} />
           <Route path="/musicplayer" component={MusicPlayer}></Route>
           <Route
             exact={true}
@@ -177,6 +186,18 @@ function App() {
             )}
           />
 
+          {/* Password Recovery Routes */}
+          <Route
+            exact={true}
+            path="/password-recovery"
+            render={(props) => (
+              <PasswordRecovery
+                {...props}
+                setTrigger={showLoginPopup}
+                showSignUp={showSignUpPopup}
+              />
+            )}
+          />
           {/* Terms of Use & Privacy Policy Components Render */}
 
           <Route

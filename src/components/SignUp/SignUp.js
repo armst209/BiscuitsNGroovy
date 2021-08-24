@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./SignUpStyles.scss";
 import axios from "axios";
-import logo from "../../assets/images/bng_test.svg";
+import { motion } from "framer-motion";
+// import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
 import env from "react-dotenv";
+import SignUpModal from "./SignUpPopUp/SignUpPopUp";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -14,6 +16,8 @@ const SignUp = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [flowLoader, setFlowLoader] = useState("");
   const [inputClass, setInputClass] = useState("");
+  const [showModal, setShowModal] = useState(true);
+  const [changeStyles, setChangeStyles] = useState("signup-modal");
 
   const handleSignUp = (res) => {
     const token = res.data.token;
@@ -62,11 +66,30 @@ const SignUp = (props) => {
 
   return props.trigger ? (
     <section id="signup">
-      <div className="signup-wrapper">
+      <div
+        onClick={() => {
+          setShowModal(!showModal);
+        }}
+        style={{ color: "white" }}
+      >
+        Open
+      </div>
+      <SignUpModal
+        changeStyles={changeStyles}
+        setChangeStyles={setChangeStyles}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: 0 }}
+        className="signup-wrapper"
+      >
         <div className="signup-container">
           <div className="signup-contents">
             <div
               className="close-btn-signup"
+              exit={{ y: -1000 }}
               onClick={() => props.setTrigger(false)}
             >
               <div>X</div>
@@ -129,7 +152,7 @@ const SignUp = (props) => {
           </div>
         </div>
         {errorMessage}
-      </div>
+      </motion.div>
     </section>
   ) : (
     ""

@@ -6,6 +6,7 @@ import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
 import login_loading from "../../assets/images/pulse_loader_black.svg";
 import env from "react-dotenv";
+import { motion } from "framer-motion";
 // import ComponentLoading from "../Loading/ComponentLoading";
 
 function Login(props) {
@@ -71,7 +72,11 @@ function Login(props) {
 
   return props.trigger ? (
     <section id="login">
-      <div className="login-wrapper">
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: 0 }}
+        className="login-wrapper"
+      >
         <div className="login-container">
           <div className="login-contents">
             <div
@@ -139,13 +144,13 @@ function Login(props) {
                 </span>
               </p>
               <div className="forgot-password">
-                <Link to="">Forgot Password?</Link>
+                <Link to="/password-recovery">Forgot Password?</Link>
               </div>
             </form>
           </div>
         </div>
         {message}
-      </div>
+      </motion.div>
     </section>
   ) : (
     ""
