@@ -5,7 +5,7 @@ import SwiperCore, { Navigation, Pagination, Controller, Thumbs } from "swiper";
 import "swiper/swiper.scss";
 import "./ReleasesCarouselStyles.scss";
 import ComponentLoading from "../Loading/Loading";
-import env from "react-dotenv";
+
 SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
 function ReleasesCarousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);

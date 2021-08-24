@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
-import env from "react-dotenv";
+
 // import ComponentLoading from "../Loading/ComponentLoading";
 
 function LoginTest(props) {

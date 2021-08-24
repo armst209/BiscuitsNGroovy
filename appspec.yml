@@ -24,31 +24,31 @@ os: linux
 #   may cause associated deployments to fail.
 files:
   - source: /appspec-scripts
-    destination: /root/BiscuitsnGroovy/appspec-scripts
+    destination: /root/BiscuitsNGroovy/appspec-scripts
   - source: /build
-    destination: /root/BiscuitsnGroovy/build
+    destination: /root/BiscuitsNGroovy/build
   - source: /node_modules
-    destination: /root/BiscuitsnGroovy/node_modules
+    destination: /root/BiscuitsNGroovy/node_modules
   - source: /public
-    destination: /root/BiscuitsnGroovy/public
+    destination: /root/BiscuitsNGroovy/public
   - source: /src
-    destination: /root/BiscuitsnGroovy/src
+    destination: /root/BiscuitsNGroovy/src
   - source: /tests
-    destination: /root/BiscuitsnGroovy/tests
-  - source: /.env
-    destination: /root/BiscuitsnGroovy/.env
+    destination: /root/BiscuitsNGroovy/tests
+  - source: /.dockerignore
+    destination: /root/BiscuitsNGroovy
   - source: /appspec.yml
-    destination: /root/BiscuitsnGroovy/appspec.yml
+    destination: /root/BiscuitsNGroovy
   - source: /Dockerfile
-    destination: /root/BiscuitsnGroovy/Dockerfile
+    destination: /root/BiscuitsNGroovy
   - source: /package-lock.json
-    destination: /root/BiscuitsnGroovy/package-lock.json
+    destination: /root/BiscuitsNGroovy
   - source: /package.json
-    destination: /root/BiscuitsnGroovy/package.json
+    destination: /root/BiscuitsNGroovy
   - source: /start-server.sh
-    destination: /root/BiscuitsnGroovy/start-server.sh
+    destination: /root/BiscuitsNGroovy
   - source: /stop-server.sh
-    destination: /root/BiscuitsnGroovy/stop-server.sh
+    destination: /root/BiscuitsNGroovy
 
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
@@ -126,7 +126,7 @@ hooks:
 #   in the script specified in "location".
   ApplicationStart:
     - location: appspec-scripts/application_start.sh
-      timeout: 300
+      timeout: 600
       runas: root
 # # During the ValidateService deployment lifecycle event, run the commands 
 # #   in the script specified in "location".

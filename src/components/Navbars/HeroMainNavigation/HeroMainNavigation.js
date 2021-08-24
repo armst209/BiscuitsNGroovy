@@ -11,7 +11,7 @@ import mobile_logo from "../../../assets/images/bng_test.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/arrow-bottom.svg";
 import LoginTest from "../../Login/LoginTest";
-import env from "react-dotenv";
+
 
 function HeroMainNavigation(props) {
   const [xButton, setXButton] = useState(true);
