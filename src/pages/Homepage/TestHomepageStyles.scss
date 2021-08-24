@@ -1,0 +1,36 @@
+// nav {
+//   //   border-bottom: 3px solid green;
+//   position: relative;
+//   background: transparent;
+//   color: white;
+//   height: 70px;
+
+//   ul {
+//     display: flex;
+//   }
+//   z-index: 90;
+// }
+.hidden-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 70px;
+}
+
+.visible-nav {
+  display: flex;
+  height: 70px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  border-bottom: 3px solid var(--color1);
+  background: black;
+  color: white;
+
+  ul {
+    display: flex;
+  }
+}

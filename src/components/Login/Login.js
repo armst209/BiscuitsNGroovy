@@ -7,9 +7,15 @@ import login_arrow from "../../assets/images/login.svg";
 import login_loading from "../../assets/images/pulse_loader_black.svg";
 import env from "react-dotenv";
 import { motion } from "framer-motion";
-// import ComponentLoading from "../Loading/ComponentLoading";
 
-function Login(props, { setShowLoginModal, showLoginModal }) {
+//variants for framer motion
+const loginModalBackground = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+
+//props passed as an object
+function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
   //Hooks
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -70,19 +76,25 @@ function Login(props, { setShowLoginModal, showLoginModal }) {
       });
   };
 
-  return props.trigger ? (
-    <section id="login">
+  return (
+    <motion.section
+      id="login"
+      variants={loginModalBackground}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
       <motion.div
         initial={{ y: -250 }}
         animate={{ y: 0 }}
         className="login-wrapper"
+        exit={{ y: "-100vh" }}
       >
         <div className="login-container">
           <div className="login-contents">
             <div
               className="close-btn-login"
-              onClick={() => props.setTrigger(false)}
-              // onClick={() => setShowLoginModal(!showLoginModal)}
+              onClick={() => showLoginPopup(!loginPopup)}
             >
               <div>X</div>
             </div>
@@ -136,8 +148,8 @@ function Login(props, { setShowLoginModal, showLoginModal }) {
               <p>
                 <span
                   onClick={() => {
-                    props.setTrigger(false);
-                    props.showSignUp(true);
+                    showLoginPopup(!loginPopup);
+                    showSignUpPopup(!signUpPopup);
                   }}
                 >
                   New user?{" "}
@@ -145,16 +157,19 @@ function Login(props, { setShowLoginModal, showLoginModal }) {
                 </span>
               </p>
               <div className="forgot-password">
-                <Link to="/password-recovery">Forgot Password?</Link>
+                <Link
+                  onClick={() => showLoginPopup(false)}
+                  to="/password-recovery"
+                >
+                  Forgot Password?
+                </Link>
               </div>
             </form>
           </div>
         </div>
         {message}
       </motion.div>
-    </section>
-  ) : (
-    ""
+    </motion.section>
   );
 }
 

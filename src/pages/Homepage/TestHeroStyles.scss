@@ -1,0 +1,87 @@
+#hero-test {
+  display: block;
+  background-image: url("../../assets/images/desktop-triangle-half.png");
+  background-color: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  border-bottom: 3px solid var(--color1);
+  @media screen and (max-width: 1140px) {
+    background-image: none;
+  }
+
+  .hero-section-test {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    padding: 50px;
+    color: white;
+    // height: 100vh;
+    position: relative;
+
+    .hero-section-outer-wrapper-test {
+      display: block;
+      .hero-section-inner-wrapper-test {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: 1140px) {
+          flex-direction: column;
+        }
+        .hero-test-text {
+          width: 50%;
+          h1 {
+            color: black;
+            font-family: var(--font1);
+            font-size: 80px;
+            @media screen and (max-width: 1140px) {
+              color: white;
+            }
+          }
+          @media screen and (max-width: 1140px) {
+            width: 100%;
+          }
+        }
+        .hero-test-subtitle {
+          font-family: var(--font2);
+          font-weight: bold;
+          font-size: 1.5rem;
+          color: black;
+        }
+        .hero-test-buttons {
+          display: flex;
+
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: 0.5rem 0;
+
+          button {
+            width: 300px;
+            height: 90px;
+            margin: 0 0.5rem;
+            border-radius: 20px;
+            padding: 0.5rem;
+          }
+          .start-btn {
+            background-color: var(--color2);
+            padding-right: 0.5rem;
+          }
+          .for-artists-btn {
+            padding-left: 0.5rem;
+          }
+        }
+        .hero-test-image {
+          @media screen and (max-width: 1140px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

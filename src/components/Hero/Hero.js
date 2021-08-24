@@ -8,10 +8,6 @@ import headphones from "../../assets/images/808s_&_Heartbreak.png";
 import hero_artist_icon from "../../assets/images/karaoke_black.svg";
 import hero_record_icon from "../../assets/images/vinyl.svg";
 
-// import SoundBarDesktop from "../SoundBars/SoundBarDesktop";
-
-// import BackgroundImage from "../Background/BackgroundImage";
-
 function Hero(props) {
   return (
     <section id="hero">

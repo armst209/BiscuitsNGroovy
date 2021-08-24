@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import question_mark from "../../../assets/images/help_question_yellow.svg";
 import "./SignUpPopUpStyles.scss";
 
 const signUpModalBackground = {
@@ -34,6 +34,7 @@ function SignUpPopUp({
         >
           <motion.div
             // variants={modal}
+            className="signup-popup-wrapper"
             initial={{ opacity: 0, y: "-100vh" }}
             animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
             exit="hidden"
@@ -46,7 +47,7 @@ function SignUpPopUp({
                 setShowModal(!showModal);
               }}
             >
-              Minimize
+              Minimize <img src={question_mark} alt="question icon" />
             </motion.button>
           </motion.div>
         </motion.div>

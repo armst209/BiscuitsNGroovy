@@ -5,7 +5,7 @@ import axios from "axios";
 import { Suspense, lazy, useState, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
-import Login from "./components/Login/TestLogin";
+import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Loading from "./components/Loading/Loading";
 import Test from "../src/TESTS/FramerTest";
@@ -15,6 +15,8 @@ import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
 import { AnimatePresence } from "framer-motion";
+import TestHero from "./pages/Homepage/TestHero";
+import TestHomepage from "./pages/Homepage/TestHomepage";
 
 //configure flow environment
 config()
@@ -102,7 +104,7 @@ function App() {
       </AnimatePresence>
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route path="/test" component={Test} />
+          <Route path="/test" component={TestHomepage} />
           <Route path="/musicplayer" component={MusicPlayer}></Route>
           <Route
             exact={true}

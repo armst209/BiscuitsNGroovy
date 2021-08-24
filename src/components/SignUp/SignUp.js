@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import { motion } from "framer-motion";
-// import logo from "../../assets/images/bng_test.svg";
+import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
 import env from "react-dotenv";
 import SignUpModal from "./SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
 
+//variants for framer motion
 const signUpModalBackground = {
   visible: { opacity: 1 },
   hidden: { opacity: 0 },
 };
+//props passed as an object
 const SignUp = ({
   loginPopup,
   showLoginPopup,
@@ -99,9 +101,9 @@ const SignUp = ({
             <div className="close-btn-signup">
               <div onClick={() => showSignUpPopup(!signUpPopup)}>X</div>
             </div>
-            {/* <div className="logo">
+            <div className="logo">
               <img src={logo} alt="logo" />
-            </div> */}
+            </div>
             <h2>SIGN UP</h2>
             <p className="already-account">
               Already have an account?
@@ -123,13 +125,7 @@ const SignUp = ({
                 autoComplete="off"
                 onChange={(event) => setEmail(event.target.value)}
               />
-              {/* <input
-                className={inputClass}
-                type="text"
-                placeholder="Name"
-                autoComplete="off"
-                onChange={(event) => setName(event.target.value)}
-              /> */}
+
               <input
                 className={inputClass}
                 type="text"
