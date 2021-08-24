@@ -14,19 +14,6 @@ import write from "../../../assets/images/write.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
-//window sizing
-// function useWindowSize() {
-//   const [size, setSize] = useState([0, 0]);
-//   useLayoutEffect(() => {
-//     function updateSize() {
-//       setSize([window.innerWidth, window.innerHeight]);
-//     }
-//     window.addEventListener("resize", updateSize);
-//     updateSize();
-//     return () => window.removeEventListener("resize", updateSize);
-//   }, []);
-//   return size;
-// }
 
 function MainNavigation(props) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
@@ -41,8 +28,6 @@ function MainNavigation(props) {
   const [rightSpotlight, setRightSpotlight] = useState("");
   const [leftSpotlight, setLeftSpotlight] = useState("");
   const [yellowBg, setYellowBg] = useState("");
-  // const [signUpIcon, setSignUpIcon] = useState("Sign Up");
-  // const [width, height] = useWindowSize();
 
   const isAuthenticated = localStorage.getItem("token");
 
@@ -250,6 +235,17 @@ function MainNavigation(props) {
                     {/* <img src={avatar_signin} alt="avatar" /> */}
                   </button>
                 </li>
+                {/* <li>
+                  <AnimatePresence exitBeforeEnter>
+                    Login
+                    {showLoginModal && (
+                      <Login
+                        showLoginModal={showLoginModal}
+                        setShowLoginModal={setShowLoginModal}
+                      />
+                    )}
+                  </AnimatePresence>
+                </li> */}
                 <div>
                   {showDropDown ? (
                     <div>

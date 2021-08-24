@@ -13,10 +13,7 @@ const modal = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { delay: 0.5 },
-  },
-  minimized: {
-    color: "red",
+    transition: { delay: 0.2 },
   },
 };
 function SignUpPopUp({
@@ -26,7 +23,7 @@ function SignUpPopUp({
   setChangeStyles,
 }) {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       {showModal && (
         <motion.div
           id={changeStyles}
@@ -35,17 +32,23 @@ function SignUpPopUp({
           animate="visible"
           exit="hidden"
         >
-          <motion.div variants={modal} exit="hidden">
-            <h1>SHOW SOMETHING</h1>
-          </motion.div>
-          <button
-            onClick={() => {
-              // setChangeStyles("signup-model-minimized");
-              setShowModal(!showModal);
-            }}
+          <motion.div
+            // variants={modal}
+            initial={{ opacity: 0, y: "-100vh" }}
+            animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+            exit="hidden"
           >
-            Minimize
-          </button>
+            <h1>SHOW SOMETHING</h1>
+
+            <motion.button
+              onClick={() => {
+                // setChangeStyles("signup-model-minimized");
+                setShowModal(!showModal);
+              }}
+            >
+              Minimize
+            </motion.button>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

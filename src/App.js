@@ -2,11 +2,10 @@ import React from "react";
 import "./App.css";
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
 import { Suspense, lazy, useState, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
-import Login from "./components/Login/Login";
+import Login from "./components/Login/TestLogin";
 import SignUp from "./components/SignUp/SignUp";
 import Loading from "./components/Loading/Loading";
 import Test from "../src/TESTS/FramerTest";
@@ -15,6 +14,7 @@ import Test from "../src/TESTS/FramerTest";
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
+import { AnimatePresence } from "framer-motion";
 
 //configure flow environment
 config()
@@ -82,18 +82,24 @@ function App() {
 
   return (
     <div className="App">
-      <Login
-        trigger={loginPopup}
-        setTrigger={showLoginPopup}
-        showSignUp={showSignUpPopup}
-      />
-
-      <SignUp
-        trigger={signUpPopup}
-        setTrigger={showSignUpPopup}
-        showLogIn={showLoginPopup}
-      />
-
+      <AnimatePresence exitBeforeEnter>
+        {loginPopup && (
+          <Login
+            loginPopup={loginPopup}
+            showLoginPopup={showLoginPopup}
+            signUpPopup={signUpPopup}
+            showSignUpPopup={showSignUpPopup}
+          />
+        )}
+        {signUpPopup && (
+          <SignUp
+            loginPopup={loginPopup}
+            showLoginPopup={showLoginPopup}
+            signUpPopup={signUpPopup}
+            showSignUpPopup={showSignUpPopup}
+          />
+        )}
+      </AnimatePresence>
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route path="/test" component={Test} />

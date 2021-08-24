@@ -9,7 +9,16 @@ import env from "react-dotenv";
 import SignUpModal from "./SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
 
-const SignUp = (props) => {
+const signUpModalBackground = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+const SignUp = ({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
@@ -65,8 +74,14 @@ const SignUp = (props) => {
       });
   };
 
-  return props.trigger ? (
-    <section id="signup">
+  return (
+    <motion.section
+      id="signup"
+      variants={signUpModalBackground}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
       <SignUpModal
         changeStyles={changeStyles}
         setChangeStyles={setChangeStyles}
@@ -76,16 +91,13 @@ const SignUp = (props) => {
       <motion.div
         initial={{ y: -250 }}
         animate={{ y: 0 }}
+        exit={{ y: "-100vh" }}
         className="signup-wrapper"
       >
         <div className="signup-container">
           <div className="signup-contents">
-            <div
-              className="close-btn-signup"
-              exit={{ y: -1000 }}
-              onClick={() => props.setTrigger(false)}
-            >
-              <div>X</div>
+            <div className="close-btn-signup">
+              <div onClick={() => showSignUpPopup(!signUpPopup)}>X</div>
             </div>
             {/* <div className="logo">
               <img src={logo} alt="logo" />
@@ -95,8 +107,8 @@ const SignUp = (props) => {
               Already have an account?
               <span
                 onClick={() => {
-                  props.setTrigger(false);
-                  props.showLogIn(true);
+                  showSignUpPopup(!signUpPopup);
+                  showLoginPopup(!loginPopup);
                 }}
               >
                 <span className="login-redirect"> Login</span>
@@ -155,9 +167,7 @@ const SignUp = (props) => {
           <img src={question_mark} alt="question mark" width="50px" />
         </motion.div>
       </motion.div>
-    </section>
-  ) : (
-    ""
+    </motion.section>
   );
 };
 
