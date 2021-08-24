@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import "./SignUpStyles.scss";
 import axios from "axios";
-import logo from "../../assets/images/bng_test.svg";
+import { motion } from "framer-motion";
+// import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
 import env from "react-dotenv";
+import SignUpModal from "./SignUpPopUp/SignUpPopUp";
+import question_mark from "../../assets/images/help_question_yellow.svg";
 
-const SignUp = (props) => {
+const signUpModalBackground = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+const SignUp = ({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
@@ -14,6 +26,8 @@ const SignUp = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [flowLoader, setFlowLoader] = useState("");
   const [inputClass, setInputClass] = useState("");
+  const [showModal, setShowModal] = useState(true);
+  const [changeStyles, setChangeStyles] = useState("signup-modal");
 
   const handleSignUp = (res) => {
     const token = res.data.token;
@@ -60,16 +74,30 @@ const SignUp = (props) => {
       });
   };
 
-  return props.trigger ? (
-    <section id="signup">
-      <div className="signup-wrapper">
+  return (
+    <motion.section
+      id="signup"
+      variants={signUpModalBackground}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
+      <SignUpModal
+        changeStyles={changeStyles}
+        setChangeStyles={setChangeStyles}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: 0 }}
+        exit={{ y: "-100vh" }}
+        className="signup-wrapper"
+      >
         <div className="signup-container">
           <div className="signup-contents">
-            <div
-              className="close-btn-signup"
-              onClick={() => props.setTrigger(false)}
-            >
-              <div>X</div>
+            <div className="close-btn-signup">
+              <div onClick={() => showSignUpPopup(!signUpPopup)}>X</div>
             </div>
             {/* <div className="logo">
               <img src={logo} alt="logo" />
@@ -79,8 +107,8 @@ const SignUp = (props) => {
               Already have an account?
               <span
                 onClick={() => {
-                  props.setTrigger(false);
-                  props.showLogIn(true);
+                  showSignUpPopup(!signUpPopup);
+                  showLoginPopup(!loginPopup);
                 }}
               >
                 <span className="login-redirect"> Login</span>
@@ -129,10 +157,17 @@ const SignUp = (props) => {
           </div>
         </div>
         {errorMessage}
-      </div>
-    </section>
-  ) : (
-    ""
+        <motion.div
+          className="help-button"
+          whileHover={{ scale: 1.2 }}
+          onClick={() => {
+            setShowModal(!showModal);
+          }}
+        >
+          <img src={question_mark} alt="question mark" width="50px" />
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
