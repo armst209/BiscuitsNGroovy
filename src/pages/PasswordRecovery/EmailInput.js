@@ -35,7 +35,7 @@ function EmailInput() {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "10rem" }}>
       <form onSubmit={submit}>
         <input
           type="email"

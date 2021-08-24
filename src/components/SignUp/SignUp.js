@@ -7,6 +7,7 @@ import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
 import env from "react-dotenv";
 import SignUpModal from "./SignUpPopUp/SignUpPopUp";
+import question_mark from "../../assets/images/help_question_yellow.svg";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -66,14 +67,6 @@ const SignUp = (props) => {
 
   return props.trigger ? (
     <section id="signup">
-      <div
-        onClick={() => {
-          setShowModal(!showModal);
-        }}
-        style={{ color: "white" }}
-      >
-        Open
-      </div>
       <SignUpModal
         changeStyles={changeStyles}
         setChangeStyles={setChangeStyles}
@@ -152,6 +145,15 @@ const SignUp = (props) => {
           </div>
         </div>
         {errorMessage}
+        <motion.div
+          className="help-button"
+          whileHover={{ scale: 1.2 }}
+          onClick={() => {
+            setShowModal(!showModal);
+          }}
+        >
+          <img src={question_mark} alt="question mark" width="50px" />
+        </motion.div>
       </motion.div>
     </section>
   ) : (

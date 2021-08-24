@@ -22,6 +22,7 @@
     }
     border: 5px solid var(--color2);
     border-radius: 20px;
+    position: relative;
     .error-message {
       font-family: var(--font1);
       border-radius: 20px;
@@ -257,6 +258,32 @@
       &:hover {
         color: black;
         background-color: var(--color1);
+      }
+    }
+    .help-button {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      padding: 5px;
+      &:hover {
+        &::after {
+          content: "More information";
+          color: white;
+          position: absolute;
+          // top: 35%;
+
+          width: 150px;
+          font-family: var(--font1);
+          font-size: 0.8rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background: black;
+          border: 3px solid var(--color2);
+          border-radius: 20px;
+          padding: 0.5rem;
+        }
       }
     }
   }
