@@ -39,16 +39,61 @@ function SignUpPopUp({
             animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
             exit="hidden"
           >
-            <h1>SHOW SOMETHING</h1>
-
-            <motion.button
-              onClick={() => {
-                // setChangeStyles("signup-model-minimized");
-                setShowModal(!showModal);
-              }}
-            >
-              Minimize <img src={question_mark} alt="question icon" />
-            </motion.button>
+            <div className="signup-popup-header">
+              <h1>Create your BnG account in a few easy steps!</h1>
+            </div>
+            <section className="signup-popup-content">
+              <ul>
+                <li>
+                  We integrate with Blocto to seamlessly store your NFT album
+                  art. When you create an account with us, you’ll also be
+                  prompted to create a Blocto account. They’ll be linked
+                  together so you don’t need to remember a separate login.
+                </li>
+                <li>
+                  Blocto is a trusted, user-friendly wallet for crypto assets
+                  (like NFTs). It’s designed to be so intuitive, you won’t even
+                  realize you’re interacting with the blockchain. Learn more
+                  here
+                </li>
+              </ul>
+              <ol>
+                <li>
+                  Enter your email and choose a username & password for your BnG
+                  account. Click <strong>Continue</strong>
+                </li>
+                <li>
+                  A popup will appear asking you to choose a provider. Select{" "}
+                  <strong>Blocto</strong>
+                </li>
+                <li>
+                  Enter your email again in the strong Blocto popup. If you’re
+                  new to Blocto, this will create and link a Blocto account with
+                  your BnG account so you can easily access any NFTs you buy
+                  from us. Click <strong>Register</strong>
+                </li>
+                <li>
+                  Enter the verification code from your email. Next, click
+                  Confirm to link your new Blocto account, and finally click{" "}
+                  <strong>Approve</strong>
+                </li>
+                <li>
+                  Now that your Blocto account is ready, you’ll be taken back to
+                  the BnG sign up window. Double check your information, then
+                  click <strong>Create Account</strong>
+                </li>
+              </ol>
+            </section>
+            <div className="button-container">
+              <motion.button
+                onClick={() => {
+                  // setChangeStyles("signup-model-minimized");
+                  setShowModal(!showModal);
+                }}
+              >
+                Continue <img src={question_mark} alt="question icon" />
+              </motion.button>
+            </div>
           </motion.div>
         </motion.div>
       )}

@@ -12,24 +12,67 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+
   .signup-popup-wrapper {
     background-color: black;
     height: 100vh;
     width: 100vw;
     border: 5px solid var(--color2);
     border-radius: 20px;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    button {
-      background-color: black;
-      color: white;
-      width: auto;
-      border: none;
-      img {
-        margin: 0.2rem;
+    font-family: var(--font2);
+    font-size: 1.5rem;
+    @media screen and (max-width: 400px) {
+      font-size: 1.1rem;
+      padding: 1rem;
+    }
+    .signup-popup-header {
+      border-bottom: 3px solid var(--color1);
+      width: 100%;
+      h1 {
+        font-family: var(--font1);
+        color: white;
+      }
+    }
+    .signup-popup-content {
+      overflow-y: scroll;
+
+      ul {
+        li {
+          margin: 1rem 0;
+          list-style-type: none;
+        }
+      }
+      ol {
+        padding-left: 3rem;
+        strong {
+          color: var(--color1);
+          font-family: var(--font1);
+          font-weight: normal;
+        }
+        li {
+          margin: 1rem 0;
+        }
+      }
+    }
+    .button-container {
+      border-top: 3px solid var(--color1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      button {
+        background-color: black;
+        color: white;
+        width: auto;
+        border: none;
+        img {
+          margin: 0.2rem;
+        }
       }
     }
   }

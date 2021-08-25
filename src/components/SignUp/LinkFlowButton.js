@@ -42,7 +42,7 @@ function LinkFlowButton(props) {
           className="flow-button flow"
           onClick={updateInitializedComponent}
         >
-          Link Flow Account
+          Continue
           {/* <img src={link_icon} alt="link icon" /> */}
         </button>
       </>
@@ -50,8 +50,12 @@ function LinkFlowButton(props) {
   } else {
     return (
       <div>
-        <button className="flow" type="submit">
-          SIGN UP <img src={write} alt="signup icon" />
+        <p>
+          By signing up you agree to our Terms of Service” (see screenshot 67
+          for Blocto example of this”
+        </p>
+        <button className="flow" type="submit" onClick={props.submit}>
+          Create Account <img src={write} alt="signup icon" />
         </button>
         <div className="link-diff-account">
           <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>

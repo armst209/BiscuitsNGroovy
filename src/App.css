@@ -1,15 +1,13 @@
 @font-face {
   font-family: "outer-sans";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-thin";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -28,8 +26,7 @@
   --font2: "outer-sans-thin";
   --color1: #f5ee0d;
   --color2: #25c1a9;
-  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --color-light: #f1f5f9;
   --color-grayish: #dadce0;
   --bg-color: #131921;
@@ -39,8 +36,4 @@
   /* --bg-color: #D3F3EE; */
   /* --bg-color: #040609; */
   --highest-index: 9999999999999;
-}
-
-.App {
-  /* position: relative; */
 }

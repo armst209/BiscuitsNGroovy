@@ -15,11 +15,11 @@
   background: rgba(0, 0, 0, 0.9);
   .signup-wrapper {
     overflow-y: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // -ms-overflow-style: none; /* IE and Edge */
+    // scrollbar-width: none; /* Firefox */
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
     border: 5px solid var(--color2);
     border-radius: 20px;
     position: relative;
