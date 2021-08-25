@@ -8,7 +8,6 @@ import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Loading from "./components/Loading/Loading";
-import Test from "../src/TESTS/FramerTest";
 
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
@@ -24,7 +23,7 @@ config()
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-const Home = lazy(() => import("./pages/Homepage/Homepage"));
+const Home = lazy(() => import("./pages/Homepage/TestHomepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
@@ -112,8 +111,9 @@ function App() {
             render={(props) => (
               <Home
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />
@@ -126,8 +126,10 @@ function App() {
             render={(props) => (
               <About
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />

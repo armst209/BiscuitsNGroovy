@@ -3,6 +3,47 @@
   font-family: var(--font1);
   height: 70px;
   position: fixed;
+  display: none;
+  background: transparent;
+  z-index: 9999;
+  transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+  transition: transform 0.35s, background 0.35s,
+    box-shadow 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+
+  @media screen and (max-width: 1050px) {
+    background-color: var(--color1);
+  }
+  @media screen and (max-width: 768px) {
+    &:hover {
+      background: var(--color1);
+    }
+  }
+
+  .spotlight-top-left {
+    width: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .spotlight-top-right {
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .spotlight-no-display {
+    display: none;
+  }
+}
+
+.homepage-navigation-scrolled {
+  width: 100%;
+  font-family: var(--font1);
+  height: 70px;
+  position: fixed;
+
   background: transparent;
   z-index: 9999;
   transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);

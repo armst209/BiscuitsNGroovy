@@ -4,11 +4,21 @@ import "./TestHeroStyles.scss";
 
 import HiddenNavigation from "../../components/Navbars/HiddenNavigation/HiddenNavigation";
 
-function TestHero() {
+function TestHero({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) {
   return (
     <>
       <section id="hero-test">
-        <HiddenNavigation />
+        <HiddenNavigation
+          loginPopup={loginPopup}
+          signUpPopup={signUpPopup}
+          showLoginPopup={showLoginPopup}
+          showSignUpPopup={showSignUpPopup}
+        />
 
         <div className="hero-section-test">
           <div className="hero-section-outer-wrapper-test">

@@ -11,23 +11,22 @@ import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
 import login_icon from "../../../assets/images/login_white.svg";
 import write from "../../../assets/images/write.svg";
-import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
 
-function HiddenNavigation(props) {
+function HiddenNavigation({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link-hidden");
   const [showDropDown, setShowDropDown] = useState(false);
-  const [scrolledNavClass, setScrolledNavClass] = useState("");
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
   const [linkUserName, setLinkUserName] = useState("");
-  const [rightSpotlight, setRightSpotlight] = useState("");
-  const [leftSpotlight, setLeftSpotlight] = useState("");
-  const [yellowBg, setYellowBg] = useState("");
 
   const isAuthenticated = localStorage.getItem("token");
 
@@ -106,52 +105,26 @@ function HiddenNavigation(props) {
       );
     } else {
       setIsLoggedIn(
-        <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
+        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
           Login
         </NavLink>
       );
 
       setIsLoggedInMobile(
-        <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
+        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
           Login <img src={login_icon} alt="login icon" />
         </NavLink>
       );
     }
-
-    // const abortCont = new AbortController();
-    //Navbar scrolling
-    // const handleScroll = () => {
-    //   const offset = window.scrollY;
-    //   if (offset > 25) {
-    //     setScrolledNavClass("scrolled-navigation");
-    //     setRightSpotlight(
-    //       <img
-    //         className={`spotlight-top-right ${rightSpotlight}`}
-    //         src={spotlight_yellow_right}
-    //         alt="spotlight icon"
-    //       />
-    //     );
-    //     setLeftSpotlight(
-    //       <img
-    //         className="spotlight-top-left"
-    //         src={spotlight_yellow_left}
-    //         alt="spotlight icon"
-    //       />
-    //     );
-    //     setYellowBg("logo-background-yellow");
-    //   } else {
-    //     setScrolledNavClass("");
-    //     setRightSpotlight("");
-    //     setLeftSpotlight("");
-    //     setYellowBg("");
-    //   }
-    // };
-    // window.addEventListener("scroll", handleScroll, {
-    //   signal: abortCont.signal,
-    // });
-
-    // return () => abortCont.abort();
-  }, [isAuthenticated, showDropDown, arrowMove, props, rightSpotlight]);
+  }, [
+    isAuthenticated,
+    showDropDown,
+    arrowMove,
+    loginPopup,
+    signUpPopup,
+    showSignUpPopup,
+    showLoginPopup,
+  ]);
 
   return (
     <div id="scrolled-home-before-hidden">
@@ -159,15 +132,12 @@ function HiddenNavigation(props) {
         Window size: {width} x {height}
       </span> */}
       <header className={`homepage-navigation-hidden`}>
-        {leftSpotlight}
-        {rightSpotlight}
-
         <div className="nav-home-container-hidden">
           <nav className="nav-home-hidden">
             <div className="logo-home-hidden">
               <Link className="bng-home-hidden" to="/home">
                 <img
-                  className={`bng-home-logo-hidden ${yellowBg}`}
+                  className={`bng-home-logo-hidden `}
                   src={logo}
                   alt="logo"
                 />
@@ -228,24 +198,14 @@ function HiddenNavigation(props) {
                 <li className="login-home-link-hidden">{isLoggedIn}</li>
                 <li
                   className={signUpClassName}
-                  onClick={() => props.showSignUpPopUp(true)}
+                  onClick={() => showSignUpPopup(!signUpPopup)}
                 >
                   <button>
                     <div>Sign Up</div>
                     {/* <img src={avatar_signin} alt="avatar" /> */}
                   </button>
                 </li>
-                {/* <li>
-                  <AnimatePresence exitBeforeEnter>
-                    Login
-                    {showLoginModal && (
-                      <Login
-                        showLoginModal={showLoginModal}
-                        setShowLoginModal={setShowLoginModal}
-                      />
-                    )}
-                  </AnimatePresence>
-                </li> */}
+
                 <div>
                   {showDropDown ? (
                     <div>
@@ -350,7 +310,7 @@ function HiddenNavigation(props) {
                     {" "}
                     <li
                       className={`${signUpClassName}`}
-                      onClick={() => props.showSignUpPopUp(true)}
+                      onClick={() => showSignUpPopup(!signUpPopup)}
                     >
                       {/* <div className="signup-btn-container"> */}
                       <button className="signup-btn-hidden">

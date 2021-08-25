@@ -15,12 +15,18 @@ import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
 
-function MainNavigation(props) {
+function MainNavigation({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [showDropDown, setShowDropDown] = useState(false);
   const [scrolledNavClass, setScrolledNavClass] = useState("");
+  const [homePageNav, setHomePageNav] = useState("homepage-navigation");
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
@@ -106,13 +112,13 @@ function MainNavigation(props) {
       );
     } else {
       setIsLoggedIn(
-        <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
+        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
           Login
         </NavLink>
       );
 
       setIsLoggedInMobile(
-        <NavLink Link to="#" onClick={() => props.showLoginPopup(true)}>
+        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
           Login <img src={login_icon} alt="login icon" />
         </NavLink>
       );
@@ -122,7 +128,8 @@ function MainNavigation(props) {
     //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 25) {
+      if (offset > 100) {
+        setHomePageNav("homepage-navigation-scrolled");
         setScrolledNavClass("scrolled-navigation");
         setRightSpotlight(
           <img
@@ -140,6 +147,7 @@ function MainNavigation(props) {
         );
         setYellowBg("logo-background-yellow");
       } else {
+        setHomePageNav("homepage-navigation");
         setScrolledNavClass("");
         setRightSpotlight("");
         setLeftSpotlight("");
@@ -151,14 +159,14 @@ function MainNavigation(props) {
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated, showDropDown, arrowMove, props, rightSpotlight]);
+  }, [isAuthenticated, showDropDown, arrowMove, rightSpotlight]);
 
   return (
     <div id="scrolled-home-before">
       {/* <span>
         Window size: {width} x {height}
       </span> */}
-      <header className={`homepage-navigation ${scrolledNavClass}`}>
+      <header className={`${homePageNav} ${scrolledNavClass}`}>
         {leftSpotlight}
         {rightSpotlight}
 
@@ -228,7 +236,7 @@ function MainNavigation(props) {
                 <li className="login-home-link">{isLoggedIn}</li>
                 <li
                   className={signUpClassName}
-                  onClick={() => props.showSignUpPopUp(true)}
+                  onClick={() => showSignUpPopup(!signUpPopup)}
                 >
                   <button>
                     <div>Sign Up</div>
@@ -348,7 +356,7 @@ function MainNavigation(props) {
                     {" "}
                     <li
                       className={`${signUpClassName}`}
-                      onClick={() => props.showSignUpPopUp(true)}
+                      onClick={() => showSignUpPopup(!signUpPopup)}
                     >
                       {/* <div className="signup-btn-container"> */}
                       <button className="signup-btn">

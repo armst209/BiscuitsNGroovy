@@ -1,9 +1,9 @@
 .homepage-navigation-hidden {
   width: 100%;
-  display: block;
+
   font-family: var(--font1);
   height: 70px;
-  position: relative;
+  position: static;
   background: transparent;
   z-index: var(--highest-index);
   transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
