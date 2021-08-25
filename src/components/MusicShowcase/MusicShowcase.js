@@ -38,7 +38,7 @@ function MusicShowcase(props) {
       //checking whether user has purchased all current releases
       releases.length === 0
         ? setHaveAllReleases(
-            "You have all the releases. (SHOW RELEASE/UPCOMING RELEASE CALENDAR)"
+            "Nothing to see here. Check back soon for our next drop!"
           )
         : setHaveAllReleases(" ");
 

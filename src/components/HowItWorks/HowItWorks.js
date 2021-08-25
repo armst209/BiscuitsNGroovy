@@ -75,7 +75,7 @@ function HowItWorks() {
                     We're not another unlimited subscription. Buy the music you
                     want to hear, and stream with us before it drops anywhere
                     else. Get it while it’s hot, since it’s only only streaming
-                    for a limited time. limited time.
+                    for a limited time.
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ function HowItWorks() {
                     album cover NFT. Stored on the blockchain, these assets let
                     you own a permanent piece of music history and{" "}
                     <em>prove</em> you’re a top fan. Build your library and show
-                    it off! you’re a top fan.
+                    it off!
                   </div>
                 </div>
               </div>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import question_mark from "../../../assets/images/help_question_yellow.svg";
+
 import "./SignUpPopUpStyles.scss";
+import { Scrollbars } from "react-custom-scrollbars";
 
 const signUpModalBackground = {
   visible: { opacity: 1 },
@@ -42,7 +44,8 @@ function SignUpPopUp({
             <div className="signup-popup-header">
               <h1>Create your BnG account in a few easy steps!</h1>
             </div>
-            <section className="signup-popup-content">
+
+            <Scrollbars className="signup-popup-content">
               <ul>
                 <li>
                   We integrate with Blocto to seamlessly store your NFT album
@@ -82,8 +85,9 @@ function SignUpPopUp({
                   the BnG sign up window. Double check your information, then
                   click <strong>Create Account</strong>
                 </li>
-              </ol>
-            </section>
+              </ol>{" "}
+            </Scrollbars>
+
             <div className="button-container">
               <motion.button
                 onClick={() => {

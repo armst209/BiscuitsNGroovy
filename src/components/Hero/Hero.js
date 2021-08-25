@@ -41,7 +41,7 @@ function Hero(props) {
                 <h3>
                   <div>
                     Stream exclusive music from your favorite artists, and
-                    collect NFT album art Available only for a limited time,
+                    collect NFT album art. Available only for a limited time,
                     only for true fans.
                   </div>
                 </h3>
