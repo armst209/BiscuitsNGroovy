@@ -3,7 +3,7 @@
 
   font-family: var(--font1);
   height: 70px;
-  position: static;
+  position: relative;
   background: transparent;
   z-index: var(--highest-index);
   transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
@@ -524,8 +524,9 @@
         height: 100vh;
         top: 70px;
         left: 0;
+
         padding: 0 0 10px 0;
-        position: absolute;
+        position: fixed;
         transform: translateX(-100%);
         transition: transform 0.2s ease-in-out;
         border: none;

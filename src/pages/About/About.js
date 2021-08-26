@@ -14,20 +14,21 @@ import MainNavigation from "../../components/Navbars/MainNavigation/MainNavigati
 function About({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
   return (
     <>
-      <HiddenNavigation
+      <MainNavigation
         loginPopup={loginPopup}
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
       />
+
       <div id="about">
-        <MainNavigation
+        {" "}
+        <HiddenNavigation
           loginPopup={loginPopup}
           signUpPopup={signUpPopup}
           showLoginPopup={showLoginPopup}
           showSignUpPopup={showSignUpPopup}
         />
-
         <div className="about-title">
           <h1>
             <img
@@ -43,7 +44,6 @@ function About({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             ABOUT
           </h1>
         </div>
-
         <div className="about-contents-wrapper">
           <div className="about-header">
             <h1>
