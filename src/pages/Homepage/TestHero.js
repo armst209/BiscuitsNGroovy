@@ -2,7 +2,7 @@ import React from "react";
 import hero_image from "../../assets//images/808s_&_Heartbreak.png";
 import "./TestHeroStyles.scss";
 
-import HiddenNavigation from "../../components/Navbars/HiddenNavigation/HiddenNavigation";
+import HeroHomeNavigation from "../../components/Navbars/HeroHomeNavigation/HeroHomeNavigation";
 
 function TestHero({
   loginPopup,
@@ -13,7 +13,7 @@ function TestHero({
   return (
     <>
       <section id="hero-test">
-        <HiddenNavigation
+        <HeroHomeNavigation
           loginPopup={loginPopup}
           signUpPopup={signUpPopup}
           showLoginPopup={showLoginPopup}

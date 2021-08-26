@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
-// import spotlight from "../../assets/images/spotlight2.png";
+
 import "./ArtistsStyles.scss";
 import Footer from "../../components/Footer/Footer";
 import love_music_icon from "../../assets/images/love-song2.svg";
@@ -15,14 +14,17 @@ import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 
-function Artists(props) {
+function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
   const sendToMail = () => {};
   return (
     <section id="artists">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
       />
       <div className="artists-title">
         <h1>

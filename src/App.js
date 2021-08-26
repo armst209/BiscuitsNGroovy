@@ -113,6 +113,7 @@ function App() {
                 {...props}
                 loginPopup={loginPopup}
                 showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
               />
             )}
@@ -139,8 +140,10 @@ function App() {
             render={(props) => (
               <FAQ
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />
@@ -150,8 +153,10 @@ function App() {
             render={(props) => (
               <Artists
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />

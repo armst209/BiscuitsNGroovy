@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, NavLink } from "react-router-dom";
-import "./HiddenNavigationStyles.scss";
+import "./HeroHomeNavigation.scss";
 import "react-responsive-modal/styles.css";
 import Logout from "../../Logout/Logout";
 import logo from "../../../assets/images/bng_header_test.svg";
@@ -21,7 +21,9 @@ function HiddenNavigation({
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
-  const [signUpClassName, setSignUpClassName] = useState("signup-link-hidden");
+  const [signUpClassName, setSignUpClassName] = useState(
+    "signup-link-herohome"
+  );
   const [showDropDown, setShowDropDown] = useState(false);
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
@@ -77,13 +79,15 @@ function HiddenNavigation({
     };
     //Authentication Check - Displays "Logout" in navigation
     if (isAuthenticated) {
-      setSignUpClassName("signup-no-display-hidden");
+      setSignUpClassName("signup-no-display-herohome");
       setIsLoggedIn(
-        <div className="user-container-hidden">
-          <div className="user-hidden" onClick={viewDropDown}>
+        <div className="user-container-herohome">
+          <div className="user-herohome" onClick={viewDropDown}>
             <img src={user_image} alt="user" />
             <img
-              className={`arrow ${arrowMove ? "arrow-360" : ""}`}
+              className={`arrow-herohome ${
+                arrowMove ? "arrow-360-herohome" : ""
+              }`}
               src={arrow_down}
               alt="arrow"
             />
@@ -92,11 +96,13 @@ function HiddenNavigation({
       );
       //LoggedIn hook for mobile Login button
       setIsLoggedInMobile(
-        <div className="user-container-hidden">
-          <div className="user-hidden" onClick={viewDropDown}>
+        <div className="user-container-herohome">
+          <div className="user-herohome" onClick={viewDropDown}>
             <img src={user_image} alt="user" />
             <img
-              className={`arrow ${arrowMove ? "arrow-360" : ""}`}
+              className={`arrow-herohome ${
+                arrowMove ? "arrow-360-herohome" : ""
+              }`}
               src={arrow_down}
               alt="arrow"
             />
@@ -127,17 +133,17 @@ function HiddenNavigation({
   ]);
 
   return (
-    <div id="scrolled-home-before-hidden">
+    <div id="scrolled-home-before-herohome">
       {/* <span>
         Window size: {width} x {height}
       </span> */}
-      <header className={`homepage-navigation-hidden`}>
-        <div className="nav-home-container-hidden">
-          <nav className="nav-home-hidden">
-            <div className="logo-home-hidden">
-              <Link className="bng-home-hidden" to="/home">
+      <header className={`homepage-navigation-herohome`}>
+        <div className="nav-home-container-herohome">
+          <nav className="nav-home-herohome">
+            <div className="logo-home-herohome">
+              <Link className="bng-home-herohome" to="/home">
                 <img
-                  className={`bng-home-logo-hidden `}
+                  className={`bng-home-logo-herohome `}
                   src={logo}
                   alt="logo"
                 />
@@ -149,8 +155,8 @@ function HiddenNavigation({
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="desktop-navlinks-home-hidden">
-              <ul className="general-links-home-hidden">
+            <div className="desktop-navlinks-home-herohome">
+              <ul className="general-links-home-herohome">
                 <li>
                   <NavLink
                     activeStyle={
@@ -194,8 +200,8 @@ function HiddenNavigation({
                   </NavLink>
                 </li>
               </ul>
-              <ul className="login-links-home-hidden">
-                <li className="login-home-link-hidden">{isLoggedIn}</li>
+              <ul className="login-links-home-herohome">
+                <li className="login-home-link-herohome">{isLoggedIn}</li>
                 <li
                   className={signUpClassName}
                   onClick={() => showSignUpPopup(!signUpPopup)}
@@ -209,11 +215,14 @@ function HiddenNavigation({
                 <div>
                   {showDropDown ? (
                     <div>
-                      <div className="dropdown-content-desktop-container-hidden">
-                        <div className="dropdown-content-desktop-hidden">
+                      <div className="dropdown-content-desktop-container-herohome">
+                        <div className="dropdown-content-desktop-herohome">
                           <ul>
-                            <li className="portal-desktop-link-hidden">
-                              <Link className="portal-link-hidden" to="/portal">
+                            <li className="portal-desktop-link-herohome">
+                              <Link
+                                className="portal-link-herohome"
+                                to="/portal"
+                              >
                                 {linkUserName + "'s"} Portal
                               </Link>
                             </li>
@@ -221,14 +230,14 @@ function HiddenNavigation({
                               <Link to="/fanportal/profile">Account</Link>
                             </li> */}
                             <li
-                              className="logout-button-desktop-hidden"
+                              className="logout-button-desktop-herohome"
                               onClick={handleLogout}
                             >
                               <button>
                                 <p>Logout</p>
 
                                 <img
-                                  className="desktop-logout-icon-hidden"
+                                  className="desktop-logout-icon-herohome"
                                   src={logout_icon}
                                   alt="logout icon"
                                 />
@@ -246,24 +255,24 @@ function HiddenNavigation({
             </div>
 
             {/* Hamburger */}
-            <label htmlFor="check-home-hidden">
-              <input type="checkbox" id="check-home-hidden" />
-              <div className="menu-bars-home-hidden"></div>
-              <div className="menu-bars-home-hidden"></div>
-              <div className="menu-bars-home-hidden"></div>
-              <p className="menu-p-hidden">MENU</p>
-              <p className="close-p-hidden">CLOSE</p>
+            <label htmlFor="check-home-herohome">
+              <input type="checkbox" id="check-home-herohome" />
+              <div className="menu-bars-home-herohome"></div>
+              <div className="menu-bars-home-herohome"></div>
+              <div className="menu-bars-home-herohome"></div>
+              <p className="menu-p-herohome">MENU</p>
+              <p className="close-p-herohome">CLOSE</p>
               {/* Mobile Navigation */}
-              <aside className="mobile-nav-home-hidden">
-                <div className="mobile-nav-header-hidden">
+              <aside className="mobile-nav-home-herohome">
+                <div className="mobile-nav-header-herohome">
                   <img src={logo} alt="logo" />
                   {/* <div onClick={closeNavigation}>X</div> */}
                 </div>
 
-                <div className="user-info-dropdown-select-hidden">
-                  <div className="welcome-username-hidden">{userName}</div>
-                  <div className="login-mobile-btn-hidden">
-                    <button className="login-btn-hidden">
+                <div className="user-info-dropdown-select-herohome">
+                  <div className="welcome-username-herohome">{userName}</div>
+                  <div className="login-mobile-btn-herohome">
+                    <button className="login-btn-herohome">
                       {isLoggedInMobile}
                     </button>
                   </div>
@@ -271,9 +280,9 @@ function HiddenNavigation({
                 <ul>
                   <div>
                     {showDropDown ? (
-                      <div className="dropdown-content-mobile-hidden">
+                      <div className="dropdown-content-mobile-herohome">
                         <ul>
-                          <li className="portal-hidden">
+                          <li className="portal-herohome">
                             <Link to="/portal">
                               Portal
                               {/* <img src={portal_icon} alt="portal icon" /> */}
@@ -283,7 +292,7 @@ function HiddenNavigation({
                             <Link to="/fanportal/profile">Account</Link>
                           </li> */}
                           <li
-                            className="logout-button-mobile-hidden"
+                            className="logout-button-mobile-herohome"
                             onClick={handleLogout}
                           >
                             Logout <img src={logout_icon} alt="logout icon" />
@@ -313,11 +322,11 @@ function HiddenNavigation({
                       onClick={() => showSignUpPopup(!signUpPopup)}
                     >
                       {/* <div className="signup-btn-container"> */}
-                      <button className="signup-btn-hidden">
+                      <button className="signup-btn-herohome">
                         Sign Up
                         <img
                           src={write}
-                          className="signup-icon-hidden"
+                          className="signup-icon-herohome"
                           alt="signup icon"
                         />
                       </button>
