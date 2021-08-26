@@ -20,6 +20,8 @@ function MainNavigation({
   showLoginPopup,
   showSignUpPopup,
   signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
@@ -131,6 +133,7 @@ function MainNavigation({
       if (offset > 100) {
         setHomePageNav("homepage-navigation-scrolled");
         setScrolledNavClass("scrolled-navigation");
+        setShowMobileNav(false);
         setRightSpotlight(
           <img
             className={`spotlight-top-right ${rightSpotlight}`}
@@ -239,21 +242,10 @@ function MainNavigation({
                   onClick={() => showSignUpPopup(!signUpPopup)}
                 >
                   <button>
-                    <div>Sign Up</div>
-                    {/* <img src={avatar_signin} alt="avatar" /> */}
+                    <div>Sign Up</div>=
                   </button>
                 </li>
-                {/* <li>
-                  <AnimatePresence exitBeforeEnter>
-                    Login
-                    {showLoginModal && (
-                      <Login
-                        showLoginModal={showLoginModal}
-                        setShowLoginModal={setShowLoginModal}
-                      />
-                    )}
-                  </AnimatePresence>
-                </li> */}
+
                 <div>
                   {showDropDown ? (
                     <div>
@@ -265,15 +257,13 @@ function MainNavigation({
                                 {linkUserName + "'s"} Portal
                               </Link>
                             </li>
-                            {/* <li>
-                              <Link to="/fanportal/profile">Account</Link>
-                            </li> */}
+                            =
                             <li
                               className="logout-button-desktop"
                               onClick={handleLogout}
                             >
                               <button>
-                                <p>Logout</p>
+                                <div>Logout</div>
 
                                 <img
                                   className="desktop-logout-icon"

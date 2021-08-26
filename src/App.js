@@ -60,6 +60,7 @@ function App() {
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
   const [urlUserName, setUrlUserName] = useState("");
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   useEffect(() => {
     // Getting user's information
@@ -115,6 +116,8 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
+                showMobileNav={showMobileNav}
+                setShowMobileNav={setShowMobileNav}
               />
             )}
           />

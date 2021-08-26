@@ -18,6 +18,8 @@ function HiddenNavigation({
   showLoginPopup,
   showSignUpPopup,
   signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
@@ -136,9 +138,6 @@ function HiddenNavigation({
 
   return (
     <div id="scrolled-home-before-herohome">
-      {/* <span>
-        Window size: {width} x {height}
-      </span> */}
       <header className={`homepage-navigation-herohome`}>
         <div className="nav-home-container-herohome">
           <nav className="nav-home-herohome">
@@ -149,11 +148,7 @@ function HiddenNavigation({
                   src={logo}
                   alt="logo"
                 />
-                {/* <img className="vinyl-logo" src={vinyl_logo} alt="vinyl icon" /> */}
               </Link>
-              {/* <Link className="bng-home-mobile" to="/home">
-                <img src={mobile_logo} alt="logo" />
-              </Link> */}
             </div>
 
             {/* Desktop Navigation Links */}
@@ -210,7 +205,6 @@ function HiddenNavigation({
                 >
                   <button>
                     <div>Sign Up</div>
-                    {/* <img src={avatar_signin} alt="avatar" /> */}
                   </button>
                 </li>
 
@@ -228,15 +222,13 @@ function HiddenNavigation({
                                 {linkUserName + "'s"} Portal
                               </Link>
                             </li>
-                            {/* <li>
-                              <Link to="/fanportal/profile">Account</Link>
-                            </li> */}
+
                             <li
                               className="logout-button-desktop-herohome"
                               onClick={handleLogout}
                             >
                               <button>
-                                <p>Logout</p>
+                                <div>Logout</div>
 
                                 <img
                                   className="desktop-logout-icon-herohome"
@@ -257,91 +249,81 @@ function HiddenNavigation({
             </div>
 
             {/* Hamburger */}
-            <label htmlFor="check-home-herohome">
-              <input type="checkbox" id="check-home-herohome" />
-              <div className="menu-bars-home-herohome"></div>
-              <div className="menu-bars-home-herohome"></div>
-              <div className="menu-bars-home-herohome"></div>
+            <div
+              onClick={() => setShowMobileNav(!showMobileNav)}
+              htmlFor="check-home-herohome"
+            >
               <p className="menu-p-herohome">MENU</p>
               <p className="close-p-herohome">CLOSE</p>
               {/* Mobile Navigation */}
-              <aside className="mobile-nav-home-herohome">
-                <div className="mobile-nav-header-herohome">
-                  <img src={logo} alt="logo" />
-                  {/* <div onClick={closeNavigation}>X</div> */}
-                </div>
-
-                <div className="user-info-dropdown-select-herohome">
-                  <div className="welcome-username-herohome">{userName}</div>
-                  <div className="login-mobile-btn-herohome">
-                    <button className="login-btn-herohome">
-                      {isLoggedInMobile}
-                    </button>
-                  </div>
-                </div>
-                <ul>
-                  <div>
-                    {showDropDown ? (
-                      <div className="dropdown-content-mobile-herohome">
-                        <ul>
-                          <li className="portal-herohome">
-                            <Link to="/portal">
-                              Portal
-                              {/* <img src={portal_icon} alt="portal icon" /> */}
-                            </Link>
-                          </li>
-                          {/* <li>
-                            <Link to="/fanportal/profile">Account</Link>
-                          </li> */}
-                          <li
-                            className="logout-button-mobile-herohome"
-                            onClick={handleLogout}
-                          >
-                            Logout <img src={logout_icon} alt="logout icon" />
-                          </li>
-                        </ul>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                  <NavLink to="/home">
-                    <li>Home</li>
-                  </NavLink>
-                  <NavLink to="/about">
-                    <li>About</li>
-                  </NavLink>
-                  <NavLink to="/faq">
-                    <li>FAQ</li>
-                  </NavLink>
-                  <NavLink to="/artists">
-                    <li>Artists</li>
-                  </NavLink>
-                  <NavLink to="#">
-                    {" "}
-                    <li
-                      className={`${signUpClassName}`}
-                      onClick={() => showSignUpPopup(!signUpPopup)}
-                    >
-                      {/* <div className="signup-btn-container"> */}
-                      <button className="signup-btn-herohome">
-                        Sign Up
-                        <img
-                          src={write}
-                          className="signup-icon"
-                          alt="signup icon"
-                        />
-                      </button>
-                      {/* </div> */}
-                    </li>
-                  </NavLink>
-                </ul>
-              </aside>
-            </label>
+            </div>
           </nav>
         </div>
       </header>
-      <div>{loggedOut ? <Logout /> : ""}</div>
+      <div>{loggedOut ? <Logout /> : ""}</div>{" "}
+      {showMobileNav && (
+        <aside className="mobile-nav-home-herohome">
+          <div className="mobile-nav-header-herohome">
+            <img src={logo} alt="logo" />
+            {/* <div onClick={closeNavigation}>X</div> */}
+          </div>
+
+          <div className="user-info-dropdown-select-herohome">
+            <div className="welcome-username-herohome">{userName}</div>
+            <div className="login-mobile-btn-herohome">
+              <button className="login-btn-herohome">{isLoggedInMobile}</button>
+            </div>
+          </div>
+          <ul>
+            <div>
+              {showDropDown ? (
+                <div className="dropdown-content-mobile-herohome">
+                  <ul>
+                    <li className="portal-herohome">
+                      <Link to="/portal">Portal</Link>
+                    </li>
+
+                    <li
+                      className="logout-button-mobile-herohome"
+                      onClick={handleLogout}
+                    >
+                      Logout <img src={logout_icon} alt="logout icon" />
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+            <NavLink to="/home">
+              <li>Home</li>
+            </NavLink>
+            <NavLink to="/about">
+              <li>About</li>
+            </NavLink>
+            <NavLink to="/faq">
+              <li>FAQ</li>
+            </NavLink>
+            <NavLink to="/artists">
+              <li>Artists</li>
+            </NavLink>
+            <NavLink to="#">
+              {" "}
+              <li
+                className={`${signUpClassName}`}
+                onClick={() => showSignUpPopup(!signUpPopup)}
+              >
+                {/* <div className="signup-btn-container"> */}
+                <button className="signup-btn-herohome">
+                  Sign Up
+                  <img src={write} className="signup-icon" alt="signup icon" />
+                </button>
+                {/* </div> */}
+              </li>
+            </NavLink>
+          </ul>
+        </aside>
+      )}
     </div>
   );
 }

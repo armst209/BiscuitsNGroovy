@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
+import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Footer from "../../components/Footer/Footer";
 import "./TermsOfServiceStyles.scss";
 import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
@@ -7,12 +7,19 @@ import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.
 
 import TermsList from "./TermsList";
 
-function TermsOfService(props) {
+function TermsOfService({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) {
   return (
     <section id="terms-of-service">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
       />
       <div className="tos-title">
         <h1>

@@ -19,7 +19,7 @@
     width: 100vw;
     border: 5px solid var(--color2);
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1rem 1rem 0rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,13 +33,38 @@
     .signup-popup-header {
       border-bottom: 3px solid var(--color1);
       width: 100%;
+      font-weight: normal;
+      padding-bottom: 0.2rem;
       h1 {
         font-family: var(--font1);
         color: white;
+        @media screen and (max-width: 1050px) {
+          text-align: center;
+          font-size: 1.8rem;
+        }
+        @media screen and (max-width: 800px) {
+          text-align: center;
+          font-size: 1.5rem;
+        }
+        @media screen and (max-width: 400px) {
+          font-size: 1.3rem;
+        }
       }
     }
     .signup-popup-content {
       overflow-y: scroll;
+      @media screen and (max-width: 800px) {
+        font-size: 1.1rem;
+      }
+      @media screen and (max-width: 600px) {
+        font-size: 1rem;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 0.8rem;
+      }
+      @media screen and (max-width: 325px) {
+        font-size: 0.7rem;
+      }
 
       ul {
         li {

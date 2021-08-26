@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import question_mark from "../../../assets/images/help_question_yellow.svg";
+import next_arrow from "../../../assets/images/next-arrow-yellow.svg";
 
 import "./SignUpPopUpStyles.scss";
 import { Scrollbars } from "react-custom-scrollbars";
@@ -95,7 +95,7 @@ function SignUpPopUp({
                   setShowModal(!showModal);
                 }}
               >
-                Continue <img src={question_mark} alt="question icon" />
+                Continue <img src={next_arrow} alt="next arrow" />
               </motion.button>
             </div>
           </motion.div>

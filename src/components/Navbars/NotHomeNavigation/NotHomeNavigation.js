@@ -252,7 +252,7 @@ function MainNavigation({
                               onClick={handleLogout}
                             >
                               <button>
-                                <p>Logout</p>
+                                <div>Logout</div>
 
                                 <img
                                   className="desktop-logout-icon-nothome"

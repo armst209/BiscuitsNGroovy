@@ -146,10 +146,6 @@ const SignUp = ({
                 title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <p>
-                By signing up you agree to our Terms of Service” (see screenshot
-                67 for Blocto example of this”
-              </p>
             </form>
             <LinkFlowButton submit={submit} flowBtnLoader={setFlowLoader} />
 

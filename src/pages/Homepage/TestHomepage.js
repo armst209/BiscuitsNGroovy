@@ -16,6 +16,8 @@ function TestHomepage({
   showLoginPopup,
   showSignUpPopup,
   signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
 }) {
   return (
     <>
@@ -24,12 +26,16 @@ function TestHomepage({
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
       />
       <TestHero
         loginPopup={loginPopup}
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
       />
       <HowItWorks />
       <MusicShowcase />

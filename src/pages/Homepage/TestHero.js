@@ -9,6 +9,8 @@ function TestHero({
   showLoginPopup,
   showSignUpPopup,
   signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
 }) {
   return (
     <>
@@ -18,6 +20,8 @@ function TestHero({
           signUpPopup={signUpPopup}
           showLoginPopup={showLoginPopup}
           showSignUpPopup={showSignUpPopup}
+          setShowMobileNav={setShowMobileNav}
+          showMobileNav={showMobileNav}
         />
 
         <div className="hero-section-test">
