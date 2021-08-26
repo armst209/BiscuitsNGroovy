@@ -23,7 +23,7 @@ function MainNavigation({
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
-  const [signUpClassName, setSignUpClassName] = useState("signup-link-nothome");
+  const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [showDropDown, setShowDropDown] = useState(false);
   const [scrolledNavClass, setScrolledNavClass] = useState("");
   const [loggedOut, setLoggedOut] = useState(false);
@@ -121,9 +121,13 @@ function MainNavigation({
       );
 
       setIsLoggedInMobile(
-        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
-          Login <img src={login_icon} alt="login icon" />
-        </NavLink>
+        <div
+          className="login-btn-container-nothome"
+          onClick={() => showLoginPopup(!loginPopup)}
+        >
+          <div>Login</div>
+          <img src={login_icon} alt="login icon" />
+        </div>
       );
     }
 
@@ -335,12 +339,11 @@ function MainNavigation({
                       className={`${signUpClassName}`}
                       onClick={() => showSignUpPopup(!signUpPopup)}
                     >
-                      {/* <div className="signup-btn-container"> */}
                       <button className="signup-btn-nothome">
                         Sign Up
                         <img
                           src={write}
-                          className="signup-icon-nothome"
+                          className="signup-icon"
                           alt="signup icon"
                         />
                       </button>

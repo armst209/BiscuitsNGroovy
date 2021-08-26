@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbars/MainNavigation/MainNavigation";
+import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
 
@@ -16,7 +16,7 @@ import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
 //useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
 
-function FAQ(props) {
+function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
   const [question1, setQuestion1] = useState(false);
   const [question2, setQuestion2] = useState(false);
   const [question3, setQuestion3] = useState(false);
@@ -40,9 +40,11 @@ function FAQ(props) {
 
   return (
     <section id="faq">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
       />
       <div className="faq-title">
         <h1>

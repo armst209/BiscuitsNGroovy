@@ -413,7 +413,7 @@
           cursor: pointer;
         }
 
-        .signup-link-nothome {
+        .signup-link {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -592,6 +592,13 @@
               font-weight: normal;
               background: none;
               border: none;
+              color: white;
+              .login-btn-container-nothome {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+              }
 
               a {
                 text-decoration: none;

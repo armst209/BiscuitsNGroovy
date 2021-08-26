@@ -1,21 +1,20 @@
 // File: ./src/auth-cluster.js
 
-import React, {useState, useEffect} from "react"
-import * as fcl from "@onflow/fcl"
-import {accountIsInitialized} from "../../utils/flow"
+import React, { useState, useEffect } from "react";
+import * as fcl from "@onflow/fcl";
+import { accountIsInitialized } from "../../utils/flow";
 
 export function AuthCluster() {
-  const [user, setUser] = useState({loggedIn: null})
-  useEffect(() => fcl.currentUser().subscribe(setUser), [])
+  const [user, setUser] = useState({ loggedIn: null });
+  useEffect(() => fcl.currentUser().subscribe(setUser), []);
 
-  function setupAccount(){
+  function setupAccount() {
     const txId = await fcl
       .send([
         // Transactions use fcl.transaction instead of fcl.script
         // Their syntax is a little different too
         fcl.transaction`
           import BnGNFTContract from 0xProfile //todo
-
           transaction {
               prepare(acct: AuthAccount) {
           
@@ -32,8 +31,8 @@ export function AuthCluster() {
         fcl.authorizations([fcl.authz]), // current user will be first AuthAccount
         fcl.limit(1000), // set the compute limit
       ])
-      .then(fcl.decode)
-      fcl.tx(txId).onceSealed()
+      .then(fcl.decode);
+    fcl.tx(txId).onceSealed();
   }
 
   if (user.loggedIn) {
@@ -42,13 +41,13 @@ export function AuthCluster() {
         <span>{user?.addr ?? "No Address"}</span>
         <button onClick={fcl.unauthenticate}>Log Out</button>
       </div>
-    )
+    );
   } else {
     return (
       <div>
         <button onClick={fcl.logIn}>Log In</button>
         <button onClick={fcl.signUp}>Sign Up</button>
       </div>
-    )
+    );
   }
 }

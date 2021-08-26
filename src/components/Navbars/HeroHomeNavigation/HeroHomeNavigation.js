@@ -21,9 +21,7 @@ function HiddenNavigation({
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
-  const [signUpClassName, setSignUpClassName] = useState(
-    "signup-link-herohome"
-  );
+  const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [showDropDown, setShowDropDown] = useState(false);
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
@@ -117,9 +115,13 @@ function HiddenNavigation({
       );
 
       setIsLoggedInMobile(
-        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
-          Login <img src={login_icon} alt="login icon" />
-        </NavLink>
+        <div
+          className="login-btn-container-herohome"
+          onClick={() => showLoginPopup(!loginPopup)}
+        >
+          <div>Login</div>
+          <img src={login_icon} alt="login icon" />
+        </div>
       );
     }
   }, [
@@ -326,7 +328,7 @@ function HiddenNavigation({
                         Sign Up
                         <img
                           src={write}
-                          className="signup-icon-herohome"
+                          className="signup-icon"
                           alt="signup icon"
                         />
                       </button>

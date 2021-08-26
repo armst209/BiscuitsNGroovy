@@ -412,7 +412,7 @@
           cursor: pointer;
         }
 
-        .signup-link-herohome {
+        .signup-link {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -593,6 +593,13 @@
               font-weight: normal;
               background: none;
               border: none;
+              color: white;
+              .login-btn-container-herohome {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+              }
 
               a {
                 text-decoration: none;
