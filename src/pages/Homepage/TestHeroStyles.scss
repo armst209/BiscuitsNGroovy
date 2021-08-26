@@ -7,9 +7,14 @@
   background-position: center;
   background-color: black;
   border-bottom: 3px solid var(--color1);
+  position: relative;
 
   @media screen and (max-width: 1140px) {
     background-image: none;
+  }
+  .hero-nav-spacer {
+    height: 70px;
+    width: 100px;
   }
 
   .hero-section-test {
@@ -32,9 +37,7 @@
 
     .hero-section-outer-wrapper-test {
       display: block;
-      // border: 3px solid red;
-      // padding: 90px 0;
-      // padding: 2rem 0;
+
       .hero-content-middle-wrapper-test {
         display: flex;
         justify-content: center;
@@ -57,7 +60,7 @@
             }
             h1 {
               color: black;
-              font-family: var(--font1);
+              font-family: var(--font3);
               letter-spacing: 0.03cm;
               line-height: 6rem;
               margin-bottom: 1rem;
@@ -121,6 +124,13 @@
               margin: 0;
             }
 
+            a {
+              text-decoration: none;
+              &:visited {
+                color: black;
+              }
+            }
+
             button {
               width: 300px;
               height: 100px;
@@ -156,5 +166,11 @@
         }
       }
     }
+  }
+  .hero-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1100px;
   }
 }

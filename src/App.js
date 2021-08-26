@@ -31,6 +31,9 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const PasswordRecovery = lazy(() =>
   import("./pages/PasswordRecovery/PasswordRecoveryMain")
 );
+const SuccessfulSignUp = lazy(() =>
+  import("./pages/SuccessfulSignUp/SuccessfulSignUp")
+);
 const TermsOfService = lazy(() =>
   import("./pages/TermsOfService/TermsOfService")
 );
@@ -189,21 +192,35 @@ function App() {
 
           <ProtectedRoute
             exact={true}
-            path="/portal/checkout"
-            component={Checkout}
-          />
-          <ProtectedRoute
-            exact={true}
             path="/purchase-success"
             render={(props) => (
               <SuccessfulPurchase
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />
-
+          <ProtectedRoute
+            exact={true}
+            path="/account-creation-success"
+            render={(props) => (
+              <SuccessfulSignUp
+                {...props}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+              />
+            )}
+          />
+          <ProtectedRoute
+            exact={true}
+            path="/portal/checkout"
+            component={Checkout}
+          />
           {/* Password Recovery Routes */}
           <Route
             exact={true}

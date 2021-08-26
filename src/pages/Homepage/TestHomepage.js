@@ -3,7 +3,7 @@ import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
 import Footer from "../../components/Footer/Footer";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
-import MainNavigation from "../../components/Navbars/MainNavigation/MainNavigation";
+import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import TestHero from "./TestHero";
@@ -21,7 +21,7 @@ function TestHomepage({
 }) {
   return (
     <>
-      <MainNavigation
+      <NotHomeNavigation
         loginPopup={loginPopup}
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}

@@ -1,28 +1,13 @@
 import React from "react";
-import hero_image from "../../assets//images/808s_&_Heartbreak.png";
+import { Link } from "react-router-dom";
+import hero_image from "../../assets/images/Dani1.png";
 import "./TestHeroStyles.scss";
 
-import HeroHomeNavigation from "../../components/Navbars/HeroHomeNavigation/HeroHomeNavigation";
-
-function TestHero({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-  setShowMobileNav,
-  showMobileNav,
-}) {
+function TestHero() {
   return (
     <>
       <section id="hero-test">
-        <HeroHomeNavigation
-          loginPopup={loginPopup}
-          signUpPopup={signUpPopup}
-          showLoginPopup={showLoginPopup}
-          showSignUpPopup={showSignUpPopup}
-          setShowMobileNav={setShowMobileNav}
-          showMobileNav={showMobileNav}
-        />
+        <div className="hero-nav-spacer"></div>
 
         <div className="hero-section-test">
           <div className="hero-section-outer-wrapper-test">
@@ -42,17 +27,24 @@ function TestHero({
                     only for true fans.
                   </div>
                   <div className="hero-test-buttons">
-                    <button className="start-btn">Start Your Collection</button>
-                    <button className="for-artists-btn">For Artists</button>
+                    <Link to="#music-showcase">
+                      <button className="start-btn">
+                        Start Your Collection
+                      </button>
+                    </Link>
+                    <Link to="/artists">
+                      <button className="for-artists-btn">For Artists</button>
+                    </Link>
                   </div>
                 </section>
                 <section className="hero-test-image">
-                  <img src={hero_image} alt="hero" />
+                  {/* <img src={hero_image} alt="hero" /> */}
                 </section>
               </div>
             </div>
           </div>
         </div>
+        <img className="hero-image" src={hero_image} alt="dani1" />
       </section>
     </>
   );

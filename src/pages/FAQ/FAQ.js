@@ -621,7 +621,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                           they would make it big.{" "}
                           <strong>
                             The best part? The artist benefits too
-                          </strong>{" "}
+                          </strong>
                           , since they earn 5% on every resale of their NFTs.
                         </div>
                       </div>

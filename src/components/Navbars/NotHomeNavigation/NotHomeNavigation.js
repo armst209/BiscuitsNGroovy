@@ -243,7 +243,7 @@ function MainNavigation({
                                 className="portal-link-nothome"
                                 to="/portal"
                               >
-                                {linkUserName + "'s"} Portal
+                                {linkUserName + "'s"} Collection
                               </Link>
                             </li>
 
@@ -301,14 +301,9 @@ function MainNavigation({
                       <div className="dropdown-content-mobile-nothome">
                         <ul>
                           <li className="portal-nothome">
-                            <Link to="/portal">
-                              Portal
-                              {/* <img src={portal_icon} alt="portal icon" /> */}
-                            </Link>
+                            <Link to="/portal">Collection</Link>
                           </li>
-                          {/* <li>
-                            <Link to="/fanportal/profile">Account</Link>
-                          </li> */}
+
                           <li
                             className="logout-button-mobile-nothome"
                             onClick={handleLogout}

@@ -4,14 +4,18 @@ import { withRouter } from "react-router";
 import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
 import "./FanPortalStyles.scss";
 import Footer from "../../../../components/Footer/Footer";
-import Navbar from "../../../../components/Navbars/MainNavigation/MainNavigation";
+import NotHomeNavigation from "../../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
 
-function FanPortal(props) {
+function FanPortal({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) {
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger
-  //Props are passing down the boolean albumDetails to AlbumPreview
 
   const [showAlbumDetails] = useState(false);
   const [portalUserName, setPortalUserName] = useState("YOUR");
@@ -37,9 +41,11 @@ function FanPortal(props) {
 
   return (
     <section id="fan-portal">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
       />
       <div className="portal-title">
         <h1>
@@ -54,7 +60,7 @@ function FanPortal(props) {
             alt="spotlight"
           />
           {/* adds user's username to title text */}
-          {portalUserName}'s PORTAL
+          {portalUserName}'s Collection
         </h1>
       </div>
       <FPHomepage setTrigger={showAlbumDetails} />

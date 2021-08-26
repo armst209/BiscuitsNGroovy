@@ -105,7 +105,7 @@ function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                   <div className="bullet-text">
                     <strong>Choose</strong> - You choose the drop date for your
                     release, how much to charge, and how long it’s available.
-                    Unlike on other platforms, with BnG you’re in control
+                    Unlike on other platforms, with BnG you’re in control.
                   </div>
                 </div>
                 <div className="hiw-bullet">
