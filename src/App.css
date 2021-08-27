@@ -1,22 +1,20 @@
 @font-face {
   font-family: "outer-sans";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-thin";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "colombo-sans";
-  src: url("./assets/fonts/Colombo-Sans/Web-Fonts/Colombo\ Sans\ Font.woff")
-    format("woff");
+  src: url("./assets/fonts/Colombo-Sans/Web-Fonts/Colombo\ Sans\ Font.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -29,22 +27,16 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
-  /* everything black */
-  /* background-color: black; */
   --font1: "outer-sans";
   --font2: "outer-sans-thin";
   --font3: "colombo-sans";
+  --small-text-weight: 700;
   --color1: #f5ee0d;
   --color2: #25c1a9;
-  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --color-light: #f1f5f9;
   --color-grayish: #dadce0;
   --bg-color: #131921;
   --footer-gray: #919496;
-  --cta-color: rgb(194, 41, 41);
-  /* --bg-color: #242E42; */
-  /* --bg-color: #D3F3EE; */
-  /* --bg-color: #040609; */
   --highest-index: 9999999999999;
 }
