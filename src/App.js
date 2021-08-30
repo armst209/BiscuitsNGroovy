@@ -285,8 +285,12 @@ function App() {
             render={(props) => (
               <NFTTerms
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+                showMobileNav={showMobileNav}
+                setShowMobileNav={setShowMobileNav}
               />
             )}
           />

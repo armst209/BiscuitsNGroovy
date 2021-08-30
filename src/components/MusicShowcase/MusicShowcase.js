@@ -1,6 +1,6 @@
 import { React, Suspense, useState, useEffect } from "react";
 import axios from "axios";
-import ComponentLoading from "../Loading/Loading";
+import ComponentLoading from "../Loading/ComponentLoading";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
@@ -12,6 +12,7 @@ function MusicShowcase(props) {
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
   const [haveAllReleases, setHaveAllReleases] = useState("");
+  const [releasesLoaded, setReleasesLoaded] = useState("");
 
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
@@ -127,12 +128,17 @@ function MusicShowcase(props) {
             Browse our current and upcoming releases. Click on a title for more
             details
           </p>
+          {}
           <div className="showcase-grid-desktop">
-            <Suspense fallback={<ComponentLoading />}>
-              {displayReleases}
-              {/* appears if user has purchased all current releases */}
-              {haveAllReleases}
-            </Suspense>
+            {releasesLoaded ? (
+              <Suspense fallback={<ComponentLoading />}>
+                {displayReleases}
+                {/* appears if user has purchased all current releases */}
+                {haveAllReleases}
+              </Suspense>
+            ) : (
+              <ComponentLoading />
+            )}
           </div>
           <div className="showcase-grid-mobile"></div>
         </div>

@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import next_arrow from "../../../assets/images/next-arrow-yellow.svg";
 
 import "./SignUpPopUpStyles.scss";
-import { Scrollbars } from "react-custom-scrollbars";
 
 const signUpModalBackground = {
   visible: { opacity: 1 },
@@ -45,7 +44,7 @@ function SignUpPopUp({
               <h1>Create your BnG account in a few easy steps!</h1>
             </div>
 
-            <Scrollbars className="signup-popup-content">
+            <div className="signup-popup-content">
               <ul>
                 <li>
                   We integrate with Blocto to seamlessly store your NFT album
@@ -86,7 +85,7 @@ function SignUpPopUp({
                   click <strong>Create Account</strong>
                 </li>
               </ol>{" "}
-            </Scrollbars>
+            </div>
 
             <div className="button-container">
               <motion.button

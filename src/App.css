@@ -27,6 +27,8 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color1) black;
   --font1: "outer-sans";
   --font2: "outer-sans-thin";
   --font3: "colombo-sans";
@@ -39,4 +41,17 @@
   --bg-color: #131921;
   --footer-gray: #919496;
   --highest-index: 9999999999999;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color1);
+  height: 1vh;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: black;
 }

@@ -8,10 +8,12 @@
   font-family: var(--font2);
   background-size: cover;
   width: 100%;
+  height: 1000px;
   background: black;
   border-top: 3px solid var(--color1);
   border-bottom: 3px solid var(--color1);
   padding-bottom: 7rem;
+
   .spotlight-top-left {
     width: 50px;
     position: absolute;
@@ -26,7 +28,6 @@
   }
 
   .music-showcase-container {
-    background-color: black;
     width: 100%;
     // height: 62.5rem;
     height: 100%;
@@ -83,7 +84,9 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      padding: 0 1rem;
+      padding: 1rem;
+      border: 5px solid var(--color2);
+      border-radius: 20px;
 
       .grid-item {
         display: flex;

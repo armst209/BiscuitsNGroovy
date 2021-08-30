@@ -1,14 +1,25 @@
 import React from "react";
 import "./NFTTermsStyles.scss";
-import Navbar from "../../../components/Navbars/MainNavigation/MainNavigation";
+import NotHomeNavigation from "../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Footer from "../../../components/Footer/Footer";
 
-function NFTTerms(props) {
+function NFTTerms({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
+}) {
   return (
     <section id="nft-terms">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
       />
 
       <div className="nft-terms-wrapper">
