@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import axios from "axios";
 import env from "react-dotenv";
 
-function EmailInput() {
+function EmailInput({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+}) {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [email, setRecoveryEmail] = useState("");
 
@@ -35,19 +41,27 @@ function EmailInput() {
   };
 
   return (
-    <div style={{ marginTop: "10rem" }}>
-      <form onSubmit={submit}>
-        <input
-          type="email"
-          required
-          autoComplete="off"
-          placeholder="Enter your email"
-          onChange={(event) => setRecoveryEmail(event.target.value)}
-        />
-        <button type="submit">Submit</button>
-        <div>{emailErrorMessage}</div>
-      </form>
-    </div>
+    <section>
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
+      />
+      <div style={{ marginTop: "10rem" }}>
+        <form onSubmit={submit}>
+          <input
+            type="email"
+            required
+            autoComplete="off"
+            placeholder="Enter your email"
+            onChange={(event) => setRecoveryEmail(event.target.value)}
+          />
+          <button type="submit">Submit</button>
+          <div>{emailErrorMessage}</div>
+        </form>
+      </div>
+    </section>
   );
 }
 

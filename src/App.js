@@ -28,9 +28,10 @@ const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-const PasswordRecovery = lazy(() =>
-  import("./pages/PasswordRecovery/PasswordRecoveryMain")
+const PassRecoveryForm = lazy(() =>
+  import("./pages/PasswordRecovery/PassRecoveryForm")
 );
+const EmailInput = lazy(() => import("./pages/PasswordRecovery/EmailInput"));
 const SuccessfulSignUp = lazy(() =>
   import("./pages/SuccessfulSignUp/SuccessfulSignUp")
 );
@@ -224,12 +225,27 @@ function App() {
           {/* Password Recovery Routes */}
           <Route
             exact={true}
-            path="/password-recovery"
+            path="/password-recovery/email"
             render={(props) => (
-              <PasswordRecovery
+              <EmailInput
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            exact={true}
+            path="/password-recovery/new-password"
+            render={(props) => (
+              <PassRecoveryForm
+                {...props}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />
@@ -259,7 +275,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/privacy-terms-of-use/terms-of-service/"
+            path="/privacy-terms-of-use/terms-of-service"
             render={(props) => (
               <Subscriber
                 {...props}

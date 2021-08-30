@@ -159,7 +159,7 @@ function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               <div className="forgot-password">
                 <Link
                   onClick={() => showLoginPopup(false)}
-                  to="/password-recovery"
+                  to="/password-recovery/email"
                 >
                   Forgot Password?
                 </Link>
