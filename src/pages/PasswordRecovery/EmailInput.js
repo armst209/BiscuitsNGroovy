@@ -42,13 +42,13 @@ function EmailInput({
 
   return (
     <section>
-      <NotHomeNavigation
+      {/* <NotHomeNavigation
         loginPopup={loginPopup}
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
-      />
-      <div style={{ marginTop: "10rem" }}>
+      /> */}
+      <div style={{ paddingTop: "15rem" }}>
         <form onSubmit={submit}>
           <input
             type="email"

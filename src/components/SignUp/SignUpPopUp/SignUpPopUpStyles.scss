@@ -73,7 +73,10 @@
         }
       }
       ol {
-        padding-left: 1rem;
+        padding-left: 3rem;
+        @media screen and (max-width: 500px) {
+          padding-left: 1rem;
+        }
         strong {
           color: var(--color1);
           font-family: var(--font1);

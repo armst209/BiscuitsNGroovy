@@ -1,8 +1,7 @@
 import { React, useState } from "react";
 import "./HowItWorksStyles.scss";
 import { Link } from "react-router-dom";
-// import { CSSTransition } from "react-transition-group";
-// import bgImage from "../../assets/images/small-slant.svg";
+
 import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
 import collect from "../../assets/images/collectshare.svg";
@@ -43,11 +42,6 @@ function HowItWorks() {
                   </div>
                 </div>
                 <div className="content">
-                  {/* <img
-                    className="light-upward"
-                    src={light_upward}
-                    alt="light"
-                  /> */}
                   <div>
                     We partner with trendsetting artists to debut their
                     unreleased music on Biscuits n Groovy. Show your loyalty,

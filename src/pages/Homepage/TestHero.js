@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import hero_image from "../../assets/images/Dani1.png";
 import "./TestHeroStyles.scss";
+import env from "react-dotenv";
+import { config } from "@onflow/fcl";
+
+//configure flow environment
+config()
+  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 function TestHero() {
   return (

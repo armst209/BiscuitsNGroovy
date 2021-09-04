@@ -39,25 +39,27 @@ function PassRecoveryForm({
   };
   return (
     <section>
-      <NotHomeNavigation
+      {/* <NotHomeNavigation
         loginPopup={loginPopup}
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
-      />
+      /> */}
       <h1>PasswordRecovery</h1>
-      <form onSubmit={submit}>
-        <label htmlFor="new-pass">Enter new password:</label>
-        <input
-          name="new-pass"
-          type="password"
-          required
-          autoComplete="off"
-          placeholder="Enter new password"
-          onChange={(event) => setNewPassword(event.target.value)}
-        />
-        <button>Submit</button>
-      </form>
+      <div style={{ paddingTop: "15rem" }}>
+        <form onSubmit={submit}>
+          <label htmlFor="new-pass">Enter new password:</label>
+          <input
+            name="new-pass"
+            type="password"
+            required
+            autoComplete="off"
+            placeholder="Enter new password"
+            onChange={(event) => setNewPassword(event.target.value)}
+          />
+          <button>Submit</button>
+        </form>
+      </div>
     </section>
   );
 }

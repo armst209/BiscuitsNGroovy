@@ -1,10 +1,8 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { wrapHistory } from "oaf-react-router";
-// import { BrowserRouter as Router } from "react-router-dom";
-// import ScrollToTop from "./ScrollToTop/ScrollToTop";
+
 import App from "./App";
 
 //DEV/LOCAL ENV

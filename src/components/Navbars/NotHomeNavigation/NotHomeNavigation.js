@@ -56,25 +56,25 @@ function MainNavigation({
     const token = localStorage.getItem("token");
     const baseURL = env.BACKEND_URL;
 
-    axios({
-      method: "get",
-      url: `${baseURL}/users/me`,
-      headers: {
-        "x-access-token": token,
-      },
-    })
-      .then((res) => {
-        if (token) {
-          setUserName(res.data.user.username);
-          setLinkUserName(res.data.user.username);
-        } else {
-          setUserName("");
-          setLinkUserName("");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axios({
+    //   method: "get",
+    //   url: `${baseURL}/users/me`,
+    //   headers: {
+    //     "x-access-token": token,
+    //   },
+    // })
+    //   .then((res) => {
+    //     if (token) {
+    //       setUserName(res.data.user.username);
+    //       setLinkUserName(res.data.user.username);
+    //     } else {
+    //       setUserName("");
+    //       setLinkUserName("");
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
     //Menu Dropdown Function
     const viewDropDown = () => {

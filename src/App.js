@@ -14,8 +14,6 @@ import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
 import { AnimatePresence } from "framer-motion";
-import TestHero from "./pages/Homepage/TestHero";
-import TestHomepage from "./pages/Homepage/TestHomepage";
 
 //configure flow environment
 config()
@@ -23,7 +21,7 @@ config()
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-const Home = lazy(() => import("./pages/Homepage/TestHomepage"));
+const TestHomepage = lazy(() => import("./pages/Homepage/TestHomepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
@@ -114,7 +112,7 @@ function App() {
             exact={true}
             path="/home"
             render={(props) => (
-              <Home
+              <TestHomepage
                 {...props}
                 loginPopup={loginPopup}
                 showLoginPopup={showLoginPopup}
@@ -238,14 +236,14 @@ function App() {
           />
           <Route
             exact={true}
-            path="/password-recovery/new-password"
+            path="/password-recovery/password"
             render={(props) => (
               <PassRecoveryForm
                 {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
+                //   loginPopup={loginPopup}
+                //   showLoginPopup={showLoginPopup}
+                //   signUpPopup={signUpPopup}
+                //   showSignUpPopup={showSignUpPopup}
               />
             )}
           />

@@ -12,7 +12,7 @@ function MusicShowcase(props) {
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
   const [haveAllReleases, setHaveAllReleases] = useState("");
-  const [releasesLoaded, setReleasesLoaded] = useState("");
+  const [releasesLoaded, setReleasesLoaded] = useState(false);
 
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
@@ -36,6 +36,8 @@ function MusicShowcase(props) {
 
     const handleSuccess = (res) => {
       let releases = res.data.releases;
+
+      setReleasesLoaded(true);
       //checking whether user has purchased all current releases
       releases.length === 0
         ? setHaveAllReleases(
