@@ -49,7 +49,8 @@ files:
     destination: /root/BiscuitsNGroovy
   - source: /stop-server.sh
     destination: /root/BiscuitsNGroovy
-
+  - source: /.env
+    destination: /root/BiscuitsNGroovy
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
 #   section here that describes special permissions to apply to the files 
