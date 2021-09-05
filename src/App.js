@@ -282,17 +282,7 @@ function App() {
               />
             )}
           />
-          <Route
-            exact={true}
-            path="/privacy-terms-of-use/music-purchase-terms"
-            render={(props) => (
-              <PurchaseOfMusic
-                {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
-              />
-            )}
-          />
+
           <Route
             exact={true}
             path="/privacy-terms-of-use/nft-terms"
