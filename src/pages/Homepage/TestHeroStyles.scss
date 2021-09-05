@@ -8,6 +8,8 @@
   background-color: black;
   border-bottom: 3px solid var(--color1);
   position: relative;
+  height: 100%;
+  width: 100%;
 
   @media screen and (max-width: 1140px) {
     background-image: none;

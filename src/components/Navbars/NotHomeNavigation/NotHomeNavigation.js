@@ -11,8 +11,10 @@ import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
 import login_icon from "../../../assets/images/login_white.svg";
 import write from "../../../assets/images/write.svg";
+import heart_vinyl from "../../../assets/images/vinyl_yellow.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
+import { motion } from "framer-motion";
 import env from "react-dotenv";
 
 function MainNavigation({
@@ -55,26 +57,42 @@ function MainNavigation({
     // Getting user's information
     const token = localStorage.getItem("token");
     const baseURL = env.BACKEND_URL;
-
-    // axios({
-    //   method: "get",
-    //   url: `${baseURL}/users/me`,
-    //   headers: {
-    //     "x-access-token": token,
-    //   },
-    // })
-    //   .then((res) => {
-    //     if (token) {
-    //       setUserName(res.data.user.username);
-    //       setLinkUserName(res.data.user.username);
-    //     } else {
-    //       setUserName("");
-    //       setLinkUserName("");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    token
+      ? axios({
+          method: "get",
+          url: `${baseURL}/users/me`,
+          headers: {
+            "x-access-token": token,
+          },
+        })
+          .then((res) => {
+            setUserName(res.data.user.username);
+            setLinkUserName(res.data.user.username);
+            // if (token) {
+            // } else {
+            //   setUserName("");
+            //   setLinkUserName("");
+            // }
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      : setUserName(
+          <motion.img
+            animate={{
+              rotate: 360,
+              transition: {
+                ease: "linear",
+                duration: 2,
+                repeat: Infinity,
+              },
+            }}
+            width="50px"
+            src={heart_vinyl}
+            alt="record"
+          />
+        );
+    setLinkUserName("");
 
     //Menu Dropdown Function
     const viewDropDown = () => {
@@ -164,7 +182,14 @@ function MainNavigation({
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated, showDropDown, arrowMove, rightSpotlight]);
+  }, [
+    isAuthenticated,
+    showDropDown,
+    arrowMove,
+    rightSpotlight,
+    showLoginPopup,
+    loginPopup,
+  ]);
 
   return (
     <div id="scrolled-home-before-nothome">

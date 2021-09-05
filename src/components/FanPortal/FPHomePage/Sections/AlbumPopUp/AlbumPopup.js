@@ -1,10 +1,14 @@
-import { React } from "react";
+import { React, useState } from "react";
 import "./AlbumPopupStyles.scss";
 import MusicPlayer from "../../../../MusicPlayer/MusicPlayer.js";
 // import MusicPlayerTest from "../../../../MusicPlayer/MusicPlayerTest.tsx";
 import arrow_back from "../../../../../assets/images/arrow-back-yellow.svg";
+import tracklist_icon from "../../../../../assets/images/tracklist_yellow.svg";
+import { motion } from "framer-motion";
 
 function AlbumPopup(props) {
+  const [showTrackList, setShowTrackList] = useState(false);
+
   console.log(props.release);
   const handleClose = () => {
     props.closeAlbumPopup("");
@@ -12,19 +16,42 @@ function AlbumPopup(props) {
 
   return (
     <section id="album-popup">
-      <div onClick={handleClose} className="close-album-info">
-        <img className="back-arrow" src={arrow_back} alt="arrow" /> Back to
-        Portal
-      </div>
       <div className="album-popup-container">
-        {/* function call to close pop up */}
-
+        <div
+          className="tracklist-popup"
+          onClick={() => setShowTrackList(!showTrackList)}
+        >
+          <img src={tracklist_icon} alt="tracklist" />
+        </div>
         <div className="album-popup-content">
-          <img src={props.release.art_url} alt={props.release.name} />
-          <h1>{props.release.name}</h1>
-          <div>{props.release.description}</div>
-          <div>{props.release.price}</div>
-          <div></div>
+          <div className="album-content-left">
+            <img src={props.release.art_url} alt={props.release.name} />
+            <h1>{props.release.name}</h1>
+            <div className="album-popup-title">Album Name</div>
+            {/* function call to close pop up */}
+            <div onClick={handleClose} className="close-album-info">
+              <img className="back-arrow" src={arrow_back} alt="arrow" /> Back
+              to Collection
+            </div>
+          </div>
+
+          <div className="album-content-right">
+            <div className="album-popup-tracklist">
+              <ul>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+                <li>TRACK NAME</li>
+              </ul>
+            </div>
+            {/* <div className="album-popup-description">
+              {props.release.description}
+            </div> */}
+          </div>
         </div>
       </div>
       <div className="music-player">
@@ -35,6 +62,21 @@ function AlbumPopup(props) {
         />
         {/* <MusicPlayerTest albumTrackList={props.release.songs} /> */}
       </div>
+      {showTrackList && (
+        <motion.div className="mobile-tracklist-popup">
+          <ul>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+            <li>TRACK NAME</li>
+          </ul>
+          <div onClick={() => setShowTrackList(!showTrackList)}>Close</div>
+        </motion.div>
+      )}
     </section>
   );
 }
