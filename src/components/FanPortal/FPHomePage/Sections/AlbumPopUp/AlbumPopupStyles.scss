@@ -12,6 +12,9 @@
   padding: 1rem;
   -webkit-overflow-scrolling: touch;
   background: rgba(0, 0, 0, 0.9);
+  @media screen and (max-width: 400px) {
+    padding: 0;
+  }
 
   .mobile-tracklist-popup {
     position: fixed;
@@ -39,6 +42,11 @@
     border: 5px solid var(--color2);
     background-color: black;
     border-radius: 20px;
+    @media screen and(max-width:400px) {
+      border: 0;
+      border-radius: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
 
     position: relative;
     &::-webkit-scrollbar-track {
@@ -47,6 +55,29 @@
       display: none;
     }
 
+    .back-arrow {
+      width: 25px;
+      display: none;
+    }
+    .close-album-info {
+      font-family: var(--font1);
+
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      // @media screen and (max-width: 900px) {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   right: 0;
+      // }
+    }
     .tracklist-popup {
       display: none;
       position: absolute;
@@ -101,28 +132,6 @@
           border-radius: 20px;
           width: 300px;
         }
-        .back-arrow {
-          width: 25px;
-          @media screen and (max-width: 900px) {
-            display: none;
-          }
-        }
-        .close-album-info {
-          font-family: var(--font1);
-
-          padding: 10px;
-          display: flex;
-          justify-content: center;
-          cursor: pointer;
-          color: var(--color1);
-
-          @media screen and (max-width: 900px) {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-          }
-        }
       }
       .album-content-right {
         width: 70%;
@@ -156,5 +165,11 @@
   .music-player {
     width: 100%;
     padding-top: 1rem;
+    @media screen and(max-width:400px) {
+      border: 0;
+      border-radius: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 0;
+    }
   }
 }

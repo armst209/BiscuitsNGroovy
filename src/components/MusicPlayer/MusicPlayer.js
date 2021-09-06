@@ -1,74 +1,55 @@
-// import "./MusicPlayerStyles.scss";
-// import ReactJkMusicPlayer from "react-jinke-music-player";
-// import "./PlayerStyles.css";
 import { useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
+import { RHAP_UI } from "react-h5-audio-player";
 import "./MusicPlayerStyles.scss";
+import tracklist_icon from "../../assets/images/playlist-white-btn.svg";
 
 function MusicPlayer(props) {
-  // const [audioLists, setAudioList] = useState([]);
   // const [playErrorMessage, setPlayErrorMessage] = useState("");
-  console.log(props.trackListArray);
+  console.log(props.currentMusicIndex);
 
-  const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
-
-  const handleClickPrevious = (props) => {
-    setCurrentMusicIndex(currentMusicIndex - 1);
+  const handleClickPrevious = () => {
+    // setting currentMusicIndex to last song in array if on first song
+    let firstTrack = props.currentMusicIndex;
+    firstTrack == 0
+      ? props.setCurrentMusicIndex(props.trackListArray.length - 1)
+      : props.setCurrentMusicIndex(props.currentMusicIndex - 1);
   };
   const handleClickNext = () => {
-    setCurrentMusicIndex(currentMusicIndex + 1);
+    // setting currentMusicIndex to first song in array if on last song
+    let lastTrack = props.currentMusicIndex;
+    lastTrack == props.trackListArray.length - 1
+      ? props.setCurrentMusicIndex(0)
+      : props.setCurrentMusicIndex(props.currentMusicIndex + 1);
   };
-
-  // useEffect(
-  //   (props) => {
-  //     let trackListArray = props.songs;
-  //     console.log(trackListArray);
-  //     let trackList = [];
-  //     trackListArray.forEach((tracks) => {
-  //       trackList.push({
-  //         cover: props.albumCover,
-  //         name: props.albumName,
-  //         musicSrc: tracks,
-  //       });
-  //     });
-
-  //     // setAudioList(trackListListArray);
-  //   },
-  //   [props.albumCover, props.albumName, props.songs]
-  // );
 
   return (
     <>
       <AudioPlayer
-        style={{
-          width: "100%",
-          border: "5px solid var(--color2)",
-          borderRadius: "20px",
-          background: "black",
-          fontFamily: "var(--font1)",
-          color: "white",
-          textAlign: "center",
-        }}
         preload="auto"
         hasDefaultKeyBindings={true}
-        autoPlayAfterSrcChange={true}
         showSkipControls={true}
-        showJumpControls={false}
+        showJumpControls={true}
+        autoPlayAfterSrcChange={true}
+        customControlsSection={[
+          <div
+            className="playlist-button"
+            onClick={() => props.setShowTrackList(!props.showTrackList)}
+          >
+            <img src={tracklist_icon} alt="tracklist" />
+          </div>,
+          RHAP_UI.ADDITIONAL_CONTROLS,
+
+          RHAP_UI.MAIN_CONTROLS,
+
+          RHAP_UI.VOLUME_CONTROLS,
+        ]}
         header={"Now Playing: " + props.albumName}
-        src={props.trackListArray[currentMusicIndex]}
+        src={props.trackListArray[props.currentMusicIndex]}
         // onPlay={(e) => console.log("onPlay")}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
         // layout="stacked-reverse"
-        // other props here
-        // onError={setPlayErrorMessage("Could not load music file")}
-        // onPlayError={setPlayErrorMessage("Play error occured")}
-        // defaultCurrentTime="Loading"
-        // defaultDuration="Loading"
-        // customIcons={{
-        //   play: "playBtn",
-        // }}
-        // customAdditionalControls={[]}
       />
 
       {/* <ReactJkMusicPlayer

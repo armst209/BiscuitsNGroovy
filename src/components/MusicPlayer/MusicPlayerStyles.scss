@@ -12,8 +12,20 @@ $rhap_font-family: inherit !default;
   font-family: $rhap_font-family;
   width: 100%;
   padding: 10px 15px;
-  background-color: $rhap_background-color;
+  //background-color: $rhap_background-color;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  border: 5px solid var(--color2);
+  border-radius: 20px;
+  background: black;
+  font-family: var(--font1);
+  color: white;
+  text-align: center;
+  @media screen and(max-width:400px) {
+    border: 0;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+  }
 
   &:focus:not(:focus-visible) {
     outline: 0;
@@ -24,8 +36,23 @@ $rhap_font-family: inherit !default;
   }
 }
 
+.playlist-button {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5rem;
+  cursor: pointer;
+  img {
+    min-width: 26px;
+  }
+
+  @media screen and (max-width: 900px) {
+    display: flex;
+  }
+}
 .rhap_header {
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .rhap_footer {
@@ -142,14 +169,18 @@ $rhap_font-family: inherit !default;
 
 .rhap_controls-section {
   display: flex;
-  flex: 1 1 auto;
-  justify-content: space-between;
+  //flex: 1 1 auto;
+  justify-content: space-evenly;
   align-items: center;
+
+  @media screen and (max-width: 900px) {
+    justify-content: center;
+  }
 }
 
 .rhap_additional-controls {
   display: flex;
-  flex: 1 0 auto;
+  //flex: 1 0 auto;
   align-items: center;
 }
 
@@ -183,8 +214,9 @@ $rhap_font-family: inherit !default;
 }
 
 .rhap_volume-controls {
+  width: 100px;
   display: flex;
-  flex: 1 0 auto;
+  //flex: 1 0 auto;
   justify-content: flex-end;
   align-items: center;
 }
