@@ -5,7 +5,7 @@ import "./NotHomeNavigation.scss";
 import "react-responsive-modal/styles.css";
 import Logout from "../../Logout/Logout";
 import logo from "../../../assets/images/bng_header_test.svg";
-
+import settings_icon from "../../../assets/images/settings.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
 import logout_icon from "../../../assets/images/logout.svg";
@@ -300,11 +300,16 @@ function MainNavigation({
             {/* Hamburger */}
             <label htmlFor="check-home-nothome">
               <input type="checkbox" id="check-home-nothome" />
+              {/* <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div>
-              <div className="menu-bars-home-nothome"></div>
-              <div className="menu-bars-home-nothome"></div>
-              <p className="menu-p-nothome">MENU</p>
-              <p className="close-p-nothome">CLOSE</p>
+              <div className="menu-bars-home-nothome"></div> */}
+              <img
+                className="settings-icon"
+                src={settings_icon}
+                alt="settings"
+              />
+              {/* <p className="menu-p-nothome">MENU</p>
+              <p className="close-p-nothome">CLOSE</p> */}
               {/* Mobile Navigation */}
               <aside className="mobile-nav-home-nothome">
                 <div className="mobile-nav-header-nothome">

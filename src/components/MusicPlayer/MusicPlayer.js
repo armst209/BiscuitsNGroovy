@@ -27,6 +27,7 @@ function MusicPlayer(props) {
     <>
       <AudioPlayer
         preload="auto"
+        autoPlay={true}
         hasDefaultKeyBindings={true}
         showSkipControls={true}
         showJumpControls={true}
