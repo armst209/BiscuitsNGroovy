@@ -9,7 +9,6 @@ function Logout() {
         <div className="message">
           <p> Logging you out...</p>
         </div>
-
         <img src={bars_loading} alt="loading" />
       </div>
     </section>

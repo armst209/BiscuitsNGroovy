@@ -12,6 +12,7 @@ function Library(props) {
   const [albumCovers, setAlbumCovers] = useState("");
   const [albumInfo, setAlbumInfo] = useState(false);
   const [noReleases, setNoReleases] = useState("");
+  const [libraryLoaded, setLibraryLoaded] = useState(true);
 
   //Api call variables
   const token = localStorage.getItem("token");
@@ -34,18 +35,20 @@ function Library(props) {
       });
 
     const handleLibrarySuccess = (res) => {
-      console.log(res.data.library);
       let libraryReleases = res.data.library;
-      if (libraryReleases.length === 0) {
-        setNoReleases(
-          <div className="no-releases-msg">
-            <h1>It looks like you have no releases yet...</h1>
-            <Link to="/home#music-showcase">
-              <button>Start Your Collection</button>
-            </Link>
-          </div>
-        );
+      if (!libraryLoaded) {
+        <ComponentLoading />;
       } else {
+        if (libraryReleases.length === 0) {
+          setNoReleases(
+            <div className="no-releases-msg">
+              <h1>It looks like you have no releases yet...</h1>
+              <Link to="/home#music-showcase">
+                <button className="">Start Your Collection</button>
+              </Link>
+            </div>
+          );
+        }
         //Main Function - looping through response, displaying repsonse in "Your Library" & creating individual "AlbumPopup"s
         let showAllAlbumCovers = libraryReleases.map((release) => {
           //Toggle to Close AlbumPopUp

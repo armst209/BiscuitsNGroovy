@@ -3,6 +3,7 @@
   background: black;
   color: white;
   font-family: var(--font2);
+
   strong {
     color: var(--color1);
     font-weight: normal;
@@ -89,7 +90,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    font-weight: bold;
+    font-weight: normal;
     width: 100%;
     @media screen and (max-width: 1000px) {
       flex-direction: column;
@@ -187,7 +188,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    font-weight: bold;
+    font-weight: normal;
     width: 100%;
     margin-bottom: 5rem;
 

@@ -4,12 +4,19 @@ import MusicPlayer from "../../../../MusicPlayer/MusicPlayer.js";
 // import MusicPlayerTest from "../../../../MusicPlayer/MusicPlayerTest.tsx";
 import arrow_back from "../../../../../assets/images/arrow-back-yellow.svg";
 import tracklist_icon from "../../../../../assets/images/tracklist_yellow.svg";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import ComponentLoading from "../../../../Loading/ComponentLoading";
+
+//variants for framer motion
+const tracklistAnimations = {
+  visible: { y: 0 },
+  hidden: { y: 0 },
+};
 
 function AlbumPopup(props) {
   const [showTrackList, setShowTrackList] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
-  const [desktopTracklist, setDesktopTracklist] = useState();
+  const [populateTracklist, setPopulateTracklist] = useState();
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
 
   console.log(props.release);
@@ -18,18 +25,26 @@ function AlbumPopup(props) {
   };
 
   useEffect(() => {
-    //looping through for each item in songs array to display track list
+    //mapping through songs array to populate desktop view playlist
     const songsArray = props.release.songs;
 
-    for (let index = 0; index < songsArray.length; index++) {
-      <li
-        onClick={() => {
-          setCurrentMusicIndex(0);
-          console.log(currentMusicIndex);
-        }}
-      ></li>;
-    }
-  }, []);
+    let showReleaseTrackList = songsArray.map((element) => {
+      return element ? (
+        <li
+          onClick={() => {
+            setCurrentMusicIndex(songsArray.indexOf(element));
+            console.log(currentMusicIndex);
+          }}
+        >
+          {element.title}
+        </li>
+      ) : (
+        <ComponentLoading />
+      );
+    });
+    //passing in songsArray map as a parameter for hook
+    setPopulateTracklist(showReleaseTrackList);
+  }, [currentMusicIndex, props.release.songs]);
 
   return (
     <section id="album-popup">
@@ -38,17 +53,30 @@ function AlbumPopup(props) {
           <div className="album-content-left">
             <img src={props.release.art_url} alt={props.release.name} />
             <h1>{props.release.name}</h1>
-            <div className="album-popup-title">Album Name</div>
+            <div className="album-popup-title">{props.release.title}</div>
           </div>
 
           <div className="album-content-right">
             <div className="album-popup-tracklist">
-              <ul>{desktopTracklist}</ul>
+              <ul>{populateTracklist}</ul>
             </div>
-            {/* <div className="album-popup-description">
-              {props.release.description}
-            </div> */}
           </div>
+          {showTrackList && (
+            <motion.div
+              variants={tracklistAnimations}
+              initial="hidden"
+              animate="visible"
+            >
+              <AnimatePresence>
+                <motion.div className="mobile-tracklist-popup" exit="hidden">
+                  <ul>{populateTracklist}</ul>
+                  <div onClick={() => setShowTrackList(!showTrackList)}>
+                    Close
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          )}
         </div>
         {/* function call to close pop up */}
         <div onClick={handleClose} className="close-album-info">
@@ -70,21 +98,6 @@ function AlbumPopup(props) {
         {/* USE/UNCOMMENT IF PRODUCTION PLAYER IS THROWING PLAYBACK ERRORS */}
         {/* <MusicPlayerTest albumTrackList={props.release.songs} /> */}
       </div>
-      {showTrackList && (
-        <motion.div className="mobile-tracklist-popup">
-          <ul>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-            <li>TRACK NAME</li>
-          </ul>
-          <div onClick={() => setShowTrackList(!showTrackList)}>Close</div>
-        </motion.div>
-      )}
     </section>
   );
 }

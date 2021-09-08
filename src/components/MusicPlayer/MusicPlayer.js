@@ -1,12 +1,13 @@
 import { useState } from "react";
-import AudioPlayer from "react-h5-audio-player";
-import { RHAP_UI } from "react-h5-audio-player";
+import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "./MusicPlayerStyles.scss";
 import tracklist_icon from "../../assets/images/playlist-white-btn.svg";
+import record_spin from "../../assets/images/compact-disc-yellow.svg";
+import Marquee from "react-fast-marquee";
+import { motion } from "framer-motion";
 
 function MusicPlayer(props) {
-  // const [playErrorMessage, setPlayErrorMessage] = useState("");
-  console.log(props.currentMusicIndex);
+  const [recordSpin, setRecordSpin] = useState("");
 
   const handleClickPrevious = () => {
     // setting currentMusicIndex to last song in array if on first song
@@ -32,6 +33,17 @@ function MusicPlayer(props) {
         showSkipControls={true}
         showJumpControls={true}
         autoPlayAfterSrcChange={true}
+        onPlay={() =>
+          setRecordSpin({
+            rotate: 360,
+            transition: {
+              ease: "linear",
+              duration: 2,
+              repeat: Infinity,
+            },
+          })
+        }
+        onPause={() => setRecordSpin("")}
         customControlsSection={[
           <div
             className="playlist-button"
@@ -45,9 +57,32 @@ function MusicPlayer(props) {
 
           RHAP_UI.VOLUME_CONTROLS,
         ]}
-        header={"Now Playing: " + props.albumName}
-        src={props.trackListArray[props.currentMusicIndex]}
-        // onPlay={(e) => console.log("onPlay")}
+        header={
+          <div className="marquee-wrapper">
+            <motion.img
+              animate={recordSpin}
+              width="30px"
+              src={record_spin}
+              alt="record"
+              style={{ marginRight: ".5rem" }}
+            />
+            <div className="marquee-header">Now Playing:</div>
+
+            <Marquee
+              className="marquee-scroll"
+              direction="right"
+              gradient={false}
+              style={{
+                background: "black",
+                overflow: "hidden",
+                height: "100%",
+              }}
+            >
+              {props.trackListArray[props.currentMusicIndex].title}
+            </Marquee>
+          </div>
+        }
+        src={props.trackListArray[props.currentMusicIndex].url}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
         // layout="stacked-reverse"

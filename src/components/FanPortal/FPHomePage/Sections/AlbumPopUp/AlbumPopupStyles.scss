@@ -17,20 +17,20 @@
   }
 
   .mobile-tracklist-popup {
-    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 99999;
+    z-index: 99999999;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    border: 5px solid var(--color2);
+    //border: 5px solid var(--color2);
     border-radius: 20px;
     background-color: black;
+    position: absolute;
   }
 
   .album-popup-container {
@@ -119,6 +119,7 @@
           margin: 0;
           width: 100%;
         }
+
         h1 {
           padding: 0.5rem 0;
         }
@@ -137,6 +138,24 @@
         width: 70%;
         display: flex;
         flex-direction: column;
+        position: relative;
+
+        .mobile-tracklist-popup {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 99999999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          //border: 5px solid var(--color2);
+          border-radius: 20px;
+          background-color: black;
+          position: absolute;
+        }
         .album-popup-description {
           padding: 0.5rem 0;
         }
