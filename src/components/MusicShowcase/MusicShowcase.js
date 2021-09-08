@@ -7,7 +7,7 @@ import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_ye
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
 
-function MusicShowcase(props) {
+function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
@@ -63,8 +63,12 @@ function MusicShowcase(props) {
               description={release.description}
               id={release.id}
               price={release.price}
-              no_token_pop={props.signUpPopUpNoToken}
-              stripeLoaderFromRP={props.stripeLoaderFromMS}
+              //props passed in for signup pop up, if user is not logged in and trys to purchase a release
+              signUpPopup={props.signUpPopup}
+              showSignUpPopup={props.showSignUpPopup}
+              //////////////////////////////////////////
+              stripeLoader={props.stripeLoader}
+              setStripeLoader={props.setStripeLoaoder}
             />
           );
         };

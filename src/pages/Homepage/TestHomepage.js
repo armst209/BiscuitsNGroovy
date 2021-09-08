@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
 import Footer from "../../components/Footer/Footer";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
@@ -11,14 +11,19 @@ import "./TestHomepageStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
-function TestHomepage({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-  setShowMobileNav,
-  showMobileNav,
-}) {
+function TestHomepage(
+  props,
+  {
+    loginPopup,
+    showLoginPopup,
+    showSignUpPopup,
+    signUpPopup,
+    setShowMobileNav,
+    showMobileNav,
+  }
+) {
+  const [releasePop, setReleasePop] = useState("");
+  const [stripeLoader, setStripeLoaoder] = useState("");
   return (
     <>
       <NotHomeNavigation
@@ -38,7 +43,15 @@ function TestHomepage({
         setShowMobileNav={setShowMobileNav}
       />
       <HowItWorks />
-      <MusicShowcase />
+      <MusicShowcase
+        //passing in to component for if user is not logged in and tries to purchase a release - sign up popup shows
+        signUpPopup={props.signUpPopup}
+        showSignUpPopup={props.showSignUpPopup}
+        /////////////////////////////////////////
+        showReleasePopUp={setReleasePop}
+        stripeLoader={stripeLoader}
+        setStripeLoader={setStripeLoaoder}
+      />
       <NFTBreakdown />
       <div className="reminder-subscribe">
         <img

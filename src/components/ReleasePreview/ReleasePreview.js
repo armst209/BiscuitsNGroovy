@@ -55,12 +55,13 @@ function ReleasePreview(props) {
                       price={props.price}
                       description={props.description}
                       images={props.albumCover}
-                      stripeLoaderFromCO={props.stripeLoaderFromRP}
+                      stripeLoader={props.stripeLoader}
+                      setStripeLoader={props.setStripeLoaoder}
                     />
                   ) : (
                     <button
                       className="no-token-btn"
-                      onClick={() => props.no_token_pop(true)}
+                      onClick={() => props.showSignUpPopup(!props.signUpPopup)}
                     >
                       BUY NOW
                       <img src={token_music_icon} alt="heart music icon" />

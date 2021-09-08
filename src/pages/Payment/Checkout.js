@@ -78,11 +78,11 @@ export default function CheckoutButton(props) {
     // console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
 
-    props.stripeLoaderFromCO(<ComponentLoading />);
+    props.setStripeLoader(<ComponentLoading />);
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,
     });
-    props.stripeLoaderFromCO("");
+    props.setStripeLoader("");
     if (result.error) {
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer
