@@ -31,6 +31,16 @@
     border-radius: 20px;
     background-color: black;
     position: absolute;
+    ul {
+      list-style-type: none;
+      li {
+        cursor: pointer;
+        padding: 0.2rem 1rem;
+        &:hover {
+          color: var(--color1);
+        }
+      }
+    }
   }
 
   .album-popup-container {
@@ -171,8 +181,12 @@
           max-height: 300px;
 
           li {
+            cursor: pointer;
             border-radius: 20px;
-            padding: 0.5rem 1rem;
+            padding: 0.2rem 1rem;
+            &:hover {
+              color: var(--color1);
+            }
           }
         }
         @media screen and (max-width: 900px) {

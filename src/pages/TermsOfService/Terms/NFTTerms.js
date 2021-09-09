@@ -8,8 +8,6 @@ function NFTTerms({
   showLoginPopup,
   showSignUpPopup,
   signUpPopup,
-  setShowMobileNav,
-  showMobileNav,
 }) {
   return (
     <section id="nft-terms">
@@ -18,8 +16,6 @@ function NFTTerms({
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
-        showMobileNav={showMobileNav}
-        setShowMobileNav={setShowMobileNav}
       />
 
       <div className="nft-terms-wrapper">

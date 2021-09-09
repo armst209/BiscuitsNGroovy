@@ -12,6 +12,8 @@ function TermsOfService({
   showLoginPopup,
   showSignUpPopup,
   signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
 }) {
   return (
     <section id="terms-of-service">
@@ -20,6 +22,8 @@ function TermsOfService({
         signUpPopup={signUpPopup}
         showLoginPopup={showLoginPopup}
         showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
       />
       <div className="tos-title">
         <h1>

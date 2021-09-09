@@ -33,7 +33,6 @@ function AlbumPopup(props) {
         <li
           onClick={() => {
             setCurrentMusicIndex(songsArray.indexOf(element));
-            console.log(currentMusicIndex);
           }}
         >
           {element.title}

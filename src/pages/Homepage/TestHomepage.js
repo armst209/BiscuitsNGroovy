@@ -11,36 +11,26 @@ import "./TestHomepageStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
-function TestHomepage(
-  props,
-  {
-    loginPopup,
-    showLoginPopup,
-    showSignUpPopup,
-    signUpPopup,
-    setShowMobileNav,
-    showMobileNav,
-  }
-) {
+function TestHomepage(props) {
   const [releasePop, setReleasePop] = useState("");
   const [stripeLoader, setStripeLoaoder] = useState("");
   return (
     <>
       <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-        showMobileNav={showMobileNav}
-        setShowMobileNav={setShowMobileNav}
+        loginPopup={props.loginPopup}
+        signUpPopup={props.signUpPopup}
+        showLoginPopup={props.showLoginPopup}
+        showSignUpPopup={props.showSignUpPopup}
+        showMobileNav={props.showMobileNav}
+        setShowMobileNav={props.setShowMobileNav}
       />
       <TestHero
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-        showMobileNav={showMobileNav}
-        setShowMobileNav={setShowMobileNav}
+        loginPopup={props.loginPopup}
+        signUpPopup={props.signUpPopup}
+        showLoginPopup={props.showLoginPopup}
+        showSignUpPopup={props.showSignUpPopup}
+        showMobileNav={props.showMobileNav}
+        setShowMobileNav={props.setShowMobileNav}
       />
       <HowItWorks />
       <MusicShowcase

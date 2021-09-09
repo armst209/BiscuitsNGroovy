@@ -17,12 +17,7 @@ import spotlight_yellow_right from "../../../assets/images/spotlight_outline_rig
 import { motion } from "framer-motion";
 import env from "react-dotenv";
 
-function MainNavigation({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-}) {
+function MainNavigation(props) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
@@ -66,8 +61,8 @@ function MainNavigation({
           },
         })
           .then((res) => {
-            setUserName(res.data.user.username);
-            setLinkUserName(res.data.user.username);
+            // setUserName(res.data.user.username);
+            // setLinkUserName(res.data.user.username);
             // if (token) {
             // } else {
             //   setUserName("");
@@ -133,7 +128,11 @@ function MainNavigation({
       );
     } else {
       setIsLoggedIn(
-        <NavLink Link to="#" onClick={() => showLoginPopup(!loginPopup)}>
+        <NavLink
+          Link
+          to="#"
+          onClick={() => props.showLoginPopup(!props.loginPopup)}
+        >
           Login
         </NavLink>
       );
@@ -141,7 +140,7 @@ function MainNavigation({
       setIsLoggedInMobile(
         <div
           className="login-btn-container-nothome"
-          onClick={() => showLoginPopup(!loginPopup)}
+          onClick={() => props.showLoginPopup(!props.loginPopup)}
         >
           <div>Login</div>
           <img src={login_icon} alt="login icon" />
@@ -182,14 +181,7 @@ function MainNavigation({
     });
 
     return () => abortCont.abort();
-  }, [
-    isAuthenticated,
-    showDropDown,
-    arrowMove,
-    rightSpotlight,
-    showLoginPopup,
-    loginPopup,
-  ]);
+  }, [isAuthenticated, showDropDown, arrowMove, rightSpotlight]);
 
   return (
     <div id="scrolled-home-before-nothome">
@@ -250,7 +242,7 @@ function MainNavigation({
                 <li className="login-home-link-nothome">{isLoggedIn}</li>
                 <li
                   className={signUpClassName}
-                  onClick={() => showSignUpPopup(!signUpPopup)}
+                  onClick={() => props.showSignUpPopup(!props.signUpPopup)}
                 >
                   <button>
                     <div>Sign Up</div>
@@ -268,7 +260,8 @@ function MainNavigation({
                                 className="portal-link-nothome"
                                 to="/portal"
                               >
-                                {linkUserName + "'s"} Collection
+                                Collection
+                                {/* {linkUserName + "'s"}  */}
                               </Link>
                             </li>
 
@@ -303,13 +296,16 @@ function MainNavigation({
               {/* <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div> */}
-              <img
-                className="settings-icon"
-                src={settings_icon}
-                alt="settings"
-              />
-              {/* <p className="menu-p-nothome">MENU</p>
-              <p className="close-p-nothome">CLOSE</p> */}
+              <div className="hamburger-box">
+                <img
+                  className="settings-icon"
+                  src={settings_icon}
+                  alt="settings"
+                />
+                <p className="menu-p-nothome">MENU</p>
+                <p className="close-p-nothome">CLOSE</p>
+              </div>
+
               {/* Mobile Navigation */}
               <aside className="mobile-nav-home-nothome">
                 <div className="mobile-nav-header-nothome">
@@ -362,7 +358,7 @@ function MainNavigation({
                     {" "}
                     <li
                       className={`${signUpClassName}`}
-                      onClick={() => showSignUpPopup(!signUpPopup)}
+                      onClick={() => props.showSignUpPopup(!props.signUpPopup)}
                     >
                       <button className="signup-btn-nothome">
                         Sign Up

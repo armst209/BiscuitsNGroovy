@@ -49,7 +49,7 @@ function LinkFlowButton(props) {
     );
   } else {
     return (
-      <div>
+      <div className="create-account-section">
         <button className="flow" type="submit" onClick={props.submit}>
           Create Account <img src={write} alt="signup icon" />
         </button>

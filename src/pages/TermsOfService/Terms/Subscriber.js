@@ -1,14 +1,25 @@
 import React from "react";
 import Footer from "../../../components/Footer/Footer";
 import "./SubscriberStyles.scss";
-import Navbar from "../../../components/Navbars/MainNavigation/MainNavigation";
+import NotHomeNavigation from "../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 
-function Subscriber(props) {
+function Subscriber({
+  loginPopup,
+  showLoginPopup,
+  showSignUpPopup,
+  signUpPopup,
+  setShowMobileNav,
+  showMobileNav,
+}) {
   return (
     <section id="sub-terms">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        signUpPopup={signUpPopup}
+        showLoginPopup={showLoginPopup}
+        showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
       />
 
       <div className="sub-terms-wrapper">

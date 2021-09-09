@@ -26,21 +26,7 @@
     border: 5px solid var(--color2);
     border-radius: 20px;
     position: relative;
-    .error-message {
-      font-family: var(--font1);
-      border-radius: 20px;
-      position: absolute;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      border: 3px solid var(--color2);
-      background: black;
-      bottom: 0;
-      color: red;
-      text-align: center;
-      font-weight: bold;
-      padding: 1rem;
-    }
+
     h1 {
       font-family: var(--font1);
       color: black;
@@ -98,8 +84,8 @@
         font-family: var(--font2);
         position: relative;
         border-radius: 20px;
-        @media screen and (orientation: portrait) and (max-device-width: 370px) {
-          padding: 1rem 2rem;
+        @media screen and (orientation: portrait) and (max-device-width: 400px) {
+          padding: 1rem;
         }
 
         @media screen and (orientation: portrait) and (max-device-width: 350px) {
@@ -296,5 +282,22 @@
         }
       }
     }
+  }
+  .error-message {
+    font-family: var(--font1);
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 1rem;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: 3px solid var(--color2);
+    background: black;
+    bottom: 0;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    padding: 1rem;
   }
 }

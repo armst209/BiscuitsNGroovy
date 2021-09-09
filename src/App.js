@@ -255,8 +255,12 @@ function App() {
             render={(props) => (
               <PrivacyPolicy
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+                // showMobileNav={showMobileNav}
+                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -266,8 +270,12 @@ function App() {
             render={(props) => (
               <TermsOfService
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+                // showMobileNav={showMobileNav}
+                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -277,8 +285,27 @@ function App() {
             render={(props) => (
               <Subscriber
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+                // showMobileNav={showMobileNav}
+                // setShowMobileNav={setShowMobileNav}
+              />
+            )}
+          />
+          <Route
+            exact={true}
+            path="/privacy-terms-of-use/music-purchase-terms"
+            render={(props) => (
+              <PurchaseOfMusic
+                {...props}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+                // showMobileNav={showMobileNav}
+                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -293,8 +320,8 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
-                showMobileNav={showMobileNav}
-                setShowMobileNav={setShowMobileNav}
+                // showMobileNav={showMobileNav}
+                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -303,8 +330,34 @@ function App() {
             render={(props) => (
               <NotFound
                 {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            path="/privacy-terms-of-use"
+            render={(props) => (
+              <NotFound
+                {...props}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
+              />
+            )}
+          />
+          <Route
+            path="/privacy-terms-of-use/"
+            render={(props) => (
+              <NotFound
+                {...props}
+                loginPopup={loginPopup}
+                showLoginPopup={showLoginPopup}
+                signUpPopup={signUpPopup}
+                showSignUpPopup={showSignUpPopup}
               />
             )}
           />
