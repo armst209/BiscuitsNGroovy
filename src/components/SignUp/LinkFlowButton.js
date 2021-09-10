@@ -50,7 +50,12 @@ function LinkFlowButton(props) {
   } else {
     return (
       <div className="create-account-section">
-        <button className="flow" type="submit" onClick={props.submit}>
+        <button
+          className="flow"
+          type="submit"
+          onClick={props.submit}
+          disabled={Object.entries(props.formErrors || {}).length > 0}
+        >
           Create Account <img src={write} alt="signup icon" />
         </button>
         <p>By signing up you agree to our Terms of Service</p>

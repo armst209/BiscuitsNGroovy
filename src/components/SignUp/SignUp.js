@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-//import { minMaxLength, validEmail, passwordStrength } from "./SignUpValidation";
+import { minMaxLength, validEmail, passwordStrength } from "./SignUpValidation";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ const SignUp = (props) => {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [reEnterPassword, setReEnterPassword] = useState("");
+  // const [reEnterPassword, setReEnterPassword] = useState("");
   // const [errorMessageContainer, setErrorMessageContainer] = useState(false);
   // const [errorMessage, setErrorMessage] = useState("");
   const [flowLoader, setFlowLoader] = useState("");
@@ -29,94 +29,98 @@ const SignUp = (props) => {
   const [passwordClass, setPasswordClass] = useState("");
   const [showModal, setShowModal] = useState(true);
   const [changeStyles, setChangeStyles] = useState("signup-modal");
-  // const [user, setUser] = useState({});
-  // const [formErrors, setFormErrors] = useState({});
+  const [user, setUser] = useState({});
+  const [formErrors, setFormErrors] = useState({});
 
   //password validation for both password inputs
-  // function validateConfirmPassword(password, confirmpassword, formErrors) {
-  //   formErrors = formErrors || {};
-  //   if (password !== confirmpassword) {
-  //     formErrors.confirmpassword =
-  //       "Confirmed password is not matching with password";
-  //     return false;
-  //   } else {
-  //     delete formErrors.confirmpassword;
-  //     return true;
-  //   }
-  // }
+  function validateConfirmPassword(password, confirmpassword, formErrors) {
+    formErrors = formErrors || {};
+    if (password !== confirmpassword) {
+      formErrors.confirmpassword =
+        "Confirmed password is not matching with password";
+      return false;
+    } else {
+      delete formErrors.confirmpassword;
+      return true;
+    }
+  }
 
-  // const registeredUsers = ["armst209@gmail.com"];
-  // function userExists(email) {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       if (registeredUsers.findIndex((u) => u === email) !== -1) {
-  //         resolve(true);
-  //       } else {
-  //         resolve(false);
-  //       }
-  //     });
-  //   });
-  // }
+  const registeredUsers = [];
+  function userExists(email) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (registeredUsers.findIndex((u) => u === email) !== -1) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
+  }
 
-  // function handleChange(e) {
-  //   const { name, value } = e.target;
+  function handleChange(e) {
+    const { name, value } = e.target;
 
-  //   switch (name) {
-  //     case "email":
-  //       setUser({ ...user, email: value });
-  //       if (!value || validEmail(value)) {
-  //         formErrors[name] = `Email address is invalid`;
-  //       } else {
-  //         userExists(value).then((result) => {
-  //           if (result) {
-  //             formErrors[name] =
-  //               "The email is already registered. Please use a different email.";
-  //           } else {
-  //             delete formErrors[name];
-  //           }
-  //         });
-  //       }
+    switch (name) {
+      case "email":
+        setEmail(value);
+        //setUser({ ...user, email: value });
+        if (!value || validEmail(value)) {
+          formErrors[name] = `Email address is invalid`;
+        } else {
+          userExists(value).then((result) => {
+            if (result) {
+              formErrors[name] =
+                "The email is already registered. Please use a different email.";
+            } else {
+              delete formErrors[name];
+            }
+          });
+        }
 
-  //       break;
+        break;
 
-  //     case "username":
-  //       setUser({ ...user, username: value });
-  //       if (minMaxLength(value, 7)) {
-  //         formErrors[name] = `Username should have minimum 7 characters`;
-  //       } else {
-  //         delete formErrors[name];
-  //       }
-  //       break;
-  //     case "password":
-  //       setUser({ ...user, password: value });
-  //       if (minMaxLength(value, 6)) {
-  //         formErrors[name] = "Password should have minimum 6 characters";
-  //       } else if (passwordStrength(value)) {
-  //         formErrors[name] =
-  //           "Password is not strong enough. Include an upper case letter, a number or a special character to make it strong";
-  //       } else {
-  //         delete formErrors[name];
-  //         setUser({
-  //           ...user,
-  //           password: value,
-  //         });
-  //         if (user.confirmpassword) {
-  //           validateConfirmPassword(value, user.confirmpassword, formErrors);
-  //         }
-  //       }
-  //       break;
+      case "username":
+        setUserName(value);
+        //setUser({ ...user, username: value });
+        if (minMaxLength(value, 7)) {
+          formErrors[name] = `Username should have minimum 7 characters`;
+        } else {
+          delete formErrors[name];
+        }
 
-  //     case "confirmpassword":
-  //       setUser({ ...user, confirmpassword: value });
-  //       let valid = validateConfirmPassword(user.password, value, formErrors);
-  //       if (valid) {
-  //         setUser({ ...user, confirmpassword: value });
-  //       }
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
+        break;
+      case "password":
+        setPassword(value);
+        //setUser({ ...user, password: value });
+        if (minMaxLength(value, 6)) {
+          formErrors[name] = "Password should have minimum 6 characters";
+        } else if (passwordStrength(value)) {
+          formErrors[name] =
+            "Password is not strong enough. Include an upper case letter, a number or a special character to make it strong";
+        } else {
+          delete formErrors[name];
+          setUser({
+            ...user,
+            password: value,
+          });
+          if (user.confirmpassword) {
+            validateConfirmPassword(value, user.confirmpassword, formErrors);
+          }
+        }
+        break;
+
+      // case "confirmpassword":
+      //   setUser({ ...user, confirmpassword: value });
+      //   let valid = validateConfirmPassword(user.password, value, formErrors);
+      //   if (valid) {
+      //     setUser({ ...user, confirmpassword: value });
+      //   }
+      //   break;
+      default:
+        break;
+    }
+  }
   const handleSignUp = (res) => {
     localStorage.setItem("token", res.data.token);
 
@@ -126,7 +130,8 @@ const SignUp = (props) => {
 
   const submit = async function (event) {
     console.log("hit");
-    console.log(username);
+    console.log(user);
+    console.log(email);
     event.preventDefault();
     //Form Validation
 
@@ -150,7 +155,7 @@ const SignUp = (props) => {
     }
 
     let flow_address = currUser.addr;
-    //event.preventDefault();
+
     const baseURL = env.BACKEND_URL;
     console.log(baseURL);
 
@@ -158,10 +163,10 @@ const SignUp = (props) => {
       method: "post",
       url: `${baseURL}/registration`,
       data: {
-        email: email,
-        name: name,
-        username: username,
-        password: password,
+        email,
+        name,
+        username,
+        password,
         flow_address,
       },
     })
@@ -216,7 +221,7 @@ const SignUp = (props) => {
                 <span className="login-redirect"> Login</span>
               </span>
             </p>
-            {/* <form noValidate>
+            <form noValidate>
               <input
                 className={
                   formErrors && formErrors.email
@@ -266,26 +271,11 @@ const SignUp = (props) => {
                 type="password"
                 name="confirmpassword"
                 noValidate
-                onChange={handleChange}
+                //onChange={handleChange}
               />
+            </form>
 
-              <button
-                type="submit"
-                disabled={Object.entries(formErrors || {}).length > 0}
-              >
-                Create Account
-              </button>
-            </form> */}
-            {/* <ul>
-              {Object.entries(formErrors || {}).map(([prop, value]) => {
-                return (
-                  <li className="error-message" key={prop}>
-                    {value}
-                  </li>
-                );
-              })}
-            </ul> */}
-            <form onSubmit={submit}>
+            {/* <form onSubmit={submit}>
               <input
                 className={inputClass}
                 type="email"
@@ -326,10 +316,23 @@ const SignUp = (props) => {
                 title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 onChange={(event) => setReEnterPassword(event.target.value)}
               /> */}
-            </form>
-            <LinkFlowButton submit={submit} flowBtnLoader={setFlowLoader} />
+            {/* </form>  */}
+            <LinkFlowButton
+              submit={submit}
+              formErrors={formErrors}
+              flowBtnLoader={setFlowLoader}
+            />
 
             {flowLoader}
+            <ul>
+              {Object.entries(formErrors || {}).map(([prop, value]) => {
+                return (
+                  <li className="error-message" key={prop}>
+                    {value}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
 
