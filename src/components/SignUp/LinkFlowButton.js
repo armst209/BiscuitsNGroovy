@@ -34,7 +34,7 @@ function LinkFlowButton(props) {
       setIsInitialized(firstAccountState);
     });
   }
-
+  //add !
   if (!isInitialized) {
     return (
       <>
