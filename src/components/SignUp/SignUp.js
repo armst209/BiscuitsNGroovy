@@ -21,6 +21,7 @@ const SignUp = (props) => {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
   // const [reEnterPassword, setReEnterPassword] = useState("");
   // const [errorMessageContainer, setErrorMessageContainer] = useState(false);
   // const [errorMessage, setErrorMessage] = useState("");
@@ -110,13 +111,15 @@ const SignUp = (props) => {
         }
         break;
 
-      // case "confirmpassword":
-      //   setUser({ ...user, confirmpassword: value });
-      //   let valid = validateConfirmPassword(user.password, value, formErrors);
-      //   if (valid) {
-      //     setUser({ ...user, confirmpassword: value });
-      //   }
-      //   break;
+      case "confirmpassword":
+        setConfirmPassword(value);
+        //setUser({ ...user, confirmpassword: value });
+        let valid = validateConfirmPassword(password, value, formErrors);
+        if (valid) {
+          setConfirmPassword(value);
+          //setUser({ ...user, confirmpassword: value });
+        }
+        break;
       default:
         break;
     }
@@ -129,23 +132,7 @@ const SignUp = (props) => {
   };
 
   const submit = async function (event) {
-    console.log("hit");
-    console.log(user);
-    console.log(email);
     event.preventDefault();
-    //Form Validation
-
-    //throws error if passwords aren't the same
-    // if (reEnterPassword != password) {
-    //   setPasswordClass("input-error-signup");
-    //   setErrorMessageContainer(!errorMessageContainer);
-    //   setErrorMessage("Passwords must match");
-    //   return;
-    // }
-    // if (reEnterPassword === password) {
-    //   setPasswordClass("");
-    //   setErrorMessageContainer(false);
-    // }
 
     //if flow account is not linked throw error
     let currUser = await fcl.currentUser().snapshot();
@@ -200,12 +187,12 @@ const SignUp = (props) => {
         className="signup-wrapper"
       >
         <div className="signup-container">
-          <div className="signup-contents">
-            <div className="close-btn-signup">
-              <div onClick={() => props.showSignUpPopup(!props.signUpPopup)}>
-                X
-              </div>
+          <div className="close-btn-signup">
+            <div onClick={() => props.showSignUpPopup(!props.signUpPopup)}>
+              X
             </div>
+          </div>
+          <div className="signup-contents">
             <div className="logo">
               <img src={logo} alt="logo" />
             </div>
@@ -233,6 +220,7 @@ const SignUp = (props) => {
                 name="email"
                 noValidate
                 onChange={handleChange}
+                required
               />
 
               <input
@@ -246,6 +234,7 @@ const SignUp = (props) => {
                 name="username"
                 noValidate
                 onChange={handleChange}
+                required
               />
 
               <input
@@ -259,6 +248,7 @@ const SignUp = (props) => {
                 name="password"
                 noValidate
                 onChange={handleChange}
+                required
               />
 
               <input
@@ -271,60 +261,22 @@ const SignUp = (props) => {
                 type="password"
                 name="confirmpassword"
                 noValidate
-                //onChange={handleChange}
+                required
+                onChange={handleChange}
               />
             </form>
-
-            {/* <form onSubmit={submit}>
-              <input
-                className={inputClass}
-                type="email"
-                placeholder="Email"
-                required
-                autoComplete="off"
-                onChange={(event) => setEmail(event.target.value)}
-              />
-
-              <input
-                className={inputClass}
-                type="text"
-                placeholder="Username"
-                maxlength="15"
-                required
-                autoComplete="off"
-                onChange={(event) => setUserName(event.target.value)}
-              />
-              <input
-                className={`${inputClass} ${passwordClass}`}
-                type="Password"
-                placeholder="Password"
-                maxlength="15"
-                required
-                autoComplete="off"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                onChange={(event) => setPassword(event.target.value)}
-              />
-              {/* <input
-                className={`${inputClass} ${passwordClass}`}
-                type="Password"
-                placeholder="Re-Enter Password"
-                maxlength="15"
-                required
-                autoComplete="off"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                onChange={(event) => setReEnterPassword(event.target.value)}
-              /> */}
-            {/* </form>  */}
+            {/* component houses flow button and create account button - submit function and error messages passed to create account button with props */}
             <LinkFlowButton
               submit={submit}
               formErrors={formErrors}
+              showSignUpPopup={props.showSignUpPopup}
+              signUpPopup={props.signUpPopup}
               flowBtnLoader={setFlowLoader}
             />
 
             {flowLoader}
-            <ul>
+            {/* Error message list - holds all error responses that are set in handleChange switch statement */}
+            <ul className="error-message-container-desktop">
               {Object.entries(formErrors || {}).map(([prop, value]) => {
                 return (
                   <li className="error-message" key={prop}>
@@ -346,9 +298,17 @@ const SignUp = (props) => {
           <img src={question_mark} alt="question mark" width="50px" />
         </motion.div>
       </motion.div>
-      {/* {errorMessageContainer && (
-        <div className="error-message">{errorMessage}</div>
-      )} */}
+
+      {/* Error message list - holds all error responses that are set in handleChange switch statement */}
+      <ul className="error-message-container-mobile">
+        {Object.entries(formErrors || {}).map(([prop, value]) => {
+          return (
+            <li className="error-message" key={prop}>
+              {value}
+            </li>
+          );
+        })}
+      </ul>
     </motion.section>
   );
 };

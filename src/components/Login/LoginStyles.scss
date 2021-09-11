@@ -175,10 +175,10 @@
               position: relative;
               height: 70px;
               margin: 5px 0;
-              background: transparent;
+              background: var(--color1);
               font-weight: normal;
-              border: 3px solid var(--color1);
-              color: white;
+              border: none;
+              color: black;
               font-size: 20px;
 
               box-shadow: var(--shadow-large);
@@ -190,9 +190,9 @@
                 right: 5%;
               }
               &:hover {
-                background-color: var(--color1);
-
-                color: black;
+                background-color: black;
+                border: 3px solid var(--color1);
+                color: white;
               }
             }
           }

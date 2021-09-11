@@ -1,8 +1,19 @@
 .create-account-section {
   width: 100%;
+  text-align: center;
+  p {
+    font-size: 0.7rem;
+    font-family: var(--font1);
+    font-weight: normal;
+    a {
+      text-decoration: none;
+      color: var(--color2);
+    }
+  }
 }
 
-button {
+button,
+.flow-button {
   display: flex;
   flex-direction: row;
   font-family: var(--font1);
@@ -18,7 +29,7 @@ button {
   color: black;
   font-weight: normal;
   cursor: pointer;
-  border: 3px solid var(--color1);
+  //border: 3px solid var(--color1);
   width: 100%;
   transition: all 0.2s ease;
   .signup-icon {
@@ -58,9 +69,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--font2);
+  font-family: var(--font1);
   font-weight: normal;
-  font-size: 0.6rem;
+  font-size: 20px;
   div {
     text-align: center;
   }
