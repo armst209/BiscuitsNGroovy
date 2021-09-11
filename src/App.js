@@ -172,7 +172,7 @@ function App() {
 
           <ProtectedRoute
             exact={true}
-            path="/portal"
+            path="/collection"
             render={(props) => (
               <FanPortalHome
                 {...props}
@@ -183,7 +183,7 @@ function App() {
           />
           <ProtectedRoute
             exact={true}
-            path="/portal/profile"
+            path="/collection/profile"
             render={(props) => (
               <FanPortalProfile
                 {...props}

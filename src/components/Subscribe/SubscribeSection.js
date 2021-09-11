@@ -1,4 +1,5 @@
 import React from "react";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 import "./SubscribeSectionStyles.scss";
 import letter_icon from "../../assets/images/letter2_yellow.svg";
 
@@ -8,7 +9,15 @@ function SubscribeSection() {
       <h1>SUBSCRIBE TO OUR NEWSLETTER</h1>
       <img src={letter_icon} alt="connect icon" />
 
-      <form action="">
+      <MailchimpSubscribe
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        url={process.env.REACT_APP_MAILCHIMP_URL}
+      >
         <label htmlFor="email" />
         <input
           type="email"
@@ -18,7 +27,7 @@ function SubscribeSection() {
         />
 
         <button type="submit">Subscribe</button>
-      </form>
+      </MailchimpSubscribe>
     </section>
   );
 }

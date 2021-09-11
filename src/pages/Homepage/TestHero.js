@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import hero_image from "../../assets/images/Dani1.png";
+import hero_image from "../../assets/images/hero.png";
 import "./TestHeroStyles.scss";
 import env from "react-dotenv";
 import { config } from "@onflow/fcl";

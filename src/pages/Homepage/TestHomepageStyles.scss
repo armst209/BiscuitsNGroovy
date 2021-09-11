@@ -43,6 +43,14 @@
   @media screen and (max-width: 1200px) {
     padding-top: 5rem;
   }
+
+  .reminder-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+  }
+
   .spotlight-top-left {
     width: 50px;
     position: absolute;
@@ -60,6 +68,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
+
     width: 100%;
     gap: 2rem;
     @media screen and (min-width: 1140px) {

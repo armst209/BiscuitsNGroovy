@@ -145,7 +145,10 @@
               }
             }
             .start-btn {
-              background-color: var(--color2);
+              background-color: black;
+              border: 5px solid var(--color2);
+              color: white;
+              border-radius: 20px;
               margin-left: 0;
               margin-right: 0.5rem;
               @media screen and (max-width: 1140px) {
@@ -153,6 +156,8 @@
               }
             }
             .for-artists-btn {
+              background-color: black;
+              color: white;
               margin-left: 0.5rem;
               @media screen and (max-width: 1140px) {
                 padding-left: 0;
@@ -172,7 +177,10 @@
   .hero-image {
     position: absolute;
     bottom: 0;
-    right: 0;
-    height: 1100px;
+    right: 20%;
+    height: 100%;
+    @media screen and (max-width: 1149px) {
+      display: none;
+    }
   }
 }

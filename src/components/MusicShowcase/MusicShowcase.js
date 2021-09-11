@@ -5,6 +5,7 @@ import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import showcase from "../../assets/images/showcase.png";
 import env from "react-dotenv";
 
 function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
@@ -134,17 +135,19 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
             Browse our current and upcoming releases. Click on a title for more
             details
           </p>
-          {}
-          <div className="showcase-grid-desktop">
-            {releasesLoaded ? (
-              <Suspense fallback={<ComponentLoading />}>
-                {displayReleases}
-                {/* appears if user has purchased all current releases */}
-                {haveAllReleases}
-              </Suspense>
-            ) : (
-              <ComponentLoading />
-            )}
+          <div className="content-wrapper">
+            <img src={showcase} alt="imhdgd" />
+            <div className="showcase-grid-desktop">
+              {releasesLoaded ? (
+                <Suspense fallback={<ComponentLoading />}>
+                  {displayReleases}
+                  {/* appears if user has purchased all current releases */}
+                  {haveAllReleases}
+                </Suspense>
+              ) : (
+                <ComponentLoading />
+              )}
+            </div>
           </div>
           <div className="showcase-grid-mobile"></div>
         </div>

@@ -10,6 +10,7 @@ import TestHero from "./TestHero";
 import "./TestHomepageStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import reminder_image from "../../assets/images/reminder.png";
 
 function TestHomepage(props) {
   const [releasePop, setReleasePop] = useState("");
@@ -58,6 +59,7 @@ function TestHomepage(props) {
           <ArtistReminder />
           <SubscribeSection />
         </div>
+        <img className="reminder-image" src={reminder_image} alt="sfsfsf" />
       </div>
       <Footer />
     </>

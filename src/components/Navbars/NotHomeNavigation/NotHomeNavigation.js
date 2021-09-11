@@ -8,8 +8,9 @@ import logo from "../../../assets/images/bng_header_test.svg";
 import settings_icon from "../../../assets/images/settings.svg";
 import user_image from "../../../assets/images/user.svg";
 import arrow_down from "../../../assets/images/double-down-white.svg";
-import logout_icon from "../../../assets/images/logout.svg";
+import logout_icon from "../../../assets/images/logout-yellow.svg";
 import login_icon from "../../../assets/images/login_white.svg";
+import collection_icon from "../../../assets/images/music-collection-yellow.svg";
 import write from "../../../assets/images/write.svg";
 import heart_vinyl from "../../../assets/images/vinyl_yellow.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
@@ -188,8 +189,8 @@ function MainNavigation(props) {
     <div id="scrolled-home-before-nothome">
       <header className={`homepage-navigation-nothome ${scrolledNavClass}`}>
         <div className="background-bar"></div>
-        {leftSpotlight}
-        {rightSpotlight}
+        {/* {leftSpotlight}
+        {rightSpotlight} */}
 
         <div className="nav-home-container-nothome">
           <nav className="nav-home-nothome">
@@ -260,10 +261,16 @@ function MainNavigation(props) {
                             <li className="portal-desktop-link-nothome">
                               <Link
                                 className="portal-link-nothome"
-                                to="/portal"
+                                to="/collection"
                               >
-                                Collection
-                                {/* {linkUserName + "'s"}  */}
+                                <div>Collection</div>
+                                <div className="desktop-collection-icon-container-nothome">
+                                  <img
+                                    className="desktop-collection-icon-nothome"
+                                    src={collection_icon}
+                                    alt="logout icon"
+                                  />
+                                </div>
                               </Link>
                             </li>
 
@@ -271,15 +278,14 @@ function MainNavigation(props) {
                               className="logout-button-desktop-nothome"
                               onClick={handleLogout}
                             >
-                              <button>
-                                <div>Logout</div>
-
+                              <div>Logout</div>
+                              <div className="desktop-logout-icon-container-nothome">
                                 <img
                                   className="desktop-logout-icon-nothome"
                                   src={logout_icon}
                                   alt="logout icon"
                                 />
-                              </button>
+                              </div>
                             </li>
                           </ul>
                         </div>
@@ -298,15 +304,14 @@ function MainNavigation(props) {
               {/* <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div> */}
-              <div className="hamburger-box">
-                <img
-                  className="settings-icon"
-                  src={settings_icon}
-                  alt="settings"
-                />
-                <p className="menu-p-nothome">MENU</p>
-                <p className="close-p-nothome">CLOSE</p>
-              </div>
+
+              <img
+                className="settings-icon"
+                src={settings_icon}
+                alt="settings"
+              />
+              <p className="menu-p-nothome">MENU</p>
+              <p className="close-p-nothome">CLOSE</p>
 
               {/* Mobile Navigation */}
               <aside className="mobile-nav-home-nothome">
@@ -328,10 +333,16 @@ function MainNavigation(props) {
                     {showDropDown ? (
                       <div className="dropdown-content-mobile-nothome">
                         <ul>
-                          <li className="portal-nothome">
-                            <Link to="/portal">Collection</Link>
-                          </li>
-
+                          <Link to="/collection">
+                            <li className="portal-nothome">
+                              Collection
+                              <img
+                                className="desktop-collection-icon-nothome"
+                                src={collection_icon}
+                                alt="logout icon"
+                              />
+                            </li>
+                          </Link>
                           <li
                             className="logout-button-mobile-nothome"
                             onClick={handleLogout}
