@@ -152,7 +152,7 @@ function MainNavigation(props) {
     //Navbar scrolling
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 100) {
+      if (offset > 15) {
         setScrolledNavClass("scrolled-navigation-nothome");
         setRightSpotlight(
           <img
@@ -168,7 +168,8 @@ function MainNavigation(props) {
             alt="spotlight icon"
           />
         );
-        setYellowBg("logo-background-yellow-nothome");
+        // setYellowBg("logo-background-yellow-nothome");
+        setYellowBg("");
       } else {
         setScrolledNavClass("");
         setRightSpotlight("");
@@ -186,6 +187,7 @@ function MainNavigation(props) {
   return (
     <div id="scrolled-home-before-nothome">
       <header className={`homepage-navigation-nothome ${scrolledNavClass}`}>
+        <div className="background-bar"></div>
         {leftSpotlight}
         {rightSpotlight}
 

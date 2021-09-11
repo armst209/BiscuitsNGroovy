@@ -56,7 +56,7 @@ function ReleasePreview(props) {
                       description={props.description}
                       images={props.albumCover}
                       stripeLoader={props.stripeLoader}
-                      setStripeLoader={props.setStripeLoaoder}
+                      setStripeLoader={props.setStripeLoader}
                     />
                   ) : (
                     <button

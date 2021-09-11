@@ -21,6 +21,21 @@
     }
   }
 
+  .background-bar {
+    position: absolute;
+    height: 104%;
+    width: 20%;
+    background-color: var(--color1);
+    @media screen and(max-width:1300px) {
+      width: 25%;
+    }
+    @media screen and(max-width:1140px) {
+      width: 30%;
+    }
+    @media screen and(max-width:1050px) {
+      display: none;
+    }
+  }
   .spotlight-top-left-nothome {
     width: 50px;
     position: absolute;

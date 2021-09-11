@@ -14,6 +14,7 @@ import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
 import { AnimatePresence } from "framer-motion";
+import StripeLoader from "./components/Loading/StripeLoader";
 
 //configure flow environment
 config()
@@ -63,6 +64,7 @@ function App() {
   const [signUpPopup, showSignUpPopup] = useState(false);
   const [urlUserName, setUrlUserName] = useState("");
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const [stripeLoader, setStripeLoader] = useState("");
 
   useEffect(() => {
     // Getting user's information
@@ -120,6 +122,8 @@ function App() {
                 showSignUpPopup={showSignUpPopup}
                 showMobileNav={showMobileNav}
                 setShowMobileNav={setShowMobileNav}
+                stripeLoader={stripeLoader}
+                setStripeLoader={setStripeLoader}
               />
             )}
           />
@@ -363,6 +367,7 @@ function App() {
           />
         </Switch>
       </Suspense>
+      {stripeLoader}
     </div>
   );
 }

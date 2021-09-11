@@ -5,11 +5,10 @@ function StripeLoader() {
   return (
     <section id="stripe-loader">
       <div className="stripe-container">
-        <div className="message">
-          <p> Redirecting you to Stripe Checkout...</p>
-        </div>
-
         <img src={pulse} alt="loading" />
+        <div className="message">
+          <p> Redirecting to Stripe Checkout...</p>
+        </div>
       </div>
     </section>
   );

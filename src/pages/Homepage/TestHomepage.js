@@ -13,7 +13,7 @@ import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_
 
 function TestHomepage(props) {
   const [releasePop, setReleasePop] = useState("");
-  const [stripeLoader, setStripeLoaoder] = useState("");
+
   return (
     <>
       <NotHomeNavigation
@@ -39,8 +39,8 @@ function TestHomepage(props) {
         showSignUpPopup={props.showSignUpPopup}
         /////////////////////////////////////////
         showReleasePopUp={setReleasePop}
-        stripeLoader={stripeLoader}
-        setStripeLoader={setStripeLoaoder}
+        stripeLoader={props.stripeLoader}
+        setStripeLoader={props.setStripeLoader}
       />
       <NFTBreakdown />
       <div className="reminder-subscribe">

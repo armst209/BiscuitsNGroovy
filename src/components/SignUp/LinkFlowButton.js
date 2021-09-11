@@ -21,7 +21,6 @@ function LinkFlowButton(props) {
     );
     await initAccount();
     accountIsInitialized().then((firstAccountState) => {
-      console.log("stop spinner");
       props.flowBtnLoader("");
 
       console.log(firstAccountState);

@@ -3,9 +3,9 @@ import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 import ex_music_icon from "../../assets/images/love-song2.svg";
 import "./CheckoutStyle.scss";
-import ComponentLoading from "../../components/Loading/ComponentLoading";
-
+import StripeLoader from "../../components/Loading/StripeLoader";
 import env from "react-dotenv";
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
@@ -53,8 +53,13 @@ export default function CheckoutButton(props) {
   }, []);
 
   const handleClick = async (event) => {
+    //stripe loader placement must be here - delay if below setting of token
+    props.setStripeLoader(
+      <div className="stripe-loader-container">
+        <StripeLoader />
+      </div>
+    );
     //check if a user is signed in with a FLOW wallet
-
     const token = localStorage.getItem("token");
 
     const stripe = await stripePromise;
@@ -78,7 +83,6 @@ export default function CheckoutButton(props) {
     // console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
 
-    props.setStripeLoader(<ComponentLoading />);
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,
     });

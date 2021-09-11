@@ -68,7 +68,7 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
               showSignUpPopup={props.showSignUpPopup}
               //////////////////////////////////////////
               stripeLoader={props.stripeLoader}
-              setStripeLoader={props.setStripeLoaoder}
+              setStripeLoader={props.setStripeLoader}
             />
           );
         };
