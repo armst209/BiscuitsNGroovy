@@ -17,6 +17,7 @@
   @media screen and (max-width: 1140px) {
     height: auto;
   }
+
   h1 {
     font-family: var(--font1);
     font-size: 2rem;
@@ -39,21 +40,29 @@
     // transform: translate(-50%, -50%);
   }
 
-  input {
-    border: 3px solid var(--color1);
-    background-color: transparent;
-    font-family: var(--font2);
-    color: white;
-    padding-left: 5px;
-    height: 50px;
-    width: 300px;
-    margin: 10px;
+  .mailchimp-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    &::placeholder {
+    input {
+      border: 3px solid var(--color1);
+      background-color: transparent;
+      font-family: var(--font2);
       color: white;
-      font-weight: bold;
+      padding-left: 5px;
+      height: 50px;
+      width: 300px;
+      margin: 10px;
+
+      &::placeholder {
+        color: white;
+        font-weight: bold;
+      }
     }
   }
+
   button {
     border: 3px solid var(--color1);
     font-family: var(--font1);
