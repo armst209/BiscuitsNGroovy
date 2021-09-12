@@ -1,24 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import "./SuccessfulSignUpStlye.scss";
 import success_fireworks from "../../assets/images/success-fireworks-yellow.svg";
 
-function SuccessfulSignUp({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-}) {
+function SuccessfulSignUp() {
   return (
     <section id="successful-signup">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      />
       <div className="successful-signup-wrapper">
         <div className="successful-signup-content">
           <h2>Success!</h2>
@@ -33,7 +20,6 @@ function SuccessfulSignUp({
           <img className="fireworks" src={success_fireworks} alt="fireworks" />
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

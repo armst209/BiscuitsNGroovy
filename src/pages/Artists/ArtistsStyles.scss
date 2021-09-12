@@ -1,6 +1,7 @@
 #artists {
   color: white;
   background: black;
+  padding-bottom: 3rem;
   .artists-title {
     width: 100%;
     padding-top: 8rem;
@@ -300,7 +301,7 @@
       padding: 60px 40px;
       background-color: black;
       font-family: var(--font2);
-      margin-bottom: 3rem;
+      padding-bottom: 3rem;
       border: 7px solid var(--color2);
       border-radius: 20px;
       @media screen and (max-width: 1000px) {

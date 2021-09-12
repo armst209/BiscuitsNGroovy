@@ -9,17 +9,10 @@ import two_icon from "../../assets/images/hand2_yellow.svg";
 import one_icon from "../../assets/images/hand1_yellow.svg";
 import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 
-function About({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
+function About() {
   return (
     <section id="about">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      />
       <div className="about-title">
         <h1>
           <img
@@ -145,7 +138,6 @@ function About({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           </div>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

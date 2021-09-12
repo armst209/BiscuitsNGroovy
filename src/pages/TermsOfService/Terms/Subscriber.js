@@ -1,27 +1,9 @@
 import React from "react";
-import Footer from "../../../components/Footer/Footer";
 import "./SubscriberStyles.scss";
-import NotHomeNavigation from "../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 
-function Subscriber({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-  setShowMobileNav,
-  showMobileNav,
-}) {
+function Subscriber() {
   return (
     <section id="sub-terms">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-        showMobileNav={showMobileNav}
-        setShowMobileNav={setShowMobileNav}
-      />
-
       <div className="sub-terms-wrapper">
         <div className="sub-terms-container">
           <h1>BISCUITS N GROOVY, LLC SUBSCRIBER TERMS OF SERVICE</h1>
@@ -351,7 +333,6 @@ function Subscriber({
           </p>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

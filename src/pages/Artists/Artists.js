@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Mailchimp from "react-mailchimp-form";
 
 import "./ArtistsStyles.scss";
-import Footer from "../../components/Footer/Footer";
 import love_music_icon from "../../assets/images/love-song2.svg";
 import stream_music_icon from "../../assets/images/voice.svg";
 import favorite_music_icon from "../../assets/images/3rd_icon_record_share.svg";
@@ -15,18 +14,11 @@ import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 
-function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
+function Artists() {
   const showSuccessMessage = () => {};
   return (
     <section id="artists">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      />
       <div className="artists-title">
         <h1>
           <img
@@ -230,7 +222,7 @@ function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           </div>
         </div>
         <div id="artists-form" className="form-container">
-          {/* <Mailchimp
+          <Mailchimp
             action={process.env.REACT_APP_MAILCHIMP_URL}
             //Adding multiple fields:
             fields={[
@@ -293,7 +285,7 @@ function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             <button type="submit" onSubmit={showSuccessMessage}>
               SUBMIT
             </button>
-          </Mailchimp> */}
+          </Mailchimp>
           {/* <form
             method="POST"
             enctype="multipart/form-data"
@@ -312,8 +304,6 @@ function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           {/* </form> */}
         </div>
       </div>
-
-      <Footer />
     </section>
   );
 }

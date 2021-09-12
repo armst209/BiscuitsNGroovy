@@ -1,27 +1,9 @@
 import React from "react";
 import "./PurchaseOfMusicStyles.scss";
-import NotHomeNavigation from "../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
-import Footer from "../../../components/Footer/Footer";
 
-function PurchaseOfMusic({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-  setShowMobileNav,
-  showMobileNav,
-}) {
+function PurchaseOfMusic() {
   return (
     <section id="pom-terms">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-        showMobileNav={showMobileNav}
-        setShowMobileNav={setShowMobileNav}
-      />
-
       <div className="pom-terms-wrapper">
         <div className="pom-terms-container">
           <h1>BISCUITS N GROOVY, LLC TERMS REGARDING PURCHASE OF MUSIC</h1>
@@ -159,7 +141,6 @@ function PurchaseOfMusic({
           </p>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

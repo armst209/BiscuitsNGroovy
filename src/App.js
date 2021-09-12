@@ -7,6 +7,8 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
+import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
+import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
 
 //Importing Flow Configuration
@@ -14,7 +16,6 @@ import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
 import { AnimatePresence } from "framer-motion";
-import StripeLoader from "./components/Loading/StripeLoader";
 
 //configure flow environment
 config()
@@ -104,6 +105,17 @@ function App() {
           />
         )}
       </AnimatePresence>
+
+      <NotHomeNavigation
+        loginPopup={loginPopup}
+        showLoginPopup={showLoginPopup}
+        signUpPopup={signUpPopup}
+        showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
+        stripeLoader={stripeLoader}
+        setStripeLoader={setStripeLoader}
+      />
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route path="/test" component={TestHomepage} />
@@ -354,6 +366,7 @@ function App() {
           />
         </Switch>
       </Suspense>
+      <Footer />
       {stripeLoader}
     </div>
   );

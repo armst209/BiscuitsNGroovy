@@ -1,30 +1,14 @@
 import React from "react";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
-import Footer from "../../components/Footer/Footer";
+
 import "./TermsOfServiceStyles.scss";
 import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 import TermsList from "./TermsList";
 
-function TermsOfService({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-  setShowMobileNav,
-  showMobileNav,
-}) {
+function TermsOfService() {
   return (
     <section id="terms-of-service">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-        showMobileNav={showMobileNav}
-        setShowMobileNav={setShowMobileNav}
-      />
       <div className="tos-title">
         <h1>
           {" "}
@@ -42,8 +26,6 @@ function TermsOfService({
         </h1>
       </div>
       <TermsList />
-
-      <Footer />
     </section>
   );
 }

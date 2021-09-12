@@ -1,17 +1,10 @@
 import React from "react";
-import Navbar from "../../../../components/Navbars/MainNavigation/MainNavigation";
-import Footer from "../../../../components/Footer/Footer";
 import "./PrivacyPolicyStyles.scss";
 import speaker from "../../../../assets/images/speaker_yellow.svg";
 
 function PrivacyPolicy(props) {
   return (
     <section id="privacy-policy">
-      <Navbar
-        showLoginPopup={props.setTrigger}
-        showSignUpPopUp={props.showSignUp}
-      />
-
       <div className="privacy-policy-wrapper">
         <div className="privacy-policy-container">
           <h1>BISCUITS N GROOVY, LLC PRIVACY POLICY</h1>
@@ -229,7 +222,6 @@ function PrivacyPolicy(props) {
           </p>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

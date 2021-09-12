@@ -3,18 +3,12 @@ import axios from "axios";
 import { withRouter } from "react-router";
 import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
 import "./FanPortalStyles.scss";
-import Footer from "../../../../components/Footer/Footer";
-import NotHomeNavigation from "../../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
+
 import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import env from "react-dotenv";
 
-function FanPortal({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-}) {
+function FanPortal() {
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger
 
   const [showAlbumDetails] = useState(false);
@@ -41,12 +35,6 @@ function FanPortal({
 
   return (
     <section id="fan-portal">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      />
       <div className="portal-title">
         <h1>
           <img
@@ -64,7 +52,6 @@ function FanPortal({
         </h1>
       </div>
       <FPHomepage setTrigger={showAlbumDetails} />
-      <Footer />
     </section>
   );
 }

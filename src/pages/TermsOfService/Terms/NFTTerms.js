@@ -1,23 +1,9 @@
 import React from "react";
 import "./NFTTermsStyles.scss";
-import NotHomeNavigation from "../../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
-import Footer from "../../../components/Footer/Footer";
 
-function NFTTerms({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-}) {
+function NFTTerms() {
   return (
     <section id="nft-terms">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      />
-
       <div className="nft-terms-wrapper">
         <div className="nft-terms-container">
           <h1>BISCUITS N GROOVY, LLC: TERMS REGARDING NON-FUNGIBLE TOKENS</h1>
@@ -137,7 +123,6 @@ function NFTTerms({
           </p>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

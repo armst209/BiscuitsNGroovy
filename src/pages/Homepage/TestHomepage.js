@@ -3,7 +3,7 @@ import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
 import Footer from "../../components/Footer/Footer";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
+
 import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import TestHero from "./TestHero";
@@ -17,14 +17,6 @@ function TestHomepage(props) {
 
   return (
     <>
-      <NotHomeNavigation
-        loginPopup={props.loginPopup}
-        signUpPopup={props.signUpPopup}
-        showLoginPopup={props.showLoginPopup}
-        showSignUpPopup={props.showSignUpPopup}
-        showMobileNav={props.showMobileNav}
-        setShowMobileNav={props.setShowMobileNav}
-      />
       <TestHero
         loginPopup={props.loginPopup}
         signUpPopup={props.signUpPopup}
@@ -61,7 +53,6 @@ function TestHomepage(props) {
         </div>
         <img className="reminder-image" src={reminder_image} alt="sfsfsf" />
       </div>
-      <Footer />
     </>
   );
 }

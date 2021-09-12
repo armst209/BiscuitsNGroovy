@@ -1,10 +1,7 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
-
-import Footer from "../../components/Footer/Footer";
 import dropdown from "../../assets/images/double-down-yellow.svg";
 import question from "../../assets/images/question2.svg";
 import record_bullet from "../../assets/images/vinyl_yellow.svg";
@@ -40,12 +37,6 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
 
   return (
     <section id="faq">
-      <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      />
       <div className="faq-title">
         <h1>
           {" "}
@@ -739,7 +730,6 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           </div>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }
