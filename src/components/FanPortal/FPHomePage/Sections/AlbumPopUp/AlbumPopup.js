@@ -25,17 +25,17 @@ function AlbumPopup(props) {
   };
 
   useEffect(() => {
-    //mapping through songs array to populate desktop view playlist
+    //mapping through songs array to populate playlist and numbering song order
     const songsArray = props.release.songs;
 
-    let showReleaseTrackList = songsArray.map((element) => {
+    let showReleaseTrackList = songsArray.map((element, order) => {
       return element ? (
         <li
           onClick={() => {
             setCurrentMusicIndex(songsArray.indexOf(element));
           }}
         >
-          {element.title}
+          {`${order + 1}. ${element.title}`}
         </li>
       ) : (
         <ComponentLoading />
@@ -68,9 +68,14 @@ function AlbumPopup(props) {
             >
               <AnimatePresence>
                 <motion.div className="mobile-tracklist-popup" exit="hidden">
-                  <ul>{populateTracklist}</ul>
-                  <div onClick={() => setShowTrackList(!showTrackList)}>
-                    Close
+                  <div className="mobile-tracklist-wrapper">
+                    <div
+                      className="mobile-tracklist-close"
+                      onClick={() => setShowTrackList(!showTrackList)}
+                    >
+                      X
+                    </div>
+                    <ul>{populateTracklist}</ul>
                   </div>
                 </motion.div>
               </AnimatePresence>

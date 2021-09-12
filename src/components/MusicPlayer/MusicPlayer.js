@@ -24,6 +24,9 @@ function MusicPlayer(props) {
       : props.setCurrentMusicIndex(props.currentMusicIndex + 1);
   };
 
+  const handleLiSelect = () => {};
+  window.addEventListener("click", handleLiSelect, {});
+
   return (
     <>
       <AudioPlayer
@@ -85,7 +88,6 @@ function MusicPlayer(props) {
         src={props.trackListArray[props.currentMusicIndex].url}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
-        // layout="stacked-reverse"
       />
 
       {/* <ReactJkMusicPlayer

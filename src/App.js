@@ -51,9 +51,7 @@ const NFTTerms = lazy(() => import("./pages/TermsOfService/Terms/NFTTerms"));
 const FanPortalHome = lazy(() =>
   import("./pages/Portals/FanPortal/Homepage/FanPortal")
 );
-const FanPortalProfile = lazy(() =>
-  import("./pages/Portals/FanPortal/Profile/FanPortalProfile.js")
-);
+
 const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 const SuccessfulPurchase = lazy(() =>
   import("./pages/SuccessfulPurchase/SuccessBuy")
@@ -175,17 +173,6 @@ function App() {
             path="/collection"
             render={(props) => (
               <FanPortalHome
-                {...props}
-                setTrigger={showLoginPopup}
-                showSignUp={showSignUpPopup}
-              />
-            )}
-          />
-          <ProtectedRoute
-            exact={true}
-            path="/collection/profile"
-            render={(props) => (
-              <FanPortalProfile
                 {...props}
                 setTrigger={showLoginPopup}
                 showSignUp={showSignUpPopup}

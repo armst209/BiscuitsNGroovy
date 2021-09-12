@@ -20,12 +20,23 @@
   }
   .kyc-title {
     padding: 0 1rem;
+    padding-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    h1 {
-      .record-header-icon {
-        width: 50px;
-        margin-right: 0.5rem;
+    @media screen and (max-width: 750px) {
+      flex-direction: column-reverse;
+    }
+    .record-header-icon {
+      width: 50px;
+      margin-right: 0.5rem;
+      @media screen and (max-width: 750px) {
+        margin: 1rem;
       }
+    }
+    h1 {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -34,8 +45,6 @@
       letter-spacing: 0.05cm;
       font-weight: normal;
       font-size: 3rem;
-      padding-top: 5rem;
-      width: 100%;
       text-align: center;
       @media screen and (max-width: 400px) {
         font-size: 2rem;

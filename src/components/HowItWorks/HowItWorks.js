@@ -27,12 +27,14 @@ function HowItWorks() {
       /> */}
       <div className="how-it-works-container">
         <div className="box-title">
-          <img
-            className="record-header-icon"
-            src={record_header_icon}
-            alt="record "
-          />
-          <h1>HOW IT WORKS</h1>
+          <h1>
+            <img
+              className="record-header-icon"
+              src={record_header_icon}
+              alt="record "
+            />
+            <div>HOW IT WORKS</div>
+          </h1>
         </div>
         <div className="boxes">
           <div className="box" onClick={() => setContent1(!content1)}>

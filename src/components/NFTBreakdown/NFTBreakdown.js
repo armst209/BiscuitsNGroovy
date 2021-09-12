@@ -20,14 +20,12 @@ function NFTBreakdown() {
         alt="spotlight icon"
       /> */}
       <div className="kyc-title">
-        <h1>
-          <img
-            className="record-header-icon"
-            src={record_header_icon}
-            alt="record "
-          />
-          <div>KNOW YOUR COLLECTION</div>
-        </h1>
+        <img
+          className="record-header-icon"
+          src={record_header_icon}
+          alt="record "
+        />
+        <h1>KNOW YOUR COLLECTION</h1>
       </div>
 
       <div className="kyc-subtitle">

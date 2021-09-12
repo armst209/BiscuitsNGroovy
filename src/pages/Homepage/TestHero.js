@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import hero_image from "../../assets/images/hero.webp";
-import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.png";
-import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-right.png";
+import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.webp";
+import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-left.webp";
 import "./TestHeroStyles.scss";
 import env from "react-dotenv";
 import { config } from "@onflow/fcl";
@@ -33,7 +33,7 @@ function TestHero() {
                   </div>
                   <div className="hero-test-subtitle">
                     Stream exclusive music from your favorite artists, and
-                    collect NFT album art Available only for a limited time,
+                    collect NFT album art. Available only for a limited time,
                     only for true fans.
                   </div>
                   <div className="hero-test-buttons">

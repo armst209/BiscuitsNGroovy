@@ -73,7 +73,7 @@
               // -webkit-text-stroke-color: black;
 
               font-family: var(--font3);
-              letter-spacing: 0.06cm;
+              letter-spacing: 0.1cm;
               line-height: 6rem;
               margin-bottom: 1rem;
               font-size: 120px;
@@ -258,10 +258,9 @@
   .hero-image-mobile {
     position: absolute;
     width: auto;
-
     z-index: 0;
     display: none;
-    top: 0;
+    top: 90px;
     right: 0;
 
     @media screen and (max-width: 1140px) {

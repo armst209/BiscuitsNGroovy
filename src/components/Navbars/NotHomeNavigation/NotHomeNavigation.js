@@ -12,6 +12,7 @@ import logout_icon from "../../../assets/images/logout-yellow.svg";
 import login_icon from "../../../assets/images/login_white.svg";
 import collection_icon from "../../../assets/images/music-collection-yellow.svg";
 import write from "../../../assets/images/write.svg";
+import normal_vinyl from "../../../assets/images/compact-disc-yellow.svg";
 import heart_vinyl from "../../../assets/images/vinyl_yellow.svg";
 import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
@@ -24,6 +25,10 @@ function MainNavigation(props) {
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
   const [showDropDown, setShowDropDown] = useState(false);
   const [scrolledNavClass, setScrolledNavClass] = useState("");
+  const [scrolledHamburgerClass, setScrolledHamburgerClass] =
+    useState("settings-icon");
+  const [menuTextClass, setMenuTextClass] = useState("menu-p-nothome");
+  const [closeTextClass, setCloseTextClass] = useState("close-p-nothome");
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
@@ -62,32 +67,26 @@ function MainNavigation(props) {
           },
         })
           .then((res) => {
-            // setUserName(res.data.user.username);
-            // setLinkUserName(res.data.user.username);
-            // if (token) {
-            // } else {
-            //   setUserName("");
-            //   setLinkUserName("");
-            // }
+            setUserName(
+              <motion.img
+                animate={{
+                  rotate: 360,
+                  transition: {
+                    ease: "linear",
+                    duration: 2,
+                    repeat: Infinity,
+                  },
+                }}
+                width="50px"
+                src={heart_vinyl}
+                alt="record"
+              />
+            );
           })
           .catch((err) => {
             console.log(err);
           })
-      : setUserName(
-          <motion.img
-            animate={{
-              rotate: 360,
-              transition: {
-                ease: "linear",
-                duration: 2,
-                repeat: Infinity,
-              },
-            }}
-            width="50px"
-            src={heart_vinyl}
-            alt="record"
-          />
-        );
+      : setUserName(<img src={normal_vinyl} width="50px" alt="record" />);
     setLinkUserName("");
 
     //Menu Dropdown Function
@@ -155,6 +154,9 @@ function MainNavigation(props) {
       const offset = window.scrollY;
       if (offset > 15) {
         setScrolledNavClass("scrolled-navigation-nothome");
+        setScrolledHamburgerClass("settings-icon-scrolled");
+        setMenuTextClass("menu-p-nothome-scrolled");
+        setCloseTextClass("close-p-nothome-scrolled");
         setRightSpotlight(
           <img
             className={`spotlight-top-right-nothome ${rightSpotlight}`}
@@ -173,6 +175,9 @@ function MainNavigation(props) {
         setYellowBg("");
       } else {
         setScrolledNavClass("");
+        setScrolledHamburgerClass("settings-icon");
+        setMenuTextClass("menu-p-nothome");
+        setCloseTextClass("close-p-nothome");
         setRightSpotlight("");
         setLeftSpotlight("");
         setYellowBg("");
@@ -306,12 +311,12 @@ function MainNavigation(props) {
               <div className="menu-bars-home-nothome"></div> */}
 
               <img
-                className="settings-icon"
+                className={scrolledHamburgerClass}
                 src={settings_icon}
                 alt="settings"
               />
-              <p className="menu-p-nothome">MENU</p>
-              <p className="close-p-nothome">CLOSE</p>
+              <p className={menuTextClass}>MENU</p>
+              <p className={closeTextClass}>CLOSE</p>
 
               {/* Mobile Navigation */}
               <aside className="mobile-nav-home-nothome">
