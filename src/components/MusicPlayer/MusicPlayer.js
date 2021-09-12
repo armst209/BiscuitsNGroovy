@@ -43,7 +43,7 @@ function MusicPlayer(props) {
             },
           })
         }
-        onPause={() => setRecordSpin("")}
+        onPause={() => setRecordSpin({ rotate: 0 })}
         customControlsSection={[
           <div
             className="playlist-button"

@@ -30,10 +30,14 @@
 
     .box-title {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       padding: 0 1rem;
+      .record-header-icon {
+        width: 50px;
+        margin-right: 0.5rem;
+      }
 
       h1 {
         text-align: center;

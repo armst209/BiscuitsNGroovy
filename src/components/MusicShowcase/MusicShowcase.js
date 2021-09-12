@@ -5,7 +5,8 @@ import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
-import showcase from "../../assets/images/showcase.png";
+import showcase from "../../assets/images/showcase.webp";
+import showcase_mobile from "../../assets/images/showcase_mobile.webp";
 import env from "react-dotenv";
 
 function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
@@ -82,11 +83,16 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
               onClick={() => showReleaseInfo(release)}
               key={`${"release-container" + release.id}`}
               className="grid-item"
+              style={{
+                zIndex: `${release.id + 5}`,
+                marginTop: `${release.id + 50}px`,
+              }}
             >
               <img
                 className="grid-image"
                 src={release.art_url}
                 alt={release.name}
+                key={`${"image-key" + release.id}`}
               />
               <div className="release-information">
                 <div>View Release</div>
@@ -136,7 +142,7 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
             details
           </p>
           <div className="content-wrapper">
-            <img src={showcase} alt="imhdgd" />
+            <img className="showcase-image" src={showcase} alt="showcase" />
             <div className="showcase-grid-desktop">
               {releasesLoaded ? (
                 <Suspense fallback={<ComponentLoading />}>
@@ -153,6 +159,11 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
         </div>
       </div>
       {releaseInfo}
+      <img
+        className="showcase-image-mobile"
+        src={showcase_mobile}
+        alt="showcase mobile"
+      />
     </section>
   );
 }

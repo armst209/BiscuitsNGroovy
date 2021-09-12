@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import hero_image from "../../assets/images/hero.png";
+import hero_image from "../../assets/images/hero.webp";
+import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.png";
+import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-right.png";
 import "./TestHeroStyles.scss";
 import env from "react-dotenv";
 import { config } from "@onflow/fcl";
@@ -52,7 +54,24 @@ function TestHero() {
             </div>
           </div>
         </div>
-        <img className="hero-image" src={hero_image} alt="dani1" />
+        {/* <link
+          rel="preload"
+          as="image"
+          href="../../assets/images/hero.webp"
+          type="image/webp"
+          className="hero-image"
+        /> */}
+        <img className="hero-image" src={hero_image} alt="hero" />
+        <img
+          className="hero-image-mobile"
+          src={hero_image_mobile}
+          alt="hero mobile"
+        />
+        <img
+          className="hero-image-mobile-bottom-left"
+          src={hero_image_mobile_bottom_left}
+          alt="hero mobile"
+        />
       </section>
     </>
   );

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import loveSong from "../../assets/images/love-song2.svg";
 import voice from "../../assets/images/voice.svg";
 import collect from "../../assets/images/collectshare.svg";
+import record_header_icon from "../../assets/images/compact-disc-yellow.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
@@ -14,7 +15,7 @@ function HowItWorks() {
   const [content3, setContent3] = useState(false);
   return (
     <section id="how-it-works">
-      <img
+      {/* <img
         className="spotlight-top-left"
         src={spotlight_yellow_left}
         alt="spotlight icon"
@@ -23,9 +24,14 @@ function HowItWorks() {
         className="spotlight-top-right"
         src={spotlight_yellow_right}
         alt="spotlight icon"
-      />
+      /> */}
       <div className="how-it-works-container">
         <div className="box-title">
+          <img
+            className="record-header-icon"
+            src={record_header_icon}
+            alt="record "
+          />
           <h1>HOW IT WORKS</h1>
         </div>
         <div className="boxes">

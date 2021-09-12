@@ -29,9 +29,9 @@
   scroll-padding-top: 5rem;
   scrollbar-width: thin;
   scrollbar-color: var(--color1) black;
-  --font1: "outer-sans";
-  --font2: "outer-sans-thin";
-  --font3: "colombo-sans";
+  --font1: "outer-sans", 'Raleway', sans-serif;
+  --font2: "outer-sans-thin", 'Raleway', sans-serif;
+  --font3: "colombo-sans", 'Montserrat', sans-serif;
   --small-text-weight: 700;
   --color1: #f5ee0d;
   --color2: #25c1a9;

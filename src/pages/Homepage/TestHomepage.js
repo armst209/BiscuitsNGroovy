@@ -8,9 +8,9 @@ import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import TestHero from "./TestHero";
 import "./TestHomepageStyles.scss";
-import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
-import reminder_image from "../../assets/images/reminder.png";
+// import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
+// import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import reminder_image from "../../assets/images/subscribe.webp";
 
 function TestHomepage(props) {
   const [releasePop, setReleasePop] = useState("");
@@ -45,7 +45,7 @@ function TestHomepage(props) {
       />
       <NFTBreakdown />
       <div className="reminder-subscribe">
-        <img
+        {/* <img
           className="spotlight-top-left"
           src={spotlight_yellow_left}
           alt="spotlight icon"
@@ -54,7 +54,7 @@ function TestHomepage(props) {
           className="spotlight-top-right"
           src={spotlight_yellow_right}
           alt="spotlight icon"
-        />
+        /> */}
         <div className="reminder-subscribe-wrapper">
           <ArtistReminder />
           <SubscribeSection />

@@ -1,6 +1,6 @@
 #hero-test {
   display: block;
-  background-image: url("../../assets/images/desktop-triangle-half.png");
+  background-image: url("../../assets/images/hero-background.webp");
   background-color: none;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,6 +13,10 @@
 
   @media screen and (max-width: 1140px) {
     background-image: none;
+  }
+
+  @media screen and (max-width: 550px) {
+    background-color: black;
   }
   .hero-nav-spacer {
     height: 70px;
@@ -62,19 +66,32 @@
             }
             h1 {
               color: black;
+              // -webkit-text-fill-color: var(
+              //   --color2
+              // ); /* Will override color (regardless of order) */
+              // -webkit-text-stroke-width: 0.2px;
+              // -webkit-text-stroke-color: black;
+
               font-family: var(--font3);
-              letter-spacing: 0.03cm;
+              letter-spacing: 0.06cm;
               line-height: 6rem;
               margin-bottom: 1rem;
               font-size: 120px;
               @media screen and (max-width: 1400px) {
                 font-size: 100px;
                 margin-bottom: 0;
+                position: relative;
+                z-index: 100;
               }
               @media screen and (max-width: 1140px) {
                 color: white;
                 text-align: center;
+                text-shadow: 5px 5px 8px black;
               }
+              @media screen and (max-width: 550px) {
+                text-align: left;
+              }
+
               @media screen and (max-width: 550px) {
                 font-size: 80px;
                 line-height: 4.5rem;
@@ -83,6 +100,9 @@
                 font-size: 70px;
                 line-height: 4rem;
               }
+              @media screen and (max-width: 450px) {
+              }
+
               @media screen and (max-width: 350px) {
                 font-size: 50px;
                 line-height: 2.8rem;
@@ -102,9 +122,15 @@
               text-align: center;
               padding: 1rem;
               font-size: 1.5rem;
+              position: relative;
+              z-index: 100;
+              text-shadow: 5px 5px 8px black;
             }
             @media screen and (max-width: 550px) {
               font-size: 1.3rem;
+              text-align: left;
+
+              padding-left: 0;
             }
             @media screen and (max-width: 450px) {
               font-size: 1rem;
@@ -124,6 +150,8 @@
               justify-content: center;
               flex-direction: column;
               margin: 0;
+              position: relative;
+              z-index: 100;
             }
 
             a {
@@ -136,32 +164,69 @@
             button {
               width: 300px;
               height: 100px;
-
-              // border-radius: 20px;
-              border: 3px solid black;
+              transition: all 0.2s ease;
               padding: 0.5rem;
               @media screen and (max-width: 1200px) {
                 margin: 0.5rem 0;
               }
             }
             .start-btn {
-              background-color: black;
-              border: 5px solid var(--color2);
-              color: white;
-              border-radius: 20px;
-              margin-left: 0;
-              margin-right: 0.5rem;
+              font-weight: normal;
+              outline: none;
+              position: relative;
+              border-radius: 50px;
+              background: var(--color2);
+              color: black;
+              filter: drop-shadow(5px 5px 8px black);
+
+              &:hover {
+                //box-shadow: 0 4px rgb(36, 97, 97);
+
+                background-color: black;
+                color: white;
+                filter: none;
+                border: 3px solid var(--color2);
+              }
+
               @media screen and (max-width: 1140px) {
                 margin-right: 0;
+                background: black;
+                border: 3px solid var(--color2);
+                color: white;
+                &:hover {
+                  //box-shadow: 0 4px rgb(36, 97, 97);
+
+                  background-color: var(--color2);
+                  color: black;
+                  filter: none;
+                  border: none;
+                }
               }
             }
             .for-artists-btn {
-              background-color: black;
-              color: white;
+              background-color: var(--color1);
+
+              color: black;
+              border-radius: 50px;
+              border: 3px solid black;
               margin-left: 0.5rem;
+              // box-shadow: 0 6px rgb(136, 120, 31);
+              &:hover {
+                color: white;
+                background-color: black;
+                border: 3px solid var(--color1);
+              }
               @media screen and (max-width: 1140px) {
                 padding-left: 0;
                 margin-left: 0;
+                background-color: black;
+                color: white;
+                border: 3px solid var(--color1);
+                &:hover {
+                  color: black;
+                  background-color: var(--color1);
+                  border: none;
+                }
               }
             }
           }
@@ -177,10 +242,41 @@
   .hero-image {
     position: absolute;
     bottom: 0;
-    right: 20%;
+    right: 10%;
     height: 100%;
-    @media screen and (max-width: 1149px) {
+
+    @media screen and (max-width: 1300px) {
+      right: 0;
+    }
+    @media screen and (max-width: 1160px) {
+      right: 0;
+    }
+    @media screen and (max-width: 1140px) {
       display: none;
+    }
+  }
+  .hero-image-mobile {
+    position: absolute;
+    width: auto;
+
+    z-index: 0;
+    display: none;
+    top: 0;
+    right: 0;
+
+    @media screen and (max-width: 1140px) {
+      display: flex;
+    }
+  }
+  .hero-image-mobile-bottom-left {
+    position: absolute;
+    width: auto;
+    z-index: 0;
+    display: none;
+    left: 0;
+    bottom: 0;
+    @media screen and (max-width: 1140px) {
+      display: flex;
     }
   }
 }

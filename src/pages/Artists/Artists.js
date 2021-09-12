@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Mailchimp from "react-mailchimp-form";
 
 import "./ArtistsStyles.scss";
 import Footer from "../../components/Footer/Footer";
@@ -17,7 +18,7 @@ import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.
 import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
 
 function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
-  const sendToMail = () => {};
+  const showSuccessMessage = () => {};
   return (
     <section id="artists">
       <NotHomeNavigation
@@ -229,7 +230,76 @@ function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           </div>
         </div>
         <div id="artists-form" className="form-container">
-          <form action="">
+          {/* <Mailchimp
+            action={process.env.REACT_APP_MAILCHIMP_URL}
+            //Adding multiple fields:
+            fields={[
+              {
+                name: "ARTISTNAME",
+                placeholder: "Artist Name",
+                type: "text",
+                required: true,
+                maxLength: "5",
+              },
+              {
+                name: "PREFNAME",
+                placeholder: "Preferred Name",
+                type: "text",
+                required: false,
+              },
+              {
+                name: "EMAIL",
+                placeholder: "Email",
+                type: "email",
+                required: true,
+              },
+              {
+                name: "ARTPHONE",
+                placeholder: "Artist Phone",
+                type: "phone",
+                required: true,
+              },
+              {
+                name: "MANNAME",
+                placeholder: "Manager/Agent Name",
+                type: "text",
+                required: true,
+              },
+              {
+                name: "MANEMAIL",
+                placeholder: "Manager/Agent Email",
+                type: "email",
+                required: true,
+              },
+              {
+                name: "MESSAGE",
+                placeholder: "Enter Message:",
+                type: "text",
+                required: true,
+              },
+            ]}
+            // Change predetermined language
+            messages={{
+              sending: "Sending...",
+              success: "Thank you for subscribing!",
+              error: "An unexpected internal error has occurred.",
+              empty: "You must write an e-mail.",
+              duplicate: "Too many subscribe attempts for this email address",
+              button: "Subscribe!",
+            }}
+            // Add a personalized class
+            className="mailchimp-container"
+          >
+            <button type="submit" onSubmit={showSuccessMessage}>
+              SUBMIT
+            </button>
+          </Mailchimp> */}
+          {/* <form
+            method="POST"
+            enctype="multipart/form-data"
+            name="EmailForm"
+            action="mailto:armst209@gmail.com"
+          >
             <input type="text" placeholder="Artist Name" required />
             <input type="text" placeholder="Preferred Name" />
             <input type="email" placeholder="Email" required />
@@ -238,10 +308,8 @@ function Artists({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             <input type="email" placeholder="Manager/Agent Email" required />
             <label htmlFor="text-box">Type Your Message Below:</label>
             <input className="text-box" type="text" required />
-            <button type="submit" onSubmit={sendToMail}>
-              SUBMIT
-            </button>
-          </form>
+            <button type="submit">SUBMIT</button> */}
+          {/* </form> */}
         </div>
       </div>
 

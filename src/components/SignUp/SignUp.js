@@ -84,8 +84,8 @@ const SignUp = (props) => {
       case "username":
         setUserName(value);
         //setUser({ ...user, username: value });
-        if (minMaxLength(value, 7)) {
-          formErrors[name] = `Username should have minimum 7 characters`;
+        if (minMaxLength(value, 5)) {
+          formErrors[name] = `Username should have minimum 5 characters`;
         } else {
           delete formErrors[name];
         }
@@ -94,8 +94,8 @@ const SignUp = (props) => {
       case "password":
         setPassword(value);
         //setUser({ ...user, password: value });
-        if (minMaxLength(value, 6)) {
-          formErrors[name] = "Password should have minimum 6 characters";
+        if (minMaxLength(value, 7)) {
+          formErrors[name] = "Password should have minimum 7 characters";
         } else if (passwordStrength(value)) {
           formErrors[name] =
             "Password is not strong enough. Include an upper case letter, a number or a special character to make it strong";

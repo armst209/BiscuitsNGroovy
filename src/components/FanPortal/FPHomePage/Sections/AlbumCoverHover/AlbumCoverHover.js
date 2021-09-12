@@ -21,7 +21,7 @@ function AlbumCoverHover(props) {
           }
         >
           <img src={play_button} alt="play button" />
-          <div>{props.release.name}</div>
+          <div className="release-hover-name">{props.release.title}</div>
         </button>
       </div>
     </div>

@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NFTBreakdownStyles.scss";
 import record_favorite from "../../assets/images/vinyl_yellow.svg";
+import record_header_icon from "../../assets/images/compact-disc-yellow.svg";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 function NFTBreakdown() {
   return (
     <section id="nft-breakdown">
-      <img
+      {/* <img
         className="spotlight-top-left"
         src={spotlight_yellow_left}
         alt="spotlight icon"
@@ -17,8 +18,18 @@ function NFTBreakdown() {
         className="spotlight-top-right"
         src={spotlight_yellow_right}
         alt="spotlight icon"
-      />
-      <h1>KNOW YOUR COLLECTION</h1>
+      /> */}
+      <div className="kyc-title">
+        <h1>
+          <img
+            className="record-header-icon"
+            src={record_header_icon}
+            alt="record "
+          />
+          <div>KNOW YOUR COLLECTION</div>
+        </h1>
+      </div>
+
       <div className="kyc-subtitle">
         Every purchase includes a limited-edition digital album cover NFT.
         That’s a mouthful, so we’ve broken down what it means.

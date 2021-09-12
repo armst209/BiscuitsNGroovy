@@ -66,6 +66,9 @@
         h1 {
           font-size: 2rem;
           text-align: center;
+          font-family: var(--font3);
+          letter-spacing: 0.05cm;
+          font-weight: normal;
           @media screen and (max-width: 500px) {
             font-size: 1.5rem;
           }
@@ -75,6 +78,10 @@
         }
 
         p {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
           text-align: center;
           width: 100%;
           padding: 2rem 0 1rem 0;
@@ -94,6 +101,14 @@
             font-size: 1.4rem;
             font-weight: normal;
           }
+          .tired-message {
+            font-family: var(--font2);
+            font-weight: bold;
+            color: white;
+            font-size: 1rem;
+            max-width: 400px;
+            padding: 1rem 0 2rem 0;
+          }
         }
 
         a {
@@ -108,6 +123,7 @@
           button {
             border: 3px solid var(--color1);
             background: transparent;
+            border-radius: 50px;
             width: 200px;
             height: 70px;
             font-family: var(--font1);
