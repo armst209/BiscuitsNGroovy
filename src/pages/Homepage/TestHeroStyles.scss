@@ -266,6 +266,15 @@
     @media screen and (max-width: 1140px) {
       display: flex;
     }
+    @media screen and (max-width: 500px) {
+      height: 350px;
+    }
+    @media screen and (max-width: 450px) {
+      height: 250px;
+    }
+    @media screen and (max-width: 350px) {
+      height: 200px;
+    }
   }
   .hero-image-mobile-bottom-left {
     position: absolute;
@@ -276,6 +285,12 @@
     bottom: 0;
     @media screen and (max-width: 1140px) {
       display: flex;
+    }
+    @media screen and (max-width: 500px) {
+      height: 150px;
+    }
+    @media screen and (max-width: 350px) {
+      height: 125px;
     }
   }
 }
