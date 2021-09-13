@@ -83,10 +83,6 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
               onClick={() => showReleaseInfo(release)}
               key={`${"release-container" + release.id}`}
               className="grid-item"
-              style={{
-                zIndex: `${release.id + 5}`,
-                marginTop: `${release.id + 50}px`,
-              }}
             >
               <img
                 className="grid-image"
@@ -94,9 +90,9 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
                 alt={release.name}
                 key={`${"image-key" + release.id}`}
               />
-              <div className="release-information">
+              {/* <div className="release-information">
                 <div>View Release</div>
-              </div>
+              </div> */}
             </div>
           </>
         ) : (

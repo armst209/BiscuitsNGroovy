@@ -7,7 +7,7 @@ import { CSSTransition } from "react-transition-group";
 
 function ReleasePreview(props) {
   const [releaseTrackList, setReleaseTracklist] = useState(
-    <ol>
+    <ul>
       <li>Track #</li>
       <li>Track #</li>
       <li>Track #</li>
@@ -18,7 +18,7 @@ function ReleasePreview(props) {
       <li>Track #</li>
       <li>Track #</li>
       <li>Track #</li>
-    </ol>
+    </ul>
   );
   console.log(props);
   const token = localStorage.getItem("token");
@@ -44,9 +44,7 @@ function ReleasePreview(props) {
                 <h1>
                   {props.name} - {"releaseTitle"}
                 </h1>
-                <div className="release-content-description">
-                  {props.description}
-                </div>
+
                 <div className="button-container">
                   {token ? (
                     <CheckoutButton
@@ -77,6 +75,9 @@ function ReleasePreview(props) {
                 <div className="release-information">
                   <div className="release-tracklist">{releaseTrackList}</div>
                 </div>
+                {/* <div className="release-content-description">
+                  {props.description}
+                </div> */}
               </div>
             </div>
           </CSSTransition>

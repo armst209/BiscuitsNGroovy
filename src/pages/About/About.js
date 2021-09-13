@@ -2,8 +2,8 @@ import React from "react";
 
 import "./AboutStyles.scss";
 import Footer from "../../components/Footer/Footer";
-import about_main_img from "../../assets/images/about_story.jpg";
-import bucket_hat from "../../assets/images/buckethats.png";
+import about_main_img from "../../assets/images/about_story.webp";
+import bucket_hat from "../../assets/images/buckethats.webp";
 import disc_img from "../../assets/images/compact-disc-yellow.svg";
 import two_icon from "../../assets/images/hand2_yellow.svg";
 import one_icon from "../../assets/images/hand1_yellow.svg";

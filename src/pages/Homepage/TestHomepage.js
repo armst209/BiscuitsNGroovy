@@ -16,7 +16,7 @@ function TestHomepage(props) {
   const [releasePop, setReleasePop] = useState("");
 
   return (
-    <>
+    <section>
       <TestHero
         loginPopup={props.loginPopup}
         signUpPopup={props.signUpPopup}
@@ -53,7 +53,7 @@ function TestHomepage(props) {
         </div>
         <img className="reminder-image" src={reminder_image} alt="sfsfsf" />
       </div>
-    </>
+    </section>
   );
 }
 

@@ -29,6 +29,7 @@ function MainNavigation(props) {
     useState("settings-icon");
   const [menuTextClass, setMenuTextClass] = useState("menu-p-nothome");
   const [closeTextClass, setCloseTextClass] = useState("close-p-nothome");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
@@ -54,6 +55,9 @@ function MainNavigation(props) {
     }, 1000);
   };
 
+  //function for mobile navbar close after redirect
+
+  const handleMobileMenuClose = () => {};
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
@@ -99,7 +103,10 @@ function MainNavigation(props) {
       setSignUpClassName("signup-no-display-nothome");
       setIsLoggedIn(
         <div className="user-container-nothome">
-          <div className="user-nothome" onClick={viewDropDown}>
+          <div
+            className="user-nothome"
+            onClick={() => setShowDropDown(!showDropDown)}
+          >
             <img src={user_image} alt="user" />
             <img
               className={`arrow-nothome ${
@@ -149,7 +156,7 @@ function MainNavigation(props) {
     }
 
     const abortCont = new AbortController();
-    //Navbar scrolling
+    //Navbar scrolling - styles apply when scroll is greater than 15
     const handleScroll = () => {
       const offset = window.scrollY;
       if (offset > 15) {
@@ -183,6 +190,13 @@ function MainNavigation(props) {
         setYellowBg("");
       }
     };
+    //if browser window width is larger than 1050 the mobile navigation closes
+    const handleMobileNavWindowSize = () => {
+      if (window.innerWidth > 1050) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleMobileNavWindowSize);
     window.addEventListener("scroll", handleScroll, {
       signal: abortCont.signal,
     });
@@ -258,7 +272,7 @@ function MainNavigation(props) {
                 </li>
 
                 <div>
-                  {showDropDown ? (
+                  {showDropDown && (
                     <div>
                       <div className="dropdown-content-desktop-container-nothome">
                         <div className="dropdown-content-desktop-nothome">
@@ -296,16 +310,19 @@ function MainNavigation(props) {
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    ""
                   )}
                 </div>
               </ul>
             </div>
 
             {/* Hamburger */}
-            <label htmlFor="check-home-nothome">
-              <input type="checkbox" id="check-home-nothome" />
+            <div
+              className="mobile-navigation-aside"
+              htmlFor="check-home-nothome"
+              onClick={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
+            >
               {/* <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div>
               <div className="menu-bars-home-nothome"></div> */}
@@ -317,8 +334,9 @@ function MainNavigation(props) {
               />
               <p className={menuTextClass}>MENU</p>
               <p className={closeTextClass}>CLOSE</p>
-
-              {/* Mobile Navigation */}
+            </div>
+            {/* Mobile Navigation */}
+            {mobileMenuOpen && (
               <aside className="mobile-nav-home-nothome">
                 <div className="mobile-nav-header-nothome">
                   <img src={logo} alt="logo" />
@@ -360,16 +378,40 @@ function MainNavigation(props) {
                       ""
                     )}
                   </div>
-                  <NavLink to="/home">
+                  <NavLink
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    activeStyle={{
+                      textDecoration: "underline 5px solid var(--color2)",
+                    }}
+                    to="/home"
+                  >
                     <li>Home</li>
                   </NavLink>
-                  <NavLink to="/about">
+                  <NavLink
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    activeStyle={{
+                      textDecoration: "underline 5px solid var(--color2)",
+                    }}
+                    to="/about"
+                  >
                     <li>About</li>
                   </NavLink>
-                  <NavLink to="/faq">
+                  <NavLink
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    activeStyle={{
+                      textDecoration: "underline 5px solid var(--color2)",
+                    }}
+                    to="/faq"
+                  >
                     <li>FAQ</li>
                   </NavLink>
-                  <NavLink to="/artists">
+                  <NavLink
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    activeStyle={{
+                      textDecoration: "underline 5px solid var(--color2)",
+                    }}
+                    to="/artists"
+                  >
                     <li>Artists</li>
                   </NavLink>
                   <NavLink to="#">
@@ -391,7 +433,7 @@ function MainNavigation(props) {
                   </NavLink>
                 </ul>
               </aside>
-            </label>
+            )}
           </nav>
         </div>
       </header>
