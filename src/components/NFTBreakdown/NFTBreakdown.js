@@ -58,7 +58,7 @@ function NFTBreakdown() {
         <div className="info-boxes">
           <img src={record_favorite} alt="record icon" />
           <p>
-            <span>NFT(non-fungible token) - </span>a digital collectible whose
+            <span>NFT (non-fungible token) - </span>a digital collectible whose
             ownership is recorded on the blockchain - aka a permanent,
             democratized database. Our NFTs are simple, secure, and
             non-polluting. Learn more <Link to="/faq#NFTsExplained">here</Link>

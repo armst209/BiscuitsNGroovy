@@ -66,7 +66,14 @@ function Subscriber() {
               <li>
                 <strong>Non-Fungible Token Policy. </strong> This Agreement
                 incorporates BnG’s “Terms Regarding Non-Fungible Tokens” located
-                at www.bngroovy.com/nft-terms
+                at{" "}
+                <a
+                  href="www.bngroovy.com/privacy-terms-of-use/music-purchase-terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.bngroovy.com/privacy-terms-of-use/nft-terms
+                </a>
               </li>
               <li>
                 <strong>Data Ownership; Privacy. </strong> BnG owns all data

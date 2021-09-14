@@ -1,0 +1,70 @@
+#email-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  .email-input-title {
+    width: 100%;
+    h1 {
+      font-family: var(--font3);
+      color: white;
+      border: 3px solid var(--color1);
+      padding: 1rem;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      text-align: center;
+      font-size: 3rem;
+      position: relative;
+      letter-spacing: 0.1cm;
+      font-weight: normal;
+    }
+    padding-bottom: 5rem;
+  }
+  .email-input-wrapper {
+    padding: 0 1rem;
+    form {
+      font-family: var(--font1);
+      border: 5px solid var(--color2);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+
+      @media screen and (max-width: 300px) {
+        border: none;
+      }
+
+      input {
+        border: 3px solid var(--color1);
+        background-color: transparent;
+        font-family: var(--font2);
+        color: white;
+        padding-left: 5px;
+        height: 50px;
+        width: 300px;
+        margin: 10px;
+      }
+      button {
+        border-radius: 50px;
+        width: 200px;
+        background-color: black;
+        color: white;
+        border: 3px solid var(--color1);
+        transition: 0.2s ease;
+        &:hover {
+          background-color: var(--color1);
+          color: black;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

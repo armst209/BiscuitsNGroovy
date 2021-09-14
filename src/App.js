@@ -64,6 +64,7 @@ function App() {
   const [urlUserName, setUrlUserName] = useState("");
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [stripeLoader, setStripeLoader] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Getting user's information
@@ -94,6 +95,8 @@ function App() {
             showLoginPopup={showLoginPopup}
             signUpPopup={signUpPopup}
             showSignUpPopup={showSignUpPopup}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
           />
         )}
         {signUpPopup && (
@@ -102,6 +105,8 @@ function App() {
             showLoginPopup={showLoginPopup}
             signUpPopup={signUpPopup}
             showSignUpPopup={showSignUpPopup}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
           />
         )}
       </AnimatePresence>
@@ -115,6 +120,8 @@ function App() {
         setShowMobileNav={setShowMobileNav}
         stripeLoader={stripeLoader}
         setStripeLoader={setStripeLoader}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
       />
       <Suspense fallback={<Loading />}>
         <Switch>
@@ -226,7 +233,7 @@ function App() {
           {/* Password Recovery Routes */}
           <Route
             exact={true}
-            path="/password-recovery/email"
+            path="/account-recovery-email"
             render={(props) => (
               <EmailInput
                 {...props}
@@ -239,16 +246,8 @@ function App() {
           />
           <Route
             exact={true}
-            path="/password-recovery/password"
-            render={(props) => (
-              <PassRecoveryForm
-                {...props}
-                //   loginPopup={loginPopup}
-                //   showLoginPopup={showLoginPopup}
-                //   signUpPopup={signUpPopup}
-                //   showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            path="/account-recovery-password"
+            render={(props) => <PassRecoveryForm {...props} />}
           />
           {/* Terms of Use & Privacy Policy Components Render */}
 
@@ -262,8 +261,6 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
-                // showMobileNav={showMobileNav}
-                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -277,8 +274,6 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
-                // showMobileNav={showMobileNav}
-                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -292,8 +287,6 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
-                // showMobileNav={showMobileNav}
-                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -307,8 +300,6 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
-                // showMobileNav={showMobileNav}
-                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />
@@ -323,8 +314,6 @@ function App() {
                 showLoginPopup={showLoginPopup}
                 signUpPopup={signUpPopup}
                 showSignUpPopup={showSignUpPopup}
-                // showMobileNav={showMobileNav}
-                // setShowMobileNav={setShowMobileNav}
               />
             )}
           />

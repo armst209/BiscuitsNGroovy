@@ -16,18 +16,25 @@
     justify-content: center;
     align-items: center;
     h1 {
-      font-family: var(--font1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--font3);
+      letter-spacing: 0.1cm;
+      font-weight: normal;
       color: white;
       background-color: transparent;
       padding: 1rem;
       border: 3px solid var(--color1);
-      // border-top: none;
       border-left: none;
       border-right: none;
       width: 100%;
       text-align: center;
       font-size: 3rem;
       position: relative;
+      @media screen and (max-width: 500px) {
+        flex-direction: column-reverse;
+      }
       @media screen and (max-width: 350px) {
         font-size: 2rem;
       }
@@ -43,6 +50,11 @@
         position: absolute;
         right: 0;
         top: 0;
+      }
+      img {
+        @media screen and (max-width: 500px) {
+          padding-bottom: 0;
+        }
       }
     }
   }
@@ -171,7 +183,8 @@
   .story-h1 {
     width: 100%;
     text-align: center;
-    font-family: var(--font1);
+    font-family: var(--font3);
+    letter-spacing: 0.1cm;
     font-weight: normal;
     font-size: 3rem;
     display: flex;

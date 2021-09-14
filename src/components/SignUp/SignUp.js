@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { minMaxLength, validEmail, passwordStrength } from "./SignUpValidation";
 import "./SignUpStyles.scss";
 import axios from "axios";
@@ -21,13 +21,8 @@ const SignUp = (props) => {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
-  // const [reEnterPassword, setReEnterPassword] = useState("");
-  // const [errorMessageContainer, setErrorMessageContainer] = useState(false);
-  // const [errorMessage, setErrorMessage] = useState("");
+  const [setConfirmPassword] = useState("");
   const [flowLoader, setFlowLoader] = useState("");
-  const [inputClass, setInputClass] = useState("");
-  const [passwordClass, setPasswordClass] = useState("");
   const [showModal, setShowModal] = useState(true);
   const [changeStyles, setChangeStyles] = useState("signup-modal");
   const [user, setUser] = useState({});

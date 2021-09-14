@@ -29,7 +29,8 @@ function MainNavigation(props) {
     useState("settings-icon");
   const [menuTextClass, setMenuTextClass] = useState("menu-p-nothome");
   const [closeTextClass, setCloseTextClass] = useState("close-p-nothome");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hamburgerText, setHamburgerText] = useState(false);
+
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
@@ -55,9 +56,8 @@ function MainNavigation(props) {
     }, 1000);
   };
 
-  //function for mobile navbar close after redirect
+  //menu text and hamburger icon changes
 
-  const handleMobileMenuClose = () => {};
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
@@ -193,7 +193,7 @@ function MainNavigation(props) {
     //if browser window width is larger than 1050 the mobile navigation closes
     const handleMobileNavWindowSize = () => {
       if (window.innerWidth > 1050) {
-        setMobileMenuOpen(false);
+        props.setMobileMenuOpen(false);
       }
     };
     window.addEventListener("resize", handleMobileNavWindowSize);
@@ -208,8 +208,6 @@ function MainNavigation(props) {
     <div id="scrolled-home-before-nothome">
       <header className={`homepage-navigation-nothome ${scrolledNavClass}`}>
         <div className="background-bar"></div>
-        {/* {leftSpotlight}
-        {rightSpotlight} */}
 
         <div className="nav-home-container-nothome">
           <nav className="nav-home-nothome">
@@ -320,13 +318,9 @@ function MainNavigation(props) {
               className="mobile-navigation-aside"
               htmlFor="check-home-nothome"
               onClick={() => {
-                setMobileMenuOpen(!mobileMenuOpen);
+                props.setMobileMenuOpen(!props.mobileMenuOpen);
               }}
             >
-              {/* <div className="menu-bars-home-nothome"></div>
-              <div className="menu-bars-home-nothome"></div>
-              <div className="menu-bars-home-nothome"></div> */}
-
               <img
                 className={scrolledHamburgerClass}
                 src={settings_icon}
@@ -336,11 +330,10 @@ function MainNavigation(props) {
               <p className={closeTextClass}>CLOSE</p>
             </div>
             {/* Mobile Navigation */}
-            {mobileMenuOpen && (
+            {props.mobileMenuOpen && (
               <aside className="mobile-nav-home-nothome">
                 <div className="mobile-nav-header-nothome">
                   <img src={logo} alt="logo" />
-                  {/* <div onClick={closeNavigation}>X</div> */}
                 </div>
 
                 <div className="user-info-dropdown-select-nothome">
@@ -357,7 +350,9 @@ function MainNavigation(props) {
                       <div className="dropdown-content-mobile-nothome">
                         <ul>
                           <Link
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            onClick={() =>
+                              props.setMobileMenuOpen(!props.mobileMenuOpen)
+                            }
                             activeStyle={{
                               textDecoration:
                                 "underline 5px solid var(--color2)",
@@ -386,7 +381,9 @@ function MainNavigation(props) {
                     )}
                   </div>
                   <NavLink
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    onClick={() =>
+                      props.setMobileMenuOpen(!props.mobileMenuOpen)
+                    }
                     activeStyle={{
                       textDecoration: "underline 5px solid var(--color2)",
                     }}
@@ -395,7 +392,9 @@ function MainNavigation(props) {
                     <li>Home</li>
                   </NavLink>
                   <NavLink
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    onClick={() =>
+                      props.setMobileMenuOpen(!props.mobileMenuOpen)
+                    }
                     activeStyle={{
                       textDecoration: "underline 5px solid var(--color2)",
                     }}
@@ -404,7 +403,9 @@ function MainNavigation(props) {
                     <li>About</li>
                   </NavLink>
                   <NavLink
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    onClick={() =>
+                      props.setMobileMenuOpen(!props.mobileMenuOpen)
+                    }
                     activeStyle={{
                       textDecoration: "underline 5px solid var(--color2)",
                     }}
@@ -413,7 +414,9 @@ function MainNavigation(props) {
                     <li>FAQ</li>
                   </NavLink>
                   <NavLink
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    onClick={() =>
+                      props.setMobileMenuOpen(!props.mobileMenuOpen)
+                    }
                     activeStyle={{
                       textDecoration: "underline 5px solid var(--color2)",
                     }}
@@ -435,7 +438,6 @@ function MainNavigation(props) {
                           alt="signup icon"
                         />
                       </button>
-                      {/* </div> */}
                     </li>
                   </NavLink>
                 </ul>

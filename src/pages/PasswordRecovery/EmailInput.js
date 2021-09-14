@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import NotHomeNavigation from "../../components/Navbars/NotHomeNavigation/NotHomeNavigation";
+import "./EmailInputStyles.scss";
 import axios from "axios";
 import env from "react-dotenv";
 
-function EmailInput({
-  loginPopup,
-  showLoginPopup,
-  showSignUpPopup,
-  signUpPopup,
-}) {
+function EmailInput() {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [email, setRecoveryEmail] = useState("");
 
@@ -41,14 +36,11 @@ function EmailInput({
   };
 
   return (
-    <section>
-      {/* <NotHomeNavigation
-        loginPopup={loginPopup}
-        signUpPopup={signUpPopup}
-        showLoginPopup={showLoginPopup}
-        showSignUpPopup={showSignUpPopup}
-      /> */}
-      <div style={{ paddingTop: "15rem" }}>
+    <section id="email-input">
+      <div className="email-input-title">
+        <h1>PASSWORD RECOVERY</h1>
+      </div>
+      <div className="email-input-wrapper">
         <form onSubmit={submit}>
           <input
             type="email"

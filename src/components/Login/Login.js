@@ -15,7 +15,7 @@ const loginModalBackground = {
 };
 
 //props passed as an object
-function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
+function Login(props) {
   //Hooks
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -94,7 +94,7 @@ function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           <div className="login-contents">
             <div
               className="close-btn-login"
-              onClick={() => showLoginPopup(!loginPopup)}
+              onClick={() => props.showLoginPopup(!props.loginPopup)}
             >
               <div>X</div>
             </div>
@@ -102,16 +102,6 @@ function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               <img src={logo} alt="logo" />
             </div>
             <h2>Sign in to Biscuits n Groovy</h2>
-            {/* <button className="google">
-              <i className="fab fa-google"></i> <span>Sign In with Google</span>
-            </button>
-            <button className="facebook">
-              <i className="fab fa-facebook-square"></i>
-              <span>Sign In with Facebook</span>
-            </button> */}
-            {/* <div className="or-fold">
-              <hr></hr>
-            </div> */}
 
             <form onSubmit={submit}>
               <div className="input-styles">
@@ -148,8 +138,9 @@ function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               <p>
                 <span
                   onClick={() => {
-                    showLoginPopup(!loginPopup);
-                    showSignUpPopup(!signUpPopup);
+                    props.showLoginPopup(!props.loginPopup);
+                    props.showSignUpPopup(!props.signUpPopup);
+                    props.setMobileMenuOpen(props.mobileMenuOpen);
                   }}
                 >
                   New user?{" "}
@@ -158,8 +149,11 @@ function Login({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </p>
               <div className="forgot-password">
                 <Link
-                  onClick={() => showLoginPopup(false)}
-                  to="/password-recovery/email"
+                  onClick={() => {
+                    props.showLoginPopup(!props.loginPopup);
+                    props.setMobileMenuOpen(!props.mobileMenuOpen);
+                  }}
+                  to="/account-recovery-email"
                 >
                   Forgot Password?
                 </Link>
