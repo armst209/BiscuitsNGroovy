@@ -88,6 +88,7 @@ function MusicPlayer(props) {
         src={props.trackListArray[props.currentMusicIndex].url}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
+        onEnded={handleClickNext}
       />
 
       {/* <ReactJkMusicPlayer

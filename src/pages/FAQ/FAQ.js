@@ -335,7 +335,28 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
           <div className="answer" onClick={() => setQuestion6(!question10)}>
             <ul>
               <li>
-                <p>N/A</p>
+                <p>
+                  Blocto is a trusted, user-friendly wallet for crypto assets
+                  such as NFTs. We integrate with Blocto to seamlessly store
+                  your NFT album art, so you can view it in your BnG library as
+                  well as outside our platform. When you create an account on
+                  BnG, you’ll also be prompted to create a Blocto account (if
+                  you already have one, you can easily link that instead). Don’t
+                  worry! The process is super easy and we walk you through it
+                  when you sign up. Your Blocto account will be linked to your
+                  BnG account for easy access, so you don’t need to remember
+                  multiple logins. Blocto is designed to be so intuitive, you
+                  won’t even realize you’re interacting with the blockchain.
+                  Learn more
+                  <a
+                    href="https://www.onflow.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
+                  .
+                </p>
               </li>
             </ul>
           </div>

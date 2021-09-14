@@ -13,6 +13,8 @@ function Library(props) {
   const [albumInfo, setAlbumInfo] = useState(false);
   const [noReleases, setNoReleases] = useState("");
   const [libraryLoaded, setLibraryLoaded] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [releaseEndPopup, setReleaseEndPopup] = useState(false);
 
   //Api call variables
   const token = localStorage.getItem("token");
@@ -56,26 +58,48 @@ function Library(props) {
             setAlbumCovers("");
           };
 
+          const handleReleaseWindow = (release) => {
+            //must get the date time of the newly created date object before you compare them
+            let currentDate = new Date(Date.now()).getTime();
+            console.log(currentDate);
+            const endReleaseDate = new Date(release.end_date).getTime();
+            console.log(endReleaseDate);
+            if (currentDate > endReleaseDate) {
+              console.log("release done");
+              alert("release not longer available");
+              setIsDisabled(false);
+              setReleaseEndPopup(true);
+            } else {
+              console.log("release valid");
+              setIsDisabled(true);
+            }
+          };
+
           //Return - what's currently being displayed in the "Your Library" section through Hooks
           return release ? (
             //Hover state for release
-            <figure className="hover-img" key={`hover-figure + ${release.id}`}>
-              <img
-                src={release.art_url}
-                alt={release.name}
-                style={{ width: "277px", height: "182px" }}
-              />
-              <figcaption>
-                <AlbumCoverHover
-                  closeButton={props.popUpPassed}
-                  setAlbumInfo={setAlbumInfo}
-                  albumInfo={albumInfo}
-                  release={release}
-                  toggle={closeAlbumInfo}
-                  showReleasePopUp={props.popUpPassed}
+            <div disabled={isDisabled} onClick={handleReleaseWindow}>
+              <figure
+                className="hover-img"
+                key={`hover-figure + ${release.id}`}
+              >
+                <img
+                  src={release.art_url}
+                  alt={release.name}
+                  style={{ width: "277px", height: "182px" }}
                 />
-              </figcaption>
-            </figure>
+                <figcaption>
+                  <AlbumCoverHover
+                    closeButton={props.popUpPassed}
+                    setAlbumInfo={setAlbumInfo}
+                    albumInfo={albumInfo}
+                    release={release}
+                    toggle={closeAlbumInfo}
+                    showReleasePopUp={props.popUpPassed}
+                  />
+                </figcaption>
+              </figure>
+            </div>
           ) : (
             <ComponentLoading />
           );
@@ -98,6 +122,7 @@ function Library(props) {
       {albumCovers}
       {/* displays when user hasn't purchased any releases */}
       {noReleases}
+      {releaseEndPopup && <div>Release Ended</div>}
     </Suspense>
   );
 }

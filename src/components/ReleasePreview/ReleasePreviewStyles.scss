@@ -34,16 +34,21 @@
     //   display: none;
     // }
     .close-release-info {
-      font-family: var(--font1);
-      width: 100%;
+      position: absolute;
       padding: 5px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: var(--font1);
+      font-weight: bold;
+      font-size: 1.5rem;
       cursor: pointer;
-      position: absolute;
+      width: 50px;
+      height: 50px;
       top: 0;
       right: 0;
-      padding: 1rem;
+      z-index: 5;
     }
     .release-preview-container {
       width: 100%;

@@ -12,11 +12,22 @@
   padding: 1rem;
   -webkit-overflow-scrolling: touch;
   background: rgba(0, 0, 0, 0.9);
+  @media screen and (max-width: 550px) {
+    padding: 0;
+  }
 
   .login-wrapper {
     background: black;
     border: 5px solid var(--color2);
     border-radius: 20px;
+    @media screen and (max-width: 550px) {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0;
+      overflow-y: hidden;
+      padding: 0;
+    }
 
     @media screen and (max-height: 450px) {
       overflow-y: scroll;
@@ -73,6 +84,11 @@
         font-family: var(--font2);
         position: relative;
         border-radius: 20px;
+        @media screen and (max-width: 550px) {
+          padding: 1rem;
+          width: 100%;
+          border-radius: 0;
+        }
         @media screen and (orientation: portrait) and (max-device-width: 370px) {
           padding: 1rem 2rem;
         }
@@ -113,16 +129,21 @@
         }
 
         .close-btn-login {
-          display: flex;
-          justify-content: flex-end;
           position: absolute;
+          padding: 5px;
+          display: flex;
+          justify-content: center;
           align-items: center;
-          padding: 0.8rem;
-          width: 100%;
+          color: white;
+          font-family: var(--font1);
           font-weight: bold;
           font-size: 1.5rem;
           cursor: pointer;
+          width: 50px;
+          height: 50px;
           top: 0;
+          right: 0;
+          z-index: 5;
         }
         .signup-redirect {
           color: var(--color2);
@@ -131,7 +152,9 @@
 
         h2 {
           color: white;
-          font-size: 1rem;
+          font-size: 1.2rem;
+          font-family: var(--font1);
+          font-weight: normal;
           text-align: center;
           margin-bottom: 10px;
           @media screen and (orientation: portrait) and (max-device-width: 350px) {
@@ -139,8 +162,8 @@
           }
         }
         span {
-          font-weight: bold;
-
+          font-family: var(--font1);
+          font-weight: normal;
           a {
             font-weight: bold;
             text-decoration: none;
@@ -239,9 +262,11 @@
             width: 100%;
             display: flex;
             justify-content: center;
+            font-family: var(--font1);
+            font-weight: normal;
             a {
               text-decoration: none;
-              font-weight: bold;
+
               color: var(--color2);
               &:visited {
                 color: var(--color2);

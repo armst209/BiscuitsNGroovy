@@ -257,7 +257,7 @@ const SignUp = (props) => {
                     ? "form-control error"
                     : "form-control"
                 }
-                placeholder="Password"
+                placeholder="Confirm Password"
                 type="password"
                 name="confirmpassword"
                 noValidate

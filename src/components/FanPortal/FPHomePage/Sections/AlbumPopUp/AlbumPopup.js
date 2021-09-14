@@ -20,6 +20,7 @@ function AlbumPopup(props) {
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
 
   console.log(props.release);
+
   const handleClose = () => {
     props.closeAlbumPopup("");
   };

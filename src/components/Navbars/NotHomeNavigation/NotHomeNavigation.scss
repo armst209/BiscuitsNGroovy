@@ -433,10 +433,10 @@
             padding: 10px;
             background: transparent;
             border: 3px solid var(--color1);
-            border-radius: none;
+            border-radius: 50px;
             color: white;
             cursor: pointer;
-            width: auto;
+            width: 125px;
             height: 50px;
             transition: all 0.2s ease;
             @media screen and (max-width: 1200px) {

@@ -356,7 +356,14 @@ function MainNavigation(props) {
                     {showDropDown ? (
                       <div className="dropdown-content-mobile-nothome">
                         <ul>
-                          <Link to="/collection">
+                          <Link
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            activeStyle={{
+                              textDecoration:
+                                "underline 5px solid var(--color2)",
+                            }}
+                            to="/collection"
+                          >
                             <li className="portal-nothome">
                               Collection
                               <img
