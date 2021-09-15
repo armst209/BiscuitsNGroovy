@@ -60,35 +60,23 @@ function MainNavigation(props) {
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
-    const baseURL = env.BACKEND_URL;
+    // const baseURL = env.BACKEND_URL;
     token
-      ? axios({
-          method: "get",
-          url: `${baseURL}/users/me`,
-          headers: {
-            "x-access-token": token,
-          },
-        })
-          .then((res) => {
-            setUserName(
-              <motion.img
-                animate={{
-                  rotate: 360,
-                  transition: {
-                    ease: "linear",
-                    duration: 2,
-                    repeat: Infinity,
-                  },
-                }}
-                width="50px"
-                src={heart_vinyl}
-                alt="record"
-              />
-            );
-          })
-          .catch((err) => {
-            console.log(err);
-          })
+      ? setUserName(
+          <motion.img
+            animate={{
+              rotate: 360,
+              transition: {
+                ease: "linear",
+                duration: 2,
+                repeat: Infinity,
+              },
+            }}
+            width="50px"
+            src={heart_vinyl}
+            alt="record"
+          />
+        )
       : setUserName(<img src={normal_vinyl} width="50px" alt="record" />);
     setLinkUserName("");
 

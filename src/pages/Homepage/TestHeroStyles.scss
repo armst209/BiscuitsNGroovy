@@ -26,11 +26,13 @@
   .hero-section-test {
     display: block;
     width: 100%;
+
     align-items: center;
     padding: 25px 50px;
     color: white;
     position: relative;
     // border: 3px solid green;
+
     @media screen and (max-width: 1140px) {
       padding: 50px;
     }
@@ -61,16 +63,20 @@
           }
           .hero-test-text {
             width: 50%;
+            @media screen and (max-width: 1400px) {
+              padding-top: 7rem;
+            }
+            @media screen and (max-width: 1200px) {
+              padding-top: 4rem;
+            }
+
             @media screen and (max-width: 1140px) {
               width: 100%;
+              padding-top: 0;
             }
+
             h1 {
               color: black;
-              // -webkit-text-fill-color: var(
-              //   --color2
-              // ); /* Will override color (regardless of order) */
-              // -webkit-text-stroke-width: 0.2px;
-              // -webkit-text-stroke-color: black;
 
               font-family: var(--font3);
               letter-spacing: 0.1cm;
@@ -80,8 +86,13 @@
               @media screen and (max-width: 1400px) {
                 font-size: 100px;
                 margin-bottom: 0;
+                padding-bottom: 2rem;
                 position: relative;
                 z-index: 100;
+                line-height: 5rem;
+              }
+              @media screen and (max-width: 1200px) {
+                padding-bottom: 0;
               }
               @media screen and (max-width: 1140px) {
                 color: white;
@@ -117,6 +128,14 @@
             font-weight: bold;
             font-size: 1.5rem;
             color: black;
+            padding-right: 12rem;
+            @media screen and (max-width: 1400px) {
+              font-size: 1.3rem;
+            }
+            @media screen and (max-width: 1200px) {
+              padding-right: 0;
+            }
+
             @media screen and (max-width: 1140px) {
               color: white;
               text-align: center;
@@ -260,17 +279,20 @@
   .hero-image {
     position: absolute;
     bottom: 0;
-    right: 10%;
+    right: 0;
     height: 100%;
+    @media screen and (max-width: 1400px) {
+    }
 
     @media screen and (max-width: 1300px) {
+      bottom: 0;
       right: 0;
+    }
+    @media screen and (max-width: 1200px) {
+      display: none;
     }
     @media screen and (max-width: 1160px) {
       right: 0;
-    }
-    @media screen and (max-width: 1140px) {
-      display: none;
     }
   }
   .hero-image-mobile {
