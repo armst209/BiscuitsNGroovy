@@ -11,7 +11,7 @@ import env from "react-dotenv";
 
 //STRIPE
 const stripePromise = loadStripe(
-  "pk_test_51IoVPgGQOOYUPUkxLc3Pp0Xs9aIAgNF0Ref6QStISTEd5vDwVRXbXel7xY6Ajo8Siuvmy3jPR84LnZzaQ8x7sCaw00YrlUeC94"
+  env.STRIPE_API_KEY
 );
 
 const ProductDisplay = ({ handleClick }) => (
