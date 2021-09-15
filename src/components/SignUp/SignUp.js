@@ -21,12 +21,13 @@ const SignUp = (props) => {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [flowLoader, setFlowLoader] = useState("");
   const [showModal, setShowModal] = useState(true);
   const [changeStyles, setChangeStyles] = useState("signup-modal");
   const [user, setUser] = useState({});
   const [formErrors, setFormErrors] = useState({});
+  const [emailConflict, setEmailConflict] = useState("");
 
   //password validation for both password inputs
   function validateConfirmPassword(password, confirmpassword, formErrors) {
@@ -154,10 +155,12 @@ const SignUp = (props) => {
     })
       .then((res) => {
         console.log("hit in promise");
+        setEmailConflict("");
         handleSignUp(res);
       })
       .catch((err) => {
         console.log(err);
+        setEmailConflict("Email has already been taken");
       });
   };
 
@@ -280,6 +283,7 @@ const SignUp = (props) => {
                 );
               })}
             </ul>
+            <div>{emailConflict}</div>
           </div>
         </div>
 

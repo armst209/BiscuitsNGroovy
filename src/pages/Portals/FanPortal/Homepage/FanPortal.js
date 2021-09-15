@@ -12,26 +12,26 @@ function FanPortal() {
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger
 
   const [showAlbumDetails] = useState(false);
-  const [portalUserName, setPortalUserName] = useState("YOUR");
+  // const [portalUserName, setPortalUserName] = useState("YOUR");
 
-  useEffect(() => {
-    const baseURL = env.BACKEND_URL;
-    const token = localStorage.getItem("token");
+  // useEffect(() => {
+  //   const baseURL = env.BACKEND_URL;
+  //   const token = localStorage.getItem("token");
 
-    axios({
-      method: "get",
-      url: `${baseURL}/users/me`,
-      headers: {
-        "x-access-token": token,
-      },
-    })
-      .then((res) => {
-        setPortalUserName(res.data.user.username);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  //   axios({
+  //     method: "get",
+  //     url: `${baseURL}/users/me`,
+  //     headers: {
+  //       "x-access-token": token,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       setPortalUserName(res.data.user.username);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <section id="fan-portal">
@@ -48,7 +48,8 @@ function FanPortal() {
             alt="spotlight"
           />
           {/* adds user's username to title text */}
-          {portalUserName}'s Collection
+          {/* {portalUserName}  */}
+          Collection
         </h1>
       </div>
       <FPHomepage setTrigger={showAlbumDetails} />

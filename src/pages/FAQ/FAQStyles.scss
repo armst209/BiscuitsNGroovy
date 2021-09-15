@@ -10,6 +10,9 @@
     justify-content: center;
     align-items: center;
     h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: var(--font3);
       letter-spacing: 0.1cm;
       font-weight: normal;
@@ -22,6 +25,9 @@
       text-align: center;
       font-size: 3rem;
       position: relative;
+      @media screen and (max-width: 500px) {
+        flex-direction: column-reverse;
+      }
       @media screen and (max-width: 350px) {
         font-size: 2rem;
       }

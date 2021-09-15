@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Mailchimp from "react-mailchimp-form";
+import env from "react-dotenv";
 
 import "./ArtistsStyles.scss";
 import love_music_icon from "../../assets/images/love-song2.svg";
@@ -12,26 +14,51 @@ import important from "../../assets/images/speaker_yellow.svg";
 import two_icon from "../../assets/images/connect.svg";
 import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
-import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 
 function Artists() {
-  const showSuccessMessage = () => {};
+  const [artistName, setArtistName] = useState("");
+  const [artistPrefName, setArtistPrefName] = useState("");
+  const [artistEmail, setArtistEmail] = useState("");
+  const [artistPhone, setArtistPhone] = useState("");
+  const [managerName, setManagerName] = useState("");
+  const [managerEmail, setManagerEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errorMessages, setErrorMessages] = useState("");
+  const [successMessages, setSuccessMessages] = useState("");
+
+  const submit = (event) => {
+    event.preventDefault();
+    const baseURL = env.BACKEND_URL;
+    console.log(baseURL);
+
+    axios({
+      method: "post",
+      url: `${baseURL}/registration`,
+      data: {
+        artistName,
+        artistPrefName,
+        artistEmail,
+        artistPhone,
+        managerName,
+        managerEmail,
+        message,
+      },
+    })
+      .then((res) => {
+        setSuccessMessages("User is subscribed!");
+      })
+      .catch((err) => {
+        setErrorMessages("");
+      });
+  };
+
   return (
     <section id="artists">
       <div className="artists-title">
         <h1>
-          <img
-            className="spotlight-left"
-            src={spotlight_left}
-            alt="spotlight"
-          />
-          <img
-            className="spotlight-right"
-            src={spotlight_right}
-            alt="spotlight"
-          />
-          ARTISTS
+          <img width="50px" src={record_vinyl} alt="record" />
+          <div>ARTISTS</div>
         </h1>
       </div>
       <div className="artists-wrapper">
@@ -222,6 +249,62 @@ function Artists() {
           </div>
         </div>
         <div id="artists-form" className="form-container">
+          <form onSubmit={submit}>
+            <input
+              type="text"
+              name="ARTISTNAME"
+              placeholder="Artist Name"
+              required
+              onChange={(event) => setArtistName(event.target.value)}
+            />
+            <input
+              type="text"
+              name="PREFNAME"
+              placeholder="Preferred Name"
+              onChange={(event) => setArtistPrefName(event.target.value)}
+            />
+            <input
+              type="email"
+              name="ARTEMAIL"
+              placeholder="Artist Email"
+              required
+              onChange={(event) => setArtistEmail(event.target.value)}
+            />
+            <input
+              type="phone"
+              name="ARTPHONE"
+              placeholder="Phone Number"
+              required
+              onChange={(event) => setArtistPhone(event.target.value)}
+            />
+            <input
+              type="text"
+              name="MANNAME"
+              placeholder="Manager/Agent Name"
+              required
+              onChange={(event) => setManagerName(event.target.value)}
+            />
+            <input
+              type="email"
+              name="MANEMAIL"
+              placeholder="Manager/Agent Email"
+              required
+              onChange={(event) => setManagerEmail(event.target.value)}
+            />
+            <textarea
+              className="text-input"
+              rows="10"
+              cols="50"
+              type="text"
+              name="MESSAGE"
+              placeholder="Enter a message"
+              required
+              onChange={(event) => setMessage(event.target.value)}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        {/* <div id="artists-form" className="form-container">
           <Mailchimp
             action={process.env.REACT_APP_MAILCHIMP_URL}
             //Adding multiple fields:
@@ -285,24 +368,9 @@ function Artists() {
             <button type="submit" onSubmit={showSuccessMessage}>
               SUBMIT
             </button>
-          </Mailchimp>
-          {/* <form
-            method="POST"
-            enctype="multipart/form-data"
-            name="EmailForm"
-            action="mailto:armst209@gmail.com"
-          >
-            <input type="text" placeholder="Artist Name" required />
-            <input type="text" placeholder="Preferred Name" />
-            <input type="email" placeholder="Email" required />
-            <input type="phone" placeholder="Phone" required />
-            <input type="text" placeholder="Manager/Agent Name" required />
-            <input type="email" placeholder="Manager/Agent Email" required />
-            <label htmlFor="text-box">Type Your Message Below:</label>
-            <input className="text-box" type="text" required />
-            <button type="submit">SUBMIT</button> */}
-          {/* </form> */}
-        </div>
+          </Mailchimp> */}
+
+        {/* </div> */}
       </div>
     </section>
   );

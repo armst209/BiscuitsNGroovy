@@ -75,9 +75,6 @@ function ReleasePreview(props) {
                 <div className="release-information">
                   <div className="release-tracklist">{releaseTrackList}</div>
                 </div>
-                {/* <div className="release-content-description">
-                  {props.description}
-                </div> */}
               </div>
             </div>
           </CSSTransition>

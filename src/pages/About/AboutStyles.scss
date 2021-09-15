@@ -195,6 +195,12 @@
     border: 3px solid var(--color1);
     border-right: none;
     border-left: none;
+    @media screen and (max-width: 500px) {
+      flex-direction: column-reverse;
+    }
+    @media screen and (max-width: 350px) {
+      font-size: 2rem;
+    }
   }
   .about-contents-2 {
     display: flex;

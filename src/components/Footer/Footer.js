@@ -15,7 +15,6 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-logo">
           <img onClick={backToTop} src={footer_logo} alt="logo" />
-          {/* <h4>Biscuits N Groovy</h4> */}
         </div>
 
         <div className="footer-information">
@@ -41,7 +40,6 @@ function Footer() {
           <div className="button-plus-social"></div>
 
           <div className="social-media">
-            {/* <p>Stay Connected</p> */}
             <SocialMedia />
           </div>
         </div>

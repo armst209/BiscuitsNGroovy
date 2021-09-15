@@ -233,9 +233,7 @@
             width: 100%;
             transition: all 0.2s ease;
             img {
-              // position: absolute;
               width: 10%;
-              // right: 5%;
             }
             &:hover {
               box-shadow: none;
@@ -348,7 +346,6 @@
       position: absolute;
       bottom: 0;
       padding: 1rem 0;
-      // display: flex;
     }
     .error-message {
       list-style: none;
