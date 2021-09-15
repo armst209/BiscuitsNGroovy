@@ -30,11 +30,12 @@ function SubscribeSection() {
 
         setSuccessMessages("Subscribed!");
         setErrorMessages("");
-        setIsReset(true);
+
         console.log("hit");
       })
       .catch((err) => {
         setIsReset(true);
+        document.getElementById("sub-form").reset();
         setErrorMessages("Email is already subscribed.");
         setSuccessMessages("");
       });
