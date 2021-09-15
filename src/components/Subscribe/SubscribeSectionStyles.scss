@@ -38,11 +38,9 @@
     bottom: 0;
     right: 0;
     margin: 0.5rem;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
   }
 
-  .mailchimp-container {
+  form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,6 +48,18 @@
     font-family: var(--font1);
     font-weight: normal;
     position: relative;
+
+    .messages-sub {
+      .error-message {
+        color: red;
+      }
+      .success-message {
+        color: var(--color2);
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 0.7rem;
+      }
+    }
 
     .msg-alert {
       position: absolute;

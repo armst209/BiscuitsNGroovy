@@ -9,6 +9,9 @@
     justify-content: center;
     align-items: center;
     h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: var(--font3);
       letter-spacing: 0.1cm;
       font-weight: normal;
@@ -21,6 +24,9 @@
       text-align: center;
       font-size: 3rem;
       position: relative;
+      @media screen and (max-width: 500px) {
+        flex-direction: column-reverse;
+      }
       @media screen and (max-width: 350px) {
         font-size: 2rem;
       }
@@ -345,10 +351,19 @@
           }
         }
 
-        .text-box {
-          height: 500px;
-          @media screen and (max-width: 500px) {
-            height: 300px;
+        .text-input {
+          width: 100%;
+          border: 3px solid var(--color1);
+          background-color: black;
+          color: white;
+          margin-bottom: 1rem;
+          &::placeholder {
+            color: white;
+            font-family: var(--font2);
+            font-weight: normal;
+            font-size: 1rem;
+            padding-top: 0.5rem;
+            padding-left: 1.2rem;
           }
         }
         button {
@@ -362,9 +377,11 @@
           color: white;
           transition: all 0.2s ease;
           position: relative;
+          border-radius: 50px;
           &:hover {
             color: black;
             background-color: var(--color1);
+            transform: scale(1.05);
           }
         }
       }

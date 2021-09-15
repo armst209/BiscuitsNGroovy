@@ -179,10 +179,7 @@
           flex-direction: row;
           justify-content: space-evenly;
           align-items: center;
-          @media screen and (orientation: landscape) and (max-device-width: 800px) {
-            // width: 50%;
-            // flex-direction: column;
-          }
+
           @media screen and (orientation: portrait) and (max-device-width: 285px) {
             flex-direction: column;
           }
@@ -255,9 +252,7 @@
           justify-content: center;
           align-items: center;
           width: 100%;
-          @media screen and (orientation: landscape) and (max-device-width: 800px) {
-            // flex-direction: row;
-          }
+
           .forgot-password {
             width: 100%;
             display: flex;
@@ -321,9 +316,7 @@
           text-align: center;
           width: 100%;
           margin: 10px 0;
-          @media screen and (orientation: landscape) and (max-device-width: 800px) {
-            // margin: 0;
-          }
+
           p {
             margin: 0 10px;
           }

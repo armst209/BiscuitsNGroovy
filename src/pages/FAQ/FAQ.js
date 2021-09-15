@@ -6,8 +6,7 @@ import dropdown from "../../assets/images/double-down-yellow.svg";
 import question from "../../assets/images/question2.svg";
 import record_bullet from "../../assets/images/vinyl_yellow.svg";
 import important from "../../assets/images/speaker_yellow.svg";
-import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 
 //CSS Transition is a node package that handles CSS transitions in React and is imported above
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
@@ -39,18 +38,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
     <section id="faq">
       <div className="faq-title">
         <h1>
-          {" "}
-          <img
-            className="spotlight-left"
-            src={spotlight_left}
-            alt="spotlight"
-          />
-          <img
-            className="spotlight-right"
-            src={spotlight_right}
-            alt="spotlight"
-          />
-          FAQ
+          <img width="50px" src={record_vinyl} alt="record" />
+          <div>FAQ</div>
         </h1>
       </div>
 

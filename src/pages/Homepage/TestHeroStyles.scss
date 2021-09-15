@@ -186,12 +186,12 @@
               &:hover {
                 //box-shadow: 0 4px rgb(36, 97, 97);
 
-                background-color: black;
-                color: white;
+                //background-color: black;
+                //color: white;
                 filter: none;
-                border: 3px solid var(--color2);
+                //border: 3px solid var(--color2);
                 //box-shadow: -3px 3px 0 rgb(31, 95, 95);
-                box-shadow: -3px 3px 0 black;
+                box-shadow: none;
               }
 
               @media screen and (max-width: 1140px) {
@@ -226,13 +226,13 @@
               box-shadow: -5px 5px 0 black;
               // box-shadow: 0 6px rgb(136, 120, 31);
               &:hover {
-                color: white;
+                //color: white;
                 border: black;
-                background-color: black;
-                color: white;
+                //background-color: black;
+                //color: white;
                 filter: none;
-                border: 3px solid var(--color1);
-                box-shadow: -3px 3px 0 rgb(0, 0, 0);
+                border: 3px solid black;
+                box-shadow: none;
               }
               @media screen and (max-width: 1140px) {
                 padding-left: 0;

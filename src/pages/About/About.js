@@ -6,8 +6,7 @@ import bucket_hat from "../../assets/images/buckethats.webp";
 import disc_img from "../../assets/images/compact-disc-yellow.svg";
 import two_icon from "../../assets/images/hand2_yellow.svg";
 import one_icon from "../../assets/images/hand1_yellow.svg";
-// import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
-// import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 
 function About() {
@@ -15,16 +14,6 @@ function About() {
     <section id="about">
       <div className="about-title">
         <h1>
-          {/* <img
-            className="spotlight-left"
-            src={spotlight_left}
-            alt="spotlight"
-          />
-          <img
-            className="spotlight-right"
-            src={spotlight_right}
-            alt="spotlight" */}
-          {/* /> */}
           <img width="50px" src={record_vinyl} alt="record" />
           <div>ABOUT</div>
         </h1>
@@ -86,7 +75,10 @@ function About() {
           </div>
         </div>
       </div>
-      <h1 className="story-h1">OUR STORY</h1>
+      <h1 className="story-h1">
+        <img width="50px" src={record_vinyl} alt="record" />
+        <div>OUR STORY</div>{" "}
+      </h1>
       <div className="about-contents-wrapper">
         <div className="about-contents-2">
           <div className="contents-2-text">

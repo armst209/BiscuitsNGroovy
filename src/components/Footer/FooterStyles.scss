@@ -78,15 +78,12 @@
 
           h4 {
             width: 100%;
-            // font-size: 0.5rem;
             color: var(--footer-gray);
 
             @media screen and (min-width: 1100px) {
               padding-bottom: 1rem;
             }
-            @media screen and (max-width: 1100px) {
-              // text-align: center;
-            }
+
             @media screen and (max-width: 768px) {
               margin-top: 1rem;
             }

@@ -90,7 +90,6 @@ function SignUpPopUp({
             <div className="button-container">
               <motion.button
                 onClick={() => {
-                  // setChangeStyles("signup-model-minimized");
                   setShowModal(!showModal);
                 }}
               >

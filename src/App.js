@@ -14,7 +14,7 @@ import Loading from "./components/Loading/Loading";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
-import MusicPlayer from "./components/MusicPlayer/MusicPlayerTest.tsx";
+
 import { AnimatePresence } from "framer-motion";
 
 //configure flow environment
@@ -125,8 +125,6 @@ function App() {
       />
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route path="/test" component={TestHomepage} />
-          <Route path="/musicplayer" component={MusicPlayer}></Route>
           <Route
             exact={true}
             path="/home"
@@ -317,18 +315,7 @@ function App() {
               />
             )}
           />
-          {/* Not Found Component Render */}
-          <Route
-            render={(props) => (
-              <NotFound
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
-          />
+
           <Route
             path="/privacy-terms-of-use"
             render={(props) => (
@@ -353,6 +340,9 @@ function App() {
               />
             )}
           />
+
+          {/* Not Found Component Render - KEEP AT BOTTOM OF SWITCH ELEMENT*/}
+          <Route component={NotFound} />
         </Switch>
       </Suspense>
       <Footer />

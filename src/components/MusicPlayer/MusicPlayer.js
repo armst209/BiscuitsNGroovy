@@ -12,14 +12,14 @@ function MusicPlayer(props) {
   const handleClickPrevious = () => {
     // setting currentMusicIndex to last song in array if on first song
     let firstTrack = props.currentMusicIndex;
-    firstTrack == 0
+    firstTrack === 0
       ? props.setCurrentMusicIndex(props.trackListArray.length - 1)
       : props.setCurrentMusicIndex(props.currentMusicIndex - 1);
   };
   const handleClickNext = () => {
     // setting currentMusicIndex to first song in array if on last song
     let lastTrack = props.currentMusicIndex;
-    lastTrack == props.trackListArray.length - 1
+    lastTrack === props.trackListArray.length - 1
       ? props.setCurrentMusicIndex(0)
       : props.setCurrentMusicIndex(props.currentMusicIndex + 1);
   };
@@ -90,18 +90,6 @@ function MusicPlayer(props) {
         onClickNext={handleClickNext}
         onEnded={handleClickNext}
       />
-
-      {/* <ReactJkMusicPlayer
-        preload={true}
-        mode={"full"}
-        autoPlay={true}
-        showDownload={false}
-        showThemeSwitch={false}
-        showReload={false}
-        toggleMode={false}
-        audioLists={audioLists}
-        className="music-player-component"
-      /> */}
     </>
   );
 }

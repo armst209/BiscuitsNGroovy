@@ -29,7 +29,6 @@ function MainNavigation(props) {
     useState("settings-icon");
   const [menuTextClass, setMenuTextClass] = useState("menu-p-nothome");
   const [closeTextClass, setCloseTextClass] = useState("close-p-nothome");
-  const [hamburgerText, setHamburgerText] = useState(false);
 
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);

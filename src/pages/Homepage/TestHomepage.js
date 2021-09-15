@@ -3,7 +3,7 @@ import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
 import Footer from "../../components/Footer/Footer";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import TestHero from "./TestHero";
@@ -51,6 +51,15 @@ function TestHomepage(props) {
           <ArtistReminder />
           <SubscribeSection />
         </div>
+        {/* <div className="reminder-image">
+          <LazyLoadImage
+            alt={"reminder image"}
+            effect="blur"
+            height={467}
+            src={reminder_image}
+            width={311}
+          />
+        </div> */}
         <img className="reminder-image" src={reminder_image} alt="sfsfsf" />
       </div>
     </section>

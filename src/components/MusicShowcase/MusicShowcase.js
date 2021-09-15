@@ -1,4 +1,5 @@
-import { React, Suspense, useState, useEffect } from "react";
+import { React, Suspense, useState, useEffect, lazy } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from "axios";
 import ComponentLoading from "../Loading/ComponentLoading";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
@@ -6,7 +7,6 @@ import "./MusicShowcaseStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 import showcase from "../../assets/images/showcase.webp";
-import showcase_mobile from "../../assets/images/showcase_mobile.webp";
 import env from "react-dotenv";
 
 function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
@@ -90,9 +90,6 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
                 alt={release.name}
                 key={`${"image-key" + release.id}`}
               />
-              {/* <div className="release-information">
-                <div>View Release</div>
-              </div> */}
             </div>
           </>
         ) : (
@@ -138,7 +135,16 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
             details
           </p>
           <div className="content-wrapper">
-            <img className="showcase-image" src={showcase} alt="showcase" />
+            <div className="showcase-image">
+              <LazyLoadImage
+                alt={"showcase image"}
+                effect="blur"
+                height={900}
+                src={showcase}
+                width={600}
+              />
+            </div>
+
             <div className="showcase-grid-desktop">
               {releasesLoaded ? (
                 <Suspense fallback={<ComponentLoading />}>
@@ -155,11 +161,6 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
         </div>
       </div>
       {releaseInfo}
-      <img
-        className="showcase-image-mobile"
-        src={showcase_mobile}
-        alt="showcase mobile"
-      />
     </section>
   );
 }

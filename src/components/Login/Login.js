@@ -14,9 +14,7 @@ const loginModalBackground = {
   hidden: { opacity: 0 },
 };
 
-//props passed as an object
 function Login(props) {
-  //Hooks
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -111,7 +109,6 @@ function Login(props) {
                   placeholder="Enter your username"
                   required
                   autoComplete="off"
-                  maxlength="15"
                   onChange={(event) => {
                     setUserName(event.target.value);
                     // setInput(true);
@@ -121,7 +118,6 @@ function Login(props) {
                   className={inputClass}
                   type="password"
                   placeholder="Enter your password"
-                  maxlength="15"
                   required
                   autoComplete="off"
                   onChange={(event) => setPassword(event.target.value)}
@@ -151,7 +147,7 @@ function Login(props) {
                 <Link
                   onClick={() => {
                     props.showLoginPopup(!props.loginPopup);
-                    props.setMobileMenuOpen(!props.mobileMenuOpen);
+                    props.setMobileMenuOpen(false);
                   }}
                   to="/account-recovery-email"
                 >

@@ -1,9 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "./AlbumPopupStyles.scss";
 import MusicPlayer from "../../../../MusicPlayer/MusicPlayer.js";
-// import MusicPlayerTest from "../../../../MusicPlayer/MusicPlayerTest.tsx";
 import arrow_back from "../../../../../assets/images/arrow-back-yellow.svg";
-import tracklist_icon from "../../../../../assets/images/tracklist_yellow.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 
@@ -100,8 +98,6 @@ function AlbumPopup(props) {
           albumName={props.release.name}
           albumCover={props.release.art_url}
         />
-        {/* USE/UNCOMMENT IF PRODUCTION PLAYER IS THROWING PLAYBACK ERRORS */}
-        {/* <MusicPlayerTest albumTrackList={props.release.songs} /> */}
       </div>
     </section>
   );
