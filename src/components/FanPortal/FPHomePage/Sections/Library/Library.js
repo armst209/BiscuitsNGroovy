@@ -41,6 +41,7 @@ function Library(props) {
       if (!libraryLoaded) {
         <ComponentLoading />;
       } else {
+        setLibraryLoaded(true);
         if (libraryReleases.length === 0) {
           setNoReleases(
             <div className="no-releases-msg">
@@ -51,7 +52,7 @@ function Library(props) {
             </div>
           );
         }
-        //Main Function - looping through response, displaying repsonse in "Your Library" & creating individual "AlbumPopup"s
+        //Main Function - looping through response, displaying response in "Your Library" & creating individual "AlbumPopup"s
         let showAllAlbumCovers = libraryReleases.map((release) => {
           //Toggle to Close AlbumPopUp
           const closeAlbumInfo = () => {
@@ -113,7 +114,7 @@ function Library(props) {
     const handleLibraryFailure = (err) => {
       console.log(err);
     };
-  }, [albumInfo, baseURL, props.popUpPassed, token]);
+  }, [albumInfo, baseURL, props.popUpPassed, token, isDisabled, libraryLoaded]);
 
   //Individual albums/releases are displayed here
   return (

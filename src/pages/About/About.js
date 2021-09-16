@@ -82,7 +82,7 @@ function About() {
       <div className="about-contents-wrapper">
         <div className="about-contents-2">
           <div className="contents-2-text">
-            <p>
+            <div className="contents-2-wrapper">
               <div className="contents-img-wrapper">
                 <div className="contents-img">
                   <img src={about_main_img} alt="about-main" />
@@ -127,7 +127,7 @@ function About() {
               vinyl collection, the original inspiration. Just like the process
               of making and selecting records, everything we do at BnG is
               thoughtful, deliberate, and human.
-            </p>
+            </div>
           </div>
         </div>
       </div>

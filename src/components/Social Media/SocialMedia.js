@@ -39,7 +39,7 @@ const SocialMedia = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fab fa-discord"></i>
+            <i className="fab fa-discord"></i>
           </a>
         </li>
       </ul>

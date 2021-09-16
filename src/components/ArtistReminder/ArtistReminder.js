@@ -21,7 +21,7 @@ function ArtistReminder() {
               />
             </div>
 
-            <p>
+            <div className="tired-container">
               <div className="tired-header">
                 TIRED OF MAKING PENNIES FROM STREAMING?
               </div>
@@ -29,7 +29,7 @@ function ArtistReminder() {
                 We’ll help you earn more money and connect with your top fans.
                 Learn more about the benefits of releasing your music on BnG
               </div>
-            </p>
+            </div>
 
             <Link to="/artists">
               <button>For Artists</button>

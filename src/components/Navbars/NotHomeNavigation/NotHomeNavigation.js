@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import { Link, NavLink } from "react-router-dom";
 import "./NotHomeNavigation.scss";
 import "react-responsive-modal/styles.css";
@@ -14,12 +14,10 @@ import collection_icon from "../../../assets/images/music-collection-yellow.svg"
 import write from "../../../assets/images/write.svg";
 import normal_vinyl from "../../../assets/images/compact-disc-yellow.svg";
 import heart_vinyl from "../../../assets/images/vinyl_yellow.svg";
-import spotlight_yellow_left from "../../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_yellow_right from "../../../assets/images/spotlight_outline_right_yellow.svg";
 import { motion } from "framer-motion";
 import env from "react-dotenv";
 
-function MainNavigation(props) {
+function NotHomeNavigation(props) {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
@@ -33,9 +31,8 @@ function MainNavigation(props) {
   const [loggedOut, setLoggedOut] = useState(false);
   const [arrowMove, setArrowMove] = useState(false);
   const [userName, setUserName] = useState("Welcome");
-  const [linkUserName, setLinkUserName] = useState("");
-  const [rightSpotlight, setRightSpotlight] = useState("");
-  const [leftSpotlight, setLeftSpotlight] = useState("");
+  // const [linkUserName, setLinkUserName] = useState("");
+
   const [yellowBg, setYellowBg] = useState("");
 
   const isAuthenticated = localStorage.getItem("token");
@@ -78,7 +75,6 @@ function MainNavigation(props) {
           />
         )
       : setUserName(<img src={normal_vinyl} width="50px" alt="record" />);
-    setLinkUserName("");
 
     //Menu Dropdown Function
     const viewDropDown = () => {
@@ -122,11 +118,7 @@ function MainNavigation(props) {
       );
     } else {
       setIsLoggedIn(
-        <NavLink
-          Link
-          to="#"
-          onClick={() => props.showLoginPopup(!props.loginPopup)}
-        >
+        <NavLink to="#" onClick={() => props.showLoginPopup(!props.loginPopup)}>
           Login
         </NavLink>
       );
@@ -151,20 +143,7 @@ function MainNavigation(props) {
         setScrolledHamburgerClass("settings-icon-scrolled");
         setMenuTextClass("menu-p-nothome-scrolled");
         setCloseTextClass("close-p-nothome-scrolled");
-        setRightSpotlight(
-          <img
-            className={`spotlight-top-right-nothome ${rightSpotlight}`}
-            src={spotlight_yellow_right}
-            alt="spotlight icon"
-          />
-        );
-        setLeftSpotlight(
-          <img
-            className="spotlight-top-left-nothome"
-            src={spotlight_yellow_left}
-            alt="spotlight icon"
-          />
-        );
+
         // setYellowBg("logo-background-yellow-nothome");
         setYellowBg("");
       } else {
@@ -172,8 +151,7 @@ function MainNavigation(props) {
         setScrolledHamburgerClass("settings-icon");
         setMenuTextClass("menu-p-nothome");
         setCloseTextClass("close-p-nothome");
-        setRightSpotlight("");
-        setLeftSpotlight("");
+
         setYellowBg("");
       }
     };
@@ -189,7 +167,7 @@ function MainNavigation(props) {
     });
 
     return () => abortCont.abort();
-  }, [isAuthenticated, showDropDown, arrowMove, rightSpotlight]);
+  }, [isAuthenticated, showDropDown, arrowMove, props]);
 
   return (
     <div id="scrolled-home-before-nothome">
@@ -438,4 +416,4 @@ function MainNavigation(props) {
   );
 }
 
-export default MainNavigation;
+export default NotHomeNavigation;

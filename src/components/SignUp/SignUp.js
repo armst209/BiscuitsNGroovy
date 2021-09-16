@@ -18,7 +18,7 @@ const signUpModalBackground = {
 //props passed as an object
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [name] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,7 +26,7 @@ const SignUp = (props) => {
   const [showModal, setShowModal] = useState(true);
   const [changeStyles, setChangeStyles] = useState("signup-modal");
   const [user, setUser] = useState({});
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors] = useState({});
   const [emailConflict, setEmailConflict] = useState("");
 
   //password validation for both password inputs

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import next_arrow from "../../../assets/images/next-arrow-yellow.svg";
 
@@ -9,14 +9,6 @@ const signUpModalBackground = {
   hidden: { opacity: 0 },
 };
 
-const modal = {
-  hidden: { opacity: 1, transition: { delay: 0.2 } },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { delay: 0.2 },
-  },
-};
 function SignUpPopUp({
   showModal,
   setShowModal,
@@ -34,7 +26,6 @@ function SignUpPopUp({
           exit="hidden"
         >
           <motion.div
-            // variants={modal}
             className="signup-popup-wrapper"
             initial={{ opacity: 0, y: "-100vh" }}
             animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}

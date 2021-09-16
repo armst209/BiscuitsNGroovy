@@ -1,12 +1,11 @@
-import { React, useState, useEffect } from "react";
-import axios from "axios";
+import { React, useState } from "react";
+
 import { withRouter } from "react-router";
 import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
 import "./FanPortalStyles.scss";
 
 import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
-import env from "react-dotenv";
 
 function FanPortal() {
   //Props are passing down the showAlbumDetails function/hook to FPHomepage & AlbumPreview as setTrigger

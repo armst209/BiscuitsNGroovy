@@ -12,7 +12,10 @@
   background: black;
   border-top: 3px solid var(--color1);
   border-bottom: 3px solid var(--color1);
-  padding-bottom: 7rem;
+  padding-bottom: 0;
+  @media screen and (max-width: 600px) {
+    padding-bottom: 4rem;
+  }
 
   .spotlight-top-left {
     width: 50px;
@@ -38,10 +41,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 3rem 1rem 0 0;
-      @media screen and (max-width: 1050px) {
-        padding: 3rem 1rem 0 1rem;
-      }
+      padding: 3rem 1rem 0 1rem;
 
       h1 {
         font-family: var(--font3);
@@ -89,11 +89,12 @@
       flex-direction: row;
       justify-content: left;
       width: 100%;
-      min-height: 1100px;
+      height: auto;
       position: relative;
       .showcase-image {
         width: 50%;
         left: 0;
+        position: absolute;
         @media screen and (max-width: 1050px) {
           width: 900px;
           height: 1000px;
@@ -103,7 +104,7 @@
         }
       }
       .showcase-grid-desktop {
-        width: 60%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -112,13 +113,12 @@
         padding: 1rem;
         border: 5px solid var(--color2);
         border-radius: 20px;
-        position: absolute;
-        right: 0;
+        height: auto;
         background-color: black;
 
         @media screen and (max-width: 1050px) {
           width: 100%;
-          height: 100%;
+          height: auto;
         }
         @media screen and (max-width: 350px) {
           border: none;
@@ -184,21 +184,24 @@
           }
         }
       }
+    }
+  }
+  .bottom-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
 
-      .showcase-grid-mobile {
-        display: none;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: black;
-
-        @media (min-width: 500px) {
-        }
-        @media (max-width: 500px) {
-        }
-      }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+    .bottom-image {
+      padding-top: 4rem;
+      width: 40%;
+      margin: 0;
     }
   }
 }

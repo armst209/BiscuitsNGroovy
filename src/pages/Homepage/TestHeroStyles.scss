@@ -128,7 +128,7 @@
             font-weight: bold;
             font-size: 1.5rem;
             color: black;
-            padding-right: 12rem;
+            padding-right: 10rem;
             @media screen and (max-width: 1400px) {
               font-size: 1.3rem;
             }
@@ -224,7 +224,7 @@
                   background-color: var(--color2);
                   color: black;
                   filter: none;
-                  border: none;
+                  border: 3px solid black;
                 }
               }
             }
@@ -259,10 +259,12 @@
                 background-color: black;
                 color: white;
                 border: 3px solid var(--color1);
+                box-shadow: none;
                 &:hover {
                   color: black;
                   background-color: var(--color1);
-                  border: none;
+                  border: 3px solid black;
+                  box-shadow: none;
                 }
               }
             }
@@ -279,7 +281,7 @@
   .hero-image {
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 10%;
     height: 100%;
     @media screen and (max-width: 1400px) {
     }
@@ -290,9 +292,6 @@
     }
     @media screen and (max-width: 1200px) {
       display: none;
-    }
-    @media screen and (max-width: 1160px) {
-      right: 0;
     }
   }
   .hero-image-mobile {

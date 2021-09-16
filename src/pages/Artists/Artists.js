@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Mailchimp from "react-mailchimp-form";
+import mic_drop from "../../assets/images/micdrop.webp";
+import mic_hold from "../../assets/images/michold.webp";
+// import Mailchimp from "react-mailchimp-form";
 import env from "react-dotenv";
 
 import "./ArtistsStyles.scss";
@@ -61,28 +63,33 @@ function Artists() {
           <div>ARTISTS</div>
         </h1>
       </div>
+
       <div className="artists-wrapper">
-        <div className="artists-important-msg">
-          <div className="artists-impt-wrapper">
-            <div className="artists-impt-img">
-              <img src={important} alt="loudspeaker icon" />
-            </div>
-            <div className="artists-impt-text">
-              <p>
-                Interested in joining us? Fill out the form{" "}
-                <Link className="below-link" to="#artists-form">
-                  below
-                </Link>{" "}
-                and we’ll be in touch ASAP.
-              </p>
-              <p className="work-with-text">
-                We work with both independent artists and those signed to record
-                or distribution deals, so regardless of your situation, we’d
-                love to hear from you.
-              </p>
+        <div className="art-image-container">
+          <div className="artists-important-msg">
+            <div className="artists-impt-wrapper">
+              <div className="artists-impt-img">
+                <img src={important} alt="loudspeaker icon" />
+              </div>
+              <div className="artists-impt-text">
+                <p>
+                  Interested in joining us? Fill out the form{" "}
+                  <Link className="below-link" to="#artists-form">
+                    below
+                  </Link>{" "}
+                  and we’ll be in touch ASAP.
+                </p>
+                <p className="work-with-text">
+                  We work with both independent artists and those signed to
+                  record or distribution deals, so regardless of your situation,
+                  we’d love to hear from you.
+                </p>
+              </div>
             </div>
           </div>
+          <img className="mic-up" src={mic_hold} alt="mic drop" />
         </div>
+
         <div className="artists-content-wrapper">
           <div className="artists-content">
             <div className="artists-images">
@@ -372,6 +379,7 @@ function Artists() {
 
         {/* </div> */}
       </div>
+      <img className="mic-drop" src={mic_drop} alt="mic drop" />
     </section>
   );
 }
