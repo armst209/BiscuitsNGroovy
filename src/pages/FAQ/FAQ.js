@@ -299,8 +299,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
         </CSSTransition>
         <h5
           onClick={() => {
-            setQuestion6(!question10);
-            setDropStyle6("icon_rotate");
+            setQuestion10(!question10);
+            setDropStyle10("icon_rotate");
           }}
         >
           <div>What is a Blocto/Flow account and why do I need it?</div>
@@ -321,7 +321,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             setDropStyle10("");
           }}
         >
-          <div className="answer" onClick={() => setQuestion6(!question10)}>
+          <div className="answer" onClick={() => setQuestion10(!question10)}>
             <ul>
               <li>
                 <p>
@@ -338,7 +338,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                   won’t even realize you’re interacting with the blockchain.
                   Learn more
                   <a
-                    href="https://www.onflow.org/"
+                    href="https://blocto.portto.io/en/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
