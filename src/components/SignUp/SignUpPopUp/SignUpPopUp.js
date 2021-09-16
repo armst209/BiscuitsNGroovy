@@ -46,6 +46,7 @@ function SignUpPopUp({
                   Blocto is a trusted, user-friendly wallet for crypto assets
                   (like NFTs). Learn more{" "}
                   <a
+                    className="blocto-link"
                     href="https://blocto.portto.io/en/"
                     target="_blank"
                     rel="noopener noreferrer"

@@ -13,6 +13,14 @@
   align-items: center;
   padding: 1rem;
 
+  a {
+    color: var(--color1);
+    text-decoration: underline 2px solid var(--color2);
+    &:visited {
+      color: var(--color1);
+    }
+  }
+
   .signup-popup-wrapper {
     background-color: black;
     height: 100vh;
