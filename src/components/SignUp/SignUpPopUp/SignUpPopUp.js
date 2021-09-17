@@ -32,48 +32,51 @@ function SignUpPopUp({
             exit="hidden"
           >
             <div className="signup-popup-header">
-              <h1>Create your BnG account in a few easy steps!</h1>
+              <h1>Create your account</h1>
             </div>
 
             <div className="signup-popup-content">
               <ul>
                 <li>
-                  We integrate with Blocto to seamlessly store your NFT album
-                  art. When you create an account with us, you’ll also be
-                  prompted to create a Blocto account. They’ll be linked
-                  together so you don’t need to remember a separate login.
+                  When you create an account with us, you’ll also be prompted to
+                  create a Blocto account. They’ll be linked together so you
+                  don’t need to remember a separate login.
                 </li>
                 <li>
                   Blocto is a trusted, user-friendly wallet for crypto assets
-                  (like NFTs). It’s designed to be so intuitive, you won’t even
-                  realize you’re interacting with the blockchain. Learn more
-                  here
+                  (like NFTs). Learn more{" "}
+                  <a
+                    className="blocto-link"
+                    href="https://blocto.portto.io/en/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    here
+                  </a>
                 </li>
               </ul>
               <ol>
                 <li>
-                  Enter your email and choose a username & password for your BnG
-                  account. Click <strong>Continue</strong>
+                  Enter your email and choose a username & password. account.
+                  Click <strong>Continue</strong>
                 </li>
                 <li>
                   A popup will appear asking you to choose a provider. Select{" "}
                   <strong>Blocto</strong>
                 </li>
                 <li>
-                  Enter your email again in the strong Blocto popup. If you’re
-                  new to Blocto, this will create and link a Blocto account with
-                  your BnG account so you can easily access any NFTs you buy
-                  from us. Click <strong>Register</strong>
+                  Enter your email again in the Blocto popup. This will create
+                  and link a Blocto account with your BnG account so you can
+                  easily access your NFTs. Click <strong>Register</strong>
                 </li>
                 <li>
                   Enter the verification code from your email. Next, click
-                  Confirm to link your new Blocto account, and finally click{" "}
-                  <strong>Approve</strong>
+                  <strong> Confirm</strong> to link your new Blocto account, and
+                  finally click <strong>Approve</strong>
                 </li>
                 <li>
-                  Now that your Blocto account is ready, you’ll be taken back to
-                  the BnG sign up window. Double check your information, then
-                  click <strong>Create Account</strong>
+                  Now you’ll be back at the BnG sign up. Double check your info,
+                  then click <strong>Create Account</strong>
                 </li>
               </ol>{" "}
             </div>

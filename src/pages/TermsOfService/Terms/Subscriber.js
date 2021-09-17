@@ -56,11 +56,11 @@ function Subscriber() {
                 incorporates BnG’s “Terms Regarding Purchase of Music” located
                 at{" "}
                 <a
-                  href="www.bngroovy.com/privacy-terms-of-use/music-purchase-terms"
+                  href="www.bngroovy.com/music-purchase-terms"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.bngroovy.com/privacy-terms-of-use/music-purchase-terms
+                  www.bngroovy.com/music-purchase-terms
                 </a>
               </li>
               <li>
@@ -68,11 +68,11 @@ function Subscriber() {
                 incorporates BnG’s “Terms Regarding Non-Fungible Tokens” located
                 at{" "}
                 <a
-                  href="www.bngroovy.com/privacy-terms-of-use/music-purchase-terms"
+                  href="www.bngroovy.com/nft-terms"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.bngroovy.com/privacy-terms-of-use/nft-terms
+                  www.bngroovy.com/nft-terms
                 </a>
               </li>
               <li>

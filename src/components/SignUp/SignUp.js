@@ -217,6 +217,7 @@ const SignUp = (props) => {
                 type="email"
                 name="email"
                 noValidate
+                autoComplete="off"
                 onChange={handleChange}
                 required
               />
@@ -231,6 +232,7 @@ const SignUp = (props) => {
                 type="text"
                 name="username"
                 noValidate
+                autoComplete="off"
                 onChange={handleChange}
                 required
               />
@@ -245,6 +247,7 @@ const SignUp = (props) => {
                 type="password"
                 name="password"
                 noValidate
+                autoComplete="off"
                 onChange={handleChange}
                 required
               />
@@ -259,6 +262,7 @@ const SignUp = (props) => {
                 type="password"
                 name="confirmpassword"
                 noValidate
+                autoComplete="off"
                 required
                 onChange={handleChange}
               />

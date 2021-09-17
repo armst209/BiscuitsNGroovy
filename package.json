@@ -45,6 +45,7 @@
     "react-transition-group": "^4.4.1",
     "sass": "^1.38.0",
     "slick-carousel": "^1.8.1",
+    "source-map-explorer": "^2.5.2",
     "stripe": "^8.169.0",
     "surge": "^0.23.0",
     "swiper": "^6.6.1",
@@ -54,6 +55,7 @@
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
     "test": "react-scripts test",

@@ -190,7 +190,14 @@ function NotHomeNavigation(props) {
             <div className="desktop-navlinks-home-nothome">
               <ul className="general-links-home-nothome">
                 <li>
-                  <NavLink to="/home">Home</NavLink>
+                  <NavLink
+                    activeStyle={{
+                      borderBottom: "4px solid var(--color1)",
+                    }}
+                    to="/home"
+                  >
+                    Home
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink

@@ -262,12 +262,14 @@ function Artists() {
               name="ARTISTNAME"
               placeholder="Artist Name"
               required
+              autoComplete="off"
               onChange={(event) => setArtistName(event.target.value)}
             />
             <input
               type="text"
               name="PREFNAME"
               placeholder="Preferred Name"
+              autoComplete="off"
               onChange={(event) => setArtistPrefName(event.target.value)}
             />
             <input
@@ -275,6 +277,7 @@ function Artists() {
               name="ARTEMAIL"
               placeholder="Artist Email"
               required
+              autoComplete="off"
               onChange={(event) => setArtistEmail(event.target.value)}
             />
             <input
@@ -282,6 +285,7 @@ function Artists() {
               name="ARTPHONE"
               placeholder="Phone Number"
               required
+              autoComplete="off"
               onChange={(event) => setArtistPhone(event.target.value)}
             />
             <input
@@ -289,6 +293,7 @@ function Artists() {
               name="MANNAME"
               placeholder="Manager/Agent Name"
               required
+              autoComplete="off"
               onChange={(event) => setManagerName(event.target.value)}
             />
             <input
@@ -296,6 +301,7 @@ function Artists() {
               name="MANEMAIL"
               placeholder="Manager/Agent Email"
               required
+              autoComplete="off"
               onChange={(event) => setManagerEmail(event.target.value)}
             />
             <textarea
@@ -306,6 +312,7 @@ function Artists() {
               name="MESSAGE"
               placeholder="Enter a message"
               required
+              autoComplete="off"
               onChange={(event) => setMessage(event.target.value)}
             />
             <button type="submit">Submit</button>
