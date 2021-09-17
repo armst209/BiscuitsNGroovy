@@ -251,7 +251,7 @@ function App() {
 
           <Route
             exact={true}
-            path="/privacy-terms-of-use/privacy-policy"
+            path="/privacy-policy"
             render={(props) => (
               <PrivacyPolicy
                 {...props}
@@ -264,7 +264,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/privacy-terms-of-use/menu"
+            path="/privacy-terms-of-use"
             render={(props) => (
               <TermsOfService
                 {...props}
@@ -277,7 +277,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/privacy-terms-of-use/terms-of-service"
+            path="/terms-of-service"
             render={(props) => (
               <Subscriber
                 {...props}
@@ -290,7 +290,7 @@ function App() {
           />
           <Route
             exact={true}
-            path="/privacy-terms-of-use/music-purchase-terms"
+            path="/music-purchase-terms"
             render={(props) => (
               <PurchaseOfMusic
                 {...props}
@@ -304,34 +304,9 @@ function App() {
 
           <Route
             exact={true}
-            path="/privacy-terms-of-use/nft-terms"
+            path="/nft-terms"
             render={(props) => (
               <NFTTerms
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
-          />
-
-          <Route
-            path="/privacy-terms-of-use"
-            render={(props) => (
-              <NotFound
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
-          />
-          <Route
-            path="/privacy-terms-of-use/"
-            render={(props) => (
-              <NotFound
                 {...props}
                 loginPopup={loginPopup}
                 showLoginPopup={showLoginPopup}

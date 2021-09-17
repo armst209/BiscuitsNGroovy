@@ -47,6 +47,7 @@ function EmailInput() {
             required
             autoComplete="off"
             placeholder="Enter your email"
+            autoComplete="off"
             onChange={(event) => setRecoveryEmail(event.target.value)}
           />
           <button type="submit">Submit</button>
