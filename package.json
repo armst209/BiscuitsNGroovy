@@ -88,7 +88,8 @@
       "REACT_APP_WALLET_DISCOVERY",
       "REACT_APP_CONTRACT_PROFILE",
       "BACKEND_URL",
-      "FRONTEND_URL"
+      "FRONTEND_URL",
+      "STRIPE_API_KEY"
     ]
   }
 }
