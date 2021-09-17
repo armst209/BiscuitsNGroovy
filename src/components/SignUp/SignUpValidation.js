@@ -1,4 +1,4 @@
-import * as zxcvbn from "zxcvbn";
+// import * as zxcvbn from "zxcvbn";
 
 export function minMaxLength(text, minLength, maxLength) {
   let result = !text || text.length < minLength;
@@ -15,6 +15,6 @@ export function validEmail(text) {
 }
 
 export function passwordStrength(text) {
-  let result = zxcvbn(text);
-  return result.score < 3;
+  // let result = zxcvbn(text);
+  // return result.score < 3;
 }

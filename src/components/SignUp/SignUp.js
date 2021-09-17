@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { minMaxLength, validEmail, passwordStrength } from "./SignUpValidation";
+import { minMaxLength, validEmail } from "./SignUpValidation";
 import "./SignUpStyles.scss";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -90,12 +90,12 @@ const SignUp = (props) => {
       case "password":
         setPassword(value);
         //setUser({ ...user, password: value });
-        if (minMaxLength(value, 7)) {
-          formErrors[name] = "Password should have minimum 7 characters";
-        } else if (passwordStrength(value)) {
-          formErrors[name] =
-            "Password is not strong enough. Include an upper case letter, a number or a special character to make it strong";
-        } else {
+        if (minMaxLength(value, 5)) {
+          formErrors[name] = "Password should have minimum 5 characters";
+          // } else if (passwordStrength(value)) {
+          //   formErrors[name] =
+          //     "Password is not strong enough. Include an upper case letter, a number or a special character to make it strong";
+          // } else {
           delete formErrors[name];
           setUser({
             ...user,

@@ -9,7 +9,8 @@ import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_
 import showcase from "../../assets/images/showcase_mobile.webp";
 import env from "react-dotenv";
 
-function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
+function MusicShowcase(props) {
+  console.log(props);
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
@@ -38,6 +39,7 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
 
     const handleSuccess = (res) => {
       let releases = res.data.releases;
+      console.log(releases);
 
       setReleasesLoaded(true);
       //checking whether user has purchased all current releases
@@ -60,11 +62,13 @@ function MusicShowcase(props, { showSignUpPopup, signUpPopup }) {
             <ReleasePreview
               key={`release-preview ${release.id}`}
               toggleClose={closeReleaseInfo}
+              title={release.title}
               name={release.name}
               albumCover={release.art_url}
               description={release.description}
               id={release.id}
               price={release.price}
+              songs={release.songs}
               //props passed in for signup pop up, if user is not logged in and trys to purchase a release
               signUpPopup={props.signUpPopup}
               showSignUpPopup={props.showSignUpPopup}

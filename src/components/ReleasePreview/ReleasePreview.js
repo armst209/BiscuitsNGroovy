@@ -1,26 +1,26 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./ReleasePreviewStyles.scss";
 import token_music_icon from "../../assets/images/love-song2.svg";
 import record_icon from "../../assets/images/vinyl_yellow.svg";
 import CheckoutButton from "../../pages/Payment/Checkout";
 import { CSSTransition } from "react-transition-group";
+import ComponentLoading from "../Loading/ComponentLoading";
 
 function ReleasePreview(props) {
+  const [populateReleaseTrackList, setPopulateReleaseTracklist] = useState();
+
   console.log(props);
-  const [releaseTrackList] = useState(
-    <ul>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-      <li>Track #</li>
-    </ul>
-  );
+  useEffect(() => {
+    //mapping through songs array to populate playlist and numbering song order
+    const songNames = props.songs;
+
+    let showReleaseNames = songNames.map((name, order) => {
+      return name ? <li>{`${order + 1}. ${name}`}</li> : <ComponentLoading />;
+    });
+    //passing in songsArray map as a parameter for hook
+    setPopulateReleaseTracklist(showReleaseNames);
+  }, [props.songs]);
+
   console.log(props);
   const token = localStorage.getItem("token");
   const handleClose = () => {
@@ -43,9 +43,9 @@ function ReleasePreview(props) {
                   alt="album cover"
                 />
                 <h1>
-                  {props.name} - {"releaseTitle"}
+                  {props.name} - {props.title}
                 </h1>
-
+                <div className="release-description">{props.description}</div>
                 <div className="button-container">
                   {token ? (
                     <CheckoutButton
@@ -74,7 +74,9 @@ function ReleasePreview(props) {
                 </div>
 
                 <div className="release-information">
-                  <div className="release-tracklist">{releaseTrackList}</div>
+                  <div className="release-tracklist">
+                    <ul>{populateReleaseTrackList}</ul>
+                  </div>
                 </div>
               </div>
             </div>

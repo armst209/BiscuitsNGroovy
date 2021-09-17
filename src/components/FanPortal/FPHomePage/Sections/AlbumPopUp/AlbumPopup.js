@@ -42,7 +42,7 @@ function AlbumPopup(props) {
     });
     //passing in songsArray map as a parameter for hook
     setPopulateTracklist(showReleaseTrackList);
-  }, [currentMusicIndex, props.release.songs]);
+  }, [props.release.songs]);
 
   return (
     <section id="album-popup">
