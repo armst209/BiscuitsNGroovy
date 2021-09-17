@@ -2,17 +2,15 @@ FROM node:14
 
 WORKDIR /usr/src/app
 
-#copy package file(s)
-COPY package*.json ./
+# #copy package file(s)
+# COPY package*.json ./
 
-#install dependencies
-RUN npm install
+# #install dependencies
+# RUN npm install
 
 #copy source code
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5000
 
-CMD ["npm", "start"]
-
-#CMD [ "serve", "-s", "build"]
+CMD [ "npx", "serve", "-s", "build"]

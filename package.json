@@ -78,7 +78,7 @@
     ]
   },
   "devDependencies": {
-    "serve": "^12.0.0"
+    "serve": "^12.0.1"
   },
   "react-dotenv": {
     "whitelist": [

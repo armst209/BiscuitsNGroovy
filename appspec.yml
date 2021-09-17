@@ -27,8 +27,8 @@ files:
     destination: /root/BiscuitsNGroovy/appspec-scripts
   - source: /build
     destination: /root/BiscuitsNGroovy/build
-  - source: /node_modules
-    destination: /root/BiscuitsNGroovy/node_modules
+  # - source: /node_modules
+  #   destination: /root/BiscuitsNGroovy/node_modules
   - source: /public
     destination: /root/BiscuitsNGroovy/public
   - source: /src
