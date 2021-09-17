@@ -59,27 +59,30 @@ function Library(props) {
             setAlbumCovers("");
           };
 
-          const handleReleaseWindow = (release) => {
-            //must get the date time of the newly created date object before you compare them
-            let currentDate = new Date(Date.now()).getTime();
-            console.log(currentDate);
-            const endReleaseDate = new Date(release.end_date).getTime();
-            console.log(endReleaseDate);
-            if (currentDate > endReleaseDate) {
-              console.log("release done");
-              alert("release not longer available");
-              setIsDisabled(false);
-              setReleaseEndPopup(true);
-            } else {
-              console.log("release valid");
-              setIsDisabled(true);
-            }
-          };
+          // const handleReleaseWindow = (release) => {
+          //   //must get the date time of the newly created date object before you compare them
+          //   let currentDate = new Date(Date.now()).getTime();
+          //   console.log(currentDate);
+          //   const endReleaseDate = new Date(release.end_date).getTime();
+          //   console.log(endReleaseDate);
+          //   if (currentDate > endReleaseDate) {
+          //     console.log("release done");
+          //     alert("release not longer available");
+          //     setIsDisabled(false);
+          //     setReleaseEndPopup(true);
+          //   } else {
+          //     console.log("release valid");
+          //     setIsDisabled(true);
+          //   }
+          // };
 
           //Return - what's currently being displayed in the "Your Library" section through Hooks
           return release ? (
             //Hover state for release
-            <div disabled={isDisabled} onClick={handleReleaseWindow}>
+            <div
+              disabled={isDisabled}
+              //  onClick={handleReleaseWindow}
+            >
               <figure
                 className="hover-img"
                 key={`hover-figure + ${release.id}`}

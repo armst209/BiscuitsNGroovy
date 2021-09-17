@@ -6,6 +6,7 @@ import CheckoutButton from "../../pages/Payment/Checkout";
 import { CSSTransition } from "react-transition-group";
 
 function ReleasePreview(props) {
+  console.log(props);
   const [releaseTrackList] = useState(
     <ul>
       <li>Track #</li>
