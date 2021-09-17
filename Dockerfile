@@ -11,6 +11,6 @@ WORKDIR /usr/src/app
 #copy source code
 COPY . .
 
-EXPOSE 5000
+EXPOSE 3000
 
-CMD [ "npx", "serve", "-s", "build"]
+CMD [ "npx", "serve", "-s", "build", "-l", "3000"]

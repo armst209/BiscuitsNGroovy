@@ -4,43 +4,28 @@ import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 
 export async function accountIsInitialized() {
-  console.log("before current user");
   let currUser = await fcl.currentUser().snapshot();
-  console.log("current user");
-  console.log(currUser);
   if (currUser.loggedIn === null) {
     return false;
   }
-  console.log("after current user");
   return await fcl
     .send([
       fcl.script`
-          import BnGNFTContract from 0xProfile
+          import BnGNFT from 0xProfile
 
-          pub fun main(targetAddress: Address) : String {
+          pub fun main(targetAddress: Address) : Bool {
               let nftOwner = getAccount(targetAddress)
           
-              let capability = nftOwner.getCapability<&{BnGNFTContract.NFTReceiver}>(/public/NFTReceiver)
-          
-              let receiverRef = capability.borrow()
-              if receiverRef == nil {
-                return "Account is not setup"
-              }
-              return "Account is setup"
+              let capability = nftOwner.getCapability<&{BnGNFT.BnGNFTCollectionPublic}>(BnGNFT.CollectionPublicPath)
+              
+              return capability.borrow() != nil
           }
         `,
       fcl.args([fcl.arg(currUser.addr, t.Address)]),
     ])
     .then(fcl.decode)
     .then((res) => {
-      if (res === "Account is not setup") {
-        return false;
-      } else if (res === "Account is setup") {
-        return true;
-      } else {
-        console.log("error");
-        return false;
-      }
+      return res;
     })
     .catch((err) => {
       console.log(err);
@@ -58,17 +43,20 @@ export async function initAccount() {
         // Transactions use fcl.transaction instead of fcl.script
         // Their syntax is a little different too
         fcl.transaction`
-        import BnGNFTContract from 0xProfile
-
+        import BnGNFT from 0xProfile
+        import NonFungibleToken from 0x1d7e57aa55817448
         transaction {
-            prepare(acct: AuthAccount) {
-        
-            let collection <- BnGNFTContract.createEmptyCollection()
-        
-            acct.save<@BnGNFTContract.Collection>(<-collection, to: /storage/BnGNFTCollection)
-        
-            acct.link<&{BnGNFTContract.NFTReceiver}>(/public/NFTReceiver, target: /storage/BnGNFTCollection)
-            }
+          prepare(acct: AuthAccount) {
+
+            // Create a new empty collection
+            let collection <- BnGNFT.createEmptyCollection()
+
+            // store the empty NFT Collection in account storage
+            acct.save<@NonFungibleToken.Collection>(<-collection, to: BnGNFT.CollectionStoragePath)
+
+            // create a public capability for the Collection
+            acct.link<&{BnGNFT.BnGNFTCollectionPublic}>(BnGNFT.CollectionPublicPath, target: BnGNFT.CollectionStoragePath)
+          }
         }
       `,
         fcl.payer(fcl.authz), // current user is responsible for paying for the transaction
