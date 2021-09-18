@@ -32,7 +32,6 @@ function Artists() {
   const submit = (event) => {
     event.preventDefault();
     const baseURL = env.BACKEND_URL;
-    console.log(baseURL);
 
     axios({
       method: "post",

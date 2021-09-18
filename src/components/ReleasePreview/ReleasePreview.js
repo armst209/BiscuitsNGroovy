@@ -8,8 +8,6 @@ import ComponentLoading from "../Loading/ComponentLoading";
 
 function ReleasePreview(props) {
   const [populateReleaseTrackList, setPopulateReleaseTracklist] = useState();
-
-  console.log(props);
   useEffect(() => {
     //mapping through songs array to populate playlist and numbering song order
     const songNames = props.songs;
@@ -21,7 +19,6 @@ function ReleasePreview(props) {
     setPopulateReleaseTracklist(showReleaseNames);
   }, [props.songs]);
 
-  console.log(props);
   const token = localStorage.getItem("token");
   const handleClose = () => {
     props.toggleClose();

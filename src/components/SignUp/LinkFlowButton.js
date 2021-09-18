@@ -23,7 +23,6 @@ function LinkFlowButton(props) {
     accountIsInitialized().then((firstAccountState) => {
       props.flowBtnLoader("");
 
-      console.log(firstAccountState);
       setIsInitialized(firstAccountState);
     });
   }
@@ -31,7 +30,6 @@ function LinkFlowButton(props) {
   async function logOutOfFlow() {
     fcl.unauthenticate();
     accountIsInitialized().then((firstAccountState) => {
-      console.log(firstAccountState);
       setIsInitialized(firstAccountState);
     });
   }

@@ -34,7 +34,7 @@ export async function accountIsInitialized() {
 
 export async function initAccount() {
   let isInitialized = accountIsInitialized();
-  console.log("acc initialize done");
+
   if (isInitialized === true) {
     return;
   } else {

@@ -124,7 +124,6 @@ const SignUp = (props) => {
     localStorage.setItem("token", res.data.token);
 
     window.location.replace(env.FRONTEND_URL + "/home");
-    console.log("successful sign up");
   };
 
   const submit = async function (event) {
@@ -140,7 +139,6 @@ const SignUp = (props) => {
     let flow_address = currUser.addr;
 
     const baseURL = env.BACKEND_URL;
-    console.log(baseURL);
 
     axios({
       method: "post",
@@ -154,7 +152,6 @@ const SignUp = (props) => {
       },
     })
       .then((res) => {
-        console.log("hit in promise");
         setEmailConflict("");
         handleSignUp(res);
       })

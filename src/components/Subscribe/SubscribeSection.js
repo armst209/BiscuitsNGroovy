@@ -16,7 +16,6 @@ function SubscribeSection() {
   const submit = (event) => {
     event.preventDefault();
     const baseURL = env.BACKEND_URL;
-    console.log(baseURL);
 
     axios({
       method: "post",
@@ -26,12 +25,8 @@ function SubscribeSection() {
       },
     })
       .then((res) => {
-        console.log(res);
-
         setSuccessMessages("Subscribed!");
         setErrorMessages("");
-
-        console.log("hit");
       })
       .catch((err) => {
         setIsReset(true);

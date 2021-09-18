@@ -10,7 +10,6 @@ import showcase from "../../assets/images/showcase_mobile.webp";
 import env from "react-dotenv";
 
 function MusicShowcase(props) {
-  console.log(props);
   const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
@@ -39,7 +38,6 @@ function MusicShowcase(props) {
 
     const handleSuccess = (res) => {
       let releases = res.data.releases;
-      console.log(releases);
 
       setReleasesLoaded(true);
       //checking whether user has purchased all current releases

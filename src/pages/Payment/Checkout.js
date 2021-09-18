@@ -10,9 +10,7 @@ import env from "react-dotenv";
 // recreating the `Stripe` object on every render.
 
 //STRIPE
-const stripePromise = loadStripe(
-  env.STRIPE_API_KEY
-);
+const stripePromise = loadStripe(env.STRIPE_API_KEY);
 
 const ProductDisplay = ({ handleClick }) => (
   <section>
@@ -61,9 +59,7 @@ export default function CheckoutButton(props) {
     );
     //check if a user is signed in with a FLOW wallet
     const token = localStorage.getItem("token");
-    console.log("TEST HERE");
-    console.log(env.STRIPE_API_KEY);
-    console.log(env);
+
     const stripe = await stripePromise;
     const URL = `${env.BACKEND_URL}/payments/create-checkout-session`;
 
@@ -82,7 +78,6 @@ export default function CheckoutButton(props) {
 
     const sessionId = await response.data.id;
 
-    // console.log(sessionId);
     // When the customer clicks on the button, redirect them to Checkout.
 
     const result = await stripe.redirectToCheckout({

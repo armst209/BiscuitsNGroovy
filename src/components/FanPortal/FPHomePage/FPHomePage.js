@@ -4,7 +4,6 @@ import "./FPHomePageStyles.scss";
 const Library = lazy(() => import("./Sections/Library/Library"));
 
 function FPHomePage(props) {
-  console.log(props);
   const [showPopUp, setShowPopup] = useState("");
 
   return (
