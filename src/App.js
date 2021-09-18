@@ -10,11 +10,9 @@ import SignUp from "./components/SignUp/SignUp";
 import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
-
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
-
 import { AnimatePresence } from "framer-motion";
 
 //configure flow environment
@@ -58,7 +56,7 @@ const SuccessfulPurchase = lazy(() =>
   import("./pages/SuccessfulPurchase/SuccessBuy")
 );
 
-function App() {
+function App(props) {
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
   const [urlUserName, setUrlUserName] = useState("");
@@ -251,71 +249,26 @@ function App() {
 
           <Route
             exact={true}
-            path="/privacy-policy"
-            render={(props) => (
-              <PrivacyPolicy
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            path="/privacy-terms-of-use"
+            render={() => <TermsOfService />}
           />
           <Route
             exact={true}
-            path="/privacy-terms-of-use"
-            render={(props) => (
-              <TermsOfService
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            path="/privacy-policy"
+            render={() => <PrivacyPolicy />}
           />
           <Route
             exact={true}
             path="/terms-of-service"
-            render={(props) => (
-              <Subscriber
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            render={() => <Subscriber />}
           />
           <Route
             exact={true}
             path="/music-purchase-terms"
-            render={(props) => (
-              <PurchaseOfMusic
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            render={() => <PurchaseOfMusic />}
           />
 
-          <Route
-            exact={true}
-            path="/nft-terms"
-            render={(props) => (
-              <NFTTerms
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
-          />
-
+          <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
           {/* Not Found Component Render - KEEP AT BOTTOM OF SWITCH ELEMENT*/}
           <Route component={NotFound} />
         </Switch>

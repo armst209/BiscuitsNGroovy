@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./PurchaseOfMusicStyles.scss";
 
 function PurchaseOfMusic() {
@@ -14,16 +15,9 @@ function PurchaseOfMusic() {
                 Biscuits n Groovy (“BnG”) is a music streaming service that
                 amplifies the connection between musical artists and their fans.
                 Learn more about BnG and read our mission at{" "}
-                <a
-                  href="https://www.bngroovy.com/about"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.bngroovy.com/about
-                </a>
-                . These Terms Regarding Purchase of Music outline what each
-                Customer (“Customer” or “you”) will receive upon purchasing from
-                BnG.
+                <Link to="/about">https://www.bngroovy.com/about</Link>. These
+                Terms Regarding Purchase of Music outline what each Customer
+                (“Customer” or “you”) will receive upon purchasing from BnG.
               </li>
               <li>
                 <strong>Prerequisites to Purchase. </strong>
@@ -66,13 +60,9 @@ function PurchaseOfMusic() {
                     release window. BnG does not allow downloads. Any means of
                     recording or saving the music is prohibited, as stated in
                     our Terms of Service{" "}
-                    <a
-                      href="/terms-of-service"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <Link to="/terms-of-service">
                       www.bngroovy.com/terms-of-service
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -82,14 +72,7 @@ function PurchaseOfMusic() {
                 (non-fungible token). NFTs are digital collectibles created and
                 stored on the blockchain, a database that keeps track of who the
                 owner is at all times. You can learn more about NFTs on our FAQ
-                page at{" "}
-                <a
-                  href="www.bngroovy.com/faq"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  www.bngroovy.com/faq
-                </a>
+                page at <Link to="/faq">www.bngroovy.com/faq</Link>
                 <ul className="nft-alpha-list">
                   <li>
                     When you purchase a release on BnG, an NFT of the album
@@ -127,13 +110,7 @@ function PurchaseOfMusic() {
                   </li>
                   <li>
                     To read our full legal policy regarding NFTs, visit{" "}
-                    <a
-                      href="www.bngroovy.com/nft-terms"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      www.bngroovy.com/nft-terms
-                    </a>
+                    <Link to="/nft-terms">www.bngroovy.com/nft-terms</Link>
                   </li>
                 </ul>
               </li>

@@ -60,10 +60,7 @@ function SignUpPopUp({
                   Enter your email and choose a username & password. account.
                   Click <strong>Continue</strong>
                 </li>
-                {/* <li>
-                  A popup will appear asking you to choose a provider. Select{" "}
-                  <strong>Blocto</strong>
-                </li> */}
+
                 <li>
                   Enter your email again in the Blocto popup. This will create
                   and link a Blocto account with your BnG account so you can

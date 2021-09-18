@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NFTTermsStyles.scss";
 
 function NFTTerms() {
@@ -24,25 +25,18 @@ function NFTTerms() {
               <li>
                 <strong>Purpose of Agreement. </strong>
                 At the time Subscribers purchase music through the BnG platform
-                at{" "}
-                <a
-                  href="https://www.bngroovy.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.bngroovy.com/
-                </a>{" "}
-                (“Platform”), BnG will mint for Subscriber a Non-Fungible Token
-                representing the artwork associated with that musical purchase
-                (“Artwork”). As used in this Agreement, Non-Fungible Token
-                (“NFT”) means a digital identifier, typically a long string of
-                numbers, letters, and characters, that enables the owner of the
-                NFT to view or otherwise access the digital media file
-                associated with that identifier. The NFT digitally directs to
-                the Artwork that resides in a secure computer network. These NFT
-                Terms and the Smart Contract relating to each NFT govern
-                obligations and rights of Subscribers in the NFT, rights of
-                Visual Artists in the Artwork, and revenue sharing.
+                at <Link to="/">https://www.bngroovy.com/</Link> (“Platform”),
+                BnG will mint for Subscriber a Non-Fungible Token representing
+                the artwork associated with that musical purchase (“Artwork”).
+                As used in this Agreement, Non-Fungible Token (“NFT”) means a
+                digital identifier, typically a long string of numbers, letters,
+                and characters, that enables the owner of the NFT to view or
+                otherwise access the digital media file associated with that
+                identifier. The NFT digitally directs to the Artwork that
+                resides in a secure computer network. These NFT Terms and the
+                Smart Contract relating to each NFT govern obligations and
+                rights of Subscribers in the NFT, rights of Visual Artists in
+                the Artwork, and revenue sharing.
               </li>
               <li>
                 <strong>Copyright and Rights of Attribution. </strong>

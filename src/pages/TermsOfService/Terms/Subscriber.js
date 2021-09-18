@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SubscriberStyles.scss";
 
 function Subscriber() {
@@ -25,13 +26,7 @@ function Subscriber() {
                 debuts and give their fans an intentional and powerful musical
                 experience. BnG also enables Subscribers to acquire Non-Fungible
                 Tokens (“Tokens”) of the artwork relating to the featured music.{" "}
-                <a
-                  href="https://www.bngroovy.com/about"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.bngroovy.com/about{" "}
-                </a>{" "}
+                <Link to="/about">https://www.bngroovy.com/about </Link>{" "}
                 (“Site”). This Agreement states the terms of the relationship
                 between BnG and its subscribers.
               </li>
@@ -55,25 +50,14 @@ function Subscriber() {
                 <strong> Music Subscription Policy. </strong> This Agreement
                 incorporates BnG’s “Terms Regarding Purchase of Music” located
                 at{" "}
-                <a
-                  href="www.bngroovy.com/music-purchase-terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="/music-purchase-terms">
                   www.bngroovy.com/music-purchase-terms
-                </a>
+                </Link>
               </li>
               <li>
                 <strong>Non-Fungible Token Policy. </strong> This Agreement
                 incorporates BnG’s “Terms Regarding Non-Fungible Tokens” located
-                at{" "}
-                <a
-                  href="www.bngroovy.com/nft-terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  www.bngroovy.com/nft-terms
-                </a>
+                at <Link to="/nft-terms">www.bngroovy.com/nft-terms</Link>
               </li>
               <li>
                 <strong>Data Ownership; Privacy. </strong> BnG owns all data
@@ -238,14 +222,16 @@ function Subscriber() {
                     <div>Ann Arbor, Michigan 48104 USA</div>
                     <div>
                       Email:{" "}
-                      <a href="mailto:support@bngroovy.com?subject=Support">
+                      <a
+                        href="mailto:support@bngroovy.com?subject=Support"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         support@bngroovy.com
                       </a>{" "}
                     </div>
                     <div>
-                      <a href="https://www.bngroovy.com/">
-                        https://www.bngroovy.com/
-                      </a>
+                      <Link to="/">https://www.bngroovy.com/</Link>
                     </div>
                   </div>
                 </div>

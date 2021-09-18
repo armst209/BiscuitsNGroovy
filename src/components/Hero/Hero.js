@@ -17,15 +17,8 @@ function Hero(props) {
           <img className="vinyl-bg" src={vinyl_bg} alt="vinyl background" />
 
           <div className="hero-titles">
-            {/* <img className="hero-bg" src={hero_bg} alt="hero background" /> */}
             <div className="hero-text">
               <div className="hero-text-wrapper">
-                {/* <h1>
-                  New <br />
-                  Music Is
-                  <br />
-                  Our Jam
-                </h1> */}
                 <div className="new-music">
                   <h1 className="h1-new">NEW</h1>
                   <h1>MUSIC</h1>

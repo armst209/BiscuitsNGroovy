@@ -11,7 +11,7 @@ function SubscribeSection() {
   const [email, setEmail] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
   const [successMessages, setSuccessMessages] = useState("");
-  const [isReset, setIsReset] = useState(false);
+  const [isReset, setIsReset] = useState("false");
 
   const submit = (event) => {
     event.preventDefault();
@@ -29,7 +29,7 @@ function SubscribeSection() {
         setErrorMessages("");
       })
       .catch((err) => {
-        setIsReset(true);
+        setIsReset("true");
         document.getElementById("sub-form").reset();
         setErrorMessages("Email is already subscribed.");
         setSuccessMessages("");
@@ -53,31 +53,6 @@ function SubscribeSection() {
           <p className="success-message">{successMessages}</p>
         </div>
       </form>
-      {/* <Mailchimp
-        action={process.env.REACT_APP_MAILCHIMP_URL}
-        //Adding multiple fields:
-        fields={[
-          {
-            name: "EMAIL",
-            placeholder: "Email",
-            type: "email",
-            required: true,
-          },
-        ]}
-        // Change predetermined language
-        messages={{
-          sending: "Sending...",
-          success: "Thank you for subscribing!",
-          error: "An unexpected internal error has occurred.",
-          empty: "You must write an e-mail.",
-          duplicate: "Email is already subscribed",
-          button: "Subscribe!",
-        }}
-        // Add a personalized class
-        className="mailchimp-container"
-      >
-        <button type="submit">Subscribe</button>
-      </Mailchimp> */}
     </section>
   );
 }

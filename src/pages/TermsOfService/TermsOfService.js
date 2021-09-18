@@ -1,8 +1,11 @@
 import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import PrivacyPolicy from "./Terms/PrivacyPolicy/PrivacyPolicy";
+import PurchaseOfMusic from "./Terms/PurchaseOfMusic";
+import NFTTerms from "./Terms/NFTTerms";
+import Subscriber from "./Terms/Subscriber";
 
 import "./TermsOfServiceStyles.scss";
-import spotlight_left from "../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 
 import TermsList from "./TermsList";
 
@@ -10,22 +13,25 @@ function TermsOfService() {
   return (
     <section id="terms-of-service">
       <div className="tos-title">
-        <h1>
-          {" "}
-          <img
-            className="spotlight-left"
-            src={spotlight_left}
-            alt="spotlight"
-          />
-          <img
-            className="spotlight-right"
-            src={spotlight_right}
-            alt="spotlight"
-          />
-          PRIVACY POLICY & TERMS OF USE{" "}
-        </h1>
+        <h1>PRIVACY POLICY & TERMS OF USE </h1>
       </div>
       <TermsList />
+      <Switch>
+        <Route path="/privacy-policy">
+          <PrivacyPolicy />
+        </Route>
+        <Route
+          exact={true}
+          path="/terms-of-service"
+          render={() => <Subscriber />}
+        />
+        <Route
+          exact={true}
+          path="/music-purchase-terms"
+          render={() => <PurchaseOfMusic />}
+        />
+        <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
+      </Switch>
     </section>
   );
 }

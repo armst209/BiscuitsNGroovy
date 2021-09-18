@@ -23,9 +23,9 @@ const history = createBrowserHistory(); // or createHashHistory()
 wrapHistory(history);
 
 ReactDOM.render(
-  // <BrowserRouter> </BrowserRouter>
   <Router history={history}>
     <App />
   </Router>,
+
   document.getElementById("root")
 );

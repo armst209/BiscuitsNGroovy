@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { Link, NavLink } from "react-router-dom";
 import "./NotHomeNavigation.scss";
 import "react-responsive-modal/styles.css";
@@ -321,7 +320,7 @@ function NotHomeNavigation(props) {
                     {showDropDown ? (
                       <div className="dropdown-content-mobile-nothome">
                         <ul>
-                          <Link
+                          <NavLink
                             onClick={() =>
                               props.setMobileMenuOpen(!props.mobileMenuOpen)
                             }
@@ -339,7 +338,7 @@ function NotHomeNavigation(props) {
                                 alt="logout icon"
                               />
                             </li>
-                          </Link>
+                          </NavLink>
                           <li
                             className="logout-button-mobile-nothome"
                             onClick={handleLogout}
