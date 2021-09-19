@@ -69,10 +69,10 @@ export default function CheckoutButton(props) {
         "x-access-token": token,
       },
       data: {
-        productName: props.name,
-        productImages: [props.images],
-        productPrice: parseInt(props.price * 100),
-        releaseID: props.release_id,
+        productName: props.release.name,
+        productImages: [props.release.images],
+        productPrice: parseInt(props.release.price * 100),
+        releaseID: props.release.release_id,
       },
     });
 

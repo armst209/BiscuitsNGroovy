@@ -5,6 +5,7 @@ import axios from "axios";
 import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
 import login_loading from "../../assets/images/pulse_loader_black.svg";
+import warning from "../../assets/images/exclamation.svg";
 import env from "react-dotenv";
 import { motion } from "framer-motion";
 
@@ -53,7 +54,8 @@ function Login(props) {
       setInputClass("input-error");
       setMessage(
         <div className="error-message">
-          Username or Password is incorrect. Please try again.
+          <img className="warning-icon" src={warning} alt="warning" /> Username
+          or Password is incorrect. Please try again.
         </div>
       );
     };
@@ -154,10 +156,10 @@ function Login(props) {
                   Forgot Password?
                 </Link>
               </div>
+              {message}
             </form>
           </div>
         </div>
-        {message}
       </motion.div>
     </motion.section>
   );

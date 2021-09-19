@@ -23,7 +23,6 @@ function MusicShowcase(props) {
   useEffect(() => {
     axios({
       method: "get",
-      // url: `${testURL}/users`,
       url: `${baseURL}/releases`,
       headers: {
         "x-access-token": token,
@@ -37,7 +36,7 @@ function MusicShowcase(props) {
       });
 
     const handleSuccess = (res) => {
-      let releases = res.data.releases;
+      const releases = res.data.releases;
 
       setReleasesLoaded(true);
       //checking whether user has purchased all current releases
@@ -60,17 +59,10 @@ function MusicShowcase(props) {
             <ReleasePreview
               key={`release-preview ${release.id}`}
               toggleClose={closeReleaseInfo}
-              title={release.title}
-              name={release.name}
-              albumCover={release.art_url}
-              description={release.description}
-              id={release.id}
-              price={release.price}
-              songs={release.songs}
-              //props passed in for signup pop up, if user is not logged in and trys to purchase a release
+              release={release}
+              //props passed in for signup pop up, if user is not logged in and tries to purchase a release
               signUpPopup={props.signUpPopup}
               showSignUpPopup={props.showSignUpPopup}
-              //////////////////////////////////////////
               stripeLoader={props.stripeLoader}
               setStripeLoader={props.setStripeLoader}
             />

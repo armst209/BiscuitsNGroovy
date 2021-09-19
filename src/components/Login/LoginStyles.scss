@@ -41,24 +41,33 @@
 
     .error-message {
       font-family: var(--font1);
-      border-radius: 20px;
-      position: absolute;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      border: 3px solid var(--color2);
-      background: black;
-      bottom: 0;
+      font-weight: normal;
       color: red;
+      width: 100%;
       text-align: center;
-      font-weight: bold;
       padding: 1rem;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
-      @media screen and (max-width: 600px) {
-        margin: 0 1rem;
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
       }
-      @media screen and (max-width: 400px) {
-        font-size: 1rem;
+
+      .warning-icon {
+        width: 30px;
+        margin-right: 3px;
+        filter: invert(100%) sepia(98%) saturate(7488%) hue-rotate(353deg)
+          brightness(100%) contrast(93%);
+        @media screen and (max-width: 500px) {
+          width: 40px;
+          margin-bottom: 10px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
       }
     }
 
