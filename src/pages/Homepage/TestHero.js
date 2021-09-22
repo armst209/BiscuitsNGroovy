@@ -47,20 +47,12 @@ function TestHero() {
                     </Link>
                   </div>
                 </section>
-                <section className="hero-test-image">
-                  {/* <img src={hero_image} alt="hero" /> */}
-                </section>
+                <section className="hero-test-image"></section>
               </div>
             </div>
           </div>
         </div>
-        {/* <link
-          rel="preload"
-          as="image"
-          href="../../assets/images/hero.webp"
-          type="image/webp"
-          className="hero-image"
-        /> */}
+
         <img className="hero-image" src={hero_image} alt="hero" />
         <img
           className="hero-image-mobile"

@@ -305,6 +305,7 @@ function Artists() {
             />
             <textarea
               className="text-input"
+              spellCheck="true"
               rows="10"
               cols="50"
               type="text"
@@ -317,73 +318,6 @@ function Artists() {
             <button type="submit">Submit</button>
           </form>
         </div>
-        {/* <div id="artists-form" className="form-container">
-          <Mailchimp
-            action={process.env.REACT_APP_MAILCHIMP_URL}
-            //Adding multiple fields:
-            fields={[
-              {
-                name: "ARTISTNAME",
-                placeholder: "Artist Name",
-                type: "text",
-                required: true,
-                maxLength: "5",
-              },
-              {
-                name: "PREFNAME",
-                placeholder: "Preferred Name",
-                type: "text",
-                required: false,
-              },
-              {
-                name: "EMAIL",
-                placeholder: "Email",
-                type: "email",
-                required: true,
-              },
-              {
-                name: "ARTPHONE",
-                placeholder: "Artist Phone",
-                type: "phone",
-                required: true,
-              },
-              {
-                name: "MANNAME",
-                placeholder: "Manager/Agent Name",
-                type: "text",
-                required: true,
-              },
-              {
-                name: "MANEMAIL",
-                placeholder: "Manager/Agent Email",
-                type: "email",
-                required: true,
-              },
-              {
-                name: "MESSAGE",
-                placeholder: "Enter Message:",
-                type: "text",
-                required: true,
-              },
-            ]}
-            // Change predetermined language
-            messages={{
-              sending: "Sending...",
-              success: "Thank you for subscribing!",
-              error: "An unexpected internal error has occurred.",
-              empty: "You must write an e-mail.",
-              duplicate: "Too many subscribe attempts for this email address",
-              button: "Subscribe!",
-            }}
-            // Add a personalized class
-            className="mailchimp-container"
-          >
-            <button type="submit" onSubmit={showSuccessMessage}>
-              SUBMIT
-            </button>
-          </Mailchimp> */}
-
-        {/* </div> */}
       </div>
       <img className="mic-drop" src={mic_drop} alt="mic drop" />
     </section>

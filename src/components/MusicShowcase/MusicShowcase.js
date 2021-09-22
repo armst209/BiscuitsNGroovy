@@ -55,11 +55,18 @@ function MusicShowcase(props) {
 
         //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
         const showReleaseInfo = (release) => {
+          console.log(release);
           setReleaseInfo(
             <ReleasePreview
               key={`release-preview ${release.id}`}
               toggleClose={closeReleaseInfo}
-              release={release}
+              songNames={release.songs}
+              title={release.title}
+              name={release.name}
+              albumCover={release.art_url}
+              description={release.description}
+              id={release.id}
+              price={release.price}
               //props passed in for signup pop up, if user is not logged in and tries to purchase a release
               signUpPopup={props.signUpPopup}
               showSignUpPopup={props.showSignUpPopup}

@@ -10,14 +10,14 @@ function ReleasePreview(props) {
   const [populateReleaseTrackList, setPopulateReleaseTracklist] = useState();
   useEffect(() => {
     //mapping through songs array to populate playlist and numbering song order
-    const songNames = props.release.songs;
+    const songNames = props.songNames;
 
     let showReleaseNames = songNames.map((name, order) => {
       return name ? <li>{`${order + 1}. ${name}`}</li> : <ComponentLoading />;
     });
     //passing in songsArray map as a parameter for hook
     setPopulateReleaseTracklist(showReleaseNames);
-  }, [props.release.songs]);
+  }, [props.songNames]);
 
   const token = localStorage.getItem("token");
   const handleClose = () => {
@@ -36,7 +36,7 @@ function ReleasePreview(props) {
               <div className="release-content-left">
                 <img
                   className="release-image"
-                  src={props.release.albumCover}
+                  src={props.albumCover}
                   alt="album cover"
                 />
                 <h1>
@@ -46,7 +46,10 @@ function ReleasePreview(props) {
                 <div className="button-container">
                   {token ? (
                     <CheckoutButton
-                      release={props.release}
+                      price={props.price}
+                      albumCover={props.albumCover}
+                      name={props.name}
+                      id={props.id}
                       stripeLoader={props.stripeLoader}
                       setStripeLoader={props.setStripeLoader}
                     />
