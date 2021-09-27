@@ -63,8 +63,8 @@ function HowItWorks() {
                   <div>
                     We're not another unlimited subscription. Buy the music you
                     want to hear, and stream with us before it drops anywhere
-                    else. Get it while it’s hot, since it’s only only streaming
-                    for a limited time.
+                    else. Get it while it’s hot, since it’s only streaming for a
+                    limited time.
                   </div>
                 </div>
               </div>

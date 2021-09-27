@@ -23,6 +23,7 @@ const history = createBrowserHistory(); // or createHashHistory()
 wrapHistory(history);
 
 ReactDOM.render(
+  //history={history}
   <Router history={history}>
     <App />
   </Router>,

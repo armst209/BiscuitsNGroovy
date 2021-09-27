@@ -14,12 +14,13 @@ import Loading from "./components/Loading/Loading";
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import { AnimatePresence } from "framer-motion";
+import PasswordRecovery from "./pages/PasswordRecovery/PasswordRecovery";
 
 //configure flow environment
-config()
-  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+// config()
+//   .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+//   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+//   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 const TestHomepage = lazy(() => import("./pages/Homepage/TestHomepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
@@ -67,11 +68,11 @@ function App(props) {
   useEffect(() => {
     // Getting user's information
     const token = localStorage.getItem("token");
-    const baseURL = env.BACKEND_URL;
+    //const baseURL = env.BACKEND_URL;
 
     axios({
       method: "get",
-      url: `${baseURL}/users/me`,
+      //url: `${baseURL}/users/me`,
       headers: {
         "x-access-token": token,
       },
@@ -123,6 +124,11 @@ function App(props) {
       />
       <Suspense fallback={<Loading />}>
         <Switch>
+          {/* Password Recovery Routes */}
+
+          <Route path="/password-recovery">
+            <PasswordRecovery />
+          </Route>
           <Route
             exact={true}
             path="/home"
@@ -226,25 +232,7 @@ function App(props) {
             path="/portal/checkout"
             component={Checkout}
           />
-          {/* Password Recovery Routes */}
-          <Route
-            exact={true}
-            path="/account-recovery-email"
-            render={(props) => (
-              <EmailInput
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
-          />
-          <Route
-            exact={true}
-            path="/account-recovery-password"
-            render={(props) => <PassRecoveryForm {...props} />}
-          />
+
           {/* Terms of Use & Privacy Policy Components Render */}
 
           <Route
@@ -269,8 +257,9 @@ function App(props) {
           />
 
           <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
-          {/* Not Found Component Render - KEEP AT BOTTOM OF SWITCH ELEMENT*/}
-          <Route component={NotFound} />
+          {/* Not Found Component*/}
+          <Route path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
       </Suspense>
       <Footer />

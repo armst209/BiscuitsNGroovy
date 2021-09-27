@@ -113,7 +113,6 @@ function Login(props) {
                   autoComplete="off"
                   onChange={(event) => {
                     setUserName(event.target.value);
-                    // setInput(true);
                   }}
                 />
                 <input
@@ -151,7 +150,7 @@ function Login(props) {
                     props.showLoginPopup(!props.loginPopup);
                     props.setMobileMenuOpen(false);
                   }}
-                  to="/account-recovery-email"
+                  to="/password-recovery"
                 >
                   Forgot Password?
                 </Link>
