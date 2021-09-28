@@ -15,6 +15,7 @@ function Library(props) {
   const [libraryLoaded, setLibraryLoaded] = useState(true);
   const [isDisabled, setIsDisabled] = useState("false");
   const [showEndDatePopUp, setShowEndDatePopUp] = useState(false);
+  const [releaseInformation, setReleaseInformation] = useState("");
 
   //Api call variables
   const token = localStorage.getItem("token");
@@ -71,6 +72,7 @@ function Library(props) {
         }
         //Main Function - looping through response, displaying response in "Your Library" & creating individual "AlbumPopup"s
         let showAllAlbumCovers = libraryReleases.map((release) => {
+          setReleaseInformation(release.name);
           //Toggle to Close AlbumPopUp
           const closeAlbumInfo = () => {
             setAlbumCovers("");
@@ -135,7 +137,8 @@ function Library(props) {
             on BnG.
           </div>
           <div>
-            Liked what you heard? Check out all of [artist]’s music here
+            Liked what you heard? Check out all of {releaseInformation}’s music
+            here
           </div>
           <div>
             Rest assured your album art NFTs are here to stay. They remain in
