@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
-import "swiper/swiper.scss";
+
 import "./LibraryStyles.scss";
 import env from "react-dotenv";
 
@@ -21,22 +21,22 @@ function Library(props) {
   const token = localStorage.getItem("token");
   const baseURL = env.BACKEND_URL;
   //function for release window end date
-  const handleReleaseWindow = (release) => {
-    //must get the date time of the newly created date object before you compare them
-    let currentDate = new Date(Date.now()).getTime();
-    console.log(currentDate);
-    const endReleaseDate = new Date(release.end_date).getTime();
-    console.log(endReleaseDate);
-    if (currentDate > endReleaseDate) {
-      console.log("release done");
-      alert("release not longer available");
-      setIsDisabled("true");
-      setShowEndDatePopUp(true);
-    } else {
-      console.log("release valid");
-      setIsDisabled("false");
-    }
-  };
+  // const handleReleaseWindow = (release) => {
+  //   //must get the date time of the newly created date object before you compare them
+  //   let currentDate = new Date(Date.now()).getTime();
+  //   console.log(currentDate);
+  //   const endReleaseDate = new Date(release.end_date).getTime();
+  //   console.log(endReleaseDate);
+  //   if (currentDate > endReleaseDate) {
+  //     console.log("release done");
+  //     alert("release not longer available");
+  //     setIsDisabled("true");
+  //     setShowEndDatePopUp(true);
+  //   } else {
+  //     console.log("release valid");
+  //     setIsDisabled("false");
+  //   }
+  // };
 
   useEffect(() => {
     //Request for Library
@@ -81,32 +81,25 @@ function Library(props) {
           //Return - what's currently being displayed in the "Your Library" section through Hooks
           return release ? (
             //Hover state for release
-            <button
-              disabled={isDisabled}
-              onClick={() => handleReleaseWindow(release)}
-            >
-              <figure
-                className="hover-img"
-                key={`hover-figure + ${release.id}`}
-              >
-                <img
-                  src={release.art_url}
-                  alt={release.name}
-                  //style={{ width: "277px", height: "182px" }}
+            // <div
+            // // disabled={isDisabled}
+            // // onClick={() => handleReleaseWindow(release)}
+            // >
+            <figure className="hover-img" key={`hover-figure + ${release.id}`}>
+              <img src={release.art_url} alt={release.name} />
+              <figcaption>
+                <AlbumCoverHover
+                  closeButton={props.popUpPassed}
+                  setAlbumInfo={setAlbumInfo}
+                  albumInfo={albumInfo}
+                  release={release}
+                  toggle={closeAlbumInfo}
+                  showReleasePopUp={props.popUpPassed}
                 />
-                <figcaption>
-                  <AlbumCoverHover
-                    closeButton={props.popUpPassed}
-                    setAlbumInfo={setAlbumInfo}
-                    albumInfo={albumInfo}
-                    release={release}
-                    toggle={closeAlbumInfo}
-                    showReleasePopUp={props.popUpPassed}
-                  />
-                </figcaption>
-              </figure>
-            </button>
+              </figcaption>
+            </figure>
           ) : (
+            // </div>
             <ComponentLoading />
           );
         });
@@ -128,7 +121,7 @@ function Library(props) {
       {albumCovers}
       {/* displays when user hasn't purchased any releases */}
       {noReleases}
-      {showEndDatePopUp && (
+      {/* {showEndDatePopUp && (
         <div>
           <div onClick={() => setShowEndDatePopUp(!showEndDatePopUp)}>X</div>
           <h1>Expired!</h1>
@@ -146,7 +139,7 @@ function Library(props) {
             and prove you’re a top fan.
           </div>
         </div>
-      )}
+      )} */}
     </Suspense>
   );
 }

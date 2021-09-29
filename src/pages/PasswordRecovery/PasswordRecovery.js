@@ -1,5 +1,6 @@
 import React from "react";
 import "./PasswordRecoveryStyles.scss";
+import ProtectedRoute from "../../ProtectedRoutes/ProtectedRoute";
 import { useRouteMatch, Switch, Route } from "react-router-dom";
 import EmailInput from "./EmailInput";
 import PassRecoveryForm from "./PassRecoveryForm";

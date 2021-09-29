@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+//for social media icons
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import axios from "axios";
 import { Suspense, lazy, useState, useEffect } from "react";
@@ -14,7 +15,6 @@ import Loading from "./components/Loading/Loading";
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 import { AnimatePresence } from "framer-motion";
-import PasswordRecovery from "./pages/PasswordRecovery/PasswordRecovery";
 
 //configure flow environment
 // config()
@@ -27,10 +27,10 @@ const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-const PassRecoveryForm = lazy(() =>
-  import("./pages/PasswordRecovery/PassRecoveryForm")
+const PasswordRecovery = lazy(() =>
+  import("./pages/PasswordRecovery/PasswordRecovery.js")
 );
-const EmailInput = lazy(() => import("./pages/PasswordRecovery/EmailInput"));
+
 const SuccessfulSignUp = lazy(() =>
   import("./pages/SuccessfulSignUp/SuccessfulSignUp")
 );
@@ -60,30 +60,30 @@ const SuccessfulPurchase = lazy(() =>
 function App(props) {
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
-  const [urlUserName, setUrlUserName] = useState("");
+  // const [urlUserName, setUrlUserName] = useState("");
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [stripeLoader, setStripeLoader] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    // Getting user's information
-    const token = localStorage.getItem("token");
-    //const baseURL = env.BACKEND_URL;
+  // useEffect(() => {
+  //   // Getting user's information
+  //   const token = localStorage.getItem("token");
+  //   //const baseURL = env.BACKEND_URL;
 
-    axios({
-      method: "get",
-      //url: `${baseURL}/users/me`,
-      headers: {
-        "x-access-token": token,
-      },
-    })
-      .then((res) => {
-        token ? setUrlUserName(res.data.user.username) : setUrlUserName("");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [urlUserName]);
+  //   axios({
+  //     method: "get",
+  //     //url: `${baseURL}/users/me`,
+  //     headers: {
+  //       "x-access-token": token,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       token ? setUrlUserName(res.data.user.username) : setUrlUserName("");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [urlUserName]);
 
   return (
     <div className="App">
