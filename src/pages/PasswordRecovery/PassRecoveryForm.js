@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import "./PassRecoveryFormStyles.scss";
 import {
   minMaxLength,
@@ -9,6 +10,7 @@ import axios from "axios";
 import env from "react-dotenv";
 
 function PassRecoveryForm() {
+  let { userTokenId } = useParams();
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
@@ -67,6 +69,7 @@ function PassRecoveryForm() {
   const submit = async function (event) {
     event.preventDefault();
 
+    const userToken = { userTokenId };
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       //setEmailErrorMessage("Link sent!");
@@ -91,13 +94,11 @@ function PassRecoveryForm() {
         handleFailure(err);
       });
   };
+
   return (
     <section id="pass-recovery">
-      <div className="pass-recovery-title">
-        <h1>PASSWORD RECOVERY</h1>
-      </div>
-
       <div className="pass-recovery-wrapper">
+        {/* <h1>Token:{userTokenId}</h1> */}
         <form onSubmit={submit}>
           <label htmlFor="new-pass">Enter new password:</label>
           <input

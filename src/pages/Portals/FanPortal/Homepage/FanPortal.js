@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-import { withRouter } from "react-router";
+//import { withRouter } from "react-router";
 import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
 import "./FanPortalStyles.scss";
 
@@ -34,4 +34,4 @@ function FanPortal() {
   );
 }
 
-export default withRouter(FanPortal);
+export default FanPortal;

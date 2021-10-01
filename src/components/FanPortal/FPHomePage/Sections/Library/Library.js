@@ -3,7 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
-import "swiper/swiper.scss";
+import NFTHover from "../NFTView/NFTHover";
+import NFTPopup from "../NFTView/NFTPopup";
+import ExpiredPopup from "../ExpiredPopup/ExpiredPopup";
 import "./LibraryStyles.scss";
 import env from "react-dotenv";
 
@@ -13,8 +15,7 @@ function Library(props) {
   const [albumInfo, setAlbumInfo] = useState(false);
   const [noReleases, setNoReleases] = useState("");
   const [libraryLoaded, setLibraryLoaded] = useState(true);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const [releaseEndPopup, setReleaseEndPopup] = useState(false);
+  const [releaseInformation, setReleaseInformation] = useState("");
 
   //Api call variables
   const token = localStorage.getItem("token");
@@ -54,45 +55,22 @@ function Library(props) {
         }
         //Main Function - looping through response, displaying response in "Your Library" & creating individual "AlbumPopup"s
         let showAllAlbumCovers = libraryReleases.map((release) => {
+          console.log(release);
+          setReleaseInformation(release.name);
+
           //Toggle to Close AlbumPopUp
           const closeAlbumInfo = () => {
             setAlbumCovers("");
           };
+          //if release is disabled it just shows nft, if not full release and access to music player is allowed -
+          if (release.isExpired === false) {
+            return (
+              //Return - what's currently being displayed in the "Your Library" section through Hooks
 
-          // const handleReleaseWindow = (release) => {
-          //   //must get the date time of the newly created date object before you compare them
-          //   let currentDate = new Date(Date.now()).getTime();
-          //   console.log(currentDate);
-          //   const endReleaseDate = new Date(release.end_date).getTime();
-          //   console.log(endReleaseDate);
-          //   if (currentDate > endReleaseDate) {
-          //     console.log("release done");
-          //     alert("release not longer available");
-          //     setIsDisabled(false);
-          //     setReleaseEndPopup(true);
-          //   } else {
-          //     console.log("release valid");
-          //     setIsDisabled(true);
-          //   }
-          // };
-
-          //Return - what's currently being displayed in the "Your Library" section through Hooks
-          return release ? (
-            //Hover state for release
-            <div
-              disabled={isDisabled}
-              //  onClick={handleReleaseWindow}
-            >
-              <figure
-                className="hover-img"
-                key={`hover-figure + ${release.id}`}
-              >
-                <img
-                  src={release.art_url}
-                  alt={release.name}
-                  style={{ width: "277px", height: "182px" }}
-                />
+              <figure className="hover-img" key={`hover-figure-${release.id}`}>
+                <img src={release.art_url} alt={release.name} />
                 <figcaption>
+                  {/* Hover state for release */}
                   <AlbumCoverHover
                     closeButton={props.popUpPassed}
                     setAlbumInfo={setAlbumInfo}
@@ -103,10 +81,23 @@ function Library(props) {
                   />
                 </figcaption>
               </figure>
-            </div>
-          ) : (
-            <ComponentLoading />
-          );
+            );
+          } else {
+            return (
+              //only for hover, does not pass in props or show popup on click like AlbumCoverHover
+              <figure className="hover-img" key={`nft ${release.id}`}>
+                <img src={release.art_url} alt={release.name} />
+                <figcaption>
+                  {/* Hover state for viewing nft */}
+                  <NFTHover
+                    release={release}
+                    setShowNFTPopUp={props.setShowNFTPopUp}
+                    setShowEndDatePopUp={props.setShowEndDatePopUp}
+                  />
+                </figcaption>
+              </figure>
+            );
+          }
         });
 
         //This Hook displays return/result of main function in "Your Library"
@@ -117,7 +108,7 @@ function Library(props) {
     const handleLibraryFailure = (err) => {
       console.log(err);
     };
-  }, [albumInfo, baseURL, props.popUpPassed, token, isDisabled, libraryLoaded]);
+  }, [albumInfo, baseURL, props.popUpPassed, token, libraryLoaded]);
 
   //Individual albums/releases are displayed here
   return (
@@ -126,7 +117,6 @@ function Library(props) {
       {albumCovers}
       {/* displays when user hasn't purchased any releases */}
       {noReleases}
-      {releaseEndPopup && <div>Release Ended</div>}
     </Suspense>
   );
 }

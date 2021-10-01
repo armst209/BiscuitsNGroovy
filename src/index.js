@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { wrapHistory } from "oaf-react-router";
 
@@ -23,6 +23,7 @@ const history = createBrowserHistory(); // or createHashHistory()
 wrapHistory(history);
 
 ReactDOM.render(
+  //history={history}
   <Router history={history}>
     <App />
   </Router>,

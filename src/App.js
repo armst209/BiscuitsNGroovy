@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
+//for social media icons
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
-import axios from "axios";
+//import axios from "axios";
 import { Suspense, lazy, useState, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
@@ -10,26 +11,18 @@ import SignUp from "./components/SignUp/SignUp";
 import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
-//Importing Flow Configuration
-import { config } from "@onflow/fcl";
-import env from "react-dotenv";
 import { AnimatePresence } from "framer-motion";
-
-//configure flow environment
-config()
-  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+import ComponentLoading from "./components/Loading/ComponentLoading";
 
 const TestHomepage = lazy(() => import("./pages/Homepage/TestHomepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
 const About = lazy(() => import("./pages/About/About"));
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-const PassRecoveryForm = lazy(() =>
-  import("./pages/PasswordRecovery/PassRecoveryForm")
+const PasswordRecovery = lazy(() =>
+  import("./pages/PasswordRecovery/PasswordRecovery.js")
 );
-const EmailInput = lazy(() => import("./pages/PasswordRecovery/EmailInput"));
+
 const SuccessfulSignUp = lazy(() =>
   import("./pages/SuccessfulSignUp/SuccessfulSignUp")
 );
@@ -55,34 +48,18 @@ const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 const SuccessfulPurchase = lazy(() =>
   import("./pages/SuccessfulPurchase/SuccessBuy")
 );
+const SpecialReleases = lazy(() =>
+  import(
+    "./components/FanPortal/FPHomePage/Sections/SpecialReleases/SpecialReleases"
+  )
+);
 
 function App(props) {
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
-  const [urlUserName, setUrlUserName] = useState("");
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [stripeLoader, setStripeLoader] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    // Getting user's information
-    const token = localStorage.getItem("token");
-    const baseURL = env.BACKEND_URL;
-
-    axios({
-      method: "get",
-      url: `${baseURL}/users/me`,
-      headers: {
-        "x-access-token": token,
-      },
-    })
-      .then((res) => {
-        token ? setUrlUserName(res.data.user.username) : setUrlUserName("");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [urlUserName]);
 
   return (
     <div className="App">
@@ -123,6 +100,11 @@ function App(props) {
       />
       <Suspense fallback={<Loading />}>
         <Switch>
+          {/* Password Recovery Routes */}
+
+          <Route path="/password-recovery">
+            <PasswordRecovery />
+          </Route>
           <Route
             exact={true}
             path="/home"
@@ -226,24 +208,11 @@ function App(props) {
             path="/portal/checkout"
             component={Checkout}
           />
-          {/* Password Recovery Routes */}
-          <Route
+          {/* Special Releases Route */}
+          <ProtectedRoute
             exact={true}
-            path="/account-recovery-email"
-            render={(props) => (
-              <EmailInput
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
-          />
-          <Route
-            exact={true}
-            path="/account-recovery-password"
-            render={(props) => <PassRecoveryForm {...props} />}
+            path="/special-release"
+            render={() => <SpecialReleases />}
           />
           {/* Terms of Use & Privacy Policy Components Render */}
 
@@ -269,8 +238,12 @@ function App(props) {
           />
 
           <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
-          {/* Not Found Component Render - KEEP AT BOTTOM OF SWITCH ELEMENT*/}
-          <Route component={NotFound} />
+          <Route exact path="/test/testing">
+            <ComponentLoading />
+          </Route>
+          {/* Not Found Component*/}
+          <Route path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
       </Suspense>
       <Footer />
