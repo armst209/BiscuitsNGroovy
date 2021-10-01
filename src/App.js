@@ -3,7 +3,7 @@ import "./App.css";
 //for social media icons
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 //import axios from "axios";
-import { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import Login from "./components/Login/Login";
@@ -128,15 +128,7 @@ function App(props) {
           <Route
             exact={true}
             path="/about"
-            render={(props) => (
-              <About
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            render={(props) => <About {...props} />}
           />
           <Route
             exact={true}
@@ -238,12 +230,12 @@ function App(props) {
           />
 
           <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
-          <Route exact path="/test/testing">
+          {/* <Route exact path="/test/testing">
             <ComponentLoading />
-          </Route>
+          </Route> */}
           {/* Not Found Component*/}
-          <Route path="/404" component={NotFound} />
-          <Redirect from="*" to="/404" />
+          {/* <Route path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" /> */}
         </Switch>
       </Suspense>
       <Footer />
