@@ -19,7 +19,11 @@ function ExpiredPopup(props) {
         <p>
           Liked what you heard? Check out all of {props.releaseInformation}’s
           music{" "}
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://open.spotify.com/artist/21FzYbjcnY2R44kLVjcugy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             here
           </a>
         </p>
