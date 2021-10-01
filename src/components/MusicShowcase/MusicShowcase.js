@@ -82,7 +82,7 @@ function MusicShowcase(props) {
               onMouseEnter={() => setIsShown(true)}
               onMouseLeave={() => setIsShown(false)}
               onClick={() => showReleaseInfo(release)}
-              key={`${"release-container" + release.id}`}
+              key={`release-${release.id}`}
               className="grid-item"
             >
               <img

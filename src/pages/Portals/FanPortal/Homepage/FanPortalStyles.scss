@@ -39,12 +39,18 @@
         position: absolute;
         left: 0;
         top: 0;
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
       }
       .spotlight-right {
         width: 50px;
         position: absolute;
         right: 0;
         top: 0;
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
       }
       img {
         @media screen and (max-width: 500px) {
