@@ -6,9 +6,16 @@ import { motion } from "framer-motion";
 import logo from "../../assets/images/bng_test.svg";
 import LinkFlowButton from "./LinkFlowButton";
 import * as fcl from "@onflow/fcl";
-import env from "react-dotenv";
 import SignUpModal from "./SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
+//Importing Flow Configuration
+import { config } from "@onflow/fcl";
+import env from "react-dotenv";
+//configure flow environment
+config()
+  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 //variants for framer motion
 const signUpModalBackground = {

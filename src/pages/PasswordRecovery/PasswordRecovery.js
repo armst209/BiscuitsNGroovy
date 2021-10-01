@@ -1,12 +1,13 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./PasswordRecoveryStyles.scss";
-import ProtectedRoute from "../../ProtectedRoutes/ProtectedRoute";
 import { useRouteMatch, Switch, Route } from "react-router-dom";
 import EmailInput from "./EmailInput";
 import PassRecoveryForm from "./PassRecoveryForm";
 
 function PasswordRecovery() {
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
+  let query = new URLSearchParams(useLocation().search);
   return (
     <section id="password-recovery">
       <div className="password-recovery-title">
@@ -18,7 +19,7 @@ function PasswordRecovery() {
           <EmailInput />
         </Route>
         <Route path={`${path}/:userTokenId`}>
-          <PassRecoveryForm />
+          <PassRecoveryForm userTokenId={query.get("userTokenId")} />
         </Route>
       </Switch>
     </section>
