@@ -12,7 +12,6 @@ import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNav
 import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
 import { AnimatePresence } from "framer-motion";
-import ComponentLoading from "./components/Loading/ComponentLoading";
 
 const TestHomepage = lazy(() => import("./pages/Homepage/TestHomepage"));
 const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
@@ -46,7 +45,7 @@ const FanPortalHome = lazy(() =>
 
 const Checkout = lazy(() => import("./pages/Payment/Checkout"));
 const SuccessfulPurchase = lazy(() =>
-  import("./pages/SuccessfulPurchase/SuccessBuy")
+  import("./components/SuccessfulPurchase/SuccessBuy")
 );
 const SpecialReleases = lazy(() =>
   import(
@@ -172,15 +171,7 @@ function App(props) {
           <ProtectedRoute
             exact={true}
             path="/purchase-success"
-            render={(props) => (
-              <SuccessfulPurchase
-                {...props}
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-              />
-            )}
+            render={(props) => <SuccessfulPurchase {...props} />}
           />
           <ProtectedRoute
             exact={true}
@@ -230,12 +221,10 @@ function App(props) {
           />
 
           <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
-          {/* <Route exact path="/test/testing">
-            <ComponentLoading />
-          </Route> */}
+
           {/* Not Found Component*/}
-          {/* <Route path="/404" component={NotFound} />
-          <Redirect from="*" to="/404" /> */}
+          <Route path="/404" component={NotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
       </Suspense>
       <Footer />

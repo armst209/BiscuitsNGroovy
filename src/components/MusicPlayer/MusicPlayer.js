@@ -81,7 +81,7 @@ function MusicPlayer(props) {
                 height: "100%",
               }}
             >
-              {props.trackListArray[props.currentMusicIndex].name}
+              {props.trackListArray[props.currentMusicIndex].title}
             </Marquee>
           </div>
         }

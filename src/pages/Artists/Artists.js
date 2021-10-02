@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import axios from "axios";
 import mic_drop from "../../assets/images/micdrop.webp";
 import mic_hold from "../../assets/images/michold.webp";
-// import Mailchimp from "react-mailchimp-form";
+
 import env from "react-dotenv";
 
 import "./ArtistsStyles.scss";
@@ -73,9 +74,9 @@ function Artists() {
               <div className="artists-impt-text">
                 <p>
                   Interested in joining us? Fill out the form{" "}
-                  <Link className="below-link" to="#artists-form">
+                  <HashLink className="below-link" smooth to="#artists-form">
                     below
-                  </Link>{" "}
+                  </HashLink>{" "}
                   and we’ll be in touch ASAP.
                 </p>
                 <p className="work-with-text">

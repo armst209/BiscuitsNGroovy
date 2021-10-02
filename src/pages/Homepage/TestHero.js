@@ -1,17 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import hero_image from "../../assets/images/hero.webp";
 import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.webp";
 import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-left.webp";
 import "./TestHeroStyles.scss";
-// import env from "react-dotenv";
-// import { config } from "@onflow/fcl";
-
-// //configure flow environment
-// config()
-//   .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-//   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-//   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 function TestHero() {
   return (
@@ -37,11 +30,11 @@ function TestHero() {
                     only for true fans.
                   </div>
                   <div className="hero-test-buttons">
-                    <Link to="#music-showcase">
+                    <HashLink smooth to="/#music-showcase">
                       <button className="start-btn">
                         Start Your Collection
                       </button>
-                    </Link>
+                    </HashLink>
                     <Link to="/artists">
                       <button className="for-artists-btn">For Artists</button>
                     </Link>

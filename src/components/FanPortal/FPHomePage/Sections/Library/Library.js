@@ -16,6 +16,7 @@ function Library(props) {
   const [noReleases, setNoReleases] = useState("");
   const [libraryLoaded, setLibraryLoaded] = useState(true);
   const [releaseInformation, setReleaseInformation] = useState("");
+  const [expiredPopupCounter, setExpiredPopupCounter] = useState(0);
 
   //Api call variables
   const token = localStorage.getItem("token");
@@ -78,6 +79,8 @@ function Library(props) {
                     release={release}
                     toggle={closeAlbumInfo}
                     showReleasePopUp={props.popUpPassed}
+                    expiredPopupCounter={expiredPopupCounter}
+                    setExpiredPopupCounter={setExpiredPopupCounter}
                   />
                 </figcaption>
               </figure>
