@@ -28,6 +28,7 @@ function AlbumPopup(props) {
     let showReleaseTrackList = songsArray.map((element, order) => {
       return element ? (
         <li
+          key={`li-albumpopup-tracklist-key-for-${element.title}`}
           onClick={() => {
             setCurrentMusicIndex(songsArray.indexOf(element));
           }}
@@ -35,7 +36,7 @@ function AlbumPopup(props) {
           {`${order + 1}. ${element.title}`}
         </li>
       ) : (
-        <ComponentLoading />
+        <ComponentLoading key={`component-loading-key-for${element.title}`} />
       );
     });
     //passing in songsArray map as a parameter for hook

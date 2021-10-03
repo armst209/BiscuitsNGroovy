@@ -3,7 +3,7 @@ import "./ExpiredPopupStyles.scss";
 
 function ExpiredPopup(props) {
   return (
-    <section id="expired-popup">
+    <section className={props.popupClassName}>
       <div className="expired-popup-container">
         <div
           className="expired-popup-close"

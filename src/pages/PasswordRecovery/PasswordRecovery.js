@@ -1,13 +1,13 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import "./PasswordRecoveryStyles.scss";
-import { useRouteMatch, Switch, Route } from "react-router-dom";
-import EmailInput from "./EmailInput";
-import PassRecoveryForm from "./PassRecoveryForm";
+import { useLocation, useRouteMatch, Switch, Route } from "react-router-dom";
+import PassRecoveryForm from "../PasswordRecovery/PassRecoveryForm";
+import EmailInput from "../PasswordRecovery/EmailInput";
 
 function PasswordRecovery() {
   let { path } = useRouteMatch();
   let query = new URLSearchParams(useLocation().search);
+  console.log(path);
   return (
     <section id="password-recovery">
       <div className="password-recovery-title">

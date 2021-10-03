@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import PrivacyPolicy from "./Terms/PrivacyPolicy/PrivacyPolicy";
 import PurchaseOfMusic from "./Terms/PurchaseOfMusic";
 import NFTTerms from "./Terms/NFTTerms";

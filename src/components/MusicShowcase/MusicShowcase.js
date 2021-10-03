@@ -47,7 +47,7 @@ function MusicShowcase(props) {
         : setHaveAllReleases(" ");
 
       // Main Function - looping through response, displaying response in Homepage Releases section & creating individual "ReleasePreview"s
-      let displayAllReleases = releases.map((release) => {
+      let displayAllReleases = releases.map((release, order) => {
         //Toggle to Close ReleasePreview
         const closeReleaseInfo = () => {
           setReleaseInfo(!releaseInfo);
@@ -55,10 +55,9 @@ function MusicShowcase(props) {
 
         //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
         const showReleaseInfo = (release) => {
-          console.log(release);
           setReleaseInfo(
             <ReleasePreview
-              key={`release-preview ${release.id}`}
+              key={`release-preview-key-for-${order + 1}`}
               toggleClose={closeReleaseInfo}
               songNames={release.songs}
               title={release.title}
@@ -77,25 +76,28 @@ function MusicShowcase(props) {
         };
 
         return release ? (
-          <>
-            <div
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={() => setIsShown(false)}
-              onClick={() => showReleaseInfo(release)}
-              key={`${"release-container" + release.id}`}
-              className="grid-item"
-            >
-              <img
-                className="grid-image"
-                src={release.art_url}
-                alt={release.name}
-                key={`${"image-key" + release.id}`}
-              />
-            </div>
-          </>
+          <div
+            onMouseEnter={() => setIsShown(true)}
+            onMouseLeave={() => setIsShown(false)}
+            onClick={() => showReleaseInfo(release)}
+            key={`release-container-key-for-${order + 1}`}
+            className="grid-item"
+          >
+            <img
+              className="grid-image"
+              src={release.art_url}
+              alt={release.name}
+              key={`image-key-for-${order + 1}`}
+            />
+          </div>
         ) : (
-          <div className="loading-animation">
-            <ComponentLoading />
+          <div
+            key={`release-loader-key-for-${order + 1}`}
+            className="loading-animation"
+          >
+            <ComponentLoading
+              key={`nft-hover-component-loading-for-${order + 1}`}
+            />
           </div>
         );
       });

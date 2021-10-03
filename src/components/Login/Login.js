@@ -144,7 +144,7 @@ function Login(props) {
                   <span className="signup-redirect">Create an account</span>
                 </span>
               </p>
-              <div className="forgot-password">
+              {/* <div className="forgot-password">
                 <Link
                   onClick={() => {
                     props.showLoginPopup(!props.loginPopup);
@@ -154,7 +154,7 @@ function Login(props) {
                 >
                   Forgot Password?
                 </Link>
-              </div>
+              </div> */}
               {message}
             </form>
           </div>

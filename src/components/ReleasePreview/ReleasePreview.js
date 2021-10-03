@@ -13,7 +13,15 @@ function ReleasePreview(props) {
     const songNames = props.songNames;
 
     let showReleaseNames = songNames.map((name, order) => {
-      return name ? <li>{`${order + 1}. ${name}`}</li> : <ComponentLoading />;
+      return name ? (
+        <li key={`li-key-for-${name}-${order + 1}`}>{`${
+          order + 1
+        }. ${name}`}</li>
+      ) : (
+        <ComponentLoading
+          key={`component-loading-key-for-${name}-${order + 1}`}
+        />
+      );
     });
     //passing in songsArray map as a parameter for hook
     setPopulateReleaseTracklist(showReleaseNames);
@@ -46,6 +54,7 @@ function ReleasePreview(props) {
                 <div className="button-container">
                   {token ? (
                     <CheckoutButton
+                      key={`checkout-button-key-for-${props.title}`}
                       price={props.price}
                       albumCover={props.albumCover}
                       name={props.name}

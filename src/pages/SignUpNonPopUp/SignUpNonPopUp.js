@@ -1,21 +1,26 @@
 import React, { useState } from "react";
-import { minMaxLength, validEmail } from "./SignUpValidation";
-import "./SignUpStyles.scss";
+import "./SignUpNonPopUpStyles.scss";
+import {
+  minMaxLength,
+  validEmail,
+} from "../../components/SignUp/SignUpValidation";
 import axios from "axios";
 import { motion } from "framer-motion";
-import logo from "../../assets/images/bng_test.svg";
-import LinkFlowButton from "./LinkFlowButton";
+import LinkFlowButton from "../../components/SignUp/LinkFlowButton";
 import * as fcl from "@onflow/fcl";
-import SignUpModal from "./SignUpPopUp/SignUpPopUp";
+import SignUpModal from "../../components/SignUp/SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
+import logo from "../../assets/images/bng_test.svg";
+
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
+
 //configure flow environment
-config()
-  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+// config()
+//   .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+//   .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+//   .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 //variants for framer motion
 const signUpModalBackground = {
@@ -23,8 +28,8 @@ const signUpModalBackground = {
   hidden: { opacity: 0 },
 };
 //props passed as an object
-const SignUp = (props) => {
-  // console.log(process.env.REACT_APP_ACCESS_NODE);
+const SignUpNonPopUp = (props) => {
+  // console.log(process.env.REACT_APP_WALLET_DISCOVERY);
   const [email, setEmail] = useState("");
   const [name] = useState("");
   const [username, setUserName] = useState("");
@@ -170,12 +175,12 @@ const SignUp = (props) => {
   };
 
   return (
-    <motion.section
-      id="signup"
-      variants={signUpModalBackground}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
+    <section
+      id="signup-no-popup"
+      // variants={signUpModalBackground}
+      // initial="hidden"
+      // animate="visible"
+      // exit="hidden"
     >
       <SignUpModal
         changeStyles={changeStyles}
@@ -183,24 +188,29 @@ const SignUp = (props) => {
         showModal={showModal}
         setShowModal={setShowModal}
       />
-      <motion.div
-        initial={{ y: -250 }}
-        animate={{ y: 0 }}
-        exit={{ y: "-100vh" }}
-        className="signup-wrapper"
+      <div
+        // initial={{ y: -250 }}
+        // animate={{ y: 0 }}
+        // exit={{ y: "-100vh" }}
+        className="signup-wrapper-no-popup"
       >
-        <div className="signup-container">
-          <div className="close-btn-signup">
-            <div onClick={() => props.showSignUpPopup(!props.signUpPopup)}>
-              X
-            </div>
-          </div>
-          <div className="signup-contents">
-            <div className="logo">
+        <div className="signup-container-no-popup">
+          <div className="signup-contents-no-popup">
+            <motion.div
+              className="help-button-no-popup"
+              whileHover={{ scale: 1.2 }}
+              onClick={() => {
+                setShowModal(!showModal);
+              }}
+            >
+              <img src={question_mark} alt="question mark" width="50px" />
+            </motion.div>
+            <div className="logo-no-popup">
               <img src={logo} alt="logo" />
             </div>
             <h2>SIGN UP</h2>
-            <p className="already-account">
+
+            <p className="already-account-no-popup">
               Already have an account?
               <span
                 onClick={() => {
@@ -208,7 +218,7 @@ const SignUp = (props) => {
                   props.showLoginPopup(!props.loginPopup);
                 }}
               >
-                <span className="login-redirect"> Login</span>
+                <span className="login-redirect-no-popup"> Login</span>
               </span>
             </p>
             <form noValidate>
@@ -283,10 +293,10 @@ const SignUp = (props) => {
 
             {flowLoader}
             {/* Error message list - holds all error responses that are set in handleChange switch statement */}
-            <ul className="error-message-container-desktop">
+            <ul className="error-message-container-desktop-no-popup">
               {Object.entries(formErrors || {}).map(([prop, value]) => {
                 return (
-                  <li className="error-message" key={prop}>
+                  <li className="error-message-no-popup" key={prop}>
                     {value}
                   </li>
                 );
@@ -295,30 +305,20 @@ const SignUp = (props) => {
             <div>{emailConflict}</div>
           </div>
         </div>
-
-        <motion.div
-          className="help-button"
-          whileHover={{ scale: 1.2 }}
-          onClick={() => {
-            setShowModal(!showModal);
-          }}
-        >
-          <img src={question_mark} alt="question mark" width="50px" />
-        </motion.div>
-      </motion.div>
+      </div>
 
       {/* Error message list - holds all error responses that are set in handleChange switch statement */}
-      <ul className="error-message-container-mobile">
+      <ul className="error-message-container-mobile-no-popup">
         {Object.entries(formErrors || {}).map(([prop, value]) => {
           return (
-            <li className="error-message" key={prop}>
+            <li className="error-message-no-popup" key={prop}>
               {value}
             </li>
           );
         })}
       </ul>
-    </motion.section>
+    </section>
   );
 };
 
-export default SignUp;
+export default SignUpNonPopUp;
