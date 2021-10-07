@@ -4,8 +4,8 @@ import axios from "axios";
 import ComponentLoading from "../Loading/ComponentLoading";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
-import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
+// import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
+// import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 import showcase from "../../assets/images/showcase_mobile.webp";
 import env from "react-dotenv";
 
@@ -119,11 +119,13 @@ function MusicShowcase(props) {
     props.showSignUpPopup,
     props.signUpPopup,
     props.setStripeLoader,
+    // spotlight_yellow_left,
+    // spotlight_yellow_right,
   ]);
 
   return (
     <section id="music-showcase">
-      <img
+      {/* <img
         className="spotlight-top-left"
         src={spotlight_yellow_left}
         alt="spotlight icon"
@@ -132,7 +134,7 @@ function MusicShowcase(props) {
         className="spotlight-top-right"
         src={spotlight_yellow_right}
         alt="spotlight icon"
-      />
+      /> */}
 
       <div className="music-showcase-container">
         <div className="content-container">
