@@ -1,35 +1,29 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./HowItWorksStyles.scss";
 import { Link } from "react-router-dom";
-import loveSong from "../../assets/images/love-song2.svg";
-import voice from "../../assets/images/voice.svg";
-import collect from "../../assets/images/collectshare.svg";
-import record_header_icon from "../../assets/images/compact-disc-yellow.svg";
+//SVGs
+import { ReactComponent as LoveSong } from "../../assets/images/love-song2.svg";
+import { ReactComponent as Voice } from "../../assets/images/voice.svg";
+import { ReactComponent as Collect } from "../../assets/images/collectshare.svg";
+import { ReactComponent as RecordHeader } from "../../assets/images/compact-disc-yellow.svg";
 
 function HowItWorks() {
-  const [content1, setContent1] = useState(false);
-  const [content2, setContent2] = useState(false);
-  const [content3, setContent3] = useState(false);
   return (
     <section id="how-it-works">
       <div className="how-it-works-container">
         <div className="box-title">
           <h1>
-            <img
-              className="record-header-icon"
-              src={record_header_icon}
-              alt="record "
-            />
+            <RecordHeader className="record-header-icon" />
             <div>HOW IT WORKS</div>
           </h1>
         </div>
         <div className="boxes">
-          <div className="box" onClick={() => setContent1(!content1)}>
+          <div className="box">
             <div className="box-border">
               <div className="box-content">
                 <div className="icon-headers">
                   <div className="how-icon">
-                    <img src={loveSong} alt="love-icon" />
+                    <LoveSong />
                   </div>
                   <div className="headers">
                     <h4>EXCLUSIVE MUSIC</h4>
@@ -47,12 +41,12 @@ function HowItWorks() {
               </div>
             </div>
           </div>
-          <div className="box" onClick={() => setContent2(!content2)}>
+          <div className="box">
             <div className="box-border">
               <div className="box-content">
                 <div className="icon-headers">
                   <div className="how-icon">
-                    <img src={voice} alt="voice-icon" />
+                    <Voice />
                   </div>
                   <div className="headers">
                     <h4>STREAM HERE</h4>
@@ -70,12 +64,12 @@ function HowItWorks() {
               </div>
             </div>
           </div>
-          <div className="box" onClick={() => setContent3(!content3)}>
+          <div className="box">
             <div className="box-border">
               <div className="box-content">
                 <div className="icon-headers">
                   <div className="how-icon">
-                    <img src={collect} alt="collect-icon" />
+                    <Collect />
                   </div>
                   <div className="headers">
                     <h4>COLLECT & SHARE</h4>

@@ -17,6 +17,7 @@
 
   @media screen and (max-width: 550px) {
     background-color: black;
+    // height: 100vh;
   }
   .hero-nav-spacer {
     height: 70px;
@@ -31,7 +32,6 @@
     padding: 25px 50px;
     color: white;
     position: relative;
-    // border: 3px solid green;
 
     @media screen and (max-width: 1140px) {
       padding: 50px;
@@ -193,23 +193,14 @@
               font-weight: normal;
               outline: none;
               position: relative;
-              //border: 3px solid rgb(31, 95, 95);
               border: 3px solid black;
               border-radius: 50px;
               background: var(--color2);
               color: black;
-              //filter: drop-shadow(5px 5px 8px black);
-              //box-shadow: -5px 5px 0 rgb(31, 95, 95);
               box-shadow: -5px 5px 0 black;
 
               &:hover {
-                //box-shadow: 0 4px rgb(36, 97, 97);
-
-                //background-color: black;
-                //color: white;
                 filter: none;
-                //border: 3px solid var(--color2);
-                //box-shadow: -3px 3px 0 rgb(31, 95, 95);
                 box-shadow: none;
               }
 
@@ -219,8 +210,6 @@
                 border: 3px solid var(--color2);
                 color: white;
                 &:hover {
-                  //box-shadow: 0 4px rgb(36, 97, 97);
-
                   background-color: var(--color2);
                   color: black;
                   filter: none;

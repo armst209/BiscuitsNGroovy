@@ -1,5 +1,4 @@
 import { React, Suspense, useState, useEffect } from "react";
-
 import axios from "axios";
 import ComponentLoading from "../Loading/ComponentLoading";
 import ReleasePreview from "../ReleasePreview/ReleasePreview";
@@ -19,7 +18,6 @@ function MusicShowcase(props) {
   //If statement for users purchased albums if logged in, pass token
   const token = localStorage.getItem("token");
   const baseURL = env.BACKEND_URL;
-
   useEffect(() => {
     axios({
       method: "get",
@@ -34,10 +32,8 @@ function MusicShowcase(props) {
       .catch((err) => {
         handleFailure(err);
       });
-
     const handleSuccess = (res) => {
       const releases = res.data.releases;
-
       setReleasesLoaded(true);
       //checking whether user has purchased all current releases
       releases.length === 0
@@ -45,14 +41,12 @@ function MusicShowcase(props) {
             "Nothing to see here. Check back soon for our next drop!"
           )
         : setHaveAllReleases(" ");
-
       // Main Function - looping through response, displaying response in Homepage Releases section & creating individual "ReleasePreview"s
       let displayAllReleases = releases.map((release, order) => {
         //Toggle to Close ReleasePreview
         const closeReleaseInfo = () => {
           setReleaseInfo(!releaseInfo);
         };
-
         //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
         const showReleaseInfo = (release) => {
           setReleaseInfo(
@@ -74,7 +68,6 @@ function MusicShowcase(props) {
             />
           );
         };
-
         return release ? (
           <div
             onMouseEnter={() => setIsShown(true)}
@@ -122,20 +115,8 @@ function MusicShowcase(props) {
     // spotlight_yellow_left,
     // spotlight_yellow_right,
   ]);
-
   return (
     <section id="music-showcase">
-      {/* <img
-        className="spotlight-top-left"
-        src={spotlight_yellow_left}
-        alt="spotlight icon"
-      />
-      <img
-        className="spotlight-top-right"
-        src={spotlight_yellow_right}
-        alt="spotlight icon"
-      /> */}
-
       <div className="music-showcase-container">
         <div className="content-container">
           <h1>MUSIC SHOWCASE</h1>
@@ -145,7 +126,6 @@ function MusicShowcase(props) {
           </p>
           <div className="content-wrapper">
             <div className="showcase-image"></div>
-
             <div className="showcase-grid-desktop">
               {releasesLoaded ? (
                 <Suspense fallback={<ComponentLoading />}>

@@ -16,7 +16,7 @@ function ExpiredPopup(props) {
           This release has expired, meaning it’s no longer available to stream
           on BnG.
         </p>
-        <p>
+        {/* <p>
           Liked what you heard? Check out all of {props.releaseInformation}’s
           music{" "}
           <a
@@ -26,7 +26,7 @@ function ExpiredPopup(props) {
           >
             here
           </a>
-        </p>
+        </p> */}
         <p>
           Rest assured your album art NFTs are here to stay. They remain in your
           account permanently so you can curate the perfect collection and prove

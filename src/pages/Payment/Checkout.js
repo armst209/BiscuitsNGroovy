@@ -33,6 +33,7 @@ const Message = ({ message }) => (
 );
 
 export default function CheckoutButton(props) {
+  console.log(props);
   const [message, setMessage] = useState("");
 
   useEffect(() => {

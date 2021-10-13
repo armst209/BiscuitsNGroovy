@@ -1,7 +1,7 @@
 import { React } from "react";
 import "./AlbumCoverHoverStyle.scss";
 import AlbumPopup from "../AlbumPopUp/AlbumPopup";
-import play_button from "../../../../../assets/images/play-button.svg";
+import { ReactComponent as PlayButton } from "../../../../../assets/images/play-button.svg";
 
 function AlbumCoverHover(props) {
   return (
@@ -20,7 +20,7 @@ function AlbumCoverHover(props) {
             );
           }}
         >
-          <img src={play_button} alt="play button" />
+          <PlayButton />
           <div className="release-hover-name">{props.release.title}</div>
         </button>
       </div>

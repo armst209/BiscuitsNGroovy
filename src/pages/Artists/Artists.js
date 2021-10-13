@@ -19,7 +19,7 @@ import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 
-function Artists() {
+function Artists(props) {
   const [artistName, setArtistName] = useState("");
   const [artistPrefName, setArtistPrefName] = useState("");
   const [artistEmail, setArtistEmail] = useState("");
@@ -29,6 +29,8 @@ function Artists() {
   const [message, setMessage] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
   const [successMessages, setSuccessMessages] = useState("");
+
+  console.log(props);
 
   const submit = (event) => {
     event.preventDefault();
@@ -74,9 +76,9 @@ function Artists() {
               <div className="artists-impt-text">
                 <p>
                   Interested in joining us? Fill out the form{" "}
-                  <HashLink className="below-link" smooth to="#artists-form">
+                  <a className="below-link" href="#artists-form">
                     below
-                  </HashLink>{" "}
+                  </a>{" "}
                   and we’ll be in touch ASAP.
                 </p>
                 <p className="work-with-text">
@@ -208,9 +210,6 @@ function Artists() {
             <p>
               <h1>Heard about NFTs but don’t know where to start?</h1>
               <div className="hiw-bullet">
-                {/* <div className="artists-record-icon">
-              <img src={record_bullet} alt="record icon" />
-            </div> */}
                 <div className="bullet-text nft-p">
                   We make it easy for you to get in on the action and capture
                   hype for your music. When your release does well, your album
@@ -219,10 +218,6 @@ function Artists() {
                 </div>
               </div>
               <div className="hiw-bullet nft-p">
-                {/* <div className="artists-record-icon">
-              <img src={record_bullet} alt="record icon" />
-            </div> */}
-
                 <div className="bullet-text nft-p">
                   We handle the entire technical process so you can spend your
                   time making music, instead of worrying about the blockchain.
@@ -231,25 +226,13 @@ function Artists() {
                 </div>
               </div>
               <div className="hiw-bullet">
-                {/* <div className="artists-record-icon">
-              <img src={record_bullet} alt="record icon" />
-            </div> */}
                 <div className="bullet-text nft-p">
                   In fact, everything on BnG is in dollars and common sense,
                   unlike other NFT marketplaces full of confusing crypto charts
                   and auctions. We strive to be the most artist-friendly
                   platform and to keep the spotlight where it should: on you and
                   your music. Learn more about NFTs{" "}
-                  <Link
-                    style={{
-                      color: "var(--color1)",
-                      fontFamily: "var(--font1)",
-                    }}
-                    to="faq#scrollhere"
-                  >
-                    here
-                  </Link>{" "}
-                  .
+                  <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
                 </div>
               </div>
             </p>

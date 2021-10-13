@@ -8,7 +8,7 @@ function SuccessBuy() {
         <h1>Thank you for your Purchase!</h1>
         <p>Head to your collection to start groovin'!</p>
         <Link to="/collection">
-          <button className="collection-button">Collection</button>
+          <button className="collection-button">Head to Collection</button>
         </Link>
       </div>
     </section>

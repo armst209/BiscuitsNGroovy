@@ -17,7 +17,7 @@ function TermsList() {
                 <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/terms-of-service">Terms Of Service</Link>
+                <Link to="/subscriber-terms-of-service">Terms Of Service</Link>
               </li>
               <li>
                 <Link to="/music-purchase-terms">Music Purchase Terms</Link>
