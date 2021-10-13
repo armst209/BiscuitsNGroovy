@@ -30,8 +30,6 @@ function Artists(props) {
   const [errorMessages, setErrorMessages] = useState("");
   const [successMessages, setSuccessMessages] = useState("");
 
-  console.log(props);
-
   const submit = (event) => {
     event.preventDefault();
     const baseURL = env.BACKEND_URL;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "./MusicPlayerStyles.scss";
-import tracklist_icon from "../../assets/images/playlist-white-btn.svg";
+import { ReactComponent as TracklistIcon } from "../../assets/images/playlist-white-btn.svg";
 import record_spin from "../../assets/images/compact-disc-yellow.svg";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
@@ -52,7 +52,7 @@ function MusicPlayer(props) {
             className="playlist-button"
             onClick={() => props.setShowTrackList(!props.showTrackList)}
           >
-            <img src={tracklist_icon} alt="tracklist" />
+            <TracklistIcon />
           </div>,
           RHAP_UI.ADDITIONAL_CONTROLS,
 

@@ -467,9 +467,10 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
         </CSSTransition>
         <div className="header-p">
           <img src={question} alt="question icon" />
+
           <p>
             <div id="nft-scroll-purchase"></div>
-            <div>
+            <p>
               More questions? We’ve got answers. If yours isn’t answered above,
               feel free to contact us at:
               <span>
@@ -477,7 +478,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                   support@bngroovy.com.
                 </a>
               </span>
-            </div>
+            </p>
           </p>
         </div>
 
@@ -688,10 +689,10 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
               <li>
                 <p>
-                  <div className="p-image">
+                  <p className="p-image">
                     <img src={record_bullet} alt="record icon" />
-                  </div>
-                  <div className="p-content">
+                  </p>
+                  <p className="p-content">
                     Non-fungible tokens, on the other hand, are unique, which is
                     why they’re great for representing collectibles. Think of
                     them like baseball cards or concert tickets. Each one is
@@ -699,7 +700,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                     the world, and of course plenty of concertgoers have the
                     same GA ticket, but each one has a serial number to identify
                     which it is in the series.
-                  </div>
+                  </p>
                 </p>
               </li>
               <li>
@@ -718,10 +719,10 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
               <li>
                 <p>
-                  <div className="p-image">
+                  <p className="p-image">
                     <img src={record_bullet} alt="record icon" />
-                  </div>
-                  <div className="p-content">
+                  </p>
+                  <p className="p-content">
                     A common reaction to NFTs is “okay, but why are these worth
                     anything? If it’s a digital work of art, and anyone can see
                     it on the internet, why would I pay for it?” The answer is
@@ -732,7 +733,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                     is. Think of the Mona Lisa: anyone can see it, print a
                     picture of it, or buy a poster of it, but there’s only one
                     real copy and owner.
-                  </div>
+                  </p>
                 </p>
               </li>
             </ul>

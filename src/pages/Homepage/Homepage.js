@@ -21,7 +21,8 @@ function Homepage(props) {
         setShowMobileNav={props.setShowMobileNav}
       />
       <HowItWorks />
-      <MusicShowcase
+      <div id="music-showcase"></div>
+      {/* <MusicShowcase
         //passing in to component for if user is not logged in and tries to purchase a release - sign up popup shows
         signUpPopup={props.signUpPopup}
         showSignUpPopup={props.showSignUpPopup}
@@ -30,7 +31,7 @@ function Homepage(props) {
         // showReleasePopUp={setReleasePop}
         stripeLoader={props.stripeLoader}
         setStripeLoader={props.setStripeLoader}
-      />
+      /> */}
       <NFTBreakdown />
       <div className="reminder-subscribe">
         <div className="reminder-subscribe-wrapper">

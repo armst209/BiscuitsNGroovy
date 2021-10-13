@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import "./LoginStyles.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
+import { ReactComponent as Logo } from "../../assets/images/bng_test.svg";
+import { ReactComponent as LoginArrow } from "../../assets/images/login.svg";
+import { ReactComponent as LoginLoading } from "../../assets/images/pulse_loader_black.svg";
+import { ReactComponent as Warning } from "../../assets/images/exclamation.svg";
+
 import logo from "../../assets/images/bng_test.svg";
 import login_arrow from "../../assets/images/login.svg";
 import login_loading from "../../assets/images/pulse_loader_black.svg";
@@ -23,7 +29,7 @@ function Login(props) {
   const [loginStatus, setLoginStatus] = useState(
     <>
       <div>Login</div>
-      <img src={login_arrow} alt="arrow" />
+      <LoginArrow />
     </>
   );
 
@@ -32,7 +38,7 @@ function Login(props) {
     setLoginStatus(
       <>
         <div>Logging In...</div>
-        <img src={login_loading} alt="pulse loader" />
+        <LoginLoading />
       </>
     );
     const handleSuccess = (res) => {
@@ -48,14 +54,14 @@ function Login(props) {
       setLoginStatus(
         <>
           <div>Login</div>
-          <img src={login_arrow} alt="arrow" />
+          <LoginArrow />
         </>
       );
       setInputClass("input-error");
       setMessage(
         <div className="error-message">
-          <img className="warning-icon" src={warning} alt="warning" /> Username
-          or Password is incorrect. Please try again.
+          <Warning className="warning-icon" /> Username or Password is
+          incorrect. Please try again.
         </div>
       );
     };
@@ -99,7 +105,7 @@ function Login(props) {
               <div>X</div>
             </div>
             <div className="logo">
-              <img src={logo} alt="logo" />
+              <Logo />
             </div>
             <h2>Sign in to Biscuits n Groovy</h2>
 
