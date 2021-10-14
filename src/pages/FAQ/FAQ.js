@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import "./FAQStyles.scss";
 import { CSSTransition } from "react-transition-group";
 import dropdown from "../../assets/images/double-down-yellow.svg";
@@ -84,7 +85,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
                   cover NFT for no extra charge. The album art stays in Your
                   Collection forever, even once the music has expired. Read more
                   about our amazing NFTs{" "}
-                  <a href="#nft-scroll-purchase">below</a>.
+                  <HashLink to="/faq#nft-scroll-purchase">below</HashLink>.
                 </div>
               </li>
             </ul>
@@ -251,7 +252,7 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               <li>
                 <p>
                   Want to really dig into NFTs? Read more{" "}
-                  <a href="#nft-scroll-purchase">here</a>.
+                  <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
                 </p>
               </li>
             </ul>

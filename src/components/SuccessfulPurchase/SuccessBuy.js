@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./SuccessfulBuyStyles.scss";
 function SuccessBuy() {
-  return (
+  const isAuthenticated = localStorage.getItem("token");
+
+  return isAuthenticated ? (
     <section id="purchase-success">
       <div className="purchase-success-content">
         <h1>Thank you for your Purchase!</h1>
@@ -12,6 +14,8 @@ function SuccessBuy() {
         </Link>
       </div>
     </section>
+  ) : (
+    <Redirect to={"/"} />
   );
 }
 

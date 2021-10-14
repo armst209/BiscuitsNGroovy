@@ -29,9 +29,9 @@ const CollectionHome = lazy(() =>
 // const SuccessfulSignUp = lazy(() =>
 //   import("../pages/SuccessfulSignUp/SuccessfulSignUp")
 // );
-// const SuccessfulPurchase = lazy(() =>
-//   import("../components/SuccessfulPurchase/SuccessBuy")
-// );
+const SuccessfulPurchase = lazy(() =>
+  import("../components/SuccessfulPurchase/SuccessBuy")
+);
 // const PasswordRecovery = lazy(() =>
 //   import("../pages/PasswordRecovery/PasswordRecovery.js")
 // );
@@ -207,6 +207,12 @@ const ROUTES = [
         key: "COLLECTION_PAGE",
         exact: true,
         component: (props) => <CollectionHome {...props} />,
+      },
+      {
+        path: "/purchase-success",
+        key: "PURCHASE_SUCCESS_PAGE",
+        exact: true,
+        component: (props) => <SuccessfulPurchase {...props} />,
       },
       {
         path: "/privacy-terms-of-use",

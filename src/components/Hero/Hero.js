@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { HashLink } from "react-router-hash-link";
 import hero_image from "../../assets/images/hero.webp";
 import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.webp";
 import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-left.webp";
@@ -30,11 +30,11 @@ function TestHero() {
                     only for true fans.
                   </div>
                   <div className="hero-test-buttons">
-                    <a href="#music-showcase">
+                    <HashLink to="/home#music-showcase">
                       <button className="start-btn">
                         Start Your Collection
                       </button>
-                    </a>
+                    </HashLink>
                     <Link to="/artists">
                       <button className="for-artists-btn">For Artists</button>
                     </Link>

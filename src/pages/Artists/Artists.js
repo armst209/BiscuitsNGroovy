@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { HashLink } from "react-router-hash-link";
 import axios from "axios";
 import mic_drop from "../../assets/images/micdrop.webp";
@@ -74,9 +74,9 @@ function Artists(props) {
               <div className="artists-impt-text">
                 <p>
                   Interested in joining us? Fill out the form{" "}
-                  <a className="below-link" href="#artists-form">
+                  <HashLink className="below-link" to="/artists#artists-form">
                     below
-                  </a>{" "}
+                  </HashLink>{" "}
                   and we’ll be in touch ASAP.
                 </p>
                 <p className="work-with-text">
