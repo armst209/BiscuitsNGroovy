@@ -120,7 +120,7 @@ function Artists(props) {
               without any impact to your existing distribution channels.
             </p>
 
-            <p>
+            <div>
               <h1>
                 Releasing with Biscuits n Groovy is simple. Here’s how it works:
               </h1>
@@ -159,10 +159,10 @@ function Artists(props) {
                   </div>
                 </div>
               </div>
-            </p>
+            </div>
 
             <div className="important">
-              <p>
+              <div>
                 <h1>
                   Why release with us? Here’s a few of the benefits we provide
                   artists:
@@ -203,9 +203,9 @@ function Artists(props) {
                     </div>
                   </div>
                 </div>
-              </p>
+              </div>
             </div>
-            <p>
+            <div>
               <h1>Heard about NFTs but don’t know where to start?</h1>
               <div className="hiw-bullet">
                 <div className="bullet-text nft-p">
@@ -233,7 +233,7 @@ function Artists(props) {
                   <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
         <div id="artists-form" className="form-container">

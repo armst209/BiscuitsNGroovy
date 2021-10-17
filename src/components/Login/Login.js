@@ -41,6 +41,21 @@ function Login(props) {
         <LoginLoading />
       </>
     );
+    const baseURL = env.BACKEND_URL;
+
+    axios({
+      method: "post",
+      url: `${baseURL}/login`,
+      data: { username: username, password: password },
+      loading: false,
+    })
+      .then((res) => {
+        handleSuccess(res);
+      })
+      .catch((err) => {
+        handleFailure(err);
+      });
+
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       //timing out login redirect in case of hangup
@@ -65,21 +80,6 @@ function Login(props) {
         </div>
       );
     };
-
-    const baseURL = env.BACKEND_URL;
-
-    axios({
-      method: "post",
-      url: `${baseURL}/login`,
-      data: { username: username, password: password },
-      loading: false,
-    })
-      .then((res) => {
-        handleSuccess(res);
-      })
-      .catch((err) => {
-        handleFailure(err);
-      });
   };
 
   return (

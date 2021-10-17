@@ -15,7 +15,6 @@ function TestHero() {
         <div className="hero-section-test">
           <div className="hero-section-outer-wrapper-test">
             <div className="hero-content-middle-wrapper-test">
-              {" "}
               <div className="hero-section-inner-wrapper-test">
                 <section className="hero-test-text">
                   <div>

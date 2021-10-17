@@ -1,7 +1,7 @@
 import { React, useState, lazy } from "react";
 import "./FPHomePageStyles.scss";
 //lazy loading library section
-const Library = lazy(() => import("./Sections/Library/Library"));
+const NewLibrary = lazy(() => import("./Sections/NewLibrary/NewLibrary"));
 
 function FPHomePage(props) {
   const [showPopUp, setShowPopup] = useState("");
@@ -15,11 +15,17 @@ function FPHomePage(props) {
       {showNFTPopUp}
       <div className="library-select">
         {/* Passed prop to close album popup */}
-        <Library
+        <NewLibrary
           popUpPassed={setShowPopup}
           setShowEndDatePopUp={setShowEndDatePopUp}
           setShowNFTPopUp={setShowNFTPopUp}
+          {...props}
         />
+        {/* <Library
+          popUpPassed={setShowPopup}
+          setShowEndDatePopUp={setShowEndDatePopUp}
+          setShowNFTPopUp={setShowNFTPopUp}
+        /> */}
       </div>
     </section>
   );
