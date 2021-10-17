@@ -7,11 +7,13 @@ import Loading from "../../../../components/Loading/Loading";
 import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import NoReleases from "../../../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
+import ComponentLoading from "../../../../components/Loading/ComponentLoading";
 
 function FanPortal() {
   //Hooks
   const [releaseData, setReleaseData] = useState(null);
   const [showAlbumDetails] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     //token
@@ -27,6 +29,7 @@ function FanPortal() {
     })
       .then((res) => {
         setReleaseData(res.data.library);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -50,18 +53,14 @@ function FanPortal() {
           COLLECTION
         </h1>
       </div>
-      <Suspense fallback={<Loading />}>
-        {releaseData !== null && releaseData.length === 0 ? (
-          <NoReleases />
-        ) : (
-          releaseData && (
-            <FPHomepage
-              releaseData={releaseData}
-              setTrigger={showAlbumDetails}
-            />
-          )
-        )}
-      </Suspense>
+      {isLoading && <ComponentLoading />}
+      {releaseData !== null && releaseData.length === 0 ? (
+        <NoReleases />
+      ) : (
+        releaseData && (
+          <FPHomepage releaseData={releaseData} setTrigger={showAlbumDetails} />
+        )
+      )}
     </section>
   );
 }

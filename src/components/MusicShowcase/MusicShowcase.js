@@ -14,6 +14,7 @@ function MusicShowcase(props) {
   // const [displayReleases, setDisplayReleases] = useState("");
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   // const [haveAllReleases, setHaveAllReleases] = useState("");
   // const [releasesLoaded, setReleasesLoaded] = useState(false);
   const [showcaseReleases, setShowcaseReleases] = useState(null);
@@ -29,6 +30,7 @@ function MusicShowcase(props) {
     })
       .then((res) => {
         setShowcaseReleases(res.data.releases);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -69,20 +71,20 @@ function MusicShowcase(props) {
               ) : (
                 <ComponentLoading /> */}
               {/* )}  */}
-              <Suspense fallback={<ComponentLoading />}>
-                {showcaseReleases !== null && showcaseReleases.length === 0
-                  ? "Nothing to see here. Check back soon for our next drop!"
-                  : showcaseReleases && (
-                      <ShowcaseList
-                        setReleaseInfo={setReleaseInfo}
-                        releaseInfo={releaseInfo}
-                        showcaseReleases={showcaseReleases}
-                        isShown={isShown}
-                        setIsShown={setIsShown}
-                        {...props}
-                      />
-                    )}
-              </Suspense>
+
+              {isLoading && <ComponentLoading />}
+              {showcaseReleases !== null && showcaseReleases.length === 0
+                ? "Nothing to see here. Check back soon for our next drop!"
+                : showcaseReleases && (
+                    <ShowcaseList
+                      setReleaseInfo={setReleaseInfo}
+                      releaseInfo={releaseInfo}
+                      showcaseReleases={showcaseReleases}
+                      isShown={isShown}
+                      setIsShown={setIsShown}
+                      {...props}
+                    />
+                  )}
             </div>
           </div>
         </div>
