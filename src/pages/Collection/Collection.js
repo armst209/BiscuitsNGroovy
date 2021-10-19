@@ -1,13 +1,13 @@
 import { React, useEffect, useState, Suspense } from "react";
 import env from "react-dotenv";
 import axios from "axios";
-import FPHomepage from "../../../../components/FanPortal/FPHomePage/FPHomePage";
-import "./FanPortalStyles.scss";
-import Loading from "../../../../components/Loading/Loading";
-import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
-import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
-import NoReleases from "../../../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
-import ComponentLoading from "../../../../components/Loading/ComponentLoading";
+import FPHomepage from "../../components/FanPortal/FPHomePage/FPHomePage";
+import "./CollectionStyles.scss";
+import Loading from "../../components/Loading/Loading";
+// import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
+// import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
+import NoReleases from "../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
+import ComponentLoading from "../../components/Loading/ComponentLoading";
 
 function FanPortal() {
   //Hooks
@@ -40,7 +40,7 @@ function FanPortal() {
     <section id="fan-portal">
       <div className="portal-title">
         <h1>
-          <img
+          {/* <img
             className="spotlight-left"
             src={spotlight_left}
             alt="spotlight"
@@ -49,7 +49,7 @@ function FanPortal() {
             className="spotlight-right"
             src={spotlight_right}
             alt="spotlight"
-          />
+          /> */}
           COLLECTION
         </h1>
       </div>

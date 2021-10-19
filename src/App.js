@@ -1,4 +1,7 @@
-import { React, lazy, useState, Suspense } from "react";
+import { useState } from "react";
+//router
+import routes from "./Routes/config.tsx";
+import Router from "./Routes/Router.tsx";
 import "./App.css";
 // import ROUTES, { RenderRoutes } from "./Routes/Routes";
 //for social media icons
@@ -7,43 +10,7 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Footer from "./components/Footer/Footer";
-import Loading from "./components/Loading/Loading";
 import { AnimatePresence } from "framer-motion";
-import { Route, Switch, Redirect } from "react-router-dom";
-import ProtectedRoute from "./Routes/ProtectedRoute";
-
-//Lazy loaded components
-const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
-const About = lazy(() => import("./pages/About/About"));
-const FAQ = lazy(() => import("./pages/FAQ/FAQ"));
-const Artists = lazy(() => import("./pages/Artists/Artists"));
-const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
-
-const TermsOfService = lazy(() =>
-  import("./pages/TermsOfService/TermsOfService")
-);
-const PrivacyPolicy = lazy(() =>
-  import("./pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")
-);
-const PurchaseOfMusic = lazy(() =>
-  import("./pages/TermsOfService/Terms/PurchaseOfMusic")
-);
-const Subscriber = lazy(() =>
-  import("./pages/TermsOfService/Terms/Subscriber")
-);
-const NFTTerms = lazy(() => import("./pages/TermsOfService/Terms/NFTTerms"));
-const Events = lazy(() => import("./pages/Events/Events"));
-
-const FanPortalHome = lazy(() =>
-  import("./pages/Portals/FanPortal/Homepage/FanPortal")
-);
-
-const SuccessfulSignUp = lazy(() =>
-  import("./components/SuccessfulSignUp/SuccessfulSignUp")
-);
-const SuccessfulPurchase = lazy(() =>
-  import("./components/SuccessfulPurchase/SuccessBuy")
-);
 
 function App(props) {
   const [loginPopup, showLoginPopup] = useState(false);
@@ -89,8 +56,8 @@ function App(props) {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
-      <Suspense fallback={<Loading />}>
-        <Switch>
+      {/* <Suspense fallback={<Loading />}> */}
+      {/* <Switch>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
@@ -126,7 +93,7 @@ function App(props) {
             render={(props) => <Artists {...props} />}
           />
           {/* Protected Routes */}
-          <ProtectedRoute
+      {/* <ProtectedRoute
             exact={true}
             path="/collection"
             render={() => <FanPortalHome {...props} />}
@@ -143,7 +110,7 @@ function App(props) {
           />
 
           {/* Terms of Use & Privacy Policy Components Render */}
-          <Route
+      {/* <Route
             exact={true}
             path="/privacy-terms-of-use"
             render={() => <TermsOfService />}
@@ -168,8 +135,9 @@ function App(props) {
 
           <Route path="/404" component={NotFound} />
           <Redirect from="*" to="/404" />
-        </Switch>
-      </Suspense>
+        </Switch>  */}
+      {/* </Suspense> */}
+      <Router routes={routes} />
       <Footer />
       {stripeLoader}
     </div>
