@@ -1,0 +1,29 @@
+.countdown-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid var(--color2);
+  padding: 1rem;
+  border-radius: 20px;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+  .digits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5rem;
+    h3 {
+      font-family: var(--font1);
+      letter-spacing: 0.02cm;
+      font-weight: normal;
+      color: var(--color1);
+    }
+    .digit-time {
+      font-family: var(--font1);
+      font-weight: normal;
+    }
+  }
+}

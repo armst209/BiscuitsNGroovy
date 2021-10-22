@@ -137,7 +137,19 @@ function App(props) {
           <Redirect from="*" to="/404" />
         </Switch>  */}
       {/* </Suspense> */}
-      <Router routes={routes} />
+      <Router
+        routes={routes}
+        loginPopup={loginPopup}
+        showLoginPopup={showLoginPopup}
+        signUpPopup={signUpPopup}
+        showSignUpPopup={showSignUpPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
+        stripeLoader={stripeLoader}
+        setStripeLoader={setStripeLoader}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+      />
       <Footer />
       {stripeLoader}
     </div>

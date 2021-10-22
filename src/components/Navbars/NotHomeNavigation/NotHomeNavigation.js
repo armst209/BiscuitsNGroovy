@@ -229,6 +229,16 @@ function NotHomeNavigation(props) {
                     Artists
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    activeStyle={{
+                      borderBottom: "4px solid var(--color1)",
+                    }}
+                    to="/events"
+                  >
+                    Events
+                  </NavLink>
+                </li>
               </ul>
               <ul className="login-links-home-nothome">
                 <li className="login-home-link-nothome">{isLoggedIn}</li>
@@ -396,8 +406,18 @@ function NotHomeNavigation(props) {
                   >
                     <li>Artists</li>
                   </NavLink>
+                  <NavLink
+                    onClick={() =>
+                      props.setMobileMenuOpen(!props.mobileMenuOpen)
+                    }
+                    activeStyle={{
+                      textDecoration: "underline 5px solid var(--color2)",
+                    }}
+                    to="/events"
+                  >
+                    <li>Events</li>
+                  </NavLink>
                   <NavLink to="#">
-                    {" "}
                     <li
                       className={`${signUpClassName}`}
                       onClick={() => props.showSignUpPopup(!props.signUpPopup)}

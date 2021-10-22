@@ -36,9 +36,6 @@ const routes:IRoute[] = [
       exact: true,
       private:false,
       fallback:<Loading/>,
-    //   routes: [
-      
-    //   ],
     },
     {
         path: "/about",
@@ -65,6 +62,15 @@ const routes:IRoute[] = [
         exact: true,
         private:false,
         fallback:<Loading/>
+      },
+      {
+        path: "/events",
+        component: lazy(()=>import("../pages/Events/Events")),
+        key: "EVENTS_PAGE",
+        exact: true,
+        private:false,
+        fallback:<Loading/>
+       
       },
       {
         path: "/collection",

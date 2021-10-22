@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./LoginStyles.scss";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { ReactComponent as Logo } from "../../assets/images/bng_test.svg";
 import { ReactComponent as LoginArrow } from "../../assets/images/login.svg";
 import { ReactComponent as LoginLoading } from "../../assets/images/pulse_loader_black.svg";
 import { ReactComponent as Warning } from "../../assets/images/exclamation.svg";
-
-import logo from "../../assets/images/bng_test.svg";
-import login_arrow from "../../assets/images/login.svg";
-import login_loading from "../../assets/images/pulse_loader_black.svg";
-import warning from "../../assets/images/exclamation.svg";
 import env from "react-dotenv";
 import { motion } from "framer-motion";
 
@@ -41,11 +35,10 @@ function Login(props) {
         <LoginLoading />
       </>
     );
-    const baseURL = env.BACKEND_URL;
 
     axios({
       method: "post",
-      url: `${baseURL}/login`,
+      url: `${env.BACKEND_URL}/login`,
       data: { username: username, password: password },
       loading: false,
     })

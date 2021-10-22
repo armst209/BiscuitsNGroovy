@@ -30,6 +30,7 @@ function Footer() {
               <ul>
                 <h4>Reach Out</h4>
                 <Link to="/artists">Artists</Link>
+                <Link to="/events">Events</Link>
                 <a href="mailto:support@bngroovy.com?subject=Support">
                   Support
                 </a>

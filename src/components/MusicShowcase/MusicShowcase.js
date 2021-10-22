@@ -9,34 +9,22 @@ import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_
 import showcase from "../../assets/images/showcase_mobile.webp";
 import env from "react-dotenv";
 import ShowcaseList from "./ShowcaseList";
+import useAxiosFetch from "../../customHooks/useAxiosFetch";
 
 function MusicShowcase(props) {
-  // const [displayReleases, setDisplayReleases] = useState("");
+  //getting token
+  const token = localStorage.getItem("token");
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  // const [haveAllReleases, setHaveAllReleases] = useState("");
-  // const [releasesLoaded, setReleasesLoaded] = useState(false);
-  const [showcaseReleases, setShowcaseReleases] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    axios({
-      method: "get",
-      url: `${env.BACKEND_URL}/releases`,
-      headers: {
-        "x-access-token": token,
-      },
-    })
-      .then((res) => {
-        setShowcaseReleases(res.data.releases);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  //If statement for users purchased albums if logged in, pass token
+  //get request useAxios hook
+  const {
+    responseData: releaseData,
+    isLoading,
+    errorMessage,
+  } = useAxiosFetch("get", `${env.BACKEND_URL}/releases`, null, {
+    "x-access-token": token,
+  });
 
   return (
     <section id="music-showcase">
@@ -62,29 +50,18 @@ function MusicShowcase(props) {
             <div className="showcase-image"></div>
 
             <div className="showcase-grid-desktop">
-              {/* {releasesLoaded ? (
-                <Suspense fallback={<ComponentLoading />}>
-                  {displayReleases}
-                  {/* appears if user has purchased all current releases */}
-              {/* {haveAllReleases} */}
-              {/* </Suspense>
-              ) : (
-                <ComponentLoading /> */}
-              {/* )}  */}
-
               {isLoading && <ComponentLoading />}
-              {showcaseReleases !== null && showcaseReleases.length === 0
-                ? "Nothing to see here. Check back soon for our next drop!"
-                : showcaseReleases && (
-                    <ShowcaseList
-                      setReleaseInfo={setReleaseInfo}
-                      releaseInfo={releaseInfo}
-                      showcaseReleases={showcaseReleases}
-                      isShown={isShown}
-                      setIsShown={setIsShown}
-                      {...props}
-                    />
-                  )}
+              {releaseData && (
+                <ShowcaseList
+                  setReleaseInfo={setReleaseInfo}
+                  releaseInfo={releaseInfo}
+                  releaseData={releaseData}
+                  isShown={isShown}
+                  setIsShown={setIsShown}
+                  {...props}
+                />
+              )}
+              <div>{errorMessage}</div>
             </div>
           </div>
         </div>

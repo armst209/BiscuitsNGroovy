@@ -11,7 +11,7 @@ const ShowcaseList = (props) => {
 
   return (
     <>
-      {props.showcaseReleases.map((release) => {
+      {props.releaseData.data.releases.map((release) => {
         //Toggle to Close ReleasePreview
 
         //Set releaseInfo Hook and displays each "release" information inside "Releases" section container
