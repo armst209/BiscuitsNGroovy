@@ -93,8 +93,12 @@ function Events() {
         </div>
       </div>
       <div className="events-information-section">
-        <EventsAbout />
-        <SubscribeSection />
+        <div className="about-div">
+          <EventsAbout />
+        </div>
+        <div className="subscribe-div">
+          <SubscribeSection />
+        </div>
       </div>
     </section>
   );
