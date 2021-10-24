@@ -1,9 +1,8 @@
-import { React, useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import env from "react-dotenv";
 import axios from "axios";
 import FPHomepage from "../../components/FanPortal/FPHomePage/FPHomePage";
 import "./CollectionStyles.scss";
-import Loading from "../../components/Loading/Loading";
 // import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
 // import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import NoReleases from "../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";

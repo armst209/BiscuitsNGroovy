@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {IRoute} from "./config"
-const RouteWithSubRoutes = (route: IRoute) => {
+const RouteWithSubRoutes = (route: IRoute,) => {
   /** Authenticated flag */
   const token = localStorage.getItem("token");
 

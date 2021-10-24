@@ -19,7 +19,7 @@ export interface IRoute {
     redirect?: string;
     // If router is private, this is going to be true
     private?: boolean;
-
+    loginPopup?: boolean;
   }
 const routes:IRoute[] = [
     {

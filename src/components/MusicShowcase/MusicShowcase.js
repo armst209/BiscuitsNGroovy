@@ -1,15 +1,17 @@
-import { React, Suspense, useState, useEffect } from "react";
+import { useState } from "react";
 
-import axios from "axios";
+// import axios from "axios";
 import ComponentLoading from "../Loading/ComponentLoading";
 // import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 import spotlight_yellow_left from "../../assets/images/spotlight_outline_left_yellow.svg";
 import spotlight_yellow_right from "../../assets/images/spotlight_outline_right_yellow.svg";
 import showcase from "../../assets/images/showcase_mobile.webp";
+
 import env from "react-dotenv";
 import ShowcaseList from "./ShowcaseList";
 import useAxiosFetch from "../../customHooks/useAxiosFetch";
+// import useAxiosFetch from "../../customHooks/useAxiosFetch";
 
 function MusicShowcase(props) {
   //getting token
@@ -17,11 +19,10 @@ function MusicShowcase(props) {
   const [releaseInfo, setReleaseInfo] = useState("");
   const [isShown, setIsShown] = useState(false);
 
-  //get request useAxios hook
   const {
     responseData: releaseData,
-    isLoading,
     errorMessage,
+    isLoading,
   } = useAxiosFetch("get", `${env.BACKEND_URL}/releases`, null, {
     "x-access-token": token,
   });

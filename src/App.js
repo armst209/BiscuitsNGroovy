@@ -1,16 +1,17 @@
 import { useState } from "react";
-//router
-import routes from "./Routes/config.tsx";
-import Router from "./Routes/Router.tsx";
+import { AnimatePresence } from "framer-motion";
 import "./App.css";
-// import ROUTES, { RenderRoutes } from "./Routes/Routes";
-//for social media icons
-import "../node_modules/@fortawesome/fontawesome-free/js/all";
+import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
-import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
 import Footer from "./components/Footer/Footer";
-import { AnimatePresence } from "framer-motion";
+//router
+// import routes from "./Routes/config.tsx";
+// import Router from "./Routes/Router.tsx";
+
+//for social media icons
+import "../node_modules/@fortawesome/fontawesome-free/js/all";
+import OldRoutes from "./Routes/OldRoutes";
 
 function App(props) {
   const [loginPopup, showLoginPopup] = useState(false);
@@ -56,89 +57,7 @@ function App(props) {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
-      {/* <Suspense fallback={<Loading />}> */}
-      {/* <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route
-            exact={true}
-            path="/home"
-            render={() => (
-              <Homepage
-                loginPopup={loginPopup}
-                showLoginPopup={showLoginPopup}
-                signUpPopup={signUpPopup}
-                showSignUpPopup={showSignUpPopup}
-                showMobileNav={showMobileNav}
-                setShowMobileNav={setShowMobileNav}
-                stripeLoader={stripeLoader}
-                setStripeLoader={setStripeLoader}
-              />
-            )}
-          />
-          <Route
-            exact={true}
-            path="/about"
-            render={(props) => <About {...props} />}
-          />
-          <Route
-            exact={true}
-            path="/faq"
-            render={(props) => <FAQ {...props} />}
-          />
-          <Route
-            exact={true}
-            path="/artists"
-            render={(props) => <Artists {...props} />}
-          />
-          {/* Protected Routes */}
-      {/* <ProtectedRoute
-            exact={true}
-            path="/collection"
-            render={() => <FanPortalHome {...props} />}
-          />
-          <ProtectedRoute
-            exact={true}
-            path="/purchase-success"
-            render={(props) => <SuccessfulPurchase {...props} />}
-          />
-          <ProtectedRoute
-            exact={true}
-            path="/account-creation-success"
-            render={(props) => <SuccessfulSignUp {...props} />}
-          />
-
-          {/* Terms of Use & Privacy Policy Components Render */}
-      {/* <Route
-            exact={true}
-            path="/privacy-terms-of-use"
-            render={() => <TermsOfService />}
-          />
-          <Route
-            exact={true}
-            path="/privacy-policy"
-            render={() => <PrivacyPolicy />}
-          />
-          <Route
-            exact={true}
-            path="/subscriber-terms-of-service"
-            render={() => <Subscriber />}
-          />
-          <Route
-            exact={true}
-            path="/music-purchase-terms"
-            render={() => <PurchaseOfMusic />}
-          />
-          <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
-          <Route exact={true} path="/events" render={() => <Events />} />
-
-          <Route path="/404" component={NotFound} />
-          <Redirect from="*" to="/404" />
-        </Switch>  */}
-      {/* </Suspense> */}
-      <Router
-        routes={routes}
+      <OldRoutes
         loginPopup={loginPopup}
         showLoginPopup={showLoginPopup}
         signUpPopup={signUpPopup}
@@ -150,6 +69,8 @@ function App(props) {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
+
+      {/* <Router routes={routes} /> */}
       <Footer />
       {stripeLoader}
     </div>

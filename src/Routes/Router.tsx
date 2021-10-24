@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const Router: React.FC<IProps> = ({ routes }) => {
-  return <Switch>{routes.map((route: IRoute) => <RouteWithSubRoutes  {...route} />)}
+  return <Switch>{routes.map((route: IRoute) => <RouteWithSubRoutes  {...route}/>)}
  </Switch>;
 };
 

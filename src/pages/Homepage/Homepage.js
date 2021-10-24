@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
@@ -10,7 +9,6 @@ import "./HomepageStyles.scss";
 import reminder_image from "../../assets/images/subscribe.webp";
 
 function Homepage(props) {
-  console.log(props);
   return (
     <section>
       <Hero

@@ -7,42 +7,53 @@ const useAxiosFetch = (method = "", url = "", data = {}, headers = {}) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    let unmounted = false;
-    let source = axios.CancelToken.source();
+    // let unmounted = false;
+    // let source = axios.CancelToken.source().token;
+    // if (method === "get") {
+    getData();
+    // }
+    // if (method === "post") {
+    //   console.log("post hit");
+    // }
+
+    // return function () {
+    //   unmounted = true;
+    //   axios.CancelToken.source().cancel("Cancelling in cleanup");
+    // };
+  }, []);
+
+  const getData = async () => {
     const config = {
       method: method,
-      url: url,
       data: data,
       headers: headers,
-      cancelToken: source.token,
+      // cancelToken: source,
     };
 
-    axios(config)
+    await axios(url, config)
       .then((res) => {
-        if (!unmounted) {
-          setResponseData(res);
-          setIsLoading(false);
-          setErrorMessage(null);
-        }
+        // if (!unmounted) {
+        setResponseData(res.data);
+        // console.log(res.data);
+        setIsLoading(false);
+        setErrorMessage(null);
+        // }
       })
       .catch((err) => {
-        if (!unmounted) {
-          console.log(err);
-          setErrorMessage(err.message);
-          setIsLoading(false);
-        }
+        // if (!unmounted) {
+        console.log(err);
+        setErrorMessage(err.message);
+        // }
         if (axios.isCancel(err)) {
           console.log("Request canceled", err.message);
         } else {
           console.log("another error happened:" + err.message);
         }
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-
-    return function () {
-      unmounted = true;
-      source.cancel("Cancelling in cleanup");
-    };
-  }, []);
+  };
 
   return { responseData, isLoading, errorMessage };
 };

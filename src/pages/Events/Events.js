@@ -1,6 +1,5 @@
 import "./EventsStyles.scss";
 import zevy_logo from "../../assets/images/event-images/zevylogo.png";
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import EventTimer from "./EventTimer";
@@ -32,17 +31,29 @@ function Events() {
                 <div className="single-event-social-media">
                   <ul>
                     <li>
-                      <a href="https://www.tiktok.com/@zevymusic?lang=en">
+                      <a
+                        href="https://www.tiktok.com/@zevymusic?lang=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-tiktok"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="https://open.spotify.com/artist/3Rr9ksBPquEWyD9fP2VBZk">
+                      <a
+                        href="https://open.spotify.com/artist/3Rr9ksBPquEWyD9fP2VBZk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-spotify"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.instagram.com/zevymusic/?hl=en">
+                      <a
+                        href="https://www.instagram.com/zevymusic/?hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-instagram"></i>
                       </a>
                     </li>
@@ -68,6 +79,11 @@ function Events() {
               </div>
 
               <EventTimer expiryTimestamp={dateToEvent} />
+              <div className="artist-link">
+                <HashLink to="/home/#music-showcase">
+                  <button>ZEVY Release</button>
+                </HashLink>
+              </div>
             </div>
             <div className="single-event-map">
               <iframe
@@ -80,22 +96,13 @@ function Events() {
             </div>
           </div>
 
-          <div className="single-event-bottom-links">
-            <div className="artist-link">
-              <HashLink to="/home/#music-showcase">
-                <button>ZEVY Release</button>
-              </HashLink>
-            </div>
-            <div className="bng-link">
-              <Link to="/about">Learn More About BnG</Link>
-            </div>
-          </div>
+          <div className="single-event-bottom-links"></div>
         </div>
       </div>
+      <div className="events-learn-more">
+        <EventsAbout />
+      </div>
       <div className="events-information-section">
-        <div className="about-div">
-          <EventsAbout />
-        </div>
         <div className="subscribe-div">
           <SubscribeSection />
         </div>
