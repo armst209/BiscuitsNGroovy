@@ -14,7 +14,7 @@ const ReleaseList = (props) => {
 
   return (
     <>
-      {props.releaseData.map((release) => {
+      {props.releaseData.library.map((release) => {
         //if release is disabled it just shows nft, if not full release and access to music player is allowed -
         if (release.isExpired === false) {
           return (

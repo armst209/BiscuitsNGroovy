@@ -10,13 +10,16 @@ const useAxiosFetch = (url, _options) => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(url, { signal: controller.signal });
+        const response = await fetch(url, _options, {
+          signal: controller.signal,
+        });
         if (!response.ok) {
           throw new Error(response.statusText);
         }
         const data = await response.json();
         setIsLoading(false);
         setResponseData(data);
+        console.log(responseData);
         setErrorMessage(null);
       } catch (error) {
         if (error.name === "AbortError") {
