@@ -1,39 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import env from "react-dotenv";
-import axios from "axios";
 import FPHomepage from "../../components/FanPortal/FPHomePage/FPHomePage";
 import "./CollectionStyles.scss";
 // import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
 // import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import NoReleases from "../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
 import ComponentLoading from "../../components/Loading/ComponentLoading";
+import useAxiosFetch from "../../customHooks/useAxiosFetch";
 
-function FanPortal() {
-  //Hooks
-  const [releaseData, setReleaseData] = useState(null);
+function Collection() {
+  const token = localStorage.getItem("token");
   const [showAlbumDetails] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    //token
-    const token = localStorage.getItem("token");
-
-    //Request for Library
-    axios({
-      method: "get",
-      url: `${env.BACKEND_URL}/library`,
-      headers: {
-        "x-access-token": token,
-      },
-    })
-      .then((res) => {
-        setReleaseData(res.data.library);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const {
+    responseData: releaseData,
+    isLoading,
+    errorMessage,
+  } = useAxiosFetch(`${env.BACKEND_URL}/library`, {
+    method: "GET",
+    headers: { "x-access-token": token },
+  });
 
   return (
     <section id="fan-portal">
@@ -60,8 +45,9 @@ function FanPortal() {
           <FPHomepage releaseData={releaseData} setTrigger={showAlbumDetails} />
         )
       )}
+      <div>{errorMessage}</div>
     </section>
   );
 }
 
-export default FanPortal;
+export default Collection;

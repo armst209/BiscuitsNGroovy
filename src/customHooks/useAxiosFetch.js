@@ -1,59 +1,40 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const useAxiosFetch = (method = "", url = "", data = {}, headers = {}) => {
+const useAxiosFetch = (url, _options) => {
   const [responseData, setResponseData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const options = useRef(_options).current;
   useEffect(() => {
-    // let unmounted = false;
-    // let source = axios.CancelToken.source().token;
-    // if (method === "get") {
-    getData();
-    // }
-    // if (method === "post") {
-    //   console.log("post hit");
-    // }
-
-    // return function () {
-    //   unmounted = true;
-    //   axios.CancelToken.source().cancel("Cancelling in cleanup");
-    // };
-  }, []);
-
-  const getData = async () => {
-    const config = {
-      method: method,
-      data: data,
-      headers: headers,
-      // cancelToken: source,
+    const controller = new AbortController();
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        setIsLoading(false);
+        setResponseData(data);
+        setErrorMessage(null);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.log("fetch was aborted");
+        } else {
+          setIsLoading(false);
+          setErrorMessage("Can't fetch data");
+          console.log(error.messsage);
+        }
+      }
     };
 
-    await axios(url, config)
-      .then((res) => {
-        // if (!unmounted) {
-        setResponseData(res.data);
-        // console.log(res.data);
-        setIsLoading(false);
-        setErrorMessage(null);
-        // }
-      })
-      .catch((err) => {
-        // if (!unmounted) {
-        console.log(err);
-        setErrorMessage(err.message);
-        // }
-        if (axios.isCancel(err)) {
-          console.log("Request canceled", err.message);
-        } else {
-          console.log("another error happened:" + err.message);
-        }
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
+    fetchData();
+
+    return () => {
+      controller.abort();
+    };
+  }, [url, options]);
 
   return { responseData, isLoading, errorMessage };
 };
