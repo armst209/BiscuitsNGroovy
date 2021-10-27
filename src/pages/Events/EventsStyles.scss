@@ -4,6 +4,10 @@
   padding-bottom: 3rem;
   position: relative;
 
+  @media screen and (max-width: 600px) {
+    padding-bottom: 7rem;
+  }
+
   .events-title {
     width: 100%;
     padding-top: 8rem;
@@ -59,6 +63,46 @@
       @media screen and (max-width: 950px) {
         flex-direction: column;
       }
+
+      .single-event-flyer {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 400px) {
+          padding: 0;
+          margin-bottom: 1rem;
+        }
+        img {
+          width: 50%;
+          border-radius: 0.5rem;
+          @media screen and (max-width: 700px) {
+            width: 80%;
+          }
+          @media screen and (max-width: 400px) {
+            width: 120%;
+            padding: 0;
+          }
+        }
+      }
+      .single-event-divider-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 0;
+        .single-event-divider {
+          width: 80%;
+          border: 1px solid var(--color1);
+        }
+      }
+
+      .second-divider {
+        @media screen and (min-width: 940px) {
+          display: none;
+        }
+      }
+
       .single-event-wrapper {
         display: flex;
         flex-direction: row;
@@ -78,21 +122,40 @@
             width: 100%;
             margin-right: 0;
           }
-          .single-event-header {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-top: 1rem;
-          }
+
           .single-event-logo {
             width: 200px;
             margin-bottom: 0.5rem;
           }
 
           .single-event-info {
-            padding: 1rem 0;
+            .single-event-description {
+              font-family: var(--font2);
+              font-weight: normal;
+
+              ul {
+                padding: 1rem 0;
+                li {
+                  margin-left: 5rem;
+                  color: var(--color1);
+                  list-style: disc;
+                  font-weight: normal;
+                  @media screen and (min-width: 940px) {
+                    margin-left: 2rem;
+                  }
+                  @media screen and (max-width: 700px) {
+                    margin-left: 2rem;
+                  }
+                  @media screen and (max-width: 400px) {
+                    margin-left: 1rem;
+                  }
+                }
+              }
+            }
             ul {
+              @media screen and (min-width: 940px) {
+                padding-top: 1rem;
+              }
               li {
                 list-style: none;
                 font-family: var(--font1);
@@ -138,6 +201,18 @@
           }
           .events-social-media {
             padding: 1rem;
+            .events-social-media-header {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 0.5rem 0;
+              h3 {
+                font-family: var(--font1);
+                font-weight: normal;
+                color: var(--color1);
+              }
+            }
             ul {
               display: flex;
               flex-direction: row;

@@ -11,7 +11,7 @@ import showcase from "../../assets/images/showcase_mobile.webp";
 
 import env from "react-dotenv";
 import ShowcaseList from "./ShowcaseList";
-import useAxiosFetch from "../../customHooks/useAxiosFetch";
+import useAxiosFetch from "../../customHooks/useFetch";
 
 function MusicShowcase(props) {
   //getting token
@@ -24,7 +24,6 @@ function MusicShowcase(props) {
     isLoading,
     errorMessage,
   } = useAxiosFetch(`${env.BACKEND_URL}/releases`, {
-    method: "GET",
     headers: { "x-access-token": token },
   });
 

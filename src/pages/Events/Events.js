@@ -1,5 +1,5 @@
 import "./EventsStyles.scss";
-import zevy_logo from "../../assets/images/event-images/zevylogo.png";
+import zevy_event from "../../assets/images/event-images/zevyevent.webp";
 import { HashLink } from "react-router-hash-link";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import EventTimer from "./EventTimer";
@@ -19,20 +19,54 @@ function Events() {
         </h1>
       </div>
       <div className="events-content">
-        <EventTimer expiryTimestamp={dateToEvent} />
         <div className="single-event">
+          <div className="single-event-flyer">
+            <img src={zevy_event} alt="zevy event flyer" />
+          </div>
+          <EventTimer expiryTimestamp={dateToEvent} />
+          <div className="single-event-divider-wrapper">
+            <hr className="single-event-divider"></hr>
+          </div>
+
           <div className="single-event-wrapper">
             <div className="single-event-content">
-              <h2>Biscuits n Groovy presents:</h2>
-              <div className="single-event-header">
-                <img
-                  className="single-event-logo"
-                  src={zevy_logo}
-                  alt="zevy logo"
-                />
-              </div>
-
               <div className="single-event-info">
+                <div className="single-event-description">
+                  <p>
+                    Biscuits n Groovy brings you ZEVY, one of the brightest
+                    young EDM DJs in the game, at 1001 Oakland Ave in the heart
+                    of Ann Arbor on November 6, 2021 for an exclusive tailgate
+                    concert. The show will begin promptly 3 hours prior to
+                    kickoff. Space is limited so fans will be let in on a first
+                    come first served bases. However, you may reserve your spot
+                    by grabbing a VIP ticket for just $10 on bngroovy.com and
+                    presenting it at the door.
+                  </p>
+                  <p>
+                    VIP access tickets ensure you get a spot at the show and get
+                    you exclusive perks including:
+                  </p>
+                  <ul>
+                    <li>Guaranteed admission to the event</li>
+                    <li>
+                      A raffle ticket to win a Biscuits n Groovy bucket hat
+                      signed by ZEVY himself
+                    </li>
+                    <li>
+                      Exclusive prerelease access to ZEVY’s brand new single,
+                      Green Eyes
+                    </li>
+                    <li>And more…</li>
+                  </ul>
+                  <p>
+                    Once you get your ticket, Tweet at us using the hashtag
+                    #BnGpresentsZEVY for a chance to win some exclusive merch
+                    and be featured on our socials!
+                  </p>
+                </div>
+                <div className="single-event-divider-wrapper second-divider">
+                  <hr className="single-event-divider"></hr>
+                </div>
                 <ul>
                   <li>
                     <span>DATE: </span> 11/6/2021
@@ -44,9 +78,6 @@ function Events() {
                   <li>
                     <span>LOCATION: </span>1001 Oakland Ave, Ann Arbor, MI
                   </li>
-
-                  <li>Special Sweepstakes coming soon</li>
-                  <li> Description:</li>
                 </ul>
               </div>
 
@@ -66,7 +97,10 @@ function Events() {
                   loading="lazy"
                 ></iframe>
               </div>
-              <EventsSocials />
+              <div className="single-event-divider-wrapper">
+                <hr className="single-event-divider"></hr>
+              </div>
+              <EventsSocials name={"Zevy"} />
             </div>
           </div>
 

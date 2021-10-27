@@ -6,7 +6,7 @@ import "./CollectionStyles.scss";
 // import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import NoReleases from "../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
 import ComponentLoading from "../../components/Loading/ComponentLoading";
-import useAxiosFetch from "../../customHooks/useAxiosFetch";
+import useFetch from "../../customHooks/useFetch";
 
 function Collection() {
   const token = localStorage.getItem("token");
@@ -15,8 +15,7 @@ function Collection() {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useAxiosFetch(`${env.BACKEND_URL}/library`, {
-    method: "GET",
+  } = useFetch(`${env.BACKEND_URL}/library`, {
     headers: { "x-access-token": token },
   });
 

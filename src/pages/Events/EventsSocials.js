@@ -1,6 +1,10 @@
-const EventsSocials = () => {
+const EventsSocials = ({ name }) => {
   return (
     <div className="events-social-media">
+      <div className="events-social-media-header">
+        <h3>Connect with {name}</h3>
+      </div>
+
       <ul>
         <li>
           <a
