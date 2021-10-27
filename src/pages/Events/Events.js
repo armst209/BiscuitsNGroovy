@@ -83,7 +83,7 @@ function Events() {
 
               <div className="artist-link">
                 <HashLink to="/home/#music-showcase">
-                  <button>VIP Tickets & Exclusive Release</button>
+                  <button>Buy Tickets</button>
                 </HashLink>
               </div>
             </div>
