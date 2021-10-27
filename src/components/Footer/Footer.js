@@ -1,7 +1,7 @@
 import { React } from "react";
 import { Link } from "react-router-dom";
 import SocialMedia from "../Social Media/SocialMedia";
-import footer_logo from "../../assets/images/bng_test.svg";
+import { ReactComponent as FooterLogo } from "../../assets/images/bng_test.svg";
 
 import "./FooterStyles.scss";
 
@@ -14,7 +14,7 @@ function Footer() {
     <section id="footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <img onClick={backToTop} src={footer_logo} alt="logo" />
+          <FooterLogo onClick={backToTop} />
         </div>
 
         <div className="footer-information">
@@ -22,7 +22,7 @@ function Footer() {
             <div className="footer-links">
               <ul>
                 <h4>Company</h4>
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/faq">FAQ</Link>
               </ul>
@@ -30,6 +30,7 @@ function Footer() {
               <ul>
                 <h4>Reach Out</h4>
                 <Link to="/artists">Artists</Link>
+                <Link to="/events">Events</Link>
                 <a href="mailto:support@bngroovy.com?subject=Support">
                   Support
                 </a>

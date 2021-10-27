@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import "./NFTBreakdownStyles.scss";
 import record_favorite from "../../assets/images/vinyl_yellow.svg";
 import record_header_icon from "../../assets/images/compact-disc-yellow.svg";
@@ -49,7 +50,8 @@ function NFTBreakdown() {
             <span>NFT (non-fungible token) - </span>a digital collectible whose
             ownership is recorded on the blockchain - aka a permanent,
             democratized database. Our NFTs are simple, secure, and
-            non-polluting. Learn more <Link to="/faq#NFTsExplained">here</Link>
+            non-polluting. Learn more{" "}
+            <HashLink to="/faq#nft-scroll-purchase">here</HashLink>
           </p>
         </div>
       </div>

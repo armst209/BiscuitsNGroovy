@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ArtistReminderStyles.scss";
 import "../Hero/HeroStyles.scss";
-
-import artist_icon from "../../assets/images/speaker_yellow.svg";
+import { ReactComponent as ArtistIcon } from "../../assets/images/speaker_yellow.svg";
 
 function ArtistReminder() {
   return (
@@ -12,13 +11,9 @@ function ArtistReminder() {
         <div className="artist-reminder">
           <div className="artist-message">
             <div className="artist-header">
-              <img src={artist_icon} alt="artist icon" />
+              <ArtistIcon />
               <h1>ATTENTION ARTISTS</h1>
-              <img
-                className="right-speaker"
-                src={artist_icon}
-                alt="artist icon"
-              />
+              <ArtistIcon className="right-speaker" />
             </div>
 
             <div className="tired-container">

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./LoginStyles.scss";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import logo from "../../assets/images/bng_test.svg";
-import login_arrow from "../../assets/images/login.svg";
-import login_loading from "../../assets/images/pulse_loader_black.svg";
-import warning from "../../assets/images/exclamation.svg";
+
+import { ReactComponent as Logo } from "../../assets/images/bng_test.svg";
+import { ReactComponent as LoginArrow } from "../../assets/images/login.svg";
+import { ReactComponent as LoginLoading } from "../../assets/images/pulse_loader_black.svg";
+import { ReactComponent as Warning } from "../../assets/images/exclamation.svg";
+
 import env from "react-dotenv";
 import { motion } from "framer-motion";
 
@@ -23,7 +24,7 @@ function Login(props) {
   const [loginStatus, setLoginStatus] = useState(
     <>
       <div>Login</div>
-      <img src={login_arrow} alt="arrow" />
+      <LoginArrow />
     </>
   );
 
@@ -32,39 +33,13 @@ function Login(props) {
     setLoginStatus(
       <>
         <div>Logging In...</div>
-        <img src={login_loading} alt="pulse loader" />
+        <LoginLoading />
       </>
     );
-    const handleSuccess = (res) => {
-      localStorage.setItem("token", res.data.token);
-      //timing out login redirect in case of hangup
-      setTimeout(() => {
-        window.location.replace(env.FRONTEND_URL + "/home");
-      }, 0);
-    };
-
-    const handleFailure = (err) => {
-      console.log(err);
-      setLoginStatus(
-        <>
-          <div>Login</div>
-          <img src={login_arrow} alt="arrow" />
-        </>
-      );
-      setInputClass("input-error");
-      setMessage(
-        <div className="error-message">
-          <img className="warning-icon" src={warning} alt="warning" /> Username
-          or Password is incorrect. Please try again.
-        </div>
-      );
-    };
-
-    const baseURL = env.BACKEND_URL;
 
     axios({
       method: "post",
-      url: `${baseURL}/login`,
+      url: `${env.BACKEND_URL}/login`,
       data: { username: username, password: password },
       loading: false,
     })
@@ -74,6 +49,28 @@ function Login(props) {
       .catch((err) => {
         handleFailure(err);
       });
+
+    const handleSuccess = (res) => {
+      localStorage.setItem("token", res.data.token);
+      window.location.replace(env.FRONTEND_URL + "/home");
+    };
+
+    const handleFailure = (err) => {
+      console.log(err);
+      setLoginStatus(
+        <>
+          <div>Login</div>
+          <LoginArrow />
+        </>
+      );
+      setInputClass("input-error");
+      setMessage(
+        <div className="error-message">
+          <Warning className="warning-icon" /> Username or Password is
+          incorrect. Please try again.
+        </div>
+      );
+    };
   };
 
   return (
@@ -99,7 +96,7 @@ function Login(props) {
               <div>X</div>
             </div>
             <div className="logo">
-              <img src={logo} alt="logo" />
+              <Logo />
             </div>
             <h2>Sign in to Biscuits n Groovy</h2>
 
@@ -144,7 +141,7 @@ function Login(props) {
                   <span className="signup-redirect">Create an account</span>
                 </span>
               </p>
-              <div className="forgot-password">
+              {/* <div className="forgot-password">
                 <Link
                   onClick={() => {
                     props.showLoginPopup(!props.loginPopup);
@@ -154,7 +151,7 @@ function Login(props) {
                 >
                   Forgot Password?
                 </Link>
-              </div>
+              </div> */}
               {message}
             </form>
           </div>

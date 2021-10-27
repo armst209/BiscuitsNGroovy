@@ -1,7 +1,8 @@
+import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { createBrowserHistory } from "history";
-import { wrapHistory } from "oaf-react-router";
+// import { createBrowserHistory } from "history";
+// import { wrapHistory } from "oaf-react-router";
 
 import App from "./App";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
@@ -20,12 +21,11 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 // env.FRONTEND_URL="load-balancer-bng-prod-477120553.us-east-1.elb.amazonaws.com"
 // env.BACKEND_URL="load-balancer-bng-prod-477120553.us-east-1.elb.amazonaws.com/api"
 
-const history = createBrowserHistory(); // or createHashHistory()
-wrapHistory(history);
+// const history = createBrowserHistory(); // or createHashHistory()
+// wrapHistory(history);
 
 ReactDOM.render(
-  //history={history}
-  <Router history={history}>
+  <Router>
     <ScrollToTop />
     <App />
   </Router>,

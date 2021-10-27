@@ -60,8 +60,8 @@ function PurchaseOfMusic() {
                     release window. BnG does not allow downloads. Any means of
                     recording or saving the music is prohibited, as stated in
                     our Terms of Service{" "}
-                    <Link to="/terms-of-service">
-                      www.bngroovy.com/terms-of-service
+                    <Link to="/subscriber-terms-of-service">
+                      www.bngroovy.com/subscriber-terms-of-service
                     </Link>
                   </li>
                 </ul>

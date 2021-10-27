@@ -1,7 +1,6 @@
 #faq {
   color: white;
   background-color: black;
-  // scroll-padding-top: 10rem;
 
   .faq-title {
     width: 100%;
@@ -9,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     h1 {
       display: flex;
       justify-content: center;
@@ -31,7 +31,9 @@
       @media screen and (max-width: 350px) {
         font-size: 2rem;
       }
-
+      div {
+        font-family: var(--font3);
+      }
       .spotlight-left {
         width: 50px;
         position: absolute;
@@ -120,7 +122,7 @@
     .answer-exit-active {
     }
 
-    .header-p {
+    .header-div {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -131,6 +133,10 @@
       margin-bottom: 10px;
       width: 100%;
       position: relative;
+      div {
+        width: 100%;
+        text-align: center;
+      }
 
       @media screen and (max-width: 768px) {
         font-size: 1.5rem;
@@ -153,7 +159,7 @@
         font-size: 1rem;
       }
 
-      p {
+      div {
         width: 100%;
 
         @media screen and (max-width: 500px) {
@@ -209,12 +215,16 @@
         width: 100%;
         font-weight: normal;
         margin-top: 3rem;
+
         @media screen and (max-width: 700px) {
           text-align: center;
         }
+        div {
+          font-family: var(--font1);
+          padding: 0;
+        }
       }
       #NFTsExplained {
-        font-family: var(--font1);
         color: white;
         text-align: center;
         width: 100%;
@@ -226,6 +236,10 @@
         font-weight: normal;
         border: 3px solid var(--color1);
         padding: 10px;
+        div {
+          font-family: var(--font1);
+          padding: 0;
+        }
         img {
           width: 50px;
           top: -20%;
@@ -236,8 +250,10 @@
       div {
         ul {
           li {
+            padding: 15px 0;
             list-style: none;
-            p {
+            div {
+              padding: 0;
               display: flex;
               flex-direction: row;
               justify-content: center;
@@ -248,7 +264,7 @@
                 font-size: 15px;
                 text-align: center;
               }
-              .p-image {
+              .div-image {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -266,10 +282,15 @@
                   width: 80%;
                 }
               }
-
-              .p-content {
+              .caring-important {
+                display: flex;
+                flex-direction: column;
+              }
+              .div-content {
                 width: 95%;
                 .caring-message {
+                  width: 100%;
+
                   font-weight: bold;
                   font-size: 25px;
                   padding-bottom: 10px;
@@ -342,19 +363,29 @@
     align-items: center;
     font-weight: bolder;
     font-size: 20px;
-    font-family: var(--font1);
     width: 100%;
     color: white;
     background-color: black;
     padding: 5px;
     border: 5px solid var(--color2);
     border-radius: 0.5rem;
-    font-weight: normal;
+    font-weight: 400;
     margin-bottom: 10px;
     cursor: pointer;
     &:hover {
       transition: 0.2s ease;
       transform: scale(1.03);
+    }
+    div {
+      font-family: var(--font1);
+      padding: 0;
+      @media (min-width: 768px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 300px) {
+        font-size: 15px;
+      }
     }
 
     .dropdown {
@@ -371,18 +402,9 @@
     .icon_rotate {
       transform: rotateZ(180deg);
     }
-
-    @media (min-width: 768px) {
-      font-size: 30px;
-    }
-
-    @media (max-width: 300px) {
-      font-size: 15px;
-    }
   }
-  p {
+  div {
     padding: 15px 0;
     font-family: var(--font2);
-    //   font-weight: bold;
   }
 }

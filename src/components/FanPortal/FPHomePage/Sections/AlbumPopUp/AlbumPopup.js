@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "./AlbumPopupStyles.scss";
+import { ReactComponent as ArrowBack } from "../../../../../assets/images/arrow-back-yellow.svg";
 import MusicPlayer from "../../../../MusicPlayer/MusicPlayer.js";
-import arrow_back from "../../../../../assets/images/arrow-back-yellow.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
 
@@ -28,6 +28,7 @@ function AlbumPopup(props) {
     let showReleaseTrackList = songsArray.map((element, order) => {
       return element ? (
         <li
+          key={`li-albumpopup-tracklist-key-for-${element.title}`}
           onClick={() => {
             setCurrentMusicIndex(songsArray.indexOf(element));
           }}
@@ -35,7 +36,7 @@ function AlbumPopup(props) {
           {`${order + 1}. ${element.title}`}
         </li>
       ) : (
-        <ComponentLoading />
+        <ComponentLoading key={`component-loading-key-for${element.title}`} />
       );
     });
     //passing in songsArray map as a parameter for hook
@@ -81,7 +82,7 @@ function AlbumPopup(props) {
         </div>
         {/* function call to close pop up */}
         <div onClick={handleClose} className="close-album-info">
-          <img className="back-arrow" src={arrow_back} alt="arrow" /> X
+          <ArrowBack className="back-arrow" />X
         </div>
       </div>
       <div className="music-player">

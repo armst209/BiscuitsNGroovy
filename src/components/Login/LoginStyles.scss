@@ -134,7 +134,14 @@
         }
         .logo {
           width: 40%;
-          padding: 0.5rem;
+          padding: 1rem;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          svg {
+            height: auto;
+          }
         }
 
         .close-btn-login {
@@ -213,7 +220,7 @@
               box-shadow: var(--shadow-large);
               cursor: pointer;
               transition: all 0.2s ease;
-              img {
+              svg {
                 position: absolute;
                 width: 10%;
                 right: 5%;
