@@ -132,7 +132,11 @@
             .single-event-description {
               font-family: var(--font2);
               font-weight: normal;
-
+              strong {
+                font-family: var(--font1);
+                font-weight: normal;
+                color: var(--color1);
+              }
               ul {
                 padding: 1rem 0;
                 li {

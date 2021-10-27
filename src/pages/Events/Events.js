@@ -60,8 +60,8 @@ function Events() {
                   </ul>
                   <p>
                     Once you get your ticket, Tweet at us using the hashtag
-                    #BnGpresentsZEVY for a chance to win some exclusive merch
-                    and be featured on our socials!
+                    <strong> #BnGpresentsZEVY</strong> for a chance to win some
+                    exclusive merch and be featured on our socials!
                   </p>
                 </div>
                 <div className="single-event-divider-wrapper second-divider">
