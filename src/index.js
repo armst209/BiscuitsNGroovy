@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import { wrapHistory } from "oaf-react-router";
 
 import App from "./App";
-import ScrollToTop from "./Routes/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 //DEV/LOCAL ENV
 // env.REACT_APP_ACCESS_NODE="https://access-testnet.onflow.org"
