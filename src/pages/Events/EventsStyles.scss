@@ -93,7 +93,10 @@
         margin: 1rem 0;
         .single-event-divider {
           width: 80%;
-          border: 1px solid var(--color1);
+          border-top: 1px solid var(--color1);
+          border-right: 0;
+          border-left: 0;
+          border-bottom: 0;
         }
       }
 
@@ -132,6 +135,10 @@
             .single-event-description {
               font-family: var(--font2);
               font-weight: normal;
+
+              p:nth-child(2) {
+                padding-top: 1rem;
+              }
               strong {
                 font-family: var(--font1);
                 font-weight: normal;
@@ -156,6 +163,7 @@
                 }
               }
             }
+
             ul {
               @media screen and (min-width: 940px) {
                 padding-top: 1rem;
