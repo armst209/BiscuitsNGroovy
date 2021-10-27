@@ -6,6 +6,7 @@ import { ReactComponent as Logo } from "../../assets/images/bng_test.svg";
 import { ReactComponent as LoginArrow } from "../../assets/images/login.svg";
 import { ReactComponent as LoginLoading } from "../../assets/images/pulse_loader_black.svg";
 import { ReactComponent as Warning } from "../../assets/images/exclamation.svg";
+
 import env from "react-dotenv";
 import { motion } from "framer-motion";
 
@@ -51,10 +52,7 @@ function Login(props) {
 
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
-      //timing out login redirect in case of hangup
-      setTimeout(() => {
-        window.location.replace(env.FRONTEND_URL + "/home");
-      }, 0);
+      window.location.replace(env.FRONTEND_URL + "/home");
     };
 
     const handleFailure = (err) => {
