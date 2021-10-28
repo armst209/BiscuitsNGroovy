@@ -71,6 +71,7 @@ function App(props) {
       />
 
       {/* <Router routes={routes} /> */}
+
       <Footer />
       {stripeLoader}
     </div>

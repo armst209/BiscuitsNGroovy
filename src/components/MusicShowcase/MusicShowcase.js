@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 // import axios from "axios";
 import ComponentLoading from "../Loading/ComponentLoading";
@@ -11,7 +11,7 @@ import showcase from "../../assets/images/showcase_mobile.webp";
 
 import env from "react-dotenv";
 import ShowcaseList from "./ShowcaseList";
-import useAxiosFetch from "../../customHooks/useFetch";
+import useFetch from "../../customHooks/useFetch";
 
 function MusicShowcase(props) {
   //getting token
@@ -23,15 +23,15 @@ function MusicShowcase(props) {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useAxiosFetch(`${env.BACKEND_URL}/releases`, {
+  } = useFetch(`${env.BACKEND_URL}/releases`, {
     headers: { "x-access-token": token },
   });
 
   return (
     <section id="music-showcase">
+      {/* ======SVGs====== */}
       <SpotLightYellowLeft className="spotlight-top-left" />
       <SpotLightYellowRight className="spotlight-top-right" />
-
       <div className="music-showcase-container">
         <div className="content-container">
           <h1>MUSIC SHOWCASE</h1>

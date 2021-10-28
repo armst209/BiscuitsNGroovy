@@ -1,0 +1,83 @@
+#fan-portal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: white;
+  background: black;
+  .portal-title {
+    width: 100%;
+    padding-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--font3);
+      letter-spacing: 0.1cm;
+      font-weight: normal;
+      color: white;
+      background-color: transparent;
+      padding: 1rem;
+      border: 3px solid var(--color1);
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      text-align: center;
+      font-size: 3rem;
+      position: relative;
+      @media screen and (max-width: 500px) {
+        flex-direction: column-reverse;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 2rem;
+      }
+
+      .spotlight-left {
+        width: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
+      }
+      .spotlight-right {
+        width: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
+      }
+      img {
+        @media screen and (max-width: 500px) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .portal-content-wrapper {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .side-nav-bar {
+      background: var(--bg-color);
+      color: white;
+      display: flex;
+      width: 15%;
+      position: sticky;
+      height: 100vh;
+    }
+  }
+
+  .fanportal-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}

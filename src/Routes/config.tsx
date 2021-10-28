@@ -74,7 +74,7 @@ const routes:IRoute[] = [
       },
       {
         path: "/collection",
-        component: lazy(()=>import("../pages/Collection/Collection")),
+        component: lazy(()=>import("../components/TestCollection/TestCollection")),
         key: "COLLECTION_PAGE",
         exact: true,
         private:true,
