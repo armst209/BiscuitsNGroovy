@@ -105,6 +105,11 @@
           display: none;
         }
       }
+      .third-divider {
+        @media screen and (min-width: 940px) {
+          display: none;
+        }
+      }
 
       .single-event-wrapper {
         display: flex;
@@ -146,6 +151,30 @@
               }
               ul {
                 padding: 1rem 0;
+                .indented-li {
+                  font-size: 0.9rem;
+
+                  list-style-type: square;
+                  margin-left: 4rem;
+                  @media screen and (max-width: 940px) {
+                    margin-left: 6rem;
+                  }
+                  @media screen and (max-width: 700px) {
+                    margin-left: 3rem;
+                  }
+                  @media screen and (max-width: 400px) {
+                    margin-left: 2rem;
+                  }
+                  a {
+                    text-decoration: none;
+                    font-family: var(--font2);
+                    font-weight: bold;
+                    color: var(--color2);
+                    &:visited {
+                      color: var(--color2);
+                    }
+                  }
+                }
                 li {
                   margin-left: 5rem;
                   color: var(--color1);
@@ -275,6 +304,18 @@
 
         @media screen and (max-width: 550px) {
           width: 100%;
+        }
+
+        .artist-link-footer {
+          text-align: center;
+          font-size: 0.9rem;
+          a {
+            color: var(--color2);
+            font-weight: bold;
+            &:visited {
+              color: var(--color2);
+            }
+          }
         }
         button {
           border: 3px solid var(--color1);

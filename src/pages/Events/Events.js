@@ -1,6 +1,7 @@
 import "./EventsStyles.scss";
 import zevy_event from "../../assets/images/event-images/zevyevent.webp";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import EventTimer from "./EventTimer";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
@@ -39,24 +40,24 @@ function Events() {
                     concert. The show will begin promptly 3 hours prior to
                     kickoff. Space is limited so fans will be let in on a first
                     come first served basis. However, you may reserve your spot
-                    by grabbing a VIP ticket for just $10 on bngroovy.com and
-                    presenting it at the door.
+                    by grabbing a VIP ticket for just $10 and presenting it at
+                    the door.
                   </p>
-                  <p>
-                    VIP access tickets ensure you get a spot at the show and get
-                    you exclusive perks including:
-                  </p>
+                  <p>VIP tickets include the following perks:</p>
                   <ul>
-                    <li>Guaranteed admission to the event</li>
                     <li>
-                      A raffle ticket to win a Biscuits n Groovy bucket hat
-                      signed by ZEVY himself
+                      An exclusive audio snippet of ZEVY’s brand new single,
+                      “Green Eyes”
                     </li>
                     <li>
-                      Exclusive prerelease access to ZEVY’s brand new single,
-                      Green Eyes
+                      A free prerelease copy of “Green Eyes” when it drops on
+                      November 12
                     </li>
-                    <li>And more…</li>
+                    <li className="indented-li">
+                      Each BnG release includes exclusive streaming access and a
+                      collectible album cover. Read more{" "}
+                      <Link to="/faq">here</Link>.
+                    </li>
                   </ul>
                   <p>
                     Once you get your ticket, Tweet at us using the hashtag
@@ -72,20 +73,31 @@ function Events() {
                     <span>DATE: </span> 11/6/2021
                   </li>
                   <li>
-                    <span>TIME: </span> Concert will begin 3 hours prior to
-                    kickoff
+                    <span>TIME: </span>3 hours before kickoff, time TBA
                   </li>
                   <li>
-                    <span>LOCATION: </span>1001 Oakland Ave, Ann Arbor, MI
+                    <span>LOCATION: </span>1001 Oakland Ave, Ann Arbor, MI 48104
                   </li>
                 </ul>
               </div>
 
               <div className="artist-link">
                 <HashLink to="/home/#music-showcase">
-                  <button>Buy Tickets</button>
+                  <button>Get My VIP Ticket</button>
                 </HashLink>
+                <p className="artist-link-footer">
+                  Limited to 1 ticket per customer. You will be prompted to
+                  create a BnG account in order to claim your ticket, which is
+                  backed by an{" "}
+                  <HashLink to="/faq#nft-scroll-purchase">
+                    eco-friendly NFT
+                  </HashLink>
+                  .
+                </p>
               </div>
+            </div>
+            <div className="single-event-divider-wrapper third-divider">
+              <hr className="single-event-divider"></hr>
             </div>
             <div className="events-map-socials-wrapper">
               <div className="single-event-map">
@@ -100,7 +112,7 @@ function Events() {
               <div className="single-event-divider-wrapper">
                 <hr className="single-event-divider"></hr>
               </div>
-              <EventsSocials name={"Zevy"} />
+              <EventsSocials name={"ZEVY"} />
             </div>
           </div>
 
