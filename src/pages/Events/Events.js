@@ -38,7 +38,7 @@ function Events() {
                     of Ann Arbor on November 6, 2021 for an exclusive tailgate
                     concert. The show will begin promptly 3 hours prior to
                     kickoff. Space is limited so fans will be let in on a first
-                    come first served bases. However, you may reserve your spot
+                    come first served basis. However, you may reserve your spot
                     by grabbing a VIP ticket for just $10 on bngroovy.com and
                     presenting it at the door.
                   </p>
