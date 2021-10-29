@@ -19,9 +19,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       onValidated({
         MERGE0: email,
       });
-    setTimeout(() => {
-      clearFields();
-    }, 2000);
+   
   };
 
   return (
