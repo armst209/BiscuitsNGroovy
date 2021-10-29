@@ -6,8 +6,8 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Footer from "./components/Footer/Footer";
 //router
-// import routes from "./Routes/config.tsx";
-// import Router from "./Routes/Router.tsx";
+import routes from "./Routes/config.tsx";
+import Router from "./Routes/Router.tsx";
 
 //for social media icons
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
@@ -57,7 +57,7 @@ function App(props) {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
-      <OldRoutes
+      {/* <OldRoutes
         loginPopup={loginPopup}
         showLoginPopup={showLoginPopup}
         signUpPopup={signUpPopup}
@@ -68,9 +68,9 @@ function App(props) {
         setStripeLoader={setStripeLoader}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
-      />
+      /> */}
 
-      {/* <Router routes={routes} /> */}
+      <Router routes={routes} />
 
       <Footer />
       {stripeLoader}

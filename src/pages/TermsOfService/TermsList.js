@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./TermsListStyles.scss";
 import open_book from "../../assets/images/open-book.svg";
 
-function TermsList() {
+function TermsList(props) {
   return (
     <section>
       <div className="term-link-wrapper">
@@ -14,7 +13,7 @@ function TermsList() {
           <div className="list-container">
             <ul>
               <li>
-                <Link to="/privacy-policy">Privacy Policy</Link>
+                <Link to={`/privacy-policy`}>Privacy Policy</Link>
               </li>
               <li>
                 <Link to="/subscriber-terms-of-service">Terms Of Service</Link>

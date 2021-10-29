@@ -1,15 +1,14 @@
 #hero-test {
+  // background-image: url("../../assets/images/hero-background.webp");
   display: block;
-  background-image: url("../../assets/images/hero-background.webp");
   background-color: none;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-color: black;
   border-bottom: 3px solid var(--color1);
-  position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
 
   @media screen and (max-width: 1140px) {
     background-image: none;
@@ -17,27 +16,25 @@
 
   @media screen and (max-width: 550px) {
     background-color: black;
-    // height: 100vh;
   }
   .hero-nav-spacer {
+    display: block;
     height: 70px;
-    width: 100px;
+    width: 100%;
   }
 
   .hero-section-test {
     display: block;
     width: 100%;
-
+    height: 100vh;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     align-items: center;
-    padding: 25px 50px;
     color: white;
     position: relative;
 
     @media screen and (max-width: 1140px) {
-      padding: 50px;
-    }
-    @media screen and (max-width: 1140px) {
-      padding: 50px 25px;
+      padding: 0 25px 50px 25px;
     }
     @media screen and (max-width: 450px) {
       padding: 25px 1rem;
@@ -45,12 +42,21 @@
 
     .hero-section-outer-wrapper-test {
       display: block;
+      width: 100%;
+      height: 100%;
+      padding: 25px 2rem 0 2rem;
+
+      @media screen and (max-width: 650px) {
+        padding: 0;
+      }
 
       .hero-content-middle-wrapper-test {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
+        width: 100%;
+
         .hero-section-inner-wrapper-test {
           width: 100%;
           height: 100%;
@@ -62,27 +68,28 @@
             flex-direction: column;
           }
           .hero-test-text {
+            height: 100%;
             width: 50%;
-            @media screen and (max-width: 1400px) {
-              padding-top: 7rem;
-            }
+            border: 5px solid var(--color2);
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+
             @media screen and (max-width: 1200px) {
               padding-top: 4rem;
             }
 
             @media screen and (max-width: 1140px) {
               width: 100%;
-              padding-top: 0;
             }
 
             h1 {
-              color: black;
-
+              color: white;
               font-family: var(--font3);
               letter-spacing: 0.1cm;
-              line-height: 6rem;
+              line-height: 5rem;
               margin-bottom: 1rem;
-              font-size: 120px;
+              font-size: 90px;
               @media screen and (max-width: 1400px) {
                 font-size: 100px;
                 margin-bottom: 0;
@@ -98,6 +105,9 @@
                 color: white;
                 text-align: center;
                 text-shadow: 5px 5px 8px black;
+              }
+              @media screen and (max-width: 650px) {
+                font-size: 80px;
               }
               @media screen and (max-width: 550px) {
                 text-align: left;
@@ -125,9 +135,9 @@
           }
           .hero-test-subtitle {
             font-family: var(--font2);
-            font-weight: bold;
+            font-weight: normal;
             font-size: 1.5rem;
-            color: black;
+            color: white;
             padding-right: 10rem;
             @media screen and (max-width: 1400px) {
               font-size: 1.3rem;
@@ -161,12 +171,11 @@
           .hero-test-buttons {
             display: flex;
             flex-direction: row;
-            justify-content: left;
+            justify-content: center;
             align-items: center;
-            margin: 1rem 0;
 
-            @media screen and (max-width: 1140px) {
-              justify-content: center;
+            @media screen and (max-width: 600px) {
+              align-items: center;
               flex-direction: column;
               margin: 0;
               position: relative;
@@ -181,8 +190,8 @@
             }
 
             button {
-              width: 300px;
-              height: 100px;
+              width: 250px;
+              height: 90px;
               transition: all 0.2s ease;
               padding: 0.5rem;
               @media screen and (max-width: 1200px) {
@@ -259,6 +268,8 @@
             }
           }
           .hero-test-image {
+            width: 50%;
+            height: 110%;
             @media screen and (max-width: 1140px) {
               display: none;
             }
@@ -269,11 +280,10 @@
   }
   .hero-image {
     position: absolute;
+    width: auto;
     bottom: 0;
-    right: 10%;
+    right: 0;
     height: 100%;
-    @media screen and (max-width: 1400px) {
-    }
 
     @media screen and (max-width: 1300px) {
       bottom: 0;

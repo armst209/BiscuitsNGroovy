@@ -1,5 +1,6 @@
 import "./EventsStyles.scss";
 import zevy_event from "../../assets/images/event-images/zevyevent.webp";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import EventTimer from "./EventTimer";
@@ -49,14 +50,20 @@ function Events() {
                   <ul>
                     <li>Guaranteed admission to the event</li>
                     <li>
-                      A raffle ticket to win a Biscuits n Groovy bucket hat
-                      signed by ZEVY himself
+                      A raffle ticket to win a BnG bucket hat signed by ZEVY
                     </li>
                     <li>
-                      Exclusive prerelease access to ZEVY’s brand new single,
-                      Green Eyes
+                      An exclusive audio snippet of ZEVY’s brand new single,
+                      “Green Eyes”
                     </li>
-                    <li>And more…</li>
+                    <li>
+                      A free copy of “Green Eyes” when it drops on November 12th
+                    </li>
+                    <li className="indented-li">
+                      Each BnG release includes exclusive streaming access and a
+                      collectible album cover. Read more{" "}
+                      <Link to="/faq">here</Link>.
+                    </li>
                   </ul>
                   <p>
                     Once you get your ticket, Tweet at us using the hashtag

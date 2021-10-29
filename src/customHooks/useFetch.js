@@ -24,10 +24,11 @@ const useFetch = (url, _options) => {
         setIsLoading(false);
         setResponseData(data);
         setErrorMessage(null);
+        console.log(isLoading);
       } catch (error) {
         if (error.name === "AbortError") {
           //for testing fetch abort and component unmounts
-          //console.log("fetch was aborted");
+          // console.log("fetch was aborted");
         } else {
           setIsLoading(false);
           setErrorMessage("Can't fetch data");
@@ -41,7 +42,7 @@ const useFetch = (url, _options) => {
     return () => {
       abortController.abort();
     };
-  }, [url, options]);
+  }, []);
 
   return { responseData, isLoading, errorMessage };
 };

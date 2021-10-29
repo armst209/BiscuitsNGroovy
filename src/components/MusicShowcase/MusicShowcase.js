@@ -1,12 +1,8 @@
 import { useState, useMemo } from "react";
-
-// import axios from "axios";
 import ComponentLoading from "../Loading/ComponentLoading";
-// import ReleasePreview from "../ReleasePreview/ReleasePreview";
 import "./MusicShowcaseStyles.scss";
 import { ReactComponent as SpotLightYellowLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotLightYellowRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
-
 import showcase from "../../assets/images/showcase_mobile.webp";
 
 import env from "react-dotenv";
@@ -32,6 +28,7 @@ function MusicShowcase(props) {
       {/* ======SVGs====== */}
       <SpotLightYellowLeft className="spotlight-top-left" />
       <SpotLightYellowRight className="spotlight-top-right" />
+      {/* ======SVGs====== */}
       <div className="music-showcase-container">
         <div className="content-container">
           <h1>MUSIC SHOWCASE</h1>
@@ -43,6 +40,7 @@ function MusicShowcase(props) {
             <div className="showcase-image"></div>
 
             <div className="showcase-grid-desktop">
+              {/* ShowcaseList - child component takes in releaseData as a prop an displays releases */}
               {isLoading && <ComponentLoading />}
               {releaseData && (
                 <ShowcaseList
@@ -61,7 +59,7 @@ function MusicShowcase(props) {
       </div>
       {releaseInfo}
       <div className="bottom-image-container">
-        <img className="bottom-image" src={showcase} alt="" />
+        <img className="bottom-image" src={showcase} alt="microphone" />
       </div>
     </section>
   );

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import hero_image from "../../assets/images/hero.webp";
-import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.webp";
-import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-left.webp";
+// import hero_image_mobile from "../../assets/images/compact-disc-yellow-half.webp";
+// import hero_image_mobile_bottom_left from "../../assets/images/compact-disc-mobile-bottom-left.webp";
 import "./HeroStyles.scss";
 
 function TestHero() {
@@ -39,14 +39,15 @@ function TestHero() {
                     </Link>
                   </div>
                 </section>
-                <section className="hero-test-image"></section>
+                <section className="hero-test-image">
+                  <img className="hero-image" src={hero_image} alt="hero" />
+                </section>
               </div>
             </div>
           </div>
         </div>
 
-        <img className="hero-image" src={hero_image} alt="hero" />
-        <img
+        {/* <img
           className="hero-image-mobile"
           src={hero_image_mobile}
           alt="hero mobile"
@@ -55,7 +56,7 @@ function TestHero() {
           className="hero-image-mobile-bottom-left"
           src={hero_image_mobile_bottom_left}
           alt="hero mobile"
-        />
+        /> */}
       </section>
     </>
   );

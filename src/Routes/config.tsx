@@ -1,5 +1,6 @@
 
 import { ComponentType, lazy, LazyExoticComponent, ReactNode } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import Loading from '../components/Loading/Loading';
 
 export interface IRoute {
@@ -74,7 +75,7 @@ const routes:IRoute[] = [
       },
       {
         path: "/collection",
-        component: lazy(()=>import("../components/TestCollection/TestCollection")),
+        component: lazy(()=>import("../pages/Collection/Collection")),
         key: "COLLECTION_PAGE",
         exact: true,
         private:true,
@@ -96,7 +97,8 @@ const routes:IRoute[] = [
         key: "TERMS_PAGE",
         exact:true,
         private:false,
-        fallback:<Loading/>
+        fallback:<Loading/>,
+     
       },
       {
         path: "/privacy-policy",
