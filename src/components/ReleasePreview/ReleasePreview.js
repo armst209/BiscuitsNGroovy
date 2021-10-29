@@ -87,6 +87,7 @@ function ReleasePreview(props) {
             </div>
           </CSSTransition>
         </div>
+        <div className="release-exit-text">Click anywhere to exit</div>
       </div>
     </section>
   );
