@@ -45,13 +45,16 @@ function Events() {
                   </p>
                   <p>VIP tickets include the following perks:</p>
                   <ul>
+                    <li>Guaranteed admission to the event</li>
+                    <li>
+                      A raffle ticket to win a BnG bucket hat signed by ZEVY
+                    </li>
                     <li>
                       An exclusive audio snippet of ZEVY’s brand new single,
                       “Green Eyes”
                     </li>
                     <li>
-                      A free prerelease copy of “Green Eyes” when it drops on
-                      November 12
+                      A free copy of “Green Eyes” when it drops on November 12
                     </li>
                     <li className="indented-li">
                       Each BnG release includes exclusive streaming access and a
