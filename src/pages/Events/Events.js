@@ -54,7 +54,7 @@ function Events() {
                       “Green Eyes”
                     </li>
                     <li>
-                      A free copy of “Green Eyes” when it drops on November 12
+                      A free copy of “Green Eyes” when it drops on November 12th
                     </li>
                     <li className="indented-li">
                       Each BnG release includes exclusive streaming access and a
