@@ -76,7 +76,7 @@ function Events() {
                     <span>DATE: </span> 11/6/2021
                   </li>
                   <li>
-                    <span>TIME: </span>3 hours before kickoff, time TBA
+                    <span>TIME: </span>4PM
                   </li>
                   <li>
                     <span>LOCATION: </span>1001 Oakland Ave, Ann Arbor, MI 48104
