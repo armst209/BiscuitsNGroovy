@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 const ReleaseImage = ({ releaseImageSrc, releaseAlt }) => {
   return (
     <>
-      <img className="release-image" src={releaseImageSrc} alt={releaseAlt} />
+      <img
+        className="release-card-image"
+        src={releaseImageSrc}
+        alt={releaseAlt}
+      />
     </>
   );
 };

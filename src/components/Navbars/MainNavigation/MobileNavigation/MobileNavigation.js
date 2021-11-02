@@ -4,9 +4,9 @@ import "./MobileNavigationStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 const MobileNavigation = () => {
+  const token = localStorage.getItem("token");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const [isLoggedInMobile, setIsLoggedInMobile] = useState("");
   const [signUpClassName, setSignUpClassName] = useState("signup-link");
 
   const [scrolledHamburgerClass, setScrolledHamburgerClass] =
@@ -14,80 +14,113 @@ const MobileNavigation = () => {
 
   return (
     <>
-      <div className="mobile-logo-container">
-        <Link className="mobile-logo-link" to="/">
-          <img src={MainHeaderLogoMobile} alt="logo" />
-        </Link>
-      </div>
       {/* Hamburger */}
-      <div
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-        className="mobile-navigation"
-      >
-        <SettingsHamburgerIcon className={scrolledHamburgerClass} />
-        <p>MENU</p>
+      <div id="mobile-navigation">
+        <div className="mobile-navigation-logo-container">
+          <Link className="mobile-navigation-logo-link" to="/">
+            <img src={MainHeaderLogoMobile} alt="logo" />
+          </Link>
+        </div>
+        <div
+          className="mobile-navigation-hamburger-wrapper"
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+        >
+          <SettingsHamburgerIcon className="mobile-navigation-settings-icon" />
+          <p>MENU</p>
+        </div>
       </div>
       {/* Mobile Navigation */}
       {showMobileMenu && (
         <aside className="mobile-navigation-aside">
+          <div className="mobile-navigation-aside-top">
+            <div>IMAGE</div>
+            <div
+              className="aside-top-close"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            >
+              X
+            </div>
+          </div>
           <ul>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              activeStyle={{
-                textDecoration: "underline 5px solid var(--color2)",
-              }}
-              exact
-              to="/"
-            >
-              <li>Home</li>
-            </NavLink>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              activeStyle={{
-                textDecoration: "underline 5px solid var(--color2)",
-              }}
-              to="/about"
-            >
-              <li>About</li>
-            </NavLink>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              activeStyle={{
-                textDecoration: "underline 5px solid var(--color2)",
-              }}
-              to="/faq"
-            >
-              <li>FAQ</li>
-            </NavLink>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              activeStyle={{
-                textDecoration: "underline 5px solid var(--color2)",
-              }}
-              to="/artists"
-            >
-              <li>Artists</li>
-            </NavLink>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              activeStyle={{
-                textDecoration: "underline 5px solid var(--color2)",
-              }}
-              to="/events"
-            >
-              <li>Events</li>
-            </NavLink>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              to="/signup"
-            >
-              <li className={`${signUpClassName}`}>
-                <button className="signup-btn-nothome">
-                  Sign Up
-                  {/* <img src={write} className="signup-icon" alt="signup icon" /> */}
-                </button>
-              </li>
-            </NavLink>
+            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <NavLink
+                activeStyle={{
+                  textDecoration: "underline 5px solid var(--color2)",
+                }}
+                exact
+                to="/"
+              >
+                Home
+              </NavLink>
+            </li>
+
+            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <NavLink
+                activeStyle={{
+                  textDecoration: "underline 5px solid var(--color2)",
+                }}
+                to="/about"
+              >
+                About
+              </NavLink>
+            </li>
+
+            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <NavLink
+                activeStyle={{
+                  textDecoration: "underline 5px solid var(--color2)",
+                }}
+                to="/faq"
+              >
+                FAQ
+              </NavLink>
+            </li>
+
+            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <NavLink
+                activeStyle={{
+                  textDecoration: "underline 5px solid var(--color2)",
+                }}
+                to="/artists"
+              >
+                Artists
+              </NavLink>
+            </li>
+
+            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <NavLink
+                activeStyle={{
+                  textDecoration: "underline 5px solid var(--color2)",
+                }}
+                to="/events"
+              >
+                Events
+              </NavLink>
+            </li>
+
+            {!token ? (
+              <>
+                <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                  <NavLink
+                    activeStyle={{
+                      textDecoration: "underline 5px solid var(--color2)",
+                    }}
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+
+                <li className="signup-li">
+                  <button onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    <NavLink to="/signup">Sign Up</NavLink>
+                    {/* <img src={write} className="signup-icon" alt="signup icon" /> */}
+                  </button>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
           </ul>
         </aside>
       )}

@@ -1,4 +1,3 @@
-import { useState, useMemo } from "react";
 import "./MusicShowcaseStyles.scss";
 import ReleaseList from "./ReleaseList/ReleaseList";
 import ComponentLoading from "../Loading/ComponentLoading";
@@ -7,6 +6,7 @@ import useFetch from "../../customHooks/Fetch/useFetch";
 import { ReactComponent as SpotLightYellowLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotLightYellowRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
 import showcase from "../../assets/images/showcase_mobile.webp";
+import NoReleasesMusicShowcase from "./ReleaseList/NoReleases/NoReleasesMusicShowcase";
 
 const MusicShowcase = () => {
   //TOKEN
@@ -26,23 +26,35 @@ const MusicShowcase = () => {
       <SpotLightYellowRight className="spotlight-top-right" />
       {/* ======SVGs====== */}
       <div className="music-showcase-container">
-        <div className="content-container">
+        <div className="music-showcase-content-container">
           <h1>MUSIC SHOWCASE</h1>
-          <p className="show-case-p">
+          <p className="music-showcase-sub-title">
             Browse our current and upcoming releases. Click on a title for more
             details
           </p>
-          <div className="content-wrapper">
-            <div className="showcase-grid-desktop">
+          <div className="music-showcase-content-wrapper ">
+            <div className="music-showcase-grid">
               {isLoading && <ComponentLoading />}
-              {releaseData && <ReleaseList releaseData={releaseData} />}
-              <div>{errorMessage}</div>
+              {errorMessage === null ? (
+                releaseData && (
+                  <ReleaseList
+                    releaseData={releaseData.releases}
+                    noReleaseDataComponent={<NoReleasesMusicShowcase />}
+                  />
+                )
+              ) : (
+                <div>{errorMessage}</div>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <div className="bottom-image-container">
-        <img className="bottom-image" src={showcase} alt="microphone" />
+      <div className="music-showcase-bottom-image-container">
+        <img
+          className="music-showcase-bottom-image"
+          src={showcase}
+          alt="microphone"
+        />
       </div>
     </section>
   );

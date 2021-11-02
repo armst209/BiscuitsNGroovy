@@ -4,8 +4,7 @@
   width: 100%;
   color: white;
   background: black;
-
-  .portal-title {
+  .collection-title {
     width: 100%;
     padding-top: 3rem;
     display: flex;
@@ -61,24 +60,40 @@
     }
   }
 
-  .portal-content-wrapper {
-    padding-top: 70px;
-    display: flex;
-    flex-direction: row;
+  .collection-container {
     width: 100%;
-    .side-nav-bar {
-      background: var(--bg-color);
-      color: white;
-      display: flex;
-      width: 15%;
-      position: sticky;
-      height: 100vh;
-    }
-  }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
 
-  .fanportal-content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+    .collection-library-grid-wrapper {
+      border: 5px solid var(--color2);
+      border-radius: 20px;
+      margin: 3rem 1rem;
+      padding: 1rem;
+      width: 100%;
+      @media screen and (max-width: 400px) {
+        border: none;
+        padding: 0;
+      }
+      .collection-library-grid {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        height: auto;
+        background-color: black;
+
+        @media screen and (max-width: 1050px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
   }
 }

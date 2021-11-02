@@ -17,18 +17,6 @@
       align-items: center;
     }
   }
-  .library-select {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-family: var(--font1);
-    border: 5px solid var(--color2);
-    border-radius: 20px;
-    padding: 1rem;
-    margin: 0 1rem 5rem 1rem;
-  }
 }
 .browse-select {
   display: flex;

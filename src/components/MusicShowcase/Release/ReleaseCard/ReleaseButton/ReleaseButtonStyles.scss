@@ -1,0 +1,45 @@
+.release-button-container {
+  button {
+    border: 3px solid var(--color1);
+    border-radius: 50px;
+    background: transparent;
+    width: 200px;
+    height: 70px;
+    font-family: var(--font1);
+    font-weight: normal;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      background-color: var(--color1);
+      transform: scale(1.05);
+      color: black;
+    }
+  }
+  a {
+    text-decoration: none;
+    &:visited {
+      color: white;
+    }
+    .no-token-btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      svg {
+        display: none;
+        filter: black;
+        position: absolute;
+        bottom: 0;
+        right: 9%;
+        width: 30px;
+        margin: 0;
+      }
+    }
+  }
+}

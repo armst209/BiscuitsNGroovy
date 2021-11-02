@@ -146,6 +146,16 @@
               }
               ul {
                 padding: 1rem 0;
+                .indented-li {
+                  a {
+                    color: var(--color2);
+                    text-decoration: none;
+                    &:visited {
+                      color: var(--color2);
+                      text-decoration: none;
+                    }
+                  }
+                }
                 li {
                   margin-left: 5rem;
                   color: var(--color1);

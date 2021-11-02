@@ -1,4 +1,4 @@
-.release-card-item {
+.release-card {
   display: flex;
   flex-direction: column;
   background-color: black;
@@ -6,13 +6,13 @@
   width: auto;
   height: auto;
 
-  .release-image {
+  .release-card-image {
     width: 300px;
     border-radius: 20px;
     height: 300px;
   }
 
-  .release-information {
+  .release-card-information {
     border-top: 5px solid var(--color2);
     display: flex;
     background-color: black;

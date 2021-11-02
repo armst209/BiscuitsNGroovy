@@ -24,7 +24,6 @@ const useFetch = (url, _options) => {
         setIsLoading(false);
         setResponseData(data);
         setErrorMessage(null);
-        console.log(isLoading);
       } catch (error) {
         if (error.name === "AbortError") {
           //for testing fetch abort and component unmounts
@@ -42,7 +41,7 @@ const useFetch = (url, _options) => {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [url, options]);
 
   return { responseData, isLoading, errorMessage };
 };

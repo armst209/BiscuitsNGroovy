@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
-import { ReactComponent as HeartMusicIcon } from "../../assets/images/love-song2.svg";
 
 import "./StripeCheckoutProcessesStyles.scss";
 import StripeLoader from "../../components/Loading/StripeLoader";
@@ -101,7 +100,7 @@ const ProductDisplay = ({ handleClick, showStripeLoader }) => (
       onClick={handleClick}
       className="checkout-button"
     >
-      BUY NOW <HeartMusicIcon />
+      BUY NOW
     </button>
     {showStripeLoader}
   </section>

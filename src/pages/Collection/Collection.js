@@ -1,16 +1,15 @@
-import { useState } from "react";
 import env from "react-dotenv";
-import FPHomepage from "../../components/FanPortal/FPHomePage/FPHomePage";
 import "./CollectionStyles.scss";
-// import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";
-// import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
-import NoReleases from "../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
+import { ReactComponent as SpotlightLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
+import { ReactComponent as SpotlightRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
 import ComponentLoading from "../../components/Loading/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
+import ReleaseList from "../../components/MusicShowcase/ReleaseList/ReleaseList";
+import NoReleasesCollection from "../../components/MusicShowcase/ReleaseList/NoReleases/NoReleasesCollection";
 
 function Collection() {
   const token = localStorage.getItem("token");
-  const [showAlbumDetails] = useState(false);
+
   const {
     responseData: releaseData,
     isLoading,
@@ -21,30 +20,32 @@ function Collection() {
 
   return (
     <section id="collection">
-      <div className="portal-title">
+      <div className="collection-title">
         <h1>
-          {/* <img
-            className="spotlight-left"
-            src={spotlight_left}
-            alt="spotlight"
-          />
-          <img
-            className="spotlight-right"
-            src={spotlight_right}
-            alt="spotlight"
-          /> */}
+          {/* ======SVGs====== */}
+          <SpotlightLeft className="spotlight-left" />
+          <SpotlightRight className="spotlight-right" />
+          {/* ======SVGs====== */}
           COLLECTION
         </h1>
       </div>
-      {isLoading && <ComponentLoading />}
-      {releaseData !== null && releaseData.length === 0 ? (
-        <NoReleases />
-      ) : (
-        releaseData && (
-          <FPHomepage releaseData={releaseData} setTrigger={showAlbumDetails} />
-        )
-      )}
-      <div>{errorMessage}</div>
+      <div className="collection-container">
+        <div className="collection-library-grid-wrapper">
+          <div className="collection-library-grid">
+            {isLoading && <ComponentLoading />}
+            {errorMessage === null ? (
+              releaseData && (
+                <ReleaseList
+                  releaseData={releaseData.library}
+                  noReleaseDataComponent={<NoReleasesCollection />}
+                />
+              )
+            ) : (
+              <div>{errorMessage}</div>
+            )}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

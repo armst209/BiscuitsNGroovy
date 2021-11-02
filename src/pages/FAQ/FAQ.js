@@ -1,8 +1,8 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import "./FAQStyles.scss";
-import { CSSTransition } from "react-transition-group";
+
 import dropdown from "../../assets/images/double-down-yellow.svg";
 import question from "../../assets/images/question2.svg";
 import record_bullet from "../../assets/images/vinyl_yellow.svg";
@@ -13,17 +13,18 @@ import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
 //useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
 
-function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
-  const [question1, setQuestion1] = useState(false);
-  const [question2, setQuestion2] = useState(false);
-  const [question3, setQuestion3] = useState(false);
-  const [question4, setQuestion4] = useState(false);
-  const [question5, setQuestion5] = useState(false);
-  const [question6, setQuestion6] = useState(false);
-  const [question7, setQuestion7] = useState(false);
-  const [question8, setQuestion8] = useState(false);
-  const [question9, setQuestion9] = useState(false);
-  const [question10, setQuestion10] = useState(false);
+function FAQ() {
+  const [showAnswer1, setShowAnswer1] = useState(false);
+  const [showAnswer2, setShowAnswer2] = useState(false);
+  const [showAnswer3, setShowAnswer3] = useState(false);
+  const [showAnswer4, setShowAnswer4] = useState(false);
+  const [showAnswer5, setShowAnswer5] = useState(false);
+  const [showAnswer6, setShowAnswer6] = useState(false);
+  const [showAnswer7, setShowAnswer7] = useState(false);
+  const [showAnswer8, setShowAnswer8] = useState(false);
+  const [showAnswer9, setShowAnswer9] = useState(false);
+  const [showAnswer10, setShowAnswer10] = useState(false);
+
   const [dropStyle1, setDropStyle1] = useState("dropdown");
   const [dropStyle2, setDropStyle2] = useState("dropdown");
   const [dropStyle3, setDropStyle3] = useState("dropdown");
@@ -47,8 +48,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
       <div className="faq-content">
         <h5
           onClick={() => {
-            setQuestion1(!question1);
             setDropStyle1("icon_rotate");
+            setShowAnswer1(!showAnswer1);
           }}
         >
           <div>What do I get with my purchase?</div>
@@ -58,18 +59,9 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question1}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion1(true)}
-          onExited={() => {
-            setQuestion1(false);
-            setDropStyle1("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion1(!question1)}>
+
+        {showAnswer1 && (
+          <div className="answer">
             <ul>
               <li>
                 When you purchase a release on BnG, you get access to stream the
@@ -90,11 +82,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion2(!question2);
+            setShowAnswer2(!showAnswer2);
             setDropStyle2("icon_rotate");
           }}
         >
@@ -105,18 +97,9 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question2}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion2(true)}
-          onExited={() => {
-            setQuestion2(false);
-            setDropStyle2("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion2(!question2)}>
+
+        {showAnswer2 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -132,11 +115,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion3(!question3);
+            setShowAnswer3(!showAnswer3);
             setDropStyle3("icon_rotate");
           }}
         >
@@ -147,18 +130,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question3}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion3(true)}
-          onExited={() => {
-            setQuestion3(false);
-            setDropStyle3("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion3(!question3)}>
+        {showAnswer3 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -171,11 +144,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion4(!question4);
+            setShowAnswer4(!showAnswer4);
             setDropStyle4("icon_rotate");
           }}
         >
@@ -186,18 +159,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question4}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion4(true)}
-          onExited={() => {
-            setQuestion4(false);
-            setDropStyle4("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion4(!question4)}>
+        {showAnswer4 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -208,12 +171,12 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           id="NFT"
           onClick={() => {
-            setQuestion5(!question5);
+            setShowAnswer5(!showAnswer5);
             setDropStyle5("icon_rotate");
           }}
         >
@@ -224,18 +187,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question5}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion5(true)}
-          onExited={() => {
-            setQuestion5(false);
-            setDropStyle5("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion5(!question5)}>
+        {showAnswer5 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -257,11 +210,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion6(!question6);
+            setShowAnswer6(!showAnswer6);
             setDropStyle6("icon_rotate");
           }}
         >
@@ -272,18 +225,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question6}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion6(true)}
-          onExited={() => {
-            setQuestion6(false);
-            setDropStyle6("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion6(!question6)}>
+        {showAnswer6 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -297,10 +240,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
+
         <h5
           onClick={() => {
-            setQuestion10(!question10);
+            setShowAnswer10(!showAnswer10);
             setDropStyle10("icon_rotate");
           }}
         >
@@ -311,18 +255,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question10}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion10(true)}
-          onExited={() => {
-            setQuestion10(false);
-            setDropStyle10("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion10(!question10)}>
+        {showAnswer10 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -350,11 +284,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion7(!question7);
+            setShowAnswer7(!showAnswer7);
             setDropStyle7("icon_rotate");
           }}
         >
@@ -365,18 +299,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question7}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion7(true)}
-          onExited={() => {
-            setQuestion7(false);
-            setDropStyle7("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion7(!question7)}>
+        {showAnswer7 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -389,11 +313,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion8(!question8);
+            setShowAnswer8(!showAnswer8);
             setDropStyle8("icon_rotate");
           }}
         >
@@ -404,18 +328,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question8}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion8(true)}
-          onExited={() => {
-            setQuestion8(false);
-            setDropStyle8("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion8(!question8)}>
+        {showAnswer8 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -426,11 +340,11 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
 
         <h5
           onClick={() => {
-            setQuestion9(!question9);
+            setShowAnswer9(!showAnswer9);
             setDropStyle9("icon_rotate");
           }}
         >
@@ -441,18 +355,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
             alt="dropdown"
           />
         </h5>
-        <CSSTransition
-          classNames="answer"
-          in={question9}
-          timeout={100}
-          unmountOnExit
-          onEnter={() => setQuestion9(true)}
-          onExited={() => {
-            setQuestion9(false);
-            setDropStyle9("");
-          }}
-        >
-          <div className="answer" onClick={() => setQuestion9(!question9)}>
+        {showAnswer9 && (
+          <div className="answer">
             <ul>
               <li>
                 <div>
@@ -465,7 +369,8 @@ function FAQ({ loginPopup, showLoginPopup, showSignUpPopup, signUpPopup }) {
               </li>
             </ul>
           </div>
-        </CSSTransition>
+        )}
+
         <div className="header-div">
           <img src={question} alt="question icon" />
 
