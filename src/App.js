@@ -1,4 +1,7 @@
 import { useState } from "react";
+// -------Start of Google Analytics - DON'T REMOVE-------
+import ReactGA from "react-ga";
+// -------End of Google Analytics - DON'T REMOVE-------
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
 import NotHomeNavigation from "./components/Navbars/NotHomeNavigation/NotHomeNavigation";
@@ -14,6 +17,11 @@ import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import OldRoutes from "./Routes/OldRoutes";
 
 function App(props) {
+  // -------Start of Google Analytics - DON'T REMOVE-------
+  const gaTrackingId = "UA-211766799-1";
+  ReactGA.initialize(gaTrackingId);
+  ReactGA.pageview("/");
+  // -------End of Google Analytics - DON'T REMOVE-------
   const [loginPopup, showLoginPopup] = useState(false);
   const [signUpPopup, showSignUpPopup] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
