@@ -8,7 +8,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import LinkFlowButton from "../../components/SignUp/LinkFlowButton";
 import * as fcl from "@onflow/fcl";
-import SignUpModal from "../../components/SignUp/SignUpPopUp/SignUpPopUp";
+import SignUpModal from "../SignUp/SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
 import logo from "../../assets/images/bng_test.svg";
 

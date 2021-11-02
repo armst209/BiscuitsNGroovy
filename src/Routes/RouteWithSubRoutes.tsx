@@ -13,8 +13,9 @@ const RouteWithSubRoutes = (route: IRoute,) => {
           route.redirect ? <Redirect to={route.redirect}/> :
             route.private ? (
               token ? route.component &&
-                <route.component {...props} routes={route.routes}/> : <Redirect to='/home'/>
-            ) : route.component && <route.component {...props} routes={route.routes}/>
+                <route.component {...props} routes={route.routes}/> : <Redirect to='/'/>
+            ) : route.credentials ? (token ? <Redirect to='/'/> : route.component &&
+            <route.component {...props} routes={route.routes}/> ) : route.component && <route.component {...props} routes={route.routes}/>
           
         }
        

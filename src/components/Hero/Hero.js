@@ -29,7 +29,7 @@ function TestHero() {
                     only for true fans.
                   </div>
                   <div className="hero-test-buttons">
-                    <HashLink to="/home#music-showcase">
+                    <HashLink to="/#music-showcase">
                       <button className="start-btn">
                         Start Your Collection
                       </button>

@@ -1,0 +1,22 @@
+.logout-button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+
+  div {
+    margin-right: 0.3rem;
+  }
+
+  svg {
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

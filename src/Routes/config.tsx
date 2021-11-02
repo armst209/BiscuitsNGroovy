@@ -1,6 +1,6 @@
 
 import { ComponentType, lazy, LazyExoticComponent, ReactNode } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+
 import Loading from '../components/Loading/Loading';
 
 export interface IRoute {
@@ -18,25 +18,39 @@ export interface IRoute {
     routes?: IRoute[];
     // Redirect path
     redirect?: string;
-    // If router is private, this is going to be true
+    // If route is private, this is going to be true
     private?: boolean;
-    loginPopup?: boolean;
+    //If the route has login/signup functionality
+    credentials?: boolean;
+   
   }
 const routes:IRoute[] = [
+  
     {
       path: "/",
-      key: "ROOT",
-      exact: true,
-      redirect: "/home",
-      fallback:<Loading/>
-    },
-    {
-      path: "/home",
       component: lazy(()=>import("../pages/Homepage/Homepage")),
-      key: "HOME_PAGE",
+      key: "ROOT",
       exact: true,
       private:false,
       fallback:<Loading/>,
+    },
+    {
+      path: "/login",
+      component: lazy(()=>import("../pages/Login/Login")),
+      key: "LOGIN_PAGE",
+      exact: true,
+      private:false,
+      credentials: true,
+      fallback:<Loading/>
+    },
+    {
+      path: "/signup",
+      component: lazy(()=>import("../pages/SignUp/SignUp")),
+      key: "SIGNUP_PAGE",
+      exact: true,
+      private:false,
+      credentials: true,
+      fallback:<Loading/>
     },
     {
         path: "/about",
@@ -73,6 +87,7 @@ const routes:IRoute[] = [
         fallback:<Loading/>
        
       },
+     
       {
         path: "/collection",
         component: lazy(()=>import("../pages/Collection/Collection")),

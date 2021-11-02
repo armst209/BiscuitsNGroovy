@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 
 import Loading from "../components/Loading/Loading";
+
 //Lazy loaded components
 const Homepage = lazy(() => import("../pages/Homepage/Homepage"));
 const About = lazy(() => import("../pages/About/About"));
@@ -10,7 +11,7 @@ const FAQ = lazy(() => import("../pages/FAQ/FAQ"));
 const Artists = lazy(() => import("../pages/Artists/Artists"));
 const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
 const Events = lazy(() => import("../pages/Events/Events"));
-
+const TestLogin = lazy(() => import("../pages/Login/Login"));
 const TermsOfService = lazy(() =>
   import("../pages/TermsOfService/TermsOfService")
 );
@@ -36,24 +37,21 @@ function OldRoutes(props) {
     <>
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
           <Route
             exact={true}
-            path="/home"
+            path="/"
             render={() => (
               <Homepage
-                loginPopup={props.loginPopup}
-                showLoginPopup={props.showLoginPopup}
-                signUpPopup={props.signUpPopup}
-                showSignUpPopup={props.showSignUpPopup}
                 showMobileNav={props.showMobileNav}
                 setShowMobileNav={props.setShowMobileNav}
-                stripeLoader={props.stripeLoader}
-                setStripeLoader={props.setStripeLoader}
+                releaseData={props.releaseData}
               />
             )}
+          />
+          <Route
+            exact={true}
+            path="/login"
+            render={(props) => <TestLogin {...props} />}
           />
           <Route
             exact={true}

@@ -1,6 +1,6 @@
 // File: ./src/auth-cluster.js
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as fcl from "@onflow/fcl";
 import { accountIsInitialized } from "../../utils/flow";
 

@@ -1,11 +1,10 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-// import { createBrowserHistory } from "history";
-// import { wrapHistory } from "oaf-react-router";
+import { createBrowserHistory } from "history";
+import { wrapHistory } from "oaf-react-router";
 
 import App from "./App";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "./Routes/ScrollToTop";
 
 //DEV/LOCAL ENV
 // env.REACT_APP_ACCESS_NODE="https://access-testnet.onflow.org"
@@ -21,12 +20,12 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 // env.FRONTEND_URL="load-balancer-bng-prod-477120553.us-east-1.elb.amazonaws.com"
 // env.BACKEND_URL="load-balancer-bng-prod-477120553.us-east-1.elb.amazonaws.com/api"
 
-// const history = createBrowserHistory(); // or createHashHistory()
-// wrapHistory(history);
+const history = createBrowserHistory(); // or createHashHistory()
+wrapHistory(history);
 
 ReactDOM.render(
   <Router>
-    <ScrollToTop />
+    {/* <ScrollToTop history={history} /> */}
     <App />
   </Router>,
 

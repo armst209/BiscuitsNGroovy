@@ -1,0 +1,164 @@
+.mobile-logo-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: auto;
+  position: relative;
+  z-index: 9999;
+  width: auto;
+  @media screen and (min-width: 950px) {
+    display: none;
+  }
+
+  .mobile-logo-link {
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    width: 200px;
+    margin-right: 1rem;
+  }
+}
+
+.mobile-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+  font-family: var(--font1);
+  color: white;
+
+  @media (min-width: 950px) {
+    display: none;
+  }
+
+  p {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .settings-icon {
+    width: 40px;
+    filter: invert(88%) sepia(67%) saturate(2732%) hue-rotate(353deg)
+      brightness(101%) contrast(92%);
+  }
+  .settings-icon-scrolled {
+    width: 40px;
+    filter: invert(0%) sepia(0%) saturate(4%) hue-rotate(268deg) brightness(93%)
+      contrast(101%);
+  }
+
+  @media (max-width: 768px) {
+    height: 70px;
+  }
+}
+.mobile-navigation-aside {
+  flex-direction: column;
+  background-color: black;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  top: 70px;
+  left: 0;
+  padding: 0 0 10px 0;
+  position: absolute;
+
+  border: none;
+  font-size: 30px;
+
+  /* Galaxy Fold Landscape Portrait */
+
+  @media screen and (max-width: 300px) and (max-height: 655px) and (orientation: portrait) {
+    width: 100%;
+  }
+
+  .signup-no-display-nothome {
+    display: none;
+  }
+
+  .mobile-nav-header-nothome {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    div {
+      padding: 0 0.5rem;
+    }
+    img {
+      width: 50%;
+      display: none;
+    }
+  }
+
+  ul {
+    color: white;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+
+    //Galaxy Fold
+    @media (max-device-width: 660px) and (max-device-height: 281px) and (orientation: landscape) {
+      padding-top: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+
+      width: 100%;
+      font-size: 2rem;
+      padding: 1rem;
+      border-bottom: 0.5px solid grey;
+      &:hover {
+        background: var(--color1);
+        a {
+          color: black;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      display: flex;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  .signup-btn-container-nothome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .signup-btn-nothome {
+      font-family: var(--font1);
+      font-size: 2rem;
+      font-weight: normal;
+      position: relative;
+      padding: 10px;
+      background: transparent;
+      transition: 0.2s ease;
+      color: white;
+      cursor: pointer;
+      @media screen and (orientation: landscape) {
+        overflow-y: scroll;
+      }
+
+      a {
+        color: white;
+        &:hover {
+          color: black;
+        }
+      }
+
+      &:hover {
+        color: black;
+        background: var(--color2);
+      }
+    }
+  }
+}

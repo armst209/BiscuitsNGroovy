@@ -2,10 +2,8 @@ import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
 import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
-import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import Hero from "../../components/Hero/Hero";
 import "./HomepageStyles.scss";
-
 import reminder_image from "../../assets/images/subscribe.webp";
 import NewsletterFormContainer from "../../components/NewsLetterSubscribe/NewsletterFormContainer";
 
@@ -23,14 +21,9 @@ function Homepage(props) {
       <HowItWorks />
 
       <MusicShowcase
-        //passing in to component for if user is not logged in and tries to purchase a release - sign up popup shows
         signUpPopup={props.signUpPopup}
         showSignUpPopup={props.showSignUpPopup}
-        /////////////////////////////////////////
-        // releasePop={releasePop}
-        // showReleasePopUp={setReleasePop}
-        stripeLoader={props.stripeLoader}
-        setStripeLoader={props.setStripeLoader}
+        releaseData={props.releaseData}
       />
       <NFTBreakdown />
       <div className="reminder-subscribe">

@@ -18,7 +18,7 @@ const NewsletterFormContainer = (props) => {
             {status === "sending" && (
               <div className="form-loader">
                 <ComponentLoading />
-                <div className="mc__alert mc__alert--sending">Sending...</div>
+                <div>Sending...</div>
               </div>
             )}
             <NewsLetterForm

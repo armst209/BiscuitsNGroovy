@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import EventTimer from "./EventTimer";
-import SubscribeSection from "../../components/Subscribe/SubscribeSection";
+
 import EventsAbout from "./EventsAbout";
 import EventsSocials from "./EventsSocials";
+import NewsletterFormContainer from "../../components/NewsLetterSubscribe/NewsletterFormContainer";
 
 function Events() {
   const dateToEvent = new Date("November 6, 2021 00:00:00").getTime();
@@ -107,7 +108,7 @@ function Events() {
               <div className="single-event-divider-wrapper">
                 <hr className="single-event-divider"></hr>
               </div>
-              <EventsSocials name={"Zevy"} />
+              <EventsSocials name={"ZEVY"} />
             </div>
           </div>
 
@@ -120,7 +121,7 @@ function Events() {
           <EventsAbout />
         </div>
         <div className="subscribe-div">
-          <SubscribeSection />
+          <NewsletterFormContainer />
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ import { ReactComponent as SpotlightRight } from "../../../../assets/images/spot
 
 import NoReleases from "./TestFPHomePage/TestSections/TestNewLibrary/TestNoReleases";
 import ComponentLoading from "../Loading/ComponentLoading";
-import useFetch from "../../customHooks/useFetch";
+import useFetch from "../../customHooks/Fetch/useFetch";
 
 function Collection() {
   const token = localStorage.getItem("token");

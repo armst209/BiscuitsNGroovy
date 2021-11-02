@@ -1,0 +1,38 @@
+header {
+  width: 100%;
+  font-family: var(--font1);
+  height: 70px;
+  position: fixed;
+  background: transparent;
+  z-index: 9999;
+  transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+  transition: transform 0.35s, background 0.35s,
+    box-shadow 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: 0.35s cubic-bezier(0.5, 0, 0.35, 1);
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    font-size: 18px;
+
+    @media screen and (max-width: 950px) {
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    a {
+      color: white;
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+}

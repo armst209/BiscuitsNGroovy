@@ -1,20 +1,16 @@
 import { useState, useMemo } from "react";
-import ComponentLoading from "../Loading/ComponentLoading";
 import "./MusicShowcaseStyles.scss";
+import ReleaseList from "./ReleaseList/ReleaseList";
+import ComponentLoading from "../Loading/ComponentLoading";
+import env from "react-dotenv";
+import useFetch from "../../customHooks/Fetch/useFetch";
 import { ReactComponent as SpotLightYellowLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotLightYellowRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
 import showcase from "../../assets/images/showcase_mobile.webp";
 
-import env from "react-dotenv";
-import ShowcaseList from "./ShowcaseList";
-import useFetch from "../../customHooks/useFetch";
-
-function MusicShowcase(props) {
-  //getting token
+const MusicShowcase = () => {
+  //TOKEN
   const token = localStorage.getItem("token");
-  const [releaseInfo, setReleaseInfo] = useState("");
-  const [isShown, setIsShown] = useState(false);
-
   const {
     responseData: releaseData,
     isLoading,
@@ -37,32 +33,19 @@ function MusicShowcase(props) {
             details
           </p>
           <div className="content-wrapper">
-            <div className="showcase-image"></div>
-
             <div className="showcase-grid-desktop">
-              {/* ShowcaseList - child component takes in releaseData as a prop an displays releases */}
               {isLoading && <ComponentLoading />}
-              {releaseData && (
-                <ShowcaseList
-                  setReleaseInfo={setReleaseInfo}
-                  releaseInfo={releaseInfo}
-                  releaseData={releaseData}
-                  isShown={isShown}
-                  setIsShown={setIsShown}
-                  {...props}
-                />
-              )}
+              {releaseData && <ReleaseList releaseData={releaseData} />}
               <div>{errorMessage}</div>
             </div>
           </div>
         </div>
       </div>
-      {releaseInfo}
       <div className="bottom-image-container">
         <img className="bottom-image" src={showcase} alt="microphone" />
       </div>
     </section>
   );
-}
+};
 
 export default MusicShowcase;

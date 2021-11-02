@@ -1,0 +1,51 @@
+.release-card-item {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+
+  .release-image {
+    width: 300px;
+    border-radius: 20px;
+    height: 300px;
+  }
+
+  .release-information {
+    border-top: 5px solid var(--color2);
+    display: flex;
+    background-color: black;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: var(--font1);
+    transition: all 0.2s ease;
+    &:hover {
+      background-color: var(--color2);
+      color: black;
+    }
+
+    button {
+      border: 3px solid var(--color1);
+      background: transparent;
+      width: 200px;
+      height: 70px;
+      font-family: var(--font1);
+      font-size: 1rem;
+      cursor: pointer;
+      color: white;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:hover {
+        background-color: var(--color1);
+        transform: scale(1.05);
+        color: black;
+      }
+    }
+  }
+}

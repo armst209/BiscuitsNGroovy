@@ -5,6 +5,9 @@
   justify-content: center;
   background-color: black;
   .not-found-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 70px 2rem 2rem 2rem;
     color: white;
     display: flex;
@@ -14,12 +17,13 @@
     align-items: center;
 
     h1 {
+      text-align: center;
       letter-spacing: 1px;
       font-size: 2rem;
       margin-top: 1rem;
     }
-    img {
-      width: 50%;
+    svg {
+      width: 40%;
     }
   }
 }

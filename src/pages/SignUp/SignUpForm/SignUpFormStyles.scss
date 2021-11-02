@@ -1,0 +1,81 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .error {
+    border: 3px solid red;
+  }
+  .error-messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-weight: normal;
+    font-family: var(--font1);
+    position: absolute;
+    bottom: 0;
+  }
+
+  input {
+    margin: 5px 0;
+    background: var(--color-light);
+    font-size: 1rem;
+    font-family: var(--font2);
+    font-weight: normal;
+    line-height: inherit;
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 1.25rem;
+    border: 3px solid var(--color1);
+    border-radius: 0.5rem;
+    outline: none;
+    color: var(--color-black);
+    background: black;
+    text-transform: unset;
+    text-rendering: optimizeLegibility;
+    @media screen and (max-width: 300px) {
+      font-size: 0.7rem;
+    }
+    &::placeholder {
+      color: white;
+    }
+  }
+
+  button {
+    border: 3px solid var(--color1);
+    border-radius: 50px;
+    font-family: var(--font1);
+    font-size: 1rem;
+    background: transparent;
+    width: 200px;
+    height: 70px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.2s ease;
+    position: relative;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.05);
+    margin: 0.5rem 0 1rem 0;
+
+    &:hover {
+      background-color: var(--color1);
+
+      color: black;
+    }
+    div {
+      font-family: var(--font1);
+      font-weight: normal;
+    }
+    svg {
+      position: absolute;
+      width: 30px;
+      right: 10%;
+    }
+  }
+}

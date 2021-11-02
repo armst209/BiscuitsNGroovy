@@ -6,7 +6,7 @@ import "./CollectionStyles.scss";
 // import spotlight_right from "../../../../assets/images/spotlight_outline_right_yellow.svg";
 import NoReleases from "../../components/FanPortal/FPHomePage/Sections/NewLibrary/NoReleases";
 import ComponentLoading from "../../components/Loading/ComponentLoading";
-import useFetch from "../../customHooks/useFetch";
+import useFetch from "../../customHooks/Fetch/useFetch";
 
 function Collection() {
   const token = localStorage.getItem("token");
@@ -20,7 +20,7 @@ function Collection() {
   });
 
   return (
-    <section id="fan-portal">
+    <section id="collection">
       <div className="portal-title">
         <h1>
           {/* <img
