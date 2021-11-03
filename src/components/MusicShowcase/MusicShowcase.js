@@ -1,12 +1,12 @@
 import "./MusicShowcaseStyles.scss";
-import ReleaseList from "./ReleaseList/ReleaseList";
+import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
 import ComponentLoading from "../Loading/ComponentLoading";
 import env from "react-dotenv";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import { ReactComponent as SpotLightYellowLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotLightYellowRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
 import showcase from "../../assets/images/showcase_mobile.webp";
-import NoReleasesMusicShowcase from "./ReleaseList/NoReleases/NoReleasesMusicShowcase";
+import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseList/NoReleases/NoReleasesMusicShowcase";
 
 const MusicShowcase = () => {
   //TOKEN
