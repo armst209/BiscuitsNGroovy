@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
+import AlbumCoverHover from "../../../../MusicShowcase/Release/ReleaseCard/CardViews/AvailableRelease/HoverState/AvailableReleaseHover";
 import NFTHover from "../NFTView/NFTHover";
 
 const ReleaseList = (props) => {

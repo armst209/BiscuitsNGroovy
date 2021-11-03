@@ -1,4 +1,3 @@
-import React from "react";
 import "./ExpiredPopupStyles.scss";
 
 function ExpiredPopup(props) {

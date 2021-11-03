@@ -1,6 +1,6 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import "./NFTHoverStyles.scss";
-import ExpiredPopup from "../../../../MusicShowcase/Release/ReleaseCard/CardViews/ExpiredRelease/NFTView/ExpiredPopup/ExpiredPopup";
+import ExpiredPopup from "../ExpiredPopup/ExpiredPopup";
 import NFTPopup from "./NFTPopup";
 
 function NFTHover(props) {

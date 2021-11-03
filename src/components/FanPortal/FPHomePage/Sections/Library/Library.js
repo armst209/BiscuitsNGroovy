@@ -2,7 +2,7 @@ import { React, useEffect, useState, Suspense } from "react";
 import axios from "axios";
 import { HashLink } from "react-router-hash-link";
 import ComponentLoading from "../../../../Loading/ComponentLoading";
-import AlbumCoverHover from "../AlbumCoverHover/AlbumCoverHover";
+import AlbumCoverHover from "../../../../MusicShowcase/Release/ReleaseCard/CardViews/AvailableRelease/HoverState/AvailableReleaseHover";
 import NFTHover from "../NFTView/NFTHover";
 import "./LibraryStyles.scss";
 import env from "react-dotenv";

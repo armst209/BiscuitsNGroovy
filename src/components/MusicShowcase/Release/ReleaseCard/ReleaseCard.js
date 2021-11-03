@@ -1,29 +1,15 @@
-import { useState } from "react";
 import "./ReleaseCardStyles.scss";
-import ReleasePreview from "../ReleasePreview/ReleasePreview";
-import ReleaseImage from "./ReleaseImage/ReleaseImage";
+import MusicShowcaseCard from "./CardTypes/MusicShowcaseCard/MusicShowcaseCard";
+import CollectionCard from "./CardTypes/CollectionCard/CollectionCard";
 
 const ReleaseCard = ({ release }) => {
-  const [showReleasePreview, setShowReleasePreview] = useState(false);
-  const { name, art_url } = release;
-
-  return (
-    <>
-      <div
-        className="release-card"
-        onClick={() => setShowReleasePreview(!showReleasePreview)}
-      >
-        {/* loading should be for image -CHANGE!! */}
-        <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
-      </div>
-      {showReleasePreview && (
-        <ReleasePreview
-          release={release}
-          setShowReleasePreview={setShowReleasePreview}
-          showReleasePreview={showReleasePreview}
-        />
-      )}
-    </>
+  // if there is a "songs" property in the release object it will display CollectionCard, if not displays MusicShowcaseCard
+  return release.hasOwnProperty("songs") ? (
+    //release card for Collection
+    <CollectionCard release={release} />
+  ) : (
+    //release card for MusicShowcase
+    <MusicShowcaseCard release={release} />
   );
 };
 
