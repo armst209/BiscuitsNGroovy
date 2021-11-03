@@ -73,11 +73,15 @@ function Artists(props) {
               </div>
               <div className="artists-impt-text">
                 <p>
-                  Interested in joining us? Fill out the form{" "}
-                  <HashLink className="below-link" to="/artists#artists-form">
+                  Interested in joining us? Contact us{" "}
+                  <a className="below-link" href="mailto:team@bngroovy.com">
+                    here
+                  </a>
+                  {/* Fill out the form{" "} */}
+                  {/* <HashLink className="below-link" to="/artists#artists-form">
                     below
-                  </HashLink>{" "}
-                  and we’ll be in touch ASAP.
+                  </HashLink>{" "} */}
+                  {/* and we’ll be in touch ASAP. */}
                 </p>
                 <p className="work-with-text">
                   We work with both independent artists and those signed to
@@ -236,7 +240,7 @@ function Artists(props) {
             </div>
           </div>
         </div>
-        <div id="artists-form" className="form-container">
+        {/* <div id="artists-form" className="form-container">
           <form onSubmit={submit}>
             <input
               type="text"
@@ -299,9 +303,9 @@ function Artists(props) {
             />
             <button type="submit">Submit</button>
           </form>
-        </div>
+        </div> */}
       </div>
-      <img className="mic-drop" src={mic_drop} alt="mic drop" />
+      {/* <img className="mic-drop" src={mic_drop} alt="mic drop" /> */}
     </section>
   );
 }
