@@ -7,7 +7,7 @@ import EventTimer from "./EventTimer";
 
 import EventsAbout from "./EventsAbout";
 import EventsSocials from "./EventsSocials";
-import NewsletterFormContainer from "../../components/NewsLetterSubscribe/NewsletterFormContainer";
+import NewsletterFormContainer from "../../components/MailchimpForms/NewsLetterSubscribe/NewsletterFormContainer";
 
 function Events() {
   const dateToEvent = new Date("November 6, 2021 00:00:00").getTime();

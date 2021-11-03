@@ -10,8 +10,6 @@ function TestHero() {
   return (
     <>
       <section id="hero-test">
-        <div className="hero-nav-spacer"></div>
-
         <div className="hero-section-test">
           <div className="hero-section-outer-wrapper-test">
             <div className="hero-content-middle-wrapper-test">

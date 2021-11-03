@@ -7,7 +7,6 @@ const MusicShowcaseCard = ({ release }) => {
   const [showReleasePreview, setShowReleasePreview] = useState(false);
   const { name, art_url } = release;
   return (
-    // release card for MusicShowcase
     <>
       <div
         className="release-card"

@@ -17,7 +17,6 @@ const LogoutButton = ({ setShowLogoutLoading }) => {
   return token ? (
     <li className="logout-button" onClick={(e) => handleLogout(e)}>
       <div>Logout</div>
-
       <LogoutIcon />
     </li>
   ) : (

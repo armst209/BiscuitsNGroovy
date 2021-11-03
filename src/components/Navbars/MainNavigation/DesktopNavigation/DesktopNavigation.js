@@ -1,15 +1,11 @@
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./DesktopNavigationStyles.scss";
 import MainHeaderLogo from "../../../../assets/images/bng_logo.png";
-import LogoutLoading from "../../../Loading/Logout/LogoutLoading";
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../LogoutButton/LogoutButton";
 import CollectionButton from "../CollectionButton/CollectionButton";
 
-const DesktopNavigation = () => {
-  const [showLogoutLoading, setShowLogoutLoading] = useState(false);
-
+const DesktopNavigation = ({ setShowLogoutLoading }) => {
   return (
     <>
       <div className="left-links-container">
@@ -77,7 +73,6 @@ const DesktopNavigation = () => {
           <CollectionButton />
           <LoginAndSignUp />
           <Logout setShowLogoutLoading={setShowLogoutLoading} />
-          {showLogoutLoading && <LogoutLoading />}
         </div>
       </div>
     </>

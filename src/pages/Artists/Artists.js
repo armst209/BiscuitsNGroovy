@@ -18,43 +18,9 @@ import two_icon from "../../assets/images/connect.svg";
 import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
+import ArtistForm from "../../components/MailchimpForms/ArtistInformation/ArtistForm";
 
 function Artists(props) {
-  const [artistName, setArtistName] = useState("");
-  const [artistPrefName, setArtistPrefName] = useState("");
-  const [artistEmail, setArtistEmail] = useState("");
-  const [artistPhone, setArtistPhone] = useState("");
-  const [managerName, setManagerName] = useState("");
-  const [managerEmail, setManagerEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [errorMessages, setErrorMessages] = useState("");
-  const [successMessages, setSuccessMessages] = useState("");
-
-  const submit = (event) => {
-    event.preventDefault();
-    const baseURL = env.BACKEND_URL;
-
-    axios({
-      method: "post",
-      url: `${baseURL}/registration`,
-      data: {
-        artistName,
-        artistPrefName,
-        artistEmail,
-        artistPhone,
-        managerName,
-        managerEmail,
-        message,
-      },
-    })
-      .then((res) => {
-        setSuccessMessages("User is subscribed!");
-      })
-      .catch((err) => {
-        setErrorMessages("");
-      });
-  };
-
   return (
     <section id="artists">
       <div className="artists-title">
@@ -237,68 +203,7 @@ function Artists(props) {
           </div>
         </div>
         <div id="artists-form" className="form-container">
-          <form onSubmit={submit}>
-            <input
-              type="text"
-              name="ARTISTNAME"
-              placeholder="Artist Name"
-              required
-              autoComplete="off"
-              onChange={(event) => setArtistName(event.target.value)}
-            />
-            <input
-              type="text"
-              name="PREFNAME"
-              placeholder="Preferred Name"
-              autoComplete="off"
-              onChange={(event) => setArtistPrefName(event.target.value)}
-            />
-            <input
-              type="email"
-              name="ARTEMAIL"
-              placeholder="Artist Email"
-              required
-              autoComplete="off"
-              onChange={(event) => setArtistEmail(event.target.value)}
-            />
-            <input
-              type="phone"
-              name="ARTPHONE"
-              placeholder="Phone Number"
-              required
-              autoComplete="off"
-              onChange={(event) => setArtistPhone(event.target.value)}
-            />
-            <input
-              type="text"
-              name="MANNAME"
-              placeholder="Manager/Agent Name"
-              required
-              autoComplete="off"
-              onChange={(event) => setManagerName(event.target.value)}
-            />
-            <input
-              type="email"
-              name="MANEMAIL"
-              placeholder="Manager/Agent Email"
-              required
-              autoComplete="off"
-              onChange={(event) => setManagerEmail(event.target.value)}
-            />
-            <textarea
-              className="text-input"
-              spellCheck="true"
-              rows="10"
-              cols="50"
-              type="text"
-              name="MESSAGE"
-              placeholder="Enter a message"
-              required
-              autoComplete="off"
-              onChange={(event) => setMessage(event.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
+          <ArtistForm />
         </div>
       </div>
       <img className="mic-drop" src={mic_drop} alt="mic drop" />

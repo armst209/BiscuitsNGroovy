@@ -19,7 +19,6 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       onValidated({
         MERGE0: email,
       });
-   
   };
 
   return (

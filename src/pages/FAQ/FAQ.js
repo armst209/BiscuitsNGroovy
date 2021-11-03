@@ -48,7 +48,6 @@ function FAQ() {
       <div className="faq-content">
         <h5
           onClick={() => {
-            setDropStyle1("icon_rotate");
             setShowAnswer1(!showAnswer1);
           }}
         >
@@ -87,7 +86,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer2(!showAnswer2);
-            setDropStyle2("icon_rotate");
+            // setDropStyle2("icon_rotate");
           }}
         >
           <div> Why does music expire?</div>
@@ -120,7 +119,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer3(!showAnswer3);
-            setDropStyle3("icon_rotate");
+            // setDropStyle3("icon_rotate");
           }}
         >
           <div>Where do I find my purchased music?</div>
@@ -149,7 +148,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer4(!showAnswer4);
-            setDropStyle4("icon_rotate");
+            // setDropStyle4("icon_rotate");
           }}
         >
           <div>Can I download my music?</div>
@@ -177,7 +176,7 @@ function FAQ() {
           id="NFT"
           onClick={() => {
             setShowAnswer5(!showAnswer5);
-            setDropStyle5("icon_rotate");
+            // setDropStyle5("icon_rotate");
           }}
         >
           <div> What’s an NFT?</div>
@@ -215,7 +214,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer6(!showAnswer6);
-            setDropStyle6("icon_rotate");
+            // setDropStyle6("icon_rotate");
           }}
         >
           <div>Do I need cryptocurrency to pay?</div>
@@ -245,7 +244,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer10(!showAnswer10);
-            setDropStyle10("icon_rotate");
+            // setDropStyle10("icon_rotate");
           }}
         >
           <div>What is a Blocto/Flow account and why do I need it?</div>
@@ -289,7 +288,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer7(!showAnswer7);
-            setDropStyle7("icon_rotate");
+            // setDropStyle7("icon_rotate");
           }}
         >
           <div>Is this a subscription?</div>
@@ -318,7 +317,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer8(!showAnswer8);
-            setDropStyle8("icon_rotate");
+            // setDropStyle8("icon_rotate");
           }}
         >
           <div>Do you have an app?</div>
@@ -345,7 +344,7 @@ function FAQ() {
         <h5
           onClick={() => {
             setShowAnswer9(!showAnswer9);
-            setDropStyle9("icon_rotate");
+            // setDropStyle9("icon_rotate");
           }}
         >
           <div>How much does BnG pay artists?</div>

@@ -3,14 +3,10 @@ import MainHeaderLogoMobile from "../../../../assets/images/bng_logo.png";
 import "./MobileNavigationStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
-const MobileNavigation = () => {
+import LogoutButton from "../LogoutButton/LogoutButton";
+const MobileNavigation = ({ setShowLogoutLoading }) => {
   const token = localStorage.getItem("token");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  const [signUpClassName, setSignUpClassName] = useState("signup-link");
-
-  const [scrolledHamburgerClass, setScrolledHamburgerClass] =
-    useState("settings-icon");
 
   return (
     <>
@@ -29,11 +25,18 @@ const MobileNavigation = () => {
           <p>MENU</p>
         </div>
       </div>
-      {/* Mobile Navigation */}
+      {/* Moble Aside */}
       {showMobileMenu && (
         <aside className="mobile-navigation-aside">
+          {/* Mobile Aside Header */}
           <div className="mobile-navigation-aside-top">
-            <div>IMAGE</div>
+            <Link to="/">
+              <img
+                className="mobile-navigation-aside-top-image"
+                src={MainHeaderLogoMobile}
+                alt="logo"
+              />
+            </Link>
             <div
               className="aside-top-close"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -42,8 +45,9 @@ const MobileNavigation = () => {
             </div>
           </div>
           <ul>
-            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <li>
               <NavLink
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
                 activeStyle={{
                   textDecoration: "underline 5px solid var(--color2)",
                 }}
@@ -54,8 +58,9 @@ const MobileNavigation = () => {
               </NavLink>
             </li>
 
-            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <li>
               <NavLink
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
                 activeStyle={{
                   textDecoration: "underline 5px solid var(--color2)",
                 }}
@@ -65,8 +70,9 @@ const MobileNavigation = () => {
               </NavLink>
             </li>
 
-            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <li>
               <NavLink
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
                 activeStyle={{
                   textDecoration: "underline 5px solid var(--color2)",
                 }}
@@ -76,8 +82,9 @@ const MobileNavigation = () => {
               </NavLink>
             </li>
 
-            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <li>
               <NavLink
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
                 activeStyle={{
                   textDecoration: "underline 5px solid var(--color2)",
                 }}
@@ -87,8 +94,9 @@ const MobileNavigation = () => {
               </NavLink>
             </li>
 
-            <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <li>
               <NavLink
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
                 activeStyle={{
                   textDecoration: "underline 5px solid var(--color2)",
                 }}
@@ -100,8 +108,9 @@ const MobileNavigation = () => {
 
             {!token ? (
               <>
-                <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <li>
                   <NavLink
+                    onClick={() => setShowMobileMenu(!showMobileMenu)}
                     activeStyle={{
                       textDecoration: "underline 5px solid var(--color2)",
                     }}
@@ -114,12 +123,11 @@ const MobileNavigation = () => {
                 <li className="signup-li">
                   <button onClick={() => setShowMobileMenu(!showMobileMenu)}>
                     <NavLink to="/signup">Sign Up</NavLink>
-                    {/* <img src={write} className="signup-icon" alt="signup icon" /> */}
                   </button>
                 </li>
               </>
             ) : (
-              ""
+              <LogoutButton setShowLogoutLoading={setShowLogoutLoading} />
             )}
           </ul>
         </aside>

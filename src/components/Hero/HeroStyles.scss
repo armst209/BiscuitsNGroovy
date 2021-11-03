@@ -1,5 +1,4 @@
 #hero-test {
-  // background-image: url("../../assets/images/hero-background.webp");
   display: block;
   background-color: none;
   background-repeat: no-repeat;
@@ -16,11 +15,6 @@
 
   @media screen and (max-width: 550px) {
     background-color: black;
-  }
-  .hero-nav-spacer {
-    display: none;
-    height: 70px;
-    width: 100%;
   }
 
   .hero-section-test {

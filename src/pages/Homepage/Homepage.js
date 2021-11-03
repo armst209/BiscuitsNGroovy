@@ -5,7 +5,7 @@ import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
 import Hero from "../../components/Hero/Hero";
 import "./HomepageStyles.scss";
 import reminder_image from "../../assets/images/subscribe.webp";
-import NewsletterFormContainer from "../../components/NewsLetterSubscribe/NewsletterFormContainer";
+import NewsletterFormContainer from "../../components/MailchimpForms/NewsLetterSubscribe/NewsletterFormContainer";
 
 function Homepage(props) {
   return (

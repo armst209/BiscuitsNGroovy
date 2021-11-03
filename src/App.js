@@ -12,6 +12,7 @@ import Router from "./Routes/Router.tsx";
 //for social media icons
 import "../node_modules/@fortawesome/fontawesome-free/js/all";
 import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget";
+import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
@@ -23,6 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <MainNavigation />
+      <FixedNavigationSpacer />
       <Router routes={routes} />
       <Footer />
       <ScrollWidget />
