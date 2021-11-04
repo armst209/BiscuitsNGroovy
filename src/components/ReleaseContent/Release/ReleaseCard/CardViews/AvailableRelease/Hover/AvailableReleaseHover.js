@@ -1,26 +1,13 @@
 import "./AvailableReleaseHoverStyles.scss";
-import AlbumPopup from "./Modal/AvailableReleaseModal";
 import { ReactComponent as PlayButton } from "../../../../../../../assets/images/play-button.svg";
 
 function AvailableReleaseHover({ release }) {
   return (
-    <div id="album-hover">
-      <div className="album-hover-wrapper">
-        <button
-          onClick={() => {
-            // props.showReleasePopUp(
-            //   <div>
-            //     <AlbumPopup
-            //       // closeAlbumPopup={props.closeButton}
-            //       // albumInformation={props.albumInfo}
-            //       release={release}
-            //     />
-            //   </div>
-            // );
-          }}
-        >
+    <div id="available-release-hover">
+      <div className="available-release-hover-wrapper">
+        <button onClick={() => {}}>
           <PlayButton />
-          <div className="release-hover-name">{release.title}</div>
+          <div className="available-release-hover-title">{release.title}</div>
         </button>
       </div>
     </div>

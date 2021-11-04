@@ -1,31 +1,28 @@
 import "./ExpiredModalStyles.scss";
 
-function ExpiredModal(props) {
+function ExpiredModal({ release, showExpiredModal, setShowExpiredModal }) {
   return (
-    <section className={props.popupClassName}>
-      <div className="expired-popup-container">
+    <section id="expired-modal">
+      <div className="expired-modal-container">
         <div
-          className="expired-popup-close"
-          onClick={() => props.setShowEndDatePopUp("")}
+          className="expired-modal-close"
+          onClick={() => setShowExpiredModal(!showExpiredModal)}
         >
           X
         </div>
-        <h1>Expired!</h1>
+        <h1>EXPIRED!</h1>
         <p>
           This release has expired, meaning it’s no longer available to stream
           on BnG.
         </p>
-        {/* <p>
-          Liked what you heard? Check out all of {props.releaseInformation}’s
-          music{" "}
-          <a
-            href="https://open.spotify.com/artist/21FzYbjcnY2R44kLVjcugy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <p>
+          Liked what you heard? Check out all of {release.name}’s music{" "}
+          {/* change to music link url */}
+          <a href={release.art_url} target="_blank" rel="noopener noreferrer">
             here
           </a>
-        </p> */}
+          .
+        </p>
         <p>
           Rest assured your album art NFTs are here to stay. They remain in your
           account permanently so you can curate the perfect collection and prove

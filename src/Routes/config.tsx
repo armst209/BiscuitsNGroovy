@@ -90,10 +90,19 @@ const routes:IRoute[] = [
      
       {
         path: "/collection",
-        component: lazy(()=>import("../pages/Collection/Collection")),
+        component: lazy(()=>import("../components/MusicPlayer/MusicPlayerContainer")),
         key: "COLLECTION_PAGE",
         exact: true,
         private:true,
+        fallback:<Loading/>
+        
+      },
+      {
+        path: "/collection/:id",
+        component: lazy(()=>import("../components/ReleaseContent/Release/ReleaseCard/CardViews/AvailableRelease/Modal/AvailableReleaseModal")),
+        key: "ALBUM_PAGE",
+        exact: true,
+        private:false,
         fallback:<Loading/>
         
       },

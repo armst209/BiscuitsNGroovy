@@ -1,4 +1,4 @@
-#nft-popup {
+#nft-expired-modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -16,7 +16,7 @@
     padding: 0;
   }
 
-  .nft-image-container {
+  .nft-expired-modal-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@
       display: none;
     }
 
-    .nft-popup-close {
+    .nft-expired-modal-close {
       position: absolute;
       padding: 5px;
       display: flex;
@@ -56,7 +56,7 @@
       right: 0;
       z-index: 5;
     }
-    .nft-image {
+    .nft-expired-modal-image {
       max-width: 500px;
       @media screen and (max-width: 650px) {
         width: 400px;

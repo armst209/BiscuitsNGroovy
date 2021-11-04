@@ -1,4 +1,4 @@
-.expired-popup {
+#expired-modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -16,7 +16,7 @@
     padding: 0;
   }
 
-  .expired-popup-container {
+  .expired-modal-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +40,14 @@
       border-radius: 20px;
       display: none;
     }
+    h1 {
+      font-family: var(--font3);
+      font-size: 3rem;
+      letter-spacing: 0.06cm;
+      color: var(--color1);
+      font-weight: normal;
+      padding: 1rem 0;
+    }
 
     p {
       font-family: var(--font1);
@@ -57,7 +65,7 @@
       }
     }
 
-    .expired-popup-close {
+    .expired-modal-close {
       position: absolute;
       padding: 5px;
       display: flex;
