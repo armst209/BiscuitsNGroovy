@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./EventsStyles.scss";
 import zevy_event from "../../assets/images/event-images/zevyevent.webp";
 import { HashLink } from "react-router-hash-link";
@@ -9,7 +10,8 @@ import EventsAbout from "./EventsAbout";
 import EventsSocials from "./EventsSocials";
 
 function Events() {
-  const dateToEvent = new Date("November 6, 2021 00:00:00").getTime();
+  const [showTicketInformation, setShowTicketInformation] = useState(true);
+  const dateToEvent = new Date("November 6, 2021 16:00:00").getTime();
 
   return (
     <section id="events">
@@ -24,7 +26,10 @@ function Events() {
           <div className="single-event-flyer">
             <img src={zevy_event} alt="zevy event flyer" />
           </div>
-          <EventTimer expiryTimestamp={dateToEvent} />
+          <EventTimer
+            expiryTimestamp={dateToEvent}
+            setShowTicketInformation={setShowTicketInformation}
+          />
           <div className="single-event-divider-wrapper">
             <hr className="single-event-divider"></hr>
           </div>
@@ -83,21 +88,22 @@ function Events() {
                   </li>
                 </ul>
               </div>
-
-              <div className="artist-link">
-                <HashLink to="/home/#music-showcase">
-                  <button>Get My VIP Ticket</button>
-                </HashLink>
-                <p className="artist-link-footer">
-                  Limited to 1 ticket per customer. You will be prompted to
-                  create a BnG account in order to claim your ticket, which is
-                  backed by an{" "}
-                  <HashLink to="/faq#nft-scroll-purchase">
-                    eco-friendly NFT
+              {showTicketInformation && (
+                <div className="artist-link">
+                  <HashLink to="/home/#music-showcase">
+                    <button>Get My VIP Ticket</button>
                   </HashLink>
-                  .
-                </p>
-              </div>
+                  <p className="artist-link-footer">
+                    Limited to 1 ticket per customer. You will be prompted to
+                    create a BnG account in order to claim your ticket, which is
+                    backed by an{" "}
+                    <HashLink to="/faq#nft-scroll-purchase">
+                      eco-friendly NFT
+                    </HashLink>
+                    .
+                  </p>
+                </div>
+              )}
             </div>
             <div className="single-event-divider-wrapper third-divider">
               <hr className="single-event-divider"></hr>

@@ -1,10 +1,15 @@
 import { useTimer } from "react-timer-hook";
 import "./EventTimerStyles.scss";
 
-function EventTimer({ expiryTimestamp }) {
+function EventTimer({ expiryTimestamp, setShowTicketInformation }) {
   const { seconds, minutes, hours, days } = useTimer({
     expiryTimestamp,
-    onExpire: () => console.warn("EVENT DAY"),
+    onExpire: () => {
+      // setShowTicketInformation(false);
+      document.querySelector(
+        ".countdown-container"
+      ).innerHTML = `<div style="text-align:center; color:var(--color1); font-weight:normal; font-family:var(--font1);">Hope you were able to make the show! Check back 11/12 for the exclusive pre-release of ZEVY's new single "Green Eyes"! </div>`;
+    },
   });
 
   return (
