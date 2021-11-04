@@ -84,7 +84,8 @@ function Events() {
                     <span>TIME: </span>4PM
                   </li>
                   <li>
-                    <span>LOCATION: </span>1001 Oakland Ave, Ann Arbor, MI 48104
+                    <span>LOCATION: </span>820 East University Ave, Ann Arbor,
+                    MI 48104
                   </li>
                 </ul>
               </div>
@@ -112,7 +113,7 @@ function Events() {
               <div className="single-event-map">
                 <iframe
                   title="map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.374961781665!2d-83.7398452847149!3d42.27051864874446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cae48ef0ac2a1%3A0x466cdf5a2faa3bb8!2s1001%20Oakland%20Ave%2C%20Ann%20Arbor%2C%20MI%2048104!5e0!3m2!1sen!2sus!4v1634905761283!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.3378837289088!2d-83.7381906490822!3d42.2713102485924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cae48b3791afd%3A0xf30cd50eaff6f225!2s820%20E%20University%20Ave%2C%20Ann%20Arbor%2C%20MI%2048104!5e0!3m2!1sen!2sus!4v1636069638204!5m2!1sen!2sus"
                   width="600"
                   height="450"
                   loading="lazy"
