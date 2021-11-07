@@ -18,7 +18,8 @@ import two_icon from "../../assets/images/connect.svg";
 import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
-import ArtistForm from "../../components/MailchimpForms/ArtistInformation/ArtistForm";
+import ArtistForm from "../../components/MailchimpForms/ArtistInformation/ArtistInformationForm";
+import ArtistInformationForm from "../../components/MailchimpForms/ArtistInformation/ArtistInformationForm";
 
 function Artists(props) {
   return (
@@ -203,7 +204,7 @@ function Artists(props) {
           </div>
         </div>
         <div id="artists-form" className="form-container">
-          <ArtistForm />
+          <ArtistInformationForm />
         </div>
       </div>
       <img className="mic-drop" src={mic_drop} alt="mic drop" />

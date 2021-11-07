@@ -1,6 +1,6 @@
 import "./MusicShowcaseStyles.scss";
 import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
-import ComponentLoading from "../Loading/ComponentLoading";
+import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import env from "react-dotenv";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import { ReactComponent as SpotLightYellowLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";

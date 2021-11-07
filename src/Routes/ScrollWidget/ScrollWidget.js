@@ -1,12 +1,15 @@
 import "./ScrollWidgetStyles.scss";
+import { ReactComponent as UpArrow } from "../../assets/images/up-arrow.svg";
 
 const ScrollWidget = () => {
-  const handleScroll = (event) => {
+  const handleScroll = () => {
     window.scrollTo(0, 0);
   };
   return (
-    <div onClick={(event) => handleScroll(event)} id="scroll-widget-container">
-      <div>+</div>
+    <div onClick={() => handleScroll()} id="scroll-widget-container">
+      <div>
+        <UpArrow />
+      </div>
     </div>
   );
 };

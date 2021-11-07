@@ -25,7 +25,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
           <p>MENU</p>
         </div>
       </div>
-      {/* Moble Aside */}
+      {/* Mobile Aside */}
       {showMobileMenu && (
         <aside className="mobile-navigation-aside">
           {/* Mobile Aside Header */}

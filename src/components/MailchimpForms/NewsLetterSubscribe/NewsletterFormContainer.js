@@ -1,7 +1,7 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import NewsLetterForm from "./NewsLetterForm";
 import "./NewsLetterSubscribeStyles.scss";
-import ComponentLoading from "../../Loading/ComponentLoading";
+import ComponentLoading from "../../Loading/Component/ComponentLoading";
 import { ReactComponent as LetterIcon } from "../../../assets/images/letter2_yellow.svg";
 
 const NewsletterFormContainer = (props) => {

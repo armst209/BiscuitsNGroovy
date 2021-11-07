@@ -108,7 +108,7 @@ const routes:IRoute[] = [
       },
       {
         path: "/purchase-success",
-        component: lazy(()=>import("../components/SuccessfulPurchase/SuccessBuy")),
+        component: lazy(()=>import("../pages/SuccessfulPurchase/SuccessBuy")),
         key: "PURCHASE_SUCCESS_PAGE",
         exact: true,
         private: true,

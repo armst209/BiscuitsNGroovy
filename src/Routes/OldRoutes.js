@@ -29,7 +29,7 @@ const NFTTerms = lazy(() => import("../pages/TermsOfService/Terms/NFTTerms"));
 const CollectionHome = lazy(() => import("../pages/Collection/Collection"));
 
 const SuccessfulPurchase = lazy(() =>
-  import("../components/SuccessfulPurchase/SuccessBuy")
+  import("../pages/SuccessfulPurchase/SuccessBuy")
 );
 
 function OldRoutes(props) {

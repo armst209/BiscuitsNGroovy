@@ -1,4 +1,3 @@
-import { React } from "react";
 import { Link } from "react-router-dom";
 import SocialMedia from "../Social Media/SocialMedia";
 import { ReactComponent as FooterLogo } from "../../assets/images/bng_test.svg";
@@ -6,15 +5,11 @@ import { ReactComponent as FooterLogo } from "../../assets/images/bng_test.svg";
 import "./FooterStyles.scss";
 
 function Footer() {
-  const backToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <section id="footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <FooterLogo onClick={backToTop} />
+          <FooterLogo />
         </div>
 
         <div className="footer-information">
@@ -38,9 +33,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="button-plus-social"></div>
-
-          <div className="social-media">
+          <div className="footer-social-media">
             <SocialMedia />
           </div>
         </div>
@@ -51,10 +44,10 @@ function Footer() {
           your favorite artists, and collect NFT album art
         </p>
       </div>
-      <div className="privacy-term-links">
+      <div className="footer-privacy-term-links">
         <Link to="/privacy-terms-of-use">Privacy Policy & Terms of Use</Link>
       </div>
-      <div className="copyright">
+      <div className="footer-copyright">
         <p>© {new Date().getFullYear()} Biscuits & Groovy, LLC </p>
       </div>
     </section>

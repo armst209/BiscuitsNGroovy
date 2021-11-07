@@ -3,7 +3,7 @@ import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 
 import "./StripeCheckoutProcessesStyles.scss";
-import StripeLoader from "../../components/Loading/StripeLoader";
+import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
 import env from "react-dotenv";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid

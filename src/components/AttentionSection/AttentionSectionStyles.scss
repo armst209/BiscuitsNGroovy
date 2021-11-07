@@ -1,0 +1,43 @@
+#attention-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  padding: 1rem;
+  border: none;
+  min-height: 600px;
+  position: relative;
+  @media screen and (max-width: 1200px) {
+    padding-top: 5rem;
+  }
+
+  .attention-section-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+
+    @media screen and (max-width: 1200px) {
+      width: 30%;
+    }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  .attention-section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100%;
+    gap: 2rem;
+    @media screen and (min-width: 1140px) {
+      width: 1140px;
+    }
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  }
+}

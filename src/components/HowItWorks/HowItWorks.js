@@ -17,15 +17,15 @@ function HowItWorks() {
             <div>HOW IT WORKS</div>
           </h1>
         </div>
-        <div className="boxes">
+        <div className="how-it-works-boxes">
           <div className="box">
             <div className="box-border">
               <div className="box-content">
-                <div className="icon-headers">
+                <div className="how-it-works-boxes-icon-headers">
                   <div className="how-icon">
                     <LoveSong />
                   </div>
-                  <div className="headers">
+                  <div className="how-it-works-boxes-headers">
                     <h4>EXCLUSIVE MUSIC</h4>
                     <h6>FOR SUPERFANS</h6>
                   </div>
@@ -44,11 +44,11 @@ function HowItWorks() {
           <div className="box">
             <div className="box-border">
               <div className="box-content">
-                <div className="icon-headers">
+                <div className="how-it-works-boxes-icon-headers">
                   <div className="how-icon">
                     <Voice />
                   </div>
-                  <div className="headers">
+                  <div className="how-it-works-boxes-headers">
                     <h4>STREAM HERE</h4>
                     <h6>BEFORE IT'S GONE</h6>
                   </div>
@@ -67,11 +67,11 @@ function HowItWorks() {
           <div className="box">
             <div className="box-border">
               <div className="box-content">
-                <div className="icon-headers">
+                <div className="how-it-works-boxes-icon-headers">
                   <div className="how-icon">
                     <Collect />
                   </div>
-                  <div className="headers">
+                  <div className="how-it-works-boxes-headers">
                     <h4>COLLECT & SHARE</h4>
                     <h6> YOUR EXCLUSIVE RECORDS</h6>
                   </div>
@@ -91,7 +91,7 @@ function HowItWorks() {
           </div>
         </div>
       </div>
-      <p className="p-info">
+      <p className="how-it-works-bottom-info">
         Get answers and learn more about our <span>eco-friendly</span> NFTs on
         our <Link to="/faq">FAQ</Link> page
       </p>

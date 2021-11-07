@@ -2,7 +2,7 @@ import env from "react-dotenv";
 import "./CollectionStyles.scss";
 import { ReactComponent as SpotlightLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotlightRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
-import ComponentLoading from "../../components/Loading/ComponentLoading";
+import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList";
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";

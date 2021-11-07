@@ -94,8 +94,13 @@ const SignUpForm = () => {
         name="username"
         noValidate
         autoComplete="off"
-        onChange={(e) => setUserName(e.target.value)}
         required
+        onKeyUp={(e) => {
+          if (e.target.value === "") {
+          } else {
+            setUserName(e.target.value);
+          }
+        }}
       />
 
       <input

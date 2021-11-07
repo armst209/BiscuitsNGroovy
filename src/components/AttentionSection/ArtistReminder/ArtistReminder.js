@@ -1,8 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./ArtistReminderStyles.scss";
-import "../Hero/HeroStyles.scss";
-import { ReactComponent as ArtistIcon } from "../../assets/images/speaker_yellow.svg";
+import { ReactComponent as ArtistIcon } from "../../../assets/images/speaker_yellow.svg";
 
 function ArtistReminder() {
   return (

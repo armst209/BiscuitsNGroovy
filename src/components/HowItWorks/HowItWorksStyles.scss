@@ -79,7 +79,7 @@
         }
       }
     }
-    .boxes {
+    .how-it-works-boxes {
       display: flex;
       flex-direction: row;
       gap: 2rem;
@@ -147,7 +147,7 @@
             width: 100%;
             height: 100%;
 
-            .icon-headers {
+            .how-it-works-boxes-icon-headers {
               padding: 2rem 0 1rem 0;
               display: flex;
               width: 100%;
@@ -155,7 +155,7 @@
               flex-direction: column;
               justify-content: center;
               align-items: center;
-              .headers {
+              .how-it-works-boxes-headers {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -238,7 +238,7 @@
   }
 }
 
-.p-info {
+.how-it-works-bottom-info {
   width: auto;
   text-align: center;
   color: white;

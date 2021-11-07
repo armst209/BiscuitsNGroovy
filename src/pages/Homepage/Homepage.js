@@ -1,40 +1,19 @@
-import ArtistReminder from "../../components/ArtistReminder/ArtistReminder";
+import "./HomepageStyles.scss";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import MusicShowcase from "../../components/MusicShowcase/MusicShowcase";
-import NFTBreakdown from "../../components/NFTBreakdown/NFTBreakdown";
+import KnowYourCollection from "../../components/KnowYourCollection/KnowYourCollection";
 import Hero from "../../components/Hero/Hero";
-import "./HomepageStyles.scss";
-import reminder_image from "../../assets/images/subscribe.webp";
-import NewsletterFormContainer from "../../components/MailchimpForms/NewsLetterSubscribe/NewsletterFormContainer";
+import AttentionSection from "../../components/AttentionSection/AttentionSection";
 
-function Homepage(props) {
+function Homepage() {
   return (
-    <section>
-      <Hero
-        loginPopup={props.loginPopup}
-        signUpPopup={props.signUpPopup}
-        showLoginPopup={props.showLoginPopup}
-        showSignUpPopup={props.showSignUpPopup}
-        showMobileNav={props.showMobileNav}
-        setShowMobileNav={props.setShowMobileNav}
-      />
+    <>
+      <Hero />
       <HowItWorks />
-
-      <MusicShowcase
-        signUpPopup={props.signUpPopup}
-        showSignUpPopup={props.showSignUpPopup}
-        releaseData={props.releaseData}
-      />
-      <NFTBreakdown />
-      <div className="reminder-subscribe">
-        <div className="reminder-subscribe-wrapper">
-          <ArtistReminder />
-          <NewsletterFormContainer />
-        </div>
-
-        <img className="reminder-image" src={reminder_image} alt="sfsfsf" />
-      </div>
-    </section>
+      <MusicShowcase />
+      <KnowYourCollection />
+      <AttentionSection />
+    </>
   );
 }
 
