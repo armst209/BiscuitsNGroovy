@@ -43,22 +43,14 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    artistName && onValidated({ MERGE1: artistName });
-    artistPrefName && onValidated({ MERGE2: artistPrefName });
-    artistEmail &&
+    return (
+      artistEmail &&
       artistEmail.indexOf("@") > -1 &&
-      onValidated({
-        MERGE0: artistEmail,
-      });
-
-    artistPhone && onValidated({ MERGE2: artistPhone });
-    managerName && onValidated({ MERGE1: managerName });
-    managerEmail && onValidated({ MERGE2: managerEmail });
-    artistMessage && onValidated({ MERGE1: artistMessage });
+      onValidated({ MERGE0: artistEmail })
+    );
   };
-
   return (
-    <form id="sub-form" onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <div>
         {status === "success" ? (
           <div className="form-success">
@@ -128,7 +120,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
       <input
         label="Enter a message:"
         onChange={(e) => setArtistMessage(e.target.value)}
-        type="email"
+        type="text"
         value={artistMessage}
         placeholder="Enter a message:"
         required
