@@ -30,7 +30,9 @@ function TestHero() {
                   </div>
                   <div className="hero-test-buttons">
                     <HashLink to="/home#music-showcase">
-                      <button className="start-btn">Buy Tickets</button>
+                      <button className="start-btn">
+                        Start Your Collection
+                      </button>
                     </HashLink>
                     <Link to="/artists">
                       <button className="for-artists-btn">For Artists</button>
