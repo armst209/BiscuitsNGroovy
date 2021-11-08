@@ -10,7 +10,7 @@ import EventsAbout from "./EventsAbout";
 import EventsSocials from "./EventsSocials";
 
 function Events() {
-  const [showTicketInformation, setShowTicketInformation] = useState(true);
+  const [showTicketInformation, setShowTicketInformation] = useState(false);
   const dateToEvent = new Date("November 6, 2021 16:00:00").getTime();
 
   return (
@@ -30,6 +30,7 @@ function Events() {
             expiryTimestamp={dateToEvent}
             setShowTicketInformation={setShowTicketInformation}
           />
+          <EventsSocials name={"ZEVY"} />
           <div className="single-event-divider-wrapper">
             <hr className="single-event-divider"></hr>
           </div>
@@ -38,7 +39,7 @@ function Events() {
             <div className="single-event-content">
               <div className="single-event-info">
                 <div className="single-event-description">
-                  <p>
+                  {/* <p>
                     Biscuits n Groovy brings you ZEVY, one of the brightest
                     young EDM DJs in the game, at 1001 Oakland Ave in the heart
                     of Ann Arbor on November 6, 2021 for an exclusive tailgate
@@ -47,8 +48,8 @@ function Events() {
                     come first served basis. However, you may reserve your spot
                     by grabbing a VIP ticket for just $10 and presenting it at
                     the door.
-                  </p>
-                  <p>VIP tickets include the following perks:</p>
+                  </p> */}
+                  {/* <p>VIP tickets include the following perks:</p>
                   <ul>
                     <li>Guaranteed admission to the event</li>
                     <li>
@@ -71,12 +72,12 @@ function Events() {
                     Once you get your ticket, Tweet at us using the hashtag
                     <strong> #BnGpresentsZEVY</strong> for a chance to win some
                     exclusive merch and be featured on our socials!
-                  </p>
+                  </p> */}
                 </div>
                 <div className="single-event-divider-wrapper second-divider">
                   <hr className="single-event-divider"></hr>
                 </div>
-                <ul>
+                {/* <ul>
                   <li>
                     <span>DATE: </span> 11/6/2021
                   </li>
@@ -87,7 +88,7 @@ function Events() {
                     <span>LOCATION: </span>820 East University Ave, Ann Arbor,
                     MI 48104
                   </li>
-                </ul>
+                </ul> */}
               </div>
               {showTicketInformation && (
                 <div className="artist-link">
@@ -110,7 +111,7 @@ function Events() {
               <hr className="single-event-divider"></hr>
             </div>
             <div className="events-map-socials-wrapper">
-              <div className="single-event-map">
+              {/* <div className="single-event-map">
                 <iframe
                   title="map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.3378837289088!2d-83.7381906490822!3d42.2713102485924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cae48b3791afd%3A0xf30cd50eaff6f225!2s820%20E%20University%20Ave%2C%20Ann%20Arbor%2C%20MI%2048104!5e0!3m2!1sen!2sus!4v1636069638204!5m2!1sen!2sus"
@@ -118,11 +119,10 @@ function Events() {
                   height="450"
                   loading="lazy"
                 ></iframe>
-              </div>
-              <div className="single-event-divider-wrapper">
+              </div> */}
+              {/* <div className="single-event-divider-wrapper">
                 <hr className="single-event-divider"></hr>
-              </div>
-              <EventsSocials name={"ZEVY"} />
+              </div> */}
             </div>
           </div>
 
