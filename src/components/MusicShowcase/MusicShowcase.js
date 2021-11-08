@@ -1,7 +1,8 @@
 import "./MusicShowcaseStyles.scss";
+
 import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import { ReactComponent as SpotLightYellowLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotLightYellowRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
@@ -10,12 +11,13 @@ import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseList/NoReleases/No
 
 const MusicShowcase = () => {
   //TOKEN
-  const token = localStorage.getItem("token");
+  let token = localStorage.getItem("token");
+
   const {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useFetch(`${env.BACKEND_URL}/releases`, {
+  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/releases`, {
     headers: { "x-access-token": token },
   });
 

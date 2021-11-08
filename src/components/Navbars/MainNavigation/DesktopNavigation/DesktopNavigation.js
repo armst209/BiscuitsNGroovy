@@ -70,8 +70,11 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
       </div>
       <div className="right-links-container">
         <div className="right-links-inner-container">
-          <CollectionButton />
-          <LoginAndSignUp />
+          <div className="desktop-main-links">
+            <CollectionButton />
+            <LoginAndSignUp />
+          </div>
+
           <Logout setShowLogoutLoading={setShowLogoutLoading} />
         </div>
       </div>

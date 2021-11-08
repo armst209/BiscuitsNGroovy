@@ -107,6 +107,24 @@ const routes:IRoute[] = [
         
       },
       {
+        path: "/password-recovery",
+        component: lazy(()=>import("../pages/PasswordRecovery/UserEmail/UserEmail")),
+        key: "PASSWORD_RECOVERY_PAGE",
+        exact: true,
+        private: false,
+        fallback:<Loading/>
+       
+      },
+      {
+        path: "/password-recovery/new-password/:id",
+        component: lazy(()=>import("../pages/PasswordRecovery/PasswordReset/PasswordRecovery")),
+        key: "NEW_PASSWORD_PAGE",
+        exact: true,
+        private: true,
+        fallback:<Loading/>
+       
+      },
+      {
         path: "/purchase-success",
         component: lazy(()=>import("../pages/SuccessfulPurchase/SuccessBuy")),
         key: "PURCHASE_SUCCESS_PAGE",

@@ -158,6 +158,22 @@
         }
       }
     }
+    button {
+      border: none;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      width: auto;
+      font-family: var(--font1);
+      background-color: transparent;
+      font-size: 2rem;
+      padding: 0.2rem 0;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        color: var(--color1);
+      }
+    }
     .signup-li {
       width: 100%;
       display: flex;

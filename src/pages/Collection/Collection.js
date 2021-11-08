@@ -9,13 +9,13 @@ import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";
 
 function Collection() {
-  const token = localStorage.getItem("token");
+  let token = localStorage.getItem("token");
 
   const {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useFetch(`${env.BACKEND_URL}/library`, {
+  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/library`, {
     headers: { "x-access-token": token },
   });
 

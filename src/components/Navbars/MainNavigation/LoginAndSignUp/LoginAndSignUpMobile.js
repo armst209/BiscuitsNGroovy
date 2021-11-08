@@ -1,12 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
 
-const LoginAndSignUp = () => {
+const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
   const token = localStorage.getItem("token");
   return token ? (
     ""
   ) : (
     <>
-      <li>
+      <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
         <NavLink
           activeStyle={{
             borderBottom: "4px solid var(--color1)",
@@ -16,7 +16,7 @@ const LoginAndSignUp = () => {
           Login
         </NavLink>
       </li>
-      <li>
+      <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
         <Link to="/signup">
           <button>
             <div>Sign Up</div>
@@ -27,4 +27,4 @@ const LoginAndSignUp = () => {
   );
 };
 
-export default LoginAndSignUp;
+export default LoginAndSignUpMobile;

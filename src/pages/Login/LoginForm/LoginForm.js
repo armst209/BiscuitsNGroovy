@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 import "./LoginFormStyles.scss";
 import { ReactComponent as LoginArrow } from "../../../assets/images/login.svg";
 import { ReactComponent as LoginLoading } from "../../../assets/images/pulse_loader_black.svg";
@@ -30,7 +30,7 @@ const LoginForm = () => {
 
     axios({
       method: "post",
-      url: `${env.BACKEND_URL}/login`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/login`,
       data: { username: username, password: password },
       loading: false,
     })
@@ -43,7 +43,7 @@ const LoginForm = () => {
 
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
-      window.location.replace(env.FRONTEND_URL + "/home");
+      window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/home");
     };
 
     const handleFailure = (err) => {

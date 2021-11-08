@@ -23,6 +23,9 @@ import ScrollToTop from "./Routes/ScrollToTop";
 // const history = createBrowserHistory(); // or createHashHistory()
 // wrapHistory(history);
 
+//token is an issue for login and signup components for password reset
+//react-dotenv doesn't work for routes, causes issues -- will use process.env combined with REACT_APP_ (must have for env variables)
+
 ReactDOM.render(
   <Router>
     <ScrollToTop />

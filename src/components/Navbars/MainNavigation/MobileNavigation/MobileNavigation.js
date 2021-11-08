@@ -4,8 +4,9 @@ import "./MobileNavigationStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import LogoutButton from "../LogoutButton/LogoutButton";
+import CollectionButton from "../CollectionButton/CollectionButton";
+import LoginAndSignUpMobile from "../LoginAndSignUp/LoginAndSignUpMobile";
 const MobileNavigation = ({ setShowLogoutLoading }) => {
-  const token = localStorage.getItem("token");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
@@ -105,30 +106,15 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
                 Events
               </NavLink>
             </li>
-
-            {!token ? (
-              <>
-                <li>
-                  <NavLink
-                    onClick={() => setShowMobileMenu(!showMobileMenu)}
-                    activeStyle={{
-                      textDecoration: "underline 5px solid var(--color2)",
-                    }}
-                    to="/login"
-                  >
-                    Login
-                  </NavLink>
-                </li>
-
-                <li className="signup-li">
-                  <button onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                    <NavLink to="/signup">Sign Up</NavLink>
-                  </button>
-                </li>
-              </>
-            ) : (
-              <LogoutButton setShowLogoutLoading={setShowLogoutLoading} />
-            )}
+            <LoginAndSignUpMobile
+              showMobileMenu={showMobileMenu}
+              setShowMobileMenu={setShowMobileMenu}
+            />
+            <CollectionButton
+              showMobileMenu={showMobileMenu}
+              setShowMobileMenu={setShowMobileMenu}
+            />
+            <LogoutButton setShowLogoutLoading={setShowLogoutLoading} />
           </ul>
         </aside>
       )}

@@ -1,0 +1,136 @@
+#user-email {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  .email-input-title {
+    width: 100%;
+    h1 {
+      font-family: var(--font3);
+      color: white;
+      border: 3px solid var(--color1);
+      padding: 1rem;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      text-align: center;
+      font-size: 3rem;
+      position: relative;
+      letter-spacing: 0.1cm;
+      font-weight: normal;
+    }
+    padding-bottom: 5rem;
+  }
+  .user-email-wrapper {
+    padding: 0 1rem;
+    form {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: var(--shadow-large);
+      padding: 60px 40px;
+      background-color: black;
+      font-family: var(--font2);
+      position: relative;
+      border-radius: 0.5rem;
+      border: 5px solid var(--color2);
+      width: 500px;
+      @media screen and (max-width: 550px) {
+        padding: 0;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+      }
+
+      input {
+        margin: 5px 0;
+        background: var(--color-light);
+        font-family: var(--font1);
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: inherit;
+        width: 100%;
+        height: auto;
+        padding: 0.75rem 1.25rem;
+        border: 3px solid var(--color1);
+        outline: none;
+        color: var(--color-black);
+        background: black;
+        text-transform: unset;
+        text-rendering: optimizeLegibility;
+        border-radius: 0.5rem;
+        @media screen and (max-width: 300px) {
+          font-size: 0.7rem;
+        }
+
+        &::placeholder {
+          color: white;
+          @media screen and (orientation: portrait) and (max-device-width: 350px) {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .user-email-button-container {
+        padding: 0.5rem 0 1rem 0;
+        button {
+          border: 3px solid var(--color1);
+          border-radius: 50px;
+          font-family: var(--font1);
+          font-size: 1rem;
+          background: transparent;
+          width: 200px;
+          height: 70px;
+          cursor: pointer;
+          color: white;
+          transition: all 0.2s ease;
+          position: relative;
+          font-weight: normal;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: scale(1.05);
+
+          &:hover {
+            background-color: var(--color1);
+
+            color: black;
+          }
+          div {
+            font-family: var(--font1);
+            font-weight: normal;
+          }
+          svg {
+            position: absolute;
+            width: 30px;
+            right: 10%;
+          }
+        }
+      }
+    }
+  }
+
+  .user-email-error-messages {
+    text-align: center;
+    width: 100%;
+    font-family: var(--font1);
+    font-weight: normal;
+    color: red;
+    padding: 1rem;
+  }
+  .user-email-success-message {
+    text-align: center;
+    width: 100%;
+    font-family: var(--font1);
+    font-weight: normal;
+    color: green;
+    padding: 1rem;
+  }
+}

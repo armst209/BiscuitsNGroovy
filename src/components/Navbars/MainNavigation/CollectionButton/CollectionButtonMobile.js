@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-const CollectionButton = () => {
+const CollectionButtonMobile = ({ showMobileMenu, setShowMobileMenu }) => {
   const token = localStorage.getItem("token");
   return token ? (
-    <li>
+    <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
       <NavLink
         activeStyle={{
           textDecoration: "underline 5px solid var(--color2)",
@@ -18,4 +18,4 @@ const CollectionButton = () => {
   );
 };
 
-export default CollectionButton;
+export default CollectionButtonMobile;

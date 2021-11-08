@@ -4,15 +4,16 @@ import { loadStripe } from "@stripe/stripe-js";
 
 import "./StripeCheckoutProcessesStyles.scss";
 import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render. ??
 
 //STRIPE
-const stripePromise = loadStripe(env.STRIPE_API_KEY);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
+
 //TOKEN
-const token = localStorage.getItem("token");
+let token = localStorage.getItem("token");
 
 const StripeCheckoutProcesses = ({ release }) => {
   const [message, setMessage] = useState("");
@@ -25,7 +26,9 @@ const StripeCheckoutProcesses = ({ release }) => {
 
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
-      window.location.replace(env.FRONTEND_URL + "/purchase-success");
+      window.location.replace(
+        process.env.REACT_APP_FRONTEND_URL + "/purchase-success"
+      );
     }
     if (query.get("canceled")) {
       setMessage(
@@ -44,7 +47,7 @@ const StripeCheckoutProcesses = ({ release }) => {
     //check if a user is signed in with a FLOW wallet
 
     const stripe = await stripePromise;
-    const URL = `${env.BACKEND_URL}/payments/create-checkout-session`;
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/payments/create-checkout-session`;
 
     const response = await axios(URL, {
       method: "POST",
@@ -73,6 +76,28 @@ const StripeCheckoutProcesses = ({ release }) => {
       // using `result.error.message`.
     }
   };
+  //functional component that is being rendered and displayed if there is a message
+  const Message = ({ message }) => (
+    <section>
+      <p>{message}</p>
+    </section>
+  );
+
+  //functional component that is being rendered and displayed if no message
+  const ProductDisplay = ({ handleClick, showStripeLoader }) => (
+    <section>
+      <button
+        type="button"
+        id="checkout-button"
+        role="link"
+        onClick={handleClick}
+        className="checkout-button"
+      >
+        BUY NOW
+      </button>
+      {showStripeLoader}
+    </section>
+  );
 
   return message ? (
     <Message message={message} />
@@ -83,27 +108,5 @@ const StripeCheckoutProcesses = ({ release }) => {
     />
   );
 };
-//functional component that is being rendered and displayed if there is a message
-const Message = ({ message }) => (
-  <section>
-    <p>{message}</p>
-  </section>
-);
-
-//functional component that is being rendered and displayed if no message
-const ProductDisplay = ({ handleClick, showStripeLoader }) => (
-  <section>
-    <button
-      type="button"
-      id="checkout-button"
-      role="link"
-      onClick={handleClick}
-      className="checkout-button"
-    >
-      BUY NOW
-    </button>
-    {showStripeLoader}
-  </section>
-);
 
 export default StripeCheckoutProcesses;

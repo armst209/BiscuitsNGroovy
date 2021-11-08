@@ -6,7 +6,7 @@ import env from "react-dotenv";
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
 
-//configure flow environment
+// //configure flow environment
 config()
   .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
@@ -39,11 +39,9 @@ const SignUpForm = () => {
 
     // let flow_address = currUser.addr;
 
-    const baseURL = env.BACKEND_URL;
-
     axios({
       method: "post",
-      url: `${baseURL}/registration`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/registration`,
       data: {
         email,
         username,
