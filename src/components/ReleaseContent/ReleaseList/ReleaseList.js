@@ -4,6 +4,7 @@ import ReleaseCard from "../Release/ReleaseCard/ReleaseCard";
 const ReleaseList = ({ releaseData, noReleaseDataComponent }) => {
   return (
     //ONLY MAPS THROUGH RELEASE CARDS AND DISPLAYS THEM
+    //displays different "NoReleases" component dependent on whats passed as noReleaseDataComponent prop
     <>
       {releaseData.length === 0
         ? noReleaseDataComponent

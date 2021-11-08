@@ -4,6 +4,7 @@
   width: 100%;
   color: white;
   background: black;
+  position: relative;
   .collection-title {
     width: 100%;
     padding-top: 3rem;
@@ -58,6 +59,10 @@
         }
       }
     }
+  }
+
+  .collection-play-info-container {
+    position: absolute;
   }
 
   .collection-container {

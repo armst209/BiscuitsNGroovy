@@ -2,6 +2,7 @@ import env from "react-dotenv";
 import "./CollectionStyles.scss";
 import { ReactComponent as SpotlightLeft } from "../../assets/images/spotlight_outline_left_yellow.svg";
 import { ReactComponent as SpotlightRight } from "../../assets/images/spotlight_outline_right_yellow.svg";
+import { ReactComponent as InfoQuestion } from "../../assets/images/question2.svg";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList";
@@ -28,6 +29,10 @@ function Collection() {
           {/* ======SVGs====== */}
           COLLECTION
         </h1>
+      </div>
+      <div className="collection-play-info-container">
+        <InfoQuestion />
+        <div>Why can't I play songs in my collection?</div>
       </div>
       <div className="collection-container">
         <div className="collection-library-grid-wrapper">
