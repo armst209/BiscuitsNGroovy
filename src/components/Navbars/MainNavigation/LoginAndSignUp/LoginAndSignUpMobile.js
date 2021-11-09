@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 
 const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
-  const token = localStorage.getItem("token");
+  let token = localStorage.getItem("token");
   return token ? (
     ""
   ) : (

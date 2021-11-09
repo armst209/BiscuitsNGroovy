@@ -1,17 +1,14 @@
 import { useState } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./PassRecoveryFormStyles.scss";
 
 import axios from "axios";
 import env from "react-dotenv";
 
 const PassRecoveryForm = () => {
-  let accessToPasswordReset = localStorage.getItem("ATPR");
   let { userTokenId } = useParams();
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
-
-  //password validation for both password inputs
 
   const submit = (event) => {
     event.preventDefault();
@@ -20,7 +17,7 @@ const PassRecoveryForm = () => {
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       //removing local storage check for if use accidentally navigates to password reset
-      localStorage.removeItem("ATPR");
+      localStorage.removeItem("PR_Auth_Token");
     };
 
     const handleFailure = (err) => {
@@ -43,7 +40,7 @@ const PassRecoveryForm = () => {
       });
   };
 
-  return accessToPasswordReset === "true" ? (
+  return (
     <section id="pass-recovery">
       <div className="pass-recovery-wrapper">
         <h1>Token:{userTokenId}</h1>
@@ -70,8 +67,6 @@ const PassRecoveryForm = () => {
         <ul className="pass-recovery-container-desktop"></ul>
       </div>
     </section>
-  ) : (
-    <Redirect to="/" />
   );
 };
 

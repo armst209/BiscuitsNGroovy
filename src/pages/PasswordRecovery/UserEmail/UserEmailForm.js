@@ -13,9 +13,9 @@ const UserEmailForm = ({
     setShowEmailLoader(true);
 
     const handleSuccess = (res) => {
-      //   localStorage.setItem("token", res.data.token);
       //storage item for users who accidently navigation to password reset page
-      localStorage.setItem("ATPR", "true");
+      localStorage.setItem("PR_Auth_Token", res.data.token);
+
       setShowEmailLoader(false);
       setSuccessMessage("Link sent!");
     };

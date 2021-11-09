@@ -2,7 +2,7 @@ import "./PasswordRecoveryStyles.scss";
 import { useLocation, useRouteMatch } from "react-router-dom";
 import PassRecoveryForm from "./PassRecoveryForm";
 
-function PasswordRecovery() {
+const PasswordRecovery = () => {
   let { path } = useRouteMatch();
   let query = new URLSearchParams(useLocation().search);
 
@@ -15,6 +15,6 @@ function PasswordRecovery() {
       <PassRecoveryForm userTokenId={query.get("userTokenId")} />
     </section>
   );
-}
+};
 
 export default PasswordRecovery;

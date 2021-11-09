@@ -22,6 +22,8 @@ export interface IRoute {
     private?: boolean;
     //If the route has login/signup functionality
     credentials?: boolean;
+    //If route has password reset functionality
+    resetCredentials?: boolean;
    
   }
 const routes:IRoute[] = [
@@ -120,7 +122,8 @@ const routes:IRoute[] = [
         component: lazy(()=>import("../pages/PasswordRecovery/PasswordReset/PasswordRecovery")),
         key: "NEW_PASSWORD_PAGE",
         exact: true,
-        private: true,
+        private:false,
+        resetCredentials: true,
         fallback:<Loading/>
        
       },
