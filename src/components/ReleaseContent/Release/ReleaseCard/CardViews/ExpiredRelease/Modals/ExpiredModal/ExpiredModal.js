@@ -18,7 +18,11 @@ function ExpiredModal({ release, showExpiredModal, setShowExpiredModal }) {
         <p>
           Liked what you heard? Check out all of {release.name}’s music{" "}
           {/* change to music link url */}
-          <a href={release.art_url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={release.post_release_redirect}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             here
           </a>
           .

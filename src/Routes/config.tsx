@@ -92,7 +92,7 @@ const routes:IRoute[] = [
      
       {
         path: "/collection",
-        component: lazy(()=>import("../components/MusicPlayer/MusicPlayerContainer")),
+        component: lazy(()=>import("../pages/Collection/Collection")),
         key: "COLLECTION_PAGE",
         exact: true,
         private:true,

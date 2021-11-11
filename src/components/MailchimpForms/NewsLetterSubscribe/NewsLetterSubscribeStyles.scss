@@ -9,8 +9,9 @@
   padding: 0.8rem;
   background: var(--bg-color);
   color: white;
-  border: 5px solid var(--color2);
-  background: black;
+  box-shadow: var(--container-box-shadow);
+  // border: 3px solid var(--color2);
+  background-color: var(--main-color-nav-containers-darker-grey);
   border-radius: 0.5rem;
   position: relative;
   padding: 2rem 1rem;

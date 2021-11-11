@@ -10,7 +10,7 @@ const CollectionButton = () => {
         }}
         to="/collection"
       >
-        <button> Collection</button>
+        <div> Collection</div>
       </NavLink>
     </li>
   ) : (

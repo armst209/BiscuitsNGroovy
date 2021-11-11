@@ -2,7 +2,7 @@ import AvailableRelease from "../../CardViews/AvailableRelease/AvailableRelease"
 import ExpiredRelease from "../../CardViews/ExpiredRelease/ExpiredRelease";
 
 const CollectionCard = ({ release }) => {
-  // if release is expired
+  console.log(release.songs);
   return release.isExpired === true ? (
     <ExpiredRelease release={release} />
   ) : (

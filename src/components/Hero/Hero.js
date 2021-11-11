@@ -12,10 +12,10 @@ function Hero() {
             <div className="hero-content-middle-wrapper">
               <div className="hero-section-inner-wrapper">
                 <section className="hero-text">
-                  <div>
+                  <div className="hero-title">
                     <h1>
                       NEW <br /> MUSIC <br /> IS OUR <br />
-                      JAM
+                      <div className="jam">JAM</div>
                     </h1>
                   </div>
                   <div className="hero-subtitle">
@@ -24,18 +24,30 @@ function Hero() {
                     only for true fans.
                   </div>
                   <div className="hero-buttons">
-                    <HashLink to="/#music-showcase">
-                      <button className="start-btn">
+                    {/* <button className="start-btn">
                         Start Your Collection
-                      </button>
-                    </HashLink>
-                    <Link to="/artists">
+                      </button> */}
+                    <div class="start-button-container" align="center">
+                      <HashLink class="start-button-link" to="/#music-showcase">
+                        <span>Start Your Collection</span>
+                      </HashLink>
+                    </div>
+                    <div class="for-artists-button-container" align="center">
+                      <HashLink
+                        class="for-artists-button-link"
+                        to="/#music-showcase"
+                      >
+                        <span>For Artists</span>
+                      </HashLink>
+                    </div>
+
+                    {/* <Link to="/artists">
                       <button className="for-artists-btn">For Artists</button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </section>
                 <section className="hero-image-container">
-                  <img className="hero-image" src={hero_image} alt="hero" />
+                  {/* <img className="hero-image" src={hero_image} alt="hero" /> */}
                 </section>
               </div>
             </div>

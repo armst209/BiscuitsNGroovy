@@ -109,6 +109,20 @@
     }
   }
 
+  .error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    text-align: center;
+    font-family: var(--font1);
+    font-weight: normal;
+    svg {
+      width: 50px;
+    }
+  }
+
   p {
     text-align: center;
   }

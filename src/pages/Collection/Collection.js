@@ -7,6 +7,8 @@ import ComponentLoading from "../../components/Loading/Component/ComponentLoadin
 import useFetch from "../../customHooks/Fetch/useFetch";
 import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList";
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";
+import CollectionNavigation from "./CollectionNavigation/CollectionNavigation";
+import MusicPlayerContainer from "../../components/MusicPlayer/MusicPlayerContainer";
 
 function Collection() {
   let token = localStorage.getItem("token");
@@ -30,24 +32,29 @@ function Collection() {
           COLLECTION
         </h1>
       </div>
-      <div className="collection-play-info-container">
+      {/* <div className="collection-play-info-container">
         <InfoQuestion />
         <div>Why can't I play songs in my collection?</div>
-      </div>
-      <div className="collection-container">
-        <div className="collection-library-grid-wrapper">
-          <div className="collection-library-grid">
-            {isLoading && <ComponentLoading />}
-            {errorMessage === null ? (
-              releaseData && (
-                <ReleaseList
-                  releaseData={releaseData.library}
-                  noReleaseDataComponent={<NoReleasesCollection />}
-                />
-              )
-            ) : (
-              <div>{errorMessage}</div>
-            )}
+      </div> */}
+      <div className="collection-nav-grid">
+        {/* <div className="collection-navigation">
+          <CollectionNavigation />
+        </div> */}
+        <div className="collection-container">
+          <div className="collection-library-grid-wrapper">
+            <div className="collection-library-grid">
+              {isLoading && <ComponentLoading />}
+              {errorMessage === null ? (
+                releaseData && (
+                  <ReleaseList
+                    releaseData={releaseData.library}
+                    noReleaseDataComponent={<NoReleasesCollection />}
+                  />
+                )
+              ) : (
+                <div>{errorMessage}</div>
+              )}
+            </div>
           </div>
         </div>
       </div>

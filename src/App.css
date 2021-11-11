@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "outer-sans";
+  font-family: "outer-sans-regular";
   src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff")
     format("woff");
   font-weight: normal;
@@ -7,8 +7,46 @@
 }
 
 @font-face {
+  font-family: "outer-sans-light";
+  src: url("./assets/fonts/made-outer-sans/MADE\ Outer\ Sans\ Alt\ Light\ PERSONAL\ USE.otf")
+    format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: "outer-sans-thin";
   src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "outer-sans-medium";
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Medium-PERSONAL-USE.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "outer-sans-black";
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Alt-Black-PERSONAL-USE.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "outer-sans-black-outline";
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Alt-Black-PERSONAL-USE.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tommy-regular";
+  src: url("./assets/fonts/Made-Tommy/MADE-TOMMY-Thin_PERSONAL-USE.otf")
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -39,9 +77,9 @@
   scroll-padding-top: 5rem;
   scrollbar-width: thin;
   scrollbar-color: var(--color1) black;
-  --font1: "outer-sans", "Raleway", sans-serif;
-  --font2: "outer-sans-thin", "Raleway", sans-serif;
-  --font3: "colombo-sans", "Montserrat", sans-serif;
+  --font1: "outer-sans-regular", "Raleway", sans-serif;
+  --font2: "outer-sans-regular", "Raleway", sans-serif;
+  --font3: "osblk", "Raleway", sans-serif;
   --font4: "futura-bold", "Raleway", sans-serif;
   --font5: "brandon-grotesque", sans-serif;
   --font6: novecento-sans, sans-serif;
@@ -49,11 +87,16 @@
   --font8: "filicudi-color-barber", sans-serif;
   --font9: flegrei, sans-serif;
   --font10: termina, sans-serif;
+  --font11: "outer-sans-black", "Raleway", sans-serif;
+  --font12: "outer-sans-black-outline", "Raleway", sans-serif;
+  --font13: "outer-sans-thin", "Raleway", sans-serif;
   --small-text-weight: 700;
-  --main-color1-dark-grey: #3a3b3f;
-  --main-color2-darker-grey: #242425;
+  --main-color-nav-footer-black: #000;
+  --main-color-body-dark-grey: #161617;
+  --main-color-nav-containers-darker-grey: #131212;
   --color1: #f5ee0d;
   --color2: #25c1a9;
+  --container-box-shadow: 3px 3px 8px black;
   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --color-light: #f1f5f9;
@@ -61,6 +104,10 @@
   --bg-color: #131921;
   --footer-gray: #919496;
   --highest-index: 9999999999999;
+}
+
+body {
+  background-color: #000;
 }
 
 *::-webkit-scrollbar {

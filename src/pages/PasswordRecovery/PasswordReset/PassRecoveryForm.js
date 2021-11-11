@@ -3,33 +3,47 @@ import { useParams } from "react-router-dom";
 import "./PassRecoveryFormStyles.scss";
 
 import axios from "axios";
-import env from "react-dotenv";
 
 const PassRecoveryForm = () => {
-  let { userTokenId } = useParams();
+  let { id } = useParams();
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessageModal, setErrorMessageModal] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const submit = (event) => {
     event.preventDefault();
 
-    // const userToken = { userTokenId };
+    const userToken = { id };
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       //removing local storage check for if use accidentally navigates to password reset
       localStorage.removeItem("PR_Auth_Token");
     };
 
-    const handleFailure = (err) => {
-      console.log(err);
-      //setEmailErrorMessage("Email not found!");
-    };
+    const handleFailure = (error) => {
+      console.log(error);
 
-    const baseURL = env.BACKEND_URL;
+      if (error.response) {
+        let errorType = error.response.status;
+        console.log(error.response);
+        switch (errorType) {
+          case 422:
+            setErrorMessage(error.response.data);
+            break;
+          case 500:
+            setErrorMessage(error.response.data);
+            break;
+          default:
+            setErrorMessage(error.response.data);
+            break;
+        }
+      }
+    };
 
     axios({
       method: "post",
-      url: `${baseURL}/forgot-password/sendLink`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/forgot-password/sendLink`,
       data: { password },
     })
       .then((res) => {
@@ -43,7 +57,6 @@ const PassRecoveryForm = () => {
   return (
     <section id="pass-recovery">
       <div className="pass-recovery-wrapper">
-        <h1>Token:{userTokenId}</h1>
         <form onSubmit={submit}>
           <label htmlFor="new-pass">Enter new password:</label>
           <input
@@ -52,7 +65,7 @@ const PassRecoveryForm = () => {
             required
             autoComplete="off"
             placeholder="Enter new password"
-            // onChange={handleChange}
+            onChange={(event) => setPassword(event.target.value)}
           />
           <input
             name="confirmpassword"
@@ -60,12 +73,25 @@ const PassRecoveryForm = () => {
             required
             autoComplete="off"
             placeholder="Confirm New Password"
-            // onChange={handleChange}
+            onKeyUp={(event) => {
+              if (event.target.value !== password) {
+                setErrorMessageModal(true);
+                setErrorMessage("Passwords do not match");
+                setButtonDisabled(true);
+              } else {
+                setErrorMessageModal(false);
+                setErrorMessage("");
+                setButtonDisabled(false);
+              }
+            }}
           />
-          <button>Submit</button>
+          <button disabled={buttonDisabled}>Submit</button>
         </form>
         <ul className="pass-recovery-container-desktop"></ul>
       </div>
+      {errorMessageModal && (
+        <div className="error-messages">{errorMessage}</div>
+      )}
     </section>
   );
 };

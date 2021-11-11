@@ -23,7 +23,7 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
               exact
               to="/"
             >
-              Home
+              HOME
             </NavLink>
           </li>
           <li>

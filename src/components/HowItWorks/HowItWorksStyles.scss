@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: none;
   padding-bottom: 10rem;
   position: relative;
   .spotlight-top-left {
@@ -99,12 +99,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-
+        box-shadow: var(--container-box-shadow);
         align-items: center;
         width: 450px;
         height: 550px;
-        border: 5px solid var(--color2);
-        background: black;
+        // border: 3px solid var(--color2);
+        background: var(--main-color-nav-containers-darker-grey);
         border-radius: 0.5rem;
         color: white;
         font-family: var(--font1);
@@ -239,6 +239,8 @@
 }
 
 .how-it-works-bottom-info {
+  background-color: var(--main-color-nav-containers-darker-grey);
+  box-shadow: var(--container-box-shadow);
   width: auto;
   text-align: center;
   color: white;
@@ -247,7 +249,7 @@
   font-family: var(--font2);
   margin-top: 2rem;
   padding: 1rem;
-  border: 5px solid var(--color2);
+  // border: 5px solid var(--color2);
   position: relative;
   @media screen and (max-width: 1000px) {
     width: 800px;

@@ -9,7 +9,7 @@
   background-size: cover;
   width: 100%;
 
-  background: black;
+  background-color: none;
   border-top: 3px solid var(--color1);
   border-bottom: 3px solid var(--color1);
   padding-bottom: 0;
@@ -110,10 +110,11 @@
         flex-wrap: wrap;
         gap: 1rem;
         padding: 1rem;
-        border: 5px solid var(--color2);
+        box-shadow: var(--container-box-shadow);
+        // border: 5px solid var(--color2);
         border-radius: 20px;
         height: auto;
-        background-color: black;
+        background-color: var(--main-color-nav-containers-darker-grey);
 
         @media screen and (max-width: 1050px) {
           width: 100%;
