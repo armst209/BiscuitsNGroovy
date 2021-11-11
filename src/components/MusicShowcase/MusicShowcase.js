@@ -20,7 +20,6 @@ const MusicShowcase = () => {
   } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/releases`, {
     headers: { "x-access-token": token },
   });
-  console.log(releaseData);
 
   return (
     <section id="music-showcase">
@@ -53,11 +52,11 @@ const MusicShowcase = () => {
         </div>
       </div>
       <div className="music-showcase-bottom-image-container">
-        {/* <img
+        <img
           className="music-showcase-bottom-image"
           src={showcase}
           alt="microphone"
-        /> */}
+        />
       </div>
     </section>
   );

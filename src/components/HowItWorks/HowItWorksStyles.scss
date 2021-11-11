@@ -50,7 +50,7 @@
         }
         text-align: center;
         margin-top: 2rem;
-        font-family: var(--font3);
+        font-family: var(--header-font);
         letter-spacing: 0.05cm;
         font-weight: normal;
         font-size: 3rem;
@@ -83,7 +83,6 @@
       display: flex;
       flex-direction: row;
       gap: 2rem;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
       padding: 2rem 1rem;
@@ -103,12 +102,12 @@
         align-items: center;
         width: 450px;
         height: 550px;
-        // border: 3px solid var(--color2);
+        border: 2px solid var(--color2);
         background: var(--main-color-nav-containers-darker-grey);
         border-radius: 0.5rem;
         color: white;
         font-family: var(--font1);
-        letter-spacing: 0.05cm;
+        font-weight: normal;
         padding: 1rem;
         position: relative;
 
@@ -162,16 +161,19 @@
                 align-items: center;
                 text-align: center;
                 padding: 5px;
+                font-family: var(--header-font);
+                font-weight: normal;
 
                 h4 {
                   font-size: 1.5rem;
+                  font-weight: normal;
                   @media screen and (max-width: 375px) {
                     font-size: 1.2rem;
                   }
                 }
                 h6 {
                   font-size: 1rem;
-                  font-family: var(--font2);
+                  font-weight: normal;
                 }
               }
               .how-icon {
@@ -193,8 +195,8 @@
               justify-content: center;
               align-items: center;
               padding: 1rem;
-              font-family: var(--font2);
-              font-weight: bold;
+              font-family: var(--secondary-font);
+              font-weight: normal;
               letter-spacing: 0.01cm;
               font-size: 1rem;
               position: relative;
@@ -204,6 +206,9 @@
                 @media screen and (max-width: 375px) {
                   font-size: 0.8rem;
                 }
+              }
+              .collect-share-div {
+                font-size: 0.871rem;
               }
 
               .light-upward {
@@ -245,11 +250,11 @@
   text-align: center;
   color: white;
   border-radius: 0.5rem;
-  font-weight: bold;
-  font-family: var(--font2);
+  font-weight: normal;
+  font-family: var(--secondary-font);
   margin-top: 2rem;
   padding: 1rem;
-  // border: 5px solid var(--color2);
+  border: 2px solid var(--color2);
   position: relative;
   @media screen and (max-width: 1000px) {
     width: 800px;
@@ -274,7 +279,7 @@
   }
   span {
     color: var(--color1);
-    font-family: var(--font1);
+
     font-weight: normal;
   }
 

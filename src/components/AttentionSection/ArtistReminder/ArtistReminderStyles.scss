@@ -2,7 +2,7 @@
   position: relative;
   font-family: var(--font1);
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
   width: 100%;
   height: auto;
@@ -11,10 +11,9 @@
   align-items: center;
   width: 100%;
   color: white;
-  // border: 5px solid var(--color2);
+  border: 2px solid var(--color2);
   background-color: var(--main-color-nav-containers-darker-grey);
   border-radius: 0.5rem;
-  font-weight: normal;
 
   .artist-reminder-wrapper {
     display: flex;
@@ -39,7 +38,6 @@
         align-items: center;
         padding: 2rem 1rem;
         letter-spacing: 0.5px;
-        font-weight: normal;
 
         .artist-header {
           display: flex;
@@ -64,7 +62,7 @@
         h1 {
           font-size: 2rem;
           text-align: center;
-          font-family: var(--font3);
+          font-family: var(--header-font);
           letter-spacing: 0.05cm;
           font-weight: normal;
           @media screen and (max-width: 500px) {
@@ -86,7 +84,7 @@
           font-size: 1.3rem;
           letter-spacing: 0.01cm;
           font-weight: normal;
-          font-family: var(--font1);
+          font-family: var(--header-font);
           @media screen and (max-width: 400px) {
             font-size: 1rem;
           }
@@ -94,14 +92,13 @@
             @media screen and (max-width: 400px) {
               font-size: 1rem;
             }
-            font-family: var(--font1);
+
             color: var(--color1);
             font-size: 1.4rem;
-            font-weight: normal;
           }
           .tired-message {
-            font-family: var(--font2);
-            font-weight: bold;
+            font-family: var(--secondary-font);
+            font-weight: normal;
             color: white;
             font-size: 1rem;
             max-width: 400px;
@@ -124,7 +121,7 @@
             border-radius: 50px;
             width: 200px;
             height: 70px;
-            font-family: var(--font1);
+            font-family: var(--secondary-font);
             font-size: 1rem;
             cursor: pointer;
             color: white;

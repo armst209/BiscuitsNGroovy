@@ -1,6 +1,6 @@
 #hero {
   display: block;
-  background-image: url("../../assets/images/crowd.jpg");
+  // background-image: url("../../assets/images/crowd.jpg");
   background-color: none;
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,7 +61,7 @@
           .hero-text {
             background-color: var(--main-color-nav-containers-darker-grey);
             box-shadow: var(--container-box-shadow);
-            height: 100%;
+            border: 2px solid var(--color2);
             width: 50%;
             border-radius: 0.5rem;
             margin-bottom: 2rem;
@@ -75,24 +75,24 @@
               width: 100%;
             }
             .hero-title {
+              padding-bottom: 1rem;
               h1 {
                 color: white;
-                font-family: var(--font12);
+                font-family: var(--header-font);
                 font-style: normal;
-                font-weight: 800;
-
+                font-weight: normal;
+                width: 100%;
                 letter-spacing: 0.1cm;
                 line-height: 5rem;
-                margin-bottom: 1rem;
                 font-size: 90px;
 
                 .jam {
-                  font-family: var(--font11);
+                  font-family: var(--header-font);
                 }
                 @media screen and (max-width: 1400px) {
                   font-size: 100px;
                   margin-bottom: 0;
-                  padding-bottom: 2rem;
+
                   position: relative;
                   z-index: 100;
                   line-height: 5rem;
@@ -120,8 +120,6 @@
                   font-size: 70px;
                   line-height: 4rem;
                 }
-                @media screen and (max-width: 450px) {
-                }
 
                 @media screen and (max-width: 350px) {
                   font-size: 50px;
@@ -135,48 +133,49 @@
             }
           }
           .hero-subtitle {
-            font-family: var(--font13);
+            font-family: var(--secondary-font);
             font-weight: normal;
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: white;
-            padding-right: 10rem;
-            @media screen and (max-width: 1400px) {
-              font-size: 1.3rem;
-            }
-            @media screen and (max-width: 1200px) {
-              padding-right: 0;
-            }
 
-            @media screen and (max-width: 1140px) {
-              color: white;
-              text-align: center;
-              padding: 1rem;
-              font-size: 1.5rem;
-              position: relative;
-              z-index: 100;
-              text-shadow: 5px 5px 8px black;
-            }
-            @media screen and (max-width: 550px) {
-              font-size: 1.3rem;
-              text-align: left;
+            // @media screen and (max-width: 1400px) {
+            //   font-size: 1.3rem;
+            // }
+            // @media screen and (max-width: 1200px) {
+            //   padding-right: 0;
+            // }
 
-              padding-left: 0;
-            }
-            @media screen and (max-width: 450px) {
-              font-size: 1rem;
-            }
-            @media screen and (max-width: 350px) {
-              font-size: 0.8rem;
-            }
+            // @media screen and (max-width: 1140px) {
+            //   color: white;
+            //   text-align: center;
+            //   padding: 1rem;
+            //   font-size: 1.5rem;
+            //   position: relative;
+            //   z-index: 100;
+            //   text-shadow: 5px 5px 8px black;
+            // }
+            // @media screen and (max-width: 550px) {
+            //   font-size: 1.3rem;
+            //   text-align: left;
+
+            //   padding-left: 0;
+            // }
+            // @media screen and (max-width: 450px) {
+            //   font-size: 1rem;
+            // }
+            // @media screen and (max-width: 350px) {
+            //   font-size: 0.8rem;
+            // }
           }
           .hero-buttons {
             display: flex;
             flex-direction: row;
             justify-content: left;
             align-items: center;
-            border: 2px solid red;
             border-radius: 0.5rem;
             margin-top: 1rem;
+            font-family: var(--secondary-font);
+            font-weight: 500;
 
             @media screen and (max-width: 600px) {
               align-items: center;
@@ -190,16 +189,6 @@
               text-decoration: none;
               &:visited {
                 color: black;
-              }
-            }
-
-            button {
-              width: 250px;
-              height: 90px;
-              transition: all 0.2s ease;
-              padding: 0.5rem;
-              @media screen and (max-width: 1200px) {
-                margin: 0.5rem 0;
               }
             }
 
@@ -217,16 +206,13 @@
                 border: none;
                 color: #ffffff;
                 text-align: center;
-                font-family: var(--font1);
+                border: 2px solid var(--color2);
                 font-size: 1rem;
                 padding: 20px;
                 width: 250px;
                 transition: all 0.4s;
                 cursor: pointer;
                 margin: 5px;
-                &:hover {
-                  border: 2px solid var(--color2);
-                }
 
                 &:hover span {
                   padding-right: 30px;
@@ -248,9 +234,9 @@
                     content: url("../../assets/images/compact-disc-yellow.svg");
                     position: absolute;
                     opacity: 0;
-                    top: 0;
+                    top: -5px;
                     bottom: 0;
-                    width: 40px;
+                    width: 30px;
                     right: -30px;
                     transition: 0.5s;
                   }
@@ -262,25 +248,22 @@
               flex-direction: row;
               justify-content: center;
               align-items: center;
+
               .for-artists-button-link {
-                border-radius: 0.5rem;
                 background: none;
                 border: none;
                 color: #ffffff;
                 text-align: center;
-                font-family: var(--font4);
+                border-radius: 0.5rem;
                 font-size: 1rem;
                 padding: 20px;
                 width: 200px;
                 transition: all 0.4s;
                 cursor: pointer;
                 margin: 5px;
-                &:hover {
-                  border: 2px solid var(--color1);
-                }
 
                 &:hover span {
-                  padding-right: 25px;
+                  padding-right: 35px;
                 }
                 &:hover span:after {
                   opacity: 1;
@@ -292,12 +275,12 @@
                   position: relative;
                   transition: 0.4s;
                   &:after {
-                    content: url("../../assets/images/help_question_yellow.svg");
+                    content: url("../../assets/images/love-song2.svg");
                     position: absolute;
                     opacity: 0;
-                    top: 0;
-                    width: 20px;
-                    right: -20px;
+                    top: -5px;
+                    width: 30px;
+                    right: -30px;
                     transition: 0.5s;
                   }
                 }

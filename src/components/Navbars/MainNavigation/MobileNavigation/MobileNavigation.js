@@ -1,11 +1,12 @@
 import { ReactComponent as SettingsHamburgerIcon } from "../../../../assets/images/settings.svg";
+import styled from "styled-components";
 import MainHeaderLogoMobile from "../../../../assets/images/bng_logo.png";
 import "./MobileNavigationStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import LogoutButton from "../LogoutButton/LogoutButton";
-import CollectionButton from "../CollectionButton/CollectionButton";
 import LoginAndSignUpMobile from "../LoginAndSignUp/LoginAndSignUpMobile";
+import CollectionButtonMobile from "../CollectionButton/CollectionButtonMobile";
 const MobileNavigation = ({ setShowLogoutLoading }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -49,9 +50,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             <li>
               <NavLink
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                activeStyle={{
-                  textDecoration: "underline 5px solid var(--color2)",
-                }}
+                activeClassName="active-link"
                 exact
                 to="/"
               >
@@ -62,9 +61,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             <li>
               <NavLink
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                activeStyle={{
-                  textDecoration: "underline 5px solid var(--color2)",
-                }}
+                activeClassName="active-link"
                 to="/about"
               >
                 About
@@ -74,9 +71,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             <li>
               <NavLink
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                activeStyle={{
-                  textDecoration: "underline 5px solid var(--color2)",
-                }}
+                activeClassName="active-link"
                 to="/faq"
               >
                 FAQ
@@ -86,9 +81,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             <li>
               <NavLink
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                activeStyle={{
-                  textDecoration: "underline 5px solid var(--color2)",
-                }}
+                activeClassName="active-link"
                 to="/artists"
               >
                 Artists
@@ -98,9 +91,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             <li>
               <NavLink
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                activeStyle={{
-                  textDecoration: "underline 5px solid var(--color2)",
-                }}
+                activeClassName="active-link"
                 to="/events"
               >
                 Events
@@ -110,7 +101,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
               showMobileMenu={showMobileMenu}
               setShowMobileMenu={setShowMobileMenu}
             />
-            <CollectionButton
+            <CollectionButtonMobile
               showMobileMenu={showMobileMenu}
               setShowMobileMenu={setShowMobileMenu}
             />

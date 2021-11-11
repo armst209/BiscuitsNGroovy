@@ -15,7 +15,8 @@ function Hero() {
                   <div className="hero-title">
                     <h1>
                       NEW <br /> MUSIC <br /> IS OUR <br />
-                      <div className="jam">JAM</div>
+                      <span className="jam">JAM</span>
+                      <span className="jam">.</span>
                     </h1>
                   </div>
                   <div className="hero-subtitle">
@@ -27,14 +28,20 @@ function Hero() {
                     {/* <button className="start-btn">
                         Start Your Collection
                       </button> */}
-                    <div class="start-button-container" align="center">
-                      <HashLink class="start-button-link" to="/#music-showcase">
+                    <div className="start-button-container" align="center">
+                      <HashLink
+                        className="start-button-link"
+                        to="/#music-showcase"
+                      >
                         <span>Start Your Collection</span>
                       </HashLink>
                     </div>
-                    <div class="for-artists-button-container" align="center">
+                    <div
+                      className="for-artists-button-container"
+                      align="center"
+                    >
                       <HashLink
-                        class="for-artists-button-link"
+                        className="for-artists-button-link"
                         to="/#music-showcase"
                       >
                         <span>For Artists</span>
@@ -47,7 +54,7 @@ function Hero() {
                   </div>
                 </section>
                 <section className="hero-image-container">
-                  {/* <img className="hero-image" src={hero_image} alt="hero" /> */}
+                  <img className="hero-image" src={hero_image} alt="hero" />
                 </section>
               </div>
             </div>

@@ -1,13 +1,14 @@
 header {
   width: 100%;
-  font-family: var(--font1);
   height: 70px;
   position: fixed;
   background: transparent;
   z-index: 8000;
   padding-bottom: 0.1rem;
-  background-color: transparent;
-  // box-shadow: var(--container-box-shadow);
+  background-color: #000;
+  box-shadow: var(--container-box-shadow);
+  border-bottom: 2px solid var(--color2);
+  font-family: var(--header-font);
   // transition: position 0.35s cubic-bezier(0.5, 0, 0.35, 1);
   // transition: transform 0.35s, background 0.35s,
   //   box-shadow 0.35s cubic-bezier(0.5, 0, 0.35, 1);

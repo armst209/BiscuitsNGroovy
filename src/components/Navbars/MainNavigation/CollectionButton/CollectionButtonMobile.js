@@ -3,14 +3,13 @@ import { NavLink } from "react-router-dom";
 const CollectionButtonMobile = ({ showMobileMenu, setShowMobileMenu }) => {
   const token = localStorage.getItem("token");
   return token ? (
-    <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
+    <li>
       <NavLink
-        activeStyle={{
-          textDecoration: "underline 5px solid var(--color2)",
-        }}
+        onClick={() => setShowMobileMenu(!showMobileMenu)}
+        activeClassName="active-link"
         to="/collection"
       >
-        <button> Collection</button>
+        Collection
       </NavLink>
     </li>
   ) : (

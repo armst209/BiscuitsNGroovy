@@ -6,6 +6,7 @@
   margin: 0;
   list-style: none;
   color: white;
+  font-family: var(--secondary-font);
 
   li {
     cursor: pointer;
@@ -23,7 +24,6 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      font-family: var(--font1);
       font-size: 18px;
       font-weight: normal;
       padding: 10px;
@@ -55,38 +55,5 @@
 
   .signup-no-display-nothome {
     display: none;
-  }
-
-  li {
-    padding: 0 10px;
-
-    a {
-      line-height: 22px;
-      text-decoration: none;
-      position: relative;
-      padding: 5.2px 0;
-      transition: color 0.1s, background-color 0.1s, padding 0.15s ease-in;
-      color: white;
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 3px;
-        left: 0;
-        height: 3px;
-        width: 100%;
-        background-color: var(--color2);
-        transform-origin: right top;
-        transform: scale(0, 1);
-        transition: color 0.1s, transform 0.15s ease-out;
-      }
-
-      &:hover::before,
-      &:focus::before {
-        transform-origin: left top;
-        transform: scale(1, 1);
-      }
-    }
   }
 }

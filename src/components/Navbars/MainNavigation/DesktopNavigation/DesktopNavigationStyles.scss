@@ -11,6 +11,8 @@
   li {
     padding: 0 10px;
 
+    // text-transform: uppercase;
+    font-weight: normal;
     a {
       line-height: 22px;
       text-decoration: none;
@@ -45,7 +47,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-family: var(--font1);
+    font-family: var(--header-font);
     font-size: 18px;
     font-weight: normal;
     padding: 10px;
