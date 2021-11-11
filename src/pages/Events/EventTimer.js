@@ -17,8 +17,8 @@ function EventTimer({ expiryTimestamp, setShowTicketInformation }) {
             fontFamily: "var(--font1)",
           }}
         >
-          Hope you were able to make the show! Check back 11/12 for the
-          exclusive pre-release of ZEVY's new single "Green Eyes"!{" "}
+          Hope you were able to make the show! Check back soon for the exclusive
+          pre-release of ZEVY's new single "Green Eyes"!{" "}
         </div>
 
         {/* <div className="digits">

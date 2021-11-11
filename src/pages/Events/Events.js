@@ -38,57 +38,10 @@ function Events() {
           <div className="single-event-wrapper">
             <div className="single-event-content">
               <div className="single-event-info">
-                <div className="single-event-description">
-                  {/* <p>
-                    Biscuits n Groovy brings you ZEVY, one of the brightest
-                    young EDM DJs in the game, at 1001 Oakland Ave in the heart
-                    of Ann Arbor on November 6, 2021 for an exclusive tailgate
-                    concert. The show will begin promptly 3 hours prior to
-                    kickoff. Space is limited so fans will be let in on a first
-                    come first served basis. However, you may reserve your spot
-                    by grabbing a VIP ticket for just $10 and presenting it at
-                    the door.
-                  </p> */}
-                  {/* <p>VIP tickets include the following perks:</p>
-                  <ul>
-                    <li>Guaranteed admission to the event</li>
-                    <li>
-                      A raffle ticket to win a BnG bucket hat signed by ZEVY
-                    </li>
-                    <li>
-                      An exclusive audio snippet of ZEVY’s brand new single,
-                      “Green Eyes”
-                    </li>
-                    <li>
-                      A free copy of “Green Eyes” when it drops on November 12th
-                    </li>
-                    <li className="indented-li">
-                      Each BnG release includes exclusive streaming access and a
-                      collectible album cover. Read more{" "}
-                      <Link to="/faq">here</Link>.
-                    </li>
-                  </ul>
-                  <p>
-                    Once you get your ticket, Tweet at us using the hashtag
-                    <strong> #BnGpresentsZEVY</strong> for a chance to win some
-                    exclusive merch and be featured on our socials!
-                  </p> */}
-                </div>
+                <div className="single-event-description"></div>
                 <div className="single-event-divider-wrapper second-divider">
                   <hr className="single-event-divider"></hr>
                 </div>
-                {/* <ul>
-                  <li>
-                    <span>DATE: </span> 11/6/2021
-                  </li>
-                  <li>
-                    <span>TIME: </span>4PM
-                  </li>
-                  <li>
-                    <span>LOCATION: </span>820 East University Ave, Ann Arbor,
-                    MI 48104
-                  </li>
-                </ul> */}
               </div>
               {showTicketInformation && (
                 <div className="artist-link">
