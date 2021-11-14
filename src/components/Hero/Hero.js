@@ -14,9 +14,10 @@ function Hero() {
                 <section className="hero-text">
                   <div className="hero-title">
                     <h1>
-                      NEW <br /> MUSIC <br /> IS OUR <br />
+                      {/* NEW <br /> MUSIC <br /> IS OUR <br />
                       <span className="jam">JAM</span>
-                      <span className="jam">.</span>
+                      <span className="jam">.</span> */}
+                      New music <br /> is our jam.
                     </h1>
                   </div>
                   <div className="hero-subtitle">

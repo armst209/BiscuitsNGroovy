@@ -1,0 +1,33 @@
+#user-email-success-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--highest-index);
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .user-email-success-modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color2);
+    border-radius: 0.5rem;
+    font-family: var(--header-font);
+    padding: 1rem;
+    width: auto;
+    position: relative;
+    width: 400px;
+    height: 300px;
+    .user-email-success-modal-close {
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+}

@@ -118,7 +118,7 @@ const routes:IRoute[] = [
        
       },
       {
-        path: "/password-recovery/new-password/:id",
+        path: "/password-recovery/reset/:userResetToken",
         component: lazy(()=>import("../pages/PasswordRecovery/PasswordReset/PasswordRecovery")),
         key: "NEW_PASSWORD_PAGE",
         exact: true,

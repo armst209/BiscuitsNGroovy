@@ -5,6 +5,8 @@ const UserEmailForm = ({
   setEmailErrorMessage,
   setSuccessMessage,
   setShowEmailLoader,
+  showPassRecoveryModal,
+  setShowPassRecoveryModal,
 }) => {
   const [recoveryEmail, setRecoveryEmail] = useState("");
 
@@ -18,6 +20,9 @@ const UserEmailForm = ({
 
       setShowEmailLoader(false);
       setSuccessMessage("Link sent!");
+      setTimeout(() => {
+        setShowPassRecoveryModal(!showPassRecoveryModal);
+      }, 1000);
     };
 
     const handleFailure = (err) => {

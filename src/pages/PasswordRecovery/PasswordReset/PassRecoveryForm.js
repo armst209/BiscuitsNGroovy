@@ -5,7 +5,7 @@ import "./PassRecoveryFormStyles.scss";
 import axios from "axios";
 
 const PassRecoveryForm = () => {
-  let { id } = useParams();
+  let { userResetToken } = useParams();
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [errorMessageModal, setErrorMessageModal] = useState(false);
@@ -14,7 +14,7 @@ const PassRecoveryForm = () => {
   const submit = (event) => {
     event.preventDefault();
 
-    const userToken = { id };
+    let token = { userResetToken };
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       //removing local storage check for if use accidentally navigates to password reset

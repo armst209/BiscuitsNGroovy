@@ -8,7 +8,12 @@
   background-color: none;
   border-bottom: 3px solid var(--color1);
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  margin-top: 2rem;
+
+  @media screen and (min-width: 700px) {
+    margin-top: 0;
+  }
 
   @media screen and (max-width: 1140px) {
     background-image: none;
@@ -17,7 +22,7 @@
   .hero-section {
     display: block;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
     align-items: center;
@@ -27,18 +32,19 @@
     @media screen and (max-width: 1140px) {
       padding: 0 25px 50px 25px;
     }
-    @media screen and (max-width: 450px) {
-      padding: 25px 1rem;
+    @media screen and (max-width: 500px) {
+      padding: 0 1rem 25px 1rem;
     }
 
     .hero-section-outer-wrapper {
       display: block;
       width: 100%;
       height: 100%;
-      padding: 25px 2rem 0 2rem;
+      padding: 0 2rem 0 2rem;
 
-      @media screen and (max-width: 650px) {
+      @media screen and (max-width: 700px) {
         padding: 0;
+        height: auto;
       }
 
       .hero-content-middle-wrapper {
@@ -59,26 +65,24 @@
             flex-direction: column;
           }
           .hero-text {
-            background-color: var(--main-color-nav-containers-darker-grey);
+            // background-color: var(--main-color-nav-containers-darker-grey);
             box-shadow: var(--container-box-shadow);
-            border: 2px solid var(--color2);
+            // border: 2px solid var(--color2);
             width: 50%;
             border-radius: 0.5rem;
             margin-bottom: 2rem;
             padding: 1rem;
 
-            @media screen and (max-width: 1200px) {
-              padding-top: 4rem;
-            }
-
             @media screen and (max-width: 1140px) {
               width: 100%;
             }
+
             .hero-title {
               padding-bottom: 1rem;
               h1 {
                 color: white;
-                font-family: var(--header-font);
+                font-family: var(--font3);
+                text-transform: uppercase;
                 font-style: normal;
                 font-weight: normal;
                 width: 100%;
@@ -92,7 +96,6 @@
                 @media screen and (max-width: 1400px) {
                   font-size: 100px;
                   margin-bottom: 0;
-
                   position: relative;
                   z-index: 100;
                   line-height: 5rem;
@@ -107,23 +110,33 @@
                 }
                 @media screen and (max-width: 650px) {
                   font-size: 80px;
-                }
-                @media screen and (max-width: 550px) {
-                  text-align: left;
+                  line-height: 4rem;
                 }
 
                 @media screen and (max-width: 550px) {
                   font-size: 80px;
-                  line-height: 4.5rem;
+                  line-height: 4rem;
                 }
                 @media screen and (max-width: 450px) {
                   font-size: 70px;
-                  line-height: 4rem;
+                  line-height: 3.7rem;
+                }
+                @media screen and (max-width: 400px) {
+                  font-size: 60px;
+                  line-height: 3rem;
                 }
 
                 @media screen and (max-width: 350px) {
                   font-size: 50px;
                   line-height: 2.8rem;
+                }
+                @media screen and (max-width: 350px) {
+                  font-size: 40px;
+                  line-height: 2.3rem;
+                }
+                @media screen and (max-width: 250px) {
+                  font-size: 30px;
+                  line-height: 1.8rem;
                 }
               }
             }
@@ -134,9 +147,10 @@
           }
           .hero-subtitle {
             font-family: var(--secondary-font);
-            font-weight: normal;
-            font-size: 1.3rem;
+            font-weight: 400;
+            font-size: normal;
             color: white;
+            margin-bottom: 1rem;
 
             // @media screen and (max-width: 1400px) {
             //   font-size: 1.3rem;
@@ -154,18 +168,17 @@
             //   z-index: 100;
             //   text-shadow: 5px 5px 8px black;
             // }
-            // @media screen and (max-width: 550px) {
-            //   font-size: 1.3rem;
-            //   text-align: left;
-
-            //   padding-left: 0;
-            // }
+            @media screen and (max-width: 900px) {
+              font-size: 1rem;
+              text-align: center;
+              padding-left: 0;
+            }
             // @media screen and (max-width: 450px) {
             //   font-size: 1rem;
             // }
-            // @media screen and (max-width: 350px) {
-            //   font-size: 0.8rem;
-            // }
+            @media screen and (max-width: 350px) {
+              font-size: 0.8rem;
+            }
           }
           .hero-buttons {
             display: flex;
@@ -174,7 +187,7 @@
             align-items: center;
             border-radius: 0.5rem;
             margin-top: 1rem;
-            font-family: var(--secondary-font);
+            font-family: var(--header-font);
             font-weight: 500;
 
             @media screen and (max-width: 600px) {
@@ -201,6 +214,9 @@
               align-items: center;
 
               .start-button-link {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 border-radius: 0.5rem;
                 background: none;
                 border: none;
@@ -209,13 +225,14 @@
                 border: 2px solid var(--color2);
                 font-size: 1rem;
                 padding: 20px;
-                width: 250px;
+                width: 300px;
+                height: 80px;
                 transition: all 0.4s;
                 cursor: pointer;
                 margin: 5px;
 
                 &:hover span {
-                  padding-right: 30px;
+                  padding-right: 40px;
                 }
                 &:hover span:after {
                   opacity: 1;
@@ -237,7 +254,7 @@
                     top: -5px;
                     bottom: 0;
                     width: 30px;
-                    right: -30px;
+                    right: -60px;
                     transition: 0.5s;
                   }
                 }
@@ -275,10 +292,11 @@
                   position: relative;
                   transition: 0.4s;
                   &:after {
-                    content: url("../../assets/images/love-song2.svg");
+                    content: ">>";
+                    color: var(--color1);
                     position: absolute;
                     opacity: 0;
-                    top: -5px;
+                    top: 0;
                     width: 30px;
                     right: -30px;
                     transition: 0.5s;

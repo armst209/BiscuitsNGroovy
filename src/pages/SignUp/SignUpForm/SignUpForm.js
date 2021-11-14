@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./SignUpFormStyles.scss";
 import axios from "axios";
 import env from "react-dotenv";
+import { emailValidation } from "../../../modules/FormValidation.js";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
@@ -81,7 +82,16 @@ const SignUpForm = () => {
         name="email"
         noValidate
         autoComplete="off"
-        onChange={(e) => setEmail(e.target.value)}
+        onKeyUp={(e) => {
+          setEmail(e.target.value);
+          if (emailValidation(e.target.value)) {
+            setInputErrorClass("");
+            setErrorMessage("");
+          } else {
+            setInputErrorClass("error");
+            setErrorMessage("email is isnt valid");
+          }
+        }}
         required
       />
 

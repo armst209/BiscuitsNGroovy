@@ -1,4 +1,5 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../MobileNavigation/MobileNavigationStyles.scss";
 
 const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
   let token = localStorage.getItem("token");
@@ -7,21 +8,14 @@ const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
   ) : (
     <>
       <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
-        <NavLink
-          activeStyle={{
-            borderBottom: "4px solid var(--color1)",
-          }}
-          to="/login"
-        >
+        <NavLink activeClassName="active-link" to="/login">
           Login
         </NavLink>
       </li>
       <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
-        <Link to="/signup">
-          <button>
-            <div>Sign Up</div>
-          </button>
-        </Link>
+        <NavLink activeClassName="active-link" to="/signup">
+          <div>Sign Up</div>
+        </NavLink>
       </li>
     </>
   );

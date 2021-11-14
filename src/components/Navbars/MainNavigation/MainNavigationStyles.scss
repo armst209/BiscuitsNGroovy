@@ -37,6 +37,9 @@ header {
       align-items: center;
       width: 100%;
     }
+    @media screen and (max-width: 450px) {
+      padding: 0;
+    }
     a {
       color: white;
       &:visited {

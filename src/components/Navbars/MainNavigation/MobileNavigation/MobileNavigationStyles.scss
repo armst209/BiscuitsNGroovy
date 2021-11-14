@@ -29,7 +29,7 @@
       justify-content: left;
       align-items: center;
       position: relative;
-      width: 200px;
+      width: 150px;
       margin-right: 1rem;
     }
   }
@@ -39,7 +39,8 @@
     justify-content: center;
     align-items: center;
     p {
-      font-size: 0.5rem;
+      font-size: 0.7rem;
+      color: white;
     }
   }
 
@@ -47,11 +48,6 @@
     width: 40px;
     filter: invert(88%) sepia(67%) saturate(2732%) hue-rotate(353deg)
       brightness(101%) contrast(92%);
-  }
-  .settings-icon-scrolled {
-    width: 40px;
-    filter: invert(0%) sepia(0%) saturate(4%) hue-rotate(268deg) brightness(93%)
-      contrast(101%);
   }
 
   @media (max-width: 768px) {
@@ -75,9 +71,6 @@
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-  transform: translateX(0);
-  transition: transform 200ms 0s;
-  transition-property: transform, visibility;
   border: none;
   font-size: 30px;
   @media screen and (min-width: 950px) {
@@ -101,7 +94,7 @@
     padding: 1rem;
 
     .aside-top-close {
-      font-size: 1rem;
+      font-size: 2rem;
       cursor: pointer;
     }
     .mobile-navigation-aside-top-image {
