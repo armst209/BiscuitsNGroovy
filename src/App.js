@@ -5,13 +5,16 @@ import MainHeader from "./components/MainHeader/MainHeader";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
-//router
+//Routes & Router
 import routes from "./Routes/config.tsx";
 import Router from "./Routes/Router.tsx";
 
 //for social media icons
 import "@fortawesome/fontawesome-free/js/all";
+//Scroll To Top
 import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget";
+
+//Fixed Navigation Spacer
 import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const App = () => {

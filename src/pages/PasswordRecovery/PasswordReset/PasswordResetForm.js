@@ -1,24 +1,27 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import "./PassRecoveryFormStyles.scss";
+import "./PasswordResetFormStyles.scss";
 
 import axios from "axios";
 
-const PassRecoveryForm = () => {
+const PasswordResetForm = ({
+  passwordResetSuccessModal,
+  setPasswordResetSuccessModal,
+}) => {
   let { userResetToken } = useParams();
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [errorMessageModal, setErrorMessageModal] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-
+  console.log(userResetToken);
   const submit = (event) => {
     event.preventDefault();
 
-    let token = { userResetToken };
     const handleSuccess = (res) => {
-      localStorage.setItem("token", res.data.token);
       //removing local storage check for if use accidentally navigates to password reset
       localStorage.removeItem("PR_Auth_Token");
+      setPasswordResetSuccessModal(!passwordResetSuccessModal);
+      //window.location.replace("/");
     };
 
     const handleFailure = (error) => {
@@ -43,8 +46,11 @@ const PassRecoveryForm = () => {
 
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_BACKEND_URL}/forgot-password/sendLink`,
-      data: { password },
+      url: `${process.env.REACT_APP_BACKEND_URL}/forgot-password`,
+      headers: {
+        "x-access-token": userResetToken,
+      },
+      data: { new_password: password },
     })
       .then((res) => {
         handleSuccess(res);
@@ -65,7 +71,9 @@ const PassRecoveryForm = () => {
             required
             autoComplete="off"
             placeholder="Enter new password"
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
           />
           <input
             name="confirmpassword"
@@ -96,4 +104,4 @@ const PassRecoveryForm = () => {
   );
 };
 
-export default PassRecoveryForm;
+export default PasswordResetForm;
