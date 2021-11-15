@@ -14,10 +14,9 @@ function Hero() {
                 <section className="hero-text">
                   <div className="hero-title">
                     <h1>
-                      {/* NEW <br /> MUSIC <br /> IS OUR <br />
-                      <span className="jam">JAM</span>
-                      <span className="jam">.</span> */}
-                      New music <br /> is our jam.
+                      NEW <br /> MUSIC <br /> IS OUR <br />
+                      JAM
+                      <span className="jam">.</span>
                     </h1>
                   </div>
                   <div className="hero-subtitle">
@@ -48,10 +47,6 @@ function Hero() {
                         <span>For Artists</span>
                       </HashLink>
                     </div>
-
-                    {/* <Link to="/artists">
-                      <button className="for-artists-btn">For Artists</button>
-                    </Link> */}
                   </div>
                 </section>
                 <section className="hero-image-container">

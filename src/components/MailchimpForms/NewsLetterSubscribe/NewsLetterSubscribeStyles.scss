@@ -37,7 +37,7 @@
   }
 
   h1 {
-    font-family: var(--header-font);
+    font-family: var(--font3);
     letter-spacing: 0.05cm;
     font-weight: normal;
     font-size: 2rem;
@@ -102,6 +102,7 @@
     }
     input {
       border: 3px solid var(--color1);
+      border-radius: 0.5rem;
       background-color: transparent;
       font-family: var(--secondary-font);
       font-weight: normal;

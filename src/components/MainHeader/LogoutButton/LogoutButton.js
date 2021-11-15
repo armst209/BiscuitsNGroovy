@@ -1,5 +1,5 @@
 import "./LogoutButtonStyles.scss";
-import { ReactComponent as LogoutIcon } from "../../../../assets/images/logout-yellow.svg";
+import { ReactComponent as LogoutIcon } from "../../../assets/images/logout-yellow.svg";
 
 const LogoutButton = ({ setShowLogoutLoading }) => {
   let token = localStorage.getItem("token");

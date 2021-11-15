@@ -11,10 +11,9 @@
   height: 100vh;
   margin-top: 2rem;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 1140px) {
     margin-top: 0;
   }
-
   @media screen and (max-width: 1140px) {
     background-image: none;
   }

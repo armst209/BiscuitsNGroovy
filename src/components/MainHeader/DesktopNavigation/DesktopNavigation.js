@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./DesktopNavigationStyles.scss";
-import MainHeaderLogo from "../../../../assets/images/bng_logo.png";
+import MainHeaderLogo from "../../../assets/images/bng_logo.png";
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../LogoutButton/LogoutButton";
 import CollectionButton from "../CollectionButton/CollectionButton";

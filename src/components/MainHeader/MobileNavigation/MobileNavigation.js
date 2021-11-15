@@ -1,6 +1,7 @@
-import { ReactComponent as SettingsHamburgerIcon } from "../../../../assets/images/settings.svg";
+import { ReactComponent as SettingsHamburgerIcon } from "../../../assets/images/settings.svg";
+
 import { motion } from "framer-motion";
-import MainHeaderLogoMobile from "../../../../assets/images/bng_logo.png";
+import MainHeaderLogoMobile from "../../../assets/images/bng_logo.png";
 import "./MobileNavigationStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
@@ -26,14 +27,14 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
         </div>
         <div
           className="mobile-navigation-hamburger-wrapper"
-          onClick={() => setShowMobileMenu(!showMobileMenu)}
+          onClick={() => {
+            setShowMobileMenu(!showMobileMenu);
+          }}
         >
           <SettingsHamburgerIcon className="mobile-navigation-settings-icon" />
-          <p>MENU</p>
         </div>
       </div>
       {/* Mobile Aside */}
-      {/* {showMobileMenu && ( */}
       <motion.aside
         animate={showMobileMenu ? "open" : "closed"}
         variants={variants}

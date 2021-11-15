@@ -1,7 +1,8 @@
+import "./LoginAndSignUpStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 
 const LoginAndSignUp = () => {
-  const token = localStorage.getItem("token");
+  let token = localStorage.getItem("token");
   return token ? (
     ""
   ) : (
@@ -16,12 +17,12 @@ const LoginAndSignUp = () => {
           Login
         </NavLink>
       </li>
-      <li>
-        <Link to="/signup">
-          <button>
-            <div>Sign Up</div>
-          </button>
-        </Link>
+      <li className="signup-li">
+        <div className="signup-button-container" align="center">
+          <Link className="signup-button-link" to="/signup">
+            <span>Sign Up</span>
+          </Link>
+        </div>
       </li>
     </>
   );

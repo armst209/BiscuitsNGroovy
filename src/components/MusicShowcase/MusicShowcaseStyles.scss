@@ -9,8 +9,8 @@
   background-size: cover;
   width: 100%;
   background-color: none;
-  border-top: 3px solid var(--color1);
-  border-bottom: 3px solid var(--color1);
+  border-top: 2px solid var(--color2);
+  border-bottom: 2px solid var(--color2);
   padding-bottom: 0;
   @media screen and (max-width: 600px) {
     padding-bottom: 4rem;
@@ -42,7 +42,7 @@
       padding: 3rem 1rem 0 1rem;
 
       h1 {
-        font-family: var(--header-font);
+        font-family: var(--font3);
         letter-spacing: 0.05cm;
         font-weight: normal;
         font-size: 3rem;

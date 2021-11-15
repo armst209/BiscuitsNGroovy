@@ -2,7 +2,7 @@
   font-family: var(--font2);
   background-color: none;
   color: white;
-  border-bottom: 2px solid var(--color1);
+  border-bottom: 2px solid var(--color2);
   height: auto;
   padding: 0 1rem;
   position: relative;
@@ -30,7 +30,7 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      font-family: var(--header-font);
+      font-family: var(--font3);
       letter-spacing: 0.05cm;
       font-weight: normal;
       font-size: 3rem;
@@ -103,6 +103,7 @@
       }
       p {
         width: 100%;
+        font-size: 1.2rem;
         a {
           text-decoration: underline 3px var(--color2);
           color: var(--color1);
@@ -124,6 +125,7 @@
           color: var(--color1);
           font-family: var(--header-font);
           font-weight: normal;
+          font-size: 1.5rem;
         }
       }
     }
