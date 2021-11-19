@@ -44,6 +44,7 @@ function MusicShowcase(props) {
 
             <div className="showcase-grid-desktop">
               {isLoading && <ComponentLoading />}
+
               {releaseData && (
                 <ShowcaseList
                   setReleaseInfo={setReleaseInfo}
