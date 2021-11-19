@@ -45,7 +45,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
         required
         name="MERGE0"
       />
-      <button type="submit">Subscribe</button>
+      <button type="submit">Join</button>
     </form>
   );
 };

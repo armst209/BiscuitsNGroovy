@@ -1,17 +1,24 @@
 #login-page {
   color: white;
   background: black;
-  padding: 3rem 1rem;
+  padding: 3rem 1rem 15rem 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 450px) {
+    padding: 1rem 1rem 3rem 1rem;
+  }
 
   h2 {
-    font-family: var(--font1);
+    text-align: center;
+    font-family: var(--header-font);
     font-weight: normal;
     padding: 1rem 0;
+    @media screen and (max-width: 400px) {
+      font-size: 1rem;
+    }
   }
   .login-title {
     width: 100%;
@@ -55,7 +62,48 @@
     width: 100%;
     padding: 1rem;
     @media screen and (max-width: 400px) {
-      padding-top: 8rem;
+      padding: 1rem 0;
     }
+  }
+}
+
+.error-message {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+
+  font-weight: normal;
+  align-items: center;
+  color: red;
+  text-align: center;
+  font-family: var(--secondary-font);
+  font-weight: 500;
+
+  .error-message-text {
+    text-align: left;
+    letter-spacing: 0.01cm;
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
+  }
+  .error-message-text-main {
+    text-align: left;
+    letter-spacing: 0.01cm;
+    padding-left: 0.5rem;
+    font-weight: var(--secondary-font-weight);
+    font-size: 1rem;
+  }
+
+  svg {
+    width: 20px;
+    filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
+      brightness(99%) contrast(94%);
+    @media screen and (max-width: 400px) {
+      width: 30px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
   }
 }

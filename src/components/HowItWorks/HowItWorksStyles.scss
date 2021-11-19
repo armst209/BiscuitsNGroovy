@@ -51,7 +51,7 @@
         }
         text-align: center;
         margin-top: 2rem;
-        font-family: var(--font3);
+        font-family: var(--header-font);
         letter-spacing: 0.05cm;
         font-weight: normal;
         font-size: 3rem;
@@ -104,7 +104,7 @@
         width: 450px;
         height: 550px;
         border: 2px solid var(--color2);
-        background: var(--main-color-nav-containers-darker-grey);
+
         border-radius: 0.5rem;
         color: white;
         font-family: var(--font1);
@@ -201,6 +201,7 @@
               letter-spacing: 0.01cm;
               font-size: 1rem;
               position: relative;
+              height: 300px;
 
               div {
                 text-align: center;
@@ -245,13 +246,11 @@
 }
 
 .how-it-works-bottom-info {
-  background-color: var(--main-color-nav-containers-darker-grey);
   box-shadow: var(--container-box-shadow);
   width: auto;
   text-align: center;
   color: white;
   border-radius: 0.5rem;
-  font-weight: normal;
   font-family: var(--secondary-font);
   margin-top: 2rem;
   padding: 1rem;
@@ -281,14 +280,14 @@
   span {
     color: var(--color1);
 
-    font-weight: normal;
+    font-weight: bold;
   }
 
   a {
     color: var(--color1);
     text-decoration: underline 3px solid var(--color2);
-    font-family: var(--font1);
-    font-weight: normal;
+    font-family: var(--secondary-font);
+    font-weight: bold;
     &:visited {
       color: var(--color1);
     }

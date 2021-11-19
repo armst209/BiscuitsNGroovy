@@ -12,7 +12,6 @@
   width: 100%;
   color: white;
   border: 2px solid var(--color2);
-  background-color: var(--main-color-nav-containers-darker-grey);
   border-radius: 0.5rem;
 
   .artist-reminder-wrapper {
@@ -62,7 +61,7 @@
         h1 {
           font-size: 2rem;
           text-align: center;
-          font-family: var(--font3);
+          font-family: var(--header-font);
           letter-spacing: 0.05cm;
           font-weight: normal;
           @media screen and (max-width: 500px) {
@@ -116,12 +115,12 @@
             color: white;
           }
           button {
-            border: 3px solid var(--color1);
+            border: 2px solid var(--color1);
             background: transparent;
-            border-radius: 50px;
+            border-radius: 0.5rem;
             width: 200px;
             height: 70px;
-            font-family: var(--secondary-font);
+            font-family: var(--header-font);
             font-size: 1rem;
             cursor: pointer;
             color: white;
@@ -129,12 +128,6 @@
             transition: all 0.2s ease;
             position: relative;
             font-weight: normal;
-
-            &:hover {
-              background-color: var(--color1);
-              transform: scale(1.05);
-              color: black;
-            }
           }
         }
       }

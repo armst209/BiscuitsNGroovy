@@ -17,13 +17,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: var(--font3);
+      font-family: var(--header-font);
       letter-spacing: 0.1cm;
       font-weight: normal;
       color: white;
       background-color: transparent;
       padding: 1rem;
-      border: 3px solid var(--color1);
+
       border-left: none;
       border-right: none;
       width: 100%;
@@ -37,25 +37,8 @@
         font-size: 2rem;
       }
 
-      .spotlight-left {
-        width: 50px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        @media screen and (max-width: 450px) {
-          display: none;
-        }
-      }
-      .spotlight-right {
-        width: 50px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        @media screen and (max-width: 450px) {
-          display: none;
-        }
-      }
-      img {
+      svg {
+        margin-right: 0.5rem;
         @media screen and (max-width: 500px) {
           padding-bottom: 0;
         }
@@ -86,7 +69,7 @@
       padding: 0 1rem;
 
       .collection-library-grid-wrapper {
-        border: 5px solid var(--color2);
+        border: 2px solid var(--color2);
         border-radius: 20px;
         margin: 3rem 1rem;
         padding: 1rem;

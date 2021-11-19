@@ -6,6 +6,7 @@ import ComponentLoading from "../../components/Loading/Component/ComponentLoadin
 import useFetch from "../../customHooks/Fetch/useFetch";
 import showcase from "../../assets/images/showcase_mobile.webp";
 import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseList/NoReleases/NoReleasesMusicShowcase";
+import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
 
 const MusicShowcase = () => {
   //TOKEN
@@ -23,7 +24,11 @@ const MusicShowcase = () => {
     <section id="music-showcase">
       <div className="music-showcase-container">
         <div className="music-showcase-content-container">
-          <h1>MUSIC SHOWCASE</h1>
+          <h1>
+            <div>MUSIC SHOWCASE</div>
+            <RecordHeaderIcon className="record-header-icon" />
+          </h1>
+
           <p className="music-showcase-sub-title">
             Browse our current and upcoming releases. Click on a title for more
             details

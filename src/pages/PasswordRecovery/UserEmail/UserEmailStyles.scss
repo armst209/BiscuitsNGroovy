@@ -8,26 +8,49 @@
   padding-top: 8rem;
   padding-bottom: 8rem;
 
-  .email-input-title {
-    width: 100%;
-    h1 {
-      font-family: var(--font3);
-      color: white;
-      border: 3px solid var(--color1);
-      padding: 1rem;
-      border-left: none;
-      border-right: none;
-      width: 100%;
-      text-align: center;
-      font-size: 3rem;
-      position: relative;
-      letter-spacing: 0.1cm;
-      font-weight: normal;
-    }
-    padding-bottom: 5rem;
+  h2 {
+    font-family: var(--header-font);
+    font-weight: normal;
   }
+
+  .user-email-subtitle {
+    padding: 0.5rem 0 1rem 0;
+    font-family: var(--secondary-font);
+  }
+
+  // .email-input-title {
+  //   width: 100%;
+  //   h1 {
+  //     font-family: var(--font3);
+  //     color: white;
+  //     border: 3px solid var(--color1);
+  //     padding: 1rem;
+  //     border-left: none;
+  //     border-right: none;
+  //     width: 100%;
+  //     text-align: center;
+  //     font-size: 3rem;
+  //     position: relative;
+  //     letter-spacing: 0.1cm;
+  //     font-weight: normal;
+  //   }
+  //   padding-bottom: 5rem;
+  // }
   .user-email-wrapper {
     padding: 0 1rem;
+
+    .user-email-contact-issue {
+      font-size: 0.8rem;
+      font-family: var(--header-font);
+      padding: 0.5rem;
+      text-align: center;
+      a {
+        color: var(--color2);
+        &:visited {
+          color: var(--color2);
+        }
+      }
+    }
     form {
       color: white;
       display: flex;
@@ -37,10 +60,10 @@
       box-shadow: var(--shadow-large);
       padding: 60px 40px;
       background-color: black;
-      font-family: var(--font2);
+      font-family: var(--header-font);
       position: relative;
       border-radius: 0.5rem;
-      border: 5px solid var(--color2);
+      border: 2px solid var(--color2);
       width: 500px;
       @media screen and (max-width: 550px) {
         padding: 0;
@@ -52,14 +75,14 @@
       input {
         margin: 5px 0;
         background: var(--color-light);
-        font-family: var(--font1);
+        font-family: var(--header-font);
         font-size: 1rem;
         font-weight: normal;
         line-height: inherit;
         width: 100%;
         height: auto;
         padding: 0.75rem 1.25rem;
-        border: 3px solid var(--color1);
+        border: 2px solid var(--color1);
         outline: none;
         color: var(--color-black);
         background: black;
@@ -72,6 +95,7 @@
 
         &::placeholder {
           color: white;
+          font-family: var(--header-font);
           @media screen and (orientation: portrait) and (max-device-width: 350px) {
             font-size: 0.8rem;
           }
@@ -81,9 +105,9 @@
       .user-email-button-container {
         padding: 0.5rem 0 1rem 0;
         button {
-          border: 3px solid var(--color1);
-          border-radius: 50px;
-          font-family: var(--font1);
+          border: 2px solid var(--color1);
+          border-radius: 0.5rem;
+          font-family: var(--header-font);
           font-size: 1rem;
           background: transparent;
           width: 200px;
@@ -120,7 +144,7 @@
   .user-email-error-messages {
     text-align: center;
     width: 100%;
-    font-family: var(--font1);
+    font-family: var(--secondary-font);
     font-weight: normal;
     color: red;
     padding: 1rem;
@@ -128,7 +152,7 @@
   .user-email-success-message {
     text-align: center;
     width: 100%;
-    font-family: var(--font1);
+    font-family: var(--secondary-font);
     font-weight: normal;
     color: green;
     padding: 1rem;

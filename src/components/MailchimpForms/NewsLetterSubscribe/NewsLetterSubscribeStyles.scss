@@ -10,13 +10,16 @@
   color: white;
   box-shadow: var(--container-box-shadow);
   border: 2px solid var(--color2);
-  background-color: var(--main-color-nav-containers-darker-grey);
   border-radius: 0.5rem;
   position: relative;
   padding: 2rem 1rem;
   @media screen and (max-width: 1140px) {
     height: auto;
     padding-bottom: 4rem;
+  }
+
+  p {
+    font-family: var(--secondary-font);
   }
   .form-loader {
     display: flex;
@@ -37,7 +40,7 @@
   }
 
   h1 {
-    font-family: var(--font3);
+    font-family: var(--header-font);
     letter-spacing: 0.05cm;
     font-weight: normal;
     font-size: 2rem;
@@ -101,7 +104,7 @@
       }
     }
     input {
-      border: 3px solid var(--color1);
+      border: 2px solid var(--color1);
       border-radius: 0.5rem;
       background-color: transparent;
       font-family: var(--secondary-font);
@@ -120,9 +123,9 @@
   }
 
   button {
-    border: 3px solid var(--color1);
-    border-radius: 50px;
-    font-family: var(--secondary-font);
+    border: 2px solid var(--color1);
+    border-radius: 0.5rem;
+    font-family: var(--header-font);
     font-size: 1rem;
     background: transparent;
     width: 200px;

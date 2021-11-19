@@ -9,7 +9,8 @@ const NewsletterFormContainer = () => {
 
   return (
     <section id="subscribe">
-      <h1>SUBSCRIBE TO OUR NEWSLETTER</h1>
+      <h1>JOIN OUR NEWSLETTER</h1>
+      <p>"blurb about why a user should subscribe"</p>
       <LetterIcon />
       <MailchimpSubscribe
         url={postUrl}

@@ -14,9 +14,8 @@ function Hero() {
                 <section className="hero-text">
                   <div className="hero-title">
                     <h1>
-                      NEW <br /> MUSIC <br /> IS OUR <br />
-                      JAM
-                      <span className="jam">.</span>
+                      NEW MUSIC <br />
+                      IS OUR JAM
                     </h1>
                   </div>
                   <div className="hero-subtitle">
@@ -25,9 +24,6 @@ function Hero() {
                     only for true fans.
                   </div>
                   <div className="hero-buttons">
-                    {/* <button className="start-btn">
-                        Start Your Collection
-                      </button> */}
                     <div className="start-button-container" align="center">
                       <HashLink
                         className="start-button-link"

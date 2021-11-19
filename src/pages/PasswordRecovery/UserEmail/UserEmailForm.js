@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { emailValidation } from "../../../modules/FormValidation";
 import axios from "axios";
 
 const UserEmailForm = ({
@@ -53,13 +54,15 @@ const UserEmailForm = ({
         placeholder="Ex: your@email.com"
         onKeyUp={(event) => {
           setRecoveryEmail(event.target.value);
-          recoveryEmail === "" || recoveryEmail === null
-            ? setEmailErrorMessage("Please enter a valid email")
-            : setEmailErrorMessage("");
+          if (emailValidation(event.target.value)) {
+            setEmailErrorMessage("Please enter a valid email");
+          } else {
+            setEmailErrorMessage("");
+          }
         }}
       />
       <div className="user-email-button-container">
-        <button type="submit">Submit</button>
+        <button type="submit">Send Email</button>
       </div>
     </form>
   );

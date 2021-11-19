@@ -10,7 +10,7 @@
   font-family: var(--font2);
   position: relative;
   border-radius: 0.5rem;
-  border: 5px solid var(--color2);
+  border: 2px solid var(--color2);
   width: 500px;
   @media screen and (max-width: 550px) {
     padding: 0;
@@ -19,15 +19,34 @@
     border-radius: 0;
   }
 
+  .or-fold {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+
+    p {
+      margin: 0 10px;
+    }
+    hr {
+      width: 100%;
+      size: 0.2px;
+      border: 0.2px solid var(--footer-gray);
+    }
+  }
+
   .signup-redirect {
-    font-family: var(--font1);
+    font-family: var(--header-font);
     font-weight: normal;
     color: var(--color2);
     cursor: pointer;
   }
 
   span {
-    font-family: var(--font1);
+    font-family: var(--header-font);
     font-weight: normal;
     a {
       font-weight: bold;
@@ -36,6 +55,9 @@
       &:visited {
         color: var(--color2);
       }
+    }
+    @media screen and (max-width: 350px) {
+      font-size: 0.8rem;
     }
   }
   .login-btn-password {
@@ -56,14 +78,19 @@
       justify-content: center;
       align-items: center;
 
+      .login-loading {
+        filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
+          brightness(99%) contrast(94%);
+      }
+
       button {
-        border: 3px solid var(--color1);
-        border-radius: 50px;
-        font-family: var(--font1);
+        border: 2px solid var(--color1);
+        border-radius: 0.5rem;
+        font-family: var(--header-font);
         font-size: 1rem;
         background: transparent;
         width: 200px;
-        height: 70px;
+        height: 60px;
         cursor: pointer;
         color: white;
         transition: all 0.2s ease;
@@ -72,19 +99,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transform: scale(1.05);
 
-        &:hover {
-          background-color: var(--color1);
-
-          color: black;
+        &:hover svg {
+          display: flex;
+          transition: display 1s ease;
+          filter: invert(97%) sepia(99%) saturate(7497%) hue-rotate(353deg)
+            brightness(101%) contrast(92%);
         }
+
         div {
-          font-family: var(--font1);
+          font-family: var(--header-font);
           font-weight: normal;
         }
         svg {
           position: absolute;
+          display: none;
           width: 30px;
           right: 10%;
         }
@@ -96,7 +125,7 @@
     padding: 1rem 0 0 0;
     display: flex;
     justify-content: center;
-    font-family: var(--font1);
+    font-family: var(--header-font);
     font-weight: normal;
     font-size: 0.8rem;
     a {
@@ -106,20 +135,6 @@
       &:visited {
         color: var(--color2);
       }
-    }
-  }
-
-  .error-message {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: red;
-    text-align: center;
-    font-family: var(--font1);
-    font-weight: normal;
-    svg {
-      width: 50px;
     }
   }
 
@@ -135,18 +150,22 @@
       transition: 0.2s ease;
       border: 3px solid red;
     }
+    .input-success {
+      transition: 0.2s ease;
+      border: 3px solid rgb(1, 151, 1);
+    }
 
     input {
       margin: 5px 0;
       background: var(--color-light);
-      font-family: var(--font1);
+      font-family: var(--header-font);
       font-size: 1rem;
       font-weight: normal;
       line-height: inherit;
       width: 100%;
       height: auto;
       padding: 0.75rem 1.25rem;
-      border: 3px solid var(--color1);
+      border: 2px solid var(--color1);
       outline: none;
       color: var(--color-black);
       background: black;
@@ -163,24 +182,6 @@
           font-size: 0.8rem;
         }
       }
-    }
-  }
-
-  .or-fold {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    margin: 10px 0;
-
-    p {
-      margin: 0 10px;
-    }
-    hr {
-      width: 100%;
-      height: 1px;
     }
   }
 }

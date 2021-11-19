@@ -7,14 +7,14 @@ import disc_img from "../../assets/images/compact-disc-yellow.svg";
 import two_icon from "../../assets/images/hand2_yellow.svg";
 import one_icon from "../../assets/images/hand1_yellow.svg";
 
-import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
+import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 
 function About() {
   return (
     <section id="about">
       <div className="about-title">
         <h1>
-          <img width="50px" src={record_vinyl} alt="record" />
+          <RecordVinyl width="50px" />
           <div>ABOUT</div>
         </h1>
       </div>
@@ -76,7 +76,7 @@ function About() {
         </div>
       </div>
       <h1 className="story-h1">
-        <img width="50px" src={record_vinyl} alt="record" />
+        <RecordVinyl width="50px" />
         <div>OUR STORY</div>{" "}
       </h1>
       <div className="about-contents-wrapper">

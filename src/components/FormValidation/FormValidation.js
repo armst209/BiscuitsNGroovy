@@ -6,12 +6,12 @@ export function minMaxLength(text, minLength, maxLength) {
   return result;
 }
 
-export function validEmail(text) {
+export function validEmail(email) {
   const regex = RegExp(
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
 
-  return !regex.test(text);
+  return !regex.test(email);
 }
 
 export function passwordStrength(text) {
@@ -20,14 +20,14 @@ export function passwordStrength(text) {
 }
 
 //password validation for both password inputs
-function validateConfirmPassword(password, confirmpassword, formErrors) {
-  formErrors = formErrors || {};
+export function validateConfirmPassword(password, confirmpassword) {
+  // formErrors = formErrors || {};
   if (password !== confirmpassword) {
-    formErrors.confirmpassword =
-      "Confirmed password is not matching with password";
+    // formErrors.confirmpassword =
+    //   "Confirmed password is not matching with password";
     return false;
   } else {
-    delete formErrors.confirmpassword;
+    // delete formErrors.confirmpassword;
     return true;
   }
 }

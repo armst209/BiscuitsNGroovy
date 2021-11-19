@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./SignUpFormStyles.scss";
 import axios from "axios";
 import env from "react-dotenv";
-import { emailValidation } from "../../../modules/FormValidation.js";
+import {
+  emailValidation,
+  validateConfirmPassword,
+} from "../../../modules/FormValidation.js";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
@@ -89,7 +93,7 @@ const SignUpForm = () => {
             setErrorMessage("");
           } else {
             setInputErrorClass("error");
-            setErrorMessage("email is isnt valid");
+            setErrorMessage();
           }
         }}
         required
@@ -131,7 +135,7 @@ const SignUpForm = () => {
         autoComplete="off"
         required
         onKeyUp={(e) => {
-          if (e.target.value !== password) {
+          if (!validateConfirmPassword(e.target.value, password)) {
             setErrorMessageModal(true);
             setErrorMessage("Passwords do not match");
             setButtonDisabled(true);
@@ -142,6 +146,11 @@ const SignUpForm = () => {
           }
         }}
       />
+      <label htmlFor="term">
+        I have read and agree to the{" "}
+        <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
+      </label>
+      <input name="terms" type="checkbox" />
       <button disabled={buttonDisabled} type="submit">
         Submit
       </button>

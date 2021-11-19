@@ -27,7 +27,7 @@ const useFetch = (url, _options) => {
       } catch (error) {
         if (error.name === "AbortError") {
           //for testing fetch abort and component unmounts
-          // console.log("fetch was aborted");
+          //console.log("fetch was aborted");
         } else {
           setIsLoading(false);
           setErrorMessage("Can't fetch data");

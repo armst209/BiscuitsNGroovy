@@ -25,9 +25,6 @@
       color: white;
       background-color: transparent;
       padding: 1rem;
-      border: 3px solid var(--color1);
-      border-left: none;
-      border-right: none;
       width: 100%;
       text-align: center;
       font-size: 3rem;
@@ -51,7 +48,7 @@
         right: 0;
         top: 0;
       }
-      img {
+      svg {
         @media screen and (max-width: 500px) {
           padding-bottom: 0;
         }
