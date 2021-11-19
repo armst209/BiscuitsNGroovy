@@ -146,6 +146,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    /* input error/success styles */
     .input-error {
       transition: 0.2s ease;
       border: 3px solid red;

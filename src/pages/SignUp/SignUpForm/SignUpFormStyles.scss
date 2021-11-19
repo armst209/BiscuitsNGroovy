@@ -44,10 +44,16 @@ form {
     }
   }
 
+  .signup-checkbox-container {
+    input:checked {
+      border: 2px solid var(--color2);
+    }
+  }
+
   button {
-    border: 3px solid var(--color1);
-    border-radius: 50px;
-    font-family: var(--font1);
+    border: 2px solid var(--color1);
+    border-radius: 0.5rem;
+    font-family: var(--header-font);
     font-size: 1rem;
     background: transparent;
     width: 200px;
@@ -62,12 +68,6 @@ form {
     align-items: center;
     transform: scale(1.05);
     margin: 0.5rem 0 1rem 0;
-
-    &:hover {
-      background-color: var(--color1);
-
-      color: black;
-    }
     div {
       font-family: var(--font1);
       font-weight: normal;

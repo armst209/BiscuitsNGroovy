@@ -7,7 +7,6 @@ import LinkFlowButton from "./LinkFlowButton";
 import SignUpModal from "./SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
 
-import env from "react-dotenv";
 import SignUpForm from "./SignUpForm/SignUpForm";
 
 //variants for framer motion

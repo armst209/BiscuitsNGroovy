@@ -22,7 +22,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
   };
 
   return (
-    <form id="sub-form" onSubmit={(e) => handleSubmit(e)}>
+    <form id="newsletter-form" onSubmit={(e) => handleSubmit(e)}>
       <div>
         {status === "success" ? (
           <div className="form-success">

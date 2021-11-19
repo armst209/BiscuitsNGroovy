@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../../../App.css";
 import { emailValidation } from "../../../modules/FormValidation";
 import axios from "axios";
 
@@ -10,6 +11,9 @@ const UserEmailForm = ({
   setShowPassRecoveryModal,
 }) => {
   const [recoveryEmail, setRecoveryEmail] = useState("");
+  const [emailInputLoginClass, setEmailInputLoginClass] = useState("");
+  const [isSendEmailButtonDisabled, setIsSendEmailButtonDisabled] =
+    useState(true);
 
   const submit = (event) => {
     event.preventDefault();
@@ -48,6 +52,7 @@ const UserEmailForm = ({
   return (
     <form onSubmit={submit}>
       <input
+        className={emailInputLoginClass}
         type="email"
         required
         autoComplete="off"
@@ -55,14 +60,20 @@ const UserEmailForm = ({
         onKeyUp={(event) => {
           setRecoveryEmail(event.target.value);
           if (emailValidation(event.target.value)) {
+            setEmailInputLoginClass("input-error");
             setEmailErrorMessage("Please enter a valid email");
+            setIsSendEmailButtonDisabled(true);
           } else {
+            setIsSendEmailButtonDisabled(false);
             setEmailErrorMessage("");
+            setEmailInputLoginClass("input-success");
           }
         }}
       />
       <div className="user-email-button-container">
-        <button type="submit">Send Email</button>
+        <button disabled={isSendEmailButtonDisabled} type="submit">
+          Send Email
+        </button>
       </div>
     </form>
   );

@@ -146,11 +146,14 @@ const SignUpForm = () => {
           }
         }}
       />
-      <label htmlFor="term">
-        I have read and agree to the{" "}
-        <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
-      </label>
-      <input name="terms" type="checkbox" />
+      <div className="signup-checkbox-container">
+        <label htmlFor="term">
+          I have read and agree to the{" "}
+          <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
+        </label>
+        <input className="signup-checkbox" name="terms" type="checkbox" />
+      </div>
+
       <button disabled={buttonDisabled} type="submit">
         Submit
       </button>

@@ -18,8 +18,9 @@
     padding-bottom: 4rem;
   }
 
-  p {
+  .newsletter-subtitle {
     font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
   }
   .form-loader {
     display: flex;
@@ -60,7 +61,7 @@
     margin: 0.5rem;
   }
 
-  form {
+  #newsletter-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -117,6 +118,7 @@
 
       &::placeholder {
         color: white;
+        font-family: var(--header-font);
         font-weight: normal;
       }
     }
@@ -135,11 +137,5 @@
     transition: all 0.2s ease;
     position: relative;
     font-weight: normal;
-
-    &:hover {
-      background-color: var(--color1);
-      transform: scale(1.05);
-      color: black;
-    }
   }
 }

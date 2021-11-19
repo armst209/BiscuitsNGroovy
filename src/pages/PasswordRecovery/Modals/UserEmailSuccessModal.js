@@ -1,4 +1,5 @@
 import "./UserEmailSuccessModalStyles.scss";
+import { ReactComponent as NewEmail } from "../../../assets/images/new-email.svg";
 
 const UserEmailSuccessModal = () => {
   return (
@@ -12,12 +13,13 @@ const UserEmailSuccessModal = () => {
         >
           X
         </div>
-        <h2>Check your email!</h2>
-        <p>
-          Follow the link in your email to reset the password to your Biscuits n
-          Groovy account
+        <h1>Check your email!</h1>
+        <NewEmail />
+        <p className="user-email-success-modal-subtitle">
+          Follow the <span>link in your email</span> to reset the password to
+          your Biscuits n Groovy account
         </p>
-        <p>
+        <p className="user-email-success-modal-no-email">
           Didn't get an email? <a href="mailto:team@bngroovy.com">Contact Us</a>
         </p>
       </div>

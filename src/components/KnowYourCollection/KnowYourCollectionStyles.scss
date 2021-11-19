@@ -48,7 +48,7 @@
     text-align: center;
     letter-spacing: 0.01cm;
     font-family: var(--secondary-font);
-    font-weight: normal;
+    font-weight: var(--secondary-font-weight);
     margin-bottom: 2rem;
     font-size: 1.2rem;
     padding: 1rem;
@@ -77,24 +77,38 @@
       height: 100px;
       letter-spacing: 0.01cm;
       font-family: var(--secondary-font);
-      font-weight: normal;
+      font-weight: var(--secondary-font-weight);
       font-size: 1.5rem;
       margin: 0.5rem 0;
       box-shadow: var(--container-box-shadow);
       border: 2px solid var(--color2);
       border-radius: 0.5rem;
-      padding: 10px;
+      padding: 1rem;
+      position: relative;
       @media screen and (max-width: 1620px) {
         height: auto;
       }
+      @media screen and (max-width: 600px) {
+        margin: 1.5rem 0;
+      }
+
       @media screen and (max-width: 500px) {
         justify-content: center;
+        margin: 1.5rem 0;
       }
 
       svg {
         width: 50px;
         margin-left: 0.5rem;
         margin-right: 1rem;
+        background-color: black;
+        @media screen and (max-width: 600px) {
+          position: absolute;
+          right: -24px;
+          top: -15px;
+          width: 30px;
+          z-index: 999;
+        }
         @media screen and (max-width: 500px) {
           width: 30px;
         }
@@ -103,9 +117,9 @@
         width: 100%;
         font-size: 1.2rem;
         a {
-          text-decoration: underline 3px var(--color2);
+          text-decoration: underline 2px var(--color2);
           color: var(--color1);
-          font-family: var(--font1);
+          font-family: var(--header-font);
           font-weight: normal;
 
           &:visited {
@@ -124,6 +138,30 @@
           font-family: var(--header-font);
           font-weight: normal;
           font-size: 1.5rem;
+
+          padding: 0.5rem;
+
+          position: static;
+          @media screen and (max-width: 600px) {
+            font-size: 1.2rem;
+            background-color: black;
+            border-radius: 0.5rem;
+            border: 2px solid var(--color2);
+            top: -35px;
+            left: 15px;
+            position: absolute;
+          }
+          @media screen and (max-width: 500px) {
+            position: absolute;
+            top: -35px;
+            left: 5px;
+            font-size: 1rem;
+            background-color: black;
+          }
+          @media screen and (max-width: 320px) {
+            font-size: 0.8rem;
+            top: -30px;
+          }
         }
       }
     }

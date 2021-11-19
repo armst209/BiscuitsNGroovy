@@ -16,6 +16,7 @@
   .user-email-subtitle {
     padding: 0.5rem 0 1rem 0;
     font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
   }
 
   // .email-input-title {
@@ -71,6 +72,15 @@
         border: none;
         border-radius: 0;
       }
+      /* input error/success styles */
+      .input-error {
+        transition: 0.2s ease;
+        border: 3px solid red;
+      }
+      .input-success {
+        transition: 0.2s ease;
+        border: 3px solid rgb(1, 151, 1);
+      }
 
       input {
         margin: 5px 0;
@@ -122,11 +132,6 @@
           align-items: center;
           transform: scale(1.05);
 
-          &:hover {
-            background-color: var(--color1);
-
-            color: black;
-          }
           div {
             font-family: var(--font1);
             font-weight: normal;
@@ -144,7 +149,7 @@
   .user-email-error-messages {
     text-align: center;
     width: 100%;
-    font-family: var(--secondary-font);
+    font-family: var(--header-font);
     font-weight: normal;
     color: red;
     padding: 1rem;
@@ -152,7 +157,7 @@
   .user-email-success-message {
     text-align: center;
     width: 100%;
-    font-family: var(--secondary-font);
+    font-family: var(--header-font);
     font-weight: normal;
     color: green;
     padding: 1rem;

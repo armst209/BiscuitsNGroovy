@@ -80,6 +80,16 @@
   font-family: var(--secondary-font);
   font-weight: 500;
 
+  /* input error/success styles */
+  .input-error {
+    transition: 0.2s ease;
+    border: 3px solid red;
+  }
+  .input-success {
+    transition: 0.2s ease;
+    border: 3px solid rgb(1, 151, 1);
+  }
+
   .error-message-text {
     text-align: left;
     letter-spacing: 0.01cm;

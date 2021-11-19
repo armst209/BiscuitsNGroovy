@@ -18,7 +18,7 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
           <li>
             <NavLink
               activeStyle={{
-                borderBottom: "4px solid var(--color1)",
+                borderBottom: "2px solid var(--color1)",
               }}
               exact
               to="/"
@@ -29,7 +29,7 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
           <li>
             <NavLink
               activeStyle={{
-                borderBottom: "4px solid var(--color1)",
+                borderBottom: "2px solid var(--color1)",
               }}
               to="/about"
             >
@@ -39,7 +39,7 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
           <li>
             <NavLink
               activeStyle={{
-                borderBottom: "4px solid var(--color1)",
+                borderBottom: "2px solid var(--color1)",
               }}
               to="/faq"
             >
@@ -49,7 +49,7 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
           <li>
             <NavLink
               activeStyle={{
-                borderBottom: "4px solid var(--color1)",
+                borderBottom: "2px solid var(--color1)",
               }}
               to="/artists"
             >
@@ -59,7 +59,7 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
           <li>
             <NavLink
               activeStyle={{
-                borderBottom: "4px solid var(--color1)",
+                borderBottom: "2px solid var(--color1)",
               }}
               to="/events"
             >

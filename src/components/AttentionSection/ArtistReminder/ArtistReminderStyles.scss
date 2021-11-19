@@ -97,7 +97,7 @@
           }
           .tired-message {
             font-family: var(--secondary-font);
-            font-weight: normal;
+            font-weight: var(--secondary-font-weight);
             color: white;
             font-size: 1rem;
             max-width: 400px;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ComponentLoading from "../../../components/Loading/Component/ComponentLoading";
+import FormLoader from "../../../components/Loading/Forms/FormLoader";
 import UserEmailSuccessModal from "../Modals/UserEmailSuccessModal";
 import UserEmailForm from "./UserEmailForm";
 import "./UserEmailStyles.scss";
@@ -29,7 +29,7 @@ const UserEmail = () => {
         <p className="user-email-contact-issue">
           Still having issues? <a href="mailto:team@bngroovy.com">Contact Us</a>
         </p>
-        {showEmailLoader && <ComponentLoading />}
+        {showEmailLoader && <FormLoader />}
         {showPassRecoveryModal && <UserEmailSuccessModal />}
         <div className="user-email-error-messages">{emailErrorMessage}</div>
         <div className="user-email-success-message">{successMessage}</div>

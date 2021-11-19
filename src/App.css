@@ -43,6 +43,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "minera-bold";
+  src: url("./assets/fonts/Minera/Minera-Bold-700.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "tommy-regular";
@@ -79,8 +85,9 @@
   scrollbar-color: var(--color1) black;
 
   --header-font: "outer-sans-regular", sans-serif;
-  --secondary-font: "outer-sans-thin", sans-serif;
+  --secondary-font: "Montserrat", sans-serif;
   --secondary-font-weight: 600;
+  --container-box-shadow: 3px 3px 8px black;
   --font1: "Montserrat", "Raleway", sans-serif;
   --mont-font: "Montserrat", sans-serif;
   --font2: "outer-sans-regular", "Raleway", sans-serif;
@@ -101,7 +108,7 @@
   --main-color-nav-containers-darker-grey: #131212;
   --color1: #f5ee0d;
   --color2: #25c1a9;
-  --container-box-shadow: 3px 3px 8px black;
+
   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --color-light: #f1f5f9;

@@ -7,6 +7,7 @@
   z-index: var(--highest-index);
   background-color: #000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -23,13 +24,50 @@
     width: auto;
     position: relative;
     width: 400px;
-    height: 300px;
+    height: 400px;
+
+    @media screen and (max-width: 450px) {
+      border: none;
+      position: static;
+    }
     .user-email-success-modal-close {
       padding: 1rem;
       position: absolute;
       top: 0;
       right: 0;
       cursor: pointer;
+      font-family: var(--header-font);
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 2rem;
+      @media screen and (max-width: 350px) {
+        font-size: 1.5rem;
+      }
+    }
+    svg {
+      width: 80px;
+      height: auto;
+      filter: invert(100%) sepia(99%) saturate(7485%) hue-rotate(353deg)
+        brightness(101%) contrast(92%);
+    }
+    .user-email-success-modal-subtitle {
+      color: white;
+      padding: 1rem 0;
+      span {
+        color: var(--color1);
+      }
+    }
+    .user-email-success-modal-no-email {
+      font-size: 0.8rem;
+
+      a {
+        color: var(--color2);
+        &:visited {
+          color: var(--color2);
+        }
+      }
     }
   }
 }

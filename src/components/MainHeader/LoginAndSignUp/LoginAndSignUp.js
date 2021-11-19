@@ -10,7 +10,7 @@ const LoginAndSignUp = () => {
       <li>
         <NavLink
           activeStyle={{
-            borderBottom: "4px solid var(--color1)",
+            borderBottom: "2px solid var(--color1)",
           }}
           to="/login"
         >

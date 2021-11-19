@@ -30,7 +30,7 @@
       }
 
       &:hover span {
-        padding-right: 40px;
+        padding-right: 30px;
       }
       &:hover span:after {
         opacity: 1;
@@ -49,15 +49,15 @@
           content: url("../../../assets/images/write.svg");
           position: absolute;
           opacity: 0;
-          top: -5px;
+          top: 1.5px;
           bottom: 0;
-          width: 30px;
+          width: 20px;
           right: -60px;
+
           transition: 0.5s;
-          svg {
-            filter: invert(79%) sepia(81%) saturate(486%) hue-rotate(4deg)
-              brightness(99%) contrast(104%);
-          }
+          color: yellow;
+          filter: invert(79%) sepia(81%) saturate(486%) hue-rotate(4deg)
+            brightness(99%) contrast(104%);
         }
       }
     }
