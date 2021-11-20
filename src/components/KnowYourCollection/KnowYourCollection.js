@@ -15,33 +15,39 @@ function KnowYourCollection() {
         Every purchase includes a limited-edition digital album cover NFT.
         That’s a mouthful, so we’ve broken down what it means.
       </div>
+
       <div className="kyc-content-wrapper">
         <div className="kyc-info-boxes">
           <RecordFavorite />
           <p>
-            <span>Limited-Edition</span>album art exclusive to the BnG drop,
-            unavailable anywhere else
+            <span>Limited-Edition</span>
+            <span className="kyc-hyphen"> - </span>album art exclusive to the
+            BnG drop, unavailable anywhere else
           </p>
         </div>
         <div className="kyc-info-boxes">
           <RecordFavorite />
           <p>
-            <span>Digital</span> album covers stay in your collection
-            permanently, even after the music is no longer streaming on BnG. Log
-            in to easily access & share your collection
+            <span>Digital</span>
+            <span className="kyc-hyphen"> - </span> album covers stay in your
+            collection permanently, even after the music is no longer streaming
+            on BnG. Log in to easily access & share your collection
           </p>
         </div>
         <div className="kyc-info-boxes">
           <RecordFavorite />
           <p>
-            <span>Album Cover</span>beautiful art designed specifically to
-            accompany a record. We put it front and center, where it belongs
+            <span>Album Cover</span>
+            <span className="kyc-hyphen"> - </span>beautiful art designed
+            specifically to accompany a record. We put it front and center,
+            where it belongs
           </p>
         </div>
         <div className="kyc-info-boxes">
           <RecordFavorite />
           <p>
-            <span>NFT (non-fungible token)</span>a digital collectible whose
+            <span>NFT (non-fungible token)</span>
+            <span className="kyc-hyphen"> - </span>a digital collectible whose
             ownership is recorded on the blockchain - aka a permanent,
             democratized database. Our NFTs are simple, secure, and
             non-polluting. Learn more{" "}

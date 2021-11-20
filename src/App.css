@@ -86,7 +86,7 @@
 
   --header-font: "outer-sans-regular", sans-serif;
   --secondary-font: "Montserrat", sans-serif;
-  --secondary-font-weight: 600;
+  --secondary-font-weight: 500;
   --container-box-shadow: 3px 3px 8px black;
   --font1: "Montserrat", "Raleway", sans-serif;
   --mont-font: "Montserrat", sans-serif;
@@ -122,12 +122,15 @@ body {
   background-color: #000;
 }
 
+/* browser cursor styles */
+
 *::-webkit-scrollbar {
   width: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--color1);
+  background-color: black;
+  border: 2px solid var(--color1);
   height: 1vh;
   border-radius: 20px;
 }
@@ -135,7 +138,3 @@ body {
 *::-webkit-scrollbar-track {
   background-color: black;
 }
-
-/* //naming conventions
-
-//modal props = show"NameofModal" */
