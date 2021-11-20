@@ -18,10 +18,9 @@ import two_icon from "../../assets/images/connect.svg";
 import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
-import ArtistForm from "../../components/MailchimpForms/ArtistInformation/ArtistInformationForm";
 import ArtistInformationForm from "../../components/MailchimpForms/ArtistInformation/ArtistInformationForm";
 
-function Artists(props) {
+const Artists = () => {
   return (
     <section id="artists">
       <div className="artists-title">
@@ -210,6 +209,6 @@ function Artists(props) {
       <img className="mic-drop" src={mic_drop} alt="mic drop" />
     </section>
   );
-}
+};
 
 export default Artists;

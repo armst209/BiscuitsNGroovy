@@ -11,9 +11,13 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  z-index: 999999;
   .form-loading-wrapper {
     font-family: var(--header-font);
     text-align: center;
     font-size: 2rem;
+    div {
+      font-family: var(--header-font);
+    }
   }
 }

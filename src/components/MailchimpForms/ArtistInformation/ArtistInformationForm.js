@@ -1,56 +1,53 @@
 import { useState, useEffect } from "react";
 
 const ArtistInformationForm = ({ status, message, onValidated }) => {
-  const [artistName, setArtistName] = useState("");
-  const [artistPrefName, setArtistPrefName] = useState("");
-  const [artistEmail, setArtistEmail] = useState("");
-  const [artistPhone, setArtistPhone] = useState("");
-  const [managerName, setManagerName] = useState("");
-  const [managerEmail, setManagerEmail] = useState("");
-  const [artistMessage, setArtistMessage] = useState("");
-
-  // const submit = (event) => {
-  //   event.preventDefault();
-
-  //   axios({
-  //     method: "post",
-  //     //   url: `${baseURL}/registration`,
-  //     data: {
-  //       artistName,
-  //       artistPrefName,
-  //       artistEmail,
-  //       artistPhone,
-  //       managerName,
-  //       managerEmail,
-  //       message,
-  //     },
-  //   })
-  //     .then((res) => {
-  //       setSuccessMessages("User is subscribed!");
-  //     })
-  //     .catch((err) => {
-  //       setErrorMessages("");
-  //     });
-  // };
+  // const [artistName, setArtistName] = useState("");
+  // const [artistPrefName, setArtistPrefName] = useState("");
+  // const [artistEmail, setArtistEmail] = useState("");
+  // const [artistPhone, setArtistPhone] = useState("");
+  // const [managerName, setManagerName] = useState("");
+  // const [managerEmail, setManagerEmail] = useState("");
+  // const [artistMessage, setArtistMessage] = useState("");
 
   useEffect(() => {
     if (status === "success") clearFields();
   }, [status]);
 
   const clearFields = () => {
-    setArtistEmail("");
+    // setArtistEmail("");
   };
+  let artistEmail,
+    artistName,
+    artistPrefName,
+    artistPhone,
+    managerName,
+    managerEmail,
+    artistMessage;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    localStorage.setItem("hit", "hit");
     return (
       artistEmail &&
+      artistName &&
+      artistPrefName &&
+      artistPhone &&
+      managerName &&
+      managerEmail &&
+      artistMessage &&
       artistEmail.indexOf("@") > -1 &&
-      onValidated({ MERGE0: artistEmail })
+      onValidated({
+        EMAIL: artistEmail,
+        ARTNAME: artistName,
+        PREFNAME: artistPrefName,
+        PNUMBER: artistPhone,
+        MANAME: managerName,
+        MAEMAIL: managerEmail,
+        MESSAGE: artistMessage,
+      })
     );
   };
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form>
       <div>
         {status === "success" ? (
           <div className="form-success">
@@ -66,68 +63,77 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
       )}
       <input
         label="Artist Name"
-        onChange={(e) => setArtistName(e.target.value)}
+        ref={(node) => (artistName = node)}
+        // onChange={(e) => setArtistName(e.target.value)}
         type="text"
         value={artistName}
         placeholder="Artist Name"
         required
-        name="MERGE1"
+        name="ARTNAME"
       />
       <input
         label="Artist Preferred Name"
-        onChange={(e) => setArtistPrefName(e.target.value)}
+        ref={(node) => (artistPrefName = node)}
+        // onChange={(e) => setArtistPrefName(e.target.value)}
         type="text"
         value={artistPrefName}
         placeholder="Preferred Name"
-        name="MERGE2"
+        name="PREFNAME"
       />
       <input
         label="Artist Email"
-        onChange={(e) => setArtistEmail(e.target.value)}
+        ref={(node) => (artistEmail = node)}
+        // onChange={(e) => setArtistEmail(e.target.value)}
         type="email"
         value={artistEmail}
         placeholder="Ex: your@email.com"
         required
-        name="MERGE0"
+        name="EMAIL"
       />
       <input
         label="Phone Number"
-        onChange={(e) => setArtistPhone(e.target.value)}
+        ref={(node) => (artistPhone = node)}
+        // onChange={(e) => setArtistPhone(e.target.value)}
         type="tel"
         value={artistPhone}
         placeholder="Ex: 111-111-1111"
         required
-        name="MERGE3"
+        name="PNUMBER"
       />
       <input
         label="Manager/Agent Name"
-        onChange={(e) => setManagerName(e.target.value)}
+        ref={(node) => (managerName = node)}
+        // onChange={(e) => setManagerName(e.target.value)}
         type="text"
         value={managerName}
         placeholder="Manager/Agent Name"
         required
-        name="MERGE4"
+        name="MANAME"
       />
       <input
         label="Manager/Agent Email"
-        onChange={(e) => setManagerEmail(e.target.value)}
+        ref={(node) => (artistEmail = node)}
+        // onChange={(e) => setManagerEmail(e.target.value)}
         type="email"
         value={managerEmail}
         placeholder="Ex: manageragent@email.com"
         required
-        name="MERGE5"
+        name="MAEMAIL"
       />
       <input
         label="Enter a message:"
-        onChange={(e) => setArtistMessage(e.target.value)}
+        ref={(node) => (artistMessage = node)}
+        // onChange={(e) => setArtistMessage(e.target.value)}
         type="text"
         value={artistMessage}
         placeholder="Enter a message:"
         required
-        name="MERGE6"
+        name="MESSAGE"
       />
 
-      <button type="submit">Submit</button>
+      <button name="submit" type="submit" onClick={handleSubmit}>
+        Submit
+      </button>
     </form>
   );
 };
