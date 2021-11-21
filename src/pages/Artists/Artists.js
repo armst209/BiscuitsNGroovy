@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import "./ArtistsStyles.scss";
 
 import { HashLink } from "react-router-hash-link";
-import axios from "axios";
+
 import mic_drop from "../../assets/images/micdrop.webp";
 import mic_hold from "../../assets/images/michold.webp";
 
-import env from "react-dotenv";
-
-import "./ArtistsStyles.scss";
 import love_music_icon from "../../assets/images/love-song2.svg";
 import stream_music_icon from "../../assets/images/voice.svg";
 import favorite_music_icon from "../../assets/images/3rd_icon_record_share.svg";
@@ -18,7 +15,8 @@ import two_icon from "../../assets/images/connect.svg";
 import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
-import ArtistInformationForm from "../../components/MailchimpForms/ArtistInformation/ArtistInformationForm";
+
+import ArtistInformationContainer from "../../components/MailchimpForms/ArtistInformation/ArtistInformationContainer";
 
 const Artists = () => {
   return (
@@ -203,7 +201,7 @@ const Artists = () => {
           </div>
         </div>
         <div id="artists-form" className="form-container">
-          <ArtistInformationForm />
+          <ArtistInformationContainer />
         </div>
       </div>
       <img className="mic-drop" src={mic_drop} alt="mic drop" />

@@ -375,12 +375,10 @@
           padding: 0.75rem 1.25rem;
           border: none;
           outline: none;
-          // border-radius: 2rem;
-          border: 3px solid var(--color1);
-          // color: var(--color-black);
+          border-radius: 0.5rem;
+          border: 2px solid var(--color1);
           color: white;
           background: transparent;
-          // background: var(--color-light);
           text-transform: unset;
           &::placeholder {
             color: white;
@@ -405,8 +403,8 @@
           }
         }
         button {
-          border: 3px solid var(--color1);
-          font-family: var(--font1);
+          border: 2px solid var(--color1);
+          font-family: var(--header-font);
           font-size: 1rem;
           background: transparent;
           width: 200px;
@@ -415,12 +413,7 @@
           color: white;
           transition: all 0.2s ease;
           position: relative;
-          border-radius: 50px;
-          &:hover {
-            color: black;
-            background-color: var(--color1);
-            transform: scale(1.05);
-          }
+          border-radius: 0.5rem;
         }
       }
     }
