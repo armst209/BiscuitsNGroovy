@@ -18,6 +18,7 @@ import two_icon from "../../assets/images/connect.svg";
 import one_icon from "../../assets/images/money-bag2_yellow.svg";
 import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
+import ArtistInformationContainer from "./ArtistInformationContainer";
 
 function Artists(props) {
   const [artistName, setArtistName] = useState("");
@@ -240,70 +241,9 @@ function Artists(props) {
             </div>
           </div>
         </div>
-        {/* <div id="artists-form" className="form-container">
-          <form onSubmit={submit}>
-            <input
-              type="text"
-              name="ARTISTNAME"
-              placeholder="Artist Name"
-              required
-              autoComplete="off"
-              onChange={(event) => setArtistName(event.target.value)}
-            />
-            <input
-              type="text"
-              name="PREFNAME"
-              placeholder="Preferred Name"
-              autoComplete="off"
-              onChange={(event) => setArtistPrefName(event.target.value)}
-            />
-            <input
-              type="email"
-              name="ARTEMAIL"
-              placeholder="Artist Email"
-              required
-              autoComplete="off"
-              onChange={(event) => setArtistEmail(event.target.value)}
-            />
-            <input
-              type="phone"
-              name="ARTPHONE"
-              placeholder="Phone Number"
-              required
-              autoComplete="off"
-              onChange={(event) => setArtistPhone(event.target.value)}
-            />
-            <input
-              type="text"
-              name="MANNAME"
-              placeholder="Manager/Agent Name"
-              required
-              autoComplete="off"
-              onChange={(event) => setManagerName(event.target.value)}
-            />
-            <input
-              type="email"
-              name="MANEMAIL"
-              placeholder="Manager/Agent Email"
-              required
-              autoComplete="off"
-              onChange={(event) => setManagerEmail(event.target.value)}
-            />
-            <textarea
-              className="text-input"
-              spellCheck="true"
-              rows="10"
-              cols="50"
-              type="text"
-              name="MESSAGE"
-              placeholder="Enter a message"
-              required
-              autoComplete="off"
-              onChange={(event) => setMessage(event.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
-        </div> */}
+        <div id="artists-form" className="form-container">
+          <ArtistInformationContainer />
+        </div>
       </div>
       {/* <img className="mic-drop" src={mic_drop} alt="mic drop" /> */}
     </section>
