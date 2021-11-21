@@ -10,6 +10,8 @@ import {
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
+import LinkFlowButton from "../LinkFlowButton";
+import FlowLoader from "../../../components/Loading/Forms/FlowLoader";
 
 // //configure flow environment
 config()
@@ -27,6 +29,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [errorMessageModal, setErrorMessageModal] = useState(false);
   const [inputErrorClass, setInputErrorClass] = useState("");
@@ -35,14 +38,14 @@ const SignUpForm = () => {
   const submit = async function (event) {
     event.preventDefault();
 
-    //if flow account is not linked throw error
-    // let currUser = await fcl.currentUser().snapshot();
-    // if (currUser.addr === null) {
-    //   console.log("Error");
-    //   return;
-    // }
+    // if flow account is not linked throw error
+    let currUser = await fcl.currentUser().snapshot();
+    if (currUser.addr === null) {
+      console.log("Error");
+      return;
+    }
 
-    // let flow_address = currUser.addr;
+    let flow_address = currUser.addr;
 
     axios({
       method: "post",
@@ -51,7 +54,7 @@ const SignUpForm = () => {
         email,
         username,
         password,
-        // flow_address,
+        flow_address,
       },
     })
       .then((res) => {
@@ -79,7 +82,7 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={submit}>
-      <input
+      {/* <input
         className={inputErrorClass}
         placeholder="Email"
         type="email"
@@ -152,14 +155,16 @@ const SignUpForm = () => {
           <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
         </label>
         <input className="signup-checkbox" name="terms" type="checkbox" />
-      </div>
+      </div> */}
 
-      <button disabled={buttonDisabled} type="submit">
+      {/* <button disabled={buttonDisabled} type="submit">
         Submit
-      </button>
-      {errorMessageModal && (
+      </button> */}
+      <LinkFlowButton setShowFlowButtonLoader={setShowFlowButtonLoader} />
+      {/* {errorMessageModal && (
         <div className="error-messages">{errorMessage}</div>
-      )}
+      )} */}
+      {showFlowButtonLoader && <FlowLoader />}
     </form>
   );
 };
