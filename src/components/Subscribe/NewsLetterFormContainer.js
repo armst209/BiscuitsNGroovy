@@ -8,10 +8,8 @@ const NewsletterFormContainer = () => {
 
   return (
     <section id="subscribe">
-      <h1>JOIN OUR NEWSLETTER</h1>
-      <p className="newsletter-subtitle">
-        "blurb about why a user should subscribe"
-      </p>
+      <h1 style={{ fontFamily: "var(--font3)" }}>JOIN OUR NEWSLETTER</h1>
+
       <LetterIcon />
       <MailchimpSubscribe
         url={postUrl}

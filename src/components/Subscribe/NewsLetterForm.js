@@ -57,8 +57,18 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
         autoComplete="off"
         required
         name="MERGE0"
+        style={{ fontFamily: "var(--font2)", fontWeight: "normal" }}
       />
-      <button type="submit">Join</button>
+      <button
+        style={{
+          border: "3px solid var(--color1)",
+          borderRadius: "50px",
+          fontFamily: "var(--font1)",
+        }}
+        type="submit"
+      >
+        Join
+      </button>
     </form>
   );
 };

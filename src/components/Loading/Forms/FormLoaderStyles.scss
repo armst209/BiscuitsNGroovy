@@ -1,4 +1,4 @@
-#form-loading {
+#form-loader {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -12,12 +12,12 @@
   width: 100%;
   height: 100vh;
   z-index: 999999;
-  .form-loading-wrapper {
-    font-family: var(--header-font);
+  .form-loader-wrapper {
+    font-family: var(--font1);
     text-align: center;
     font-size: 2rem;
     div {
-      font-family: var(--header-font);
+      font-family: var(--font1);
     }
   }
 }

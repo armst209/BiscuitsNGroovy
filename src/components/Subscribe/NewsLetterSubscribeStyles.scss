@@ -66,20 +66,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: var(--secondary-font);
+    font-family: var(--font2);
     font-weight: normal;
     position: relative;
     .form-success {
       color: rgb(12, 177, 12);
       font-weight: normal;
-      font-family: var(--header-font);
+      font-family: var(--font1);
       padding: 1rem;
     }
 
     .form-error {
       color: rgb(212, 34, 34);
       font-weight: normal;
-      font-family: var(--header-font);
+      font-family: var(--font1);
     }
     .input-error {
       border: 3px solid red;
