@@ -5,8 +5,6 @@ import axios from "axios";
 import mic_drop from "../../assets/images/micdrop.webp";
 import mic_hold from "../../assets/images/michold.webp";
 
-import env from "react-dotenv";
-
 import "./ArtistsStyles.scss";
 import love_music_icon from "../../assets/images/love-song2.svg";
 import stream_music_icon from "../../assets/images/voice.svg";
@@ -20,42 +18,7 @@ import three_icon from "../../assets/images/3_standout.svg";
 import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 import ArtistInformationContainer from "./ArtistInformationContainer";
 
-function Artists(props) {
-  const [artistName, setArtistName] = useState("");
-  const [artistPrefName, setArtistPrefName] = useState("");
-  const [artistEmail, setArtistEmail] = useState("");
-  const [artistPhone, setArtistPhone] = useState("");
-  const [managerName, setManagerName] = useState("");
-  const [managerEmail, setManagerEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [errorMessages, setErrorMessages] = useState("");
-  const [successMessages, setSuccessMessages] = useState("");
-
-  const submit = (event) => {
-    event.preventDefault();
-    const baseURL = env.BACKEND_URL;
-
-    axios({
-      method: "post",
-      url: `${baseURL}/registration`,
-      data: {
-        artistName,
-        artistPrefName,
-        artistEmail,
-        artistPhone,
-        managerName,
-        managerEmail,
-        message,
-      },
-    })
-      .then((res) => {
-        setSuccessMessages("User is subscribed!");
-      })
-      .catch((err) => {
-        setErrorMessages("");
-      });
-  };
-
+function Artists() {
   return (
     <section id="artists">
       <div className="artists-title">

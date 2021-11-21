@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import FormLoader from "../../Loading/Forms/FormLoader";
+import FormLoader from "../../components/Loading/Forms/FormLoader";
 
 const ArtistInformationForm = ({ status, message, onValidated }) => {
   const [artistName, setArtistName] = useState("");

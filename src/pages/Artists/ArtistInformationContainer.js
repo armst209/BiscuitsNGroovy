@@ -1,7 +1,8 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import FormLoader from "../../Loading/Forms/FormLoader";
+
 import ArtistInformationForm from "./ArtistInformationForm";
-import "./ArtistInformationContainerStyles.scss";
+import "./ArtistInformationFormStyles.scss";
+import FormLoader from "../../components/Loading/Forms/FormLoader";
 
 const ArtistInformationContainer = () => {
   const postUrl = `https://bngroovy.us1.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&amp;id=${process.env.REACT_APP_MAILCHIMP_ARTIST_ID}`;
