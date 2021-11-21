@@ -144,7 +144,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
         name="MERGE6"
       />
 
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

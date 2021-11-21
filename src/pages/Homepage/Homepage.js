@@ -7,6 +7,7 @@ import Hero from "../../components/Hero/Hero";
 import "./HomepageStyles.scss";
 
 import reminder_image from "../../assets/images/subscribe.webp";
+import NewsletterFormContainer from "../../components/Subscribe/NewsLetterFormContainer";
 
 function Homepage(props) {
   return (
@@ -35,7 +36,7 @@ function Homepage(props) {
       <div className="reminder-subscribe">
         <div className="reminder-subscribe-wrapper">
           <ArtistReminder />
-          <SubscribeSection />
+          <NewsletterFormContainer />
         </div>
 
         <img className="reminder-image" src={reminder_image} alt="sfsfsf" />
