@@ -24,6 +24,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
           Success! Thank you for submitting your information!
         </div>
       );
+      setErrorMessage("");
     } else if (status === "error") {
       setArtistFormLoader(false);
       // setEmailInputErrorClass("input-error");
@@ -100,6 +101,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
         type="text"
         value={artistPrefName}
         placeholder="Preferred Name"
+        required
         name="MERGE2"
       />
 

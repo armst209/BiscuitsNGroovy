@@ -16,6 +16,8 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       setSuccessMessage(
         <div className="form-success">Success! Thank you for subscribing!</div>
       );
+      setErrorMessage("");
+      setEmailInputErrorClass("");
     } else if (status === "error") {
       setNewsletterLoader(false);
       setEmailInputErrorClass("input-error");
