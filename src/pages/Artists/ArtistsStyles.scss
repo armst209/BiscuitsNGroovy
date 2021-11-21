@@ -388,20 +388,21 @@
           }
         }
 
-        .text-input {
+        textarea {
           width: 100%;
           border: 3px solid var(--color1);
           background-color: black;
           color: white;
           margin-bottom: 1rem;
           font-family: var(--font2);
+          padding: 0.5rem;
+          min-height: 300px;
           &::placeholder {
             color: white;
             font-family: var(--font2);
             font-weight: normal;
             font-size: 1rem;
-            padding-top: 0.5rem;
-            padding-left: 1.2rem;
+            padding: 0.5rem;
           }
         }
         button {
