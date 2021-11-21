@@ -35,12 +35,12 @@ function Hero() {
                       className="for-artists-button-container"
                       align="center"
                     >
-                      <HashLink
+                      {/* <HashLink
                         className="for-artists-button-link"
                         to="/#music-showcase"
                       >
                         <span>For Artists</span>
-                      </HashLink>
+                      </HashLink> */}
                     </div>
                   </div>
                 </section>
