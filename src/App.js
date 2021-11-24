@@ -27,7 +27,7 @@ const App = () => {
   return (
     <div className="App">
       <MainHeader />
-      <FixedNavigationSpacer />
+
       <Router routes={routes} />
       <Footer />
       <ScrollWidget />

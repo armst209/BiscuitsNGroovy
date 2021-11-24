@@ -1,4 +1,5 @@
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import hero_image from "../../assets/images/hero.webp";
 import "./HeroStyles.scss";
 
@@ -24,12 +25,9 @@ function Hero() {
                   </div>
                   <div className="hero-buttons">
                     <div className="start-button-container" align="center">
-                      <HashLink
-                        className="start-button-link"
-                        to="/#music-showcase"
-                      >
+                      <Link className="start-button-link" to="/signup">
                         <span>Start Your Collection</span>
-                      </HashLink>
+                      </Link>
                     </div>
                     <div
                       className="for-artists-button-container"

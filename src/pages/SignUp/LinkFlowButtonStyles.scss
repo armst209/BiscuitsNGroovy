@@ -81,3 +81,15 @@ button,
     text-align: center;
   }
 }
+
+._app__Inner-sc-1b1fmnf-1 .btulfd {
+  border: 5px solid red;
+}
+
+#FCL_IFRAME > * {
+  border: 5px solid red !important;
+
+  background: black !important;
+
+  font-family: var(--header-font) !important;
+}

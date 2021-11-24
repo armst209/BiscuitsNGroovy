@@ -68,7 +68,7 @@
 
 @font-face {
   font-family: "futura-bold";
-  src: url("./assets/fonts/FuturaStdBold/Futura-Std-Bold.woff") format("woff");
+  src: url("./assets/fonts/Futura-Bold/Futura-Bold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -91,7 +91,7 @@
   --input-font-size: 18px;
   --secondary-text-font-size: 1rem;
 
-  --header-font: "outer-sans-regular", sans-serif;
+  --header-font: "futura-bold", sans-serif;
   --secondary-font: "Montserrat", sans-serif;
   --secondary-font-weight: 500;
   --container-box-shadow: 3px 3px 8px black;

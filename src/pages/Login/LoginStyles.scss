@@ -60,22 +60,72 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 1rem;
+
+    border-radius: 0.5rem;
+    border: 2px solid var(--color2);
+    width: 500px;
+    padding: 60px 40px;
+    @media screen and (max-width: 550px) {
+      padding: 0;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+    }
+
     @media screen and (max-width: 400px) {
       padding: 1rem 0;
     }
   }
+  .error-message-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .error-message-text {
+      text-align: left;
+      letter-spacing: 0.01cm;
+      padding-left: 0.5rem;
+      font-size: 0.7rem;
+      color: red;
+    }
+
+    .main-error-messages {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 1rem;
+      .error-message-text-main {
+        text-align: center;
+        letter-spacing: 0.01cm;
+        padding-left: 0.5rem;
+        font-family: var(--secondary-font);
+        font-weight: var(--secondary-font-weight);
+        font-size: 1rem;
+        color: red;
+        padding: 0.5rem 0;
+      }
+
+      svg {
+        width: 40px;
+        filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
+          brightness(99%) contrast(94%);
+        @media screen and (max-width: 400px) {
+          width: 30px;
+        }
+      }
+    }
+  }
 }
 
-.error-message {
+.label-error-message {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
-
   font-weight: normal;
   align-items: center;
-  color: red;
   text-align: center;
   font-family: var(--secondary-font);
   font-weight: 500;
@@ -89,31 +139,60 @@
     transition: 0.2s ease;
     border: 3px solid rgb(1, 151, 1);
   }
-
-  .error-message-text {
+  .label-error-text {
     text-align: left;
     letter-spacing: 0.01cm;
     padding-left: 0.5rem;
     font-size: 0.7rem;
-  }
-  .error-message-text-main {
-    text-align: left;
-    letter-spacing: 0.01cm;
-    padding-left: 0.5rem;
-    font-weight: var(--secondary-font-weight);
-    font-size: 1rem;
+    color: red;
   }
 
   svg {
     width: 20px;
     filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
       brightness(99%) contrast(94%);
-    @media screen and (max-width: 400px) {
-      width: 30px;
+    @media screen and (max-width: 280px) {
+      display: none;
     }
   }
 
   @media screen and (max-width: 400px) {
     font-size: 0.8rem;
+  }
+}
+
+.forgot-password {
+  width: 100%;
+  padding: 1rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  font-family: var(--header-font);
+  font-weight: normal;
+  font-size: 0.8rem;
+  a {
+    text-decoration: none;
+
+    color: var(--color2);
+    &:visited {
+      color: var(--color2);
+    }
+  }
+}
+
+.have-account {
+  span {
+    font-family: var(--header-font);
+    font-weight: normal;
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--color2);
+      &:visited {
+        color: var(--color2);
+      }
+    }
+    @media screen and (max-width: 350px) {
+      font-size: 0.8rem;
+    }
   }
 }

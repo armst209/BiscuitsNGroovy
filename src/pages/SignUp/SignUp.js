@@ -1,78 +1,43 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
-import { motion } from "framer-motion";
-import logo from "../../assets/images/bng_test.svg";
+import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 import LinkFlowButton from "./LinkFlowButton";
-import SignUpModal from "./SignUpPopUp/SignUpPopUp";
-import question_mark from "../../assets/images/help_question_yellow.svg";
+//flow imports
+import { config } from "@onflow/fcl";
 
-import SignUpForm from "./SignUpForm/SignUpForm";
+//configure flow environment
+config()
+  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-//variants for framer motion
-const signUpModalBackground = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
-};
-//props passed as an object
-const SignUp = (props) => {
-  const [flowLoader, setFlowLoader] = useState("");
-  const [showModal, setShowModal] = useState(true);
-  const [changeStyles, setChangeStyles] = useState("signup-modal");
+const SignUp = () => {
+  const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
+  const [errorMessages, setErrorMessages] = useState("");
 
   return (
-    <motion.section
-      id="signup"
-      variants={signUpModalBackground}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-    >
+    <section id="signup">
       <h2>Sign up to start "enter message"</h2>
-      <SignUpModal
-        changeStyles={changeStyles}
-        setChangeStyles={setChangeStyles}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
-      <motion.div
-        initial={{ y: -250 }}
-        animate={{ y: 0 }}
-        exit={{ y: "-100vh" }}
-        className="signup-wrapper"
-      >
+
+      <div className="signup-wrapper">
         <div className="signup-contents">
-          <SignUpForm />
+          <LinkFlowButton
+            setShowFlowButtonLoader={setShowFlowButtonLoader}
+            setErrorMessages={setErrorMessages}
+          />
           <p className="already-account">
             Have an account?
             <Link className="login-redirect" to="/login">
-              <span> Login</span>
+              <span> Sign In</span>
             </Link>
           </p>
-          {/* component houses flow button and create account button - submit function and error messages passed to create account button with props */}
-          {/* <LinkFlowButton
-              submit={submit}
-              showSignUpPopup={props.showSignUpPopup}
-              signUpPopup={props.signUpPopup}
-              flowBtnLoader={setFlowLoader}
-            /> */}
-
-          {flowLoader}
-          {/* Error message list - holds all error responses that are set in handleChange switch statement */}
-          <ul className="error-message-container-desktop"></ul>
         </div>
-
-        <motion.div
-          className="help-button"
-          whileHover={{ scale: 1.2 }}
-          onClick={() => {
-            setShowModal(!showModal);
-          }}
-        >
-          <img src={question_mark} alt="question mark" width="50px" />
-        </motion.div>
-      </motion.div>
-    </motion.section>
+        <div className="signup-info-contents"> Things that need to be said</div>
+      </div>
+      <div className="error-message-main">{errorMessages}</div>
+      {showFlowButtonLoader && <FlowLoader />}
+    </section>
   );
 };
 

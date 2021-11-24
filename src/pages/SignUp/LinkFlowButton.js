@@ -6,15 +6,18 @@ import link_icon from "../../assets/images/link.svg";
 
 import "./LinkFlowButtonStyles.scss";
 import write from "../../assets/images/write.svg";
-function LinkFlowButton({ setShowFlowButtonLoader }) {
+import SignUpForm from "./SignUpForm/SignUpForm";
+function LinkFlowButton({ setShowFlowButtonLoader, setErrorMessages }) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
     if (isInitialized === true) {
       return;
     }
+    //flow loader
     setShowFlowButtonLoader(true);
     await initAccount();
     accountIsInitialized().then((firstAccountState) => {
+      //flow loader
       setShowFlowButtonLoader(false);
       setIsInitialized(firstAccountState);
     });
@@ -30,41 +33,16 @@ function LinkFlowButton({ setShowFlowButtonLoader }) {
     return (
       <>
         <button
-          className="flow-button "
+          className="flow-button"
           onClick={updateInitializedComponent}
           type="submit"
         >
-          Continue
-          <img src={link_icon} alt="link icon" />
+          Proceed to Blocto Account
         </button>
       </>
     );
   } else {
-    return (
-      <div className="create-account-section">
-        <p>
-          By signing up you agree to our{" "}
-          <Link
-            // onClick={() => props.showSignUpPopup(!props.signUpPopup)}
-            to="/privacy-terms-of-use/terms-of-service/"
-          >
-            Terms of Service
-          </Link>
-        </p>
-        <button
-          className="flow-button"
-          type="submit"
-          // onClick={props.submit}
-          // disabled={Object.entries(props.formErrors || {}).length > 0}
-        >
-          Create Account
-          <img className="signup-icon" src={write} alt="signup icon" />
-        </button>
-        <div className="link-diff-account">
-          <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
-        </div>
-      </div>
-    );
+    return <SignUpForm setErrorMessages={setErrorMessages} />;
   }
 }
 

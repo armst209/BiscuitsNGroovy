@@ -1,76 +1,117 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
-// import env from "react-dotenv";
 import "./LoginFormStyles.scss";
-import { ReactComponent as LoginArrow } from "../../../assets/images/login.svg";
+import { ReactComponent as SignInArrow } from "../../../assets/images/login.svg";
 import { ReactComponent as LoginLoading } from "../../../assets/images/pulse_loader_black.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
+import { ReactComponent as ValidationCheck } from "../../../assets/images/check.svg";
 
 import GoogleLogin from "react-google-login";
 import GoogleLoginButton from "../GoogleLogin/GoogleLoginButton";
-import { minMaxLength, emailValidation } from "../../../modules/FormValidation";
+import { minMaxLength } from "../../../modules/FormValidation";
 
 const LoginForm = ({ setErrorMessages }) => {
   //=========STATE HOOKS=========
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [userNameErrorMessage, setUserNameErrorMessage] = useState("");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
-  const [emailInputLoginClass, setEmailInputLoginClass] = useState("");
+  const [userNameErrorMessage, setUserNameErrorMessage] = useState("Username");
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState("Password");
+  const [userNameInputLoginClass, setUserNameInputLoginClass] = useState("");
   const [passwordInputLoginClass, setPasswordInputLoginClass] = useState("");
-  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(true);
+  const [passwordInputType, setPasswordInputType] = useState("password");
+  const [showUserNameValidationCheck, setShowUserNameValidationCheck] =
+    useState(false);
+  const [showPasswordValidationCheck, setShowPasswordValidationCheck] =
+    useState(false);
+
   const [loginStatus, setLoginStatus] = useState(
     <>
-      <div>Login</div>
-      <LoginArrow />
+      <span>Sign In</span>
     </>
   );
+
   //=========STATE HOOKS=========
 
+  //validation for button submit
+  const emptyInputOnSubmit = () => {
+    if (userName.length === 0 && password.length === 0) {
+      setUserNameInputLoginClass("input-error");
+      setShowUserNameValidationCheck(false);
+      setPasswordInputLoginClass("input-error");
+      setShowPasswordValidationCheck(false);
+      setUserNameErrorMessage(
+        <>
+          <Warning className="warning-icon" />
+          <div className="label-error-text">Please fill out this field</div>
+        </>
+      );
+      setPasswordErrorMessage(
+        <>
+          <Warning className="warning-icon" />
+          <div className="label-error-text">Please fill out this field</div>
+        </>
+      );
+    } else if (userName.length === 0) {
+      setUserNameInputLoginClass("input-error");
+      setShowUserNameValidationCheck(false);
+      setUserNameErrorMessage(
+        <>
+          <Warning className="warning-icon" />
+          <div className="error-message-text">Please fill out this field</div>
+        </>
+      );
+    } else if (password.length === 0) {
+      setPasswordInputLoginClass("input-error");
+      setShowPasswordValidationCheck(false);
+      setPasswordErrorMessage(
+        <>
+          <Warning className="warning-icon" />
+          <div className="error-message-text">Please fill out this field</div>
+        </>
+      );
+    }
+  };
   //function for form validation
   const loginFormValidation = (event) => {
+    console.log("hit");
     //destrcutring name & value from event.target
     let { name, value } = event.target;
     //switch execution based on "name" attribute on input elements
     switch (name) {
-      case "email":
+      case "username":
         setUserName(value);
-        if (minMaxLength(value, 7)) {
-          setEmailInputLoginClass("input-error");
-          setIsLoginButtonDisabled(true);
+        if (minMaxLength(value, 0)) {
+          setUserNameInputLoginClass("input-error");
+          setShowUserNameValidationCheck(false);
           setUserNameErrorMessage(
             <>
               <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Username must be at least 7 characters
-              </div>
+              <div className="label-error-text">Please fill out this field</div>
             </>
           );
         } else {
-          setEmailInputLoginClass("input-success");
-          setIsLoginButtonDisabled(false);
-          setUserNameErrorMessage("");
+          setUserNameInputLoginClass("input-success");
+          setShowUserNameValidationCheck(true);
+          setUserNameErrorMessage("Username");
         }
+
         break;
       case "password":
         setPassword(value);
-        if (minMaxLength(value, 7)) {
+        if (minMaxLength(value, 0)) {
           setPasswordInputLoginClass("input-error");
-          setIsLoginButtonDisabled(true);
+          setShowPasswordValidationCheck(false);
           setPasswordErrorMessage(
             <>
               <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Password must be at least 7 characters
-              </div>
+              <div className="label-error-text">Please fill out this field</div>
             </>
           );
         } else {
           setPasswordInputLoginClass("input-success");
-          setIsLoginButtonDisabled(false);
-          setPasswordErrorMessage("");
+          setShowPasswordValidationCheck(true);
+          setPasswordErrorMessage("Password");
         }
         break;
       default:
@@ -83,12 +124,13 @@ const LoginForm = ({ setErrorMessages }) => {
 
     //setting login button elements for loading
     setLoginStatus(
-      <>
-        <div className>Logging In</div>
-        <LoginLoading className="login-loading" />
-      </>
+      <div className="signing-in-status">
+        <div>Signing In</div>
+        <LoginLoading className="signin-loading-icon" />
+      </div>
     );
 
+    //AXIOS POST METHOD
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BACKEND_URL}/login`,
@@ -101,29 +143,37 @@ const LoginForm = ({ setErrorMessages }) => {
         handleFailure(err);
       });
 
+    //ON SUCCESS
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
       window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/home");
     };
 
+    //ON FAILURE
     const handleFailure = (err) => {
       console.log(err);
       //setting login button elements for errors
       setLoginStatus(
         <>
-          <div>Login</div>
-          <LoginArrow />
+          <span>Sign In</span>
+          {/* <SignInArrow /> */}
         </>
       );
-      //setting input error classes
+
+      //setting input error classes & icons
+      setShowUserNameValidationCheck(false);
+      setUserNameInputLoginClass("input-error");
+      setShowPasswordValidationCheck(false);
       setPasswordInputLoginClass("input-error");
-      setEmailInputLoginClass("input-error");
+
       //setting error message
       setErrorMessages(
         <>
-          <Warning className="warning-icon" />
-          <div className="error-message-text-main">
-            Username or Password is incorrect. Please try again.
+          <div className="main-error-messages">
+            <Warning className="warning-icon" />
+            <div className="error-message-text-main">
+              Username or Password is incorrect. Please try again.
+            </div>
           </div>
         </>
       );
@@ -139,47 +189,76 @@ const LoginForm = ({ setErrorMessages }) => {
         <hr />
       </div>
 
-      <div className="input-styles">
-        <div className="error-message">{userNameErrorMessage}</div>
+      <fieldset className="input-styles">
+        <label
+          id="username-label"
+          htmlFor="username"
+          className="label-error-message email-label"
+        >
+          {userNameErrorMessage}
+        </label>
+        <div className="username-input-container">
+          <input
+            className={userNameInputLoginClass}
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Enter username"
+            autoComplete="username"
+            onChange={loginFormValidation}
+            required
+          />
+          {/* check icon */}
+          {showUserNameValidationCheck && (
+            <ValidationCheck className="valid-check-icon username-check" />
+          )}
+        </div>
 
-        <input
-          className={emailInputLoginClass}
-          name="email"
-          type="text"
-          placeholder="Username"
-          required
-          autoComplete="off"
-          onChange={loginFormValidation}
-        />
-        <div className="error-message">{passwordErrorMessage}</div>
-        <input
-          className={passwordInputLoginClass}
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          autoComplete="off"
-          onChange={loginFormValidation}
-        />
-      </div>
+        <label
+          id="password-label"
+          className="label-error-message password-label"
+          htmlFor="password"
+        >
+          {passwordErrorMessage}
+        </label>
+        <div className="password-input-container">
+          <h5
+            className="show-password"
+            onClick={() =>
+              passwordInputType === "password"
+                ? setPasswordInputType("text")
+                : setPasswordInputType("password")
+            }
+          >
+            Show Password
+          </h5>
+          <input
+            className={passwordInputLoginClass}
+            id="password"
+            name="password"
+            type={passwordInputType}
+            placeholder="Enter password"
+            autoComplete="current-password"
+            onChange={loginFormValidation}
+            required
+          />
+          {/* check icon */}
+          {showPasswordValidationCheck && (
+            <ValidationCheck className="valid-check-icon password-check" />
+          )}
+        </div>
+      </fieldset>
 
       <div className="login-btn-password">
-        <div className="login-button">
-          <button disabled={isLoginButtonDisabled} type="submit">
+        <div className="signin-button-container">
+          <button
+            className="signin-button-link"
+            onClick={emptyInputOnSubmit}
+            type="submit"
+          >
             {loginStatus}
           </button>
         </div>
-      </div>
-      <p>
-        <span>
-          Don't have an account?{" "}
-          <Link to="/signup" className="signup-redirect">
-            Sign up
-          </Link>
-        </span>
-      </p>
-      <div className="forgot-password">
-        <Link to="/password-recovery">Forgot Password?</Link>
       </div>
     </form>
   );

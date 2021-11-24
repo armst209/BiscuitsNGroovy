@@ -7,7 +7,7 @@ const LoginAndSignUp = () => {
     ""
   ) : (
     <>
-      <li>
+      {/* <li>
         <NavLink
           activeStyle={{
             borderBottom: "2px solid var(--color1)",
@@ -16,11 +16,11 @@ const LoginAndSignUp = () => {
         >
           Login
         </NavLink>
-      </li>
+      </li> */}
       <li className="signup-li">
         <div className="signup-button-container" align="center">
-          <Link className="signup-button-link" to="/signup">
-            <span>Sign Up</span>
+          <Link className="signup-button-link" to="/login">
+            <span>Sign In</span>
           </Link>
         </div>
       </li>

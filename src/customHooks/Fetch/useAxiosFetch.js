@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 const useAxiosFetch = (_options) => {
@@ -16,8 +16,6 @@ const useAxiosFetch = (_options) => {
       setIsLoading(true);
       try {
         const response = await axios(options);
-
-        //   const data = await response.json();
         setIsLoading(false);
         setResponseData(response.data);
         setErrorMessage(null);
@@ -32,10 +30,6 @@ const useAxiosFetch = (_options) => {
           console.log(error.messsage);
         }
       }
-
-      // if (!response.statusText) {
-      //     throw new Error(response.data);
-      //   }
     };
     fetchData();
 

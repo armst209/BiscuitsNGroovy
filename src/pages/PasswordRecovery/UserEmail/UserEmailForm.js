@@ -59,7 +59,7 @@ const UserEmailForm = ({
         placeholder="Ex: your@email.com"
         onKeyUp={(event) => {
           setRecoveryEmail(event.target.value);
-          if (emailValidation(event.target.value)) {
+          if (!emailValidation(event.target.value)) {
             setEmailInputLoginClass("input-error");
             setEmailErrorMessage("Please enter a valid email");
             setIsSendEmailButtonDisabled(true);
