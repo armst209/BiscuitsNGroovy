@@ -63,7 +63,7 @@
 
     .input-error {
       transition: 0.2s ease;
-      border: 3px solid red;
+      border: 3px solid #ff0000;
     }
     .input-success {
       transition: 0.2s ease;
@@ -97,6 +97,14 @@
       height: 25px;
       filter: invert(31%) sepia(97%) saturate(2914%) hue-rotate(108deg)
         brightness(96%) contrast(104%);
+    }
+
+    .valid-error-icon {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      filter: invert(15%) sepia(92%) saturate(6893%) hue-rotate(6deg)
+        brightness(94%) contrast(121%);
     }
 
     .password-check {

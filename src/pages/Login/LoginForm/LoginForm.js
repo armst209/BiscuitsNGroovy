@@ -5,7 +5,8 @@ import "./LoginFormStyles.scss";
 import { ReactComponent as SignInArrow } from "../../../assets/images/login.svg";
 import { ReactComponent as LoginLoading } from "../../../assets/images/pulse_loader_black.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
-import { ReactComponent as ValidationCheck } from "../../../assets/images/check.svg";
+import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
+import { ReactComponent as ValidationError } from "../../../assets/images/error.svg";
 
 import GoogleLogin from "react-google-login";
 import GoogleLoginButton from "../GoogleLogin/GoogleLoginButton";
@@ -209,8 +210,10 @@ const LoginForm = ({ setErrorMessages }) => {
             required
           />
           {/* check icon */}
-          {showUserNameValidationCheck && (
-            <ValidationCheck className="valid-check-icon username-check" />
+          {showUserNameValidationCheck ? (
+            <ValidationSuccess className="valid-check-icon username-check" />
+          ) : (
+            <ValidationError className="valid-error-icon username-check" />
           )}
         </div>
 
@@ -243,8 +246,10 @@ const LoginForm = ({ setErrorMessages }) => {
             required
           />
           {/* check icon */}
-          {showPasswordValidationCheck && (
-            <ValidationCheck className="valid-check-icon password-check" />
+          {showPasswordValidationCheck ? (
+            <ValidationSuccess className="valid-check-icon password-check" />
+          ) : (
+            <ValidationError className="valid-error-icon password-check" />
           )}
         </div>
       </fieldset>
