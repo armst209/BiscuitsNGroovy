@@ -16,7 +16,6 @@ const UserEmailForm = ({
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("Email");
-
   //function for form validation
   const passwordRecoveryEmailValidation = (event) => {
     //destrcutring name & value from event.target
