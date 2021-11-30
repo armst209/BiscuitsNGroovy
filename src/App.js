@@ -27,7 +27,6 @@ const App = () => {
   return (
     <div className="App">
       <MainHeader />
-
       <Router routes={routes} />
       <Footer />
       <ScrollWidget />

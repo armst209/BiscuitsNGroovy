@@ -11,6 +11,7 @@ import { ReactComponent as ValidationError } from "../../../assets/images/error.
 import GoogleLogin from "react-google-login";
 import GoogleLoginButton from "../GoogleLogin/GoogleLoginButton";
 import { minMaxLength } from "../../../modules/FormValidation";
+import "../../../components/FormValidation/FormValidationStyles.scss";
 
 const LoginForm = ({ setErrorMessages }) => {
   //=========STATE HOOKS=========
@@ -21,6 +22,7 @@ const LoginForm = ({ setErrorMessages }) => {
   const [userNameInputLoginClass, setUserNameInputLoginClass] = useState("");
   const [passwordInputLoginClass, setPasswordInputLoginClass] = useState("");
   const [passwordInputType, setPasswordInputType] = useState("password");
+  const [isHidden, setIsHidden] = useState("Show");
   const [showUserNameValidationCheck, setShowUserNameValidationCheck] =
     useState(false);
   const [showPasswordValidationCheck, setShowPasswordValidationCheck] =
@@ -59,7 +61,7 @@ const LoginForm = ({ setErrorMessages }) => {
       setUserNameErrorMessage(
         <>
           <Warning className="warning-icon" />
-          <div className="error-message-text">Please fill out this field</div>
+          <div className="label-error-text">Please fill out this field</div>
         </>
       );
     } else if (password.length === 0) {
@@ -68,16 +70,16 @@ const LoginForm = ({ setErrorMessages }) => {
       setPasswordErrorMessage(
         <>
           <Warning className="warning-icon" />
-          <div className="error-message-text">Please fill out this field</div>
+          <div className="label-error-text">Please fill out this field</div>
         </>
       );
     }
   };
   //function for form validation
   const loginFormValidation = (event) => {
-    console.log("hit");
     //destrcutring name & value from event.target
     let { name, value } = event.target;
+
     //switch execution based on "name" attribute on input elements
     switch (name) {
       case "username":
@@ -210,10 +212,8 @@ const LoginForm = ({ setErrorMessages }) => {
             required
           />
           {/* check icon */}
-          {showUserNameValidationCheck ? (
+          {showUserNameValidationCheck && (
             <ValidationSuccess className="valid-check-icon username-check" />
-          ) : (
-            <ValidationError className="valid-error-icon username-check" />
           )}
         </div>
 
@@ -227,13 +227,17 @@ const LoginForm = ({ setErrorMessages }) => {
         <div className="password-input-container">
           <h5
             className="show-password"
-            onClick={() =>
-              passwordInputType === "password"
-                ? setPasswordInputType("text")
-                : setPasswordInputType("password")
-            }
+            onClick={() => {
+              if (passwordInputType === "password") {
+                setPasswordInputType("text");
+                setIsHidden("Hide");
+              } else {
+                setPasswordInputType("password");
+                setIsHidden("Show");
+              }
+            }}
           >
-            Show Password
+            {isHidden} Password
           </h5>
           <input
             className={passwordInputLoginClass}
@@ -246,10 +250,8 @@ const LoginForm = ({ setErrorMessages }) => {
             required
           />
           {/* check icon */}
-          {showPasswordValidationCheck ? (
+          {showPasswordValidationCheck && (
             <ValidationSuccess className="valid-check-icon password-check" />
-          ) : (
-            <ValidationError className="valid-error-icon password-check" />
           )}
         </div>
       </fieldset>
