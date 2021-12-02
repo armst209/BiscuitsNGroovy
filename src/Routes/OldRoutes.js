@@ -70,11 +70,11 @@ function OldRoutes(props) {
             path="/artists"
             render={(props) => <Artists {...props} />}
           />
-          <Route
+          {/* <Route
             exact={true}
             path="/events"
             render={(props) => <Events {...props} />}
-          />
+          /> */}
           {/* Protected Routes */}
           <ProtectedRoute
             exact={true}

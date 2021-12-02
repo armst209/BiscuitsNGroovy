@@ -37,7 +37,8 @@ function Artists() {
               </div>
               <div className="artists-impt-text">
                 <p>
-                  Interested in joining us? Contact us{" "}
+                  Interested in joining us? <br />
+                  Contact us{" "}
                   <a className="below-link" href="mailto:team@bngroovy.com">
                     here
                   </a>

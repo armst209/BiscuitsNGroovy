@@ -229,7 +229,7 @@ function NotHomeNavigation(props) {
                     Artists
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     activeStyle={{
                       borderBottom: "4px solid var(--color1)",
@@ -238,7 +238,7 @@ function NotHomeNavigation(props) {
                   >
                     Events
                   </NavLink>
-                </li>
+                </li> */}
               </ul>
               <ul className="login-links-home-nothome">
                 <li className="login-home-link-nothome">{isLoggedIn}</li>

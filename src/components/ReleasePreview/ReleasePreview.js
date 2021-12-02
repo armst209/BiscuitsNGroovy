@@ -50,6 +50,7 @@ function ReleasePreview(props) {
                 <h1>
                   {props.name} - {props.title}
                 </h1>
+                <div className="release-price">${props.price}</div>
                 <div className="release-description">{props.description}</div>
                 <div className="button-container">
                   {token ? (
