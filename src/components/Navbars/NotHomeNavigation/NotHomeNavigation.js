@@ -406,7 +406,7 @@ function NotHomeNavigation(props) {
                   >
                     <li>Artists</li>
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     onClick={() =>
                       props.setMobileMenuOpen(!props.mobileMenuOpen)
                     }
@@ -416,7 +416,7 @@ function NotHomeNavigation(props) {
                     to="/events"
                   >
                     <li>Events</li>
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink to="#">
                     <li
                       className={`${signUpClassName}`}
