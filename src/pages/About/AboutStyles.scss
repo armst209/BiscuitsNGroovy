@@ -7,7 +7,7 @@
   strong {
     color: var(--color1);
     font-weight: normal;
-    font-family: var(--font1);
+    font-family: var(--header-font);
   }
   .about-title {
     width: 100%;
@@ -19,8 +19,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: var(--font3);
-      letter-spacing: 0.1cm;
+      font-family: var(--header-font);
+
       font-weight: normal;
       color: white;
       background-color: transparent;
@@ -66,13 +66,13 @@
     background: black;
     .about-header {
       width: 85%;
-      font-family: var(--font1);
-      padding: 1rem 0;
+      font-family: var(--header-font);
+      padding: 1rem;
       font-size: 1.3rem;
       text-align: center;
       margin-top: 2rem;
       margin-bottom: 4rem;
-      border: 7px solid var(--color2);
+      border: 2px solid var(--color2);
       border-radius: 20px;
       @media screen and (max-width: 1000px) {
         font-size: 1rem;
@@ -116,7 +116,8 @@
         padding: 1rem;
         width: 500px;
         img {
-          border: 8px solid var(--color1);
+          border: 2px solid var(--color1);
+          border-radius: 0.5rem;
         }
 
         position: relative;
@@ -125,7 +126,9 @@
     }
 
     .contents-1-text {
-      border: 7px solid var(--color2);
+      font-family: var(--secondary-font);
+      font-weight: var(--secondary-font-weight);
+      border: 2px solid var(--color2);
       border-radius: 20px;
       width: 50%;
       font-size: 1.4rem;
@@ -142,11 +145,10 @@
       }
 
       .principle-section {
-        // border: 3px solid var(--color1);
         padding: 1rem;
         margin: 1rem 0;
         .two-principles {
-          font-family: var(--font1);
+          font-family: var(--header-font);
           font-size: 2rem;
           text-align: center;
           font-weight: normal;
@@ -180,7 +182,7 @@
   .story-h1 {
     width: 100%;
     text-align: center;
-    font-family: var(--font3);
+    font-family: var(--header-font);
     letter-spacing: 0.1cm;
     font-weight: normal;
     font-size: 3rem;
@@ -189,9 +191,7 @@
     align-items: center;
     margin: 5rem 0 3rem 0;
     padding: 1rem;
-    border: 3px solid var(--color1);
-    border-right: none;
-    border-left: none;
+
     @media screen and (max-width: 500px) {
       flex-direction: column-reverse;
     }
@@ -207,13 +207,15 @@
     font-weight: normal;
     width: 100%;
     margin-bottom: 5rem;
+    font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
 
     .contents-2-text {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      border: 7px solid var(--color2);
+      border: 2px solid var(--color2);
       border-radius: 20px;
       width: 85%;
       font-size: 1.4rem;
@@ -239,9 +241,11 @@
           .bng-caption {
             font-size: 1rem;
             text-align: center;
+            font-family: var(--header-font);
           }
           img {
-            border: 8px solid var(--color1);
+            border: 2px solid var(--color1);
+            border-radius: 0.5rem;
           }
           position: relative;
           z-index: 5;

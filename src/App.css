@@ -92,23 +92,10 @@
   --secondary-text-font-size: 1rem;
 
   --header-font: "futura-bold", sans-serif;
-  --secondary-font: "Montserrat", sans-serif;
-  --secondary-font-weight: 500;
+  --main-header-font: "futura-bold";
+  --secondary-font: "Montserrat", "Raleway", sans-serif;
+  --secondary-font-weight: 400;
   --container-box-shadow: 3px 3px 8px black;
-  --font1: "Montserrat", "Raleway", sans-serif;
-  --mont-font: "Montserrat", sans-serif;
-  --font2: "outer-sans-regular", "Raleway", sans-serif;
-  --font3: "colombo-sans", "Raleway", sans-serif;
-  --font4: "futura-bold", "Raleway", sans-serif;
-  --font5: "brandon-grotesque", sans-serif;
-  --font6: novecento-sans, sans-serif;
-  --font7: "filicudi-color-pride", sans-serif;
-  --font8: "filicudi-color-barber", sans-serif;
-  --font9: flegrei, sans-serif;
-  --font10: termina, sans-serif;
-  --font11: "outer-sans-black", "Raleway", sans-serif;
-  --font12: "outer-sans-black-outline", "Raleway", sans-serif;
-  --font13: "outer-sans-thin", "Raleway", sans-serif;
   --small-text-weight: 700;
   --main-color-nav-footer-black: #000;
   --main-color-body-dark-grey: #161617;

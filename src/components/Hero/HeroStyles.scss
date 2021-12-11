@@ -78,7 +78,7 @@
               padding-bottom: 1rem;
               h1 {
                 color: white;
-                font-family: var(--header-font);
+                font-family: var(--main-header-font);
                 text-transform: uppercase;
                 font-style: normal;
                 font-weight: normal;
@@ -148,9 +148,7 @@
             font-family: var(--secondary-font);
             font-weight: var(--secondary-font-weight);
             text-shadow: var(--container-box-shadow);
-            -webkit-text-stroke-width: 0.1px;
-            -webkit-text-stroke-color: black;
-            // letter-spacing: 0.02cm;
+
             font-size: 1rem;
 
             color: white;
@@ -305,7 +303,6 @@
     }
   }
   .hero-image {
-    display: none;
     position: absolute;
     width: auto;
     bottom: 0;

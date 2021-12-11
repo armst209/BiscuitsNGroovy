@@ -98,15 +98,6 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             </NavLink>
           </li>
 
-          <li>
-            <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              activeClassName="active-link"
-              to="/events"
-            >
-              Events
-            </NavLink>
-          </li>
           <LoginAndSignUpMobile
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}
@@ -118,7 +109,6 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
           <LogoutButton setShowLogoutLoading={setShowLogoutLoading} />
         </ul>
       </motion.aside>
-      {/* )} */}
     </>
   );
 };

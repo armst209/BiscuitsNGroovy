@@ -56,16 +56,6 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
               Artists
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              activeStyle={{
-                borderBottom: "2px solid var(--color1)",
-              }}
-              to="/events"
-            >
-              Events
-            </NavLink>
-          </li>
         </ul>
       </div>
       <div className="right-links-container">

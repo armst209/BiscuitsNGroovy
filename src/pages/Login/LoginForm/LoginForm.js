@@ -227,7 +227,7 @@ const LoginForm = ({ setErrorMessages }) => {
         <div className="password-input-container">
           <h5
             className="show-password"
-            onClick={() => {
+            onBlur={() => {
               if (passwordInputType === "password") {
                 setPasswordInputType("text");
                 setIsHidden("Hide");
@@ -246,7 +246,7 @@ const LoginForm = ({ setErrorMessages }) => {
             type={passwordInputType}
             placeholder="Enter password"
             autoComplete="current-password"
-            onChange={loginFormValidation}
+            onBlur={loginFormValidation}
             required
           />
           {/* check icon */}

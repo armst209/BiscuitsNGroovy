@@ -80,8 +80,7 @@ function About() {
           </div>
         </div>
         <h1 className="story-h1">
-          <RecordVinyl width="50px" />
-          <div>OUR STORY</div>{" "}
+          <div>OUR STORY</div> <RecordVinyl width="50px" />
         </h1>
         <div className="about-contents-wrapper">
           <div className="about-contents-2">
