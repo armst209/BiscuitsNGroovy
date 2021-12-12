@@ -73,6 +73,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "futura-light";
+  src: url("./assets/fonts/Futura-Light/FuturaLTProLight.woff") format("woff");
+}
+@font-face {
+  font-family: "rockwell";
+  src: url("./assets/fonts/Rockwell/Rockwell.woff") format("woff");
+}
+@font-face {
+  font-family: "rockwell-bold";
+  src: url("./assets/fonts/Rockwell/Rockwell-bold.woff") format("woff");
+}
+
 * {
   margin: 0;
   padding: 0;
