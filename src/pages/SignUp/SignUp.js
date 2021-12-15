@@ -5,6 +5,9 @@ import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 import LinkFlowButton from "./LinkFlowButton";
 //flow imports
 import { config } from "@onflow/fcl";
+import SignUpForm from "./SignUpForm/SignUpForm";
+import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
+import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
 
 //configure flow environment
 config()
@@ -13,19 +16,22 @@ config()
   .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 const SignUp = () => {
+  const [showSignUpInfo, setShowSignUpInfo] = useState(true);
   const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
   const [errorMessages, setErrorMessages] = useState("");
 
   return (
     <section id="signup">
+      <FixedNavigationSpacer />
       <h2>Sign up to start "enter message"</h2>
 
       <div className="signup-wrapper">
         <div className="signup-contents">
-          <LinkFlowButton
+          <SignUpForm
             setShowFlowButtonLoader={setShowFlowButtonLoader}
             setErrorMessages={setErrorMessages}
           />
+
           <p className="already-account">
             Have an account?
             <Link className="login-redirect" to="/login">
@@ -33,10 +39,11 @@ const SignUp = () => {
             </Link>
           </p>
         </div>
-        <div className="signup-info-contents"> Things that need to be said</div>
+        {/* <div className="signup-info-contents"> Things that need to be said</div> */}
       </div>
       <div className="error-message-main">{errorMessages}</div>
       {showFlowButtonLoader && <FlowLoader />}
+      {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>
   );
 };

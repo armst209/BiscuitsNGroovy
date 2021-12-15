@@ -84,7 +84,7 @@ const LoginForm = ({ setErrorMessages }) => {
     switch (name) {
       case "username":
         setUserName(value);
-        if (minMaxLength(value, 0)) {
+        if (minMaxLength(value, 1)) {
           setUserNameInputLoginClass("input-error");
           setShowUserNameValidationCheck(false);
           setUserNameErrorMessage(
@@ -184,14 +184,6 @@ const LoginForm = ({ setErrorMessages }) => {
   };
   return (
     <form id="login-form" onSubmit={submit}>
-      {/* Google Login */}
-      <GoogleLoginButton />
-      <div className="or-fold">
-        <hr />
-        <p>or</p>
-        <hr />
-      </div>
-
       <fieldset className="input-styles">
         <label
           id="username-label"
@@ -208,7 +200,7 @@ const LoginForm = ({ setErrorMessages }) => {
             type="text"
             placeholder="Enter username"
             autoComplete="username"
-            onChange={loginFormValidation}
+            onBlur={loginFormValidation}
             required
           />
           {/* check icon */}
@@ -227,7 +219,7 @@ const LoginForm = ({ setErrorMessages }) => {
         <div className="password-input-container">
           <h5
             className="show-password"
-            onBlur={() => {
+            onClick={() => {
               if (passwordInputType === "password") {
                 setPasswordInputType("text");
                 setIsHidden("Hide");

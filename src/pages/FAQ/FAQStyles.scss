@@ -51,7 +51,7 @@
     background: black;
     padding: 4rem 30px 30px 30px;
     a {
-      font-family: var(--font1);
+      font-family: var(--header-font);
       font-weight: normal;
     }
     @media (max-width: 1050px) {
@@ -62,7 +62,7 @@
       padding: 10px 5px;
       background-color: var(--color1);
       color: black;
-      font-family: var(--font1);
+      font-family: var(--header-font);
       font-size: 1.5rem;
       font-weight: normal;
     }
@@ -75,11 +75,13 @@
       padding: 10px;
       width: 100%;
       z-index: 1;
-      border: 3px solid var(--color1);
+      border: 2px solid var(--color1);
+      border-radius: 0.5rem;
       margin-bottom: 10px;
 
       ul {
-        font-family: var(--font2);
+        font-family: var(--secondary-font);
+        font-weight: var(--secondary-font-weight);
 
         @media (min-width: 768px) {
           font-size: 20px;
@@ -155,6 +157,7 @@
 
       div {
         width: 100%;
+        font-family: var(--secondary-font);
 
         @media screen and (max-width: 500px) {
           text-align: center;
@@ -199,13 +202,15 @@
     }
     .nft-section-wrapper {
       margin-top: 5rem;
-      border: 5px solid var(--color2);
+      border: 2px solid var(--color2);
       border-radius: 0.5rem;
       padding: 1rem;
       h3 {
-        border: 3px solid var(--color1);
+        border: 2px solid var(--color1);
+        border-radius: 0.5rem;
         background-color: transparent;
         color: white;
+        padding: 1rem;
         width: 100%;
         font-weight: normal;
         margin-top: 3rem;
@@ -228,10 +233,11 @@
         align-items: center;
         font-size: 2rem;
         font-weight: normal;
-        border: 3px solid var(--color1);
+        border: 2px solid var(--color1);
+        border-radius: 0.5rem;
         padding: 10px;
         div {
-          font-family: var(--font1);
+          font-family: var(--header-font);
           padding: 0;
         }
         img {
@@ -282,10 +288,12 @@
               }
               .div-content {
                 width: 95%;
+                font-family: var(--secondary-font);
+                font-weight: var(--secondary-font-weight);
                 .caring-message {
                   width: 100%;
 
-                  font-weight: bold;
+                  font-family: var(--header-font);
                   font-size: 25px;
                   padding-bottom: 10px;
                 }
@@ -294,7 +302,7 @@
                   flex-direction: column;
                   justify-content: center;
                   align-items: center;
-                  border: 5px solid var(--color2);
+                  border: 2px solid var(--color2);
                   border-radius: 0.5rem;
                   padding: 10px;
                   strong {
@@ -360,7 +368,7 @@
     width: 100%;
     color: white;
     background-color: black;
-    padding: 5px;
+    padding: 1rem;
     border: 2px solid var(--color2);
     border-radius: 0.5rem;
     font-weight: 400;
@@ -371,7 +379,7 @@
       transform: scale(1.03);
     }
     div {
-      font-family: var(--font1);
+      font-family: var(--header-font);
       padding: 0;
       @media (min-width: 768px) {
         font-size: 30px;

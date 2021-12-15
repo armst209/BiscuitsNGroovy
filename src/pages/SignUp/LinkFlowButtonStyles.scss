@@ -16,7 +16,34 @@
   }
 }
 
-button,
+button {
+  border: 2px solid var(--color1);
+  border-radius: 0.5rem;
+  font-family: var(--header-font);
+  font-size: 1rem;
+  background: transparent;
+  width: 200px;
+  height: 70px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1.05);
+  margin: 0.5rem 0 1rem 0;
+  div {
+    font-family: var(--font1);
+    font-weight: normal;
+  }
+  svg {
+    position: absolute;
+    width: 30px;
+    right: 10%;
+  }
+}
 .flow-button {
   display: flex;
   flex-direction: row;
@@ -73,10 +100,11 @@ button,
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--font1);
+  font-family: var(--header-font);
   font-weight: normal;
   font-size: 1rem;
-  text-decoration: underline var(--color1);
+  text-decoration: underline var(--color2);
+  color: var(--color2);
   div {
     text-align: center;
   }

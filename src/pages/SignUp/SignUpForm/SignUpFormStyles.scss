@@ -91,12 +91,20 @@ form {
     .terms-check-label {
       background-color: transparent;
       position: static;
+      width: auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
       a {
         color: var(--color2);
         margin-left: 5px;
         &:visited {
           color: var(--color2);
         }
+      }
+
+      @media screen and (max-width: 380px) {
+        font-size: 0.6rem;
       }
     }
     input {
@@ -131,7 +139,7 @@ form {
     font-size: 0.7rem;
     input {
       margin: 0 0.3rem;
-      width: 20px;
+      width: auto;
       &:checked {
         border: 2px solid var(--color2);
       }

@@ -13,6 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "outer-sans-thin";
   src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff")
@@ -20,6 +21,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "outer-sans-medium";
   src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Medium-PERSONAL-USE.woff")
@@ -43,6 +45,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "minera-bold";
   src: url("./assets/fonts/Minera/Minera-Bold-700.woff") format("woff");
@@ -73,6 +76,26 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "futura-light";
+  src: url("./assets/fonts/Futura-Light/FuturaLTProLight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "rockwell";
+  src: url("./assets/fonts/Rockwell/Rockwell.woff") format("woff");
+}
+
+@font-face {
+  font-family: "rockwell-bold";
+  src: url("./assets/fonts/Rockwell/Rockwell-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "ttnorms-regular";
+  src: url("./assets/fonts/TTNorms/TTNorms-Regular.woff") format("woff");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -98,7 +121,7 @@
   /* fonts */
   --header-font: "futura-bold", sans-serif;
   --main-header-font: "futura-bold";
-  --secondary-font: "Montserrat", "Raleway", sans-serif;
+  --secondary-font: "ttnorms-regular", "Raleway", sans-serif;
   --secondary-font-weight: 400;
   --small-text-weight: 700;
 
@@ -138,4 +161,19 @@ body {
 
 *::-webkit-scrollbar-track {
   background-color: black;
+}
+
+/* animations */
+
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }

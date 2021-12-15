@@ -21,13 +21,7 @@ config()
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-const handleSignUp = (res) => {
-  //fires after blocto account is set up
-  localStorage.setItem("token", res.data.token);
-  window.location.replace(env.FRONTEND_URL + "/home");
-};
-
-const SignUpForm = ({ setErrorMessages }) => {
+const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -116,6 +110,13 @@ const SignUpForm = ({ setErrorMessages }) => {
         break;
     }
   };
+
+  //function sets token and redirects to homepage
+  const handleSignUp = (res) => {
+    //fires after blocto account is set up
+    localStorage.setItem("token", res.data.token);
+    window.location.replace(env.FRONTEND_URL + "/");
+  };
   const submit = async function (event) {
     event.preventDefault();
 
@@ -162,91 +163,95 @@ const SignUpForm = ({ setErrorMessages }) => {
   };
 
   return (
-    <form onSubmit={submit}>
-      <fieldset className="input-styles">
-        <label className="label-error-message email-label" htmlFor="email">
-          {emailErrorMessage}
-        </label>
-        <input
-          className={emailInputLoginClass}
-          id="email"
-          type="email"
-          name="email"
-          autoComplete="email"
-          onKeyUp={signupFormValidation}
-          required
-        />
-        <label
-          className="label-error-message username-label"
-          htmlFor="username"
-        >
-          {userNameErrorMessage}
-        </label>
-        <input
-          className={userNameInputLoginClass}
-          id="username"
-          type="text"
-          name="username"
-          autoComplete="username"
-          minLength="7"
-          onChange={signupFormValidation}
-          required
-        />
-
-        <label
-          className="label-error-message password-signup-label"
-          htmlFor="password"
-        >
-          {passwordErrorMessage}
-        </label>
-        <input
-          className={passwordInputLoginClass}
-          id="password"
-          type="password"
-          name="password"
-          autoComplete="new-password"
-          minLength="7"
-          onKeyUp={signupFormValidation}
-          required
-        />
-        <label
-          className="label-error-message confirm-password-label"
-          htmlFor="confirm-passowrd"
-        >
-          {confirmPasswordErrorMessage}
-        </label>
-        <input
-          className={confirmPasswordInputLoginClass}
-          id="confirm-password"
-          type="password"
-          name="confirm-password"
-          autoComplete="off"
-          minLength="7"
-          onKeyUp={signupFormValidation}
-          required
-        />
-        <div className="signup-checkbox-container">
-          <label
-            className="label-error-message terms-check-label"
-            htmlFor="terms-check"
-          >
-            I have read and agree to the
-            <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
+    <>
+      <form>
+        <fieldset className="input-styles">
+          <label className="label-error-message email-label" htmlFor="email">
+            {emailErrorMessage}
           </label>
           <input
-            className="signup-checkbox"
-            name="terms-check"
-            id="terms-check"
-            type="checkbox"
-            minLength="7"
-            autoComplete="off"
-            onKeyUp={signupFormValidation}
+            className={emailInputLoginClass}
+            id="email"
+            type="email"
+            name="email"
+            autoComplete="email"
+            onBlur={signupFormValidation}
             required
           />
-        </div>
-      </fieldset>
-      <button type="submit">Submit</button>
-    </form>
+          <label
+            className="label-error-message username-label"
+            htmlFor="username"
+          >
+            {userNameErrorMessage}
+          </label>
+          <input
+            className={userNameInputLoginClass}
+            id="username"
+            type="text"
+            name="username"
+            autoComplete="username"
+            minLength="7"
+            onBlur={signupFormValidation}
+            required
+          />
+
+          <label
+            className="label-error-message password-signup-label"
+            htmlFor="password"
+          >
+            {passwordErrorMessage}
+          </label>
+          <input
+            className={passwordInputLoginClass}
+            id="password"
+            type="password"
+            name="password"
+            autoComplete="new-password"
+            minLength="7"
+            onBlur={signupFormValidation}
+            required
+          />
+          <label
+            className="label-error-message confirm-password-label"
+            htmlFor="confirm-passowrd"
+          >
+            {confirmPasswordErrorMessage}
+          </label>
+          <input
+            className={confirmPasswordInputLoginClass}
+            id="confirm-password"
+            type="password"
+            name="confirm-password"
+            autoComplete="off"
+            minLength="7"
+            onBlur={signupFormValidation}
+            required
+          />
+          <div className="signup-checkbox-container">
+            <label
+              className="label-error-message terms-check-label"
+              htmlFor="terms-check"
+            >
+              I have read and agree to the
+              <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
+            </label>
+            <input
+              className="signup-checkbox"
+              name="terms-check"
+              id="terms-check"
+              type="checkbox"
+              autoComplete="off"
+              onBlur={signupFormValidation}
+              required
+            />
+          </div>
+        </fieldset>
+      </form>
+      <LinkFlowButton
+        submit={submit}
+        setShowFlowButtonLoader={setShowFlowButtonLoader}
+      />
+    </>
   );
 };
 

@@ -1,0 +1,79 @@
+.create-account-section {
+  width: 100%;
+  text-align: center;
+  p {
+    font-size: 0.7rem;
+    font-family: var(--font1);
+    font-weight: normal;
+    a {
+      text-decoration: none;
+      color: var(--color2);
+    }
+  }
+}
+
+button,
+.flow-button {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font1);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 70px;
+  margin: 5px 0;
+  background: var(--color1);
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  font-weight: normal;
+  cursor: pointer;
+  //border: 3px solid var(--color1);
+  width: 100%;
+  transition: all 0.2s ease;
+  .signup-icon {
+    position: absolute;
+    right: 10px;
+    width: 5%;
+    @media screen and (max-width: 600px) {
+      width: 7%;
+    }
+    @media screen and (max-width: 400px) {
+      width: 8%;
+    }
+    @media screen and (max-width: 300px) {
+      width: 9%;
+    }
+  }
+  img {
+    width: 10%;
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.flow-loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-diff-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font1);
+  font-weight: normal;
+  font-size: 1rem;
+  text-decoration: underline var(--color1);
+  div {
+    text-align: center;
+  }
+}

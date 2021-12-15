@@ -15,7 +15,7 @@ import "@fortawesome/fontawesome-free/js/all";
 import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget";
 
 //Fixed Navigation Spacer
-import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";
+//import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------

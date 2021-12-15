@@ -7,6 +7,10 @@
   align-items: center;
   width: 100%;
   z-index: 50;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   .flow-loader-wrapper {
     font-family: var(--header-font);
     text-align: center;
