@@ -1,13 +1,10 @@
 import "./CollectionStyles.scss";
 
-import { ReactComponent as InfoQuestion } from "../../assets/images/question2.svg";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList";
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";
-import CollectionNavigation from "./CollectionNavigation/CollectionNavigation";
-import MusicPlayerContainer from "../../components/MusicPlayer/MusicPlayerContainer";
 
 function Collection() {
   let token = localStorage.getItem("token");

@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./AboutStyles.scss";
 import about_main_img from "../../assets/images/about_story.webp";
 import bucket_hat from "../../assets/images/buckethats.webp";

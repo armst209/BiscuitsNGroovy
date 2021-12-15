@@ -84,7 +84,7 @@ const LoginForm = ({ setErrorMessages }) => {
     switch (name) {
       case "username":
         setUserName(value);
-        if (minMaxLength(value, 0)) {
+        if (minMaxLength(value, 1)) {
           setUserNameInputLoginClass("input-error");
           setShowUserNameValidationCheck(false);
           setUserNameErrorMessage(
@@ -184,14 +184,6 @@ const LoginForm = ({ setErrorMessages }) => {
   };
   return (
     <form id="login-form" onSubmit={submit}>
-      {/* Google Login */}
-      <GoogleLoginButton />
-      <div className="or-fold">
-        <hr />
-        <p>or</p>
-        <hr />
-      </div>
-
       <fieldset className="input-styles">
         <label
           id="username-label"

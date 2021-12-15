@@ -1,7 +1,3 @@
-#__next {
-  border: 5px solid red;
-}
-
 .create-account-section {
   width: 100%;
   text-align: center;
@@ -16,34 +12,7 @@
   }
 }
 
-button {
-  border: 2px solid var(--color1);
-  border-radius: 0.5rem;
-  font-family: var(--header-font);
-  font-size: 1rem;
-  background: transparent;
-  width: 200px;
-  height: 70px;
-  cursor: pointer;
-  color: white;
-  transition: all 0.2s ease;
-  position: relative;
-  font-weight: normal;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(1.05);
-  margin: 0.5rem 0 1rem 0;
-  div {
-    font-family: var(--font1);
-    font-weight: normal;
-  }
-  svg {
-    position: absolute;
-    width: 30px;
-    right: 10%;
-  }
-}
+button,
 .flow-button {
   display: flex;
   flex-direction: row;
@@ -100,24 +69,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--header-font);
+  font-family: var(--font1);
   font-weight: normal;
   font-size: 1rem;
-  text-decoration: underline var(--color2);
-  color: var(--color2);
+  text-decoration: underline var(--color1);
   div {
     text-align: center;
   }
-}
-
-._app__Inner-sc-1b1fmnf-1 .btulfd {
-  border: 5px solid red;
-}
-
-#FCL_IFRAME > * {
-  border: 5px solid red !important;
-
-  background: black !important;
-
-  font-family: var(--header-font) !important;
 }

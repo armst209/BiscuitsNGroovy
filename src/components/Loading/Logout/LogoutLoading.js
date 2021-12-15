@@ -1,5 +1,5 @@
 import "./LogoutLoadingStyles.scss";
-import { ReactComponent as PulseLoader } from "../../../assets/images/pulse_loader.svg";
+import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 
 function LogoutLoading() {
   return (
@@ -8,7 +8,7 @@ function LogoutLoading() {
         <div className="message">
           <p> Logging out...</p>
         </div>
-        <PulseLoader />
+        <RecordSpinner className="rotate" />
       </div>
     </section>
   );

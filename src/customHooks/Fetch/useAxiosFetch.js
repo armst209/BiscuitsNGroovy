@@ -1,43 +1,49 @@
 import { useState, useEffect, useRef } from "react";
-import axios from "axios";
 
-const useAxiosFetch = (_options) => {
+const useFetch = (url, _options) => {
   const [responseData, setResponseData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const options = useRef(_options).current;
 
   useEffect(() => {
-    const CancelToken = axios.CancelToken;
-    const source = CancelToken.source();
-
+    const abortController = new AbortController();
+    //adding abort controller signal to options object for second fetch parameter
+    const optionsWithAbortSignal = {
+      ...options,
+      signal: abortController.signal,
+    };
     const fetchData = async () => {
-      //adding abort controller signal to options object for second fetch parameter
       setIsLoading(true);
       try {
-        const response = await axios(options);
+        const response = await fetch(url, optionsWithAbortSignal);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
         setIsLoading(false);
-        setResponseData(response.data);
+        setResponseData(data);
         setErrorMessage(null);
       } catch (error) {
-        if (axios.isCancel(error)) {
+        if (error.name === "AbortError") {
           //for testing fetch abort and component unmounts
-          console.log("fetch was aborted");
-          console.log("Request Canceled", error.message);
+          //console.log("fetch was aborted");
         } else {
           setIsLoading(false);
-          setErrorMessage(error.message);
+          setErrorMessage("Can't fetch data");
           console.log(error.messsage);
         }
       }
     };
+
     fetchData();
 
     return () => {
-      source.cancel();
+      abortController.abort();
     };
-  }, [options]);
+  }, [url, options]);
 
   return { responseData, isLoading, errorMessage };
 };
-export default useAxiosFetch;
+
+export default useFetch;

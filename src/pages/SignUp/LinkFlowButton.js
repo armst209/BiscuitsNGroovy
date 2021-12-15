@@ -1,13 +1,10 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+
 import { initAccount, accountIsInitialized } from "../../utils/flow";
 import * as fcl from "@onflow/fcl";
-import link_icon from "../../assets/images/link.svg";
-
 import "./LinkFlowButtonStyles.scss";
-import write from "../../assets/images/write.svg";
-import SignUpForm from "./SignUpForm/SignUpForm";
-function LinkFlowButton({ setShowFlowButtonLoader, setErrorMessages }) {
+
+function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
     if (isInitialized === true) {
@@ -31,18 +28,22 @@ function LinkFlowButton({ setShowFlowButtonLoader, setErrorMessages }) {
   //add !
   if (!isInitialized) {
     return (
-      <>
-        <button
-          className="flow-button"
-          onClick={updateInitializedComponent}
-          type="submit"
-        >
-          Proceed to Blocto Account
-        </button>
-      </>
+      <button onClick={updateInitializedComponent} type="submit">
+        Proceed to Blocto
+      </button>
     );
   } else {
-    return <SignUpForm setErrorMessages={setErrorMessages} />;
+    // return <SignUpForm setErrorMessages={setErrorMessages} />;
+    return (
+      <>
+        <button onClick={submit} type="submit">
+          Create Account
+        </button>
+        <div className="link-diff-account">
+          <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
+        </div>
+      </>
+    );
   }
 }
 
