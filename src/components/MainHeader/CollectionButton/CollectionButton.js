@@ -6,7 +6,7 @@ const CollectionButton = () => {
     <li>
       <NavLink
         activeStyle={{
-          textDecoration: "underline 5px solid var(--color2)",
+          borderBottom: "2px solid var(--color1)",
         }}
         to="/collection"
       >
