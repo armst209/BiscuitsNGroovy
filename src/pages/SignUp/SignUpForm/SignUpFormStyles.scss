@@ -26,23 +26,6 @@ form {
       border: 3px solid rgb(1, 151, 1);
     }
 
-    .error-message-text {
-      text-align: left;
-      letter-spacing: 0.01cm;
-      padding-left: 0.5rem;
-      font-size: 0.7rem;
-      color: red;
-    }
-
-    svg {
-      width: 20px;
-      filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
-        brightness(99%) contrast(94%);
-      @media screen and (max-width: 400px) {
-        width: 30px;
-      }
-    }
-
     @media screen and (max-width: 400px) {
       font-size: 0.8rem;
     }
@@ -55,6 +38,24 @@ form {
     position: relative;
     border: none;
     /* input error/success styles */
+    .error-message-text {
+      text-align: left;
+      letter-spacing: 0.01cm;
+      padding-left: 0.5rem;
+      font-size: 0.7rem;
+      color: red;
+      font-family: var(--secondary-font);
+      font-weight: var(--secondary-font-weight);
+    }
+
+    svg {
+      width: 20px;
+      filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
+        brightness(99%) contrast(94%);
+      @media screen and (max-width: 400px) {
+        width: 30px;
+      }
+    }
 
     .input-error {
       transition: 0.2s ease;

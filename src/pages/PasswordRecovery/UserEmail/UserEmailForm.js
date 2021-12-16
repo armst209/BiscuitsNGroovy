@@ -1,44 +1,26 @@
-import { useState } from "react";
-import "../../../components/FormValidation/FormValidationStyles.scss";
 import "../../../App.css";
-import { emailValidation } from "../../../modules/FormValidation";
+import { useState } from "react";
+import useValidation from "../../../customHooks/Validation/useValidation";
+import "../../../customHooks/Validation/useValidationStyles.scss";
 import axios from "axios";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
-
+import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 const UserEmailForm = ({
-  setSuccessMessage,
   setShowEmailLoader,
   showPassRecoveryModal,
   setShowPassRecoveryModal,
 }) => {
-  const [recoveryEmail, setRecoveryEmail] = useState("");
-  const [emailInputLoginClass, setEmailInputLoginClass] = useState("");
-  const [showEmailValidationCheck, setShowEmailValidationCheck] =
-    useState(false);
-  const [emailErrorMessage, setEmailErrorMessage] = useState("Email");
-  //function for form validation
-  const passwordRecoveryEmailValidation = (event) => {
-    //destrcutring name & value from event.target
-    let { name, value } = event.target;
-
-    //switch execution based on "name" attribute on input elements
-    switch (name) {
-      case "user-email":
-        console.log("hit");
-        setRecoveryEmail(value);
-        if (!emailValidation(value)) {
-          setShowEmailValidationCheck(false);
-          setEmailInputLoginClass("input-error");
-          setEmailErrorMessage("please enter valid email");
-        } else {
-          setEmailInputLoginClass("input-success");
-          setShowEmailValidationCheck(true);
-        }
-        break;
-      default:
-        break;
-    }
-  };
+  const [successMessage, setSuccessMessage] = useState("");
+  const {
+    email,
+    emailInputLoginClass,
+    emailErrorMessage,
+    errorMessages,
+    showEmailValidationCheck,
+    setEmailInputLoginClass,
+    setErrorMessages,
+    inputValidation,
+  } = useValidation();
 
   const submit = (event) => {
     event.preventDefault();
@@ -49,7 +31,7 @@ const UserEmailForm = ({
       localStorage.setItem("PR_Auth_Token", res.data.token);
 
       setShowEmailLoader(false);
-      setSuccessMessage("Link sent!");
+      setSuccessMessage(<div>Link Sent!</div>);
       setTimeout(() => {
         setShowPassRecoveryModal(!showPassRecoveryModal);
       }, 1000);
@@ -58,13 +40,21 @@ const UserEmailForm = ({
     const handleFailure = (err) => {
       console.log(err);
       setShowEmailLoader(false);
-      setEmailErrorMessage("Email not found!");
+      setEmailInputLoginClass("input-error");
+      setErrorMessages(
+        <>
+          <div className="main-error-messages">
+            <Warning className="warning-icon" />
+            <div className="error-message-text-main">Email not found!</div>
+          </div>
+        </>
+      );
     };
 
     axios({
       method: "post",
       url: `${process.env.REACT_APP_BACKEND_URL}/forgot-password/sendLink`,
-      data: { email: recoveryEmail },
+      data: { email },
     })
       .then((res) => {
         handleSuccess(res);
@@ -76,23 +66,25 @@ const UserEmailForm = ({
 
   return (
     <form onSubmit={submit}>
+      <div className="error-message-main">{errorMessages}</div>
+      <div className="user-email-success-message">{successMessage}</div>
       <fieldset className="input-styles">
         <label
           id="email-label"
-          htmlFor="user-email"
-          className="label-error-message email-label"
+          htmlFor="user-email-input"
+          className="label-error-message user-email-label"
         >
           {emailErrorMessage}
         </label>
         <input
           className={emailInputLoginClass}
           type="email"
-          id="user-email"
-          name="user-email"
+          id="user-email-input"
+          name="email"
           required
           autoComplete="off"
           placeholder="Ex: your@email.com"
-          onChange={passwordRecoveryEmailValidation}
+          onChange={inputValidation}
         />
         {showEmailValidationCheck && (
           <ValidationSuccess className="valid-check-icon email-check" />

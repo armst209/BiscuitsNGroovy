@@ -163,6 +163,14 @@ body {
   background-color: black;
 }
 
+/* input styles */
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
 /* animations */
 
 .rotate {

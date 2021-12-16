@@ -11,12 +11,14 @@
   h2 {
     font-family: var(--header-font);
     font-weight: normal;
+    text-align: center;
   }
 
   .user-email-subtitle {
     padding: 0.5rem 0 1rem 0;
     font-family: var(--secondary-font);
     font-weight: var(--secondary-font-weight);
+    text-align: center;
   }
 
   .user-email-wrapper {
@@ -53,51 +55,6 @@
         width: 100%;
         border: none;
         border-radius: 0;
-      }
-
-      /* input error/success styles */
-      .input-error {
-        transition: 0.2s ease;
-        border: 3px solid red;
-      }
-      .input-success {
-        transition: 0.2s ease;
-        border: 3px solid rgb(1, 151, 1);
-      }
-
-      input {
-        margin: 5px 0;
-        background: var(--color-light);
-        font-family: var(--header-font);
-        font-size: 1rem;
-        font-weight: normal;
-        line-height: inherit;
-        width: 100%;
-        height: auto;
-        padding: 0.75rem 1.25rem;
-        border: 2px solid var(--color1);
-        outline: none;
-        color: var(--color-black);
-        background: black;
-        text-transform: unset;
-        text-rendering: optimizeLegibility;
-        border-radius: 0.5rem;
-        @media screen and (max-width: 300px) {
-          font-size: 0.7rem;
-        }
-
-        &::-webkit-input-placeholder {
-          visibility: hidden;
-        }
-
-        &:focus::-webkit-input-placeholder {
-          visibility: visible;
-          background-color: black;
-        }
-
-        &:active {
-          background-color: black;
-        }
       }
 
       .user-email-button-container {
@@ -163,22 +120,5 @@
         }
       }
     }
-  }
-
-  .user-email-error-messages {
-    text-align: center;
-    width: 100%;
-    font-family: var(--header-font);
-    font-weight: normal;
-    color: red;
-    padding: 1rem;
-  }
-  .user-email-success-message {
-    text-align: center;
-    width: 100%;
-    font-family: var(--header-font);
-    font-weight: normal;
-    color: green;
-    padding: 1rem;
   }
 }

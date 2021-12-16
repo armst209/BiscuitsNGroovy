@@ -1,10 +1,10 @@
-import { ReactComponent as PulseLoader } from "../../../assets/images/pulse_loader.svg";
+import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 import "./StripeLoadingStyles.scss";
 function StripeLoader() {
   return (
     <section id="stripe-loader">
       <div className="stripe-container">
-        <PulseLoader />
+        <RecordSpinner />
         <div className="message">
           <p> Redirecting to Stripe Checkout...</p>
         </div>

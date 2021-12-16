@@ -5,7 +5,6 @@ import UserEmailForm from "./UserEmailForm";
 import "./UserEmailStyles.scss";
 
 const UserEmail = () => {
-  const [successMessage, setSuccessMessage] = useState("");
   const [showEmailLoader, setShowEmailLoader] = useState(false);
   const [showPassRecoveryModal, setShowPassRecoveryModal] = useState(false);
 
@@ -20,7 +19,6 @@ const UserEmail = () => {
       <div className="user-email-wrapper">
         <UserEmailForm
           setShowEmailLoader={setShowEmailLoader}
-          setSuccessMessage={setSuccessMessage}
           showPassRecoveryModal={showPassRecoveryModal}
           setShowPassRecoveryModal={setShowPassRecoveryModal}
         />
@@ -29,8 +27,6 @@ const UserEmail = () => {
         </p>
         {showEmailLoader && <FormLoader />}
         {showPassRecoveryModal && <UserEmailSuccessModal />}
-        {/* <div className="user-email-error-messages">{emailErrorMessage}</div> */}
-        <div className="user-email-success-message">{successMessage}</div>
       </div>
     </section>
   );

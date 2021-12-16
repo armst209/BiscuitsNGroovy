@@ -1,126 +1,42 @@
 import { useState } from "react";
-import axios from "axios";
-
 import "./LoginFormStyles.scss";
-import { ReactComponent as SignInArrow } from "../../../assets/images/login.svg";
+import "../../../customHooks/Validation/useValidationStyles.scss";
 import { ReactComponent as LoginLoading } from "../../../assets/images/pulse_loader_black.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
-import { ReactComponent as ValidationError } from "../../../assets/images/error.svg";
+import axios from "axios";
 
-import GoogleLogin from "react-google-login";
-import GoogleLoginButton from "../GoogleLogin/GoogleLoginButton";
-import { minMaxLength } from "../../../modules/FormValidation";
-import "../../../components/FormValidation/FormValidationStyles.scss";
-
-const LoginForm = ({ setErrorMessages }) => {
+import useValidation from "../../../customHooks/Validation/useValidation";
+const LoginForm = () => {
+  //useValidation hook
+  const {
+    userName,
+    password,
+    userNameErrorMessage,
+    passwordErrorMessage,
+    userNameInputLoginClass,
+    passwordInputLoginClass,
+    showUserNameValidationCheck,
+    showPasswordValidationCheck,
+    passwordInputType,
+    isHidden,
+    errorMessages,
+    setErrorMessages,
+    inputValidation,
+    setShowUserNameValidationCheck,
+    setShowPasswordValidationCheck,
+    setUserNameInputLoginClass,
+    setPasswordInputLoginClass,
+    changeInputType,
+  } = useValidation("event");
   //=========STATE HOOKS=========
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [userNameErrorMessage, setUserNameErrorMessage] = useState("Username");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState("Password");
-  const [userNameInputLoginClass, setUserNameInputLoginClass] = useState("");
-  const [passwordInputLoginClass, setPasswordInputLoginClass] = useState("");
-  const [passwordInputType, setPasswordInputType] = useState("password");
-  const [isHidden, setIsHidden] = useState("Show");
-  const [showUserNameValidationCheck, setShowUserNameValidationCheck] =
-    useState(false);
-  const [showPasswordValidationCheck, setShowPasswordValidationCheck] =
-    useState(false);
 
   const [loginStatus, setLoginStatus] = useState(
     <>
       <span>Sign In</span>
     </>
   );
-
   //=========STATE HOOKS=========
-
-  //validation for button submit
-  const emptyInputOnSubmit = () => {
-    if (userName.length === 0 && password.length === 0) {
-      setUserNameInputLoginClass("input-error");
-      setShowUserNameValidationCheck(false);
-      setPasswordInputLoginClass("input-error");
-      setShowPasswordValidationCheck(false);
-      setUserNameErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-      setPasswordErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    } else if (userName.length === 0) {
-      setUserNameInputLoginClass("input-error");
-      setShowUserNameValidationCheck(false);
-      setUserNameErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    } else if (password.length === 0) {
-      setPasswordInputLoginClass("input-error");
-      setShowPasswordValidationCheck(false);
-      setPasswordErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    }
-  };
-  //function for form validation
-  const loginFormValidation = (event) => {
-    //destrcutring name & value from event.target
-    let { name, value } = event.target;
-
-    //switch execution based on "name" attribute on input elements
-    switch (name) {
-      case "username":
-        setUserName(value);
-        if (minMaxLength(value, 1)) {
-          setUserNameInputLoginClass("input-error");
-          setShowUserNameValidationCheck(false);
-          setUserNameErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="label-error-text">Please fill out this field</div>
-            </>
-          );
-        } else {
-          setUserNameInputLoginClass("input-success");
-          setShowUserNameValidationCheck(true);
-          setUserNameErrorMessage("Username");
-        }
-
-        break;
-      case "password":
-        setPassword(value);
-        if (minMaxLength(value, 0)) {
-          setPasswordInputLoginClass("input-error");
-          setShowPasswordValidationCheck(false);
-          setPasswordErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="label-error-text">Please fill out this field</div>
-            </>
-          );
-        } else {
-          setPasswordInputLoginClass("input-success");
-          setShowPasswordValidationCheck(true);
-          setPasswordErrorMessage("Password");
-        }
-        break;
-      default:
-        break;
-    }
-  };
 
   const submit = (event) => {
     event.preventDefault();
@@ -182,8 +98,10 @@ const LoginForm = ({ setErrorMessages }) => {
       );
     };
   };
+
   return (
     <form id="login-form" onSubmit={submit}>
+      <div className="error-message-main">{errorMessages}</div>
       <fieldset className="input-styles">
         <label
           id="username-label"
@@ -200,7 +118,7 @@ const LoginForm = ({ setErrorMessages }) => {
             type="text"
             placeholder="Enter username"
             autoComplete="username"
-            onBlur={loginFormValidation}
+            onChange={inputValidation}
             required
           />
           {/* check icon */}
@@ -217,28 +135,17 @@ const LoginForm = ({ setErrorMessages }) => {
           {passwordErrorMessage}
         </label>
         <div className="password-input-container">
-          <h5
-            className="show-password"
-            onClick={() => {
-              if (passwordInputType === "password") {
-                setPasswordInputType("text");
-                setIsHidden("Hide");
-              } else {
-                setPasswordInputType("password");
-                setIsHidden("Show");
-              }
-            }}
-          >
+          <h5 className="show-password" onClick={changeInputType}>
             {isHidden} Password
           </h5>
           <input
             className={passwordInputLoginClass}
             id="password"
-            name="password"
+            name="login-password"
             type={passwordInputType}
             placeholder="Enter password"
             autoComplete="current-password"
-            onBlur={loginFormValidation}
+            onChange={inputValidation}
             required
           />
           {/* check icon */}
@@ -250,11 +157,7 @@ const LoginForm = ({ setErrorMessages }) => {
 
       <div className="login-btn-password">
         <div className="signin-button-container">
-          <button
-            className="signin-button-link"
-            onClick={emptyInputOnSubmit}
-            type="submit"
-          >
+          <button className="signin-button-link" type="submit">
             {loginStatus}
           </button>
         </div>

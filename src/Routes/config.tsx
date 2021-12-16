@@ -37,9 +37,9 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
-    path: "/login",
+    path: "/signin",
     component: lazy(() => import("../pages/Login/Login")),
-    key: "LOGIN_PAGE",
+    key: "SIGNIN_PAGE",
     exact: true,
     private: false,
     credentials: true,
@@ -172,6 +172,7 @@ const routes: IRoute[] = [
     fallback: <Loading />
 
   },
+
   //Not Found Page - must be at the bottom
   {
     path: "*",

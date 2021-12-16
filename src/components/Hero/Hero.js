@@ -25,9 +25,12 @@ function Hero() {
                   </div>
                   <div className="hero-buttons">
                     <div className="start-button-container" align="center">
-                      <Link className="start-button-link" to="/signup">
+                      <HashLink
+                        className="start-button-link"
+                        to="/#music-showcase"
+                      >
                         <span>Start Your Collection</span>
-                      </Link>
+                      </HashLink>
                     </div>
                     <div
                       className="for-artists-button-container"
