@@ -8,7 +8,7 @@ const LoginAndSignUp = () => {
   ) : (
     <li className="signup-li">
       <div className="signup-button-container" align="center">
-        <Link className="signup-button-link" to="/login">
+        <Link className="signup-button-link" to="/signin">
           <span>Sign In</span>
         </Link>
       </div>

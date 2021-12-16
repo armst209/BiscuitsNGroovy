@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./LoginFormStyles.scss";
 import "../../../customHooks/Validation/useValidationStyles.scss";
-import { ReactComponent as LoginLoading } from "../../../assets/images/pulse_loader_black.svg";
+import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import axios from "axios";
@@ -45,7 +45,7 @@ const LoginForm = () => {
     setLoginStatus(
       <div className="signing-in-status">
         <div>Signing In</div>
-        <LoginLoading className="signin-loading-icon" />
+        <RecordSpinner className="signin-loading-icon rotate" />
       </div>
     );
 
