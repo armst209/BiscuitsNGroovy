@@ -1,0 +1,230 @@
+label {
+  background-color: black;
+  position: absolute;
+  padding: 0 0.3rem;
+}
+
+input {
+  margin: 10px 0;
+  background: var(--color-light);
+  font-family: var(--header-font);
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: inherit;
+  width: 100%;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--color1);
+  outline: none;
+  color: var(--color-black);
+  background: black;
+  text-transform: unset;
+  text-rendering: optimizeLegibility;
+  border-radius: 0.5rem;
+  transition: 0.2s ease;
+
+  &::-webkit-input-placeholder {
+    visibility: hidden;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    visibility: visible;
+    background-color: black;
+  }
+
+  &:active {
+    background-color: black;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 0.7rem;
+  }
+}
+
+.input-styles {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  border: none;
+}
+
+.label-error-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  font-weight: normal;
+  align-items: center;
+  text-align: center;
+  font-family: var(--secondary-font);
+  font-weight: var(--secondary-font-weight);
+  color: #ff0000;
+  font-size: 0.7rem;
+  padding-left: 0.3rem;
+}
+
+.label-error-message {
+  font-family: var(--secondary-font);
+  font-weight: var(--secondary-font-weight);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 20px;
+  }
+}
+
+.input-error {
+  transition: 0.2s ease;
+  border: 3px solid #ff0000;
+}
+.input-success {
+  transition: 0.2s ease;
+  border: 3px solid #019701;
+}
+
+.valid-check-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  filter: invert(31%) sepia(97%) saturate(2914%) hue-rotate(108deg)
+    brightness(96%) contrast(104%);
+}
+
+.valid-error-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  filter: invert(15%) sepia(92%) saturate(6893%) hue-rotate(6deg)
+    brightness(94%) contrast(121%);
+}
+
+.warning-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  margin-right: 2px;
+  filter: invert(100%) sepia(98%) saturate(7488%) hue-rotate(353deg)
+    brightness(100%) contrast(93%);
+  @media screen and (max-width: 500px) {
+    width: 30px;
+  }
+}
+
+.error-message-text {
+  text-align: left;
+  letter-spacing: 0.01cm;
+  padding-left: 0.3rem;
+  font-size: 0.7rem;
+  color: red;
+}
+
+.error-message-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.main-error-messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 1rem;
+
+  svg {
+    width: 40px;
+    filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
+      brightness(99%) contrast(94%);
+    @media screen and (max-width: 400px) {
+      width: 30px;
+    }
+  }
+}
+
+.error-message-text-main {
+  text-align: center;
+  letter-spacing: 0.01cm;
+  padding-left: 0.5rem;
+  font-family: var(--header-font);
+  font-weight: var(--secondary-font-weight);
+  font-size: 1rem;
+  color: red;
+  padding: 0.5rem 0;
+}
+
+.email-label {
+  left: 20px;
+  top: 1px;
+}
+.username-label {
+  top: 70px;
+  left: 20px;
+}
+.password-signup-label {
+  top: 145px;
+  left: 20px;
+}
+
+.user-email-label {
+  left: 20px;
+  top: 1px;
+  @media screen and (max-width: 400px) {
+    top: 0;
+  }
+}
+.email-label {
+  left: 20px;
+  top: 1px;
+  @media screen and (max-width: 400px) {
+    top: 2px;
+  }
+}
+.password-label {
+  bottom: 50px;
+  left: 20px;
+
+  @media screen and (max-width: 400px) {
+    bottom: 52px;
+  }
+}
+
+.confirm-password-label {
+  bottom: 80px;
+  left: 20px;
+}
+
+.password-check {
+  right: 10px;
+  bottom: 23px;
+}
+
+.username-check {
+  right: 10px;
+  top: 23px;
+}
+
+.email-check {
+  right: 10px;
+  top: 23px;
+}
+
+.user-email-error-messages {
+  text-align: center;
+  width: 100%;
+  font-family: var(--header-font);
+  font-weight: normal;
+  color: red;
+  padding: 1rem;
+}
+.user-email-success-message {
+  text-align: center;
+  width: 100%;
+  font-family: var(--header-font);
+  font-weight: normal;
+  color: green;
+  padding: 1rem;
+}

@@ -32,6 +32,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
           }}
         >
           <SettingsHamburgerIcon className="mobile-navigation-settings-icon" />
+          <p>MENU</p>
         </div>
       </div>
       {/* Mobile Aside */}

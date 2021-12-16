@@ -77,17 +77,17 @@
 
     .email-label {
       left: 20px;
-      top: 1px;
+      top: 0;
       @media screen and (max-width: 400px) {
         top: 2px;
       }
     }
     .password-label {
-      bottom: 50px;
+      bottom: 52px;
       left: 20px;
 
       @media screen and (max-width: 400px) {
-        bottom: 52px;
+        bottom: 50px;
       }
     }
 

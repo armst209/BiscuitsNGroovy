@@ -1,11 +1,11 @@
-import { ReactComponent as PulseLoader } from "../../../assets/images/pulse_loader.svg";
+import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 import "./FlowLoaderStyles.scss";
 
 const FlowLoader = () => {
   return (
     <div id="flow-loader">
       <div className="flow-loader-wrapper">
-        <PulseLoader />
+        <RecordSpinner />
       </div>
     </div>
   );

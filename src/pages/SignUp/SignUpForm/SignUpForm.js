@@ -3,17 +3,13 @@ import { Link } from "react-router-dom";
 import "./SignUpFormStyles.scss";
 import axios from "axios";
 import env from "react-dotenv";
-import {
-  emailValidation,
-  minMaxLength,
-  validateConfirmPassword,
-} from "../../../modules/FormValidation.js";
+import validator from "validator";
+
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
 import LinkFlowButton from "../LinkFlowButton";
-import FlowLoader from "../../../components/Loading/Forms/FlowLoader";
 
 //configure flow environment
 config()
@@ -43,7 +39,7 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
     switch (name) {
       case "email":
         setEmail(value);
-        if (emailValidation(value)) {
+        if (validator.isEmail(value)) {
           setEmailInputLoginClass("input-success");
           setEmailErrorMessage("Email");
         } else {
@@ -58,7 +54,10 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
         break;
       case "username":
         setUserName(value);
-        if (minMaxLength(value, 7)) {
+        if (validator.isLength(value, { min: 7, max: 20 })) {
+          setUserNameInputLoginClass("input-success");
+          setUserNameErrorMessage("Username");
+        } else {
           setUserNameInputLoginClass("input-error");
           setUserNameErrorMessage(
             <>
@@ -68,32 +67,82 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
               </div>
             </>
           );
-        } else {
-          setUserNameInputLoginClass("input-success");
-          setUserNameErrorMessage("Username");
         }
 
         break;
       case "password":
         setPassword(value);
-        if (minMaxLength(value, 7)) {
+        if (
+          !validator.isStrongPassword(value, {
+            minLength: 8,
+            minLowercase: 1,
+            minUppercase: 1,
+            minNumbers: 1,
+            minSymbols: 1,
+            returnScore: false,
+            pointsPerUnique: 1,
+            pointsPerRepeat: 0.5,
+            pointsForContainingLower: 10,
+            pointsForContainingUpper: 10,
+            pointsForContainingNumber: 10,
+            pointsForContainingSymbol: 10,
+          })
+        ) {
           setPasswordInputLoginClass("input-error");
           setPasswordErrorMessage(
             <>
               <Warning className="warning-icon" />
               <div className="error-message-text">
-                Password must be at least 7 characters
+                Password is not strong enough
               </div>
             </>
+          );
+          setErrorMessages(
+            <ul>
+              <li>
+                <Warning className="warning-icon" />
+                <div className="error-message-text">
+                  Password must be a minimum of 8 characters
+                </div>
+              </li>
+              <li>
+                <Warning className="warning-icon" />
+                <div className="error-message-text">
+                  Password must have at least 1 uppercase letter
+                </div>
+              </li>
+              <li>
+                <Warning className="warning-icon" />
+                <div className="error-message-text">
+                  Password must have at least 1 lowercase letter
+                </div>
+              </li>
+              <li>
+                <Warning className="warning-icon" />
+                <div className="error-message-text">
+                  Password must have at least 1 number
+                </div>
+              </li>
+              <li>
+                <Warning className="warning-icon" />
+                <div className="error-message-text">
+                  Password must have at least 1 symbol i.e $,#,%,&,*
+                </div>
+              </li>
+            </ul>
           );
         } else {
           setPasswordInputLoginClass("input-success");
           setPasswordErrorMessage("Password");
+          setErrorMessages("");
         }
         break;
       case "confirm-password":
         setConfirmPassword(value);
-        if (!validateConfirmPassword(password, value)) {
+        if (password === confirmPassword && confirmPassword.length !== 0) {
+          setConfirmPasswordErrorMessage("Confirm Password");
+          setConfirmPasswordInputLoginClass("input-success");
+        } else {
           setConfirmPasswordErrorMessage(
             <>
               <Warning className="warning-icon" />
@@ -101,10 +150,13 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             </>
           );
           setConfirmPasswordInputLoginClass("input-error");
-        } else {
-          setConfirmPasswordErrorMessage("Confirm Password");
-          setConfirmPasswordInputLoginClass("input-success");
         }
+        break;
+      case "terms-check":
+        if (value !== "on") {
+          alert("please check box");
+        }
+
         break;
       default:
         break;
@@ -190,7 +242,6 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             type="text"
             name="username"
             autoComplete="username"
-            minLength="7"
             onBlur={signupFormValidation}
             required
           />
@@ -206,8 +257,7 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             id="password"
             type="password"
             name="password"
-            autoComplete="new-password"
-            minLength="7"
+            autoComplete="off"
             onBlur={signupFormValidation}
             required
           />
@@ -223,7 +273,6 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             type="password"
             name="confirm-password"
             autoComplete="off"
-            minLength="7"
             onBlur={signupFormValidation}
             required
           />

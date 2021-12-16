@@ -8,8 +8,8 @@ const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
   ) : (
     <>
       <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
-        <NavLink activeClassName="active-link" to="/login">
-          Login
+        <NavLink activeClassName="active-link" to="/signin">
+          Sign In
         </NavLink>
       </li>
       <li onClick={() => setShowMobileMenu(!showMobileMenu)}>

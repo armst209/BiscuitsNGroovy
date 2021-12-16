@@ -22,7 +22,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       setErrorMessage(
         <div className="form-error">{`${email} is already subscribed!`}</div>
       );
-    } else if (status == "sending") {
+    } else if (status === "sending") {
       setNewsletterLoader(true);
     }
   }, [status]);

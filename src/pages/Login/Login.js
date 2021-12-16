@@ -6,7 +6,6 @@ import LoginForm from "./LoginForm/LoginForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const Login = () => {
-  const [errorMessages, setErrorMessages] = useState("");
   return (
     <>
       <FixedNavigationSpacer />
@@ -19,8 +18,7 @@ const Login = () => {
         </div>
         <h2>Sign in with Biscuits n Groovy</h2>
         <div className="login-content">
-          <div className="error-message-main">{errorMessages}</div>
-          <LoginForm setErrorMessages={setErrorMessages} />
+          <LoginForm />
           <p className="have-account">
             <span>
               Don't have an account?{" "}

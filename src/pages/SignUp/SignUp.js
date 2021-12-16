@@ -24,7 +24,7 @@ const SignUp = () => {
     <section id="signup">
       <FixedNavigationSpacer />
       <h2>Sign up to start "enter message"</h2>
-
+      <div className="error-message-main">{errorMessages}</div>
       <div className="signup-wrapper">
         <div className="signup-contents">
           <SignUpForm
@@ -34,14 +34,14 @@ const SignUp = () => {
 
           <p className="already-account">
             Have an account?
-            <Link className="login-redirect" to="/login">
+            <Link className="login-redirect" to="/signin">
               <span> Sign In</span>
             </Link>
           </p>
         </div>
         {/* <div className="signup-info-contents"> Things that need to be said</div> */}
       </div>
-      <div className="error-message-main">{errorMessages}</div>
+
       {showFlowButtonLoader && <FlowLoader />}
       {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>

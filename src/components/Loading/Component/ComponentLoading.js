@@ -1,10 +1,10 @@
-import { ReactComponent as PulseLoader } from "../../../assets/images/pulse_loader.svg";
+import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 import "../LoadingStyles.scss";
 
 function ComponentLoading() {
   return (
     <div id="loading">
-      <PulseLoader />
+      <RecordSpinner />
     </div>
   );
 }
