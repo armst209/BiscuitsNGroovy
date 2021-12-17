@@ -53,112 +53,13 @@
     text-align: center;
   }
 
-  .input-styles {
-    display: flex;
-    flex-direction: column;
+  .show-password {
+    font-size: 10px;
+    font-family: var(--secondary-font);
+    padding: 0;
     width: 100%;
-    position: relative;
-    border: none;
-    /* input error/success styles */
-
-    .input-error {
-      transition: 0.2s ease;
-      border: 3px solid #ff0000;
-    }
-    .input-success {
-      transition: 0.2s ease;
-      border: 3px solid #019701;
-    }
-    label {
-      background-color: black;
-      position: absolute;
-      padding: 0 0.3rem;
-    }
-
-    .email-label {
-      left: 20px;
-      top: 0;
-      @media screen and (max-width: 400px) {
-        top: 2px;
-      }
-    }
-    .password-label {
-      bottom: 52px;
-      left: 20px;
-
-      @media screen and (max-width: 400px) {
-        bottom: 50px;
-      }
-    }
-
-    .valid-check-icon {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      filter: invert(31%) sepia(97%) saturate(2914%) hue-rotate(108deg)
-        brightness(96%) contrast(104%);
-    }
-
-    .valid-error-icon {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      filter: invert(15%) sepia(92%) saturate(6893%) hue-rotate(6deg)
-        brightness(94%) contrast(121%);
-    }
-
-    .password-check {
-      right: 10px;
-      bottom: 23px;
-    }
-
-    .username-check {
-      right: 10px;
-      top: 23px;
-    }
-    .show-password {
-      font-size: 10px;
-      font-family: var(--secondary-font);
-      padding: 0;
-      width: 100%;
-      text-align: right;
-      cursor: pointer;
-    }
-    input {
-      margin: 10px 0;
-      background: var(--color-light);
-      font-family: var(--header-font);
-      font-size: 1rem;
-      font-weight: normal;
-      line-height: inherit;
-      width: 100%;
-      height: auto;
-      padding: 0.75rem 1.25rem;
-      border: 2px solid var(--color1);
-      outline: none;
-      color: var(--color-black);
-      background: black;
-      text-transform: unset;
-      text-rendering: optimizeLegibility;
-      border-radius: 0.5rem;
-      transition: 0.2s ease;
-
-      &::-webkit-input-placeholder {
-        visibility: hidden;
-      }
-
-      &:focus::-webkit-input-placeholder {
-        visibility: visible;
-        background-color: black;
-      }
-
-      &:active {
-        background-color: black;
-      }
-      @media screen and (max-width: 300px) {
-        font-size: 0.7rem;
-      }
-    }
+    text-align: right;
+    cursor: pointer;
   }
 
   .signin-button-container {
@@ -168,6 +69,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     .signin-button-link {
       display: flex;
@@ -237,8 +139,11 @@
       position: absolute;
       right: 30px;
       width: 30px;
-      // filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
-      //   brightness(99%) contrast(94%);
     }
   }
+}
+
+.username-input-container,
+.password-input-container {
+  width: 100%;
 }

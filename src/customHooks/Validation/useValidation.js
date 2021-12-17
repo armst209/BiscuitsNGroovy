@@ -30,6 +30,10 @@ const useValidation = () => {
     useState(false);
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
+  const [
+    showNewsletterArtistEmailValidationCheck,
+    setShowNewsletterArtistEmailValidationCheck,
+  ] = useState(false);
 
   //show & hide password input
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -194,6 +198,35 @@ const useValidation = () => {
         }
 
         break;
+
+      case "MERGE0":
+        setEmail(value);
+        if (validator.isEmail(value)) {
+          setEmailInputLoginClass("input-success");
+          setShowNewsletterArtistEmailValidationCheck(true);
+          setEmailErrorMessage("Email");
+        } else if (!validator.isLength(value, { min: 1, max: undefined })) {
+          setEmailInputLoginClass("input-error");
+          setShowNewsletterArtistEmailValidationCheck(false);
+          setEmailErrorMessage(
+            <>
+              <Warning className="warning-icon" />
+              <div className="error-message-text">
+                Please fill out this field
+              </div>
+            </>
+          );
+        } else {
+          setEmailInputLoginClass("input-error");
+          setShowEmailValidationCheck(false);
+          setEmailErrorMessage(
+            <>
+              <Warning className="warning-icon" />
+              <div className="error-message-text">Invalid Email</div>
+            </>
+          );
+        }
+        break;
       default:
         break;
     }
@@ -279,6 +312,8 @@ const useValidation = () => {
     setShowUserNameValidationCheck,
     showPasswordValidationCheck,
     setShowPasswordValidationCheck,
+    showNewsletterArtistEmailValidationCheck,
+    setShowNewsletterArtistEmailValidationCheck,
     inputValidation,
     ifEmptyInputOnSubmit,
     changeInputType,

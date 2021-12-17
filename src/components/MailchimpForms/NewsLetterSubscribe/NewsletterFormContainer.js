@@ -13,7 +13,7 @@ const NewsletterFormContainer = () => {
       <p className="newsletter-subtitle">
         "blurb about why a user should subscribe"
       </p>
-      <LetterIcon />
+      <LetterIcon className="mail-plus-icon" />
       <MailchimpSubscribe
         url={postUrl}
         render={({ subscribe, status, message }) => (

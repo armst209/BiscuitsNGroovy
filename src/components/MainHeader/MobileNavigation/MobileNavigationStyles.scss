@@ -229,10 +229,5 @@
 }
 
 .active-link {
-  &:after {
-    content: "<<";
-    width: 30px;
-    color: var(--color2);
-    padding-left: 0.5rem;
-  }
+  border-bottom: 2px solid var(--color2);
 }

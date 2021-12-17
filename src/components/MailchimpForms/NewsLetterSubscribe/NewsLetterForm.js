@@ -1,26 +1,40 @@
 import { useState, useEffect } from "react";
+import useValidation from "../../../customHooks/Validation/useValidation";
+import "../../../customHooks/Validation/useValidationStyles.scss";
 import FormLoader from "../../Loading/Forms/FormLoader";
+import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import "./NewsLetterSubscribeStyles.scss";
 
 const NewsLetterForm = ({ status, message, onValidated }) => {
-  const [email, setEmail] = useState("");
-  const [emailInputErrorClass, setEmailInputErrorClass] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [newsletterLoader, setNewsletterLoader] = useState(false);
+
+  const {
+    email,
+    emailInputLoginClass,
+    emailErrorMessage,
+    showNewsletterArtistEmailValidationCheck,
+    setShowNewsletterArtistEmailValidationCheck,
+    setEmailInputLoginClass,
+    setEmail,
+    inputValidation,
+  } = useValidation();
 
   useEffect(() => {
     if (status === "success") {
       setNewsletterLoader(false);
       clearFields();
+      setShowNewsletterArtistEmailValidationCheck(false);
       setSuccessMessage(
         <div className="form-success">Success! Thank you for subscribing!</div>
       );
-      setEmailInputErrorClass("");
+      setEmailInputLoginClass("");
       setErrorMessage("");
     } else if (status === "error") {
       setNewsletterLoader(false);
-      setEmailInputErrorClass("input-error");
+      setShowNewsletterArtistEmailValidationCheck(false);
+      setEmailInputLoginClass("input-error");
       setErrorMessage(
         <div className="form-error">{`${email} is already subscribed!`}</div>
       );
@@ -37,7 +51,6 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     email &&
-      email.indexOf("@") > -1 &&
       onValidated({
         MERGE0: email,
       });
@@ -50,18 +63,29 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       {successMessage}
       {newsletterLoader && <FormLoader />}
       {/* error,success & loading messages */}
-      <input
-        label="Email"
-        className={emailInputErrorClass}
-        onChange={(e) => setEmail(e.target.value)}
-        type="email"
-        value={email}
-        placeholder="Ex: your@email.com"
-        autoComplete="off"
-        required
-        name="MERGE0"
-      />
-      <button type="submit">Join</button>
+      <fieldset className="input-styles">
+        <label
+          className="label-error-message email-label"
+          htmlFor="newsletter-email"
+        >
+          {emailErrorMessage}
+        </label>
+        <input
+          id="newsletter-email"
+          className={emailInputLoginClass}
+          onChange={inputValidation}
+          type="email"
+          placeholder="Ex: your@email.com"
+          autoComplete="off"
+          required
+          name="MERGE0"
+        />
+        {/* check icon */}
+        {showNewsletterArtistEmailValidationCheck && (
+          <ValidationSuccess className="valid-check-icon newsletter-email-check" />
+        )}
+        <button type="submit">Join</button>
+      </fieldset>
     </form>
   );
 };
