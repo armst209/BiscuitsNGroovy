@@ -253,9 +253,13 @@ const useValidation = () => {
 
   return {
     email,
+    setEmail,
     userName,
+    setUserName,
     password,
+    setPassword,
     confirmPassword,
+    setConfirmPassword,
     errorMessages,
     setErrorMessages,
     emailErrorMessage,
