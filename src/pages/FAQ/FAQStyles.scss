@@ -103,9 +103,9 @@
           list-style: none;
 
           a {
-            text-decoration: underline 3px var(--color2);
+            text-decoration: underline 2px var(--color2);
             color: var(--color1);
-            font-family: var(--font1);
+            font-family: var(--header-font);
             font-weight: normal;
             padding: 0 3px;
           }
@@ -327,8 +327,8 @@
                     a {
                       color: var(--color1);
                       margin-left: 5px;
-                      text-decoration: underline 3px var(--color2);
-
+                      text-decoration: underline 2px var(--color2);
+                      font-family: var(--header-font);
                       &:visited {
                         color: var(--color1);
                       }
