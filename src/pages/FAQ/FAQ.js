@@ -465,7 +465,8 @@ function FAQ() {
                   <div>
                     <div className="div-content caring-important">
                       <div className="caring-message">
-                        Caring for our planet — now that’s groovy
+                        Caring for our planet —{"  "}
+                        <strong> now that’s groovy</strong>
                       </div>
                       <div className="important-info">
                         <div className="important-content">

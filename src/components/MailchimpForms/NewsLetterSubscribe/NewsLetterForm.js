@@ -16,12 +16,15 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       setSuccessMessage(
         <div className="form-success">Success! Thank you for subscribing!</div>
       );
+      setEmailInputErrorClass("");
+      setErrorMessage("");
     } else if (status === "error") {
       setNewsletterLoader(false);
       setEmailInputErrorClass("input-error");
       setErrorMessage(
         <div className="form-error">{`${email} is already subscribed!`}</div>
       );
+      setSuccessMessage("");
     } else if (status === "sending") {
       setNewsletterLoader(true);
     }

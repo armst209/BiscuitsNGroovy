@@ -2,6 +2,12 @@
   color: white;
   background-color: black;
 
+  strong {
+    color: var(--color1);
+    font-family: var(--header-font);
+    font-weight: normal;
+  }
+
   .faq-title {
     width: 100%;
     padding-top: 3rem;
@@ -56,6 +62,10 @@
     }
     @media (max-width: 1050px) {
       padding: 7rem 1rem 2rem 1rem;
+    }
+
+    @media (max-width: 500px) {
+      padding: 2rem 1rem;
     }
 
     h3 {
@@ -305,11 +315,7 @@
                   border: 2px solid var(--color2);
                   border-radius: 0.5rem;
                   padding: 10px;
-                  strong {
-                    color: var(--color1);
-                    font-family: var(--font1);
-                    font-weight: normal;
-                  }
+
                   .important-content {
                     width: 100%;
                     display: flex;

@@ -77,15 +77,26 @@
       @media screen and (max-width: 1000px) {
         font-size: 1rem;
       }
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: 1rem;
+        width: 100%;
+      }
       h1 {
         background-color: transparent;
         color: white;
         width: 100%;
         font-weight: normal;
-        padding: 0.6rem;
-        @media screen and (max-width: 400px) {
+
+        @media screen and (max-width: 450px) {
           font-size: 1.5rem;
-          padding: 0.4rem;
+        }
+
+        @media screen and (max-width: 400px) {
+          font-size: 1.3rem;
+        }
+        @media screen and (max-width: 350px) {
+          font-size: 1rem;
         }
         span {
           color: var(--color1);
@@ -116,7 +127,6 @@
         padding: 1rem;
         width: 500px;
         img {
-          border: 2px solid var(--color1);
           border-radius: 0.5rem;
         }
 
@@ -219,7 +229,7 @@
       border-radius: 20px;
       width: 85%;
       font-size: 1.4rem;
-      padding: 2rem;
+      padding: 1rem;
       @media screen and (max-width: 1000px) {
         width: 100%;
       }
@@ -242,9 +252,12 @@
             font-size: 1rem;
             text-align: center;
             font-family: var(--header-font);
+            color: var(--color1);
+            @media screen and (max-width: 400px) {
+              font-size: 0.8rem;
+            }
           }
           img {
-            border: 2px solid var(--color1);
             border-radius: 0.5rem;
           }
           position: relative;
