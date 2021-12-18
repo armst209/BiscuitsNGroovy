@@ -1,3 +1,4 @@
+import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 // import { createBrowserHistory } from "history";
@@ -27,10 +28,12 @@ import ScrollToTop from "./Routes/ScrollToTop";
 //react-dotenv doesn't work for routes, causes issues -- will use process.env combined with REACT_APP_ (must have for env variables)
 
 ReactDOM.render(
-  <Router>
-    <ScrollToTop />
-    <App />
-  </Router>,
+  <React.StrictMode>
+    <Router>
+      <ScrollToTop />
+      <App />
+    </Router>
+  </React.StrictMode>,
 
   document.getElementById("root")
 );

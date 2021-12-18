@@ -1,9 +1,9 @@
-import { React, useState, lazy } from "react";
+import { memo, useState, lazy } from "react";
 import "./FPHomePageStyles.scss";
 //lazy loading library section
 const NewLibrary = lazy(() => import("./Sections/NewLibrary/NewLibrary"));
 
-function FPHomePage(props) {
+const FPHomePage = memo((props) => {
   const [showPopUp, setShowPopup] = useState("");
   const [showEndDatePopUp, setShowEndDatePopUp] = useState("");
   const [showNFTPopUp, setShowNFTPopUp] = useState("");
@@ -29,6 +29,6 @@ function FPHomePage(props) {
       </div>
     </section>
   );
-}
+});
 
 export default FPHomePage;

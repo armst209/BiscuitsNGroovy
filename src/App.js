@@ -29,7 +29,7 @@ const App = () => {
       <MainHeader />
       <Router routes={routes} />
       <Footer />
-      <ScrollWidget />
+      {/* <ScrollWidget /> */}
     </div>
   );
 };
