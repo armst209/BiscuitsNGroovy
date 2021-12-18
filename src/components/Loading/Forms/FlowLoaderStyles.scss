@@ -1,22 +1,16 @@
 #flow-loader {
-  position: absolute;
-  background-color: black;
+  background-color: #000;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  z-index: 50;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  .flow-loader-wrapper {
-    font-family: var(--header-font);
-    text-align: center;
-    font-size: 2rem;
-    div {
-      font-family: var(--header-font);
+  height: 100vh;
+  position: fixed;
+  svg {
+    width: 20%;
+    @media screen and (max-width: 500px) {
+      width: 40%;
     }
   }
 }

@@ -1,6 +1,6 @@
 #hero {
   display: block;
-  // background-image: url("../../assets/images/zevy_bg.jpg");
+  // background-image: url("../../assets/images/crowd.jpg");
   background-color: none;
   background-repeat: no-repeat;
   background-size: cover;
@@ -200,6 +200,7 @@
               flex-direction: row;
               justify-content: center;
               align-items: center;
+              z-index: 1000;
 
               .start-button-link {
                 display: flex;
@@ -338,9 +339,10 @@
   }
   .hero-image-container {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    width: 50%;
+    padding-right: 2rem;
+    width: 100%;
     height: 100%;
     position: absolute;
     bottom: 0;
@@ -362,6 +364,8 @@
     }
     @media screen and (max-width: 650px) {
       height: 60%;
+      padding-right: 0;
+      justify-content: center;
     }
     @media screen and (max-width: 620px) {
       height: 40%;
@@ -372,9 +376,7 @@
     @media screen and (max-width: 450px) {
       height: 40%;
     }
-    @media screen and (max-width: 411px) {
-      height: 60%;
-    }
+
     @media screen and (max-width: 400px) {
       height: 50%;
     }
@@ -385,7 +387,7 @@
       height: 45%;
     }
     @media screen and (max-width: 350px) {
-      height: 50%;
+      height: 40%;
     }
     .hero-image {
       width: auto;

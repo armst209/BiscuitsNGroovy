@@ -1,6 +1,6 @@
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-import hero_image from "../../assets/images/hero.webp";
+import hero_image from "../../assets/images/hero-image.webp";
 import "./HeroStyles.scss";
 
 function Hero() {
@@ -31,17 +31,6 @@ function Hero() {
                       >
                         <span>Start Your Collection</span>
                       </HashLink>
-                    </div>
-                    <div
-                      className="for-artists-button-container"
-                      align="center"
-                    >
-                      {/* <HashLink
-                        className="for-artists-button-link"
-                        to="/#music-showcase"
-                      >
-                        <span>For Artists</span>
-                      </HashLink> */}
                     </div>
                   </div>
                 </section>

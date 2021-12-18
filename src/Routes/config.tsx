@@ -172,6 +172,15 @@ const routes: IRoute[] = [
     fallback: <Loading />
 
   },
+  {
+    path: "/loader",
+    component: lazy(() => import("../components/Loading/Forms/FlowLoader")),
+    key: "LOADING_PAGE",
+    exact: true,
+    private: false,
+    fallback: <Loading />
+
+  },
  
 
   //Not Found Page - must be at the bottom
