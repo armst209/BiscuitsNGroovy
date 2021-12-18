@@ -1,0 +1,28 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 4252284, 2021-12-18T08:09:38-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: TTNormsPro-Rg by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/regular/
+ * Copyright: Copyright (c) 2016-2021 by TypeType. All rights reserved.
+ * 
+ * 
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/40e27c");
+  
+@font-face {
+  font-family: "TTNormsPro-Rg";
+  src: url('webFonts/TTNormsProRg/font.woff2') format('woff2'), url('webFonts/TTNormsProRg/font.woff') format('woff');
+}
+
