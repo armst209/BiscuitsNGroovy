@@ -84,6 +84,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
         {showNewsletterArtistEmailValidationCheck && (
           <ValidationSuccess className="valid-check-icon newsletter-email-check" />
         )}
+
         <button type="submit">Join</button>
       </fieldset>
     </form>

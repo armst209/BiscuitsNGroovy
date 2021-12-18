@@ -1,10 +1,10 @@
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
-import "../LoadingStyles.scss";
+import "./ComponentLoadingStyles.scss";
 
 function ComponentLoading() {
   return (
     <div id="loading">
-      <RecordSpinner />
+      <RecordSpinner className="rotate component-loading-svg " />
     </div>
   );
 }

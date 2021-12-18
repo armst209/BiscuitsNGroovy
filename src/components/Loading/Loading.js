@@ -1,10 +1,11 @@
-import { ReactComponent as PulseLoader } from "../../assets/images/pulse_loader.svg";
+import { ReactComponent as RecordSpinner } from "../../assets/images/compact-disc-yellow.svg";
+
 import "./LoadingStyles.scss";
 
 function Loading() {
   return (
     <div className="loader-wrapper">
-      <PulseLoader />
+      <RecordSpinner className="rotate component-loading-svg " />
     </div>
   );
 }
