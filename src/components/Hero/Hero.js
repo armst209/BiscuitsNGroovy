@@ -45,13 +45,13 @@ function Hero() {
                     </div>
                   </div>
                 </section>
-                <section className="hero-image-container">
-                  <img className="hero-image" src={hero_image} alt="hero" />
-                </section>
               </div>
             </div>
           </div>
         </div>
+        <section className="hero-image-container">
+          <img className="hero-image" src={hero_image} alt="hero" />
+        </section>
       </section>
     </>
   );

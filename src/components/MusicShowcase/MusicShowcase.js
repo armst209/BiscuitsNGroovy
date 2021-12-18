@@ -1,4 +1,5 @@
 import "./MusicShowcaseStyles.scss";
+
 import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";

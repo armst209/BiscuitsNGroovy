@@ -1,7 +1,7 @@
 import "../../MusicShowcase/MusicShowcaseStyles.scss";
 import ReleaseCard from "../Release/ReleaseCard/ReleaseCard";
-
-const ReleaseList = ({ releaseData, noReleaseDataComponent }) => {
+import { memo } from "react";
+const ReleaseList = memo(({ releaseData, noReleaseDataComponent }) => {
   return (
     //ONLY MAPS THROUGH RELEASE CARDS AND DISPLAYS THEM
     //displays different "NoReleases" component dependent on whats passed as noReleaseDataComponent prop
@@ -13,6 +13,6 @@ const ReleaseList = ({ releaseData, noReleaseDataComponent }) => {
           })}
     </>
   );
-};
+});
 
 export default ReleaseList;
