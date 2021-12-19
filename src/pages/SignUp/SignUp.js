@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUpStyles.scss";
-import FlowLoader from "../../components/Loading/Forms/FlowLoader";
-import LinkFlowButton from "./LinkFlowButton";
-//flow imports
-import { config } from "@onflow/fcl";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
+
+//flow imports
+import { config } from "@onflow/fcl";
+import Loading from "../../components/Loading/Loading";
+import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 
 //configure flow environment
 config()

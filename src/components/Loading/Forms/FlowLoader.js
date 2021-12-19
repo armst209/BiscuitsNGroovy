@@ -5,9 +5,7 @@ import "./FlowLoaderStyles.scss";
 const FlowLoader = () => {
   return (
     <div id="flow-loader">
-      <div>Getting Blocto ready</div>
-      <BloctoLogo />
-      <RecordSpinner className="rotation-forward" />
+      <RecordSpinner className="rotate" />
     </div>
   );
 };

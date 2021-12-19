@@ -150,9 +150,10 @@
             font-family: var(--secondary-font);
             font-weight: var(--secondary-font-weight);
             text-shadow: var(--container-box-shadow);
-
-            font-size: 1rem;
-
+            font-size: 1.1rem;
+            z-index: 100;
+            position: relative;
+            text-shadow: var(--container-box-shadow);
             color: white;
             margin-bottom: 1rem;
             text-align: center;

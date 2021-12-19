@@ -9,7 +9,7 @@ function ReleasePreview({
   setShowReleasePreview,
   showReleasePreview,
 }) {
-  const { name, title, description, art_url } = release;
+  const { name, title, description, art_url, price } = release;
 
   return (
     <section id="release-preview">
@@ -24,10 +24,11 @@ function ReleasePreview({
           <div className="release-preview-content">
             <div className="release-content-left">
               <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
-              <h1>
+              <h1 className="release-price">${price}</h1>
+              <h2>
                 {name} - {title}
-              </h1>
-              <div className="release-description">{description}</div>
+              </h2>
+              <div className="release-card-description">{description}</div>
               <div className="button-container">
                 <ReleaseButton release={release} />
               </div>

@@ -2,9 +2,12 @@ label {
   background-color: black;
   position: absolute;
   padding: 0 0.3rem;
+  z-index: 50;
+  left: 20px;
 }
 
-input {
+input,
+textarea {
   margin: 10px 0;
   background: var(--color-light);
   font-family: var(--header-font);
@@ -40,6 +43,10 @@ input {
   }
 }
 
+textarea {
+  min-height: 300px;
+  position: relative;
+}
 .input-styles {
   display: flex;
   flex-direction: column;
@@ -128,6 +135,20 @@ input {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  // position: absolute;
+  border-radius: 0.5rem;
+  background-color: #000;
+  padding: 1rem;
+  z-index: 100;
+
+  ul {
+    li {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+    }
+  }
 }
 .main-error-messages {
   display: flex;
@@ -159,27 +180,35 @@ input {
 }
 
 .artist-email-label {
-  left: 20px;
   top: 1px;
+}
+.artist-name-label {
+  top: 68px;
+}
+
+.artist-message-label {
+  top: 138px;
 }
 .username-label {
   top: 70px;
-  left: 20px;
 }
 .password-signup-label {
   top: 145px;
-  left: 20px;
+}
+.reset-password-label {
+  top: 0;
+}
+.reset-password-confirm-label {
+  top: 70px;
 }
 
 .user-email-label {
-  left: 20px;
   top: 1px;
   @media screen and (max-width: 400px) {
     top: 0;
   }
 }
 .email-label {
-  left: 20px;
   top: 1px;
   @media screen and (max-width: 400px) {
     top: 2px;
@@ -187,7 +216,6 @@ input {
 }
 .password-label {
   bottom: 50px;
-  left: 20px;
 
   @media screen and (max-width: 400px) {
     bottom: 50px;
