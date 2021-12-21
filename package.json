@@ -41,7 +41,7 @@
     "react-scripts": "4.0.3",
     "react-timer-hook": "^3.0.5",
     "react-transition-group": "^4.4.2",
-    "sass": "^1.42.1",
+    "sass": "^1.45.1",
     "source-map-explorer": "^2.5.2",
     "stripe": "^8.193.0",
     "surge": "^0.23.0",
