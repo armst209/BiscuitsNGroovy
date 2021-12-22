@@ -101,7 +101,6 @@ const LoginForm = () => {
 
   return (
     <form id="login-form" onSubmit={submit}>
-      <div className="error-message-main">{errorMessages}</div>
       <fieldset className="input-styles">
         <label
           id="username-label"
@@ -154,7 +153,6 @@ const LoginForm = () => {
           )}
         </div>
       </fieldset>
-
       <div className="login-btn-password">
         <div className="signin-button-container">
           <button className="signin-button-link" type="submit">
@@ -162,6 +160,7 @@ const LoginForm = () => {
           </button>
         </div>
       </div>
+      <div className="error-message-main">{errorMessages}</div>
     </form>
   );
 };

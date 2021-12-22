@@ -33,7 +33,6 @@ function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
       </button>
     );
   } else {
-    // return <SignUpForm setErrorMessages={setErrorMessages} />;
     return (
       <>
         <button onClick={submit} type="submit">

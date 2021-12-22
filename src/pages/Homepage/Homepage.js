@@ -5,8 +5,7 @@ import KnowYourCollection from "../../components/KnowYourCollection/KnowYourColl
 import Hero from "../../components/Hero/Hero";
 import AttentionSection from "../../components/AttentionSection/AttentionSection";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
-
-function Homepage() {
+const Homepage = () => {
   return (
     <>
       <FixedNavigationSpacer />
@@ -17,6 +16,6 @@ function Homepage() {
       <AttentionSection />
     </>
   );
-}
+};
 
 export default Homepage;
