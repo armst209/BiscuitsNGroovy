@@ -24,7 +24,7 @@ const SignUp = () => {
   return (
     <section id="signup">
       <FixedNavigationSpacer />
-      <h2>Sign up to start "enter message"</h2>
+      <h2>Sign up to start your collection</h2>
       <div className="error-message-main">{errorMessages}</div>
       <div className="signup-wrapper">
         <div className="signup-contents">

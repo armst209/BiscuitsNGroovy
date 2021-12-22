@@ -11,7 +11,7 @@ const NewsletterFormContainer = () => {
     <section id="subscribe">
       <h1>JOIN OUR NEWSLETTER</h1>
       <p className="newsletter-subtitle">
-        "blurb about why a user should subscribe"
+        Stay up to date on all things groovy
       </p>
       <LetterIcon className="mail-plus-icon" />
       <MailchimpSubscribe
