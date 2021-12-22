@@ -104,13 +104,17 @@
             align-items: center;
 
             &:after {
-              content: url("../../../assets/images/emailsend.svg");
+              content: "";
+              background-image: url("../../../assets/images/emailsend.svg");
+              background-size: 30px;
+              background-repeat: no-repeat;
+              display: inline-block;
+              width: 200px;
+              height: 30px;
               position: absolute;
               opacity: 0;
-              top: 1.5px;
-              bottom: 0;
-              width: 20px;
-              height: 20px;
+              left: 100px;
+              bottom: -4px;
               right: -60px;
               transition: 0.5s;
               filter: invert(79%) sepia(81%) saturate(486%) hue-rotate(4deg)
