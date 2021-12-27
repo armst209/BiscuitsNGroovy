@@ -4,6 +4,7 @@ import "./SignUpFormStyles.scss";
 import axios from "axios";
 import env from "react-dotenv";
 import validator from "validator";
+import "../../../customHooks/Validation/useValidationStyles.scss";
 
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 //Importing Flow Configuration

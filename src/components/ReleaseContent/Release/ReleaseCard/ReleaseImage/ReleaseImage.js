@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./ReleaseImageStyles.scss";
 
 const ReleaseImage = ({ releaseImageSrc, releaseAlt }) => {
   return (

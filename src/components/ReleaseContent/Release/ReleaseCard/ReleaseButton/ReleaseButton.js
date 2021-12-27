@@ -15,7 +15,7 @@ const ReleaseButton = ({ release }) => {
           //redirects to signup page
           <Link to="/signup">
             <button className="no-token-btn">
-              Buy Now
+              Sign In to Purchase
               <TokenMusicIcon />
             </button>
           </Link>

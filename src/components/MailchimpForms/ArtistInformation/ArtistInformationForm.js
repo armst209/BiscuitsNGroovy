@@ -43,9 +43,10 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
       setErrorMessage("");
     } else if (status === "error") {
       setArtistFormLoader(false);
+      setShowNewsletterArtistEmailValidationCheck(false);
       setEmailInputLoginClass("input-error");
       setErrorMessage(
-        <div className="form-error">{`${email} is already subscribed!`}</div>
+        <div className="form-error">{`${email} is already registered as an artist!`}</div>
       );
       setSuccessMessage("");
     } else if (status === "sending") {
@@ -177,7 +178,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
           required
           name="MERGE6"
         />
-        <button type="submit">Send Info</button>
+        <button type="submit">Submit Artist Info</button>
       </fieldset>
     </form>
   );
