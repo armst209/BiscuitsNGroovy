@@ -75,7 +75,6 @@ const LoginForm = () => {
       setLoginStatus(
         <>
           <span>Sign In</span>
-          {/* <SignInArrow /> */}
         </>
       );
 
@@ -113,6 +112,7 @@ const LoginForm = () => {
           <input
             className={userNameInputLoginClass}
             id="username"
+            value={userName}
             name="username"
             type="text"
             placeholder="Enter username"
@@ -140,6 +140,7 @@ const LoginForm = () => {
           <input
             className={passwordInputLoginClass}
             id="password"
+            value={password}
             name="login-password"
             type={passwordInputType}
             placeholder="Enter password"

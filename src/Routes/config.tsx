@@ -1,7 +1,6 @@
+import { ComponentType, lazy, LazyExoticComponent, ReactNode } from "react";
 
-import { ComponentType, lazy, LazyExoticComponent, ReactNode } from 'react';
-
-import Loading from '../components/Loading/Loading';
+import Loading from "../components/Loading/Loading";
 
 export interface IRoute {
   // Path, like in basic prop
@@ -24,10 +23,8 @@ export interface IRoute {
   credentials?: boolean;
   //If route has password reset functionality
   resetCredentials?: boolean;
-
 }
 const routes: IRoute[] = [
-
   {
     path: "/",
     component: lazy(() => import("../pages/Homepage/Homepage")),
@@ -43,7 +40,7 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     credentials: true,
-    fallback: <Loading />
+    fallback: <Loading />,
   },
   {
     path: "/signup",
@@ -52,7 +49,7 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     credentials: true,
-    fallback: <Loading />
+    fallback: <Loading />,
   },
   {
     path: "/about",
@@ -60,8 +57,7 @@ const routes: IRoute[] = [
     key: "ABOUT_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/faq",
@@ -69,8 +65,7 @@ const routes: IRoute[] = [
     key: "FAQ_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/artists",
@@ -78,45 +73,60 @@ const routes: IRoute[] = [
     key: "ARTISTS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
+    fallback: <Loading />,
+  },
+  {
+    path: "/artist/:artistName",
+    component: lazy(() => import("../pages/UniqueArtist/UniqueArtistPage")),
+    key: "UNIQUE_ARTIST_PAGE",
+    exact: true,
+    private: false,
+    fallback: <Loading />,
   },
 
   {
     path: "/collection",
-    component: lazy(() => import("../pages/Collection/OldCollection/Collection")),
+    component: lazy(
+      () => import("../pages/Collection/OldCollection/Collection")
+    ),
     key: "COLLECTION_PAGE",
     exact: true,
     private: true,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/collection/:id",
-    component: lazy(() => import("../components/ReleaseContent/Release/ReleaseCard/CardViews/AvailableRelease/Modal/AvailableReleaseModal")),
+    component: lazy(
+      () =>
+        import(
+          "../components/ReleaseContent/Release/ReleaseCard/CardViews/AvailableRelease/Modal/AvailableReleaseModal"
+        )
+    ),
     key: "ALBUM_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/password-recovery",
-    component: lazy(() => import("../pages/PasswordRecovery/UserEmail/UserEmail")),
+    component: lazy(
+      () => import("../pages/PasswordRecovery/UserEmail/UserEmail")
+    ),
     key: "PASSWORD_RECOVERY_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/password-recovery/reset/:userResetToken",
-    component: lazy(() => import("../pages/PasswordRecovery/PasswordReset/PasswordReset")),
+    component: lazy(
+      () => import("../pages/PasswordRecovery/PasswordReset/PasswordReset")
+    ),
     key: "NEW_PASSWORD_PAGE",
     exact: true,
     private: false,
     resetCredentials: true,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/purchase-success",
@@ -124,8 +134,7 @@ const routes: IRoute[] = [
     key: "PURCHASE_SUCCESS_PAGE",
     exact: true,
     private: true,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/privacy-terms-of-use",
@@ -134,16 +143,16 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     fallback: <Loading />,
-
   },
   {
     path: "/privacy-policy",
-    component: lazy(() => import("../pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")),
+    component: lazy(
+      () => import("../pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")
+    ),
     key: "PRIVACY_POLICY_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/subscriber-terms-of-service",
@@ -151,17 +160,17 @@ const routes: IRoute[] = [
     key: "SUBCRIBER_TERMS_OF_SERVICE_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/music-purchase-terms",
-    component: lazy(() => import("../pages/TermsOfService/Terms/PurchaseOfMusic")),
+    component: lazy(
+      () => import("../pages/TermsOfService/Terms/PurchaseOfMusic")
+    ),
     key: "MUSIC_PURCHASE_TERMS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
   {
     path: "/nft-terms",
@@ -169,11 +178,8 @@ const routes: IRoute[] = [
     key: "NFT_TERMS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />
-
+    fallback: <Loading />,
   },
- 
- 
 
   //Not Found Page - must be at the bottom
   {
@@ -182,9 +188,8 @@ const routes: IRoute[] = [
     key: "NOT_FOUND_PAGE",
     exact: false,
     private: false,
-    fallback: <Loading />
-  }
-
+    fallback: <Loading />,
+  },
 ];
 
 export default routes;

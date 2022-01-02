@@ -24,7 +24,6 @@ const PasswordResetForm = ({
   // const [errorMessage, setErrorMessage] = useState("");
   // const [errorMessageModal, setErrorMessageModal] = useState(false);
 
-  console.log(userResetToken);
   const submit = (event) => {
     event.preventDefault();
 
