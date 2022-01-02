@@ -5,6 +5,7 @@ import useFetch from "../../customHooks/Fetch/useAxiosFetch";
 import UniqueArtistReleaseInfo from "./UniqueArtistReleaseInfo";
 
 const UniqueArtistPage = () => {
+  // purchased release boolean
   //TOKEN
   let token = localStorage.getItem("token");
   let { artistName } = useParams();
@@ -20,6 +21,7 @@ const UniqueArtistPage = () => {
     <section>
       {isLoading && <ComponentLoading />}
       {release && <UniqueArtistReleaseInfo releaseData={release} />}
+      {/* if purchased release or not - can buy button/no button */}
     </section>
   );
 };

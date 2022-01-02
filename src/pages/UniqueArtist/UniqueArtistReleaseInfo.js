@@ -22,6 +22,9 @@ const UniqueArtistReleaseInfo = ({ release }) => {
                 {release.description}
               </div>
               <div className="button-container">
+                {/* based on boolean can or cant but release
+                if boolean do something */}
+
                 <ReleaseButton release={release} />
               </div>
             </div>
