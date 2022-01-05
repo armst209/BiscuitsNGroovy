@@ -195,6 +195,14 @@
                 height: 150px;
               }
 
+              .collect-and-share-content {
+                @media screen and (max-width: 500px) {
+                  font-size: 0.9rem;
+                }
+                @media screen and (max-width: 375px) {
+                  font-size: 0.8rem;
+                }
+              }
               div {
                 text-align: center;
                 font-size: 1.1rem;
