@@ -7,6 +7,7 @@ import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";
 
 function Collection() {
+  //TOKEN
   let token = localStorage.getItem("token");
 
   const {
@@ -25,14 +26,8 @@ function Collection() {
           <div>COLLECTION</div>
         </h1>
       </div>
-      {/* <div className="collection-play-info-container">
-        <InfoQuestion />
-        <div>Why can't I play songs in my collection?</div>
-      </div> */}
+
       <div className="collection-nav-grid">
-        {/* <div className="collection-navigation">
-          <CollectionNavigation />
-        </div> */}
         <div className="collection-container">
           <div className="collection-library-grid-wrapper">
             <div className="collection-library-grid">

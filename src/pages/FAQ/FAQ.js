@@ -14,7 +14,7 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
 //useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
 
-function FAQ() {
+const FAQ = () => {
   const [showAnswer1, setShowAnswer1] = useState(false);
   const [showAnswer2, setShowAnswer2] = useState(false);
   const [showAnswer3, setShowAnswer3] = useState(false);
@@ -660,6 +660,6 @@ function FAQ() {
       </section>
     </>
   );
-}
+};
 
 export default FAQ;

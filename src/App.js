@@ -12,7 +12,7 @@ import Router from "./Routes/Router.tsx";
 //for social media icons
 import "@fortawesome/fontawesome-free/js/all";
 //Scroll To Top
-import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget";
+// import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget";
 
 //Fixed Navigation Spacer
 //import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";

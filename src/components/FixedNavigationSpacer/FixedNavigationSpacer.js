@@ -1,6 +1,13 @@
-import "./FixedNavigationSpacerStyles.scss";
+import styled from "styled-components";
+
+const Spacer = styled.div`
+  display: block;
+  height: 70px;
+  width: 100%;
+`;
+
 const FixedNavigationSpacer = () => {
-  return <div id="nav-spacer"></div>;
+  return <Spacer></Spacer>;
 };
 
 export default FixedNavigationSpacer;
