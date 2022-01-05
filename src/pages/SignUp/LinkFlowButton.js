@@ -35,9 +35,7 @@ function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
   } else {
     return (
       <>
-        <button onClick={submit} type="submit">
-          Create Account
-        </button>
+        <button type="submit">Create Account</button>
         <div className="link-diff-account">
           <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
         </div>

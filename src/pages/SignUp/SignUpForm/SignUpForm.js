@@ -217,7 +217,7 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
 
   return (
     <>
-      <form>
+      <form onSubmit={submit}>
         <fieldset className="input-styles">
           <label className="label-error-message email-label" htmlFor="email">
             {emailErrorMessage}
@@ -262,22 +262,22 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             onBlur={signupFormValidation}
             required
           />
-          <label
+          {/* <label
             className="label-error-message confirm-password-label"
             htmlFor="confirm-passowrd"
           >
             {confirmPasswordErrorMessage}
-          </label>
-          <input
+          </label> */}
+          {/* <input
             className={confirmPasswordInputLoginClass}
             id="confirm-password"
             type="password"
             name="confirm-password"
             autoComplete="off"
-            onBlur={signupFormValidation}
+            onChange={signupFormValidation}
             required
-          />
-          <div className="signup-checkbox-container">
+          /> */}
+          {/* <div className="signup-checkbox-container">
             <label
               className="label-error-message terms-check-label"
               htmlFor="terms-check"
@@ -291,13 +291,13 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
               id="terms-check"
               type="checkbox"
               autoComplete="off"
-              onBlur={signupFormValidation}
+              // onBlur={signupFormValidation}
               required
             />
-          </div>
+          </div> */}
         </fieldset>
         <LinkFlowButton
-          submit={submit}
+          // submit={submit}
           setShowFlowButtonLoader={setShowFlowButtonLoader}
         />
       </form>
