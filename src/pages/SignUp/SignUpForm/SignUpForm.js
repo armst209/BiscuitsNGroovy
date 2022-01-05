@@ -296,11 +296,11 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             />
           </div>
         </fieldset>
+        <LinkFlowButton
+          submit={submit}
+          setShowFlowButtonLoader={setShowFlowButtonLoader}
+        />
       </form>
-      <LinkFlowButton
-        submit={submit}
-        setShowFlowButtonLoader={setShowFlowButtonLoader}
-      />
     </>
   );
 };
