@@ -1,7 +1,7 @@
 import { ReactComponent as SettingsHamburgerIcon } from "../../../assets/images/settings.svg";
 
 import { motion } from "framer-motion";
-import MainHeaderLogoMobile from "../../../assets/images/bng_logo.png";
+import MainHeaderLogoMobile from "../../../assets/images/bng-main-logo.jpg";
 import "./MobileNavigationStyles.scss";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";

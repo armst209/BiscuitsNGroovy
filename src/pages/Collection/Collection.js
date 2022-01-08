@@ -5,8 +5,11 @@ import ComponentLoading from "../../components/Loading/Component/ComponentLoadin
 import useFetch from "../../customHooks/Fetch/useFetch";
 import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList";
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";
+import CollectionReleaseList from "../../components/ReleaseContent/ReleaseList/CollectionReleaseList/CollectionReleaseList";
+import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 function Collection() {
+  //TOKEN
   let token = localStorage.getItem("token");
 
   const {
@@ -18,40 +21,37 @@ function Collection() {
   });
 
   return (
-    <section id="collection">
-      <div className="collection-title">
-        <h1>
-          <RecordVinyl width="50px" />
-          <div>COLLECTION</div>
-        </h1>
-      </div>
-      {/* <div className="collection-play-info-container">
-        <InfoQuestion />
-        <div>Why can't I play songs in my collection?</div>
-      </div> */}
-      <div className="collection-nav-grid">
-        {/* <div className="collection-navigation">
-          <CollectionNavigation />
-        </div> */}
-        <div className="collection-container">
-          <div className="collection-library-grid-wrapper">
-            <div className="collection-library-grid">
-              {isLoading && <ComponentLoading />}
-              {errorMessage === null ? (
-                releaseData && (
-                  <ReleaseList
-                    releaseData={releaseData.library}
-                    noReleaseDataComponent={<NoReleasesCollection />}
-                  />
-                )
-              ) : (
-                <div>{errorMessage}</div>
-              )}
+    <>
+      <FixedNavigationSpacer />
+      <section id="collection">
+        <div className="collection-title">
+          <h1>
+            <RecordVinyl width="50px" />
+            <div>COLLECTION</div>
+          </h1>
+        </div>
+
+        <div className="collection-nav-grid">
+          <div className="collection-container">
+            <div className="collection-library-grid-wrapper">
+              <div className="collection-library-grid">
+                {isLoading && <ComponentLoading />}
+                {errorMessage === null ? (
+                  releaseData && (
+                    <CollectionReleaseList
+                      releaseData={releaseData.library}
+                      noReleaseDataComponent={<NoReleasesCollection />}
+                    />
+                  )
+                ) : (
+                  <div>{errorMessage}</div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

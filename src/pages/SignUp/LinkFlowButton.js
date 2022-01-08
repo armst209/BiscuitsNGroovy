@@ -3,8 +3,13 @@ import { useState } from "react";
 import { initAccount, accountIsInitialized } from "../../utils/flow";
 import * as fcl from "@onflow/fcl";
 import "./LinkFlowButtonStyles.scss";
+import SignUpForm from "./SignUpForm/SignUpForm";
 
-function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
+function LinkFlowButton({
+  formSubmitFunction,
+  setShowFlowButtonLoader,
+  setErrorMessages,
+}) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
     if (isInitialized === true) {
@@ -33,12 +38,9 @@ function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
       </button>
     );
   } else {
-    // return <SignUpForm setErrorMessages={setErrorMessages} />;
     return (
       <>
-        <button onClick={submit} type="submit">
-          Create Account
-        </button>
+        <SignUpForm setErrorMessages={setErrorMessages} />
         <div className="link-diff-account">
           <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
         </div>

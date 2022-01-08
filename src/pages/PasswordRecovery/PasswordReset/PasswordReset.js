@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./PasswordResetStyles.scss";
-
+import "../../../customHooks/Validation/useValidationStyles.scss";
 import PasswordResetForm from "./PasswordResetForm";
 import PasswordRecoverySuccessModal from "../Modals/PasswordRecoverySuccessModal";
 
@@ -11,7 +11,7 @@ const PasswordReset = () => {
   return (
     <section id="password-recovery">
       <div className="password-recovery-title">
-        <h1>PASSWORD RECOVERY</h1>
+        <h1>PASSWORD RESET</h1>
       </div>
 
       <PasswordResetForm

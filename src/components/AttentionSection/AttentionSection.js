@@ -1,5 +1,5 @@
 import "./AttentionSectionStyles.scss";
-import reminder_image from "../../assets/images/subscribe.webp";
+import reminder_image from "../../assets/images/subscribe-outline.webp";
 import NewsletterFormContainer from "../MailchimpForms/NewsLetterSubscribe/NewsletterFormContainer";
 import ArtistReminder from "./ArtistReminder/ArtistReminder";
 

@@ -31,18 +31,22 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
   useEffect(() => {
     if (status === "success") {
       setArtistFormLoader(false);
-      clearFields();
       setShowNewsletterArtistEmailValidationCheck(false);
+      clearFields();
       setSuccessMessage(
-        <div className="form-success">Success! Thank you for subscribing!</div>
+        <div className="form-success">
+          Success! Someone from our team will be reaching out to you shortly!
+          Thank you!
+        </div>
       );
       setEmailInputLoginClass("");
       setErrorMessage("");
     } else if (status === "error") {
       setArtistFormLoader(false);
+      setShowNewsletterArtistEmailValidationCheck(false);
       setEmailInputLoginClass("input-error");
       setErrorMessage(
-        <div className="form-error">{`${email} is already subscribed!`}</div>
+        <div className="form-error">{`${email} is already registered as an artist!`}</div>
       );
       setSuccessMessage("");
     } else if (status === "sending") {
@@ -64,19 +68,19 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
     e.preventDefault(e);
 
     artistName &&
-      artistPrefName &&
-      artistPhone &&
-      managerName &&
-      managerEmail &&
+      // artistPrefName &&
+      // artistPhone &&
+      // managerName &&
+      // managerEmail &&
       artistMessage &&
       email &&
       onValidated({
         MERGE0: email,
         MERGE1: artistName,
-        MERGE2: artistPrefName,
-        MERGE3: artistPhone,
-        MERGE4: managerName,
-        MERGE5: managerEmail,
+        // MERGE2: artistPrefName,
+        // MERGE3: artistPhone,
+        // MERGE4: managerName,
+        // MERGE5: managerEmail,
         MERGE6: artistMessage,
       });
   };
@@ -108,8 +112,14 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
         {showNewsletterArtistEmailValidationCheck && (
           <ValidationSuccess className="valid-check-icon email-check" />
         )}
+        <label
+          className="label-error-message artist-name-label"
+          htmlFor="artist-name"
+        >
+          Artist Name
+        </label>
         <input
-          label="Artist Name"
+          id="artist-name"
           onChange={(e) => setArtistName(e.target.value)}
           type="text"
           value={artistName}
@@ -118,18 +128,18 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
           name="MERGE1"
         />
         <input
+          id="artist-name"
           label="Artist Preferred Name"
-          onChange={(e) => setArtistPrefName(e.target.value)}
-          type="text"
+          onChange={(e) => setArtistPrefName((e.target.value = "nodata"))}
+          type="hidden"
           value={artistPrefName}
           placeholder="Preferred Name"
           name="MERGE2"
         />
-
         <input
           label="Phone Number"
           onChange={(e) => setArtistPhone(e.target.value)}
-          type="tel"
+          type="hidden"
           value={artistPhone}
           placeholder="Ex: 111-111-1111"
           required
@@ -138,7 +148,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
         <input
           label="Manager/Agent Name"
           onChange={(e) => setManagerName(e.target.value)}
-          type="text"
+          type="hidden"
           value={managerName}
           placeholder="Manager/Agent Name"
           required
@@ -147,14 +157,20 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
         <input
           label="Manager/Agent Email"
           onChange={(e) => setManagerEmail(e.target.value)}
-          type="email"
+          type="hidden"
           value={managerEmail}
           placeholder="Ex: manageragent@email.com"
           required
           name="MERGE5"
         />
-        <input
-          label="Enter a message:"
+        <label
+          className="label-error-message artist-message-label"
+          htmlFor="artist-message"
+        >
+          Enter a message:
+        </label>
+        <textarea
+          id="artist-message"
           onChange={(e) => setArtistMessage(e.target.value)}
           type="text"
           value={artistMessage}
@@ -162,8 +178,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
           required
           name="MERGE6"
         />
-
-        <button>Submit</button>
+        <button type="submit">Submit Artist Info</button>
       </fieldset>
     </form>
   );

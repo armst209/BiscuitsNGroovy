@@ -19,8 +19,9 @@
   }
 
   .newsletter-subtitle {
-    font-family: var(--secondary-font);
-    font-weight: var(--secondary-font-weight);
+    font-family: var(--header-font);
+
+    color: var(--color1);
     text-align: center;
   }
   .form-loader {

@@ -1,8 +1,9 @@
 import "./MusicShowcaseStyles.scss";
+
 import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
-import showcase from "../../assets/images/showcase_mobile.webp";
+import showcase from "../../assets/images/showcase-outline.webp";
 import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseList/NoReleases/NoReleasesMusicShowcase";
 import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
 

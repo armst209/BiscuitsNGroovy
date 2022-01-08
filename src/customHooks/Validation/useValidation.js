@@ -28,6 +28,10 @@ const useValidation = () => {
     useState(false);
   const [showPasswordValidationCheck, setShowPasswordValidationCheck] =
     useState(false);
+  const [
+    showConfirmPasswordValidationCheck,
+    setShowConfirmPasswordValidationCheck,
+  ] = useState(false);
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
   const [
@@ -120,7 +124,7 @@ const useValidation = () => {
             </>
           );
           setErrorMessages(
-            <ul>
+            <ul className="password-strength-errors">
               <li>
                 <Warning className="warning-icon" />
                 <div className="error-message-text">
@@ -179,10 +183,14 @@ const useValidation = () => {
         break;
       case "confirm-password":
         setConfirmPassword(value);
-        if (password === confirmPassword && confirmPassword.length !== 0) {
+        console.log(confirmPassword);
+        console.log(password);
+        if (password.trim() === confirmPassword.trim()) {
           setConfirmPasswordErrorMessage("Confirm Password");
+          setShowConfirmPasswordValidationCheck(true);
           setConfirmPasswordInputLoginClass("input-success");
         } else {
+          setShowConfirmPasswordValidationCheck(false);
           setConfirmPasswordErrorMessage(
             <>
               <Warning className="warning-icon" />
@@ -198,7 +206,7 @@ const useValidation = () => {
         }
 
         break;
-
+      //case for mailchimp email
       case "MERGE0":
         setEmail(value);
         if (validator.isEmail(value)) {

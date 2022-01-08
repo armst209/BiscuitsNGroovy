@@ -7,17 +7,15 @@ const MusicPlayerContainer = ({ release }) => {
   const [populateTracklist, setPopulateTracklist] = useState();
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
   return (
-    <>
-      <MusicPlayer
-        release={release}
-        currentMusicIndex={currentMusicIndex}
-        setCurrentMusicIndex={setCurrentMusicIndex}
-        showTrackList={showTrackList}
-        setShowTrackList={setShowTrackList}
-        selectedTrack={selectedTrack}
-        setSelectedTrack={setSelectedTrack}
-      />
-    </>
+    <MusicPlayer
+      release={release}
+      currentMusicIndex={currentMusicIndex}
+      setCurrentMusicIndex={setCurrentMusicIndex}
+      showTrackList={showTrackList}
+      setShowTrackList={setShowTrackList}
+      selectedTrack={selectedTrack}
+      setSelectedTrack={setSelectedTrack}
+    />
   );
 };
 

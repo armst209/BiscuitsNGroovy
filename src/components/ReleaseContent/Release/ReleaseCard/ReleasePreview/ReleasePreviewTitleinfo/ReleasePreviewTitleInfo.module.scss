@@ -1,0 +1,14 @@
+.release-preview-title-info-price {
+  color: var(--color1);
+  padding-top: 0.5rem;
+}
+
+.release-preview-title-info-description {
+  font-size: 0.9rem;
+  font-family: var(--secondary-font) !important;
+  font-family: var(--secondary-font-weight);
+  padding: 0.5rem;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+}

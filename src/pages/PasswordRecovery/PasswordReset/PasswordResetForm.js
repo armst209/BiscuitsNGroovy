@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./PasswordResetFormStyles.scss";
+import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
+import useValidation from "../../../customHooks/Validation/useValidation";
 
 import axios from "axios";
 
@@ -8,12 +9,21 @@ const PasswordResetForm = ({
   passwordResetSuccessModal,
   setPasswordResetSuccessModal,
 }) => {
+  const {
+    password,
+    passwordErrorMessage,
+    passwordInputLoginClass,
+    confirmPasswordInputLoginClass,
+    confirmPasswordErrorMessage,
+    errorMessages,
+    setErrorMessages,
+    inputValidation,
+  } = useValidation();
   let { userResetToken } = useParams();
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [errorMessageModal, setErrorMessageModal] = useState(false);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  console.log(userResetToken);
+  // const [password, setPassword] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
+  // const [errorMessageModal, setErrorMessageModal] = useState(false);
+
   const submit = (event) => {
     event.preventDefault();
 
@@ -27,20 +37,28 @@ const PasswordResetForm = ({
     const handleFailure = (error) => {
       console.log(error);
 
-      if (error.response) {
-        let errorType = error.response.status;
-        console.log(error.response);
-        switch (errorType) {
-          case 422:
-            setErrorMessage(error.response.data);
-            break;
-          case 500:
-            setErrorMessage(error.response.data);
-            break;
-          default:
-            setErrorMessage(error.response.data);
-            break;
-        }
+      if (error) {
+        setErrorMessages(
+          <div className="main-error-messages">
+            <Warning className="warning-icon" />
+            <div className="error-message-text-main">
+              Please fill out form with correct information
+            </div>
+          </div>
+        );
+        // let errorType = error.response.status;
+        // console.log(error.response);
+        // switch (errorType) {
+        //   case 422:
+        //     setErrorMessages(error.response.data);
+        //     break;
+        //   case 500:
+        //     setErrorMessages(error.response.data);
+        //     break;
+        //   default:
+        //     setErrorMessages(error.response.data);
+        //     break;
+        // }
       }
     };
 
@@ -64,42 +82,46 @@ const PasswordResetForm = ({
     <section id="pass-recovery">
       <div className="pass-recovery-wrapper">
         <form onSubmit={submit}>
-          <label htmlFor="new-pass">Enter new password:</label>
-          <input
-            name="password"
-            type="password"
-            required
-            autoComplete="off"
-            placeholder="Enter new password"
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
-          <input
-            name="confirmpassword"
-            type="password"
-            required
-            autoComplete="off"
-            placeholder="Confirm New Password"
-            onKeyUp={(event) => {
-              if (event.target.value !== password) {
-                setErrorMessageModal(true);
-                setErrorMessage("Passwords do not match");
-                setButtonDisabled(true);
-              } else {
-                setErrorMessageModal(false);
-                setErrorMessage("");
-                setButtonDisabled(false);
-              }
-            }}
-          />
-          <button disabled={buttonDisabled}>Submit</button>
+          <fieldset className="input-styles">
+            <label
+              className="label-error-message reset-password-label"
+              htmlFor="reset-password"
+            >
+              {passwordErrorMessage}
+            </label>
+            <input
+              className={passwordInputLoginClass}
+              id="reset-password"
+              name="password"
+              type="password"
+              required
+              autoComplete="off"
+              placeholder="Enter new password"
+              onBlur={inputValidation}
+            />
+            <label
+              className="label-error-message reset-password-confirm-label"
+              htmlFor="reset-password-confirm"
+            >
+              {confirmPasswordErrorMessage}
+            </label>
+            <input
+              className={confirmPasswordInputLoginClass}
+              id="reset-password-confirm"
+              name="confirm-password"
+              type="password"
+              required
+              autoComplete="off"
+              placeholder="Confirm New Password"
+              onChange={inputValidation}
+            />
+            <button>Reset Password</button>
+          </fieldset>
+          <div className="error-message-main">{errorMessages}</div>
         </form>
+
         <ul className="pass-recovery-container-desktop"></ul>
       </div>
-      {errorMessageModal && (
-        <div className="error-messages">{errorMessage}</div>
-      )}
     </section>
   );
 };

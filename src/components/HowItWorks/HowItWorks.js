@@ -77,7 +77,7 @@ function HowItWorks() {
                 </div>
 
                 <div className="content">
-                  <div>
+                  <div className="collect-and-share-content">
                     With each release you collect a limited-edition digital
                     album cover NFT. Stored on the blockchain, these assets let
                     you own a permanent piece of music history and{" "}

@@ -17,6 +17,8 @@
     button {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       width: 100%;
       cursor: pointer;
@@ -28,11 +30,12 @@
         transition: 0.2s ease;
         transform: scale(1.1);
       }
-      img {
+      svg {
         width: 100px;
       }
       .release-hover-name {
-        width: 100%;
+        width: 250px;
+        font-family: var(--header-font);
         font-size: 1rem;
       }
     }

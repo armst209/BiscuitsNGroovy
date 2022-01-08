@@ -14,10 +14,10 @@ $rhap_font-family: inherit !default;
   padding: 10px 15px;
 
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
-  border: 5px solid var(--color2);
+  border: 2px solid var(--color2);
   border-radius: 20px;
   background: black;
-  font-family: var(--font1);
+  font-family: var(--header-font);
   color: white;
   text-align: center;
   @media screen and(max-width:400px) {

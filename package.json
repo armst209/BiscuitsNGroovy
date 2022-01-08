@@ -75,6 +75,7 @@
   },
   "devDependencies": {
     "@types/react-mailchimp-subscribe": "^2.1.1",
+    "@types/styled-components": "^5.1.19",
     "@types/validator": "^13.7.0",
     "serve": "^12.0.1"
   },
@@ -86,7 +87,8 @@
       "BACKEND_URL",
       "FRONTEND_URL",
       "MAILCHIMP_URL",
-      "STRIPE_API_KEY"
+      "STRIPE_API_KEY",
+      "ENV"
     ]
   }
 }

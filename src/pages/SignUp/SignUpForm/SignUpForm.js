@@ -4,12 +4,13 @@ import "./SignUpFormStyles.scss";
 import axios from "axios";
 import env from "react-dotenv";
 import validator from "validator";
+import "../../../customHooks/Validation/useValidationStyles.scss";
 
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
+import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
-import LinkFlowButton from "../LinkFlowButton";
 
 //configure flow environment
 config()
@@ -32,6 +33,11 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
   const [userNameInputLoginClass, setUserNameInputLoginClass] = useState("");
   const [confirmPasswordInputLoginClass, setConfirmPasswordInputLoginClass] =
     useState("");
+
+  const [showUserNameValidationCheck, setShowUserNameValidationCheck] =
+    useState(false);
+  const [showPasswordValidationCheck, setShowPasswordValidationCheck] =
+    useState(false);
 
   const signupFormValidation = (event) => {
     let { name, value } = event.target;
@@ -56,9 +62,11 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
         setUserName(value);
         if (validator.isLength(value, { min: 7, max: 20 })) {
           setUserNameInputLoginClass("input-success");
+          setShowUserNameValidationCheck(true);
           setUserNameErrorMessage("Username");
         } else {
           setUserNameInputLoginClass("input-error");
+          setShowUserNameValidationCheck(false);
           setUserNameErrorMessage(
             <>
               <Warning className="warning-icon" />
@@ -88,6 +96,7 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             pointsForContainingSymbol: 10,
           })
         ) {
+          setShowPasswordValidationCheck(false);
           setPasswordInputLoginClass("input-error");
           setPasswordErrorMessage(
             <>
@@ -133,13 +142,19 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
           );
         } else {
           setPasswordInputLoginClass("input-success");
+          setShowPasswordValidationCheck(true);
           setPasswordErrorMessage("Password");
           setErrorMessages("");
         }
         break;
       case "confirm-password":
         setConfirmPassword(value);
-        if (password === confirmPassword && confirmPassword.length !== 0) {
+        console.log(password);
+        console.log(confirmPassword);
+        if (
+          confirmPassword.trim() === password.trim() &&
+          confirmPassword.length > 0
+        ) {
           setConfirmPasswordErrorMessage("Confirm Password");
           setConfirmPasswordInputLoginClass("input-success");
         } else {
@@ -167,7 +182,7 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
   const handleSignUp = (res) => {
     //fires after blocto account is set up
     localStorage.setItem("token", res.data.token);
-    window.location.replace(env.FRONTEND_URL + "/");
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/");
   };
   const submit = async function (event) {
     event.preventDefault();
@@ -208,6 +223,7 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
               break;
             default:
               console.log("undefined error");
+              setErrorMessages(error);
               break;
           }
         }
@@ -215,92 +231,98 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
   };
 
   return (
-    <>
-      <form>
-        <fieldset className="input-styles">
-          <label className="label-error-message email-label" htmlFor="email">
-            {emailErrorMessage}
-          </label>
-          <input
-            className={emailInputLoginClass}
-            id="email"
-            type="email"
-            name="email"
-            autoComplete="email"
-            onBlur={signupFormValidation}
-            required
-          />
-          <label
-            className="label-error-message username-label"
-            htmlFor="username"
-          >
-            {userNameErrorMessage}
-          </label>
-          <input
-            className={userNameInputLoginClass}
-            id="username"
-            type="text"
-            name="username"
-            autoComplete="username"
-            onBlur={signupFormValidation}
-            required
-          />
+    <form>
+      <div className="input-styles">
+        <label className="label-error-message email-label" htmlFor="email">
+          {emailErrorMessage}
+        </label>
+        <input
+          className={emailInputLoginClass}
+          id="email"
+          type="email"
+          name="email"
+          autoComplete="email"
+          onBlur={signupFormValidation}
+          required
+        />
 
-          <label
-            className="label-error-message password-signup-label"
-            htmlFor="password"
-          >
-            {passwordErrorMessage}
-          </label>
-          <input
-            className={passwordInputLoginClass}
-            id="password"
-            type="password"
-            name="password"
-            autoComplete="off"
-            onBlur={signupFormValidation}
-            required
-          />
-          <label
+        <label
+          className="label-error-message username-label"
+          htmlFor="username"
+        >
+          {userNameErrorMessage}
+        </label>
+        <input
+          className={userNameInputLoginClass}
+          id="username"
+          type="text"
+          name="username"
+          autoComplete="username"
+          onBlur={signupFormValidation}
+          required
+        />
+        {/* check icon */}
+        {showUserNameValidationCheck && (
+          <ValidationSuccess className="valid-check-icon password-check" />
+        )}
+
+        <label
+          className="label-error-message password-signup-label"
+          htmlFor="password"
+        >
+          {passwordErrorMessage}
+        </label>
+        <input
+          value={password}
+          className={passwordInputLoginClass}
+          id="password"
+          type="password"
+          name="password"
+          autoComplete="off"
+          onChange={signupFormValidation}
+          required
+        />
+        {/* check icon */}
+        {showPasswordValidationCheck && (
+          <ValidationSuccess className="valid-check-icon password-check" />
+        )}
+        {/* <label
             className="label-error-message confirm-password-label"
             htmlFor="confirm-passowrd"
           >
             {confirmPasswordErrorMessage}
           </label>
           <input
+            value={confirmPassword}
             className={confirmPasswordInputLoginClass}
             id="confirm-password"
             type="password"
             name="confirm-password"
             autoComplete="off"
-            onBlur={signupFormValidation}
+            onChange={signupFormValidation}
+            required
+          /> */}
+        <div className="signup-checkbox-container">
+          <label
+            className="label-error-message terms-check-label"
+            htmlFor="terms-check"
+          >
+            I have read and agree to the
+            <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
+          </label>
+          <input
+            className="signup-checkbox"
+            name="terms-check"
+            id="terms-check"
+            type="checkbox"
+            autoComplete="off"
+            // onBlur={signupFormValidation}
             required
           />
-          <div className="signup-checkbox-container">
-            <label
-              className="label-error-message terms-check-label"
-              htmlFor="terms-check"
-            >
-              I have read and agree to the
-              <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
-            </label>
-            <input
-              className="signup-checkbox"
-              name="terms-check"
-              id="terms-check"
-              type="checkbox"
-              autoComplete="off"
-              onBlur={signupFormValidation}
-              required
-            />
-          </div>
-        </fieldset>
-      </form>
-      <LinkFlowButton
-        submit={submit}
-        setShowFlowButtonLoader={setShowFlowButtonLoader}
-      />
-    </>
+        </div>
+      </div>
+      <button type="submit">Create Account</button>
+    </form>
   );
 };
 

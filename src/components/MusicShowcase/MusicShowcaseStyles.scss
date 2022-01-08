@@ -93,7 +93,7 @@
     .music-showcase-content-wrapper {
       display: flex;
       flex-direction: row;
-      justify-content: left;
+      justify-content: center;
       width: 100%;
       height: auto;
       position: relative;
@@ -110,7 +110,7 @@
         }
       }
       .music-showcase-grid {
-        width: 100%;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -118,7 +118,7 @@
         gap: 1rem;
         padding: 1rem;
         box-shadow: var(--container-box-shadow);
-        border: 2px solid var(--color2);
+        // border: 2px solid var(--color2);
         border-radius: 20px;
         height: auto;
 

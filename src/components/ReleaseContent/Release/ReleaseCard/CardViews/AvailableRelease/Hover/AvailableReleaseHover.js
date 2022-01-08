@@ -1,13 +1,22 @@
-import "./AvailableReleaseHoverStyles.scss";
-import { ReactComponent as PlayButton } from "../../../../../../../assets/images/play-button.svg";
+import { Link } from "react-router-dom";
+
+//styles
+import styles from "./AvailableReleaseHover.module.scss";
+import { ReactComponent as PlayButtonIcon } from "../../../../../../../assets/images/play-button.svg";
 
 function AvailableReleaseHover({ release }) {
   return (
-    <div id="available-release-hover">
-      <div className="available-release-hover-wrapper">
-        <button onClick={() => {}}>
-          <PlayButton />
-          <div className="available-release-hover-title">{release.title}</div>
+    <div id={styles["available-release-hover"]}>
+      <div className={styles["available-release-hover-wrapper"]}>
+        <button>
+          {/* Link to unique link */}
+          <Link to="/">
+            <PlayButtonIcon />
+          </Link>
+
+          <div className={styles["available-release-hover-title"]}>
+            {release.title}
+          </div>
         </button>
       </div>
     </div>

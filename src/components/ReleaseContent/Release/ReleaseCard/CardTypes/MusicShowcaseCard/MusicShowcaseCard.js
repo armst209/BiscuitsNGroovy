@@ -6,6 +6,7 @@ import ReleasePreview from "../../ReleasePreview/ReleasePreview";
 const MusicShowcaseCard = ({ release }) => {
   const [showReleasePreview, setShowReleasePreview] = useState(false);
   const { name, art_url } = release;
+  
   return (
     <>
       <div

@@ -1,0 +1,138 @@
+//using BEM
+
+#artist-reminder {
+  position: relative;
+  font-family: var(--font1);
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  border: 2px solid var(--color2);
+  border-radius: 0.5rem;
+
+  .artist_reminder__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 1140px) {
+      height: auto;
+    }
+
+    .artist_reminder__inner_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .artist_reminder__message {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+        letter-spacing: 0.5px;
+
+        .artist_reminder__header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .artist_reminder__img {
+            width: 70px;
+            bottom: 0;
+            right: 0;
+            padding: 5px;
+            @media screen and (max-width: 400px) {
+              display: none;
+            }
+          }
+          .artist_reminder__right_speaker {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+          }
+        }
+
+        .artist_reminder__h1 {
+          font-size: 2rem;
+          text-align: center;
+          font-family: var(--header-font);
+          letter-spacing: 0.05cm;
+          font-weight: normal;
+          @media screen and (max-width: 500px) {
+            font-size: 1.5rem;
+          }
+          @media screen and (max-width: 285px) {
+            font-size: 1.3rem;
+          }
+        }
+
+        .artist_reminder__tired_container {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+          padding: 2rem 0 1rem 0;
+          font-size: 1.3rem;
+          letter-spacing: 0.01cm;
+          font-weight: normal;
+          font-family: var(--header-font);
+          @media screen and (max-width: 400px) {
+            font-size: 1rem;
+          }
+          .artist_reminder__tired_header {
+            @media screen and (max-width: 400px) {
+              font-size: 1rem;
+            }
+
+            color: var(--color1);
+            font-size: 1.4rem;
+          }
+          .artist_reminder__tired_message {
+            font-family: var(--secondary-font);
+            font-weight: var(--secondary-font-weight);
+            color: white;
+            font-size: 1rem;
+            max-width: 400px;
+            padding: 1rem 0 2rem 0;
+          }
+        }
+
+        .artist_reminder__link {
+          width: 100%;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:visited {
+            color: white;
+          }
+          button {
+            border: 2px solid var(--color1);
+            background: transparent;
+            border-radius: 0.5rem;
+            width: 200px;
+            height: 70px;
+            font-family: var(--header-font);
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            position: relative;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
