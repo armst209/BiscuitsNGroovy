@@ -4,18 +4,22 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 9999999;
+  z-index: 9999999999;
   background: rgba(0, 0, 0, 0.774);
 
-  .stripe-container {
+  .stripe-loader-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: var(--font1);
-    border: 5px solid var(--color2);
+    border: 2px solid var(--color2);
     background: black;
     width: 400px;
     height: 400px;
@@ -31,12 +35,14 @@
       height: 250px;
       padding: 0;
     }
-    .message {
+
+    .stripe-loader-message-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      p {
-        font-size: 1.5rem;
+      font-family: var(--header-font);
+      .stripe-loader-message {
+        font-size: 2rem;
         color: white;
         width: 100%;
         padding: 0.8rem;
@@ -47,8 +53,8 @@
       }
     }
 
-    img {
-      width: auto;
+    svg {
+      width: 20%;
       @media screen and (max-width: 450px) {
         width: 100px;
       }
