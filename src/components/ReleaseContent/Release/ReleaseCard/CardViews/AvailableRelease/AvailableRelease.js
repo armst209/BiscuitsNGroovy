@@ -1,3 +1,6 @@
+//styles
+import styles from "../ReleaseHover.module.scss";
+
 import { useState, lazy, Suspense } from "react";
 import ComponentLoading from "../../../../../Loading/Component/ComponentLoading";
 import AvailableReleaseHover from "./Hover/AvailableReleaseHover";
@@ -8,7 +11,7 @@ const AvailableRelease = ({ release }) => {
   const [showAvaliableReleaseModal, setShowAvailableReleaseModal] =
     useState(false);
   return (
-    <figure className="hover-img">
+    <figure className={styles["hover-img"]}>
       <Suspense fallback={<ComponentLoading />}>
         <ReleaseImage
           releaseImageSrc={release.art_url}

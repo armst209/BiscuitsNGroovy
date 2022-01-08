@@ -1,36 +1,79 @@
 import "../../../MusicShowcase/MusicShowcaseStyles.scss";
-import ReleaseCard from "../../Release/ReleaseCard/ReleaseCard";
-import { memo } from "react";
+import { ReactComponent as QuestionIcon } from "../../../../assets/images/help_question_yellow.svg";
+import { memo, useState } from "react";
 //styles
 import styles from "./CollectionReleaseList.module.scss";
-import CollectionCard from "../../Release/ReleaseCard/CardTypes/CollectionCard/CollectionCard";
 import AvailableRelease from "../../Release/ReleaseCard/CardViews/AvailableRelease/AvailableRelease";
 import ExpiredRelease from "../../Release/ReleaseCard/CardViews/ExpiredRelease/ExpiredRelease";
+import ExpiredInfoModal from "../../Release/ReleaseCard/CardViews/ExpiredRelease/Modals/ExpiredInfoModal/ExpiredInfoModal";
+
 const CollectionReleaseList = memo(
   ({ releaseData, noReleaseDataComponent }) => {
+    const [showExpiredInfoModal, setShowExpiredInfoModal] = useState(false);
+    const filteredReleasedReleases = releaseData.filter((release) => {
+      return release.isExpired;
+    });
+    const filteredLiveReleases = releaseData.filter((release) => {
+      return !release.isExpired;
+    });
+
+    const showExpiredInfoModalHandler = () => {
+      setShowExpiredInfoModal(true);
+    };
+    const closeExpiredInfoModalHandler = () => {
+      setShowExpiredInfoModal(false);
+    };
+
     return (
       <>
         {releaseData.length === 0 ? (
           noReleaseDataComponent
         ) : (
           <section id={styles["collection-release-list"]}>
-            <div>
-              <h1>Live</h1>
-              {releaseData.map((release) => {
-                return <AvailableRelease key={release.id} release={release} />;
-              })}
+            <h1 className={styles["h1-title"]}>
+              <div>Live</div>
+            </h1>
+            <div
+              className={
+                styles["collection-release-list-live-releases-container"]
+              }
+            >
+              <div className={styles["release-grid"]}>
+                {filteredLiveReleases.map((release) => {
+                  return (
+                    <AvailableRelease key={release.id} release={release} />
+                  );
+                })}
+              </div>
             </div>
-
-            <hr />
-            <div>
-              <h1>Released</h1>
-              {releaseData.map((release) => {
-                return <ExpiredRelease key={release.id} release={release} />;
-              })}
+            <h1 className={styles["h1-title"]}>
+              <div>Released</div>
+            </h1>
+            <div
+              className={
+                styles["collection-release-list-released-releases-container"]
+              }
+            >
+              <div className={styles["release-grid"]}>
+                {filteredReleasedReleases.map((release) => {
+                  return <ExpiredRelease key={release.id} release={release} />;
+                })}
+              </div>
+              <div
+                onClick={() => showExpiredInfoModalHandler()}
+                className={styles["cant-play-releases-container"]}
+              >
+                <QuestionIcon />
+                <p>Why can't I play my releases?</p>
+              </div>
+              {showExpiredInfoModal && (
+                <ExpiredInfoModal
+                  closeExpiredInfoModal={closeExpiredInfoModalHandler}
+                />
+              )}
             </div>
           </section>
         )}
-        ))
       </>
     );
   }

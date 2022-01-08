@@ -1,18 +1,11 @@
 import ReleaseImage from "../../../../ReleaseImage/ReleaseImage";
-import "./NFTExpiredModalStyles.scss";
+import "./NFTViewModalStyles.scss";
 
-function NFTExpiredModal({
-  release,
-  showNFTExpiredModal,
-  setShowNFTExpiredModal,
-}) {
+function NFTExpiredModal({ release, closeNFTView }) {
   return (
     <section id="nft-expired-modal">
       <div className="nft-expired-modal-image-container">
-        <div
-          onClick={() => setShowNFTExpiredModal(!showNFTExpiredModal)}
-          className="nft-expired-modal-close"
-        >
+        <div onClick={() => closeNFTView()} className="nft-expired-modal-close">
           X
         </div>
         <ReleaseImage

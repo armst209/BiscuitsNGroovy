@@ -1,4 +1,4 @@
-#available-release-hover {
+#nft-hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,8 +7,9 @@
   height: 100%;
   border: 3px solid var(--color1);
   border-radius: 20px;
+  cursor: pointer;
 
-  .available-release-hover-wrapper {
+  .nft-hover-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,8 +18,9 @@
     button {
       display: flex;
       flex-direction: column;
-
+      font-family: var(--header-font);
       width: 100%;
+      margin: 0.5rem 0 0.5rem 0;
       cursor: pointer;
       background: none;
       border: none;
@@ -31,17 +33,17 @@
       img {
         width: 100px;
       }
-      .available-release-hover-title {
+      .nft-hover-name {
         width: 100%;
         font-size: 1rem;
+        border-radius: 0.5rem;
+        border: 2px solid var(--color2);
+        padding: 1rem;
+        &:hover {
+          color: black;
+          background-color: var(--color2);
+        }
       }
     }
-  }
-
-  .no-popup-show {
-    display: none;
-  }
-  .close-popup {
-    display: none;
   }
 }
