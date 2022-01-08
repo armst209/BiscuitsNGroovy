@@ -170,6 +170,11 @@ textarea {
   }
 }
 
+.password-strength-errors {
+  border: 2px solid red;
+  border-radius: 0.5rem;
+}
+
 .error-message-text-main {
   text-align: center;
   letter-spacing: 0.01cm;

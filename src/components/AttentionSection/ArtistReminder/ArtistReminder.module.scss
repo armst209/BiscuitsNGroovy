@@ -16,7 +16,7 @@
   border: 2px solid var(--color2);
   border-radius: 0.5rem;
 
-  .artist-reminder__wrapper {
+  .artist_reminder__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@
       height: auto;
     }
 
-    .artist-reminder__inner-wrapper {
+    .artist_reminder__inner_wrapper {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
@@ -32,7 +32,7 @@
       align-items: center;
       width: 100%;
 
-      .artist-reminder__message {
+      .artist_reminder__message {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -40,12 +40,12 @@
         padding: 2rem 1rem;
         letter-spacing: 0.5px;
 
-        .artist-reminder__header {
+        .artist_reminder__header {
           display: flex;
           justify-content: center;
           align-items: center;
 
-          .artist-reminder__img {
+          .artist_reminder__img {
             width: 70px;
             bottom: 0;
             right: 0;
@@ -54,13 +54,13 @@
               display: none;
             }
           }
-          .artist-reminder--right-speaker {
+          .artist_reminder__right_speaker {
             -webkit-transform: scaleX(-1);
             transform: scaleX(-1);
           }
         }
 
-        .artist-reminder__h1 {
+        .artist_reminder__h1 {
           font-size: 2rem;
           text-align: center;
           font-family: var(--header-font);
@@ -74,7 +74,7 @@
           }
         }
 
-        .artist-reminder__tired-container {
+        .artist_reminder__tired_container {
           display: flex;
           justify-content: center;
           flex-direction: column;
@@ -89,7 +89,7 @@
           @media screen and (max-width: 400px) {
             font-size: 1rem;
           }
-          .artist-reminder__tired-header {
+          .artist_reminder__tired_header {
             @media screen and (max-width: 400px) {
               font-size: 1rem;
             }
@@ -97,7 +97,7 @@
             color: var(--color1);
             font-size: 1.4rem;
           }
-          .artist-reminder__tired-message {
+          .artist_reminder__tired_message {
             font-family: var(--secondary-font);
             font-weight: var(--secondary-font-weight);
             color: white;
@@ -107,7 +107,7 @@
           }
         }
 
-        .artist-reminder__link {
+        .artist_reminder__link {
           width: 100%;
           text-decoration: none;
           display: flex;

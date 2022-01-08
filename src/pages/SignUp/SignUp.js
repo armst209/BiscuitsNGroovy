@@ -4,6 +4,7 @@ import "./SignUpStyles.scss";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
+import LinkFlowButton from "./LinkFlowButton";
 
 //flow imports
 import { config } from "@onflow/fcl";
@@ -28,11 +29,10 @@ const SignUp = () => {
       <div className="error-message-main">{errorMessages}</div>
       <div className="signup-wrapper">
         <div className="signup-contents">
-          <SignUpForm
+          <LinkFlowButton
             setShowFlowButtonLoader={setShowFlowButtonLoader}
             setErrorMessages={setErrorMessages}
           />
-
           <p className="already-account">
             Have an account?
             <Link className="login-redirect" to="/signin">
@@ -40,9 +40,8 @@ const SignUp = () => {
             </Link>
           </p>
         </div>
-        {/* <div className="signup-info-contents"> Things that need to be said</div> */}
       </div>
-
+      {errorMessages}
       {showFlowButtonLoader && <FlowLoader />}
       {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>
