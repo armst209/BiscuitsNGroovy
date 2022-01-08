@@ -31,8 +31,8 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
   useEffect(() => {
     if (status === "success") {
       setArtistFormLoader(false);
-      clearFields();
       setShowNewsletterArtistEmailValidationCheck(false);
+      clearFields();
       setSuccessMessage(
         <div className="form-success">
           Success! Someone from our team will be reaching out to you shortly!

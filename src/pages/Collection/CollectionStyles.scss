@@ -1,11 +1,10 @@
 #collection {
   display: flex;
   flex-direction: column;
-  height: 500px;
-  min-height: 700px;
   color: white;
   background-color: none;
   position: relative;
+
   padding: 1rem;
   .collection-title {
     width: 100%;

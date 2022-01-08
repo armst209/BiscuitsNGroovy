@@ -1,41 +1,34 @@
-import ReleaseImage from "../../components/ReleaseContent/Release/ReleaseCard/ReleaseImage/ReleaseImage";
-import ReleaseButton from "../../components/ReleaseContent/Release/ReleaseCard/ReleaseButton/ReleaseButton";
 import ReleaseTracklist from "../../components/ReleaseContent/Release/ReleaseCard/ReleaseTracklist/ReleaseTracklist";
 import { ReactComponent as RecordIcon } from "../../assets/images/vinyl_yellow.svg";
+import ReleasePreviewTitleInfo from "../../components/ReleaseContent/Release/ReleaseCard/ReleasePreview/ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
+import MainLogo from "../../components/Logos/MainLogo";
+import BiscuitDescription from "../../components/ReleaseContent/Biscuit/BiscuitDescription/BiscuitDescription";
+import BiscuitAlbumInformation from "../../components/ReleaseContent/Biscuit/BiscuitAlbumInformation/BiscuitAlbumInformation";
+//styles
+import styles from "./UniqueArtist.module.scss";
 
 const UniqueArtistReleaseInfo = ({ release }) => {
   return (
-    <section id="unique-artist-preview">
-      <div className="unique-artist-preview-wrapper">
-        <div className="unique-artist-preview-container">
-          <div className="unique-artist-preview-content">
+    <section id={styles["unique-artist"]}>
+      <MainLogo />
+      <BiscuitAlbumInformation />
+      <div className={styles["unique-artist-wrapper"]}>
+        <div className={styles["unique-artist-container"]}>
+          <div className="unique-artist-content">
             <div className="unique-artist-content-left">
-              <ReleaseImage
-                releaseImageSrc={release.art_url}
-                releaseAlt={release.name}
-              />
-              <h1 className="unique-artist-price">${release.price}</h1>
-              <h2>
-                {release.name} - {release.title}
-              </h2>
-              <div className="unique-artistcard-description">
-                {release.description}
-              </div>
-              <div className="button-container">
-                {/* based on boolean can or cant but release
-                if boolean do something */}
-
-                <ReleaseButton release={release} />
-              </div>
+              {/* based on boolean can or cant but release
+                if boolean do something,another condition besides token???*/}
+              <ReleasePreviewTitleInfo release={release} />
             </div>
-            <div className="unique-artist-content-right">
-              <div className="record-image">
-                <RecordIcon className="record-svg" />
+            <div className={styles["unique-artist-content-right"]}>
+              <div className={styles["unique-artist-record-image"]}>
+                <RecordIcon className="unique-artist-record-svg" />
               </div>
 
-              <div className="unique-artist-information">
-                <div className="unique-artist-tracklist">
+              <div className={styles["unique-artist-information"]}>
+                <div className={styles["unique-artist-tracklist"]}>
                   <ReleaseTracklist release={release} />
+                  <BiscuitDescription />
                 </div>
               </div>
             </div>

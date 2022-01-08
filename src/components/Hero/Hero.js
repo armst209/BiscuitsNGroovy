@@ -1,5 +1,4 @@
 import { HashLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
 import hero_image from "../../assets/images/hero-image.webp";
 import "./HeroStyles.scss";
 

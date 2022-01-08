@@ -1,4 +1,4 @@
-import next_arrow from "../../../assets/images/next-arrow-yellow.svg";
+// import next_arrow from "../../../assets/images/next-arrow-yellow.svg";
 import "./SignUpPopUpStyles.scss";
 
 const SignUpPopUp = ({ setShowSignUpInfo }) => {

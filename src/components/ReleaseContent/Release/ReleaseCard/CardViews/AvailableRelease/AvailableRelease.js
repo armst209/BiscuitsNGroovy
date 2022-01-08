@@ -1,9 +1,9 @@
 import { useState, lazy, Suspense } from "react";
 import ComponentLoading from "../../../../../Loading/Component/ComponentLoading";
-// import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import AvailableReleaseHover from "./Hover/AvailableReleaseHover";
 import AvailableReleaseModal from "./Modal/AvailableReleaseModal";
 const ReleaseImage = lazy(() => import("../../ReleaseImage/ReleaseImage"));
+
 const AvailableRelease = ({ release }) => {
   const [showAvaliableReleaseModal, setShowAvailableReleaseModal] =
     useState(false);

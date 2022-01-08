@@ -1,16 +1,13 @@
 import "./ReleasePreviewStyles.scss";
 import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl_yellow.svg";
-import ReleaseImage from "../ReleaseImage/ReleaseImage";
 import ReleaseTracklist from "../ReleaseTracklist/ReleaseTracklist";
-import ReleaseButton from "../ReleaseButton/ReleaseButton";
+import ReleasePreviewTitleInfo from "./ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
 
 function ReleasePreview({
   release,
   setShowReleasePreview,
   showReleasePreview,
 }) {
-  const { name, title, description, art_url, price } = release;
-
   return (
     <section id="release-preview">
       <div className="release-preview-wrapper">
@@ -23,15 +20,7 @@ function ReleasePreview({
         <div className="release-preview-container">
           <div className="release-preview-content">
             <div className="release-content-left">
-              <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
-              <h1 className="release-price">${price}</h1>
-              <h2>
-                {name} - {title}
-              </h2>
-              <div className="release-card-description">{description}</div>
-              <div className="button-container">
-                <ReleaseButton release={release} />
-              </div>
+              <ReleasePreviewTitleInfo release={release} />
             </div>
             <div className="release-content-right">
               <div className="record-image">
