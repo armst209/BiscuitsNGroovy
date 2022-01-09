@@ -4,22 +4,24 @@ import styles from "./ReleasePreviewTitleInfo.module.scss";
 
 const ReleasePreviewTitleInfo = ({ release }) => {
   const { name, title, description, art_url, price } = release;
-  console.log(release[0]);
 
   return (
-    <>
+    <section id={styles["release-preview-title-info"]}>
       <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
-      <h1 className={styles["release-preview-title-info-price"]}>${price}</h1>
+      <div className={styles["release-preview-title-info-price"]}>
+        <div>${price}</div>
+      </div>
+
       <h2>
         {name} - {title}
       </h2>
       <div className={styles["release-preview-title-info-description"]}>
         {description}
       </div>
-      <div className="button-container">
+      <div className={styles["button-container"]}>
         <ReleaseButton release={release} />
       </div>
-    </>
+    </section>
   );
 };
 

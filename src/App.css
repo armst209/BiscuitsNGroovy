@@ -1,47 +1,41 @@
 @font-face {
   font-family: "outer-sans-regular";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Regular-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-light";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Light-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Light-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-thin";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Thin-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-medium";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Medium-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Medium-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-black";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Alt-Black-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Alt-Black-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "outer-sans-black-outline";
-  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Alt-Black-PERSONAL-USE.woff")
-    format("woff");
+  src: url("./assets/fonts/made-outer-sans/MADE-Outer-Sans-Outline-Alt-Black-PERSONAL-USE.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -55,16 +49,14 @@
 
 @font-face {
   font-family: "tommy-regular";
-  src: url("./assets/fonts/Made-Tommy/MADE-TOMMY-Thin_PERSONAL-USE.otf")
-    format("woff");
+  src: url("./assets/fonts/Made-Tommy/MADE-TOMMY-Thin_PERSONAL-USE.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "colombo-sans";
-  src: url("./assets/fonts/Colombo-Sans/Web-Fonts/Colombo\ Sans\ Font.woff")
-    format("woff");
+  src: url("./assets/fonts/Colombo-Sans/Web-Fonts/Colombo\ Sans\ Font.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -120,10 +112,8 @@
 
 @font-face {
   font-family: "TTNormsPro-Rg";
-  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
-      format("woff2"),
-    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
-      format("woff");
+  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff") format("woff2"),
+    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff") format("woff");
 }
 
 /**
@@ -150,10 +140,8 @@
 
 @font-face {
   font-family: "TTNormsPro-Normal";
-  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff")
-      format("woff2"),
-    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2")
-      format("woff");
+  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff") format("woff2"),
+    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2") format("woff");
 }
 
 * {
@@ -229,6 +217,23 @@ input:-internal-autofill-selected {
   background-image: none !important;
   background-color: #000 !important;
   color: #fff !important;
+}
+
+/*buttons*/
+
+.global-button {
+  border: 2px solid var(--color1);
+  border-radius: 0.5rem;
+  font-family: var(--header-font);
+  font-size: 1rem;
+  background: transparent;
+  width: 200px;
+  height: 70px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: normal;
 }
 
 /* animations */

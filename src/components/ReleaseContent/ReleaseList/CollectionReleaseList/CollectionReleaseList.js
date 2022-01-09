@@ -1,4 +1,4 @@
-import "../../../MusicShowcase/MusicShowcaseStyles.scss";
+// import "../../../MusicShowcase/MusicShowcaseStyles.scss";
 import { ReactComponent as QuestionIcon } from "../../../../assets/images/help_question_yellow.svg";
 import { memo, useState } from "react";
 //styles
@@ -55,17 +55,18 @@ const CollectionReleaseList = memo(
               }
             >
               <div className={styles["release-grid"]}>
+                <div
+                  onClick={() => showExpiredInfoModalHandler()}
+                  className={styles["cant-play-releases-container"]}
+                >
+                  <QuestionIcon />
+                  <p>Why can't I play my releases?</p>
+                </div>
                 {filteredReleasedReleases.map((release) => {
                   return <ExpiredRelease key={release.id} release={release} />;
                 })}
               </div>
-              <div
-                onClick={() => showExpiredInfoModalHandler()}
-                className={styles["cant-play-releases-container"]}
-              >
-                <QuestionIcon />
-                <p>Why can't I play my releases?</p>
-              </div>
+
               {showExpiredInfoModal && (
                 <ExpiredInfoModal
                   closeExpiredInfoModal={closeExpiredInfoModalHandler}

@@ -1,34 +1,36 @@
-import "./ReleasePreviewStyles.scss";
+//styles
+import styles from "./ReleasePreview.module.scss";
+
 import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl_yellow.svg";
 import ReleaseTracklist from "../ReleaseTracklist/ReleaseTracklist";
 import ReleasePreviewTitleInfo from "./ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
 
-function ReleasePreview({
+const ReleasePreview = ({
   release,
   setShowReleasePreview,
   showReleasePreview,
-}) {
+}) => {
   return (
-    <section id="release-preview">
-      <div className="release-preview-wrapper">
+    <section id={styles["release-preview"]}>
+      <div className={styles["release-preview-wrapper"]}>
         <div
           onClick={() => setShowReleasePreview(!showReleasePreview)}
-          className="close-release-info"
+          className={styles["close-release-info"]}
         >
           X
         </div>
-        <div className="release-preview-container">
-          <div className="release-preview-content">
-            <div className="release-content-left">
+        <div className={styles["release-preview-container"]}>
+          <div className={styles["release-preview-content"]}>
+            <div className={styles["release-content-left"]}>
               <ReleasePreviewTitleInfo release={release} />
             </div>
-            <div className="release-content-right">
-              <div className="record-image">
-                <RecordIcon className="record-svg" />
+            <div className={styles["release-content-right"]}>
+              <div className={styles["record-image"]}>
+                <RecordIcon className={styles["record-svg"]} />
               </div>
 
-              <div className="release-information">
-                <div className="release-tracklist">
+              <div className={styles["release-information"]}>
+                <div className={styles["release-tracklist"]}>
                   <ReleaseTracklist release={release} />
                 </div>
               </div>
@@ -38,6 +40,6 @@ function ReleasePreview({
       </div>
     </section>
   );
-}
+};
 
 export default ReleasePreview;

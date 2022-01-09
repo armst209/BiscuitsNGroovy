@@ -1,4 +1,3 @@
-import "./ReleaseCardStyles.scss";
 import MusicShowcaseCard from "./CardTypes/MusicShowcaseCard/MusicShowcaseCard";
 import CollectionCard from "./CardTypes/CollectionCard/CollectionCard";
 

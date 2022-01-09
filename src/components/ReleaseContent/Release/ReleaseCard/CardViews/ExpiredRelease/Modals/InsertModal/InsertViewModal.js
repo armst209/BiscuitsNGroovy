@@ -1,3 +1,4 @@
+import BiscuitInsert from "../../../../../../Biscuit/BiscuitInsert/BiscuitInsert";
 import "./InsertViewModalStyles.scss";
 
 function InsertViewModal({ release, closeInsertView }) {
@@ -7,7 +8,7 @@ function InsertViewModal({ release, closeInsertView }) {
         <div className="expired-modal-close" onClick={() => closeInsertView()}>
           X
         </div>
-        PUT INSERT HERE
+        <BiscuitInsert />
       </div>
     </section>
   );

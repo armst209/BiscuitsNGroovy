@@ -1,4 +1,3 @@
-import "../../MusicShowcase/MusicShowcaseStyles.scss";
 import ReleaseCard from "../Release/ReleaseCard/ReleaseCard";
 import { memo } from "react";
 const ReleaseList = memo(({ releaseData, noReleaseDataComponent }) => {

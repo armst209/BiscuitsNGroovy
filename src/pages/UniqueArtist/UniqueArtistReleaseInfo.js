@@ -3,11 +3,24 @@ import { ReactComponent as RecordIcon } from "../../assets/images/vinyl_yellow.s
 import ReleasePreviewTitleInfo from "../../components/ReleaseContent/Release/ReleaseCard/ReleasePreview/ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
 import BiscuitDescription from "../../components/ReleaseContent/Biscuit/BiscuitDescription/BiscuitDescription";
 import BiscuitAlbumInformation from "../../components/ReleaseContent/Biscuit/BiscuitAlbumInformation/BiscuitAlbumInformation";
+import { ReactComponent as BackButton } from "../../assets/images/arrow-back-yellow.svg";
+
 //styles
 import styles from "./UniqueArtist.module.scss";
-import { useParams } from "react-router-dom";
+
+import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
+import BiscuitInsert from "../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
 
 const UniqueArtistReleaseInfo = ({ releases }) => {
+  const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
+
+  const showBiscuitInsertHandler = () => {
+    setShowBiscuitInsert(true);
+  };
+  const closeBiscuitInsertHandler = () => {
+    setShowBiscuitInsert(false);
+  };
   //getting artist id from url parameters
   let { artistId } = useParams();
 
@@ -26,8 +39,6 @@ const UniqueArtistReleaseInfo = ({ releases }) => {
           <div className={styles["unique-artist-container"]}>
             <div className={styles["unique-artist-content"]}>
               <div className={styles["unique-artist-content-left"]}>
-                {/* based on boolean can or cant but release
-                if boolean do something,another condition besides token???*/}
                 <ReleasePreviewTitleInfo release={release} />
               </div>
               <div className={styles["unique-artist-content-right"]}>
@@ -43,9 +54,34 @@ const UniqueArtistReleaseInfo = ({ releases }) => {
                 <div className={styles["unique-artist-biscuit-description"]}>
                   <BiscuitDescription />
                 </div>
+                <button
+                  className="global-button"
+                  onClick={() => showBiscuitInsertHandler()}
+                >
+                  View Insert
+                </button>
+                {showBiscuitInsert && (
+                  <div
+                    className={styles["unique-artist-biscuit-insert-wrapper"]}
+                  >
+                    <div
+                      className={styles["close-biscuit-insert"]}
+                      onClick={() => closeBiscuitInsertHandler()}
+                    >
+                      X
+                    </div>
+                    <BiscuitInsert />
+                  </div>
+                )}
               </div>
             </div>
           </div>
+        </div>
+        <div className={styles["unique-artist-back-collection-link"]}>
+          <Link to="/collection">
+            <BackButton />
+            Back To Collection
+          </Link>
         </div>
       </section>
     )

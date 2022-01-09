@@ -1,21 +1,31 @@
-.release-preview-title-info-price {
-  color: var(--color1);
-  padding-top: 0.5rem;
-}
-
-.release-preview-title-info-description {
+#release-preview-title-info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 0.9rem;
-  font-family: var(--secondary-font) !important;
-  font-family: var(--secondary-font-weight);
-  padding: 0.5rem;
-  color: white;
-  text-align: center;
-  margin-bottom: 1rem;
+  .release-preview-title-info-price {
+    padding-top: 0.5rem;
+    div {
+      color: var(--color1);
+      font-family: var(--header-font);
+      font-size: 3rem;
+    }
+  }
 
-  @media screen and (max-width: 500px) {
-    display: none;
+  .release-preview-title-info-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-family: var(--secondary-font) !important;
+    font-family: var(--secondary-font-weight);
+    padding: 0.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
   }
 }
