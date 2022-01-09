@@ -76,6 +76,34 @@ const useValidation = () => {
           );
         }
         break;
+      case "signup-email":
+        setEmail(value);
+        if (validator.isEmail(value)) {
+          setEmailInputLoginClass("input-success");
+          setShowEmailValidationCheck(true);
+          setEmailErrorMessage("Email");
+        } else if (!validator.isLength(value, { min: 1, max: undefined })) {
+          setEmailInputLoginClass("input-error");
+          setShowEmailValidationCheck(false);
+          setEmailErrorMessage(
+            <>
+              <Warning className="warning-icon" />
+              <div className="error-message-text">
+                Please fill out this field
+              </div>
+            </>
+          );
+        } else {
+          setEmailInputLoginClass("input-error");
+          setShowEmailValidationCheck(false);
+          setEmailErrorMessage(
+            <>
+              <Warning className="warning-icon" />
+              <div className="error-message-text">Invalid Email</div>
+            </>
+          );
+        }
+        break;
       case "username":
         setUserName(value);
         if (validator.isLength(value, { min: 1, max: undefined })) {
@@ -114,6 +142,7 @@ const useValidation = () => {
             pointsForContainingSymbol: 10,
           })
         ) {
+          setShowPasswordValidationCheck(false);
           setPasswordInputLoginClass("input-error");
           setPasswordErrorMessage(
             <>
@@ -159,6 +188,7 @@ const useValidation = () => {
           );
         } else {
           setPasswordInputLoginClass("input-success");
+          setShowPasswordValidationCheck(true);
           setPasswordErrorMessage("Password");
           setErrorMessages("");
         }
@@ -172,6 +202,7 @@ const useValidation = () => {
           setPasswordErrorMessage("Password");
           setErrorMessages("");
         } else {
+          setShowPasswordValidationCheck(false);
           setPasswordInputLoginClass("input-error");
           setPasswordErrorMessage(
             <>

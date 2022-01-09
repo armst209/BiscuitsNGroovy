@@ -9,6 +9,7 @@ function LinkFlowButton({
   formSubmitFunction,
   setShowFlowButtonLoader,
   setErrorMessages,
+  submit,
 }) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
@@ -40,7 +41,10 @@ function LinkFlowButton({
   } else {
     return (
       <>
-        <SignUpForm setErrorMessages={setErrorMessages} />
+        <button onClick={submit} type="submit">
+          Create Account
+        </button>
+
         <div className="link-diff-account">
           <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
         </div>

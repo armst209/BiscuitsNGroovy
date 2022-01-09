@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./SignUpStyles.scss";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
 import LinkFlowButton from "./LinkFlowButton";
 
+//styles
+import styles from "./SignUp.module.scss";
 //flow imports
 import { config } from "@onflow/fcl";
-import Loading from "../../components/Loading/Loading";
+
 import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 
 //configure flow environment
@@ -23,25 +24,27 @@ const SignUp = () => {
   const [errorMessages, setErrorMessages] = useState("");
 
   return (
-    <section id="signup">
+    <section id={styles.signup}>
       <FixedNavigationSpacer />
       <h2>Sign up to start your collection</h2>
-      <div className="error-message-main">{errorMessages}</div>
-      <div className="signup-wrapper">
-        <div className="signup-contents">
-          <LinkFlowButton
-            setShowFlowButtonLoader={setShowFlowButtonLoader}
+      <div className={styles["error-message-main"]}>{errorMessages}</div>
+      <div className={styles["signup-wrapper"]}>
+        <div className={styles["signup-contents"]}>
+          {/* switches between blocto signup and signup form */}
+
+          <SignUpForm
             setErrorMessages={setErrorMessages}
+            setShowFlowButtonLoader={setShowFlowButtonLoader}
           />
-          <p className="already-account">
+
+          <p className={styles["already-account"]}>
             Have an account?
-            <Link className="login-redirect" to="/signin">
-              <span> Sign In</span>
+            <Link className={styles["login-redirect"]} to="/signin">
+              <span>Sign In</span>
             </Link>
           </p>
         </div>
       </div>
-      {errorMessages}
       {showFlowButtonLoader && <FlowLoader />}
       {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>

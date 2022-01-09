@@ -4,6 +4,7 @@ import styles from "./ReleasePreviewTitleInfo.module.scss";
 
 const ReleasePreviewTitleInfo = ({ release }) => {
   const { name, title, description, art_url, price } = release;
+
   return (
     <>
       <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />

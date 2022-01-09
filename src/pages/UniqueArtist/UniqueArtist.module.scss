@@ -1,10 +1,4 @@
 #unique-artist {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: var(--highest-index);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,8 +8,6 @@
   background: rgba(0, 0, 0, 0.979);
 
   .unique-artist-wrapper {
-    border: 2px solid var(--color2);
-    border-radius: 0.5rem;
     background: none;
     padding: 1rem;
     width: 100%;

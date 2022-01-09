@@ -14,8 +14,8 @@ const UniqueArtistReleaseInfo = ({ release }) => {
       <BiscuitAlbumInformation />
       <div className={styles["unique-artist-wrapper"]}>
         <div className={styles["unique-artist-container"]}>
-          <div className="unique-artist-content">
-            <div className="unique-artist-content-left">
+          <div className={styles["unique-artist-content"]}>
+            <div className={styles["unique-artist-content-left"]}>
               {/* based on boolean can or cant but release
                 if boolean do something,another condition besides token???*/}
               <ReleasePreviewTitleInfo release={release} />

@@ -88,34 +88,6 @@
       font-size: 0.7rem;
       color: red;
     }
-
-    .main-error-messages {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-bottom: 1rem;
-      .error-message-text-main {
-        text-align: center;
-        letter-spacing: 0.01cm;
-        padding-left: 0.5rem;
-        font-family: var(--header-font);
-        font-weight: var(--secondary-font-weight);
-        font-size: 1rem;
-        color: red;
-        padding: 0.5rem 0;
-      }
-
-      svg {
-        width: 40px;
-        filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
-          brightness(99%) contrast(94%);
-        @media screen and (max-width: 400px) {
-          width: 30px;
-        }
-      }
-    }
   }
 }
 

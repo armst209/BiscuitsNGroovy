@@ -256,6 +256,21 @@ textarea {
   top: 23px;
 }
 
+.terms-check-label {
+  background-color: transparent;
+  position: static;
+  width: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  a {
+    color: var(--color2);
+    margin-left: 5px;
+    &:visited {
+      color: var(--color2);
+    }
+  }
+}
 .user-email-error-messages {
   text-align: center;
   width: 100%;

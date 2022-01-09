@@ -31,105 +31,105 @@ form {
     }
   }
 
-  .input-styles {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
-    border: none;
-    /* input error/success styles */
-    .error-message-text {
-      text-align: left;
-      letter-spacing: 0.01cm;
-      padding-left: 0.5rem;
-      font-size: 0.7rem;
-      color: red;
-      font-family: var(--secondary-font);
-      font-weight: var(--secondary-font-weight);
-    }
+  // .input-styles {
+  //   display: flex;
+  //   flex-direction: column;
+  //   width: 100%;
+  //   position: relative;
+  //   border: none;
+  //   /* input error/success styles */
+  //   .error-message-text {
+  //     text-align: left;
+  //     letter-spacing: 0.01cm;
+  //     padding-left: 0.5rem;
+  //     font-size: 0.7rem;
+  //     color: red;
+  //     font-family: var(--secondary-font);
+  //     font-weight: var(--secondary-font-weight);
+  //   }
 
-    svg {
-      width: 20px;
-      filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
-        brightness(99%) contrast(94%);
-      @media screen and (max-width: 400px) {
-        width: 30px;
-      }
-    }
+  //   svg {
+  //     width: 20px;
+  //     filter: invert(95%) sepia(91%) saturate(5565%) hue-rotate(353deg)
+  //       brightness(99%) contrast(94%);
+  //     @media screen and (max-width: 400px) {
+  //       width: 30px;
+  //     }
+  //   }
 
-    .input-error {
-      transition: 0.2s ease;
-      border: 3px solid red;
-    }
-    .input-success {
-      transition: 0.2s ease;
-      border: 3px solid rgb(1, 151, 1);
-    }
-    label {
-      background-color: black;
-      position: absolute;
-      padding: 0 0.3rem;
-    }
+  //   .input-error {
+  //     transition: 0.2s ease;
+  //     border: 3px solid red;
+  //   }
+  //   .input-success {
+  //     transition: 0.2s ease;
+  //     border: 3px solid rgb(1, 151, 1);
+  //   }
+  //   label {
+  //     background-color: black;
+  //     position: absolute;
+  //     padding: 0 0.3rem;
+  //   }
 
-    .email-label {
-      left: 20px;
-      top: 1px;
-    }
-    .username-label {
-      top: 70px;
-      left: 20px;
-    }
-    .password-signup-label {
-      top: 140px;
-      left: 20px;
-    }
+  //   .email-label {
+  //     left: 20px;
+  //     top: 1px;
+  //   }
+  //   .username-label {
+  //     top: 70px;
+  //     left: 20px;
+  //   }
+  //   .password-signup-label {
+  //     top: 140px;
+  //     left: 20px;
+  //   }
 
-    .confirm-password-label {
-      bottom: 80px;
-      left: 20px;
-    }
+  //   .confirm-password-label {
+  //     bottom: 80px;
+  //     left: 20px;
+  //   }
 
-    .terms-check-label {
-      background-color: transparent;
-      position: static;
-      width: auto;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      a {
-        color: var(--color2);
-        margin-left: 5px;
-        &:visited {
-          color: var(--color2);
-        }
-      }
+  //   .terms-check-label {
+  //     background-color: transparent;
+  //     position: static;
+  //     width: auto;
+  //     text-align: center;
+  //     display: flex;
+  //     justify-content: center;
+  //     a {
+  //       color: var(--color2);
+  //       margin-left: 5px;
+  //       &:visited {
+  //         color: var(--color2);
+  //       }
+  //     }
 
-      @media screen and (max-width: 380px) {
-        font-size: 0.6rem;
-      }
-    }
-    input {
-      margin: 10px 0;
-      background: var(--color-light);
-      font-family: var(--header-font);
-      font-size: 1rem;
-      font-weight: normal;
-      line-height: inherit;
-      width: 100%;
-      height: auto;
-      padding: 0.75rem 1.25rem;
-      border: 2px solid var(--color1);
-      outline: none;
-      color: var(--color-black);
-      background: black;
-      text-transform: unset;
-      text-rendering: optimizeLegibility;
-      border-radius: 0.5rem;
-      @media screen and (max-width: 300px) {
-        font-size: 0.7rem;
-      }
-    }
-  }
+  //     @media screen and (max-width: 380px) {
+  //       font-size: 0.6rem;
+  //     }
+  //   }
+  //   input {
+  //     margin: 10px 0;
+  //     background: var(--color-light);
+  //     font-family: var(--header-font);
+  //     font-size: 1rem;
+  //     font-weight: normal;
+  //     line-height: inherit;
+  //     width: 100%;
+  //     height: auto;
+  //     padding: 0.75rem 1.25rem;
+  //     border: 2px solid var(--color1);
+  //     outline: none;
+  //     color: var(--color-black);
+  //     background: black;
+  //     text-transform: unset;
+  //     text-rendering: optimizeLegibility;
+  //     border-radius: 0.5rem;
+  //     @media screen and (max-width: 300px) {
+  //       font-size: 0.7rem;
+  //     }
+  //   }
+  // }
 
   .signup-checkbox-container {
     display: flex;
