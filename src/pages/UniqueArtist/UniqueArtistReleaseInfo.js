@@ -11,6 +11,7 @@ import styles from "./UniqueArtist.module.scss";
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import BiscuitInsert from "../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
+import NotFound from "../NotFound/NotFound";
 
 const UniqueArtistReleaseInfo = ({ releases }) => {
   const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
@@ -21,8 +22,19 @@ const UniqueArtistReleaseInfo = ({ releases }) => {
   const closeBiscuitInsertHandler = () => {
     setShowBiscuitInsert(false);
   };
+
+  //getting array of available release ids
+  const releaseIds = releases.library.map((_artistId) => {
+    return _artistId.id;
+  });
+
   //getting artist id from url parameters
   let { artistId } = useParams();
+
+  //will redirect if artist id in url params does not match a current release id
+  if (!releaseIds.includes(Number(artistId))) {
+    return <NotFound />;
+  }
 
   //filtering single release based on param id
   const filteredRelease = releases.library.filter((release) => {
@@ -31,6 +43,7 @@ const UniqueArtistReleaseInfo = ({ releases }) => {
 
   //getting single release object
   const release = filteredRelease[0];
+
   return (
     release && (
       <section id={styles["unique-artist"]}>

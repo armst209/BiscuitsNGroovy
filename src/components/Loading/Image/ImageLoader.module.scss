@@ -1,0 +1,18 @@
+#image-loader {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 0.5rem;
+  position: absolute;
+  z-index: 20;
+  .image-loading-svg {
+    width: 20%;
+    @media screen and (max-width: 500px) {
+      width: 40%;
+    }
+  }
+}

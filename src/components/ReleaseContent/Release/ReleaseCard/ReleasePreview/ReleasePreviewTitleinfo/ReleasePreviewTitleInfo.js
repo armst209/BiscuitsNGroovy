@@ -7,7 +7,10 @@ const ReleasePreviewTitleInfo = ({ release }) => {
 
   return (
     <section id={styles["release-preview-title-info"]}>
-      <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
+      <div className={styles["release-image-container"]}>
+        <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
+      </div>
+
       <div className={styles["release-preview-title-info-price"]}>
         <div>${price}</div>
       </div>

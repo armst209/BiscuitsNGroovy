@@ -3,7 +3,6 @@ import { useState } from "react";
 import { initAccount, accountIsInitialized } from "../../utils/flow";
 import * as fcl from "@onflow/fcl";
 import "./LinkFlowButtonStyles.scss";
-import SignUpForm from "./SignUpForm/SignUpForm";
 
 function LinkFlowButton({
   formSubmitFunction,
