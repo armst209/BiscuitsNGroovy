@@ -9,8 +9,8 @@ function AvailableReleaseHover({ release }) {
     <div id={styles["available-release-hover"]}>
       <div className={styles["available-release-hover-wrapper"]}>
         <button>
-          {/* Link to unique link */}
-          <Link to="/">
+          {/* Link to unique url/biscuit */}
+          <Link to={`/biscuit/artist/${Number(release.id)}`}>
             <PlayButtonIcon />
           </Link>
 

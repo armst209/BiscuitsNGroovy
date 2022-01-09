@@ -99,6 +99,7 @@
           width: 60%;
           height: 100%;
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
           @media screen and (max-width: 900px) {
@@ -130,6 +131,7 @@
             }
 
             .unique-artist-tracklist {
+              color: white;
               max-height: 400px;
               font-family: var(--header-font);
               ul {
@@ -146,6 +148,15 @@
                 overflow-y: scroll;
               }
             }
+          }
+          .unique-artist-biscuit-description {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            color: white;
+            font-family: var(--header-font);
           }
         }
       }

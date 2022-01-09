@@ -44,7 +44,7 @@ const routes: IRoute[] = [
   },
   {
     path: "/signup",
-    component: lazy(() => import("../pages/SignUp/SignUp")),
+    component: lazy(() => import("../pages/SignUp/NewSignUp/NewSignUp")),
     key: "SIGNUP_PAGE",
     exact: true,
     private: false,
@@ -76,7 +76,7 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
-    path: "/artist/:artistName",
+    path: "/biscuit/artist/:artistId",
     component: lazy(() => import("../pages/UniqueArtist/UniqueArtistPage")),
     key: "UNIQUE_ARTIST_PAGE",
     exact: true,
