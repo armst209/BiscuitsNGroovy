@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
-import LinkFlowButton from "./LinkFlowButton";
 
 //styles
 import styles from "./SignUp.module.scss";
@@ -19,16 +18,12 @@ const SignUp = () => {
     <section id={styles.signup}>
       <FixedNavigationSpacer />
       <h2>Sign up to start your collection</h2>
-      <div className={styles["error-message-main"]}>{errorMessages}</div>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>
-          {/* switches between blocto signup and signup form */}
-
           <SignUpForm
             setErrorMessages={setErrorMessages}
             setShowFlowButtonLoader={setShowFlowButtonLoader}
           />
-
           <p className={styles["already-account"]}>
             Have an account?
             <Link className={styles["login-redirect"]} to="/signin">
