@@ -20,7 +20,6 @@ const UniqueArtistPage = () => {
   return (
     <>
       <FixedNavigationSpacer />
-
       <section>
         {isLoading && <ComponentLoading />}
         {releases && <UniqueArtistReleaseInfo releases={releases} />}
