@@ -103,6 +103,7 @@
           font-size: 0.8rem;
         }
       }
+
       .already-account {
         padding: 1rem 0;
         font-family: var(--header-font);
@@ -114,6 +115,7 @@
           text-decoration: none;
           color: var(--color2);
           font-weight: normal;
+          margin-left: 0.2rem;
           cursor: pointer;
           &:visited {
             color: var(--color2);

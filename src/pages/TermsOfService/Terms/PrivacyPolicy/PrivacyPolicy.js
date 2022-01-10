@@ -1,9 +1,7 @@
-
 import "./PrivacyPolicyStyles.scss";
 import speaker from "../../../../assets/images/speaker_yellow.svg";
 
-function PrivacyPolicy(props) {
- 
+const PrivacyPolicy = (props) => {
   return (
     <section id="privacy-policy">
       <div className="privacy-policy-wrapper">
@@ -225,6 +223,6 @@ function PrivacyPolicy(props) {
       </div>
     </section>
   );
-}
+};
 
 export default PrivacyPolicy;

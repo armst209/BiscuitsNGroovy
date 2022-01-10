@@ -21,7 +21,6 @@ import env from "react-dotenv";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
-import ComponentLoading from "../../../components/Loading/Component/ComponentLoading";
 
 //configure flow environment
 //points to env.js not global prod and dev envs
@@ -32,6 +31,14 @@ config()
 
 const SignUpForm = ({ setShowFlowButtonLoader }) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  //state handlers
+  const showSignUpLoaderHandler = () => {
+    setIsLoading(true);
+  };
+  const hideSignUpLoaderHandler = () => {
+    setIsLoading(false);
+  };
   const {
     email,
     userName: username,
@@ -53,14 +60,6 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
     setErrorMessages,
     inputValidation,
   } = useValidation();
-
-  //state handlers
-  const showSignUpLoaderHandler = () => {
-    setIsLoading(true);
-  };
-  const hideSignUpLoaderHandler = () => {
-    setIsLoading(false);
-  };
 
   //function sets token and redirects to homepage
   const handleSignUp = (res) => {
@@ -123,8 +122,6 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
 
   return (
     <>
-      {isLoading && <ComponentLoading />}
-
       <form>
         <div className={styles["error-message-main"]}>{errorMessages}</div>
         <fieldset className="input-styles">
@@ -208,6 +205,7 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
         submit={submit}
         setShowFlowButtonLoader={setShowFlowButtonLoader}
         setErrorMessages={setErrorMessages}
+        isLoading={isLoading}
       />
     </>
   );

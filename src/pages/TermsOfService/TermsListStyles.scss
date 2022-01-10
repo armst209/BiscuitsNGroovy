@@ -8,7 +8,7 @@
 
   .term-link-container {
     background-color: black;
-    border: 7px solid var(--color2);
+    border: 2px solid var(--color2);
     border-radius: 20px;
     color: white;
     display: flex;
@@ -38,11 +38,11 @@
     }
 
     .list-container {
-      border-left: 7px solid var(--color2);
+      border-left: 2px solid var(--color2);
       padding: 3rem;
       height: 100%;
       ul {
-        font-family: var(--font1);
+        font-family: var(--header-font);
         font-weight: normal;
         @media screen and (max-width: 800px) {
           text-align: left;
@@ -52,10 +52,11 @@
           &:hover {
             color: var(--color1);
           }
+
           a {
             color: white;
             text-decoration: none;
-            font-family: var(--font1);
+            font-family: var(--header-font);
             font-weight: normal;
 
             &:hover {

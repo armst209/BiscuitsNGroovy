@@ -1,18 +1,19 @@
+//react imports
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+//component imports
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
+import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 
 //styles
 import styles from "./SignUp.module.scss";
 
-import FlowLoader from "../../components/Loading/Forms/FlowLoader";
-
 const SignUp = () => {
   const [showSignUpInfo, setShowSignUpInfo] = useState(true);
   const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
-  const [errorMessages, setErrorMessages] = useState("");
 
   return (
     <section id={styles.signup}>
@@ -20,10 +21,7 @@ const SignUp = () => {
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>
-          <SignUpForm
-            setErrorMessages={setErrorMessages}
-            setShowFlowButtonLoader={setShowFlowButtonLoader}
-          />
+          <SignUpForm setShowFlowButtonLoader={setShowFlowButtonLoader} />
           <p className={styles["already-account"]}>
             Have an account?
             <Link className={styles["login-redirect"]} to="/signin">
