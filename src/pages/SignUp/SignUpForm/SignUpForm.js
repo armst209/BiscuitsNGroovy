@@ -20,6 +20,9 @@ config()
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
+  // const [username, setUserName] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [username, setUserName] = useState("");
   const {
     email,
     userName: username,
@@ -59,12 +62,14 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
 
       data: {
         email,
+        name: "",
         username,
         password,
         flow_address,
       },
     })
       .then((res) => {
+        console.log("success");
         handleSignUp(res);
       })
       .catch((error) => {

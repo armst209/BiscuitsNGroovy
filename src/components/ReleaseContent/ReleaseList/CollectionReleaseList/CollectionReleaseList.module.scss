@@ -31,6 +31,9 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      @media screen and (max-width: 400px) {
+        gap: 0;
+      }
     }
   }
   .cant-play-releases-container {

@@ -1,7 +1,7 @@
 //styles
 import styles from "./FixedNavigationSpacer.module.scss";
 const FixedNavigationSpacer = () => {
-  return <section id={styles["fixed-navigation-spacer"]}></section>;
+  return <div id={styles["fixed-navigation-spacer"]}></div>;
 };
 
 export default FixedNavigationSpacer;

@@ -4,6 +4,7 @@ import UniqueArtistReleaseInfo from "./UniqueArtistReleaseInfo";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const UniqueArtistPage = () => {
+  //!!!!!using urlParams to get id and sending it through api call and receiving single release object!!!
   // purchased release boolean
   //TOKEN
   let token = localStorage.getItem("token");
