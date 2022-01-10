@@ -31,7 +31,7 @@ const useFetch = (url, _options) => {
         } else {
           setIsLoading(false);
           setErrorMessage("Can't fetch data");
-          console.log(error.messsage);
+          console.log(error.message);
         }
       }
     };

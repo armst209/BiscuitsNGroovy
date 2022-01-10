@@ -256,6 +256,14 @@ textarea {
   top: 23px;
 }
 
+.username-signup-check {
+  right: 10px;
+  top: 95px;
+}
+.password-signup-check {
+  right: 10px;
+  top: 165px;
+}
 .terms-check-label {
   background-color: transparent;
   position: static;
@@ -285,5 +293,4 @@ textarea {
   font-family: var(--header-font);
   font-weight: normal;
   color: green;
-  padding: 1rem;
 }

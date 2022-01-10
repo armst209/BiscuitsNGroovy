@@ -111,6 +111,23 @@ button {
   }
 }
 
+.signup-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding-right: 3rem;
+  position: relative;
+
+  .signup-loading-icon {
+    position: absolute;
+    right: 30px;
+    width: 30px;
+  }
+}
+
 ._app__Inner-sc-1b1fmnf-1 .btulfd {
   border: 5px solid red;
 }
