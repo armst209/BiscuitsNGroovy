@@ -20,6 +20,10 @@
     border-radius: 0.5rem;
     border: 2px solid var(--color2);
     padding: 1rem;
+    @media screen and (max-width: 400px) {
+      border: none;
+      padding: 0;
+    }
 
     .release-grid {
       display: flex;
