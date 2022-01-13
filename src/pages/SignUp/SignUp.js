@@ -10,10 +10,19 @@ import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 
 //styles
 import styles from "./SignUp.module.scss";
+import Loading from "../../components/Loading/Loading";
 
 const SignUp = () => {
   const [showSignUpInfo, setShowSignUpInfo] = useState(true);
   const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const showSignUpLoaderHandler = () => {
+    setIsLoading(true);
+  };
+  const hideSignUpLoaderHandler = () => {
+    setIsLoading(false);
+  };
 
   return (
     <section id={styles.signup}>
@@ -21,7 +30,11 @@ const SignUp = () => {
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>
-          <SignUpForm setShowFlowButtonLoader={setShowFlowButtonLoader} />
+          <SignUpForm
+            setShowFlowButtonLoader={setShowFlowButtonLoader}
+            hideSignUpLoaderHandler={hideSignUpLoaderHandler}
+            showSignUpLoaderHandler={showSignUpLoaderHandler}
+          />
           <p className={styles["already-account"]}>
             Have an account?
             <Link className={styles["login-redirect"]} to="/signin">
@@ -30,6 +43,7 @@ const SignUp = () => {
           </p>
         </div>
       </div>
+      {isLoading && <Loading />}
       {showFlowButtonLoader && <FlowLoader />}
       {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>

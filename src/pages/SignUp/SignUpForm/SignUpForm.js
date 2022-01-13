@@ -29,16 +29,21 @@ config()
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-const SignUpForm = ({ setShowFlowButtonLoader }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const SignUpForm = ({
+  setShowFlowButtonLoader,
+  hideSignUpLoaderHandler,
+  showSignUpLoaderHandler,
+}) => {
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   //state handlers
-  const showSignUpLoaderHandler = () => {
-    setIsLoading(true);
+  const showSignUpButtonLoaderHandler = () => {
+    setIsButtonLoading(true);
   };
-  const hideSignUpLoaderHandler = () => {
-    setIsLoading(false);
+  const hideSignUpButtonLoaderHandler = () => {
+    setIsButtonLoading(false);
   };
+
   const {
     email,
     userName: username,
@@ -62,15 +67,16 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
   } = useValidation();
 
   //function sets token and redirects to homepage
-  const handleSignUp = (res) => {
+  const handleSuccess = (res) => {
     //fires after blocto account is set up
-    localStorage.setItem("token", res.data.token);
-    hideSignUpLoaderHandler();
-    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/");
+    localStorage.setItem("token", res.data.token); //sets user token
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
+    hideSignUpButtonLoaderHandler(); //stops button loader
+    hideSignUpLoaderHandler(); //stops page loader
   };
 
   const handleError = (error) => {
-    hideSignUpLoaderHandler();
+    hideSignUpButtonLoaderHandler();
     switch (Number(error.response.status)) {
       case 409:
         setErrorMessages(error.response.data);
@@ -89,8 +95,8 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
 
   const submit = async function (event) {
     event.preventDefault();
-
     showSignUpLoaderHandler();
+    showSignUpButtonLoaderHandler();
 
     // if flow account is not linked throw error
     let currUser = await fcl.currentUser().snapshot();
@@ -113,7 +119,7 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
       },
     })
       .then((res) => {
-        handleSignUp(res);
+        handleSuccess(res);
       })
       .catch((error) => {
         handleError(error);
@@ -205,7 +211,7 @@ const SignUpForm = ({ setShowFlowButtonLoader }) => {
         submit={submit}
         setShowFlowButtonLoader={setShowFlowButtonLoader}
         setErrorMessages={setErrorMessages}
-        isLoading={isLoading}
+        isButton={isButtonLoading}
       />
     </>
   );
