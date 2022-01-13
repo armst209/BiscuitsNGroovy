@@ -1,21 +1,22 @@
 // -------Start of Google Analytics - DON'T REMOVE-------
 import ReactGA from "react-ga";
 // -------End of Google Analytics - DON'T REMOVE-------
+
+//component imports
 import MainHeader from "./components/MainHeader/MainHeader";
 import Footer from "./components/Footer/Footer";
-import "./App.css";
+// import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget"; //Scroll To Top
 
 //Routes & Router
 import routes from "./Routes/config.tsx";
 import Router from "./Routes/Router.tsx";
 
-//for social media icons
-import "@fortawesome/fontawesome-free/js/all";
-//Scroll To Top
-// import ScrollWidget from "./Routes/ScrollWidget/ScrollWidget";
+//styles
+import "./App.css";
+import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
 //Fixed Navigation Spacer
-//import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";
+// import FixedNavigationSpacer from "./components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* <FixedNavigationSpacer /> */}
       <MainHeader />
       <Router routes={routes} />
       <Footer />
