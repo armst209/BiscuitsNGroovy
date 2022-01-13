@@ -1,34 +1,40 @@
+//react imports
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+//component imports
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
-import LinkFlowButton from "./LinkFlowButton";
+import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 
 //styles
 import styles from "./SignUp.module.scss";
-
-import FlowLoader from "../../components/Loading/Forms/FlowLoader";
+import Loading from "../../components/Loading/Loading";
 
 const SignUp = () => {
   const [showSignUpInfo, setShowSignUpInfo] = useState(true);
   const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
-  const [errorMessages, setErrorMessages] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const showSignUpLoaderHandler = () => {
+    setIsLoading(true);
+  };
+  const hideSignUpLoaderHandler = () => {
+    setIsLoading(false);
+  };
 
   return (
     <section id={styles.signup}>
       <FixedNavigationSpacer />
       <h2>Sign up to start your collection</h2>
-      <div className={styles["error-message-main"]}>{errorMessages}</div>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>
-          {/* switches between blocto signup and signup form */}
-
           <SignUpForm
-            setErrorMessages={setErrorMessages}
             setShowFlowButtonLoader={setShowFlowButtonLoader}
+            hideSignUpLoaderHandler={hideSignUpLoaderHandler}
+            showSignUpLoaderHandler={showSignUpLoaderHandler}
           />
-
           <p className={styles["already-account"]}>
             Have an account?
             <Link className={styles["login-redirect"]} to="/signin">
@@ -37,6 +43,7 @@ const SignUp = () => {
           </p>
         </div>
       </div>
+      {isLoading && <Loading />}
       {showFlowButtonLoader && <FlowLoader />}
       {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>

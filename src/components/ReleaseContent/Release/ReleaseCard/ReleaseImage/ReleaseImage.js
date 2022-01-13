@@ -17,7 +17,6 @@ const ReleaseImage = ({ releaseImageSrc, releaseAlt }) => {
         src={releaseImageSrc}
         alt={releaseAlt}
         effect="blur"
-        visibleByDefault={releaseImageSrc}
         afterLoad={() => setIsImageLoaded(true)}
       />
     </>

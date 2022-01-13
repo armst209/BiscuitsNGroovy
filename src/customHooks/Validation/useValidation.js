@@ -1,5 +1,10 @@
+//react imports
 import { useState } from "react";
+
+//validator npm
 import validator from "validator";
+
+//svg imports
 import { ReactComponent as Warning } from "../../assets/images/exclamation.svg";
 
 const useValidation = () => {
@@ -23,6 +28,7 @@ const useValidation = () => {
   const [emailInputLoginClass, setEmailInputLoginClass] = useState("");
   const [confirmPasswordInputLoginClass, setConfirmPasswordInputLoginClass] =
     useState("");
+
   //icon success checks
   const [showUserNameValidationCheck, setShowUserNameValidationCheck] =
     useState(false);
@@ -271,48 +277,7 @@ const useValidation = () => {
     }
   };
 
-  //validation for button submit if both inputs are empty on submit
-  const ifEmptyInputOnSubmit = () => {
-    if (userName.length === 0 && password.length === 0) {
-      setUserNameInputLoginClass("input-error");
-      setShowUserNameValidationCheck(false);
-      setPasswordInputLoginClass("input-error");
-      setShowPasswordValidationCheck(false);
-      setUserNameErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-      setPasswordErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    } else if (userName.length === 0) {
-      setUserNameInputLoginClass("input-error");
-      setShowUserNameValidationCheck(false);
-      setUserNameErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    } else if (password.length === 0) {
-      setPasswordInputLoginClass("input-error");
-      setShowPasswordValidationCheck(false);
-      setPasswordErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    }
-  };
-
   //show & hide password - change input type
-
   const changeInputType = () => {
     if (passwordInputType === "password") {
       setPasswordInputType("text");
@@ -354,7 +319,6 @@ const useValidation = () => {
     showNewsletterArtistEmailValidationCheck,
     setShowNewsletterArtistEmailValidationCheck,
     inputValidation,
-    ifEmptyInputOnSubmit,
     changeInputType,
     passwordInputType,
     isHidden,

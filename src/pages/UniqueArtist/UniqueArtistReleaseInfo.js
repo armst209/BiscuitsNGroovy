@@ -1,27 +1,47 @@
+//component imports
 import ReleaseTracklist from "../../components/ReleaseContent/Release/ReleaseCard/ReleaseTracklist/ReleaseTracklist";
-import { ReactComponent as RecordIcon } from "../../assets/images/vinyl_yellow.svg";
 import ReleasePreviewTitleInfo from "../../components/ReleaseContent/Release/ReleaseCard/ReleasePreview/ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
 import BiscuitDescription from "../../components/ReleaseContent/Biscuit/BiscuitDescription/BiscuitDescription";
 import BiscuitAlbumInformation from "../../components/ReleaseContent/Biscuit/BiscuitAlbumInformation/BiscuitAlbumInformation";
+import BiscuitInsert from "../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
+import NotFound from "../NotFound/NotFound";
+
+//svg imports
 import { ReactComponent as BackButton } from "../../assets/images/arrow-back-yellow.svg";
+import { ReactComponent as RecordIcon } from "../../assets/images/vinyl_yellow.svg";
 
 //styles
 import styles from "./UniqueArtist.module.scss";
 
+//react imports
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
-import BiscuitInsert from "../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
-import NotFound from "../NotFound/NotFound";
 
 const UniqueArtistReleaseInfo = ({ releases }) => {
+  //hooks
   const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
 
+  //state handlers
   const showBiscuitInsertHandler = () => {
     setShowBiscuitInsert(true);
   };
   const closeBiscuitInsertHandler = () => {
     setShowBiscuitInsert(false);
   };
+
+  //   release/:id/
+  // assume: not expired (live)
+  // -if not logged in -> sign in to buy
+  // -if logged in & purchased -> no buy button
+  // -if logged in & not purchased -> buy button
+  // -else -> 404
+
+  // biscuit/:id/
+  // -if not logged in -> 404
+  // -if not purchased -> 404
+  // -if logged in & purchased & expired -> no music
+  // -if logged in & purchased & not expired -> music
+  // else -> 404
 
   //getting array of available release ids
   const releaseIds = releases.library.map((_artistId) => {

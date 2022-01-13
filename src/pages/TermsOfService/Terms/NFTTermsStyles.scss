@@ -6,12 +6,13 @@
     padding: 8rem 1rem 8rem 1rem;
 
     .nft-terms-container {
-      font-family: var(--font2);
+      font-family: var(--secondary-font);
+      font-weight: var(--secondary-font-weight);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 7px solid var(--color2);
+      border: 2px solid var(--color2);
       border-radius: 20px;
       padding: 5rem;
 
@@ -38,12 +39,12 @@
           }
           strong {
             color: var(--color1);
-            font-family: var(--font1);
+            font-family: var(--header-font);
             font-weight: normal;
           }
           em {
             color: var(--color1);
-            font-family: var(--font1);
+            font-family: var(--header-font);
             font-weight: normal;
           }
           .rights-nft-alpha-list {

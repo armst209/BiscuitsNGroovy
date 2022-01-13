@@ -1,12 +1,22 @@
+//react imports
 import { Link } from "react-router-dom";
-import LinkFlowButton from "../LinkFlowButton";
+import { useState } from "react";
 import useValidation from "../../../customHooks/Validation/useValidation";
+
+//styles
 import "../../../customHooks/Validation/useValidationStyles.scss";
 import "./SignUpFormStyles.scss";
+import styles from "../SignUp.module.scss";
+
+//component imports
+import LinkFlowButton from "../LinkFlowButton";
+
+//svg imports
+import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
+
+//other imports
 import axios from "axios";
 import env from "react-dotenv";
-import "../../../customHooks/Validation/useValidationStyles.scss";
-import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
@@ -19,7 +29,21 @@ config()
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
+const SignUpForm = ({
+  setShowFlowButtonLoader,
+  hideSignUpLoaderHandler,
+  showSignUpLoaderHandler,
+}) => {
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
+
+  //state handlers
+  const showSignUpButtonLoaderHandler = () => {
+    setIsButtonLoading(true);
+  };
+  const hideSignUpButtonLoaderHandler = () => {
+    setIsButtonLoading(false);
+  };
+
   const {
     email,
     userName: username,
@@ -33,16 +57,46 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
     showUserNameValidationCheck,
     showEmailValidationCheck,
     showPasswordValidationCheck,
+    errorMessages,
+    setShowEmailValidationCheck,
+    setShowUserNameValidationCheck,
+    setEmailInputLoginClass,
+    setUserNameInputLoginClass,
+    setErrorMessages,
     inputValidation,
   } = useValidation();
+
   //function sets token and redirects to homepage
-  const handleSignUp = (res) => {
+  const handleSuccess = (res) => {
     //fires after blocto account is set up
-    localStorage.setItem("token", res.data.token);
-    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/");
+    localStorage.setItem("token", res.data.token); //sets user token
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
+    hideSignUpButtonLoaderHandler(); //stops button loader
+    hideSignUpLoaderHandler(); //stops page loader
   };
+
+  const handleError = (error) => {
+    hideSignUpButtonLoaderHandler();
+    switch (Number(error.response.status)) {
+      case 409:
+        setErrorMessages(error.response.data);
+        setShowEmailValidationCheck(false);
+        setShowUserNameValidationCheck(false);
+        setEmailInputLoginClass("input-error");
+        setUserNameInputLoginClass("input-error");
+        break;
+      default:
+        setErrorMessages(error.response.data);
+        break;
+    }
+
+    setErrorMessages(error.response.data);
+  };
+
   const submit = async function (event) {
     event.preventDefault();
+    showSignUpLoaderHandler();
+    showSignUpButtonLoaderHandler();
 
     // if flow account is not linked throw error
     let currUser = await fcl.currentUser().snapshot();
@@ -56,42 +110,27 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
     axios({
       method: "post",
       url: `${process.env.REACT_APP_BACKEND_URL}/registration`,
-
       data: {
         email,
+        name: "",
         username,
         password,
         flow_address,
       },
     })
       .then((res) => {
-        handleSignUp(res);
+        handleSuccess(res);
       })
       .catch((error) => {
-        console.log(error);
-        // if (error.response) {
-        //   let errorType = error.response.status;
-        //   console.log(error.response);
-        //   switch (errorType) {
-        //     case 422:
-        //       setErrorMessages(error.response.data);
-        //       break;
-        //     case 500:
-        //       setErrorMessages("Server Error");
-        //       break;
-        //     default:
-        //       console.log("undefined error");
-        //       setErrorMessages(error);
-        //       break;
-        //   }
-        // }
+        handleError(error);
       });
   };
 
   return (
     <>
       <form>
-        <div className="input-styles">
+        <div className={styles["error-message-main"]}>{errorMessages}</div>
+        <fieldset className="input-styles">
           <label className="label-error-message email-label" htmlFor="email">
             {emailErrorMessage}
           </label>
@@ -104,9 +143,9 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             onBlur={inputValidation}
             required
           />
-          {/* {showEmailValidationCheck && (
-          <ValidationSuccess className="valid-check-icon email-check" />
-        )} */}
+          {showEmailValidationCheck && (
+            <ValidationSuccess className="valid-check-icon email-check" />
+          )}
 
           <label
             className="label-error-message username-label"
@@ -124,9 +163,9 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             required
           />
           {/* check icon */}
-          {/* {showUserNameValidationCheck && (
-          <ValidationSuccess className="valid-check-icon username-check" />
-        )} */}
+          {showUserNameValidationCheck && (
+            <ValidationSuccess className="valid-check-icon username-signup-check" />
+          )}
 
           <label
             className="label-error-message password-signup-label"
@@ -144,9 +183,9 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             required
           />
           {/* check icon */}
-          {/* {showPasswordValidationCheck && (
-          <ValidationSuccess className="valid-check-icon password-check" />
-        )} */}
+          {showPasswordValidationCheck && (
+            <ValidationSuccess className="valid-check-icon password-signup-check" />
+          )}
 
           <div className="signup-checkbox-container">
             <label
@@ -162,16 +201,17 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
               id="terms-check"
               type="checkbox"
               autoComplete="off"
-              // onBlur={signupFormValidation}
               required
             />
           </div>
-        </div>
+        </fieldset>
       </form>
+      {/* Link Blocto Account/Create Account button */}
       <LinkFlowButton
         submit={submit}
         setShowFlowButtonLoader={setShowFlowButtonLoader}
         setErrorMessages={setErrorMessages}
+        isButton={isButtonLoading}
       />
     </>
   );
