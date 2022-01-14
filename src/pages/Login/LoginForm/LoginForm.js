@@ -65,7 +65,7 @@ const LoginForm = () => {
     //ON SUCCESS
     const handleSuccess = (res) => {
       localStorage.setItem("token", res.data.token);
-      window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/home");
+      window.location.replace(process.env.REACT_APP_FRONTEND_URL);
     };
 
     //ON FAILURE

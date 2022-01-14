@@ -1,6 +1,6 @@
 //component imports
-import ReleaseTracklist from "../../components/ReleaseContent/Release/ReleaseCard/ReleaseTracklist/ReleaseTracklist";
-import ReleasePreviewTitleInfo from "../../components/ReleaseContent/Release/ReleaseCard/ReleasePreview/ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
+import ReleaseTracklist from "../../components/ReleaseContent/ReleaseComponents/ReleaseTracklist/ReleaseTracklist";
+import ReleasePreviewTitleInfo from "../../components/ReleaseContent/ReleaseComponents/ReleasePreview/ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
 import BiscuitDescription from "../../components/ReleaseContent/Biscuit/BiscuitDescription/BiscuitDescription";
 import BiscuitAlbumInformation from "../../components/ReleaseContent/Biscuit/BiscuitAlbumInformation/BiscuitAlbumInformation";
 import BiscuitInsert from "../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";

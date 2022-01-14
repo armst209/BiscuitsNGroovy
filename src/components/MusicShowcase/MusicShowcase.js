@@ -1,11 +1,11 @@
 //styles
 import styles from "./MusicShowcase.module.scss";
 
-import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
+import ReleaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/ReleaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
 import showcase from "../../assets/images/showcase-outline.webp";
-import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseList/NoReleases/NoReleasesMusicShowcase";
+import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
 import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
 
 const MusicShowcase = () => {

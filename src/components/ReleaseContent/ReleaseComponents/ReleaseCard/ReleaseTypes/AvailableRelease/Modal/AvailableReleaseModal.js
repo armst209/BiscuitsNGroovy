@@ -1,9 +1,12 @@
-import { React, useState, useEffect } from "react";
-import "./AlbumPopupStyles.scss";
+import { useState, useEffect } from "react";
+import "./AvailableReleaseModalStyles.scss";
 import { ReactComponent as ArrowBack } from "../../../../../../../assets/images/arrow-back-yellow.svg";
-import MusicPlayer from "../../../../../../../components/ReleaseContent/MusicPlayer/OldMusicPlayer/MusicPlayer";
+import MusicPlayer from "../../../../../MusicPlayer/MusicPlayer.js";
 import { AnimatePresence, motion } from "framer-motion";
-import ComponentLoading from "../../../../../../../components/Loading/Component/ComponentLoading.js";
+
+import ComponentLoading from "../../../../../../Loading/Component/ComponentLoading";
+
+import ReleaseImage from "../../../../ReleaseImage/ReleaseImage";
 
 //variants for framer motion
 const tracklistAnimations = {
@@ -11,46 +14,45 @@ const tracklistAnimations = {
   hidden: { y: 0 },
 };
 
-function AlbumPopup(props) {
+function AvailableReleseModal({ release }) {
+  console.log(release.songs);
   const [showTrackList, setShowTrackList] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
   const [populateTracklist, setPopulateTracklist] = useState();
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
+  // useEffect(() => {
+  //mapping through songs array to populate playlist and numbering song order
+  const songsArray = release.songs;
 
-  const handleClose = () => {
-    props.closeAlbumPopup("");
-  };
-
-  useEffect(() => {
-    //mapping through songs array to populate playlist and numbering song order
-    const songsArray = props.release.songs;
-
-    let showReleaseTrackList = songsArray.map((element, order) => {
-      return element ? (
-        <li
-          key={`li-albumpopup-tracklist-key-for-${element.title}`}
-          onClick={() => {
-            setCurrentMusicIndex(songsArray.indexOf(element));
-          }}
-        >
-          {`${order + 1}. ${element.title}`}
-        </li>
-      ) : (
-        <ComponentLoading key={`component-loading-key-for${element.title}`} />
-      );
-    });
-    //passing in songsArray map as a parameter for hook
-    setPopulateTracklist(showReleaseTrackList);
-  }, [props.release.songs]);
+  let showReleaseTrackList = songsArray.map((element, order) => {
+    return element ? (
+      <li
+        key={`li-albumpopup-tracklist-key-for-${element.title}`}
+        onClick={() => {
+          setCurrentMusicIndex(songsArray.indexOf(element));
+        }}
+      >
+        {`${order + 1}. ${element.title}`}
+      </li>
+    ) : (
+      <ComponentLoading key={`component-loading-key-for${element.title}`} />
+    );
+  });
+  //passing in songsArray map as a parameter for hook
+  setPopulateTracklist(showReleaseTrackList);
+  // }, []);
 
   return (
     <section id="album-popup">
       <div className="album-popup-container">
         <div className="album-popup-content">
           <div className="album-content-left">
-            <img src={props.release.art_url} alt={props.release.name} />
-            <h1>{props.release.name}</h1>
-            <div className="album-popup-title">{props.release.title}</div>
+            <ReleaseImage
+              releaseImageSrc={release.art_url}
+              releaseAlt={release.name}
+            />
+            <h1>{release.name}</h1>
+            <div className="album-popup-title">{release.title}</div>
           </div>
 
           <div className="album-content-right">
@@ -81,7 +83,7 @@ function AlbumPopup(props) {
           )}
         </div>
         {/* function call to close pop up */}
-        <div onClick={handleClose} className="close-album-info">
+        <div o className="close-album-info">
           <ArrowBack className="back-arrow" />X
         </div>
       </div>
@@ -93,13 +95,11 @@ function AlbumPopup(props) {
           setShowTrackList={setShowTrackList}
           selectedTrack={selectedTrack}
           setSelectedTrack={setSelectedTrack}
-          trackListArray={props.release.songs}
-          albumName={props.release.name}
-          albumCover={props.release.art_url}
+          release={release}
         />
       </div>
     </section>
   );
 }
 
-export default AlbumPopup;
+export default AvailableReleseModal;
