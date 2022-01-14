@@ -1,18 +1,23 @@
 //styles
-import styles from "./ReleasePreview.module.scss";
-
+import styles from "./ReleasePreviewModal.module.scss";
+//react imports
+import ReactDOM from "react-dom";
+//svg imports
 import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl_yellow.svg";
+
+//component imports
 import ReleaseTracklist from "../ReleaseTracklist/ReleaseTracklist";
 import ReleasePreviewTitleInfo from "./ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
 
-const ReleasePreview = ({
+const ReleasePreviewModalOverlay = ({
   release,
   setShowReleasePreview,
   showReleasePreview,
 }) => {
   return (
-    <section id={styles["release-preview"]}>
-      <div className={styles["release-preview-wrapper"]}>
+    <section id={styles["release-preview-backdrop"]}>
+      ;
+      <div className={styles["release-preview-modal"]}>
         <div
           onClick={() => setShowReleasePreview(!showReleasePreview)}
           className={styles["close-release-info"]}
@@ -42,4 +47,23 @@ const ReleasePreview = ({
   );
 };
 
-export default ReleasePreview;
+const ReleasePreviewModal = ({
+  release,
+  setShowReleasePreview,
+  showReleasePreview,
+}) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <ReleasePreviewModalOverlay
+          release={release}
+          setShowReleasePreview={setShowReleasePreview}
+          showReleasePreview={showReleasePreview}
+        />,
+        document.getElementById("modal-overlay-root")
+      )}
+    </>
+  );
+};
+
+export default ReleasePreviewModal;
