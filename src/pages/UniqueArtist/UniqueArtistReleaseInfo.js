@@ -29,20 +29,6 @@ const UniqueArtistReleaseInfo = ({ releases }) => {
     setShowBiscuitInsert(false);
   };
 
-  //   release/:id/
-  // assume: not expired (live)
-  // -if not logged in -> sign in to buy
-  // -if logged in & purchased -> no buy button
-  // -if logged in & not purchased -> buy button
-  // -else -> 404
-
-  // biscuit/:id/
-  // -if not logged in -> 404
-  // -if not purchased -> 404
-  // -if logged in & purchased & expired -> no music
-  // -if logged in & purchased & not expired -> music
-  // else -> 404
-
   //getting array of available release ids
   const releaseIds = releases.library.map((_artistId) => {
     return _artistId.id;

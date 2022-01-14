@@ -1,7 +1,13 @@
+//react imports
+import ReactDOM from "react-dom";
+
+//component imports
 import ReleaseImage from "../../../../ReleaseImage/ReleaseImage";
+
+//styles
 import "./NFTViewModalStyles.scss";
 
-function NFTExpiredModal({ release, closeNFTView }) {
+const NFTViewModalOverlay = ({ release, closeNFTView }) => {
   return (
     <section id="nft-expired-modal">
       <div className="nft-expired-modal-image-container">
@@ -16,6 +22,16 @@ function NFTExpiredModal({ release, closeNFTView }) {
       </div>
     </section>
   );
-}
+};
+const NFTExpiredModal = ({ release, closeNFTView }) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <NFTViewModalOverlay release={release} closeNFTView={closeNFTView} />,
+        document.getElementById("modal-overlay-root")
+      )}
+    </>
+  );
+};
 
 export default NFTExpiredModal;
