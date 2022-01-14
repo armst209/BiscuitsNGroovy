@@ -3,9 +3,9 @@ import "./CollectionStyles.scss";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import useFetch from "../../customHooks/Fetch/useFetch";
-import ReleaseList from "../../components/ReleaseContent/ReleaseList/ReleaseList";
-import NoReleasesCollection from "../../components/ReleaseContent/ReleaseList/NoReleases/NoReleasesCollection";
-import CollectionReleaseList from "../../components/ReleaseContent/ReleaseList/CollectionReleaseList/CollectionReleaseList";
+import ReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/ReleaseList";
+import NoReleasesCollection from "../../components/ReleaseContent/ReleaseComponents/NoReleases/NoReleasesCollection";
+import CollectionReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/CollectionReleaseList/CollectionReleaseList";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 function Collection() {

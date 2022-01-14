@@ -76,7 +76,7 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
-    path: "/biscuit/artist/:artistId",
+    path: "/biscuit/:biscuitId",
     component: lazy(() => import("../pages/UniqueArtist/UniqueArtistPage")),
     key: "UNIQUE_ARTIST_PAGE",
     exact: true,
@@ -93,16 +93,11 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
-    path: "/collection/:id",
-    component: lazy(
-      () =>
-        import(
-          "../components/ReleaseContent/Release/ReleaseCard/CardViews/AvailableRelease/Modal/AvailableReleaseModal"
-        )
-    ),
-    key: "ALBUM_PAGE",
+    path: "/collection/release/:releaseId",
+    component: lazy(() => import("../components/ReleaseContent/Release/Release")),
+    key: "RELEASE_PAGE",
     exact: true,
-    private: false,
+    private: true,
     fallback: <Loading />,
   },
   {
