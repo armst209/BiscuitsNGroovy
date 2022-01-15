@@ -40,10 +40,6 @@ const useValidation = () => {
   ] = useState(false);
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
-  const [
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
-  ] = useState(false);
 
   //show & hide password input
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -196,6 +192,7 @@ const useValidation = () => {
         break;
       /**
        * *CONFIRM PASSWORD CASE
+       * TODO: fix password word comparison values
        */
       case "confirm-password":
         setConfirmPassword(value);
@@ -276,8 +273,8 @@ const useValidation = () => {
     setShowUserNameValidationCheck,
     showPasswordValidationCheck,
     setShowPasswordValidationCheck,
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
+    showConfirmPasswordValidationCheck,
+    setShowConfirmPasswordValidationCheck,
     inputValidation,
     changeInputType,
     passwordInputType,
