@@ -5,6 +5,8 @@
   // -if logged in & purchased -> no buy button
   // -if logged in & not purchased -> buy button
   // -else -> 404
+  //music showcase
+  //purchase
 
   // biscuit/:id/
   // -if not logged in -> 404
@@ -12,3 +14,6 @@
   // -if logged in & purchased & expired -> no music
   // -if logged in & purchased & not expired -> music
   // else -> 404
+  //collection
+  /biscuit
+  //no purchase boolean

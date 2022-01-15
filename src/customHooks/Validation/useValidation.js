@@ -40,10 +40,6 @@ const useValidation = () => {
   ] = useState(false);
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
-  const [
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
-  ] = useState(false);
 
   //show & hide password input
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -54,35 +50,10 @@ const useValidation = () => {
     let { name, value } = event.target;
 
     switch (name) {
+      //EMAIL CASES
       case "email":
-        setEmail(value);
-        if (validator.isEmail(value)) {
-          setEmailInputLoginClass("input-success");
-          setShowEmailValidationCheck(true);
-          setEmailErrorMessage("Email");
-        } else if (!validator.isLength(value, { min: 1, max: undefined })) {
-          setEmailInputLoginClass("input-error");
-          setShowEmailValidationCheck(false);
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Please fill out this field
-              </div>
-            </>
-          );
-        } else {
-          setEmailInputLoginClass("input-error");
-          setShowEmailValidationCheck(false);
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">Invalid Email</div>
-            </>
-          );
-        }
-        break;
       case "signup-email":
+      case "MERGE0":
         setEmail(value);
         if (validator.isEmail(value)) {
           setEmailInputLoginClass("input-success");
@@ -110,6 +81,7 @@ const useValidation = () => {
           );
         }
         break;
+      //USERNAME CASE
       case "username":
         setUserName(value);
         if (validator.isLength(value, { min: 1, max: undefined })) {
@@ -129,7 +101,7 @@ const useValidation = () => {
         }
 
         break;
-
+      //PASSWORD CASE
       case "password":
         setPassword(value);
         if (
@@ -199,7 +171,7 @@ const useValidation = () => {
           setErrorMessages("");
         }
         break;
-
+      //LOGIN PASSWORD CASE
       case "login-password":
         setPassword(value);
         if (validator.isLength(value, { min: 1, max: undefined })) {
@@ -218,6 +190,10 @@ const useValidation = () => {
           );
         }
         break;
+      /**
+       * *CONFIRM PASSWORD CASE
+       * TODO: fix password word comparison values
+       */
       case "confirm-password":
         setConfirmPassword(value);
         console.log(confirmPassword);
@@ -237,42 +213,23 @@ const useValidation = () => {
           setConfirmPasswordInputLoginClass("input-error");
         }
         break;
+
+      /**
+       * *TERMS CHECKBOX CASE
+       */
+
       case "terms-check":
         if (value !== "on") {
           alert("please check box");
         }
 
         break;
-      //case for mailchimp email
-      case "MERGE0":
-        setEmail(value);
-        if (validator.isEmail(value)) {
-          setEmailInputLoginClass("input-success");
-          setShowNewsletterArtistEmailValidationCheck(true);
-          setEmailErrorMessage("Email");
-        } else if (!validator.isLength(value, { min: 1, max: undefined })) {
-          setEmailInputLoginClass("input-error");
-          setShowNewsletterArtistEmailValidationCheck(false);
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Please fill out this field
-              </div>
-            </>
-          );
-        } else {
-          setEmailInputLoginClass("input-error");
-          setShowEmailValidationCheck(false);
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">Invalid Email</div>
-            </>
-          );
-        }
-        break;
+
+      /**
+       * TODO: change default error message
+       */
       default:
+        setErrorMessages("ERROR");
         break;
     }
   };
@@ -316,8 +273,8 @@ const useValidation = () => {
     setShowUserNameValidationCheck,
     showPasswordValidationCheck,
     setShowPasswordValidationCheck,
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
+    showConfirmPasswordValidationCheck,
+    setShowConfirmPasswordValidationCheck,
     inputValidation,
     changeInputType,
     passwordInputType,

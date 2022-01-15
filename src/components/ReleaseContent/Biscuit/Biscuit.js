@@ -4,6 +4,8 @@ import useFetch from "../../../customHooks/Fetch/useAxiosFetch";
 
 //component imports
 import BiscuitContainer from "./BiscuitContainer/BiscuitContainer";
+import FixedNavigationSpacer from "../../FixedNavigationSpacer/FixedNavigationSpacer";
+import ComponentLoading from "../../Loading/Component/ComponentLoading";
 
 const Biscuit = () => {
   //!!!!!using urlParams to get id and sending it through api call and receiving single release object!!!
@@ -20,9 +22,8 @@ const Biscuit = () => {
     responseData: release,
     isLoading,
     errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/library`, {
+  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/${biscuitId}`, {
     headers: { "x-access-token": token },
-    //take in a release id
   });
 
   return (

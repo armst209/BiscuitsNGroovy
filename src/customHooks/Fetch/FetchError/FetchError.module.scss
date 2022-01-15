@@ -1,0 +1,9 @@
+.fetch-error-message {
+  color: white;
+  text-align: center;
+  font-family: var(--header-font);
+  padding: 2rem;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
+  }
+}
