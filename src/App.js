@@ -12,7 +12,7 @@ import routes from "./Routes/config.tsx";
 import Router from "./Routes/Router.tsx";
 
 //styles
-import "./App.css";
+import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
 //Fixed Navigation Spacer

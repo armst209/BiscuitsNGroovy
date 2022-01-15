@@ -6,24 +6,24 @@ const MusicPlayerContainer = ({ release }) => {
   //hooks
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
-  const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   const { songs } = release; // destructuring songs from release object]
 
   //handlers
   const previousSongChangeHandler = () => {
     // setting currentMusicIndex to last song in array if on first song
-    let firstSongInPlaylistIndex = currentMusicIndex;
+    let firstSongInPlaylistIndex = currentSongIndex;
     firstSongInPlaylistIndex === 0
-      ? setCurrentMusicIndex(songs.length - 1)
-      : setCurrentMusicIndex(currentMusicIndex - 1);
+      ? setCurrentSongIndex(songs.length - 1)
+      : setCurrentSongIndex(currentSongIndex - 1);
   };
   const nextSongChangeHandler = () => {
     // setting currentMusicIndex to first song in array if on last song
-    let lastSongInPlaylistIndex = currentMusicIndex;
+    let lastSongInPlaylistIndex = currentSongIndex;
     lastSongInPlaylistIndex === songs.length - 1
-      ? setCurrentMusicIndex(0)
-      : setCurrentMusicIndex(currentMusicIndex + 1);
+      ? setCurrentSongIndex(0)
+      : setCurrentSongIndex(currentSongIndex + 1);
   };
 
   return (
@@ -31,7 +31,7 @@ const MusicPlayerContainer = ({ release }) => {
       songs={songs}
       previousSongChangeHandler={previousSongChangeHandler}
       nextSongChangeHandler={nextSongChangeHandler}
-      currentMusicIndex={currentMusicIndex}
+      currentSongIndex={currentSongIndex}
       // setCurrentMusicIndex={setCurrentMusicIndex}
       showTrackList={showTrackList}
       setShowTrackList={setShowTrackList}

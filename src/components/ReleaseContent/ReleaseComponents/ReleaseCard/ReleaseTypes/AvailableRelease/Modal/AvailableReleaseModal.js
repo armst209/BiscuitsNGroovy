@@ -14,7 +14,7 @@ const tracklistAnimations = {
   hidden: { y: 0 },
 };
 
-function AvailableReleseModal({ release }) {
+function AvailableReleaseModal({ release }) {
   console.log(release.songs);
   const [showTrackList, setShowTrackList] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
@@ -102,4 +102,4 @@ function AvailableReleseModal({ release }) {
   );
 }
 
-export default AvailableReleseModal;
+export default AvailableReleaseModal;

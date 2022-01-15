@@ -2,7 +2,7 @@
 import styles from "./MarqueeWrapper.module.scss";
 
 //svg imports
-import { ReactComponent as RecordSpin } from "../../../assets/images/compact-disc-yellow.svg";
+import { ReactComponent as RecordSpin } from "../../../../assets/images/compact-disc-yellow.svg";
 
 //marquee import - for marquee style text display
 import Marquee from "react-fast-marquee";

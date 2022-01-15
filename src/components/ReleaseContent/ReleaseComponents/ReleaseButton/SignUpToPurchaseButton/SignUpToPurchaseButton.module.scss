@@ -1,0 +1,22 @@
+a {
+  text-decoration: none;
+  &:visited {
+    color: white;
+  }
+  .signup-to-purchase-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    svg {
+      display: none;
+      filter: black;
+      position: absolute;
+      bottom: 0;
+      right: 9%;
+      width: 30px;
+      margin: 0;
+    }
+  }
+}

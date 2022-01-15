@@ -1,4 +1,4 @@
-import "../../../App.css";
+// import "../../../_global.css";
 import { useState } from "react";
 import useValidation from "../../../customHooks/Validation/useValidation";
 import "../../../customHooks/Validation/useValidationStyles.scss";

@@ -4,6 +4,7 @@ import "../../../customHooks/Validation/useValidationStyles.scss";
 import FormLoader from "../../Loading/Forms/FormLoader";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import "./NewsLetterSubscribeStyles.scss";
+import Button from "../../WrapperComponents/Button/Button";
 
 const NewsLetterForm = ({ status, message, onValidated }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -85,7 +86,9 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
           <ValidationSuccess className="valid-check-icon newsletter-email-check" />
         )}
 
-        <button type="submit">Join</button>
+        <Button className="_button" type="submit">
+          Join
+        </Button>
       </fieldset>
     </form>
   );
