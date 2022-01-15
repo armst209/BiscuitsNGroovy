@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import FetchError from "./FetchError/FetchError";
 
 const useFetch = (url, _options) => {
   const [responseData, setResponseData] = useState(null);
@@ -30,8 +31,8 @@ const useFetch = (url, _options) => {
           //console.log("fetch was aborted");
         } else {
           setIsLoading(false);
-          setErrorMessage("Can't fetch data");
-          console.log(error.message);
+          setErrorMessage(<FetchError />);
+          console.log(error);
         }
       }
     };
