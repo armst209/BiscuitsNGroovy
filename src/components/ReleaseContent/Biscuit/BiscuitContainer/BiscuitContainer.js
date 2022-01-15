@@ -1,5 +1,6 @@
 //react imports
 import { useState } from "react";
+import MusicPlayerContainer from "../../MusicPlayer/OldMusicPlayer/MusicPlayerContainer";
 //styles
 import styles from "./BiscuitContainer.module.scss";
 const BiscuitContainer = ({ release }) => {
@@ -59,7 +60,7 @@ const BiscuitContainer = ({ release }) => {
                   <BiscuitDescription />
                 </div>
                 <button
-                  className="global-button"
+                  className="_button"
                   onClick={() => showBiscuitInsertHandler()}
                 >
                   View Insert
@@ -85,6 +86,8 @@ const BiscuitContainer = ({ release }) => {
             Back To Collection
           </Link>
         </div>
+        {/* Music Player */}
+        <MusicPlayerContainer release={release} />
       </section>
     )
   );

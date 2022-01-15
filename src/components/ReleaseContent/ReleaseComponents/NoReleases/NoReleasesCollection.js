@@ -8,7 +8,7 @@ const NoReleasesCollection = () => {
     <div id={styles["no-releases-collection"]}>
       <h1>It looks like you have no releases yet...</h1>
       <Link to="/#music-showcase">
-        <button className="global-button">Start Your Collection</button>
+        <button className="_button">Start Your Collection</button>
       </Link>
     </div>
   );

@@ -1,3 +1,4 @@
+import Button from "../../../../WrapperComponents/Button/Button";
 import ReleaseButton from "../../ReleaseButton/ReleaseButton";
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import styles from "./ReleasePreviewTitleInfo.module.scss";
@@ -22,7 +23,9 @@ const ReleasePreviewTitleInfo = ({ release }) => {
         {description}
       </div>
       <div className={styles["button-container"]}>
-        <ReleaseButton release={release} />
+        <Button className="_button">
+          <ReleaseButton release={release} />
+        </Button>
       </div>
     </section>
   );

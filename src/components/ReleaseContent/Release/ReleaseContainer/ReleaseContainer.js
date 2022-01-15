@@ -70,7 +70,7 @@ const ReleaseContainer = ({ release }) => {
                   {release.description}
                 </div>
                 <button
-                  className="global-button"
+                  className="_button"
                   onClick={() => showBiscuitInsertHandler()}
                 >
                   View Insert

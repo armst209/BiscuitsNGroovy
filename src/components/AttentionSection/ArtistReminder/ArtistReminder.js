@@ -1,8 +1,15 @@
+//react imports
 import { Link } from "react-router-dom";
+
+//styles
 import styles from "./ArtistReminder.module.scss";
+
+//svg imports
 import { ReactComponent as ArtistIcon } from "../../../assets/images/speaker_yellow.svg";
-//CSS uses BEM
-//CSS with css modules
+
+//component imports
+import Button from "../../WrapperComponents/Button/Button";
+
 const ArtistReminder = () => {
   return (
     <section id={styles["artist-reminder"]}>
@@ -28,7 +35,7 @@ const ArtistReminder = () => {
             </div>
 
             <Link className={styles.artist_reminder__link} to="/artists">
-              <button>For Artists</button>
+              <Button className="_button">For Artists</Button>
             </Link>
           </div>
         </div>

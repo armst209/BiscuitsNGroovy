@@ -1,14 +1,19 @@
+//styles
 import "./CollectionStyles.scss";
 
+//svg imports
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
+
+//component imports
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
-import useFetch from "../../customHooks/Fetch/useFetch";
-import ReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/ReleaseList";
 import NoReleasesCollection from "../../components/ReleaseContent/ReleaseComponents/NoReleases/NoReleasesCollection";
 import CollectionReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/CollectionReleaseList/CollectionReleaseList";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
-function Collection() {
+//react imports
+import useFetch from "../../customHooks/Fetch/useFetch";
+
+const Collection = () => {
   //TOKEN
   let token = localStorage.getItem("token");
 
@@ -53,6 +58,6 @@ function Collection() {
       </section>
     </>
   );
-}
+};
 
 export default Collection;

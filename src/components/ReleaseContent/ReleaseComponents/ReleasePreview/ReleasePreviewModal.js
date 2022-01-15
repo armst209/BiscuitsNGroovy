@@ -1,7 +1,9 @@
 //styles
 import styles from "./ReleasePreviewModal.module.scss";
+
 //react imports
 import ReactDOM from "react-dom";
+
 //svg imports
 import { ReactComponent as RecordIcon } from "../../../../assets/images/vinyl_yellow.svg";
 

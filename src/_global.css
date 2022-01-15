@@ -24,10 +24,8 @@
 
 @font-face {
   font-family: "TTNormsPro-Rg";
-  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
-      format("woff2"),
-    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
-      format("woff");
+  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff") format("woff2"),
+    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff") format("woff");
 }
 
 /**
@@ -54,10 +52,8 @@
 
 @font-face {
   font-family: "TTNormsPro-Normal";
-  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff")
-      format("woff2"),
-    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2")
-      format("woff");
+  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff") format("woff2"),
+    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2") format("woff");
 }
 
 /* HEADER FONT */
@@ -150,7 +146,7 @@ input:-internal-autofill-selected {
 
 /*buttons*/
 
-.global-button {
+._button {
   border: 2px solid var(--color1);
   border-radius: 0.5rem;
   font-family: var(--header-font);

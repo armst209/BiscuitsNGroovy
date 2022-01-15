@@ -1,9 +1,13 @@
+//react imports
 import { useState } from "react";
+
+//component imports
 import ReleaseImage from "../../../ReleaseImage/ReleaseImage";
 import ReleasePreviewModal from "../../../ReleasePreview/ReleasePreviewModal";
 
 const MusicShowcaseCard = ({ release }) => {
   const [showReleasePreview, setShowReleasePreview] = useState(false);
+
   const { name, art_url } = release;
 
   return (

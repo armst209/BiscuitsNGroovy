@@ -1,16 +1,38 @@
+//react imports
 import { useState } from "react";
 import MusicPlayer from "./MusicPlayer";
 
 const MusicPlayerContainer = ({ release }) => {
-  const [showTrackList, setShowTrackList] = useState(false);
+  //hooks
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
-  // const [populateTracklist, setPopulateTracklist] = useState();
-  const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
+  const { songs } = release; // destructuring songs from release object]
+
+  //handlers
+  const previousSongChangeHandler = () => {
+    // setting currentMusicIndex to last song in array if on first song
+    let firstSongInPlaylistIndex = currentSongIndex;
+    firstSongInPlaylistIndex === 0
+      ? setCurrentSongIndex(songs.length - 1)
+      : setCurrentSongIndex(currentSongIndex - 1);
+  };
+  const nextSongChangeHandler = () => {
+    // setting currentMusicIndex to first song in array if on last song
+    let lastSongInPlaylistIndex = currentSongIndex;
+    lastSongInPlaylistIndex === songs.length - 1
+      ? setCurrentSongIndex(0)
+      : setCurrentSongIndex(currentSongIndex + 1);
+  };
+
   return (
     <MusicPlayer
-      release={release}
-      currentMusicIndex={currentMusicIndex}
-      setCurrentMusicIndex={setCurrentMusicIndex}
+      songs={songs}
+      previousSongChangeHandler={previousSongChangeHandler}
+      nextSongChangeHandler={nextSongChangeHandler}
+      currentSongIndex={currentSongIndex}
+      // setCurrentMusicIndex={setCurrentMusicIndex}
       showTrackList={showTrackList}
       setShowTrackList={setShowTrackList}
       selectedTrack={selectedTrack}
