@@ -96,6 +96,7 @@
   /* colors */
   --color1: #f5ee0d;
   --color2: #25c1a9;
+  --color1-svg-filter: invert(80%) sepia(98%) saturate(446%) hue-rotate(357deg) brightness(96%) contrast(101%);
   --main-color-nav-footer-black: #000;
   --main-color-body-dark-grey: #161617;
   --main-color-nav-containers-darker-grey: #131212;

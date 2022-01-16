@@ -120,8 +120,7 @@
 
           transition: 0.5s;
           color: yellow;
-          filter: invert(79%) sepia(81%) saturate(486%) hue-rotate(4deg)
-            brightness(99%) contrast(104%);
+          filter: var(--color1-svg-filter);
         }
       }
     }
