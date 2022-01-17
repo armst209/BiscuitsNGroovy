@@ -10,19 +10,21 @@ const MusicShowcaseCard = ({ release }) => {
 
   const { name, art_url } = release;
 
+  const showReleasePreviewModalHandler = () => setShowReleasePreview(true);
+  const hideReleasePreviewModalHandler = () => setShowReleasePreview(false);
+
   return (
     <>
       <div
         className="release-card"
-        onClick={() => setShowReleasePreview(!showReleasePreview)}
+        onClick={() => showReleasePreviewModalHandler()}
       >
         <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
       </div>
       {showReleasePreview && (
         <ReleasePreviewModal
           release={release}
-          setShowReleasePreview={setShowReleasePreview}
-          showReleasePreview={showReleasePreview}
+          hideReleasePreviewModalHandler={hideReleasePreviewModalHandler}
         />
       )}
     </>

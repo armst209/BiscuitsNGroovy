@@ -5,10 +5,7 @@ import styles from "./AvailableReleaseHover.module.scss";
 
 function AvailableReleaseHover({ release }) {
   return (
-    <Link
-      to={`/biscuit/artist/${Number(release.id)}`}
-      id={styles["available-release-hover"]}
-    >
+    <Link to={`/biscuit/${release.id}`} id={styles["available-release-hover"]}>
       <div className={styles["available-release-hover-wrapper"]}>
         <button>
           <PlayButtonIcon />

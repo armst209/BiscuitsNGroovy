@@ -8,12 +8,15 @@ import FixedNavigationSpacer from "../../FixedNavigationSpacer/FixedNavigationSp
 import ComponentLoading from "../../Loading/Component/ComponentLoading";
 import ReleaseContainer from "./ReleaseContainer/ReleaseContainer";
 
-const Release = () => {
+const Release = ({ link }) => {
   //token
   let token = localStorage.getItem("token");
 
   //getting id from url parameter
   let { releaseId } = useParams();
+
+  let url = new URL(link);
+  console.log(url);
 
   //useFetch
   const {

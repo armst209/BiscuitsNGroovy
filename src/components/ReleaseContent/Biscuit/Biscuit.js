@@ -1,15 +1,22 @@
 //react imports
-import { useParams } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 import useFetch from "../../../customHooks/Fetch/useAxiosFetch";
 
 //component imports
 import BiscuitContainer from "./BiscuitContainer/BiscuitContainer";
-import FixedNavigationSpacer from "../../FixedNavigationSpacer/FixedNavigationSpacer";
 import ComponentLoading from "../../Loading/Component/ComponentLoading";
+import NotFound from "../../../pages/NotFound/NotFound";
+import BiscuitInsert from "./BiscuitInsert/BiscuitInsert";
 
 const Biscuit = () => {
-  //!!!!!using urlParams to get id and sending it through api call and receiving single release object!!!
-  // purchased release boolean
+  //hooks
+  const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
+
+  //state handlers
+  const showBiscuitInsertHandler = () => setShowBiscuitInsert(true);
+
+  const hideBiscuitInsertHandler = () => setShowBiscuitInsert(false);
 
   //token
   let token = localStorage.getItem("token");
@@ -19,22 +26,35 @@ const Biscuit = () => {
 
   //useFetch
   const {
-    responseData: release,
+    responseData: releases,
     isLoading,
     errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/${biscuitId}`, {
-    headers: { "x-access-token": token },
-  });
+  } = useFetch(
+    `${process.env.REACT_APP_BACKEND_URL}/library/${biscuitId}/biscuit`,
+    {
+      headers: { "x-access-token": token },
+    }
+  );
 
   return (
     <>
-      <FixedNavigationSpacer />
-      <section>
+      <section className="_main_section">
         {isLoading && <ComponentLoading />}
-        {errorMessage === null
-          ? release && <BiscuitContainer release={release} />
-          : errorMessage}
+        {/* if release is null or not found, redirects to Not Found component */}
+        {!errorMessage ? (
+          releases && (
+            <BiscuitContainer
+              release={releases.library}
+              showBiscuitInsertHandler={showBiscuitInsertHandler}
+            />
+          )
+        ) : (
+          <NotFound />
+        )}
       </section>
+      {showBiscuitInsert && (
+        <BiscuitInsert hideBiscuitInsertHandler={hideBiscuitInsertHandler} />
+      )}
     </>
   );
 };

@@ -143,11 +143,12 @@ body {
   background-color: black;
   border: 2px solid var(--color1);
   height: 1vh;
-  border-radius: 20px;
+  border-radius: 0.5rem;
 }
 
 *::-webkit-scrollbar-track {
   background-color: black;
+  border-radius: 0.5rem;
 }
 
 /* input styles */

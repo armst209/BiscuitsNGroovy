@@ -17,11 +17,11 @@ import SignUpTpPurchaseButton from "./SignUpToPurchaseButton/SignUpTpPurchaseBut
   // *-else -> 404
   
  */
-const ReleaseButton = ({ release }) => {
+const ReleaseButton = ({ release, hideButtonHandler }) => {
   //TOKEN
   const token = localStorage.getItem("token");
   //Purchased boolean
-  const isPurchased = release.isPurchase;
+  const isPurchased = release.purchased;
 
   return (
     // <div className="release-button-container">
@@ -29,7 +29,7 @@ const ReleaseButton = ({ release }) => {
       {token ? (
         isPurchased ? (
           //no button is displayed
-          ""
+          hideButtonHandler()
         ) : (
           //displays buy now button - redirects to stripe checkout
           <StripeCheckoutProcesses release={release} />

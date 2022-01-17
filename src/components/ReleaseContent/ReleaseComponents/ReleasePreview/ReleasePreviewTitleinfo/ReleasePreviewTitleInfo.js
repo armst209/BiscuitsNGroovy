@@ -1,10 +1,15 @@
+import { useState } from "react";
+
 import Button from "../../../../WrapperComponents/Button/Button";
 import ReleaseButton from "../../ReleaseButton/ReleaseButton";
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import styles from "./ReleasePreviewTitleInfo.module.scss";
 
 const ReleasePreviewTitleInfo = ({ release }) => {
-  const { name, title, description, art_url, price } = release;
+  const { name, title, art_url, price } = release;
+  const [showButton, setShowButton] = useState(true);
+
+  const hideButtonHandler = () => setShowButton(false);
 
   return (
     <section id={styles["release-preview-title-info"]}>
@@ -19,13 +24,16 @@ const ReleasePreviewTitleInfo = ({ release }) => {
       <h2>
         {name} - {title}
       </h2>
-      <div className={styles["release-preview-title-info-description"]}>
-        {description}
-      </div>
+
       <div className={styles["button-container"]}>
-        <Button width={"200px"} className="_button">
-          <ReleaseButton release={release} />
-        </Button>
+        {showButton && (
+          <Button width={"200px"} className="_button" noDisplay={showButton}>
+            <ReleaseButton
+              release={release}
+              hideButtonHandler={hideButtonHandler}
+            />
+          </Button>
+        )}
       </div>
     </section>
   );

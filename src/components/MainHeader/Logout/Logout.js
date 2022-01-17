@@ -10,23 +10,11 @@ import { ReactComponent as LogoutIcon } from "../../../assets/images/logout-yell
 //component imports
 import LogoutLoading from "../../Loading/Logout/LogoutLoading";
 
-const Logout = () => {
-  const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);
-  console.log(showLogoutLoadingModal);
-  //handlers
-  const showLogoutLoaderHandler = () => {
-    setShowLogoutLoadingModal(true);
-  };
-
-  const hideLogoutLoaderHandler = () => {
-    setShowLogoutLoadingModal(false);
-  };
-
+const Logout = ({ showLogoutLoaderHandler, hideLogoutLoaderHandler }) => {
   const handleLogout = () => {
     showLogoutLoaderHandler(); //showing loader
     localStorage.clear(); //clearing local storage
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirecting to homepage
-    hideLogoutLoaderHandler(); //hiding loader
   };
 
   //TOKEN
@@ -34,7 +22,6 @@ const Logout = () => {
 
   return (
     <>
-      {showLogoutLoadingModal && <LogoutLoading />}
       {!token ? (
         ""
       ) : (
