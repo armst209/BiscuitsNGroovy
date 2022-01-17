@@ -1,19 +1,31 @@
+//styles
 import "./MainHeaderStyles.scss";
-import { useState } from "react";
+
+//react imports
+import { useState, useEffect } from "react";
+
+//component imports
 import DesktopNavigation from "./DesktopNavigation/DesktopNavigation";
 import MobileNavigation from "./MobileNavigation/MobileNavigation";
-import LogoutLoading from "../Loading/Logout/LogoutLoading";
 
 const MainHeader = () => {
-  //for logout loader - passed down into DesktopNavigation & MobileNavigation for Logout component to use
-  const [showLogoutLoading, setShowLogoutLoading] = useState(false);
+  const [headerScrolledClass, setHeaderScrolledClass] = useState("");
+
+  const handleFixedHeaderScroll = () => {
+    window.scrollY > 15
+      ? setHeaderScrolledClass("header-scrolled")
+      : setHeaderScrolledClass("");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleFixedHeaderScroll);
+  }, [window.scrollY]);
 
   return (
-    <header>
+    <header className={headerScrolledClass}>
       <nav>
-        <DesktopNavigation setShowLogoutLoading={setShowLogoutLoading} />
-        <MobileNavigation setShowLogoutLoading={setShowLogoutLoading} />
-        {showLogoutLoading && <LogoutLoading />}
+        <DesktopNavigation />
+        <MobileNavigation />
       </nav>
     </header>
   );

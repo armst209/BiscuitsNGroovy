@@ -23,7 +23,7 @@ const ReleasePreviewTitleInfo = ({ release }) => {
         {description}
       </div>
       <div className={styles["button-container"]}>
-        <Button className="_button">
+        <Button width={"200px"} className="_button">
           <ReleaseButton release={release} />
         </Button>
       </div>

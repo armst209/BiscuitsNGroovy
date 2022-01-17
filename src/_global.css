@@ -111,7 +111,7 @@
   --footer-gray: #919496;
   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --container-box-shadow: 3px 3px 8px black;
+  /* --container-box-shadow: 3px 3px 8px black; */
 
   /* z-index heights */
   --highest-index: 9999999999999;
@@ -166,7 +166,7 @@ input:-internal-autofill-selected {
   font-family: var(--header-font);
   font-size: 1rem;
   background: transparent;
-  min-width: 200px;
+  min-width: 150px;
   height: 70px;
   cursor: pointer;
   color: white;

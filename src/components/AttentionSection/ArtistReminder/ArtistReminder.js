@@ -33,10 +33,19 @@ const ArtistReminder = () => {
                 Learn more about the benefits of releasing your music on BnG
               </div>
             </div>
-
-            <Link className={styles.artist_reminder__link} to="/artists">
-              <Button className="_button">For Artists</Button>
-            </Link>
+            <div className={styles["artists-reminder-link"]}>
+              <Button
+                className={`${styles["for-artists-button-container"]} _button`}
+                align="center"
+              >
+                <Link
+                  className={styles["for-artists-button-link"]}
+                  to="/artists"
+                >
+                  <span>For Artists</span>
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
