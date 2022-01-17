@@ -3,7 +3,7 @@ import styles from "./ReleaseTracklist.module.scss";
 
 const ReleaseTracklistPlayer = ({ release, setCurrentMusicIndex }) => {
   return (
-    <ul>
+    <ul className={styles["tracklist-ul"]}>
       {release.songs.map((element, order) => {
         return (
           <li

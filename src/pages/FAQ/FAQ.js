@@ -405,7 +405,7 @@ const FAQ = () => {
                     <div className="div-image">
                       <img src={record_bullet} alt="record icon" />
                     </div>
-                    <div className="div-content">
+                    <div className="not-aligned-nfts-explained">
                       An NFT, or non-fungible token, is a digital collectible
                       whose ownership is recorded on a blockchain. NFTs have
                       been around for several years, but recently exploded in
@@ -437,7 +437,7 @@ const FAQ = () => {
                     <div className="div-image">
                       <img src={record_bullet} alt="record icon" />
                     </div>
-                    <div className="div-content">
+                    <div className="not-aligned-nfts-explained">
                       You can view your album art in the My Collection page of
                       your profile. All your art stays there permanently,
                       regardless of when the music is streaming.

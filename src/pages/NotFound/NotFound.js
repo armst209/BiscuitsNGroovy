@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as MagnifyingGlass } from "../../assets/images/search_white.svg";
 import "./NotFoundStyles.scss";
 

@@ -5,6 +5,7 @@ const useFetch = (url, _options) => {
   const [responseData, setResponseData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessageComponent, setErrorMessageComponent] = useState("");
   const options = useRef(_options).current;
 
   useEffect(() => {
@@ -31,8 +32,9 @@ const useFetch = (url, _options) => {
           //console.log("fetch was aborted");
         } else {
           setIsLoading(false);
-          setErrorMessage(<FetchError />);
-          console.log(error);
+          setErrorMessageComponent(<FetchError />);
+          setErrorMessage(error);
+          console.error(error);
         }
       }
     };
@@ -44,7 +46,7 @@ const useFetch = (url, _options) => {
     };
   }, [url, options]);
 
-  return { responseData, isLoading, errorMessage };
+  return { responseData, isLoading, errorMessage, errorMessageComponent };
 };
 
 export default useFetch;

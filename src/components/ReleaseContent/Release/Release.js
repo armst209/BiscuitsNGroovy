@@ -1,6 +1,7 @@
 //react imports
-import { useParams } from "react";
+import { useParams } from "react-router-dom";
 import useFetch from "../../../customHooks/Fetch/useAxiosFetch";
+import NotFound from "../../../pages/NotFound/NotFound";
 
 //component imports
 import FixedNavigationSpacer from "../../FixedNavigationSpacer/FixedNavigationSpacer";
@@ -16,21 +17,27 @@ const Release = () => {
 
   //useFetch
   const {
-    responseData: release,
+    responseData: releases,
     isLoading,
     errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/${releaseId}`, {
-    headers: { "x-access-token": token },
-  });
+  } = useFetch(
+    `${process.env.REACT_APP_BACKEND_URL}/releases/${releaseId}/release`,
+    {
+      headers: { "x-access-token": token },
+    }
+  );
 
   return (
     <>
       <FixedNavigationSpacer />
       <section>
         {isLoading && <ComponentLoading />}
-        {errorMessage === null
-          ? release && <ReleaseContainer release={release} />
-          : errorMessage}
+        {/* if release is null or not found, redirects to Not Found component */}
+        {!errorMessage ? (
+          releases && <ReleaseContainer release={releases.releases} />
+        ) : (
+          <NotFound />
+        )}
       </section>
     </>
   );

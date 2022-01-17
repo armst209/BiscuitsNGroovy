@@ -1,3 +1,15 @@
-.tracklist-li {
-  color: white;
+.tracklist-ul {
+  width: 100%;
+  .tracklist-li {
+    color: white;
+    font-family: var(--header-font);
+    list-style: none;
+    font-size: 1.5rem;
+    @media screen and (max-width: 900px) {
+      font-size: 1rem;
+    }
+    @media screen and (max-width: 300px) {
+      font-size: 0.7rem;
+    }
+  }
 }

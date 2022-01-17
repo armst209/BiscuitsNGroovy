@@ -93,11 +93,13 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
-    path: "/collection/releases/:releaseId",
-    component: lazy(() => import("../components/ReleaseContent/Release/Release")),
+    path: "/releases/:releaseId",
+    component: lazy(
+      () => import("../components/ReleaseContent/Release/Release")
+    ),
     key: "RELEASE_PAGE",
     exact: true,
-    private: true,
+    private: false,
     fallback: <Loading />,
   },
   {
