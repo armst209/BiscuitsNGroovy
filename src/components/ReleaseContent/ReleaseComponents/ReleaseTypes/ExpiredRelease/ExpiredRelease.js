@@ -24,17 +24,6 @@ const ExpiredRelease = ({ release }) => {
     setShowInsertModal(false);
   };
 
-  // const handleExpiredModalsAndCounter = () => {
-  //   //opening expired modal
-  //   setShowNFTExpiredModal(true);
-  //   //checking to see if user has clicked on hover state once, if so it wont show the expired modal again
-  //   localStorage.getItem(`expired${release.id}ModalCounter"`) === "1"
-  //     ? setShowExpiredModal(false)
-  //     : setShowExpiredModal(true);
-  //   //setting string variable to 1 so that it persists in local storage and expired modal won't show even if user redirects
-  //   localStorage.setItem(`expired${release.id}ModalCounter"`, "1");
-  // };
-
   return (
     <figure className={styles["hover-img"]}>
       <ReleaseImage

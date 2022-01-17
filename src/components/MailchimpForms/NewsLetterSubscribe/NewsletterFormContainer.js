@@ -17,13 +17,11 @@ const NewsletterFormContainer = () => {
       <MailchimpSubscribe
         url={postUrl}
         render={({ subscribe, status, message }) => (
-          <>
-            <NewsLetterForm
-              status={status}
-              message={message}
-              onValidated={(formData) => subscribe(formData)}
-            />
-          </>
+          <NewsLetterForm
+            status={status}
+            message={message}
+            onValidated={(formData) => subscribe(formData)}
+          />
         )}
       />
     </section>

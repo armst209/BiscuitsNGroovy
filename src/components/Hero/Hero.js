@@ -3,6 +3,9 @@ import { HashLink } from "react-router-hash-link";
 //img imports
 import hero_image from "../../assets/images/hero-image.webp";
 
+//component imports
+import Button from "../WrapperComponents/Button/Button";
+
 //styles
 import "./HeroStyles.scss";
 
@@ -27,14 +30,17 @@ function Hero() {
                     only for true fans.
                   </div>
                   <div className="hero-buttons">
-                    <div className="start-button-container" align="center">
+                    <Button
+                      className="start-button-container _button"
+                      align="center"
+                    >
                       <HashLink
                         className="start-button-link"
                         to="/#MusicShowcase_music-showcase__21JXl"
                       >
                         <span>Start Your Collection</span>
                       </HashLink>
-                    </div>
+                    </Button>
                   </div>
                 </section>
               </div>
