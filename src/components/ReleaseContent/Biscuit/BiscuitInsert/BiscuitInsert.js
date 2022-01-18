@@ -1,10 +1,15 @@
 import styles from "./BiscuitInsert.module.scss";
-const BiscuitInsert = () => {
+const BiscuitInsert = ({ hideBiscuitInsertHandler }) => {
   return (
     <section id={styles["biscuit-insert"]}>
-      <div className="biscuit-insert-container">
-        <div>X</div>
-        <div>
+      <div className={styles["biscuit-insert-container"]}>
+        <div
+          className={styles["biscuit-insert-close"]}
+          onClick={() => hideBiscuitInsertHandler()}
+        >
+          X
+        </div>
+        <div className={styles["biscuit-insert-iframe-container-1"]}>
           <iframe
             src="https://player.vimeo.com/video/666613961?h=d72eaedb5e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
@@ -13,7 +18,7 @@ const BiscuitInsert = () => {
           ></iframe>
         </div>
 
-        <div>
+        <div className={styles["biscuit-insert-iframe-container-2"]}>
           <iframe
             src="https://player.vimeo.com/video/666615717?h=d3b17f1430&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"

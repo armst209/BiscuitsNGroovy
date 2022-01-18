@@ -64,8 +64,10 @@ const ReleaseContainer = ({ release }) => {
           </div>
         </div>
         <div>
-          <Link to="/#MusicShowcase_music-showcase__21JXl">
-            Back to showcase <BackButton />
+          <Link
+            to={`${process.env.REACT_APP_FRONTEND_URL}/#MusicShowcase_music-showcase__21JXl`}
+          >
+            Back to Showcase <BackButton />
           </Link>
         </div>
       </section>
