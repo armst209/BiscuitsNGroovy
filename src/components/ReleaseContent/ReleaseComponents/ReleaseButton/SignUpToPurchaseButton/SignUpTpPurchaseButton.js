@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 import styles from "./SignUpToPurchaseButton.module.scss";
 
 const SignUpTpPurchaseButton = () => {
-  return <Link to="/signup">Sign Up to Purchase</Link>;
+  return (
+    <Link className={styles["signup-to-purchase-link"]} to="/signup">
+      <span>Sign Up to Purchase</span>
+    </Link>
+  );
 };
 
 export default SignUpTpPurchaseButton;

@@ -18,7 +18,6 @@ const ReleasePreviewModalOverlay = ({
 }) => {
   return (
     <section id={styles["release-preview-backdrop"]}>
-      ;
       <div className={styles["release-preview-modal"]}>
         <div
           onClick={() => hideReleasePreviewModalHandler()}

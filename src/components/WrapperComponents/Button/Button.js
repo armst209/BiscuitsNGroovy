@@ -4,7 +4,7 @@ const Button = ({
   type,
   width,
   height,
-  noDisplay,
+  display,
   onClickFunction,
 }) => {
   return (
@@ -12,7 +12,13 @@ const Button = ({
       onClick={!onClickFunction ? "" : () => onClickFunction()}
       className={className}
       type={type}
-      style={{ width: width, height: height, display: noDisplay }}
+      style={{
+        width: width,
+        height: height,
+        display: display,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       {children}
     </button>
