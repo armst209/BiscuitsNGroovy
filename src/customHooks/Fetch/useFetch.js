@@ -32,7 +32,7 @@ const useFetch = (url, _options) => {
         } else {
           setIsLoading(false);
           setErrorMessage(<FetchError />);
-          console.log(error);
+          console.log(error.name);
         }
       }
     };

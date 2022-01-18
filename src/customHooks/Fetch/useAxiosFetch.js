@@ -34,7 +34,7 @@ const useFetch = (url, _options) => {
           setIsLoading(false);
           setErrorMessageComponent(<FetchError />);
           setErrorMessage(error);
-          console.error(error);
+          console.error(error.message);
         }
       }
     };
