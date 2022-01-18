@@ -10,10 +10,10 @@ const UserEmail = () => {
 
   return (
     <section id="user-email">
-      <h2>Issues logging in?/Password reset</h2>
+      <h2>Issues logging in? Reset Your Password</h2>
 
       <p className="user-email-subtitle">
-        "blurb about what we need from user and about the email well send"
+        {/* "blurb about what we need from user and about the email well send" */}
       </p>
 
       <div className="user-email-wrapper">
