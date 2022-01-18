@@ -1,5 +1,6 @@
 //react imports
 import { useState } from "react";
+import ReleaseTracklistPlayer from "../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
 import MusicPlayer from "./MusicPlayer";
 
 const MusicPlayerContainer = ({ release }) => {
@@ -27,17 +28,24 @@ const MusicPlayerContainer = ({ release }) => {
   };
 
   return (
-    <MusicPlayer
-      songs={songs}
-      previousSongChangeHandler={previousSongChangeHandler}
-      nextSongChangeHandler={nextSongChangeHandler}
-      currentSongIndex={currentSongIndex}
-      // setCurrentMusicIndex={setCurrentMusicIndex}
-      // showTrackList={showTrackList}
-      // setShowTrackList={setShowTrackList}
-      selectedTrack={selectedTrack}
-      setSelectedTrack={setSelectedTrack}
-    />
+    <>
+      <ReleaseTracklistPlayer
+        songs={songs}
+        setCurrentSongIndex={setCurrentSongIndex}
+      />
+      <br></br>
+      <MusicPlayer
+        songs={songs}
+        previousSongChangeHandler={previousSongChangeHandler}
+        nextSongChangeHandler={nextSongChangeHandler}
+        currentSongIndex={currentSongIndex}
+        // setCurrentMusicIndex={setCurrentMusicIndex}
+        // showTrackList={showTrackList}
+        // setShowTrackList={setShowTrackList}
+        selectedTrack={selectedTrack}
+        setSelectedTrack={setSelectedTrack}
+      />
+    </>
   );
 };
 
