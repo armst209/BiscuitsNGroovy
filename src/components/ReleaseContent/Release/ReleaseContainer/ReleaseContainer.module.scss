@@ -1,12 +1,12 @@
-#biscuit {
+#release {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   -webkit-overflow-scrolling: touch;
   background: black;
-  .release-preview-modal {
+
+  .release-content-wrapper {
     border: 2px solid var(--color2);
     border-radius: 0.5rem;
     background: none;
@@ -206,6 +206,39 @@
               }
             }
           }
+        }
+      }
+    }
+    .release-back-link {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      flex-direction: row;
+      width: 100%;
+      padding: 1rem;
+      @media screen and (max-width: 900px) {
+        top: -20px;
+        bottom: auto;
+      }
+      a {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-family: var(--header-font);
+        cursor: pointer;
+        @media screen and (max-width: 900px) {
+          font-size: 0.7rem;
+        }
+        &:visited {
+          color: white;
+        }
+
+        svg {
+          width: 27px;
+          margin-right: 0.5rem;
         }
       }
     }

@@ -1,5 +1,5 @@
 //react imports
-import { HashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
 //img imports
 import hero_image from "../../assets/images/hero-image.webp";
 
@@ -34,12 +34,13 @@ function Hero() {
                       className="start-button-container _button"
                       align="center"
                     >
-                      <HashLink
+                      <NavHashLink
                         className="start-button-link"
-                        to="/#MusicShowcase_music-showcase__21JXl"
+                        smooth
+                        to="/#music-showcase-return"
                       >
                         <span>Start Your Collection</span>
-                      </HashLink>
+                      </NavHashLink>
                     </Button>
                   </div>
                 </section>

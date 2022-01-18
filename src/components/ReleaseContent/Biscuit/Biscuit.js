@@ -14,9 +14,8 @@ const Biscuit = () => {
   const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
 
   //state handlers
-  const showBiscuitInsertHandler = () => setShowBiscuitInsert(true);
-
-  const hideBiscuitInsertHandler = () => setShowBiscuitInsert(false);
+  const showHideBiscuitInsertHandler = () =>
+    setShowBiscuitInsert(!showBiscuitInsert);
 
   //token
   let token = localStorage.getItem("token");
@@ -45,7 +44,7 @@ const Biscuit = () => {
           releases && (
             <BiscuitContainer
               release={releases.library}
-              showBiscuitInsertHandler={showBiscuitInsertHandler}
+              showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
             />
           )
         ) : (
@@ -53,7 +52,9 @@ const Biscuit = () => {
         )}
       </section>
       {showBiscuitInsert && (
-        <BiscuitInsert hideBiscuitInsertHandler={hideBiscuitInsertHandler} />
+        <BiscuitInsert
+          showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
+        />
       )}
     </>
   );

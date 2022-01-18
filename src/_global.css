@@ -24,8 +24,10 @@
 
 @font-face {
   font-family: "TTNormsPro-Rg";
-  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff") format("woff2"),
-    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff") format("woff");
+  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
+      format("woff2"),
+    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
+      format("woff");
 }
 
 /**
@@ -52,8 +54,10 @@
 
 @font-face {
   font-family: "TTNormsPro-Normal";
-  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff") format("woff2"),
-    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2") format("woff");
+  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff")
+      format("woff2"),
+    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2")
+      format("woff");
 }
 
 /* HEADER FONT */
@@ -96,7 +100,8 @@
   /* colors */
   --color1: #f5ee0d;
   --color2: #25c1a9;
-  --color1-svg-filter: invert(80%) sepia(98%) saturate(446%) hue-rotate(357deg) brightness(96%) contrast(101%);
+  --color1-svg-filter: invert(80%) sepia(98%) saturate(446%) hue-rotate(357deg)
+    brightness(96%) contrast(101%);
   --main-color-nav-footer-black: #000;
   --main-color-body-dark-grey: #161617;
   --main-color-nav-containers-darker-grey: #131212;
@@ -126,6 +131,7 @@ body {
 ._main_section {
   padding-top: 70px;
   min-height: 800px;
+  padding: 10rem 1rem 5rem 1rem;
 }
 
 /* browser cursor styles */
