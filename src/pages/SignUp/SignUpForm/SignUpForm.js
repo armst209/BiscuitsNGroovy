@@ -1,176 +1,102 @@
-import { useState } from "react";
+//react imports
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import useValidation from "../../../customHooks/Validation/useValidation";
+
+//styles
+import "../../../customHooks/Validation/useValidationStyles.scss";
 import "./SignUpFormStyles.scss";
+import styles from "../SignUp.module.scss";
+
+//component imports
+import LinkFlowButton from "../LinkFlowButton";
+
+//svg imports
+import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
+
+//other imports
 import axios from "axios";
 import env from "react-dotenv";
-import validator from "validator";
 
-import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
 import * as fcl from "@onflow/fcl";
-import LinkFlowButton from "../LinkFlowButton";
 
 //configure flow environment
+//points to env.js not global prod and dev envs
 config()
   .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
   .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
   .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
-const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
-  const [email, setEmail] = useState("");
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [emailErrorMessage, setEmailErrorMessage] = useState("Email");
-  const [userNameErrorMessage, setUserNameErrorMessage] = useState("Username");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState("Password");
-  const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] =
-    useState("Confirm Password");
-  const [emailInputLoginClass, setEmailInputLoginClass] = useState("");
-  const [passwordInputLoginClass, setPasswordInputLoginClass] = useState("");
-  const [userNameInputLoginClass, setUserNameInputLoginClass] = useState("");
-  const [confirmPasswordInputLoginClass, setConfirmPasswordInputLoginClass] =
-    useState("");
+const SignUpForm = ({
+  setShowFlowButtonLoader,
+  hideSignUpLoaderHandler,
+  showSignUpLoaderHandler,
+}) => {
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
-  const signupFormValidation = (event) => {
-    let { name, value } = event.target;
-
-    switch (name) {
-      case "email":
-        setEmail(value);
-        if (validator.isEmail(value)) {
-          setEmailInputLoginClass("input-success");
-          setEmailErrorMessage("Email");
-        } else {
-          setEmailInputLoginClass("input-error");
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">Invalid Email</div>
-            </>
-          );
-        }
-        break;
-      case "username":
-        setUserName(value);
-        if (validator.isLength(value, { min: 7, max: 20 })) {
-          setUserNameInputLoginClass("input-success");
-          setUserNameErrorMessage("Username");
-        } else {
-          setUserNameInputLoginClass("input-error");
-          setUserNameErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Username must be at least 7 characters
-              </div>
-            </>
-          );
-        }
-
-        break;
-      case "password":
-        setPassword(value);
-        if (
-          !validator.isStrongPassword(value, {
-            minLength: 8,
-            minLowercase: 1,
-            minUppercase: 1,
-            minNumbers: 1,
-            minSymbols: 1,
-            returnScore: false,
-            pointsPerUnique: 1,
-            pointsPerRepeat: 0.5,
-            pointsForContainingLower: 10,
-            pointsForContainingUpper: 10,
-            pointsForContainingNumber: 10,
-            pointsForContainingSymbol: 10,
-          })
-        ) {
-          setPasswordInputLoginClass("input-error");
-          setPasswordErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Password is not strong enough
-              </div>
-            </>
-          );
-          setErrorMessages(
-            <ul>
-              <li>
-                <Warning className="warning-icon" />
-                <div className="error-message-text">
-                  Password must be a minimum of 8 characters
-                </div>
-              </li>
-              <li>
-                <Warning className="warning-icon" />
-                <div className="error-message-text">
-                  Password must have at least 1 uppercase letter
-                </div>
-              </li>
-              <li>
-                <Warning className="warning-icon" />
-                <div className="error-message-text">
-                  Password must have at least 1 lowercase letter
-                </div>
-              </li>
-              <li>
-                <Warning className="warning-icon" />
-                <div className="error-message-text">
-                  Password must have at least 1 number
-                </div>
-              </li>
-              <li>
-                <Warning className="warning-icon" />
-                <div className="error-message-text">
-                  Password must have at least 1 symbol i.e $,#,%,&,*
-                </div>
-              </li>
-            </ul>
-          );
-        } else {
-          setPasswordInputLoginClass("input-success");
-          setPasswordErrorMessage("Password");
-          setErrorMessages("");
-        }
-        break;
-      case "confirm-password":
-        setConfirmPassword(value);
-        if (password === confirmPassword && confirmPassword.length !== 0) {
-          setConfirmPasswordErrorMessage("Confirm Password");
-          setConfirmPasswordInputLoginClass("input-success");
-        } else {
-          setConfirmPasswordErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">Passwords do not match</div>
-            </>
-          );
-          setConfirmPasswordInputLoginClass("input-error");
-        }
-        break;
-      case "terms-check":
-        if (value !== "on") {
-          alert("please check box");
-        }
-
-        break;
-      default:
-        break;
-    }
+  //state handlers
+  const showSignUpButtonLoaderHandler = () => {
+    setIsButtonLoading(true);
   };
+  const hideSignUpButtonLoaderHandler = () => {
+    setIsButtonLoading(false);
+  };
+
+  const {
+    email,
+    userName: username,
+    password,
+    emailErrorMessage,
+    passwordErrorMessage,
+    userNameErrorMessage,
+    emailInputLoginClass,
+    passwordInputLoginClass,
+    userNameInputLoginClass,
+    showUserNameValidationCheck,
+    showEmailValidationCheck,
+    showPasswordValidationCheck,
+    errorMessages,
+    setShowEmailValidationCheck,
+    setShowUserNameValidationCheck,
+    setEmailInputLoginClass,
+    setUserNameInputLoginClass,
+    setErrorMessages,
+    inputValidation,
+  } = useValidation();
 
   //function sets token and redirects to homepage
-  const handleSignUp = (res) => {
+  const handleSuccess = (res) => {
     //fires after blocto account is set up
-    localStorage.setItem("token", res.data.token);
-    window.location.replace(env.FRONTEND_URL + "/");
+    localStorage.setItem("token", res.data.token); //sets user token
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
+    hideSignUpButtonLoaderHandler(); //stops button loader
+    hideSignUpLoaderHandler(); //stops page loader
   };
+
+  const handleError = (error) => {
+    hideSignUpButtonLoaderHandler();
+    switch (Number(error.response.status)) {
+      case 409:
+        setErrorMessages(error.response.data);
+        setShowEmailValidationCheck(false);
+        setShowUserNameValidationCheck(false);
+        setEmailInputLoginClass("input-error");
+        setUserNameInputLoginClass("input-error");
+        break;
+      default:
+        setErrorMessages(error.response.data);
+        break;
+    }
+
+    setErrorMessages(error.response.data);
+  };
+
   const submit = async function (event) {
     event.preventDefault();
+    showSignUpLoaderHandler();
+    showSignUpButtonLoaderHandler();
 
     // if flow account is not linked throw error
     let currUser = await fcl.currentUser().snapshot();
@@ -186,37 +112,24 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
       url: `${process.env.REACT_APP_BACKEND_URL}/registration`,
       data: {
         email,
+        name: "",
         username,
         password,
         flow_address,
       },
     })
       .then((res) => {
-        handleSignUp(res);
+        handleSuccess(res);
       })
       .catch((error) => {
-        if (error.response) {
-          let errorType = error.response.status;
-          console.log(error.response);
-          switch (errorType) {
-            case 422:
-              setErrorMessages(error.response.data);
-              break;
-
-            case 500:
-              setErrorMessages("Server Error");
-              break;
-            default:
-              console.log("undefined error");
-              break;
-          }
-        }
+        handleError(error);
       });
   };
 
   return (
     <>
       <form>
+        <div className={styles["error-message-main"]}>{errorMessages}</div>
         <fieldset className="input-styles">
           <label className="label-error-message email-label" htmlFor="email">
             {emailErrorMessage}
@@ -227,9 +140,13 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             type="email"
             name="email"
             autoComplete="email"
-            onBlur={signupFormValidation}
+            onBlur={inputValidation}
             required
           />
+          {showEmailValidationCheck && (
+            <ValidationSuccess className="valid-check-icon email-check" />
+          )}
+
           <label
             className="label-error-message username-label"
             htmlFor="username"
@@ -242,9 +159,13 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             type="text"
             name="username"
             autoComplete="username"
-            onBlur={signupFormValidation}
+            onBlur={inputValidation}
             required
           />
+          {/* check icon */}
+          {showUserNameValidationCheck && (
+            <ValidationSuccess className="valid-check-icon username-signup-check" />
+          )}
 
           <label
             className="label-error-message password-signup-label"
@@ -258,24 +179,14 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
             type="password"
             name="password"
             autoComplete="off"
-            onBlur={signupFormValidation}
+            onChange={inputValidation}
             required
           />
-          <label
-            className="label-error-message confirm-password-label"
-            htmlFor="confirm-passowrd"
-          >
-            {confirmPasswordErrorMessage}
-          </label>
-          <input
-            className={confirmPasswordInputLoginClass}
-            id="confirm-password"
-            type="password"
-            name="confirm-password"
-            autoComplete="off"
-            onBlur={signupFormValidation}
-            required
-          />
+          {/* check icon */}
+          {showPasswordValidationCheck && (
+            <ValidationSuccess className="valid-check-icon password-signup-check" />
+          )}
+
           <div className="signup-checkbox-container">
             <label
               className="label-error-message terms-check-label"
@@ -290,15 +201,17 @@ const SignUpForm = ({ setErrorMessages, setShowFlowButtonLoader }) => {
               id="terms-check"
               type="checkbox"
               autoComplete="off"
-              onBlur={signupFormValidation}
               required
             />
           </div>
         </fieldset>
       </form>
+      {/* Link Blocto Account/Create Account button */}
       <LinkFlowButton
         submit={submit}
         setShowFlowButtonLoader={setShowFlowButtonLoader}
+        setErrorMessages={setErrorMessages}
+        isButton={isButtonLoading}
       />
     </>
   );

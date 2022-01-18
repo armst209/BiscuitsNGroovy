@@ -1,6 +1,12 @@
+//react imports
 import { HashLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
-import hero_image from "../../assets/images/hero.webp";
+//img imports
+import hero_image from "../../assets/images/hero-image.webp";
+
+//component imports
+import Button from "../WrapperComponents/Button/Button";
+
+//styles
 import "./HeroStyles.scss";
 
 function Hero() {
@@ -24,34 +30,26 @@ function Hero() {
                     only for true fans.
                   </div>
                   <div className="hero-buttons">
-                    <div className="start-button-container" align="center">
+                    <Button
+                      className="start-button-container _button"
+                      align="center"
+                    >
                       <HashLink
                         className="start-button-link"
-                        to="/#music-showcase"
+                        to="/#MusicShowcase_music-showcase__21JXl"
                       >
                         <span>Start Your Collection</span>
                       </HashLink>
-                    </div>
-                    <div
-                      className="for-artists-button-container"
-                      align="center"
-                    >
-                      {/* <HashLink
-                        className="for-artists-button-link"
-                        to="/#music-showcase"
-                      >
-                        <span>For Artists</span>
-                      </HashLink> */}
-                    </div>
+                    </Button>
                   </div>
-                </section>
-                <section className="hero-image-container">
-                  <img className="hero-image" src={hero_image} alt="hero" />
                 </section>
               </div>
             </div>
           </div>
         </div>
+        <section className="hero-image-container">
+          <img className="hero-image" src={hero_image} alt="hero" />
+        </section>
       </section>
     </>
   );

@@ -14,7 +14,7 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 //Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
 //useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
 
-function FAQ() {
+const FAQ = () => {
   const [showAnswer1, setShowAnswer1] = useState(false);
   const [showAnswer2, setShowAnswer2] = useState(false);
   const [showAnswer3, setShowAnswer3] = useState(false);
@@ -405,7 +405,7 @@ function FAQ() {
                     <div className="div-image">
                       <img src={record_bullet} alt="record icon" />
                     </div>
-                    <div className="div-content">
+                    <div className="not-aligned-nfts-explained">
                       An NFT, or non-fungible token, is a digital collectible
                       whose ownership is recorded on a blockchain. NFTs have
                       been around for several years, but recently exploded in
@@ -437,7 +437,7 @@ function FAQ() {
                     <div className="div-image">
                       <img src={record_bullet} alt="record icon" />
                     </div>
-                    <div className="div-content">
+                    <div className="not-aligned-nfts-explained">
                       You can view your album art in the My Collection page of
                       your profile. All your art stays there permanently,
                       regardless of when the music is streaming.
@@ -660,6 +660,6 @@ function FAQ() {
       </section>
     </>
   );
-}
+};
 
 export default FAQ;

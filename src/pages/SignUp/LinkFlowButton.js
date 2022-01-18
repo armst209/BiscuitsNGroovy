@@ -1,15 +1,23 @@
+//react imports
 import { useState } from "react";
 
+//flow imports
 import { initAccount, accountIsInitialized } from "../../utils/flow";
 import * as fcl from "@onflow/fcl";
-import "./LinkFlowButtonStyles.scss";
 
-function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
+//styles
+import styles from "./LinkFlowButton.module.scss";
+
+//svg imports
+import { ReactComponent as RecordSpinner } from "../../assets/images/compact-disc-yellow.svg";
+
+function LinkFlowButton({ setShowFlowButtonLoader, isLoading, submit }) {
   const [isInitialized, setIsInitialized] = useState(false);
   async function updateInitializedComponent() {
     if (isInitialized === true) {
       return;
     }
+
     //flow loader
     setShowFlowButtonLoader(true);
     await initAccount();
@@ -33,13 +41,22 @@ function LinkFlowButton({ submit, setShowFlowButtonLoader, setErrorMessages }) {
       </button>
     );
   } else {
-    // return <SignUpForm setErrorMessages={setErrorMessages} />;
     return (
       <>
         <button onClick={submit} type="submit">
-          Create Account
+          {isLoading ? (
+            <div className={styles["signup-status"]}>
+              <div>Signing Up</div>
+              <RecordSpinner
+                className={`${styles["signup-loading-icon"]} rotate`}
+              />
+            </div>
+          ) : (
+            "Create Account"
+          )}
         </button>
-        <div className="link-diff-account">
+
+        <div className={styles["link-diff-account"]}>
           <div onClick={logOutOfFlow}>Or Link Different Flow Account</div>
         </div>
       </>

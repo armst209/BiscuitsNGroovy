@@ -5,7 +5,7 @@ import "./LoadingStyles.scss";
 function Loading() {
   return (
     <div className="loader-wrapper">
-      <RecordSpinner className="rotate component-loading-svg " />
+      <RecordSpinner className="rotate component-loading-svg" />
     </div>
   );
 }

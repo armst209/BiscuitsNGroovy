@@ -1,4 +1,4 @@
-import "../../../App.css";
+// import "../../../_global.css";
 import { useState } from "react";
 import useValidation from "../../../customHooks/Validation/useValidation";
 import "../../../customHooks/Validation/useValidationStyles.scss";
@@ -66,7 +66,7 @@ const UserEmailForm = ({
 
   return (
     <form onSubmit={submit}>
-      <div className="error-message-main">{errorMessages}</div>
+      <div>{errorMessages}</div>
       <div className="user-email-success-message">{successMessage}</div>
       <fieldset className="input-styles">
         <label

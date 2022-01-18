@@ -1,47 +1,49 @@
+//react imports
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./SignUpStyles.scss";
-import FlowLoader from "../../components/Loading/Forms/FlowLoader";
-import LinkFlowButton from "./LinkFlowButton";
-//flow imports
-import { config } from "@onflow/fcl";
+
+//component imports
 import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
+import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 
-//configure flow environment
-config()
-  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+//styles
+import styles from "./SignUp.module.scss";
+import Loading from "../../components/Loading/Loading";
 
 const SignUp = () => {
   const [showSignUpInfo, setShowSignUpInfo] = useState(true);
   const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
-  const [errorMessages, setErrorMessages] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const showSignUpLoaderHandler = () => {
+    setIsLoading(true);
+  };
+  const hideSignUpLoaderHandler = () => {
+    setIsLoading(false);
+  };
 
   return (
-    <section id="signup">
+    <section id={styles.signup}>
       <FixedNavigationSpacer />
-      <h2>Sign up to start "enter message"</h2>
-      <div className="error-message-main">{errorMessages}</div>
-      <div className="signup-wrapper">
-        <div className="signup-contents">
+      <h2>Sign up to start your collection</h2>
+      <div className={styles["signup-wrapper"]}>
+        <div className={styles["signup-contents"]}>
           <SignUpForm
             setShowFlowButtonLoader={setShowFlowButtonLoader}
-            setErrorMessages={setErrorMessages}
+            hideSignUpLoaderHandler={hideSignUpLoaderHandler}
+            showSignUpLoaderHandler={showSignUpLoaderHandler}
           />
-
-          <p className="already-account">
+          <p className={styles["already-account"]}>
             Have an account?
-            <Link className="login-redirect" to="/signin">
-              <span> Sign In</span>
+            <Link className={styles["login-redirect"]} to="/signin">
+              <span>Sign In</span>
             </Link>
           </p>
         </div>
-        {/* <div className="signup-info-contents"> Things that need to be said</div> */}
       </div>
-
+      {isLoading && <Loading />}
       {showFlowButtonLoader && <FlowLoader />}
       {showSignUpInfo && <SignUpPopUp setShowSignUpInfo={setShowSignUpInfo} />}
     </section>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 import FPHomepage from "../../../pages/Collection/OldCollection/FanPortal/FPHomePage/FPHomePage.js";
 import "./CollectionStyles.scss";
 // import spotlight_left from "../../../../assets/images/spotlight_outline_left_yellow.svg";

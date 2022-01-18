@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "./AlbumPopupStyles.scss";
 import { ReactComponent as ArrowBack } from "../../../../../../../assets/images/arrow-back-yellow.svg";
-import MusicPlayer from "../../../../../../../components/MusicPlayer/OldMusicPlayer/MusicPlayer";
+import MusicPlayer from "../../../../../../../components/ReleaseContent/MusicPlayer/OldMusicPlayer/MusicPlayer";
 import { AnimatePresence, motion } from "framer-motion";
 import ComponentLoading from "../../../../../../../components/Loading/Component/ComponentLoading.js";
 

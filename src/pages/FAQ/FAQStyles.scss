@@ -215,6 +215,14 @@
       border: 2px solid var(--color2);
       border-radius: 0.5rem;
       padding: 1rem;
+      .not-aligned-nfts-explained {
+        display: flex;
+        justify-content: left;
+        width: 100%;
+        font-family: var(--secondary-font);
+        font-weight: var(--secondary-font-weight);
+      }
+
       h3 {
         border: 2px solid var(--color1);
         border-radius: 0.5rem;
@@ -302,7 +310,7 @@
                 font-weight: var(--secondary-font-weight);
                 .caring-message {
                   width: 100%;
-
+                  text-align: left;
                   font-family: var(--header-font);
                   font-size: 25px;
                   padding-bottom: 10px;

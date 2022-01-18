@@ -1,14 +1,18 @@
+//styles
 import "./AboutStyles.scss";
+
+//img imports
 import about_main_img from "../../assets/images/about_story.webp";
 import bucket_hat from "../../assets/images/buckethats.webp";
 import disc_img from "../../assets/images/compact-disc-yellow.svg";
 import two_icon from "../../assets/images/hand2_yellow.svg";
 import one_icon from "../../assets/images/hand1_yellow.svg";
-
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
+
+//component imports
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
-function About() {
+const About = () => {
   return (
     <>
       <FixedNavigationSpacer />
@@ -30,7 +34,7 @@ function About() {
           <div className="about-contents-1">
             <div className="contents-img-wrapper">
               <div className="contents-img">
-                <img src={bucket_hat} alt="bucket hat" />
+                <img src={bucket_hat} alt="bucket hats" />
               </div>
               <img src={disc_img} alt="disc" className="disc_image" />
             </div>
@@ -135,6 +139,6 @@ function About() {
       </section>
     </>
   );
-}
+};
 
 export default About;

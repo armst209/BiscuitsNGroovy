@@ -1,18 +1,22 @@
-import React from "react";
+//react imports
 import { Switch, Route } from "react-router-dom";
+
+//component imports
 import PrivacyPolicy from "./Terms/PrivacyPolicy/PrivacyPolicy";
 import PurchaseOfMusic from "./Terms/PurchaseOfMusic";
 import NFTTerms from "./Terms/NFTTerms";
 import Subscriber from "./Terms/Subscriber";
-
-import "./TermsOfServiceStyles.scss";
-
 import TermsList from "./TermsList";
 
-function TermsOfService() {
+//styles
+import styles from "./TermsOfService.module.scss";
+import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
+
+const TermsOfService = () => {
   return (
-    <section id="terms-of-service">
-      <div className="tos-title">
+    <section id={styles["terms-of-service"]}>
+      <FixedNavigationSpacer />
+      <div className={styles["tos-title"]}>
         <h1>PRIVACY POLICY & TERMS OF USE </h1>
       </div>
       <TermsList />
@@ -34,6 +38,6 @@ function TermsOfService() {
       </Switch>
     </section>
   );
-}
+};
 
 export default TermsOfService;

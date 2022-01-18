@@ -19,8 +19,9 @@
   }
 
   .newsletter-subtitle {
-    font-family: var(--secondary-font);
-    font-weight: var(--secondary-font-weight);
+    font-family: var(--header-font);
+
+    color: var(--color1);
     text-align: center;
   }
   .form-loader {
@@ -113,19 +114,60 @@
       }
     }
   }
-
-  button {
-    border: 2px solid var(--color1);
+  .newsletter-form-button-container {
     border-radius: 0.5rem;
-    font-family: var(--header-font);
-    font-size: 1rem;
-    background: transparent;
+    transition: 0.01s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 70px;
-    cursor: pointer;
-    color: white;
-    transition: all 0.2s ease;
-    position: relative;
-    font-weight: normal;
+    .newsletter-form-button-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      color: #ffffff;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      font-size: 18px;
+      transition: all 0.4s;
+      cursor: pointer;
+
+      &:before {
+        content: none;
+      }
+
+      &:hover span {
+        padding-right: 30px;
+      }
+      &:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+      span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:after {
+          content: url("../../../assets/images/add_yellow.svg");
+          position: absolute;
+          opacity: 0;
+          top: 2px;
+          bottom: 0;
+          width: 20px;
+          right: -60px;
+          transition: 0.5s;
+        }
+      }
+    }
   }
 }

@@ -4,9 +4,8 @@ import "./FlowLoaderStyles.scss";
 const FlowLoader = () => {
   return (
     <div id="flow-loader">
-      <div className="flow-loader-wrapper">
-        <RecordSpinner />
-      </div>
+      <h1>Linking Blocto Account...</h1>
+      <RecordSpinner className="rotate" />
     </div>
   );
 };

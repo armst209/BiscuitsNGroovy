@@ -4,6 +4,7 @@ import "../../../customHooks/Validation/useValidationStyles.scss";
 import FormLoader from "../../Loading/Forms/FormLoader";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import "./NewsLetterSubscribeStyles.scss";
+import Button from "../../WrapperComponents/Button/Button";
 
 const NewsLetterForm = ({ status, message, onValidated }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -14,8 +15,8 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
     email,
     emailInputLoginClass,
     emailErrorMessage,
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
+    showEmailValidationCheck,
+    setShowEmailValidationCheck,
     setEmailInputLoginClass,
     setEmail,
     inputValidation,
@@ -25,7 +26,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
     if (status === "success") {
       setNewsletterLoader(false);
       clearFields();
-      setShowNewsletterArtistEmailValidationCheck(false);
+      setShowEmailValidationCheck(false);
       setSuccessMessage(
         <div className="form-success">Success! Thank you for subscribing!</div>
       );
@@ -33,7 +34,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
       setErrorMessage("");
     } else if (status === "error") {
       setNewsletterLoader(false);
-      setShowNewsletterArtistEmailValidationCheck(false);
+      setShowEmailValidationCheck(false);
       setEmailInputLoginClass("input-error");
       setErrorMessage(
         <div className="form-error">{`${email} is already subscribed!`}</div>
@@ -81,11 +82,18 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
           name="MERGE0"
         />
         {/* check icon */}
-        {showNewsletterArtistEmailValidationCheck && (
+        {showEmailValidationCheck && (
           <ValidationSuccess className="valid-check-icon newsletter-email-check" />
         )}
 
-        <button type="submit">Join</button>
+        <Button
+          className="newsletter-form-button-container _button"
+          type="submit"
+        >
+          <div className="newsletter-form-button-link">
+            <span>Join</span>
+          </div>
+        </Button>
       </fieldset>
     </form>
   );

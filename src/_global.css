@@ -1,0 +1,207 @@
+/* SECONDARY FONTS */
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 4252284, 2021-12-18T08:09:38-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: TTNormsPro-Rg by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/regular/
+ * Copyright: Copyright (c) 2016-2021 by TypeType. All rights reserved.
+ * 
+ * 
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/40e27c");
+
+@font-face {
+  font-family: "TTNormsPro-Rg";
+  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
+      format("woff2"),
+    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
+      format("woff");
+}
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 4252292, 2021-12-18T08:56:48-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: TTNormsPro-Normal by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/normal/
+ * Copyright: Copyright (c) 2016-2021 by TypeType. All rights reserved.
+ * 
+ * 
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/40e284");
+
+@font-face {
+  font-family: "TTNormsPro-Normal";
+  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff")
+      format("woff2"),
+    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2")
+      format("woff");
+}
+
+/* HEADER FONT */
+@font-face {
+  font-family: "futura-bold";
+  src: url("./assets/fonts/Futura-Bold/Futura-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: visible;
+  box-sizing: border-box;
+
+  /* scrollbar */
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color1) black;
+
+  /* font sizes */
+  --h1-font-size: 42px;
+  --h2-font-size: 38px;
+  --h3-font-size: 25px;
+  --body-text-font-size: 18px;
+  --nav-link-font-size: 1rem;
+  --input-font-size: 18px;
+  --secondary-text-font-size: 1rem;
+
+  /* fonts */
+  --header-font: "futura-bold", sans-serif;
+  --main-header-font: "futura-bold";
+  --secondary-font: "TTNormsPro-Normal";
+  --secondary-font-weight: 500;
+  --small-text-weight: 700;
+
+  /* colors */
+  --color1: #f5ee0d;
+  --color2: #25c1a9;
+  --color1-svg-filter: invert(80%) sepia(98%) saturate(446%) hue-rotate(357deg)
+    brightness(96%) contrast(101%);
+  --main-color-nav-footer-black: #000;
+  --main-color-body-dark-grey: #161617;
+  --main-color-nav-containers-darker-grey: #131212;
+  --color-light: #f1f5f9;
+  --color-grayish: #dadce0;
+  --bg-color: #131921;
+  --footer-gray: #919496;
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* --container-box-shadow: 3px 3px 8px black; */
+
+  /* z-index heights */
+  --highest-index: 9999999999999;
+
+  /* border radius */
+  --main-border-radius: 0.5rem;
+}
+
+/* body */
+body {
+  background-color: #000;
+}
+
+/**
+**spacing for fixed navigation bar so navigation bar wont overlap main components
+**/
+._main_section {
+  padding-top: 70px;
+  min-height: 1000px;
+}
+
+/* browser cursor styles */
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 2px solid var(--color1);
+  height: 1vh;
+  border-radius: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: black;
+  border-radius: 0.5rem;
+}
+
+/* input styles */
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/*buttons*/
+
+._button {
+  border: 2px solid var(--color1);
+  border-radius: 0.5rem;
+  font-family: var(--header-font);
+  font-size: 1rem;
+  background: transparent;
+  min-width: 150px;
+  height: 70px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: normal;
+}
+
+/* animations */
+
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+
+.rotation-forward {
+  animation: rotationForward 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationForward {
+  from {
+    transform: translate(0) rotate(0deg);
+  }
+
+  to {
+    transform: translate(100%) rotate(360deg);
+  }
+}

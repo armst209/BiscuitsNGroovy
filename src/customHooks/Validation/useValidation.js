@@ -1,5 +1,10 @@
+//react imports
 import { useState } from "react";
+
+//validator npm
 import validator from "validator";
+
+//svg imports
 import { ReactComponent as Warning } from "../../assets/images/exclamation.svg";
 
 const useValidation = () => {
@@ -23,17 +28,18 @@ const useValidation = () => {
   const [emailInputLoginClass, setEmailInputLoginClass] = useState("");
   const [confirmPasswordInputLoginClass, setConfirmPasswordInputLoginClass] =
     useState("");
+
   //icon success checks
   const [showUserNameValidationCheck, setShowUserNameValidationCheck] =
     useState(false);
   const [showPasswordValidationCheck, setShowPasswordValidationCheck] =
     useState(false);
+  const [
+    showConfirmPasswordValidationCheck,
+    setShowConfirmPasswordValidationCheck,
+  ] = useState(false);
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
-  const [
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
-  ] = useState(false);
 
   //show & hide password input
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -44,7 +50,10 @@ const useValidation = () => {
     let { name, value } = event.target;
 
     switch (name) {
+      //EMAIL CASES
       case "email":
+      case "signup-email":
+      case "MERGE0":
         setEmail(value);
         if (validator.isEmail(value)) {
           setEmailInputLoginClass("input-success");
@@ -72,6 +81,7 @@ const useValidation = () => {
           );
         }
         break;
+      //USERNAME CASE
       case "username":
         setUserName(value);
         if (validator.isLength(value, { min: 1, max: undefined })) {
@@ -91,7 +101,7 @@ const useValidation = () => {
         }
 
         break;
-
+      //PASSWORD CASE
       case "password":
         setPassword(value);
         if (
@@ -110,6 +120,7 @@ const useValidation = () => {
             pointsForContainingSymbol: 10,
           })
         ) {
+          setShowPasswordValidationCheck(false);
           setPasswordInputLoginClass("input-error");
           setPasswordErrorMessage(
             <>
@@ -120,7 +131,7 @@ const useValidation = () => {
             </>
           );
           setErrorMessages(
-            <ul>
+            <ul className="password-strength-errors">
               <li>
                 <Warning className="warning-icon" />
                 <div className="error-message-text">
@@ -155,11 +166,12 @@ const useValidation = () => {
           );
         } else {
           setPasswordInputLoginClass("input-success");
+          setShowPasswordValidationCheck(true);
           setPasswordErrorMessage("Password");
           setErrorMessages("");
         }
         break;
-
+      //LOGIN PASSWORD CASE
       case "login-password":
         setPassword(value);
         if (validator.isLength(value, { min: 1, max: undefined })) {
@@ -168,6 +180,7 @@ const useValidation = () => {
           setPasswordErrorMessage("Password");
           setErrorMessages("");
         } else {
+          setShowPasswordValidationCheck(false);
           setPasswordInputLoginClass("input-error");
           setPasswordErrorMessage(
             <>
@@ -177,12 +190,20 @@ const useValidation = () => {
           );
         }
         break;
+      /**
+       * *CONFIRM PASSWORD CASE
+       * TODO: fix password word comparison values
+       */
       case "confirm-password":
         setConfirmPassword(value);
-        if (password === confirmPassword && confirmPassword.length !== 0) {
+        console.log(confirmPassword);
+        console.log(password);
+        if (password.trim() === confirmPassword.trim()) {
           setConfirmPasswordErrorMessage("Confirm Password");
+          setShowConfirmPasswordValidationCheck(true);
           setConfirmPasswordInputLoginClass("input-success");
         } else {
+          setShowConfirmPasswordValidationCheck(false);
           setConfirmPasswordErrorMessage(
             <>
               <Warning className="warning-icon" />
@@ -192,6 +213,11 @@ const useValidation = () => {
           setConfirmPasswordInputLoginClass("input-error");
         }
         break;
+
+      /**
+       * *TERMS CHECKBOX CASE
+       */
+
       case "terms-check":
         if (value !== "on") {
           alert("please check box");
@@ -199,81 +225,16 @@ const useValidation = () => {
 
         break;
 
-      case "MERGE0":
-        setEmail(value);
-        if (validator.isEmail(value)) {
-          setEmailInputLoginClass("input-success");
-          setShowNewsletterArtistEmailValidationCheck(true);
-          setEmailErrorMessage("Email");
-        } else if (!validator.isLength(value, { min: 1, max: undefined })) {
-          setEmailInputLoginClass("input-error");
-          setShowNewsletterArtistEmailValidationCheck(false);
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">
-                Please fill out this field
-              </div>
-            </>
-          );
-        } else {
-          setEmailInputLoginClass("input-error");
-          setShowEmailValidationCheck(false);
-          setEmailErrorMessage(
-            <>
-              <Warning className="warning-icon" />
-              <div className="error-message-text">Invalid Email</div>
-            </>
-          );
-        }
-        break;
+      /**
+       * TODO: change default error message
+       */
       default:
+        setErrorMessages("ERROR");
         break;
-    }
-  };
-
-  //validation for button submit if both inputs are empty on submit
-  const ifEmptyInputOnSubmit = () => {
-    if (userName.length === 0 && password.length === 0) {
-      setUserNameInputLoginClass("input-error");
-      setShowUserNameValidationCheck(false);
-      setPasswordInputLoginClass("input-error");
-      setShowPasswordValidationCheck(false);
-      setUserNameErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-      setPasswordErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    } else if (userName.length === 0) {
-      setUserNameInputLoginClass("input-error");
-      setShowUserNameValidationCheck(false);
-      setUserNameErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
-    } else if (password.length === 0) {
-      setPasswordInputLoginClass("input-error");
-      setShowPasswordValidationCheck(false);
-      setPasswordErrorMessage(
-        <>
-          <Warning className="warning-icon" />
-          <div className="label-error-text">Please fill out this field</div>
-        </>
-      );
     }
   };
 
   //show & hide password - change input type
-
   const changeInputType = () => {
     if (passwordInputType === "password") {
       setPasswordInputType("text");
@@ -312,10 +273,9 @@ const useValidation = () => {
     setShowUserNameValidationCheck,
     showPasswordValidationCheck,
     setShowPasswordValidationCheck,
-    showNewsletterArtistEmailValidationCheck,
-    setShowNewsletterArtistEmailValidationCheck,
+    showConfirmPasswordValidationCheck,
+    setShowConfirmPasswordValidationCheck,
     inputValidation,
-    ifEmptyInputOnSubmit,
     changeInputType,
     passwordInputType,
     isHidden,

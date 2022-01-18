@@ -28,9 +28,9 @@
     "react-dotenv": "^0.1.3",
     "react-fast-marquee": "^1.2.1",
     "react-ga": "^3.3.0",
-    "react-h5-audio-player": "^3.7.4",
+    "react-h5-audio-player": "^3.8.1",
     "react-hover": "^3.0.1",
-    "react-lazyload": "^3.2.0",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-mailchimp": "^0.0.1",
     "react-mailchimp-subscribe": "^2.1.3",
     "react-promise-tracker": "^2.1.0",
@@ -75,6 +75,7 @@
   },
   "devDependencies": {
     "@types/react-mailchimp-subscribe": "^2.1.1",
+    "@types/styled-components": "^5.1.19",
     "@types/validator": "^13.7.0",
     "serve": "^12.0.1"
   },
@@ -86,7 +87,8 @@
       "BACKEND_URL",
       "FRONTEND_URL",
       "MAILCHIMP_URL",
-      "STRIPE_API_KEY"
+      "STRIPE_API_KEY",
+      "ENV"
     ]
   }
 }

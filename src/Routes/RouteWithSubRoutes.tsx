@@ -14,8 +14,8 @@ const RouteWithSubRoutes = (route: IRoute) => {
           //REDIRECT
           route.redirect ? (
             <Redirect to={route.redirect} />
-          //PRIVATE
-          ) : route.private ? (
+          ) : //PRIVATE
+          route.private ? (
             token ? (
               route.component && (
                 <route.component {...props} routes={route.routes} />
@@ -23,8 +23,8 @@ const RouteWithSubRoutes = (route: IRoute) => {
             ) : (
               <Redirect to="/" />
             )
-          //CREDENTIALS
-          ) : route.credentials ? (
+          ) : //CREDENTIALS
+          route.credentials ? (
             token ? (
               <Redirect to="/" />
             ) : (
@@ -32,8 +32,8 @@ const RouteWithSubRoutes = (route: IRoute) => {
                 <route.component {...props} routes={route.routes} />
               )
             )
-          //RESETCREDENTIALS
-          ) : route.resetCredentials ? (
+          ) : //RESETCREDENTIALS
+          route.resetCredentials ? (
             PR_Auth_Token ? (
               route.component && (
                 <route.component {...props} routes={route.routes} />

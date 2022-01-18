@@ -22,8 +22,7 @@
     transform: scale(1.1);
   }
   svg {
-    filter: invert(91%) sepia(95%) saturate(3818%) hue-rotate(353deg)
-      brightness(101%) contrast(92%);
+    filter: var(--color1-svg-filter);
     width: 20px;
   }
 }

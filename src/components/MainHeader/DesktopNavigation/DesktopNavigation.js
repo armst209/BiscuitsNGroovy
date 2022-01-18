@@ -1,17 +1,27 @@
+//react imports
 import { Link, NavLink } from "react-router-dom";
+
+//styles
 import "./DesktopNavigationStyles.scss";
-import MainHeaderLogo from "../../../assets/images/bng_logo.png";
+
+//svg imports
+import { ReactComponent as MainHeaderLogo } from "../../../assets/images/bng-main-logo.svg";
+
+//component imports
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
-import Logout from "../LogoutButton/LogoutButton";
+import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
 
-const DesktopNavigation = ({ setShowLogoutLoading }) => {
+const DesktopNavigation = ({
+  showLogoutLoaderHandler,
+  hideLogoutLoaderHandler,
+}) => {
   return (
     <>
       <div className="left-links-container">
         <div className="logo-container">
           <Link className="logo-link" to="/">
-            <img src={MainHeaderLogo} className="main-header-logo" alt="logo" />
+            <MainHeaderLogo className="main-header-logo" />
           </Link>
         </div>
         <ul className="desktop-main-links">
@@ -65,7 +75,10 @@ const DesktopNavigation = ({ setShowLogoutLoading }) => {
             <LoginAndSignUp />
           </div>
 
-          <Logout setShowLogoutLoading={setShowLogoutLoading} />
+          <Logout
+            showLogoutLoaderHandler={showLogoutLoaderHandler}
+            hideLogoutLoaderHandler={hideLogoutLoaderHandler}
+          />
         </div>
       </div>
     </>

@@ -6,7 +6,8 @@
     padding: 8rem 1rem 8rem 1rem;
 
     .pom-terms-container {
-      font-family: var(--font2);
+      font-family: var(--secondary-font);
+      font-weight: var(--secondary-font-weight);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -36,7 +37,7 @@
           }
           strong {
             color: var(--color1);
-            font-family: var(--font1);
+            font-family: var(--header-font);
             font-weight: normal;
           }
           .nft-alpha-list,

@@ -85,8 +85,8 @@ const StripeCheckoutProcesses = ({ release }) => {
 
   //functional component that is being rendered and displayed if no message
   const ProductDisplay = ({ handleClick, showStripeLoader }) => (
-    <section>
-      <button
+    <>
+      <div
         type="button"
         id="checkout-button"
         role="link"
@@ -94,9 +94,9 @@ const StripeCheckoutProcesses = ({ release }) => {
         className="checkout-button"
       >
         BUY NOW
-      </button>
+      </div>
       {showStripeLoader}
-    </section>
+    </>
   );
 
   return message ? (

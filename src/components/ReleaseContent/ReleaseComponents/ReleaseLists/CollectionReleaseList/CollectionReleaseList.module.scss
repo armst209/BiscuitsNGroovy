@@ -1,0 +1,53 @@
+#collection-release-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .h1-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: var(--header-font);
+    font-size: 2rem;
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+  }
+  .collection-release-list-live-releases-container,
+  .collection-release-list-released-releases-container {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 2px solid var(--color2);
+    padding: 1rem;
+    @media screen and (max-width: 400px) {
+      border: none;
+      padding: 0;
+    }
+
+    .release-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      @media screen and (max-width: 400px) {
+        gap: 0;
+      }
+    }
+  }
+  .cant-play-releases-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    font-family: var(--header-font);
+    padding: 1rem;
+    cursor: pointer;
+    svg {
+      margin-right: 0.5rem;
+      width: 40px;
+    }
+  }
+}

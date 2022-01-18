@@ -46,8 +46,7 @@
 
   .mobile-navigation-settings-icon {
     width: 40px;
-    filter: invert(88%) sepia(67%) saturate(2732%) hue-rotate(353deg)
-      brightness(101%) contrast(92%);
+    filter: var(--color1-svg-filter);
   }
 
   @media (max-width: 768px) {

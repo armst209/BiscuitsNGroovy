@@ -1,10 +1,17 @@
-import "./MusicShowcaseStyles.scss";
-import ReleaseList from "../ReleaseContent/ReleaseList/ReleaseList";
+//styles
+import styles from "./MusicShowcase.module.scss";
+
+//component imports
+import ReleaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/ReleaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
+import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
+
+//react imports
 import useFetch from "../../customHooks/Fetch/useFetch";
-import showcase from "../../assets/images/showcase_mobile.webp";
-import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseList/NoReleases/NoReleasesMusicShowcase";
+
+//image imports
 import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
+import showcase from "../../assets/images/showcase-outline.webp";
 
 const MusicShowcase = () => {
   //TOKEN
@@ -19,20 +26,20 @@ const MusicShowcase = () => {
   });
 
   return (
-    <section id="music-showcase">
-      <div className="music-showcase-container">
-        <div className="music-showcase-content-container">
+    <section id={styles["music-showcase"]}>
+      <div className={styles["music-showcase-container"]}>
+        <div className={styles["music-showcase-content-container"]}>
           <h1>
             <div>MUSIC SHOWCASE</div>
-            <RecordHeaderIcon className="record-header-icon" />
+            <RecordHeaderIcon className={styles["record-header-icon"]} />
           </h1>
 
-          <p className="music-showcase-sub-title">
+          <p className={styles["music-showcase-sub-title"]}>
             Browse our current and upcoming releases. Click on a title for more
             details
           </p>
-          <div className="music-showcase-content-wrapper ">
-            <div className="music-showcase-grid">
+          <div className={styles["music-showcase-content-wrapper"]}>
+            <div className={styles["music-showcase-grid"]}>
               {isLoading && <ComponentLoading />}
               {errorMessage === null ? (
                 releaseData && (
@@ -48,9 +55,9 @@ const MusicShowcase = () => {
           </div>
         </div>
       </div>
-      <div className="music-showcase-bottom-image-container">
+      <div className={styles["music-showcase-bottom-image-container"]}>
         <img
-          className="music-showcase-bottom-image"
+          className={styles["music-showcase-bottom-image"]}
           src={showcase}
           alt="microphone"
         />

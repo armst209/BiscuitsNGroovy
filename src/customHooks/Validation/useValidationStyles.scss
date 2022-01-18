@@ -2,9 +2,12 @@ label {
   background-color: black;
   position: absolute;
   padding: 0 0.3rem;
+  z-index: 50;
+  left: 20px;
 }
 
-input {
+input,
+textarea {
   margin: 10px 0;
   background: var(--color-light);
   font-family: var(--header-font);
@@ -40,6 +43,10 @@ input {
   }
 }
 
+textarea {
+  min-height: 300px;
+  position: relative;
+}
 .input-styles {
   display: flex;
   flex-direction: column;
@@ -121,6 +128,8 @@ input {
   padding-left: 0.3rem;
   font-size: 0.7rem;
   color: red;
+  font-family: var(--secondary-font);
+  font-weight: var(--secondary-font-weight);
 }
 
 .error-message-main {
@@ -128,6 +137,20 @@ input {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  // position: absolute;
+  border-radius: 0.5rem;
+  background-color: #000;
+  padding: 1rem;
+  z-index: 100;
+
+  ul {
+    li {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+    }
+  }
 }
 .main-error-messages {
   display: flex;
@@ -147,6 +170,11 @@ input {
   }
 }
 
+.password-strength-errors {
+  border: 2px solid red;
+  border-radius: 0.5rem;
+}
+
 .error-message-text-main {
   text-align: center;
   letter-spacing: 0.01cm;
@@ -159,27 +187,35 @@ input {
 }
 
 .artist-email-label {
-  left: 20px;
   top: 1px;
+}
+.artist-name-label {
+  top: 68px;
+}
+
+.artist-message-label {
+  top: 138px;
 }
 .username-label {
   top: 70px;
-  left: 20px;
 }
 .password-signup-label {
   top: 145px;
-  left: 20px;
+}
+.reset-password-label {
+  top: 0;
+}
+.reset-password-confirm-label {
+  top: 70px;
 }
 
 .user-email-label {
-  left: 20px;
   top: 1px;
   @media screen and (max-width: 400px) {
     top: 0;
   }
 }
 .email-label {
-  left: 20px;
   top: 1px;
   @media screen and (max-width: 400px) {
     top: 2px;
@@ -187,7 +223,6 @@ input {
 }
 .password-label {
   bottom: 50px;
-  left: 20px;
 
   @media screen and (max-width: 400px) {
     bottom: 50px;
@@ -221,6 +256,29 @@ input {
   top: 23px;
 }
 
+.username-signup-check {
+  right: 10px;
+  top: 95px;
+}
+.password-signup-check {
+  right: 10px;
+  top: 165px;
+}
+.terms-check-label {
+  background-color: transparent;
+  position: static;
+  width: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  a {
+    color: var(--color2);
+    margin-left: 5px;
+    &:visited {
+      color: var(--color2);
+    }
+  }
+}
 .user-email-error-messages {
   text-align: center;
   width: 100%;
@@ -235,5 +293,4 @@ input {
   font-family: var(--header-font);
   font-weight: normal;
   color: green;
-  padding: 1rem;
 }
