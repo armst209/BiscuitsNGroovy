@@ -5,7 +5,8 @@ import styles from "./ReleasePreviewModal.module.scss";
 import ReactDOM from "react-dom";
 
 //svg imports
-import { ReactComponent as RecordIcon } from "../../../../assets/images/vinyl_yellow.svg";
+import { ReactComponent as RecordHeartIcon } from "../../../../assets/images/vinyl_yellow.svg";
+import { ReactComponent as RecordIcon } from "../../../../assets/images/compact-disc-yellow.svg";
 
 //component imports
 import ReleaseTracklist from "../ReleaseTracklist/ReleaseTracklist";
@@ -13,15 +14,13 @@ import ReleasePreviewTitleInfo from "./ReleasePreviewTitleinfo/ReleasePreviewTit
 
 const ReleasePreviewModalOverlay = ({
   release,
-  setShowReleasePreview,
-  showReleasePreview,
+  hideReleasePreviewModalHandler,
 }) => {
   return (
     <section id={styles["release-preview-backdrop"]}>
-      ;
       <div className={styles["release-preview-modal"]}>
         <div
-          onClick={() => setShowReleasePreview(!showReleasePreview)}
+          onClick={() => hideReleasePreviewModalHandler()}
           className={styles["close-release-info"]}
         >
           X
@@ -33,13 +32,20 @@ const ReleasePreviewModalOverlay = ({
             </div>
             <div className={styles["release-content-right"]}>
               <div className={styles["record-image"]}>
-                <RecordIcon className={styles["record-svg"]} />
+                <RecordHeartIcon className={styles["record-svg"]} />
               </div>
 
               <div className={styles["release-information"]}>
                 <div className={styles["release-tracklist"]}>
-                  <ReleaseTracklist release={release} />
+                  <ReleaseTracklist songs={release.songs} />
                 </div>
+              </div>
+              <div className={styles["release-preview-svg-divider"]}>
+                <RecordIcon />
+              </div>
+
+              <div className={styles["release-preview-description"]}>
+                {release.description}
               </div>
             </div>
           </div>
@@ -49,18 +55,13 @@ const ReleasePreviewModalOverlay = ({
   );
 };
 
-const ReleasePreviewModal = ({
-  release,
-  setShowReleasePreview,
-  showReleasePreview,
-}) => {
+const ReleasePreviewModal = ({ release, hideReleasePreviewModalHandler }) => {
   return (
     <>
       {ReactDOM.createPortal(
         <ReleasePreviewModalOverlay
           release={release}
-          setShowReleasePreview={setShowReleasePreview}
-          showReleasePreview={showReleasePreview}
+          hideReleasePreviewModalHandler={hideReleasePreviewModalHandler}
         />,
         document.getElementById("modal-overlay-root")
       )}

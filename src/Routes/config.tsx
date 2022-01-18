@@ -77,8 +77,10 @@ const routes: IRoute[] = [
   },
   {
     path: "/biscuit/:biscuitId",
-    component: lazy(() => import("../pages/UniqueArtist/UniqueArtistPage")),
-    key: "UNIQUE_ARTIST_PAGE",
+    component: lazy(
+      () => import("../components/ReleaseContent/Biscuit/Biscuit")
+    ),
+    key: "BISCUIT_PAGE",
     exact: true,
     private: false,
     fallback: <Loading />,
@@ -92,12 +94,15 @@ const routes: IRoute[] = [
     private: true,
     fallback: <Loading />,
   },
+
   {
-    path: "/collection/releases/:releaseId",
-    component: lazy(() => import("../components/ReleaseContent/Release/Release")),
+    path: "/releases/:releaseId",
+    component: lazy(
+      () => import("../components/ReleaseContent/Release/Release")
+    ),
     key: "RELEASE_PAGE",
     exact: true,
-    private: true,
+    private: false,
     fallback: <Loading />,
   },
   {

@@ -1,5 +1,5 @@
 #image-loader {
-  background-color: black;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,6 +9,15 @@
   border-radius: 0.5rem;
   position: absolute;
   z-index: 20;
+
+  @media screen and (max-width: 400px) {
+    width: 250px;
+    height: 250px;
+  }
+  @media screen and (max-width: 305px) {
+    width: 200px;
+    height: 200px;
+  }
   .image-loading-svg {
     width: 20%;
     @media screen and (max-width: 500px) {

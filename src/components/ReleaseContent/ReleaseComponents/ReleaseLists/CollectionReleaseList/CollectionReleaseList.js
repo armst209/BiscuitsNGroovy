@@ -1,8 +1,13 @@
-// import "../../../MusicShowcase/MusicShowcaseStyles.scss";
+//svg imports
 import { ReactComponent as QuestionIcon } from "../../../../../assets/images/help_question_yellow.svg";
+
+//react imports
 import { memo, useState } from "react";
+
 //styles
 import styles from "./CollectionReleaseList.module.scss";
+
+//component imports
 import AvailableRelease from "../../ReleaseTypes/AvailableRelease/AvailableRelease";
 import ExpiredRelease from "../../ReleaseTypes/ExpiredRelease/ExpiredRelease";
 import ExpiredInfoModal from "../../ReleaseTypes/ExpiredRelease/Modals/ExpiredInfoModal/ExpiredInfoModal";
@@ -10,13 +15,18 @@ import ExpiredInfoModal from "../../ReleaseTypes/ExpiredRelease/Modals/ExpiredIn
 const CollectionReleaseList = memo(
   ({ releaseData, noReleaseDataComponent }) => {
     const [showExpiredInfoModal, setShowExpiredInfoModal] = useState(false);
+
+    //filters expired releases
     const filteredReleasedReleases = releaseData.filter((release) => {
       return release.isExpired;
     });
+
+    //filters live releases
     const filteredLiveReleases = releaseData.filter((release) => {
       return !release.isExpired;
     });
 
+    //handlers
     const showExpiredInfoModalHandler = () => {
       setShowExpiredInfoModal(true);
     };

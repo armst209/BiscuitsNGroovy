@@ -14,6 +14,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ReleaseContainer = ({ release }) => {
+  //selecting first release in release object
+  release = release[0];
   //hooks
   const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
 
@@ -24,27 +26,6 @@ const ReleaseContainer = ({ release }) => {
   const closeBiscuitInsertHandler = () => {
     setShowBiscuitInsert(false);
   };
-
-  //   //getting array of available release ids
-  //   const releaseIds = releases.library.map((_artistId) => {
-  //     return _artistId.id;
-  //   });
-
-  //   //getting artist id from url parameters
-  //   let { artistId } = useParams();
-
-  //   //will redirect if artist id in url params does not match a current release id
-  //   if (!releaseIds.includes(Number(artistId))) {
-  //     return <NotFound />;
-  //   }
-
-  //   //filtering single release based on param id
-  //   const filteredRelease = releases.library.filter((release) => {
-  //     return release.id === Number(artistId);
-  //   });
-
-  //   //getting single release object
-  //   const release = filteredRelease[0];
 
   return (
     release && (
@@ -63,19 +44,19 @@ const ReleaseContainer = ({ release }) => {
 
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
-                    <ReleaseTracklist release={release} />
+                    <ReleaseTracklist songs={release.songs} />
                   </div>
                 </div>
                 <div className={styles["release-description"]}>
                   {release.description}
                 </div>
-                <button
+                {/* <button
                   className="_button"
                   onClick={() => showBiscuitInsertHandler()}
                 >
                   View Insert
-                </button>
-                {showBiscuitInsert && (
+                </button> */}
+                {/* {showBiscuitInsert && (
                   <div className={styles["release-insert-wrapper"]}>
                     <div
                       className={styles["close-biscuit-insert"]}
@@ -83,19 +64,19 @@ const ReleaseContainer = ({ release }) => {
                     >
                       X
                     </div>
-                    {/* <BiscuitInsert /> */}
+                    <BiscuitInsert />
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
         </div>
-        <div className={styles["release-back-collection-link"]}>
+        {/* <div className={styles["release-back-collection-link"]}>
           <Link to="/collection">
             <BackButton />
             Back To Collection
           </Link>
-        </div>
+        </div> */}
       </section>
     )
   );

@@ -1,94 +1,120 @@
 //react imports
 import { useState } from "react";
-import MusicPlayerContainer from "../../MusicPlayer/OldMusicPlayer/MusicPlayerContainer";
+import { Link } from "react-router-dom";
+
 //styles
 import styles from "./BiscuitContainer.module.scss";
-const BiscuitContainer = ({ release }) => {
-  //hooks
-  const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
 
-  //state handlers
-  const showBiscuitInsertHandler = () => {
-    setShowBiscuitInsert(true);
-  };
-  const closeBiscuitInsertHandler = () => {
-    setShowBiscuitInsert(false);
-  };
+//svg imports
+import { ReactComponent as BackButton } from "../../../../assets/images/arrow-back-yellow.svg";
+import { ReactComponent as RecordIcon } from "../../../../assets/images/vinyl_yellow.svg";
 
-  //getting array of available release ids
-  //   const releaseIds = releases.library.map((_artistId) => {
-  //     return _artistId.id;
-  //   });
+//component imports
+import BiscuitAlbumInformation from "../BiscuitAlbumInformation/BiscuitAlbumInformation";
+import ReleasePreviewTitleInfo from "../../ReleaseComponents/ReleasePreview/ReleasePreviewTitleinfo/ReleasePreviewTitleInfo";
+import ReleaseTracklist from "../../ReleaseComponents/ReleaseTracklist/ReleaseTracklist";
+import BiscuitDescription from "../BiscuitDescription/BiscuitDescription";
+import BiscuitInsert from "../BiscuitInsert/BiscuitInsert";
 
-  //getting artist id from url parameters
-  //   let { artistId } = useParams();
+//music player import
+import MusicPlayerContainer from "../../MusicPlayer/MusicPlayerContainer";
+import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInformation/BiscuitTitleInformation";
+import ReleaseTracklistPlayer from "../../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
+import Button from "../../../WrapperComponents/Button/Button";
 
-  //will redirect if artist id in url params does not match a current release id
-  //   if (!releaseIds.includes(Number(artistId))) {
-  //     return <NotFound />;
-  //   }
-
-  //filtering single release based on param id
-  //   const filteredRelease = releases.library.filter((release) => {
-  //     return release.id === Number(artistId);
-  //   });
-
-  //getting single release object
-  //   const release = filteredRelease[0];
-
+const BiscuitContainer = ({ release, showBiscuitInsertHandler }) => {
   return (
     release && (
       <section id={styles.biscuit}>
-        <BiscuitAlbumInformation />
-        <div className={styles["biscuit-wrapper"]}>
-          <div className={styles["biscuit-container"]}>
-            <div className={styles["biscuit-content"]}>
-              <div className={styles["biscuit-content-left"]}>
-                <ReleasePreviewTitleInfo release={release} />
+        <div className={styles["release-preview-modal"]}>
+          <div className={styles["release-preview-container"]}>
+            <div className={styles["release-preview-content"]}>
+              <div className={styles["release-content-left"]}>
+                <BiscuitTitleInformation release={release} />
               </div>
-              <div className={styles["biscuit-content-right"]}>
-                <div className={styles["biscuit-record-image"]}>
-                  <RecordIcon className="biscuit-record-svg" />
+              <div className={styles["release-content-right"]}>
+                <div className={styles["release-information"]}>
+                  <div className={styles["release-tracklist"]}>
+                    <ReleaseTracklistPlayer songs={release.songs} />
+                  </div>
+                </div>
+                <div className={styles["release-preview-svg-divider"]}>
+                  <RecordIcon />
                 </div>
 
-                <div className={styles["biscuit-information"]}>
-                  <div className={styles["biscuit-tracklist"]}>
-                    <ReleaseTracklist release={release} />
-                  </div>
+                <div className={styles["release-preview-description"]}>
+                  {/* {release.description} */}
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident cumque eaque necessitatibus qui. Unde consequuntur
+                  aperiam delectus officia fugiat. Quisquam non totam architecto
+                  doloribus fugiat numquam quod corporis officiis doloremque.
                 </div>
-                <div className={styles["biscuit-description"]}>
-                  <BiscuitDescription />
+                <div>
+                  <Button
+                    className="_button"
+                    onClickFunction={showBiscuitInsertHandler}
+                  >
+                    View Insert
+                  </Button>
                 </div>
-                <button
-                  className="_button"
-                  onClick={() => showBiscuitInsertHandler()}
-                >
-                  View Insert
-                </button>
-                {showBiscuitInsert && (
-                  <div className={styles["biscuit-insert-wrapper"]}>
-                    <div
-                      className={styles["close-biscuit-insert"]}
-                      onClick={() => closeBiscuitInsertHandler()}
-                    >
-                      X
-                    </div>
-                    <BiscuitInsert />
-                  </div>
-                )}
               </div>
             </div>
           </div>
         </div>
-        <div className={styles["biscuit-back-collection-link"]}>
-          <Link to="/collection">
-            <BackButton />
-            Back To Collection
-          </Link>
-        </div>
-        {/* Music Player */}
+
         <MusicPlayerContainer release={release} />
       </section>
+      // <section id={styles.biscuit}>
+      //   <BiscuitAlbumInformation />
+      //   <div className={styles["biscuit-wrapper"]}>
+      //     <div className={styles["biscuit-container"]}>
+      //       <div className={styles["biscuit-content"]}>
+      //         <div className={styles["biscuit-content-left"]}>
+      //           <ReleasePreviewTitleInfo release={release} />
+      //         </div>
+      //         <div className={styles["biscuit-content-right"]}>
+      //           <div className={styles["biscuit-record-image"]}>
+      //             <RecordIcon className="biscuit-record-svg" />
+      //           </div>
+
+      //           <div className={styles["biscuit-information"]}>
+      //             <div className={styles["biscuit-tracklist"]}>
+      //               <ReleaseTracklist songs={release.songs} />
+      //             </div>
+      //           </div>
+      //           <div className={styles["biscuit-description"]}>
+      //             <BiscuitDescription />
+      //           </div>
+      //           <button
+      //             className="_button"
+      //             onClick={() => showBiscuitInsertHandler()}
+      //           >
+      //             View Insert
+      //           </button>
+      //           {showBiscuitInsert && (
+      //             <div className={styles["biscuit-insert-wrapper"]}>
+      //               <div
+      //                 className={styles["close-biscuit-insert"]}
+      //                 onClick={() => closeBiscuitInsertHandler()}
+      //               >
+      //                 X
+      //               </div>
+      //               <BiscuitInsert />
+      //             </div>
+      //           )}
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      //   {/* <div className={styles["biscuit-back-collection-link"]}>
+      //     <Link to="/collection">
+      //       <BackButton />
+      //       Back To Collection
+      //     </Link>
+      //   </div> */}
+      //   {/* Music Player */}
+      //   <MusicPlayerContainer release={release} />
+      // </section>
     )
   );
 };

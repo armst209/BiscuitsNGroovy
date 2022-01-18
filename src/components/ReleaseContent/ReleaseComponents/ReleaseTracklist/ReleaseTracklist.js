@@ -1,10 +1,10 @@
 //styles
 import styles from "./ReleaseTracklist.module.scss";
 
-const ReleaseTracklist = ({ release }) => {
+const ReleaseTracklist = ({ songs }) => {
   return (
-    <ul>
-      {release.songs.map((name, order) => {
+    <ul className={styles["tracklist-ul"]}>
+      {songs.map((name, order) => {
         return (
           <li
             className={styles["tracklist-li"]}

@@ -8,7 +8,7 @@ const MusicPlayerContainer = ({ release }) => {
   const [selectedTrack, setSelectedTrack] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
-  const { songs } = release; // destructuring songs from release object]
+  const { songs } = release; // destructuring songs from release object
 
   //handlers
   const previousSongChangeHandler = () => {
@@ -33,8 +33,8 @@ const MusicPlayerContainer = ({ release }) => {
       nextSongChangeHandler={nextSongChangeHandler}
       currentSongIndex={currentSongIndex}
       // setCurrentMusicIndex={setCurrentMusicIndex}
-      showTrackList={showTrackList}
-      setShowTrackList={setShowTrackList}
+      // showTrackList={showTrackList}
+      // setShowTrackList={setShowTrackList}
       selectedTrack={selectedTrack}
       setSelectedTrack={setSelectedTrack}
     />

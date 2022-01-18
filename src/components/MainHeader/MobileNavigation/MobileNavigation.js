@@ -1,20 +1,32 @@
-import { ReactComponent as SettingsHamburgerIcon } from "../../../assets/images/settings.svg";
-
-import { motion } from "framer-motion";
-import MainHeaderLogoMobile from "../../../assets/images/bng-main-logo.jpg";
-import "./MobileNavigationStyles.scss";
+//react imports
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
-import LogoutButton from "../LogoutButton/LogoutButton";
+
+//component imports
+import LogoutMobile from "../Logout/LogoutMobile";
 import LoginAndSignUpMobile from "../LoginAndSignUp/LoginAndSignUpMobile";
 import CollectionButtonMobile from "../CollectionButton/CollectionButtonMobile";
+
+//svg imports
+import { ReactComponent as SettingsHamburgerIcon } from "../../../assets/images/settings.svg";
+import { ReactComponent as MainHeaderLogoMobile } from "../../../assets/images/bng-main-logo.svg";
+
+//styles
+import "./MobileNavigationStyles.scss";
+
+//framer motion import
+import { motion } from "framer-motion";
 
 const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: "-100%" },
 };
-const MobileNavigation = ({ setShowLogoutLoading }) => {
+const MobileNavigation = ({ showLogoutLoaderHandler }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const closeMobileMenuHandler = () => {
+    setShowMobileMenu(false);
+  };
 
   return (
     <>
@@ -22,7 +34,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
       <div id="mobile-navigation">
         <div className="mobile-navigation-logo-container">
           <Link className="mobile-navigation-logo-link" to="/">
-            <img src={MainHeaderLogoMobile} alt="logo" />
+            <MainHeaderLogoMobile />
           </Link>
         </div>
         <div
@@ -43,16 +55,12 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
       >
         {/* Mobile Aside Header */}
         <div className="mobile-navigation-aside-top">
-          <Link to="/">
-            <img
-              className="mobile-navigation-aside-top-image"
-              src={MainHeaderLogoMobile}
-              alt="logo"
-            />
+          <Link to="/" onClick={() => closeMobileMenuHandler()}>
+            <MainHeaderLogoMobile className="mobile-navigation-aside-top-image" />
           </Link>
           <div
             className="aside-top-close"
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
+            onClick={() => closeMobileMenuHandler()}
           >
             X
           </div>
@@ -60,7 +68,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
         <ul>
           <li>
             <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={() => closeMobileMenuHandler()}
               activeClassName="active-link"
               exact
               to="/"
@@ -71,7 +79,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
 
           <li>
             <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={() => closeMobileMenuHandler()}
               activeClassName="active-link"
               to="/about"
             >
@@ -81,7 +89,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
 
           <li>
             <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={() => closeMobileMenuHandler()}
               activeClassName="active-link"
               to="/faq"
             >
@@ -91,7 +99,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
 
           <li>
             <NavLink
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={() => closeMobileMenuHandler()}
               activeClassName="active-link"
               to="/artists"
             >
@@ -107,7 +115,7 @@ const MobileNavigation = ({ setShowLogoutLoading }) => {
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}
           />
-          <LogoutButton setShowLogoutLoading={setShowLogoutLoading} />
+          <LogoutMobile showLogoutLoaderHandler={showLogoutLoaderHandler} />
         </ul>
       </motion.aside>
     </>
