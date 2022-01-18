@@ -17,7 +17,11 @@ const MusicShowcaseCard = ({ release }) => {
     <>
       <div
         className="release-card"
-        onClick={() => showReleasePreviewModalHandler()}
+        onClick={() =>
+          window.location.replace(
+            `${process.env.REACT_APP_FRONTEND_URL}/release/${release.id}`
+          )
+        }
       >
         <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
       </div>

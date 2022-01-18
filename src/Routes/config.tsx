@@ -96,7 +96,7 @@ const routes: IRoute[] = [
   },
 
   {
-    path: "/releases/:releaseId",
+    path: "/release/:releaseId",
     component: lazy(
       () => import("../components/ReleaseContent/Release/Release")
     ),

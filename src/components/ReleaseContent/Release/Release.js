@@ -15,9 +15,6 @@ const Release = ({ link }) => {
   //getting id from url parameter
   let { releaseId } = useParams();
 
-  let url = new URL(link);
-  console.log(url);
-
   //useFetch
   const {
     responseData: releases,
