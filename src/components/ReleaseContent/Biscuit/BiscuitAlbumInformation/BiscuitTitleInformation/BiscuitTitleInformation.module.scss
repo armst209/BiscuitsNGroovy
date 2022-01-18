@@ -7,6 +7,23 @@
   .release-image-container {
     position: relative;
   }
+  .release-preview-svg-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    color: white;
+    font-family: var(--header-font);
+    p {
+      display: flex;
+      align-items: center;
+    }
+    svg {
+      width: 30px;
+      margin-left: 0.5rem;
+    }
+  }
   .release-preview-title-info-price {
     padding-top: 0.5rem;
     div {

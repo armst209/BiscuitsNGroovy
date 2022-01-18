@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import styles from "./BiscuitContainer.module.scss";
 
 //svg imports
-import { ReactComponent as BackButton } from "../../../../assets/images/arrow-back-yellow.svg";
-import { ReactComponent as RecordIcon } from "../../../../assets/images/vinyl_yellow.svg";
 
 //component imports
 import BiscuitAlbumInformation from "../BiscuitAlbumInformation/BiscuitAlbumInformation";
@@ -23,6 +21,11 @@ import ReleaseTracklistPlayer from "../../ReleaseComponents/ReleaseTracklist/Rel
 import Button from "../../../WrapperComponents/Button/Button";
 
 const BiscuitContainer = ({ release, showBiscuitInsertHandler }) => {
+  const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
+
+  const showHideBiscuitDescriptionHandler = () =>
+    setShowBiscuitDescription(!showBiscuitDescription);
+
   return (
     release && (
       <section id={styles.biscuit}>
@@ -30,91 +33,37 @@ const BiscuitContainer = ({ release, showBiscuitInsertHandler }) => {
           <div className={styles["release-preview-container"]}>
             <div className={styles["release-preview-content"]}>
               <div className={styles["release-content-left"]}>
-                <BiscuitTitleInformation release={release} />
+                {showBiscuitDescription && (
+                  <div className={styles["release-preview-description"]}>
+                    <div
+                      className={styles["release-preview-description-close"]}
+                      onClick={() => showHideBiscuitDescriptionHandler()}
+                    >
+                      X
+                    </div>
+                    {release.description}
+                  </div>
+                )}
+                <BiscuitTitleInformation
+                  release={release}
+                  showBiscuitInsertHandler={showBiscuitInsertHandler}
+                  showHideBiscuitDescriptionHandler={
+                    showHideBiscuitDescriptionHandler
+                  }
+                />
               </div>
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
-                    <ReleaseTracklistPlayer songs={release.songs} />
+                    <MusicPlayerContainer release={release} />
                   </div>
                 </div>
-                <div className={styles["release-preview-svg-divider"]}>
-                  <RecordIcon />
-                </div>
-
-                <div className={styles["release-preview-description"]}>
-                  {/* {release.description} */}
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident cumque eaque necessitatibus qui. Unde consequuntur
-                  aperiam delectus officia fugiat. Quisquam non totam architecto
-                  doloribus fugiat numquam quod corporis officiis doloremque.
-                </div>
-                <div>
-                  <Button
-                    className="_button"
-                    onClickFunction={showBiscuitInsertHandler}
-                  >
-                    View Insert
-                  </Button>
-                </div>
+                <div className={styles["release-preview-svg-divider"]}></div>
               </div>
             </div>
           </div>
         </div>
-
-        <MusicPlayerContainer release={release} />
       </section>
-      // <section id={styles.biscuit}>
-      //   <BiscuitAlbumInformation />
-      //   <div className={styles["biscuit-wrapper"]}>
-      //     <div className={styles["biscuit-container"]}>
-      //       <div className={styles["biscuit-content"]}>
-      //         <div className={styles["biscuit-content-left"]}>
-      //           <ReleasePreviewTitleInfo release={release} />
-      //         </div>
-      //         <div className={styles["biscuit-content-right"]}>
-      //           <div className={styles["biscuit-record-image"]}>
-      //             <RecordIcon className="biscuit-record-svg" />
-      //           </div>
-
-      //           <div className={styles["biscuit-information"]}>
-      //             <div className={styles["biscuit-tracklist"]}>
-      //               <ReleaseTracklist songs={release.songs} />
-      //             </div>
-      //           </div>
-      //           <div className={styles["biscuit-description"]}>
-      //             <BiscuitDescription />
-      //           </div>
-      //           <button
-      //             className="_button"
-      //             onClick={() => showBiscuitInsertHandler()}
-      //           >
-      //             View Insert
-      //           </button>
-      //           {showBiscuitInsert && (
-      //             <div className={styles["biscuit-insert-wrapper"]}>
-      //               <div
-      //                 className={styles["close-biscuit-insert"]}
-      //                 onClick={() => closeBiscuitInsertHandler()}
-      //               >
-      //                 X
-      //               </div>
-      //               <BiscuitInsert />
-      //             </div>
-      //           )}
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      //   {/* <div className={styles["biscuit-back-collection-link"]}>
-      //     <Link to="/collection">
-      //       <BackButton />
-      //       Back To Collection
-      //     </Link>
-      //   </div> */}
-      //   {/* Music Player */}
-      //   <MusicPlayerContainer release={release} />
-      // </section>
     )
   );
 };

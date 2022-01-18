@@ -1,7 +1,7 @@
 //styles
-import styles from "./ReleaseTracklist.module.scss";
+import styles from "./ReleaseTracklistPlayer.module.scss";
 
-const ReleaseTracklistPlayer = ({ songs, setCurrentMusicIndex }) => {
+const ReleaseTracklistPlayer = ({ songs, setCurrentSongIndex }) => {
   return (
     <ul className={styles["tracklist-ul"]}>
       {songs.map((element, order) => {
@@ -10,7 +10,7 @@ const ReleaseTracklistPlayer = ({ songs, setCurrentMusicIndex }) => {
             className={styles["tracklist-li"]}
             key={`${element.title}-${element.id}`}
             onClick={() => {
-              setCurrentMusicIndex(songs.indexOf(element));
+              setCurrentSongIndex(songs.indexOf(element));
             }}
           >
             {`${order + 1}. ${element.title}`}

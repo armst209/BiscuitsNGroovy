@@ -39,6 +39,7 @@ const ReleasePreviewTitleInfo = ({ release }) => {
             />
           </Button>
         )}
+        <br></br>
       </div>
     </section>
   );
