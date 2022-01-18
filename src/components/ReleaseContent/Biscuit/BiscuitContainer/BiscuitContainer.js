@@ -20,7 +20,7 @@ import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInfo
 import ReleaseTracklistPlayer from "../../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
 import Button from "../../../WrapperComponents/Button/Button";
 
-const BiscuitContainer = ({ release, showBiscuitInsertHandler }) => {
+const BiscuitContainer = ({ release, showHideBiscuitInsertHandler }) => {
   const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
 
   const showHideBiscuitDescriptionHandler = () =>
@@ -34,19 +34,16 @@ const BiscuitContainer = ({ release, showBiscuitInsertHandler }) => {
             <div className={styles["release-preview-content"]}>
               <div className={styles["release-content-left"]}>
                 {showBiscuitDescription && (
-                  <div className={styles["release-preview-description"]}>
-                    <div
-                      className={styles["release-preview-description-close"]}
-                      onClick={() => showHideBiscuitDescriptionHandler()}
-                    >
-                      X
-                    </div>
-                    {release.description}
-                  </div>
+                  <BiscuitDescription
+                    release={release}
+                    showHideBiscuitDescriptionHandler={
+                      showHideBiscuitDescriptionHandler
+                    }
+                  />
                 )}
                 <BiscuitTitleInformation
                   release={release}
-                  showBiscuitInsertHandler={showBiscuitInsertHandler}
+                  showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
                   showHideBiscuitDescriptionHandler={
                     showHideBiscuitDescriptionHandler
                   }

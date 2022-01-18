@@ -27,12 +27,7 @@ const ReleasePreviewTitleInfo = ({ release }) => {
 
       <div className={styles["button-container"]}>
         {showButton && (
-          <Button
-            width={"200px"}
-            display={"flex"}
-            className="_button"
-            noDisplay={showButton}
-          >
+          <Button width={"200px"} display={"flex"} className="_button">
             <ReleaseButton
               release={release}
               hideButtonHandler={hideButtonHandler}

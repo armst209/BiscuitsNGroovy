@@ -13,6 +13,9 @@ import styles from "./ReleaseContainer.module.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+//hash link import
+import { NavHashLink } from "react-router-hash-link";
+
 const ReleaseContainer = ({ release }) => {
   //selecting first release in release object
   release = release[0];
@@ -34,8 +37,8 @@ const ReleaseContainer = ({ release }) => {
 
   return (
     release && (
-      <section id={styles.biscuit}>
-        <div className={styles["release-preview-modal"]}>
+      <section id={styles.release}>
+        <div className={styles["release-content-wrapper"]}>
           <div className={styles["release-preview-container"]}>
             <div className={styles["release-preview-content"]}>
               <div className={styles["release-content-left"]}>
@@ -62,13 +65,11 @@ const ReleaseContainer = ({ release }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <Link
-            to={`${process.env.REACT_APP_FRONTEND_URL}/#MusicShowcase_music-showcase__21JXl`}
-          >
-            Back to Showcase <BackButton />
-          </Link>
+          <div className={styles["release-back-link"]}>
+            <NavHashLink smooth to="/#music-showcase-return">
+              <BackButton /> <div>Back to Showcase</div>
+            </NavHashLink>
+          </div>
         </div>
       </section>
     )
