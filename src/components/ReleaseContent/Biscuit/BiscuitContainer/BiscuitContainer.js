@@ -20,7 +20,12 @@ import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInfo
 import ReleaseTracklistPlayer from "../../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
 import Button from "../../../WrapperComponents/Button/Button";
 
-const BiscuitContainer = ({ release, showHideBiscuitInsertHandler }) => {
+const BiscuitContainer = ({
+  release,
+  showHideBiscuitInsertHandler,
+  showHideMusicPlayerContainerHandler,
+  showMusicPlayerContainer,
+}) => {
   const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
 
   const showHideBiscuitDescriptionHandler = () =>
@@ -43,6 +48,9 @@ const BiscuitContainer = ({ release, showHideBiscuitInsertHandler }) => {
                 )}
                 <BiscuitTitleInformation
                   release={release}
+                  showHideMusicPlayerContainerHandler={
+                    showHideMusicPlayerContainerHandler
+                  }
                   showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
                   showHideBiscuitDescriptionHandler={
                     showHideBiscuitDescriptionHandler
@@ -52,7 +60,9 @@ const BiscuitContainer = ({ release, showHideBiscuitInsertHandler }) => {
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
-                    <MusicPlayerContainer release={release} />
+                    {showMusicPlayerContainer && (
+                      <MusicPlayerContainer release={release} />
+                    )}
                   </div>
                 </div>
                 <div className={styles["release-preview-svg-divider"]}></div>

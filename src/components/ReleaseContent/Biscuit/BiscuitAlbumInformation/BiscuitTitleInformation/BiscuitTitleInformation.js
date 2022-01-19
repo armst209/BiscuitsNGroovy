@@ -7,6 +7,7 @@ const BiscuitTitleInformation = ({
   release,
   showHideBiscuitInsertHandler,
   showHideBiscuitDescriptionHandler,
+  showHideMusicPlayerContainerHandler,
 }) => {
   const { name, title, art_url } = release;
   return (
@@ -23,14 +24,15 @@ const BiscuitTitleInformation = ({
           width="200px"
           className="_button"
           onClickFunction={showHideBiscuitInsertHandler}
+          onClickFunction2={showHideMusicPlayerContainerHandler}
         >
           View Insert
         </Button>
         <br />
-        <Button
-          width="200px"
+        <button
+          style={{ width: "200px" }}
           className="_button"
-          onClickFunction={showHideBiscuitDescriptionHandler}
+          onClick={() => showHideBiscuitDescriptionHandler()}
         >
           <div
             style={{
@@ -43,7 +45,7 @@ const BiscuitTitleInformation = ({
             <p>Learn more</p>
             <RecordIcon />
           </div>
-        </Button>
+        </button>
       </div>
     </section>
   );

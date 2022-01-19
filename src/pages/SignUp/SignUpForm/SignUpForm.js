@@ -25,9 +25,9 @@ import * as fcl from "@onflow/fcl";
 //configure flow environment
 //points to env.js not global prod and dev envs
 config()
-  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 const SignUpForm = ({
   setShowFlowButtonLoader,

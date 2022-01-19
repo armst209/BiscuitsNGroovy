@@ -1,5 +1,5 @@
 #purchase-success {
-  font-family: var(--font1);
+  font-family: var(--header-font);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,28 +14,34 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
+    padding: 1rem;
+    @media screen and (max-width: 900px) {
+      font-size: 2rem;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 1.5rem;
+    }
+    Button {
+      margin: 1rem;
+    }
     a {
       text-decoration: none;
     }
     h1 {
       letter-spacing: 1px;
       font-size: 2rem;
+      margin-bottom: 1rem;
+      @media screen and (max-width: 900px) {
+        font-size: 1.5rem;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 1rem;
+      }
+    }
+    svg {
+      width: 100px;
       margin-top: 1rem;
-    }
-    img {
-      width: 50%;
-    }
-    .collection-button {
-      font-weight: normal;
-      width: 300px;
-      height: 100px;
-      transition: all 0.2s ease;
-      padding: 0.5rem;
-      border: 3px solid black;
-      border-radius: 50px;
-      background: var(--color2);
-      color: black;
-      box-shadow: -5px 5px 0 black;
     }
   }
 }

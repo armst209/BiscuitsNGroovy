@@ -136,7 +136,7 @@ const SignUpNonPopUp = (props) => {
   const handleSignUp = (res) => {
     localStorage.setItem("token", res.data.token);
 
-    window.location.replace(env.FRONTEND_URL + "/home");
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/home");
   };
 
   const submit = async function (event) {
@@ -151,7 +151,7 @@ const SignUpNonPopUp = (props) => {
 
     let flow_address = currUser.addr;
 
-    const baseURL = env.BACKEND_URL;
+    const baseURL = process.env.REACT_APP_BACKEND_URL;
 
     axios({
       method: "post",
