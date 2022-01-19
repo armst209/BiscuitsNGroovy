@@ -36,7 +36,7 @@ function Hero() {
                     >
                       <HashLink
                         className="start-button-link"
-                        to="/#MusicShowcase_music-showcase__21JXl"
+                        to="/#music-showcase"
                       >
                         <span>Start Your Collection</span>
                       </HashLink>
