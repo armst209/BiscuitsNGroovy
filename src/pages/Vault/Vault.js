@@ -31,8 +31,6 @@ const Vault = () => {
         return releaseData[key];
       })
       setReleaseArr(objToArr)
-    } else {
-      return;
     }
   }, [releaseData])
 
@@ -64,10 +62,17 @@ const Vault = () => {
         <div className={styles["vault-contents-wrapper"]}>
           <div className={styles["vault-header"]}>
             <h1>
-              The vault is a repository of all <span>past</span> releases on BnG. <br /> Take a look at the <span>artist</span> we have worked with thus far. 
+              The vault is a repository of all <span>past</span> releases on BnG. <br /> Take a look at the <span>artist</span> we have worked with thus far.
               <br />
               <br />
-              To see releases currently available, visit the <HashLink className={styles["showcase-link"]} to='/#music-showcase'>music showcase</HashLink>.
+              To see releases currently available, visit the
+              {' '} 
+              <HashLink 
+                className={styles["showcase-link"]} 
+                smooth
+                to="/#music-showcase-return">
+                  music showcase
+              </HashLink>.
             </h1>
           </div>
           <div className={styles["vault-showcase"]}>
@@ -76,6 +81,9 @@ const Vault = () => {
           </div>
         </div>
       </section>
+      <div className={styles['vault-modal-wrapper']}>
+        
+      </div>
     </>
   )
 }
