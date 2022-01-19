@@ -51,13 +51,13 @@ const CollectionReleaseList = memo(
             >
               <div className={styles["release-grid"]}>
                 {filteredLiveReleases.length === 0 ? (
+                  <NoLiveReleases />
+                ) : (
                   filteredLiveReleases.map((release) => {
                     return (
                       <AvailableRelease key={release.id} release={release} />
                     );
                   })
-                ) : (
-                  <NoLiveReleases />
                 )}
               </div>
             </div>
