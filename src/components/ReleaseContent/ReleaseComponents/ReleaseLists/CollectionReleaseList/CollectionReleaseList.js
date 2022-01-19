@@ -11,6 +11,7 @@ import styles from "./CollectionReleaseList.module.scss";
 import AvailableRelease from "../../ReleaseTypes/AvailableRelease/AvailableRelease";
 import ExpiredRelease from "../../ReleaseTypes/ExpiredRelease/ExpiredRelease";
 import ExpiredInfoModal from "../../ReleaseTypes/ExpiredRelease/Modals/ExpiredInfoModal/ExpiredInfoModal";
+import NoLiveReleases from "./NoReleases/NoLiveReleases";
 
 const CollectionReleaseList = memo(
   ({ releaseData, noReleaseDataComponent }) => {
@@ -49,11 +50,15 @@ const CollectionReleaseList = memo(
               }
             >
               <div className={styles["release-grid"]}>
-                {filteredLiveReleases.map((release) => {
-                  return (
-                    <AvailableRelease key={release.id} release={release} />
-                  );
-                })}
+                {filteredLiveReleases.length === 0 ? (
+                  filteredLiveReleases.map((release) => {
+                    return (
+                      <AvailableRelease key={release.id} release={release} />
+                    );
+                  })
+                ) : (
+                  <NoLiveReleases />
+                )}
               </div>
             </div>
             <h1 className={styles["h1-title"]}>

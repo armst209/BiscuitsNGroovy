@@ -7,7 +7,7 @@ const ExpiredReleaseHover = ({ showNFTView, showInsertView, release }) => {
         <button onClick={() => showNFTView()}>
           <div className={styles["nft-hover-name"]}>View NFT</div>
         </button>
-        {/* if both release links are empty the "View Insert" button won't display */}
+        {/* if both insert links are empty the "View Insert" button won't display */}
         {!release.insert_link_1 && !release.insert_link_2 ? (
           ""
         ) : (

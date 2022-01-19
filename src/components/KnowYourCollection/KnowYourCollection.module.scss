@@ -174,8 +174,41 @@
       }
     }
 
-    ul {
-      font-size: 2rem;
+    .kyc-info-box-footer {
+      font-family: var(--header-font);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 1rem;
+      font-size: 1.5rem;
+      @media screen and (max-width: 450px) {
+        flex-direction: column;
+      }
+      svg {
+        width: 100px;
+        margin-right: 1rem;
+        @media screen and (max-width: 450px) {
+          margin-right: 0;
+        }
+      }
+      p {
+        text-align: center;
+        @media screen and (max-width: 450px) {
+          margin: 1rem 0;
+        }
+      }
+
+      a {
+        color: var(--color1);
+        text-decoration: underline 2px var(--color2);
+        &:visited {
+          color: var(--color1);
+        }
+      }
     }
+  }
+
+  ul {
+    font-size: 2rem;
   }
 }
