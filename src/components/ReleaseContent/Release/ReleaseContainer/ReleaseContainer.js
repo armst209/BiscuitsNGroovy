@@ -13,6 +13,9 @@ import styles from "./ReleaseContainer.module.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+//hash link import
+import { NavHashLink } from "react-router-hash-link";
+
 const ReleaseContainer = ({ release }) => {
   //selecting first release in release object
   release = release[0];
@@ -27,56 +30,47 @@ const ReleaseContainer = ({ release }) => {
     setShowBiscuitInsert(false);
   };
 
+  const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
+
+  const showHideBiscuitDescriptionHandler = () =>
+    setShowBiscuitDescription(!showBiscuitDescription);
+
   return (
     release && (
-      <section id={styles["release"]}>
-        {/* <BiscuitAlbumInformation /> */}
-        <div className={styles["release-wrapper"]}>
-          <div className={styles["release-container"]}>
-            <div className={styles["release-content"]}>
+      <section id={styles.release}>
+        <div className={styles["release-content-wrapper"]}>
+          <div className={styles["release-preview-container"]}>
+            <div className={styles["release-preview-content"]}>
               <div className={styles["release-content-left"]}>
+                {showBiscuitDescription && (
+                  <div className={styles["release-preview-description"]}>
+                    <div
+                      className={styles["release-preview-description-close"]}
+                      onClick={() => showHideBiscuitDescriptionHandler()}
+                    >
+                      X
+                    </div>
+                    {release.description}
+                  </div>
+                )}
                 <ReleasePreviewTitleInfo release={release} />
               </div>
               <div className={styles["release-content-right"]}>
-                <div className={styles["release-record-image"]}>
-                  <RecordIcon className="release-record-svg" />
-                </div>
-
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
                     <ReleaseTracklist songs={release.songs} />
                   </div>
                 </div>
-                <div className={styles["release-description"]}>
-                  {release.description}
-                </div>
-                {/* <button
-                  className="_button"
-                  onClick={() => showBiscuitInsertHandler()}
-                >
-                  View Insert
-                </button> */}
-                {/* {showBiscuitInsert && (
-                  <div className={styles["release-insert-wrapper"]}>
-                    <div
-                      className={styles["close-biscuit-insert"]}
-                      onClick={() => closeBiscuitInsertHandler()}
-                    >
-                      X
-                    </div>
-                    <BiscuitInsert />
-                  </div>
-                )} */}
+                <div className={styles["release-preview-svg-divider"]}></div>
               </div>
             </div>
           </div>
+          <div className={styles["release-back-link"]}>
+            <NavHashLink smooth to="/#music-showcase-return">
+              <BackButton /> <div>Back to Showcase</div>
+            </NavHashLink>
+          </div>
         </div>
-        {/* <div className={styles["release-back-collection-link"]}>
-          <Link to="/collection">
-            <BackButton />
-            Back To Collection
-          </Link>
-        </div> */}
       </section>
     )
   );

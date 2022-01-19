@@ -27,6 +27,7 @@ const MusicShowcase = () => {
 
   return (
     <section id={styles["music-showcase"]}>
+      <div id="music-showcase-return"></div>
       <div className={styles["music-showcase-container"]}>
         <div className={styles["music-showcase-content-container"]}>
           <h1>

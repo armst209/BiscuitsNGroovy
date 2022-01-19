@@ -287,6 +287,7 @@
 
   a {
     color: var(--color1);
+    display: inline;
     text-decoration: underline 2px solid var(--color2);
     font-family: var(--header-font);
     font-weight: normal;

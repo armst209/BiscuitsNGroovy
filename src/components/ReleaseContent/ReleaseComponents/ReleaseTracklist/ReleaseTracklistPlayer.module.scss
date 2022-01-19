@@ -11,7 +11,10 @@
     font-family: var(--header-font);
     list-style: none;
     font-size: 1.5rem;
-
+    cursor: pointer;
+    &:hover {
+      color: var(--color1);
+    }
     @media screen and (max-width: 900px) {
       font-size: 1rem;
     }

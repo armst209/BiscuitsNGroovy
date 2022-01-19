@@ -92,6 +92,13 @@ const StripeCheckoutProcesses = ({ release }) => {
         role="link"
         onClick={handleClick}
         className="checkout-button"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100%",
+        }}
       >
         BUY NOW
       </div>

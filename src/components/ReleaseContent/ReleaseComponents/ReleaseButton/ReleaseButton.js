@@ -24,7 +24,6 @@ const ReleaseButton = ({ release, hideButtonHandler }) => {
   const isPurchased = release.purchased;
 
   return (
-    // <div className="release-button-container">
     <>
       {token ? (
         isPurchased ? (
@@ -39,7 +38,6 @@ const ReleaseButton = ({ release, hideButtonHandler }) => {
         <SignUpTpPurchaseButton />
       )}
     </>
-    // </div>
   );
 };
 

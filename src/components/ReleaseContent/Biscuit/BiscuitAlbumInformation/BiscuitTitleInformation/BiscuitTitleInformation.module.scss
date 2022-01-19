@@ -1,11 +1,44 @@
-#release-preview-title-info {
+#biscuit-title-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   .release-image-container {
     position: relative;
+  }
+  .biscuit-title-info-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    color: white;
+    width: 100%;
+    font-family: var(--header-font);
+
+    @media screen and (max-width: 900px) {
+      flex-direction: row;
+      Button {
+        margin: 0.5rem;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      flex-direction: column;
+      Button {
+        margin: 0;
+      }
+    }
+    p {
+      display: flex;
+      align-items: center;
+    }
+    svg {
+      width: 30px;
+      margin-left: 0.5rem;
+    }
   }
   .release-preview-title-info-price {
     padding-top: 0.5rem;

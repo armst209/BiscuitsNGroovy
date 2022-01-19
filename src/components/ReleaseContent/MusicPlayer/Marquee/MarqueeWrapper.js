@@ -30,11 +30,9 @@ const MarqueeWrapper = ({ children, recordImageClass }) => {
         className={styles["marquee-scroll"]}
         direction="right"
         gradient={false}
-        // style={{
-        //   background: "black",
-        //   overflow: "hidden",
-        //   height: "100%",
-        // }}
+        style={{
+          color: "var(--color1)",
+        }}
       >
         {children}
       </Marquee>

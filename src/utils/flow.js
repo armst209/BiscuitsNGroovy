@@ -4,7 +4,6 @@ import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import env from "react-dotenv";
 
-
 var dev_is_inited_script = fcl.script`import BnGNFTContract from 0xProfile
 
 pub fun main(targetAddress: Address) : Bool {
@@ -13,7 +12,7 @@ pub fun main(targetAddress: Address) : Bool {
     let capability = nftOwner.getCapability<&{BnGNFTContract.NFTReceiver}>(/public/NFTReceiver)
     
     return capability.borrow() != nil
-}`
+}`;
 
 var prod_is_inited_script = fcl.script`
 import BnGNFT from 0xProfile
@@ -25,15 +24,14 @@ pub fun main(targetAddress: Address) : Bool {
     
     return capability.borrow() != nil
 }
-`
+`;
 
 var is_inited_script = null;
-if (env.ENV == 'prod') {
+if (env.ENV == "prod") {
   is_inited_script = prod_is_inited_script;
 } else {
   is_inited_script = dev_is_inited_script;
 }
-
 
 export async function accountIsInitialized() {
   let currUser = await fcl.currentUser().snapshot();
@@ -42,11 +40,7 @@ export async function accountIsInitialized() {
   }
 
   return await fcl
-    .send([
-      is_inited_script
-      ,
-      fcl.args([fcl.arg(currUser.addr, t.Address)]),
-    ])
+    .send([is_inited_script, fcl.args([fcl.arg(currUser.addr, t.Address)])])
     .then(fcl.decode)
     .then((res) => {
       return res;
@@ -55,7 +49,6 @@ export async function accountIsInitialized() {
       console.log(err);
     });
 }
-
 
 //init script differs between dev and prod
 var dev_init_tx = fcl.transaction`import BnGNFTContract from 0xProfile //todo
@@ -74,7 +67,7 @@ var dev_init_tx = fcl.transaction`import BnGNFTContract from 0xProfile //todo
       // create a public capability for the Collection
       acct.link<&{BnGNFTContract.NFTReceiver}>(/public/NFTReceiver, target: /storage/BnGNFTCollection)
     }
-  }`
+  }`;
 
 var prod_init_tx = fcl.transaction`
 import BnGNFT from 0xProfile //todo
@@ -94,15 +87,13 @@ transaction {
     // create a public capability for the Collection
     acct.link<&{BnGNFT.BnGNFTCollectionPublic}>(BnGNFT.CollectionPublicPath, target: BnGNFT.CollectionStoragePath)
   }
-}`
+}`;
 var init_tx = null;
-if (env.ENV == 'prod') {
+if (env.ENV == "prod") {
   init_tx = prod_init_tx;
 } else {
   init_tx = dev_init_tx;
 }
-
-
 
 export async function initAccount() {
   let isInitialized = await accountIsInitialized();
