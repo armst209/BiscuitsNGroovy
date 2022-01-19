@@ -33,6 +33,7 @@ const ExpiredRelease = ({ release }) => {
       {/* Hover state */}
       <figcaption>
         <ExpiredReleaseHover
+          release={release}
           showNFTView={showNFTViewModalHandler}
           showInsertView={showInsertViewModalHandler}
         />
