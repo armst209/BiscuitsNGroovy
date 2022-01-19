@@ -27,7 +27,7 @@ pub fun main(targetAddress: Address) : Bool {
 `;
 
 var is_inited_script = null;
-if (env.ENV == "prod") {
+if (process.env.REACT_APP_ENV == "prod") {
   is_inited_script = prod_is_inited_script;
 } else {
   is_inited_script = dev_is_inited_script;
@@ -89,7 +89,8 @@ transaction {
   }
 }`;
 var init_tx = null;
-if (env.ENV == "prod") {
+
+if (process.env.REACT_APP_ENV == "prod") {
   init_tx = prod_init_tx;
 } else {
   init_tx = dev_init_tx;
