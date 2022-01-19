@@ -13,7 +13,6 @@ const MainHeader = () => {
   const [headerScrolledClass, setHeaderScrolledClass] = useState("");
   const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);
 
-  console.log(showLogoutLoadingModal);
   //handlers
   const showLogoutLoaderHandler = () => setShowLogoutLoadingModal(true);
 

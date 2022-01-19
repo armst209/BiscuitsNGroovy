@@ -13,9 +13,9 @@ import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 //configure flow environment
 config()
-  .put("accessNode.api", env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
+  .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
+  .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
+  .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 //variants for framer motion
 const signUpModalBackground = {
@@ -131,7 +131,7 @@ const SignUp = (props) => {
   const handleSignUp = (res) => {
     localStorage.setItem("token", res.data.token);
 
-    window.location.replace(env.FRONTEND_URL + "/home");
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/home");
   };
 
   const submit = async function (event) {
@@ -146,7 +146,7 @@ const SignUp = (props) => {
 
     let flow_address = currUser.addr;
 
-    const baseURL = env.BACKEND_URL;
+    const baseURL = process.env.REACT_APP_BACKEND_URL;
 
     axios({
       method: "post",

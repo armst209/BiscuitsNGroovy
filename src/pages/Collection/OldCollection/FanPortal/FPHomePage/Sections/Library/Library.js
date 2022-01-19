@@ -17,7 +17,7 @@ function Library(props) {
 
   //Api call variables
   const token = localStorage.getItem("token");
-  const baseURL = env.BACKEND_URL;
+  const baseURL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     //Request for Library

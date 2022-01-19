@@ -304,8 +304,11 @@
     position: absolute;
     bottom: 0;
 
-    @media screen and (max-width: 1300px) {
-      width: 100%;
+    @media screen and (max-width: 1650px) {
+      height: 90%;
+    }
+    @media screen and (max-width: 1450px) {
+      height: 80%;
     }
     @media screen and (max-width: 1300px) {
       bottom: 0;
@@ -347,11 +350,14 @@
       height: 40%;
     }
     .hero-image {
+      position: absolute;
       width: auto;
       bottom: 0;
       right: 0;
-      left: 0;
       height: 100%;
+      @media screen and (max-width: 400px){
+        position: static;
+      }
     }
   }
 }
