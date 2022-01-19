@@ -29,8 +29,7 @@ const Release = ({ link }) => {
 
   return (
     <>
-      <FixedNavigationSpacer />
-      <section>
+      <section className="_main_section">
         {isLoading && <ComponentLoading />}
         {/* if release is null or not found, redirects to Not Found component */}
         {!errorMessage ? (

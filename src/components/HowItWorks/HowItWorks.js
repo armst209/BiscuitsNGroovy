@@ -1,4 +1,5 @@
-import "./HowItWorksStyles.scss";
+//styles
+import styles from "./HowItWorksStyles.module.scss";
 import { Link } from "react-router-dom";
 //SVGs
 import { ReactComponent as LoveSong } from "../../assets/images/love-song2.svg";
@@ -8,28 +9,28 @@ import { ReactComponent as RecordHeader } from "../../assets/images/compact-disc
 
 function HowItWorks() {
   return (
-    <section id="how-it-works">
-      <div className="how-it-works-container">
-        <div className="box-title">
+    <section id={styles["how-it-works"]}>
+      <div className={styles["how-it-works-container"]}>
+        <div className={styles["box-title"]}>
           <h1>
-            <RecordHeader className="record-header-icon" />
+            <RecordHeader className={styles["record-header-icon"]} />
             <div>HOW IT WORKS</div>
           </h1>
         </div>
-        <div className="how-it-works-boxes">
-          <div className="box">
-            <div className="box-border">
-              <div className="box-content">
-                <div className="how-it-works-boxes-icon-headers">
-                  <div className="how-icon">
+        <div className={styles["how-it-works-boxes"]}>
+          <div className={styles.box}>
+            <div className={styles["box-border"]}>
+              <div className={styles["box-content"]}>
+                <div className={styles["how-it-works-boxes-icon-headers"]}>
+                  <div className={styles["how-icon"]}>
                     <LoveSong />
                   </div>
-                  <div className="how-it-works-boxes-headers">
+                  <div className={styles["how-it-works-boxes-headers"]}>
                     <h4>EXCLUSIVE MUSIC</h4>
                     <h6>FOR SUPERFANS</h6>
                   </div>
                 </div>
-                <div className="content">
+                <div className={styles.content}>
                   <div>
                     We partner with trendsetting artists to debut their
                     unreleased music on Biscuits n Groovy. Show your loyalty,
@@ -40,19 +41,19 @@ function HowItWorks() {
               </div>
             </div>
           </div>
-          <div className="box">
-            <div className="box-border">
-              <div className="box-content">
-                <div className="how-it-works-boxes-icon-headers">
-                  <div className="how-icon">
+          <div className={styles.box}>
+            <div className={styles["box-border"]}>
+              <div className={styles["box-content"]}>
+                <div className={styles["how-it-works-boxes-icon-headers"]}>
+                  <div className={styles["how-icon"]}>
                     <Voice />
                   </div>
-                  <div className="how-it-works-boxes-headers">
+                  <div className={styles["how-it-works-boxes-headers"]}>
                     <h4>STREAM HERE</h4>
                     <h6>BEFORE IT'S GONE</h6>
                   </div>
                 </div>
-                <div className="content">
+                <div className={styles.content}>
                   <div>
                     We're not another unlimited subscription. Buy the music you
                     want to hear, and stream with us before it drops anywhere
@@ -63,21 +64,21 @@ function HowItWorks() {
               </div>
             </div>
           </div>
-          <div className="box">
-            <div className="box-border">
-              <div className="box-content">
-                <div className="how-it-works-boxes-icon-headers">
-                  <div className="how-icon">
+          <div className={styles.box}>
+            <div className={styles["box-border"]}>
+              <div className={styles["box-content"]}>
+                <div className={styles["how-it-works-boxes-icon-headers"]}>
+                  <div className={styles["how-icon"]}>
                     <Collect />
                   </div>
-                  <div className="how-it-works-boxes-headers">
+                  <div className={styles["how-it-works-boxes-headers"]}>
                     <h4>COLLECT & SHARE</h4>
                     <h6> YOUR EXCLUSIVE RECORDS</h6>
                   </div>
                 </div>
 
-                <div className="content">
-                  <div className="collect-and-share-content">
+                <div className={styles.content}>
+                  <div className={styles["collect-and-share-content"]}>
                     With each release you collect a limited-edition digital
                     album cover NFT. Stored on the blockchain, these assets let
                     you own a permanent piece of music history and{" "}
@@ -90,7 +91,7 @@ function HowItWorks() {
           </div>
         </div>
       </div>
-      <p className="how-it-works-bottom-info">
+      <p className={styles["how-it-works-bottom-info"]}>
         Get answers and learn more about our <span>eco-friendly</span> NFTs on
         our <Link to="/faq">FAQ</Link> page
       </p>

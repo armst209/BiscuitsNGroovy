@@ -1,5 +1,6 @@
 //react imports
-import { HashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 //img imports
 import hero_image from "../../assets/images/hero-image.webp";
 
@@ -25,21 +26,21 @@ function Hero() {
                     </h1>
                   </div>
                   <div className="hero-subtitle">
-                    Stream exclusive music from your favorite artists, and
-                    collect NFT album art. Available only for a limited time,
-                    only for true fans.
+                    Stream and collect exclusive biscuits from your favorite
+                    artists. Prove your fandom
                   </div>
                   <div className="hero-buttons">
                     <Button
                       className="start-button-container _button"
                       align="center"
                     >
-                      <HashLink
+                      <NavHashLink
                         className="start-button-link"
-                        to="/#music-showcase"
+                        smooth
+                        to="/#music-showcase-return"
                       >
                         <span>Start Your Collection</span>
-                      </HashLink>
+                      </NavHashLink>
                     </Button>
                   </div>
                 </section>
