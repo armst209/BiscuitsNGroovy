@@ -11,8 +11,24 @@
   align-items: center;
   padding: 1rem;
   -webkit-overflow-scrolling: touch;
-  background: rgba(0, 0, 0, 0.9);
+  background: black;
   @media screen and (max-width: 400px) {
     padding: 0;
+  }
+
+  .expired-info-modal-close {
+    font-family: var(--header-font);
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .expired-info-modal-wrapper {
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--header-font);
   }
 }

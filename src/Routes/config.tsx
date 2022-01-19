@@ -179,6 +179,15 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
 
+  {
+    path: "/purchase",
+    component: lazy(() => import("../pages/SuccessfulPurchase/SuccessBuy")),
+    key: "BUY_TERMS_PAGE",
+    exact: true,
+    private: false,
+    fallback: <Loading />,
+  },
+
   //Not Found Page - must be at the bottom
   {
     path: "*",

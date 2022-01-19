@@ -8,14 +8,20 @@ import BiscuitContainer from "./BiscuitContainer/BiscuitContainer";
 import ComponentLoading from "../../Loading/Component/ComponentLoading";
 import NotFound from "../../../pages/NotFound/NotFound";
 import BiscuitInsert from "./BiscuitInsert/BiscuitInsert";
+import { release } from "os";
 
 const Biscuit = () => {
   //hooks
   const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
+  const [showMusicPlayerContainer, setShowMusicPlayerContainer] =
+    useState(true);
 
   //state handlers
   const showHideBiscuitInsertHandler = () =>
     setShowBiscuitInsert(!showBiscuitInsert);
+
+  const showHideMusicPlayerContainerHandler = () =>
+    setShowMusicPlayerContainer(!showMusicPlayerContainer);
 
   //token
   let token = localStorage.getItem("token");
@@ -44,6 +50,10 @@ const Biscuit = () => {
           releases && (
             <BiscuitContainer
               release={releases.library}
+              showHideMusicPlayerContainerHandler={
+                showHideMusicPlayerContainerHandler
+              }
+              showMusicPlayerContainer={showMusicPlayerContainer}
               showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
             />
           )
@@ -53,6 +63,10 @@ const Biscuit = () => {
       </section>
       {showBiscuitInsert && (
         <BiscuitInsert
+          release={releases.library}
+          showHideMusicPlayerContainerHandler={
+            showHideMusicPlayerContainerHandler
+          }
           showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
         />
       )}
