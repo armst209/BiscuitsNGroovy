@@ -347,11 +347,14 @@
       height: 40%;
     }
     .hero-image {
+      position: absolute;
       width: auto;
       bottom: 0;
       right: 0;
-      left: 0;
       height: 100%;
+      @media screen and (max-width: 400px){
+        position: static;
+      }
     }
   }
 }
