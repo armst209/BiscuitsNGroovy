@@ -1,5 +1,5 @@
 //react imports
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 //component imports
@@ -28,14 +28,32 @@ const MobileNavigation = ({ showLogoutLoaderHandler }) => {
     setShowMobileMenu(false);
   };
 
+  let location = useLocation();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       {/* Hamburger */}
       <div id="mobile-navigation">
         <div className="mobile-navigation-logo-container">
-          <Link className="mobile-navigation-logo-link" to="/">
+          {location.pathname === "/" ?
+            <div className="mobile-navigation-logo-link" >
+              <MainHeaderLogoMobile onClick={scrollToTop} />
+            </div>
+            :
+            <Link className="mobile-navigation-logo-link" to="/">
+              <MainHeaderLogoMobile />
+            </Link>
+          }
+          {/* <Link className="mobile-navigation-logo-link" to="/">
             <MainHeaderLogoMobile />
-          </Link>
+          </Link> */}
         </div>
         <div
           className="mobile-navigation-hamburger-wrapper"

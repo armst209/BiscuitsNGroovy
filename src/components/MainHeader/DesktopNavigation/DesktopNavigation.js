@@ -1,5 +1,5 @@
 //react imports
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 //styles
 import "./DesktopNavigationStyles.scss";
@@ -11,18 +11,39 @@ import { ReactComponent as MainHeaderLogo } from "../../../assets/images/bng-mai
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
+import { useEffect } from "react";
 
 const DesktopNavigation = ({
   showLogoutLoaderHandler,
   hideLogoutLoaderHandler,
 }) => {
+
+  // Get current location base on url.
+  let location = useLocation();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       <div className="left-links-container">
         <div className="logo-container">
-          <Link className="logo-link" to="/">
+          {location.pathname === '/' ?
+            <div className="logo-link">
+              <MainHeaderLogo onClick={scrollToTop} className="main-header-logo" />
+            </div>
+            :
+            <Link className="logo-link" to="/">
+              <MainHeaderLogo className="main-header-logo" />
+            </Link>
+          }
+          {/* <Link className="logo-link" to="/">
             <MainHeaderLogo className="main-header-logo" />
-          </Link>
+          </Link> */}
         </div>
         <ul className="desktop-main-links">
           <li>
