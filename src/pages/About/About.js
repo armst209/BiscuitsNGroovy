@@ -1,6 +1,10 @@
 //styles
 import "./AboutStyles.scss";
 
+//react imports
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 //img imports
 import about_main_img from "../../assets/images/about_story.webp";
 import bucket_hat from "../../assets/images/buckethats.webp";
@@ -13,6 +17,23 @@ import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 const About = () => {
+  const [fansInformation, setFansInformation] = useState("");
+  const [artistsInformation, setArtistsInformation] = useState("");
+
+  const showHideFansInformationHandler = () =>
+    setFansInformation(!fansInformation);
+
+  const hideFansInformationHandler = () => {
+    setFansInformation(false);
+  };
+
+  const showHideArtistsInformationHandler = () =>
+    setArtistsInformation(!artistsInformation);
+
+  const hideArtistsInformationHandler = () => {
+    setArtistsInformation(false);
+  };
+
   return (
     <>
       <FixedNavigationSpacer />
@@ -20,15 +41,14 @@ const About = () => {
         <div className="about-title">
           <h1>
             <RecordVinyl width="50px" />
-            <div>ABOUT</div>
+            <div>MUSIC IS IDENTITY</div>
           </h1>
         </div>
         <div className="about-contents-wrapper">
           <div className="about-header">
             <h1>
-              At Biscuits n Groovy, our mission is simple: <br /> Create a more{" "}
-              <span>intentional</span> and <span> equitable</span> music
-              experience
+              Biscuits n Groovy exists to create a more <span>engaging</span>{" "}
+              and <span>equitable </span>digital music experience
             </h1>
           </div>
           <div className="about-contents-1">
@@ -40,7 +60,6 @@ const About = () => {
             </div>
 
             <div className="contents-1-text">
-              {" "}
               <p>
                 We partner with artists to debut exclusive music and album art
                 to their most devoted fans.
@@ -60,7 +79,7 @@ const About = () => {
                     <img src={one_icon} alt="hand icon" />
                   </div>
                   <div className="principle-text">
-                    Treat artists as creators rather than commodities
+                    Empower trailblazing artists
                   </div>
                 </div>
                 <div className="principle">
@@ -72,12 +91,75 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <p>
-                Biscuits n Groovy cuts through the noise to amplify what
-                matters: the connection between artists and fans. We’re building
-                a music experience that goes beyond streaming, for those who
-                believe in the power of fandom.
-              </p>
+              <div className="artist-fans-serve-main-wrapper ">
+                <div className="artists-fans-serve-container">
+                  <div className="artists-fans-serve-header">
+                    <h1>How We Serve:</h1>
+                    <div className="artists-fans-serve-button-container">
+                      <button
+                        onClick={() => {
+                          showHideFansInformationHandler();
+                          hideArtistsInformationHandler();
+                        }}
+                        className="_button"
+                      >
+                        Fans
+                      </button>
+                      <button
+                        onClick={() => {
+                          showHideArtistsInformationHandler();
+                          hideFansInformationHandler();
+                        }}
+                        className="_button"
+                      >
+                        Artists
+                      </button>
+                    </div>
+                  </div>
+                  {fansInformation && (
+                    <ul>
+                      <li>
+                        Biscuits n Groovy offers music fans a revolutionary
+                        collector experience. With our biscuits, fans can
+                        finally prove they were one of the FIRST to hear new
+                        music. By directly supporting the artists they love,
+                        fans can become part of their story.
+                      </li>
+                      <li>
+                        Your music taste is part of your identity. Biscuits n
+                        Groovy lets you build a collection that’s uniquely
+                        yours, so you can show it off to the world and
+                        confidently say “I own this.” Plus if your favorite
+                        artist blows up, you can finally PROVE you were an
+                        original fan.
+                      </li>
+                    </ul>
+                  )}
+                  {artistsInformation && (
+                    <ol>
+                      <li>
+                        Biscuits n Groovy helps artists earn more for their
+                        recorded music. Each biscuit is a blank canvas to share
+                        unique content with their superfans and bring them
+                        closer together. We’re committed to treating our artists
+                        right and empowering them to grow and thrive where other
+                        music platforms can’t
+                      </li>
+                      <li>
+                        <div>Why release with BnG?</div>
+                        <ol>
+                          <li>Make more money</li>
+                          <li>Connect with your top fans</li>
+                          <li>Stand out from the crowd</li>
+                        </ol>
+                        <div>
+                          Read more <Link to="/artists">here</Link>
+                        </div>
+                      </li>
+                    </ol>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

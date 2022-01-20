@@ -187,6 +187,86 @@
           }
         }
       }
+      .artist-fans-serve-main-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .artists-fans-serve-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+          border: 2px solid var(--color2);
+          border-radius: 0.5rem;
+          margin: 3rem 0;
+          width: auto;
+
+          @media screen and (max-width: 400px) {
+            border: none;
+            padding: 0;
+          }
+          ul {
+            margin-left: 1rem;
+            li {
+              margin: 1rem 0;
+              &::marker {
+                color: var(--color1);
+                font-family: var(--header-font);
+              }
+            }
+          }
+
+          ol {
+            margin-left: 2rem;
+            a {
+              color: var(--color1);
+              font-family: var(--header-font);
+              text-decoration: underline 2px solid var(--color2);
+              &:visited {
+                color: var(--color1);
+              }
+            }
+            li {
+              margin: 0.3rem 0;
+              &::marker {
+                color: var(--color1);
+                font-family: var(--header-font);
+              }
+
+              ol {
+                margin-left: 3rem;
+                li {
+                  padding: 0.2rem 0;
+                }
+              }
+            }
+          }
+          h1 {
+            font-family: var(--header-font);
+            text-align: center;
+          }
+          .artists-fans-serve-button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: 400px) {
+              flex-direction: column;
+            }
+
+            button {
+              margin: 1rem 0.5rem;
+              @media screen and (max-width: 400px) {
+                width: 200px;
+                margin: 0.5rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
   .story-h1 {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { NavHashLink, HashLink } from "react-router-hash-link";
 import "./FAQStyles.scss";
 
 import dropdown from "../../assets/images/double-down-yellow.svg";
@@ -66,15 +66,12 @@ const FAQ = () => {
             <div className="answer">
               <ul>
                 <li>
-                  When you purchase a release on BnG, you get access to stream
-                  the music during its limited release window. The dates are
-                  noted in three places: in the title details when browsing our
-                  calendar, in your order confirmation, and in the My Collection
-                  section of your profile. The release window is determined by
-                  the artist, and once it ends, you can’t stream the music on
-                  BnG.
+                  Check out{" "}
+                  <NavHashLink to="/#whats-a-biscuit">
+                    “What’s a Biscuit?”
+                  </NavHashLink>
                 </li>
-                <li>
+                {/* <li>
                   <div>
                     With your purchase, you also get a collectible digital album
                     cover NFT for no extra charge. The album art stays in Your
@@ -82,7 +79,7 @@ const FAQ = () => {
                     more about our amazing NFTs{" "}
                     <HashLink to="/faq#nft-scroll-purchase">below</HashLink>.
                   </div>
-                </li>
+                </li> */}
               </ul>
             </div>
           )}
@@ -120,7 +117,7 @@ const FAQ = () => {
             </div>
           )}
 
-          <h5
+          {/* <h5
             onClick={() => {
               setShowAnswer3(!showAnswer3);
               // setDropStyle3("icon_rotate");
@@ -147,7 +144,7 @@ const FAQ = () => {
                 </li>
               </ul>
             </div>
-          )}
+          )} */}
 
           <h5
             onClick={() => {
@@ -345,7 +342,7 @@ const FAQ = () => {
             </div>
           )}
 
-          <h5
+          {/* <h5
             onClick={() => {
               setShowAnswer9(!showAnswer9);
               // setDropStyle9("icon_rotate");
@@ -373,7 +370,7 @@ const FAQ = () => {
                 </li>
               </ul>
             </div>
-          )}
+          )} */}
 
           <div className="header-div">
             <img src={question} alt="question icon" />
@@ -421,14 +418,11 @@ const FAQ = () => {
                       <img src={record_bullet} alt="record icon" />
                     </div>
                     <div className="div-content">
-                      When you purchase a release on Biscuits n Groovy, you
-                      automatically receive a digital album cover backed by an
-                      NFT. This just means that a serial number is recorded on
-                      the blockchain to identify the specific copy and buyer.
-                      All BnG album art is limited-edition, and exclusive to our
-                      site. The NFT acts as a stamp of authenticity, proving
-                      your art is original and that you, the buyer, were one of
-                      the elite superfans who listened to that release.
+                      When you purchase a biscuit on Biscuits n Groovy, you
+                      receive a digital album cover secured by an NFT. The NFT
+                      acts as a stamp of authenticity, proving your art is
+                      original and that you, the buyer, were one of the elite
+                      superfans who listened to that release early.
                     </div>
                   </div>
                 </li>
@@ -438,22 +432,10 @@ const FAQ = () => {
                       <img src={record_bullet} alt="record icon" />
                     </div>
                     <div className="not-aligned-nfts-explained">
-                      You can view your album art in the My Collection page of
-                      your profile. All your art stays there permanently,
-                      regardless of when the music is streaming.
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <div className="div-image">
-                      <img src={record_bullet} alt="record icon" />
-                    </div>
-                    <div className="div-content">
-                      You don’t need cryptocurrency to collect NFTs on BnG. When
-                      you create an account and buy music with us, an ID is
-                      created for you behind the scenes, which is used to
-                      identify you as the owner of that NFT. We do this so you
+                      You don’t need cryptocurrency to collect biscuits on BnG.
+                      When you sign up, you’ll also create an account with
+                      Blocto, which is the trusted crypto wallet we use to store
+                      your NFTs. This gets linked to your BnG account so you
                       don’t have to worry about the technical details. Rest
                       assured, though, if anything were to happen to our site,
                       your NFTs are safely recorded and recoverable on the
@@ -463,9 +445,20 @@ const FAQ = () => {
                 </li>
                 <li>
                   <div>
+                    <div className="div-image">
+                      <img src={record_bullet} alt="record icon" />
+                    </div>
+                    <div className="not-aligned-nfts-explained">
+                      All your art lives in your Collection permanently,
+                      regardless of when the music is streaming.
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div>
                     <div className="div-content caring-important">
                       <div className="caring-message">
-                        Caring for our planet —{"  "}
+                        A better blockchain —{"  "}
                         <strong> now that’s groovy</strong>
                       </div>
                       <div className="important-info">
@@ -475,20 +468,37 @@ const FAQ = () => {
                           </div>
                           <div className="important-paragraph">
                             <span>
-                              Biscuits n Groovy is proudly built on Flow, the
-                              blockchain trusted by NBA Top Shot. Since the Flow
-                              blockchain doesn’t require “mining” of bitcoin or
-                              ethereum, we don’t produce tons of greenhouse
-                              gases like other NFT platforms. You can read more
-                              about Flow
-                              <a
-                                href="https://www.onflow.org/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                here
-                              </a>
-                              .
+                              <div>
+                                Biscuits n Groovy is proudly built on Flow, the
+                                blockchain trusted by NBA Top Shot. Flow has
+                                three big perks for fans:
+                              </div>
+                              <ol>
+                                <li>
+                                  It’s eco-friendly, since it doesn’t require
+                                  “mining” like Bitcoin or Ethereum
+                                </li>
+                                <li>
+                                  It’s compatible with credit cards, so you
+                                  don’t need to buy cryptocurrency to get
+                                  started
+                                </li>
+                                <li>
+                                  There’s no gas fees, so the price you see is
+                                  what you pay
+                                </li>
+                              </ol>
+
+                              <div className="important-paragraph-learn-more">
+                                Learn more about Flow{" "}
+                                <a
+                                  href="https://www.onflow.org/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  here
+                                </a>
+                              </div>
                             </span>
                           </div>
                         </div>
@@ -498,7 +508,7 @@ const FAQ = () => {
                 </li>
               </ul>
             </div>
-            <h3>
+            {/* <h3>
               <div>The future of record collecting</div>
             </h3>
 
@@ -561,7 +571,7 @@ const FAQ = () => {
                   </div>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <h3>
               <div>Back up… what are blockchains and tokens anyways?</div>
             </h3>
@@ -575,8 +585,8 @@ const FAQ = () => {
                     </div>
                     <div className="div-content">
                       Many people hear “blockchain” or “crypto” and think of
-                      bitcoin, the most well-known cryptocurrency. While
-                      bitcoin’s creation in 2008 kicked things off, blockchain
+                      Bitcoin, the most well-known cryptocurrency. While
+                      Bitcoin’s creation in 2008 kicked things off, blockchain
                       technology has grown a ton, and its applications go far
                       beyond finance. A blockchain is simply a type of database,
                       or online file cabinet, that records information, verifies
@@ -596,11 +606,8 @@ const FAQ = () => {
                       receipt that keeps getting added onto. These transactions
                       are usually denominated in tokens. There are two types of
                       tokens used with blockchains. Bitcoin and other
-                      cryptocurrencies like dogecoin are fungible tokens. Just
-                      like regular dollars, fungible tokens can be broken down
-                      into parts (cents), and interchanged with each other
-                      (trading one dollar for another dollar makes no difference
-                      to me).
+                      cryptocurrencies like Dogecoin are fungible tokens,
+                      designed to operate as currency.
                     </div>
                   </div>
                 </li>
@@ -610,13 +617,13 @@ const FAQ = () => {
                       <img src={record_bullet} alt="record icon" />
                     </div>
                     <div className="div-content">
-                      Non-fungible tokens, on the other hand, are unique, which
-                      is why they’re great for representing collectibles. Think
-                      of them like baseball cards or concert tickets. Each one
-                      is unique. Sure, there may be 1,000 of the same rookie
-                      card in the world, and of course plenty of concertgoers
-                      have the same GA ticket, but each one has a serial number
-                      to identify which it is in the series.
+                      Non-fungible tokens (or NFTs), on the other hand, are
+                      unique, which is why they’re great for representing
+                      collectibles. Think of them like baseball cards or concert
+                      tickets. Each one is unique. Sure, there may be 1,000 of
+                      the same rookie card in the world, and of course plenty of
+                      concertgoers have the same GA ticket, but each one has a
+                      serial number to identify which it is in the series.
                     </div>
                   </div>
                 </li>
@@ -629,8 +636,8 @@ const FAQ = () => {
                       In practice, though, this doesn’t always work in the real
                       world. Counterfeit tickets and baseball cards pose a big
                       problem. NFTs solve this issue for digital goods, since
-                      the “serial number” and rightful owner is verified and
-                      recorded on the blockchain, so they can’t be faked.
+                      the rightful owner is recorded on the blockchain, so they
+                      can’t be faked.
                     </div>
                   </div>
                 </li>

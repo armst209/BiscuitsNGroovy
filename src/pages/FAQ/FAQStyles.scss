@@ -360,7 +360,29 @@
                       }
                     }
                     .important-paragraph {
+                      padding: 1rem;
                       width: 95%;
+                      ol {
+                        li {
+                          list-style-type: decimal;
+                          margin-left: 2rem;
+                          padding: 0.3rem 0;
+                          &::marker {
+                            color: var(--color1);
+                            font-family: var(--header-font);
+                          }
+                        }
+                      }
+                      .important-paragraph-learn-more {
+                        width: 100%;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 1rem 0 0 0;
+                        @media screen and (max-width: 550px) {
+                          justify-content: center;
+                        }
+                      }
                     }
                   }
                 }

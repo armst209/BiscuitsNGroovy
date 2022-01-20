@@ -36,8 +36,7 @@ const MusicShowcase = () => {
           </h1>
 
           <p className={styles["music-showcase-sub-title"]}>
-            Browse our current and upcoming releases. Click on a title for more
-            details
+            Available biscuits shown below. Click on a title for more details
           </p>
           <div className={styles["music-showcase-content-wrapper"]}>
             <div className={styles["music-showcase-grid"]}>
