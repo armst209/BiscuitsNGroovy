@@ -11,7 +11,7 @@ import { ReactComponent as MainHeaderLogo } from "../../../assets/images/bng-mai
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
-import { useEffect } from "react";
+
 
 const DesktopNavigation = ({
   showLogoutLoaderHandler,
@@ -19,12 +19,12 @@ const DesktopNavigation = ({
 }) => {
 
   // Get current location base on url.
-  let location = useLocation();
+  const location = useLocation();
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth"
     });
   };
 

@@ -136,7 +136,7 @@ const About = () => {
                     </ul>
                   )}
                   {artistsInformation && (
-                    <ol>
+                    <ul>
                       <li>
                         Biscuits n Groovy helps artists earn more for their
                         recorded music. Each biscuit is a blank canvas to share
@@ -147,16 +147,16 @@ const About = () => {
                       </li>
                       <li>
                         <div>Why release with BnG?</div>
-                        <ol>
+                        <ul>
                           <li>Make more money</li>
                           <li>Connect with your top fans</li>
                           <li>Stand out from the crowd</li>
-                        </ol>
+                        </ul>
                         <div>
                           Read more <Link to="/artists">here</Link>
                         </div>
                       </li>
-                    </ol>
+                    </ul>
                   )}
                 </div>
               </div>

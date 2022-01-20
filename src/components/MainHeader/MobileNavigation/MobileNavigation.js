@@ -28,12 +28,13 @@ const MobileNavigation = ({ showLogoutLoaderHandler }) => {
     setShowMobileMenu(false);
   };
 
-  let location = useLocation();
+  // Get current location base on url.
+  const location = useLocation();
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth"
     });
   };
 
