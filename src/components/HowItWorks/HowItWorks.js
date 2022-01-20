@@ -32,10 +32,9 @@ function HowItWorks() {
                 </div>
                 <div className={styles.content}>
                   <div>
-                    We partner with trendsetting artists to debut their
-                    unreleased music on Biscuits n Groovy. Show your loyalty,
-                    and support your favorite artists directly with each
-                    purchase.
+                    We partner with trendsetting artists to debut new music.
+                    Show your loyalty, and support your favorite artists
+                    directly with each purchase.
                   </div>
                 </div>
               </div>
@@ -55,9 +54,9 @@ function HowItWorks() {
                 </div>
                 <div className={styles.content}>
                   <div>
-                    We're not another unlimited subscription. Buy the music you
-                    want to hear, and stream with us before it drops anywhere
-                    else. Get it while it’s hot, since it’s only streaming for a
+                    We're not another subscription. Buy the music you can’t wait
+                    to hear, and stream with us before it drops anywhere else.
+                    Get it while it’s hot, since it’s only streaming for a
                     limited time.
                   </div>
                 </div>
@@ -79,11 +78,10 @@ function HowItWorks() {
 
                 <div className={styles.content}>
                   <div className={styles["collect-and-share-content"]}>
-                    With each release you collect a limited-edition digital
-                    album cover NFT. Stored on the blockchain, these assets let
-                    you own a permanent piece of music history and{" "}
-                    <em>prove</em> you’re a top fan. Build your library and show
-                    it off!
+                    Each biscuit includes a unique insert and digital album
+                    cover. Secured by NFT technology, these assets let you own a
+                    permanent piece of music history and prove you’re a top fan.
+                    Build your collection and show it off!
                   </div>
                 </div>
               </div>

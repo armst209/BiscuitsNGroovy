@@ -1,6 +1,6 @@
 import "./ArtistsStyles.scss";
 
-import { HashLink } from "react-router-hash-link";
+import { NavHashLink, HashLink } from "react-router-hash-link";
 
 import mic_drop from "../../assets/images/micdrop.webp";
 import mic_hold from "../../assets/images/michold.webp";
@@ -40,17 +40,20 @@ const Artists = () => {
                 </div>
                 <div className="artists-impt-text">
                   <p>
-                    Interested in joining us? Fill out the form{" "}
-                    <HashLink className="below-link" to="/artists#artists-form">
-                      below
-                    </HashLink>{" "}
+                    Interested in releasing with Biscuits n Groovy? Contact us{" "}
+                    <NavHashLink
+                      className="below-link"
+                      to="/artists#artists-form"
+                    >
+                      here
+                    </NavHashLink>{" "}
                     and we’ll be in touch ASAP.
                   </p>
-                  <p className="work-with-text">
+                  {/* <p className="work-with-text">
                     We work with both independent artists and those signed to
                     record or distribution deals, so regardless of your
                     situation, we’d love to hear from you.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -81,17 +84,16 @@ const Artists = () => {
               <p className="header-paragraph">
                 Biscuits n Groovy is a new kind of streaming platform,
                 empowering you to create and capture lasting value for new
-                music. We offer superfans access to exclusive music and digital
-                album art they can collect and trade. By partnering with us,
-                you’ll tap into your network of superfans and earn an additional
-                revenue stream, without any impact to your existing distribution
-                channels.
+                music. By dropping with us, you’ll tap into your network of
+                superfans and earn an additional revenue stream, without any
+                impact to your existing distribution channels.
               </p>
 
               <div>
                 <h1>
-                  Releasing with Biscuits n Groovy is simple. Here’s how it
-                  works:
+                  {/* Releasing with Biscuits n Groovy is simple. Here’s how it
+                  works: */}
+                  How it Works:
                 </h1>
                 <div>
                   <div className="hiw-bullet">
@@ -134,8 +136,9 @@ const Artists = () => {
               <div className="important">
                 <div>
                   <h1>
-                    Why release with us? Here’s a few of the benefits we provide
-                    artists:
+                    {/* Why release with us? Here’s a few of the benefits we provide
+                    artists: */}
+                    Why Release With Us?
                   </h1>
 
                   <div>
@@ -177,7 +180,7 @@ const Artists = () => {
                 </div>
               </div>
               <div>
-                <h1>Heard about NFTs but don’t know where to start?</h1>
+                <h1>Heard of NFTs but don’t know where to start?</h1>
                 <div className="hiw-bullet">
                   <div className="bullet-text nft-p">
                     We make it easy for you to get in on the action and capture

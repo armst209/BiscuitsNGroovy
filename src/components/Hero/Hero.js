@@ -26,8 +26,15 @@ function Hero() {
                     </h1>
                   </div>
                   <div className="hero-subtitle">
-                    Stream and collect exclusive biscuits from your favorite
-                    artists. Prove your fandom
+                    Stream and collect exclusive{" "}
+                    <NavHashLink
+                      className="hero-subtitle-link"
+                      smooth
+                      to="#whats-a-biscuit"
+                    >
+                      biscuits
+                    </NavHashLink>{" "}
+                    from your favorite artists. Prove your fandom
                   </div>
                   <div className="hero-buttons">
                     <Button
