@@ -35,6 +35,8 @@
     position: relative;
     padding: 1rem;
 
+ 
+
     @media screen and (max-width: 1150px) {
       flex-direction: column;
     }
@@ -45,9 +47,16 @@
 
     .biscuit-insert-iframe-container-1,
     .biscuit-insert-iframe-container-2 {
+      position: relative;
       border: 2px solid var(--color1);
       border-radius: 0.5rem;
       height: auto;
+
+      span {
+        position: absolute;
+        left: 0;
+        top: -20px;
+      }
 
       @media screen and (max-height: 450px) {
         border: none;

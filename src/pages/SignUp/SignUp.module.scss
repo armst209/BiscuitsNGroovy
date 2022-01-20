@@ -104,6 +104,17 @@
         }
       }
 
+      .question-icon {
+        width: 40px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        cursor: pointer;
+        @media screen and (max-width: 400px) {
+          width: 25px;
+        }
+      }
+
       .already-account {
         padding: 1rem 0;
         font-family: var(--header-font);
