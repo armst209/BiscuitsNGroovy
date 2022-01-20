@@ -7,6 +7,8 @@ import SignUpForm from "./SignUpForm/SignUpForm";
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
 import FlowLoader from "../../components/Loading/Forms/FlowLoader";
+import { ReactComponent as QuestionIcon } from '../../assets/images/help_question_yellow.svg'
+
 
 //styles
 import styles from "./SignUp.module.scss";
@@ -30,6 +32,7 @@ const SignUp = () => {
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>
+          <QuestionIcon className={styles['question-icon']} onClick={() => { setShowSignUpInfo(true) }} />
           <SignUpForm
             setShowFlowButtonLoader={setShowFlowButtonLoader}
             hideSignUpLoaderHandler={hideSignUpLoaderHandler}
