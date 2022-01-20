@@ -5,4 +5,8 @@
   border: 2px solid var(--color2);
   border-radius: var(--main-border-radius);
   padding: 1rem;
+  a {
+    color: var(--color1);
+    text-decoration: underline 2px var(--color2);
+  }
 }

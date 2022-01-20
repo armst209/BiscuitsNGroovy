@@ -11,11 +11,14 @@ import styles from "./Vault.module.scss";
 import ComponentLoading from '../../components/Loading/Component/ComponentLoading';
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
+import VaultReleaseModal from './VaultReleaseModal';
+import NoReleasesMusicShowcase from '../../components/ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase';
 
 
 const Vault = () => {
   const [releaseArr, setReleaseArr] = useState([]);
-  // const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
+  const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
+  const [selectedRelease, setSelectedRelease] = useState(null);
 
   const {
     responseData: releaseData,
@@ -25,7 +28,7 @@ const Vault = () => {
 
 
   useEffect(() => {
-    if (typeof releaseData === 'object' && releaseData !== null) {
+    if (typeof releaseData === "object" && releaseData !== null) {
       // convert object of objects to array of objects.
       let objToArr = Object.keys(releaseData).map(key => {
         return releaseData[key];
@@ -34,14 +37,29 @@ const Vault = () => {
     }
   }, [releaseData])
 
+  useEffect(() => {
+    console.log(selectedRelease);
+  }, [selectedRelease])
+
+  // Release onclick method
+  const handleReleaseClick = (release) => {
+    setSelectedRelease(release);
+    setIsReleaseModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setSelectedRelease(null);
+    setIsReleaseModalOpen(false);
+  }
+
   // Render releases in Vault container
   const mapReleases = (array) => {
     return array.map(release => {
       const { artist_name, release_art, release_id } = release;
       return (
-        <div key={release_id} className={styles["release-wrapper"]}>
-          <ReleaseImage releaseImageSrc={release_art} releaseAlt='random alt' />
-          <div className={styles["release-summary-container"]}>
+        <div key={release_id} className={styles["release-wrapper"]} onClick={() => handleReleaseClick(release)}>
+          <ReleaseImage releaseImageSrc={release_art} releaseAlt="random alt" />
+          <div className={styles["release-overlay-container"]}>
             <h2>{artist_name}</h2>
           </div>
         </div>
@@ -52,7 +70,7 @@ const Vault = () => {
   return (
     <>
       <FixedNavigationSpacer />
-      <section id={styles["vault"]}>
+      <section id="vault" className={styles["vault"]}>
         <div className={styles["vault-title"]}>
           <h1>
             <RecordVinyl width="50px" />
@@ -66,12 +84,12 @@ const Vault = () => {
               <br />
               <br />
               To see releases currently available, visit the
-              {' '} 
-              <HashLink 
-                className={styles["showcase-link"]} 
+              {' '}
+              <HashLink
+                className={styles["showcase-link"]}
                 smooth
                 to="/#music-showcase-return">
-                  music showcase
+                music showcase
               </HashLink>.
             </h1>
           </div>
@@ -81,9 +99,12 @@ const Vault = () => {
           </div>
         </div>
       </section>
-      <div className={styles['vault-modal-wrapper']}>
-        
-      </div>
+      {selectedRelease ? <VaultReleaseModal
+        isModalOpen={isReleaseModalOpen}
+        release={selectedRelease}
+        handleModalClose={handleModalClose}
+      /> : <></>}
+      <NoReleasesMusicShowcase/>
     </>
   )
 }
