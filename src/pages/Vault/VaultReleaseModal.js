@@ -4,7 +4,7 @@ import ReleaseTracklist from '../../components/ReleaseContent/ReleaseComponents/
 import styles from './VaultReleaseModal.module.scss'
 
 const VaultReleaseModal = ({ release, isModalOpen, handleModalClose }) => {
-  const { release_art, release_description, start_date, end_date, playlist, artist_name } = release;
+  const { release_name, release_art, release_description, start_date, end_date, playlist, artist_name } = release;
 
   const dateConverter = (dateString) => {
     let convertedDate = new Date(dateString);
@@ -35,9 +35,9 @@ const VaultReleaseModal = ({ release, isModalOpen, handleModalClose }) => {
             </a>
           </div>
           <div className={styles["modal-body-right-side"]}>
+            <h1>{release_name}</h1>
             <p>{release_description}</p>
             <ReleaseTracklist songs={playlist} />
-
           </div>
         </div>
       </div>
