@@ -2,7 +2,7 @@
 import styles from "./MusicShowcase.module.scss";
 
 //component imports
-import ReleaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/ReleaseList";
+import ReleaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/MusicShowcaseList/MusicShowcaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
 

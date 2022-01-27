@@ -25,9 +25,8 @@
       padding: 0;
     }
 
-    .release-grid {
+    .release-live-grid {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
@@ -35,12 +34,35 @@
         gap: 0;
       }
     }
+    .release-released-grid {
+      display: grid;
+      grid-gap: 1rem;
+      grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
+          auto-fit,
+          minmax(100px, 1fr)
+        );
+
+      @media screen and (max-width: 400px) {
+        grid-gap: 0.5rem;
+      }
+
+      @supports not (display: grid) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
   }
   .cant-play-releases-container {
-    width: 100%;
+    // grid-column: span 2;
+    // grid-row: span 2;
+    grid-template: "cant-play";
+    width: auto;
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     font-family: var(--header-font);
     padding: 1rem;

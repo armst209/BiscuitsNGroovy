@@ -69,8 +69,9 @@
   background-color: #000;
   color: #fff;
   display: inline-block;
-  margin: 8px;
-  width: 300px;
+
+  // width: 300px;
+  width: auto;
   overflow: hidden;
   position: relative;
   text-align: center;

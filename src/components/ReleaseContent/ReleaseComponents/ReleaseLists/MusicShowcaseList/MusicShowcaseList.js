@@ -2,9 +2,9 @@
 import { memo } from "react";
 
 //component imports
-import ReleaseCard from "../ReleaseCard/ReleaseCard";
+import ReleaseCard from "../../ReleaseCard/ReleaseCard";
 
-const ReleaseList = memo(({ releaseData, noReleaseDataComponent }) => {
+const MusicShowcaseList = memo(({ releaseData, noReleaseDataComponent }) => {
   return (
     //**displays different "NoReleases" component depending on whats passed as noReleaseDataComponent prop
     //** if user has already purchased a release, it is filtered out by "release.purchased" check*/
@@ -23,4 +23,4 @@ const ReleaseList = memo(({ releaseData, noReleaseDataComponent }) => {
   );
 });
 
-export default ReleaseList;
+export default MusicShowcaseList;

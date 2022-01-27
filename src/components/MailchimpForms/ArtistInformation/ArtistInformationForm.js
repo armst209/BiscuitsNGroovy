@@ -1,7 +1,14 @@
+//react imports
 import { useState, useEffect } from "react";
 import useValidation from "../../../customHooks/Validation/useValidation";
+
+//stlyes
 import "../../../customHooks/Validation/useValidationStyles.scss";
+
+//component imports
 import FormLoader from "../../Loading/Forms/FormLoader";
+
+//svg imports
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 
 const ArtistInformationForm = ({ status, message, onValidated }) => {

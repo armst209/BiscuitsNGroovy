@@ -1,14 +1,11 @@
-#release-image {
-  width: 300px;
-  border-radius: 0.5rem;
-  height: 300px;
-  cursor: pointer;
-  @media screen and (max-width: 400px) {
-    width: 250px;
-    height: 250px;
-  }
-  @media screen and (max-width: 305px) {
-    width: 200px;
-    height: 200px;
+.release-image-container {
+  position: relative;
+  width: auto;
+  height: auto;
+  #release-image {
+    width: auto;
+    border-radius: 0.5rem;
+    height: auto;
+    cursor: pointer;
   }
 }

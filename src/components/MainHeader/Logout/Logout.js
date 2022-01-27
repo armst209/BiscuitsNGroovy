@@ -10,15 +10,15 @@ import { ReactComponent as LogoutIcon } from "../../../assets/images/logout-yell
 //component imports
 import LogoutLoading from "../../Loading/Logout/LogoutLoading";
 
+//TOKEN
+let token = localStorage.getItem("token");
+
 const Logout = ({ showLogoutLoaderHandler, hideLogoutLoaderHandler }) => {
   const handleLogout = () => {
     showLogoutLoaderHandler(); //showing loader
     localStorage.clear(); //clearing local storage
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirecting to homepage
   };
-
-  //TOKEN
-  let token = localStorage.getItem("token");
 
   return (
     <>

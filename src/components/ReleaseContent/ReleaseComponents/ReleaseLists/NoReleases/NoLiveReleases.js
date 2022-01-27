@@ -2,7 +2,7 @@
 import { NavHashLink } from "react-router-hash-link";
 
 //component imports
-import Button from "../../../../../WrapperComponents/Button/Button";
+import Button from "../../../../WrapperComponents/Button/Button";
 
 //styles
 import styles from "./NoReleases.module.scss";
