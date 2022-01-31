@@ -42,7 +42,7 @@ const CollectionReleaseList = memo(
         ) : (
           <section id={styles["collection-release-list"]}>
             <h1 className={styles["h1-title"]}>
-              <div>Live</div>
+              <div>Live Biscuits</div>
             </h1>
             <div
               className={
@@ -62,7 +62,7 @@ const CollectionReleaseList = memo(
               </div>
             </div>
             <h1 className={styles["h1-title"]}>
-              <div>Released</div>
+              <div>Expired Biscuits</div>
             </h1>
             <div
               className={
@@ -75,7 +75,7 @@ const CollectionReleaseList = memo(
                   className={styles["cant-play-releases-container"]}
                 >
                   <QuestionIcon />
-                  <p>Why can't I play my releases?</p>
+                  <p>Why can't I stream my music?</p>
                 </div>
                 {filteredReleasedReleases.map((release) => {
                   return <ExpiredRelease key={release.id} release={release} />;
