@@ -8,15 +8,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: rgba(black, 0.7);
   padding: 1rem;
   z-index: 8001;
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 400px) {
     padding: 0;
   }
   .vault-modal-container {
@@ -39,8 +39,8 @@
       span {
         font-size: 24px;
         position: fixed;
-        right: 30px;
-        top: 30px;
+        right: 40px;
+        top: 25px;
         cursor: pointer;
         @media screen and (max-width: 400px) {
           top: 10px;
@@ -53,14 +53,14 @@
       display: -ms-flexbox;
       display: flex;
       -ms-flex-pack: distribute;
-          justify-content: space-around;
+      justify-content: space-around;
       margin: 50px;
       border-radius: 20px;
       @media screen and (max-width: 992px) {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
       }
       @media screen and (max-width: 500px) {
         margin: 5px;
@@ -71,19 +71,26 @@
         margin: 40px 20px 0px 20px;
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
-            flex-grow: 1;
+        flex-grow: 1;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-box-pack: start;
-            -ms-flex-pack: start;
-                justify-content: start;
+        -ms-flex-pack: start;
+        justify-content: start;
         @media screen and (max-width: 400px) {
           margin: 5px 5px 5px 5px;
+        }
+        .logo {
+          width: 100%;
+          margin-bottom: 1rem;
+          @media screen and (max-width: 500px) {
+            width: 70%;
+          }
         }
         h1 {
           color: white;
@@ -91,10 +98,11 @@
           text-align: center;
           font-family: var(--header-font);
         }
-        span {
+        .date {
           padding: 10px 0px;
           display: inline;
           color: white;
+          font-family: var(--header-font);
         }
         a {
           padding: 20px 0px;
@@ -115,22 +123,20 @@
         padding-bottom: 50px;
         width: 50%;
         -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
         @media screen and (max-width: 992px) {
           width: 90%;
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
-              -ms-flex-direction: column;
-                  flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column;
           -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
           -webkit-box-pack: start;
-              -ms-flex-pack: start;
-                  justify-content: start;
-        }
-        @media screen and (max-width: 500px) {
+          -ms-flex-pack: start;
+          justify-content: start;
           margin: 0px 20px;
         }
         p {
