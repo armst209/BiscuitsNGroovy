@@ -35,7 +35,7 @@ const Vault = () => {
     console.log(selectedRelease);
   }, [selectedRelease]);
 
-  // Release onclick method
+  // Release onclick method - when user clicks on a biscuit/release, modal opens with additional information.
   const handleReleaseClick = (release) => {
     setSelectedRelease(release);
     setIsReleaseModalOpen(true);
