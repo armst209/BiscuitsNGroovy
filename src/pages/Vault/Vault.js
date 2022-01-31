@@ -28,6 +28,7 @@ const Vault = () => {
       });
       setReleaseArr(objToArr);
     }
+    console.log(releaseData)
   }, [releaseData]);
   
   // Check when modal is open, if open prevent background scroll.
@@ -39,9 +40,9 @@ const Vault = () => {
     }
   }, [isReleaseModalOpen]);
   
-    useEffect(() => {
-      console.log(selectedRelease);
-    }, [selectedRelease]);
+  // useEffect(() => {
+  //   console.log(selectedRelease);
+  // }, [selectedRelease]);
   
   // Release onclick method - when user clicks on a biscuit/release, modal opens with additional information.
   const handleReleaseClick = (release) => {
