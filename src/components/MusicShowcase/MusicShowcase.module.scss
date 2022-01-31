@@ -109,26 +109,6 @@
           display: none;
         }
       }
-      .music-showcase-grid {
-        display: grid;
-        grid-gap: 1rem;
-        grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
-            auto-fit,
-            minmax(100px, 1fr)
-          );
-
-        @media screen and (max-width: 400px) {
-          grid-gap: 0.5rem;
-        }
-
-        @supports not (display: grid) {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
-      }
     }
   }
   .music-showcase-bottom-image-container {

@@ -40,7 +40,7 @@ const CollectionReleaseList = memo(
         {releaseData.length === 0 ? (
           noReleaseDataComponent
         ) : (
-          <section id={styles["collection-release-list"]}>
+          <div className={styles["collection-release-list"]}>
             <h1 className={styles["h1-title"]}>
               <div>Live</div>
             </h1>
@@ -88,7 +88,7 @@ const CollectionReleaseList = memo(
                 />
               )}
             </div>
-          </section>
+          </div>
         )}
       </>
     );
