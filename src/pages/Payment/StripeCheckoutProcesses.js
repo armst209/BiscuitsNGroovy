@@ -100,7 +100,7 @@ const StripeCheckoutProcesses = ({ release }) => {
           height: "100%",
         }}
       >
-        BUY NOW
+        Buy Now
       </div>
       {showStripeLoader}
     </>

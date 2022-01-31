@@ -5,7 +5,10 @@ import ReleaseButton from "../../ReleaseButton/ReleaseButton";
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import styles from "./ReleasePreviewTitleInfo.module.scss";
 
-const ReleasePreviewTitleInfo = ({ release }) => {
+const ReleasePreviewTitleInfo = ({
+  release,
+  showHideBiscuitDescriptionHandler,
+}) => {
   const { name, title, art_url, price } = release;
   const [showButton, setShowButton] = useState(true);
 
@@ -35,6 +38,12 @@ const ReleasePreviewTitleInfo = ({ release }) => {
           </Button>
         )}
         <br></br>
+        <button
+          onClick={() => showHideBiscuitDescriptionHandler()}
+          className={`_button ${styles["release-description-button"]}`}
+        >
+          Learn More
+        </button>
       </div>
     </section>
   );
