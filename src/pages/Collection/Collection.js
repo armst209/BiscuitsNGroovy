@@ -12,6 +12,7 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 
 //react imports
 import useFetch from "../../customHooks/Fetch/useFetch";
+import { useEffect } from "react";
 
 const Collection = () => {
   //TOKEN
@@ -24,6 +25,10 @@ const Collection = () => {
   } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/library`, {
     headers: { "x-access-token": token },
   });
+
+  useEffect(()=>{
+    console.log(releaseData);
+  },[releaseData])
 
   return (
     <>
