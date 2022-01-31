@@ -36,6 +36,7 @@
     }
     .release-released-grid {
       display: grid;
+      place-content: center;
       grid-gap: 1rem;
       grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
           auto-fit,

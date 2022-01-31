@@ -110,25 +110,23 @@
         }
       }
       .music-showcase-grid {
-        width: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1rem;
-        box-shadow: var(--container-box-shadow);
-        // border: 2px solid var(--color2);
-        border-radius: 20px;
-        height: auto;
+        display: grid;
+        grid-gap: 1rem;
+        grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
+            auto-fit,
+            minmax(100px, 1fr)
+          );
 
-        @media screen and (max-width: 1050px) {
-          width: 100%;
-          height: auto;
+        @media screen and (max-width: 400px) {
+          grid-gap: 0.5rem;
         }
-        @media screen and (max-width: 350px) {
-          border: none;
-          padding: 0;
+
+        @supports not (display: grid) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
         }
       }
     }
