@@ -26,10 +26,6 @@ const Collection = () => {
     headers: { "x-access-token": token },
   });
 
-  useEffect(()=>{
-    console.log(releaseData);
-  },[releaseData])
-
   return (
     <>
       <FixedNavigationSpacer />
