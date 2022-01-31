@@ -13,7 +13,6 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import VaultReleaseModal from "./VaultReleaseModal";
 
-
 const Vault = () => {
   const [releaseArr, setReleaseArr] = useState([]);
   const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
@@ -30,11 +29,20 @@ const Vault = () => {
       setReleaseArr(objToArr);
     }
   }, [releaseData]);
-
+  
+  // Check when modal is open, if open prevent background scroll.
   useEffect(() => {
-    console.log(selectedRelease);
-  }, [selectedRelease]);
-
+    if (isReleaseModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isReleaseModalOpen]);
+  
+    useEffect(() => {
+      console.log(selectedRelease);
+    }, [selectedRelease]);
+  
   // Release onclick method - when user clicks on a biscuit/release, modal opens with additional information.
   const handleReleaseClick = (release) => {
     setSelectedRelease(release);
@@ -51,13 +59,8 @@ const Vault = () => {
     return array.map((release) => {
       const { artist_name, release_art, release_id } = release;
       return (
-        <div 
-          key={release_id} 
-          className={styles["release-wrapper"]} 
-          onClick={() => handleReleaseClick(release)}>
-          <ReleaseImage 
-            releaseImageSrc={release_art} 
-            releaseAlt="random alt" />
+        <div key={release_id} className={styles["release-wrapper"]} onClick={() => handleReleaseClick(release)}>
+          <ReleaseImage releaseImageSrc={release_art} releaseAlt="random alt" />
           <div className={styles["release-overlay-container"]}>
             <h2>{artist_name}</h2>
           </div>
@@ -69,9 +72,7 @@ const Vault = () => {
   return (
     <>
       <FixedNavigationSpacer />
-      <section 
-        id="vault" 
-        className={styles["vault"]}>
+      <section id="vault" className={styles["vault"]}>
         <div className={styles["vault-title"]}>
           <h1>
             <RecordVinyl width="50px" />
@@ -86,10 +87,7 @@ const Vault = () => {
               <br />
               <br />
               To see releases currently available, visit the{" "}
-              <HashLink 
-                className={styles["showcase-link"]} 
-                smooth 
-                to="/#music-showcase-return">
+              <HashLink className={styles["showcase-link"]} smooth to="/#music-showcase-return">
                 music showcase
               </HashLink>
               .
@@ -101,13 +99,7 @@ const Vault = () => {
           </div>
         </div>
       </section>
-      {selectedRelease ? 
-      <VaultReleaseModal 
-        isModalOpen={isReleaseModalOpen} 
-        release={selectedRelease} 
-        handleModalClose={handleModalClose} /> 
-      : 
-      <></>}
+      {selectedRelease ? <VaultReleaseModal isModalOpen={isReleaseModalOpen} release={selectedRelease} handleModalClose={handleModalClose} /> : <></>}
     </>
   );
 };
