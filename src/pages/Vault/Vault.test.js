@@ -10,8 +10,6 @@ const Component = () => {
   );
 };
 
-const unmockedFetch = global.fetch;
-
 const mockResponse = {
   6: {
     artist_id: 3,
@@ -52,6 +50,9 @@ describe("Vault page static data renders correctly", () => {
   });
 });
 
+// Assign default global fetch method to a variable to reset global.fetch after each test that requires fetch.
+const unmockedFetch = global.fetch;
+
 describe("Successful network/http/fetch request will render biscuits", () => {
   beforeEach(async () => {
     global.fetch = jest.fn().mockImplementation(() => {
@@ -67,7 +68,7 @@ describe("Successful network/http/fetch request will render biscuits", () => {
     global.fetch = unmockedFetch;
   });
 
-  test("rendered vault biscuits", async () => {
+  test("Rendered vault biscuits", async () => {
     const releases = await screen.findAllByTestId("vault-release");
     expect(releases.length).toBe(2);
   });
