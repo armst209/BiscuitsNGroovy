@@ -60,7 +60,7 @@ const Vault = () => {
     return array.map((release) => {
       const { artist_name, release_art, release_id } = release;
       return (
-        <div key={release_id} className={styles["release-wrapper"]} onClick={() => handleReleaseClick(release)}>
+        <div key={release_id} data-testid='vault-release' className={styles["release-wrapper"]} onClick={() => handleReleaseClick(release)}>
           <ReleaseImage releaseImageSrc={release_art} releaseAlt="random alt" />
           <div className={styles["release-overlay-container"]}>
             <h2>{artist_name}</h2>
@@ -76,7 +76,7 @@ const Vault = () => {
       <section id="vault" className={styles["vault"]}>
         <div className={styles["vault-title"]}>
           <h1>
-            <RecordVinyl width="50px" />
+            <RecordVinyl data-testid="record-svg" width="50px" />
             <div>VAULT</div>
           </h1>
         </div>
