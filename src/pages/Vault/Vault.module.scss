@@ -123,7 +123,7 @@
       display: grid;
       -ms-grid-columns: (300px)[auto-fit];
           grid-template-columns: repeat(auto-fit, 300px);
-      grid-auto-rows: minmax(50px, auto);
+      grid-auto-rows: 300px;
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;

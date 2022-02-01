@@ -12,6 +12,7 @@ import ComponentLoading from "../../components/Loading/Component/ComponentLoadin
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 import VaultReleaseModal from "./VaultReleaseModal";
+import ScrollWidget from "../../Routes/ScrollWidget/ScrollWidget";
 
 const Vault = () => {
   const [releaseArr, setReleaseArr] = useState([]);
@@ -40,10 +41,6 @@ const Vault = () => {
     }
   }, [isReleaseModalOpen]);
 
-  // useEffect(() => {
-  //   console.log(selectedRelease);
-  // }, [selectedRelease]);
-
   // Release onclick method - when user clicks on a biscuit/release, modal opens with additional information.
   const handleReleaseClick = (release) => {
     setSelectedRelease(release);
@@ -55,7 +52,7 @@ const Vault = () => {
     setIsReleaseModalOpen(false);
   };
 
-  // Render releases in Vault container
+  // Method to render releases in Vault container
   const mapReleases = (array) => {
     return array.map((release) => {
       const { artist_name, release_art, release_id } = release;
@@ -100,7 +97,12 @@ const Vault = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal window overlays when user has selected a release */}
       {selectedRelease ? <VaultReleaseModal isModalOpen={isReleaseModalOpen} release={selectedRelease} handleModalClose={handleModalClose} /> : <></>}
+
+      {/* Remove scroll to top button when modal is open */}
+      {isReleaseModalOpen ? null : <ScrollWidget />}
     </>
   );
 };
