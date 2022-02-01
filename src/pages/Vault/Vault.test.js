@@ -10,6 +10,8 @@ const Component = () => {
   );
 };
 
+const unmockedFetch = global.fetch;
+
 const mockResponse = {
   6: {
     artist_id: 3,
@@ -61,9 +63,18 @@ describe("Successful network/http/fetch request will render biscuits", () => {
     await act(async () => render(<Component />));
   });
 
-  test("rendered biscuits", async () => {
+  afterEach(() => {
+    global.fetch = unmockedFetch;
+  });
+
+  test("rendered vault biscuits", async () => {
     const releases = await screen.findAllByTestId("vault-release");
     expect(releases.length).toBe(2);
+  });
+
+  test("correct url called only one time", () => {
+    expect(fetch).toBeCalledWith("http://ec2-3-140-216-48.us-east-2.compute.amazonaws.com:8080/api/vault", { signal: new AbortController().signal });
+    expect(fetch).toBeCalledTimes(1);
   });
 });
 
@@ -73,6 +84,10 @@ describe("Failed fetch/network/http request", () => {
       return Promise.reject(new Error("fail"));
     });
     await act(async () => render(<Component />));
+  });
+
+  afterEach(() => {
+    global.fetch = unmockedFetch;
   });
 
   test("Error message displays showing connection issue", async () => {
