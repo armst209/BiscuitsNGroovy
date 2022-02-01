@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 
 //hash link import
 import { NavHashLink } from "react-router-hash-link";
+import Button from "../../../WrapperComponents/Button/Button";
 
 const ReleaseContainer = ({ release }) => {
   //selecting first release in release object
@@ -51,9 +52,18 @@ const ReleaseContainer = ({ release }) => {
                       X
                     </div>
                     {release.description}
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Esse placeat est eos ipsa doloribus debitis suscipit porro
+                    voluptatum animi quis, minus repellat eum deserunt obcaecati
+                    dolore non cum dolorem quasi.
                   </div>
                 )}
-                <ReleasePreviewTitleInfo release={release} />
+                <ReleasePreviewTitleInfo
+                  release={release}
+                  showHideBiscuitDescriptionHandler={
+                    showHideBiscuitDescriptionHandler
+                  }
+                />
               </div>
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>

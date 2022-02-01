@@ -15,4 +15,10 @@
       font-size: 3rem;
     }
   }
+  .release-description-button {
+    width: 200px;
+    @media screen and (max-width: 500px) {
+      margin-bottom: 1rem;
+    }
+  }
 }

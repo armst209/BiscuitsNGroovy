@@ -10,7 +10,7 @@ const RouteWithSubRoutes = (route: IRoute) => {
     <Suspense fallback={route.fallback}>
       <Route
         path={route.path}
-        render={(props) =>
+        render={(props: any) =>
           //REDIRECT
           route.redirect ? (
             <Redirect to={route.redirect} />

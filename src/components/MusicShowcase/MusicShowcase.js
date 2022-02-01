@@ -2,7 +2,7 @@
 import styles from "./MusicShowcase.module.scss";
 
 //component imports
-import ReleaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/ReleaseList";
+import MusicShowcaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/MusicShowcaseList/MusicShowcaseList";
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
 import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
 
@@ -39,19 +39,17 @@ const MusicShowcase = () => {
             Available biscuits shown below. Click on a title for more details
           </p>
           <div className={styles["music-showcase-content-wrapper"]}>
-            <div className={styles["music-showcase-grid"]}>
-              {isLoading && <ComponentLoading />}
-              {errorMessage === null ? (
-                releaseData && (
-                  <ReleaseList
-                    releaseData={releaseData.releases}
-                    noReleaseDataComponent={<NoReleasesMusicShowcase />}
-                  />
-                )
-              ) : (
-                <div>{errorMessage}</div>
-              )}
-            </div>
+            {isLoading && <ComponentLoading />}
+            {errorMessage === null ? (
+              releaseData && (
+                <MusicShowcaseList
+                  releaseData={releaseData.releases}
+                  noReleaseDataComponent={<NoReleasesMusicShowcase />}
+                />
+              )
+            ) : (
+              <div>{errorMessage}</div>
+            )}
           </div>
         </div>
       </div>

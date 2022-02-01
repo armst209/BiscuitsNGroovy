@@ -1,13 +1,15 @@
 //styles
 import styles from "./HowItWorksStyles.module.scss";
+
+//react imports
 import { Link } from "react-router-dom";
-//SVGs
+
+//svg imports
 import { ReactComponent as LoveSong } from "../../assets/images/love-song2.svg";
 import { ReactComponent as Voice } from "../../assets/images/voice.svg";
 import { ReactComponent as Collect } from "../../assets/images/collectshare.svg";
 import { ReactComponent as RecordHeader } from "../../assets/images/compact-disc-yellow.svg";
-
-function HowItWorks() {
+const HowItWorks = () => {
   return (
     <section id={styles["how-it-works"]}>
       <div className={styles["how-it-works-container"]}>
@@ -95,6 +97,6 @@ function HowItWorks() {
       </p>
     </section>
   );
-}
+};
 
 export default HowItWorks;

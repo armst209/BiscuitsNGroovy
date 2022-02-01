@@ -14,6 +14,9 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 
 const TermsOfService = () => {
   return (
+    /**
+     * TODO: add possible nested routes
+     */
     <section id={styles["terms-of-service"]}>
       <FixedNavigationSpacer />
       <div className={styles["tos-title"]}>
@@ -21,20 +24,15 @@ const TermsOfService = () => {
       </div>
       <TermsList />
       <Switch>
-        <Route path="/privacy-policy">
-          <PrivacyPolicy />
-        </Route>
+        <Route path="/privacy-policy" component={<PrivacyPolicy />} />
+
+        <Route exact path="/terms-of-service" component={<Subscriber />} />
         <Route
-          exact={true}
-          path="/terms-of-service"
-          render={() => <Subscriber />}
-        />
-        <Route
-          exact={true}
+          exact
           path="/music-purchase-terms"
-          render={() => <PurchaseOfMusic />}
+          component={<PurchaseOfMusic />}
         />
-        <Route exact={true} path="/nft-terms" render={() => <NFTTerms />} />
+        <Route exact path="/nft-terms" component={<NFTTerms />} />
       </Switch>
     </section>
   );
