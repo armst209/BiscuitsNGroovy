@@ -57,6 +57,7 @@ const SignUpPopUp = ({ setShowSignUpInfo }) => {
             </li>
           </ol>
         </div>
+        <button className="continue-btn" onClick={() => setShowSignUpInfo(false)}><span>Continue To Sign Up</span></button>
       </div>
     </section>
   );

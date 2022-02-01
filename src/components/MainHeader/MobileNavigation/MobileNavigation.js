@@ -107,6 +107,15 @@ const MobileNavigation = ({ showLogoutLoaderHandler }) => {
             </NavLink>
           </li>
 
+          <li>
+            <NavLink
+              onClick={() => closeMobileMenuHandler()}
+              activeClassName="active-link"
+              to="/vault"
+            >
+              Vault
+            </NavLink>
+          </li>
           <LoginAndSignUpMobile
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}

@@ -9,7 +9,7 @@ const ReleaseTracklist = ({ songs }) => {
           <li
             className={styles["tracklist-li"]}
             key={`li-key-for-${name}-${order + 1}`}
-          >{`${order + 1}. ${name}`}</li>
+          >{`${name}`}</li>
         );
       })}
     </ul>

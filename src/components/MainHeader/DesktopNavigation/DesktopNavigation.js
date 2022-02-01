@@ -66,6 +66,16 @@ const DesktopNavigation = ({
               Artists
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              activeStyle={{
+                borderBottom: "2px solid var(--color1)",
+              }}
+              to="/vault"
+            >
+              Vault
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="right-links-container">

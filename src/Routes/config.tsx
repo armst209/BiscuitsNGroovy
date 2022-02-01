@@ -178,6 +178,14 @@ const routes: IRoute[] = [
     private: false,
     fallback: <Loading />,
   },
+  {
+    path:"/vault",
+    component: lazy(()=> import('../pages/Vault/Vault')),
+    key: "VAULT",
+    exact: true,
+    private: false,
+    fallback: <Loading />,
+  },
 
   {
     path: "/purchase",

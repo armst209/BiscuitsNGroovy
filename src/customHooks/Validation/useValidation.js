@@ -41,6 +41,11 @@ const useValidation = () => {
   const [showEmailValidationCheck, setShowEmailValidationCheck] =
     useState(false);
 
+  const [
+    showNewsletterArtistEmailValidationCheck,
+    setShowNewsletterArtistEmailValidationCheck,
+  ] = useState(false);
+
   //show & hide password input
   const [passwordInputType, setPasswordInputType] = useState("password");
   const [isHidden, setIsHidden] = useState("Show");
@@ -275,6 +280,8 @@ const useValidation = () => {
     setShowPasswordValidationCheck,
     showConfirmPasswordValidationCheck,
     setShowConfirmPasswordValidationCheck,
+    showNewsletterArtistEmailValidationCheck,
+    setShowNewsletterArtistEmailValidationCheck,
     inputValidation,
     changeInputType,
     passwordInputType,

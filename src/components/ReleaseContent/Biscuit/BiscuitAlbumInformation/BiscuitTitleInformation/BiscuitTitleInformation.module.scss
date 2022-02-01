@@ -18,6 +18,10 @@
     width: 100%;
     font-family: var(--header-font);
 
+    svg {
+      height:30px;
+    }
+
     @media screen and (max-width: 900px) {
       flex-direction: row;
       Button {
