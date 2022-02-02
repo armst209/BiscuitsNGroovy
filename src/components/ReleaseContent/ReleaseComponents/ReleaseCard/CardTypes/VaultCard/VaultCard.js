@@ -4,7 +4,7 @@ import hoverStyles from "../../CardTypes/VaultCard/Hover/VaultCardHover.module.s
 
 //component imports
 import ReleaseImage from "../../../ReleaseImage/ReleaseImage";
-import VaultReleaseModal from "../../../../../../pages/Vault/VaultReleaseModal";
+import VaultReleaseModal from "../../../../../../pages/Vault/VaultReleaseModal/VaultReleaseModal";
 
 //react imports
 import { useState } from "react";

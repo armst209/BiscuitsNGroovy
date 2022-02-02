@@ -1,4 +1,4 @@
-//hover styles for release card figcaptions
+//hover styles for vault card figcaptions
 
 .hover-menu {
   position: relative;
@@ -120,6 +120,13 @@
   height: auto;
   font-family: var(--header-font);
   @media screen and (max-width: 500px) {
+    font-size: 0.8rem;
+  }
+}
+
+.hover-img figcaption div h2 {
+  font-size: 1.5rem;
+  @media screen and (max-width: 600px) {
     font-size: 0.8rem;
   }
 }

@@ -10,3 +10,5 @@ export const dateConverter = (dateString) => {
     convertedDate.getUTCMonth() + 1
   }/${convertedDate.getUTCDate()}/${convertedDate.getUTCFullYear()}`;
 };
+
+//add function for background scroll

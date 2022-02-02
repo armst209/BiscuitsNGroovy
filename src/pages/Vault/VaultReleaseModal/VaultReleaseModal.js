@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 
 // Component Imports
-import ReleaseImage from "../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
-import ReleaseTracklist from "../../components/ReleaseContent/ReleaseComponents/ReleaseTracklist/ReleaseTracklist";
+import ReleaseImage from "../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
+import ReleaseTracklist from "../../../components/ReleaseContent/ReleaseComponents/ReleaseTracklist/ReleaseTracklist";
 
 // Style Imports
 import styles from "./VaultReleaseModal.module.scss";
@@ -13,8 +13,8 @@ import styles from "./VaultReleaseModal.module.scss";
 // import { ReactComponent as MainHeaderLogo } from "../../assets/images/bng-main-logo.svg";
 
 //utility imports
-import { dateConverter } from "../../utils/UtilityFunctions";
-import VaultReleaseDescriptionModal from "./VaultReleaseDescriptionModal/VaultReleaseDescriptionModal";
+import { dateConverter } from "../../../utils/UtilityFunctions";
+import VaultReleaseDescriptionModal from "../VaultReleaseDescriptionModal/VaultReleaseDescriptionModal";
 
 const VaultReleaseModalOverlay = ({ release, hideVaultModalHandler }) => {
   const [showHideVaultReleaseDescription, setShowHideReleaseDescription] =

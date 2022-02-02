@@ -1,0 +1,83 @@
+.vault-showcase-grid {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  grid-gap: 1rem;
+  grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    );
+
+  @media screen and (max-width: 600px) {
+    grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
+        auto-fit,
+        minmax(100px, 1fr)
+      );
+    grid-gap: 0.8rem;
+  }
+
+  @media screen and (max-width: 300px) {
+    grid: repeat(auto-fit, minmax(75px, 1fr)) / repeat(
+        auto-fit,
+        minmax(75px, 1fr)
+      );
+    grid-gap: 0.5rem;
+  }
+
+  .release-wrapper {
+    position: relative;
+    -ms-grid-column-align: center;
+    justify-self: center;
+    .release-overlay-container {
+      opacity: 0;
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: auto;
+      padding: 1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-radius: 0 0 8px 8px;
+      font-family: var(--header-font);
+
+      background-color: rgba(black, 0.4);
+      -webkit-transition: 0.75s ease;
+      transition: 0.75s ease;
+
+      h2 {
+        text-align: center;
+        @media screen and (max-width: 600px) {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        opacity: 1;
+      }
+    }
+
+    &:hover .release-overlay-container {
+      opacity: 1;
+    }
+
+    @supports not (display: grid) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  }
+}
