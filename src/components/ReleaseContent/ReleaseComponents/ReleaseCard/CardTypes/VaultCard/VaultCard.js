@@ -7,26 +7,38 @@ import ReleaseImage from "../../../ReleaseImage/ReleaseImage";
 import VaultReleaseModal from "../../../../../../pages/Vault/VaultReleaseModal/VaultReleaseModal";
 
 //react imports
-import { useState } from "react";
+import { useState, createRef } from "react";
 
-const VaultCard = ({
-  release,
+//npm imports
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
-  isReleaseModalOpen,
-}) => {
-  const { artist_name, release_art } = release;
-
+const VaultCard = ({ release }) => {
   const [showVaultModal, setShowVaultModal] = useState(false);
 
-  const showVaultModalHandler = () => setShowVaultModal(true);
+  //release object destructuring
+  const { artist_name, release_art } = release;
 
-  const hideVaultModalHandler = () => setShowVaultModal(false);
+  //modal handlers
+  const showVaultModalHandler = () => {
+    setShowVaultModal(true);
+    disableBodyScroll(ref);
+  };
+
+  const hideVaultModalHandler = () => {
+    setShowVaultModal(false);
+    enableBodyScroll(ref);
+  };
+
+  //ref for vault modal
+  const ref = createRef();
 
   return (
     <>
       <figure
         className={hoverStyles["hover-img"]}
-        onClick={() => showVaultModalHandler()}
+        onClick={() => {
+          showVaultModalHandler();
+        }}
       >
         <ReleaseImage
           releaseImageSrc={release_art}
@@ -43,6 +55,7 @@ const VaultCard = ({
       </figure>
       {showVaultModal && (
         <VaultReleaseModal
+          ref={ref}
           release={release}
           hideVaultModalHandler={hideVaultModalHandler}
         />
