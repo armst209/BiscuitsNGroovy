@@ -11,7 +11,7 @@ import styles from "./CollectionReleaseList.module.scss";
 import AvailableRelease from "../../ReleaseTypes/AvailableRelease/AvailableRelease";
 import ExpiredRelease from "../../ReleaseTypes/ExpiredRelease/ExpiredRelease";
 import ExpiredInfoModal from "../../ReleaseTypes/ExpiredRelease/Modals/ExpiredInfoModal/ExpiredInfoModal";
-import NoLiveReleases from "../NoReleases/NoLiveReleases";
+import NoLiveReleases from "../../NoReleases/NoLiveReleases";
 
 const CollectionReleaseList = memo(
   ({ releaseData, noReleaseDataComponent }) => {

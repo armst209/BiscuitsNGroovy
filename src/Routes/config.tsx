@@ -76,6 +76,14 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
+    path: "/vault",
+    component: lazy(() => import("../pages/Vault/Vault")),
+    key: "VAULT_PAGE",
+    exact: true,
+    private: false,
+    fallback: <Loading />,
+  },
+  {
     path: "/biscuit/:biscuitId",
     component: lazy(
       () => import("../components/ReleaseContent/Biscuit/Biscuit")
@@ -174,14 +182,6 @@ const routes: IRoute[] = [
     path: "/nft-terms",
     component: lazy(() => import("../pages/TermsOfService/Terms/NFTTerms")),
     key: "NFT_TERMS_PAGE",
-    exact: true,
-    private: false,
-    fallback: <Loading />,
-  },
-  {
-    path:"/vault",
-    component: lazy(()=> import('../pages/Vault/Vault')),
-    key: "VAULT",
     exact: true,
     private: false,
     fallback: <Loading />,

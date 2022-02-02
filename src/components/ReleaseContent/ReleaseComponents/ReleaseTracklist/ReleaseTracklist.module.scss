@@ -4,7 +4,8 @@
   width: 100%;
   counter-reset: tracklist-counter;
   @media screen and (max-width: 700px) {
-    max-height: 120px;
+    min-height: auto;
+    max-height: 250px;
     overflow-y: scroll;
   }
   .tracklist-li {
@@ -14,19 +15,18 @@
     list-style: none;
     font-size: 1.5rem;
 
-    &::before{
+    &::before {
       content: counter(tracklist-counter) ". ";
       color: var(--color1);
       font-weight: bold;
       font-family: var(--header-font);
     }
-    
+
     @media screen and (max-width: 900px) {
       font-size: 1rem;
     }
     @media screen and (max-width: 300px) {
       font-size: 0.7rem;
     }
-
   }
 }

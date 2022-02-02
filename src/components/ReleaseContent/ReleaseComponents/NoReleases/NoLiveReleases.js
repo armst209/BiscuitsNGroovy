@@ -1,9 +1,6 @@
 //hashlink import
 import { NavHashLink } from "react-router-hash-link";
 
-//component imports
-import Button from "../../../../WrapperComponents/Button/Button";
-
 //styles
 import styles from "./NoReleases.module.scss";
 
@@ -15,9 +12,7 @@ const NoLiveReleases = () => {
         <span>groovin`</span>{" "}
       </p>
       <NavHashLink smooth to="/#music-showcase-return">
-        <Button className="_button" width="200px">
-          Head To Showcase
-        </Button>
+        <button className="_button">Head To Showcase</button>
       </NavHashLink>
     </div>
   );

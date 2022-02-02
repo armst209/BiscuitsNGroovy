@@ -1,5 +1,6 @@
 // React Imports
-import React from "react";
+import ReactDOM from "react-dom";
+import { useState } from "react";
 
 // Component Imports
 import ReleaseImage from "../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
@@ -9,33 +10,55 @@ import ReleaseTracklist from "../../components/ReleaseContent/ReleaseComponents/
 import styles from "./VaultReleaseModal.module.scss";
 
 //SVG Imports
-import { ReactComponent as MainHeaderLogo } from "../../assets/images/bng-main-logo.svg";
+// import { ReactComponent as MainHeaderLogo } from "../../assets/images/bng-main-logo.svg";
 
-const VaultReleaseModal = ({ release, isModalOpen, handleModalClose }) => {
-  const { release_name, release_art, release_description, start_date, end_date, playlist, artist_name } = release;
+//utility imports
+import { dateConverter } from "../../utils/UtilityFunctions";
+import VaultReleaseDescriptionModal from "./VaultReleaseDescriptionModal/VaultReleaseDescriptionModal";
 
-  console.log(release);
+const VaultReleaseModalOverlay = ({ release, hideVaultModalHandler }) => {
+  const [showHideVaultReleaseDescription, setShowHideReleaseDescription] =
+    useState(false);
 
-  const dateConverter = (dateString) => {
-    let convertedDate = new Date(dateString);
-    console.log(convertedDate);
-
-    return `${convertedDate.getUTCMonth() + 1}/${convertedDate.getUTCDate()}/${convertedDate.getUTCFullYear()}`;
-  };
+  const showHideVaultReleaseDescriptionHandler = () =>
+    setShowHideReleaseDescription(!showHideVaultReleaseDescription);
+  // console.log(release);
+  const {
+    release_name,
+    release_art,
+    release_description,
+    start_date,
+    end_date,
+    playlist,
+    artist_name,
+  } = release;
 
   return (
-    <div className={isModalOpen ? styles["vault-modal-wrapper"] : styles["vault-modal-wrapper-hidden"]}>
+    <div className={styles["vault-modal-wrapper"]}>
       <div className={styles["vault-modal-container"]}>
         <div className={styles["modal-header"]}>
-          <span onClick={handleModalClose} data-testid="modal-close-button">X</span>
+          <div
+            className={styles["vault-modal-close"]}
+            data-testid="modal-close-button"
+            onClick={() => hideVaultModalHandler()}
+          >
+            X
+          </div>
         </div>
         <div className={styles["modal-body"]}>
           <div className={styles["modal-body-left-side"]}>
-            <MainHeaderLogo className={styles["logo"]} />
-            <ReleaseImage releaseImageSrc={release_art} alt={`${release_name} biscuit`} />
+            {/* Biscuits and groovy logo is redundant - not a unique link & already on bng site, users know */}
+            {/* <MainHeaderLogo className={styles["logo"]} /> */}
+            <ReleaseImage
+              releaseImageSrc={release_art}
+              alt={`${release_name} biscuit`}
+            />
             <h1>{artist_name}</h1>
+            <p className={styles["modal-release-name"]}>{release_name}</p>
             <div className={styles["date-wrapper"]}>
-              <span className={styles["date"]}>{dateConverter(start_date)} - {dateConverter(end_date)}</span>
+              <span className={styles["date"]}>
+                {dateConverter(start_date)} - {dateConverter(end_date)}
+              </span>
             </div>
             <a
               href="https://open.spotify.com/user/ajxyu54lfjlxoc8a7dzx59odj?si=crL_VRaXSUiBRDEW8-31xg&nd=1"
@@ -46,13 +69,42 @@ const VaultReleaseModal = ({ release, isModalOpen, handleModalClose }) => {
             </a>
           </div>
           <div className={styles["modal-body-right-side"]}>
-            <h1>{release_name}</h1>
-            <p>{release_description}</p>
+            <p className={styles["modal-body-release-description"]}>
+              {release_description}
+            </p>
+            <button
+              onClick={() => showHideVaultReleaseDescriptionHandler()}
+              className="_button"
+            >
+              Learn More
+            </button>
+            {showHideVaultReleaseDescription && (
+              <VaultReleaseDescriptionModal
+                showHideVaultReleaseDescriptionHandler={
+                  showHideVaultReleaseDescriptionHandler
+                }
+                releaseDescription={release_description}
+              />
+            )}
             <ReleaseTracklist songs={playlist} />
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const VaultReleaseModal = ({ release, hideVaultModalHandler }) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <VaultReleaseModalOverlay
+          release={release}
+          hideVaultModalHandler={hideVaultModalHandler}
+        />,
+        document.getElementById("modal-overlay-root")
+      )}
+    </>
   );
 };
 

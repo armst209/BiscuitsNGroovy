@@ -2,23 +2,26 @@
 import { useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import useFetch from "../../customHooks/Fetch/useFetch";
-import ReleaseImage from "../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 
 //styles
 import styles from "./Vault.module.scss";
 
+//svg imports
+import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
+
 //Component imports
 import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
-import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
-import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
-import VaultReleaseModal from "./VaultReleaseModal";
+import VaultCard from "../../components/ReleaseContent/ReleaseComponents/ReleaseCard/CardTypes/VaultCard/VaultCard";
 
 const Vault = () => {
   const [releaseArr, setReleaseArr] = useState([]);
-  const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
-  const [selectedRelease, setSelectedRelease] = useState(null);
 
-  const { responseData: releaseData, isLoading, errorMessage } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/vault`);
+  //useFetch - api call
+  const {
+    responseData: releaseData,
+    isLoading,
+    errorMessage,
+  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/vault`);
 
   useEffect(() => {
     if (typeof releaseData === "object" && releaseData !== null) {
@@ -28,80 +31,66 @@ const Vault = () => {
       });
       setReleaseArr(objToArr);
     }
-    console.log(releaseData);
+    // console.log(releaseData);
   }, [releaseData]);
 
   // Check when modal is open, if open prevent background scroll.
-  useEffect(() => {
-    if (isReleaseModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isReleaseModalOpen]);
+  //!! need to fix -- dont directly manipulate dom
+  // useEffect(() => {
+  //   if (isReleaseModalOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "unset";
+  //   }
+  // }, [isReleaseModalOpen]);
 
   // useEffect(() => {
   //   console.log(selectedRelease);
   // }, [selectedRelease]);
 
-  // Release onclick method - when user clicks on a biscuit/release, modal opens with additional information.
-  const handleReleaseClick = (release) => {
-    setSelectedRelease(release);
-    setIsReleaseModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setSelectedRelease(null);
-    setIsReleaseModalOpen(false);
-  };
-
   // Render releases in Vault container
   const mapReleases = (array) => {
     return array.map((release) => {
-      const { artist_name, release_art, release_id } = release;
-      return (
-        <div key={release_id} data-testid="vault-release" className={styles["release-wrapper"]} onClick={() => handleReleaseClick(release)}>
-          <ReleaseImage releaseImageSrc={release_art} releaseAlt="random alt" />
-          <div className={styles["release-overlay-container"]}>
-            <h2>{artist_name}</h2>
-          </div>
-        </div>
-      );
+      return <VaultCard key={release.release_id} release={release} />;
     });
   };
 
   return (
-    <>
-      <FixedNavigationSpacer />
-      <section id="vault" className={styles["vault"]}>
-        <div className={styles["vault-title"]}>
-          <h1>
-            <RecordVinyl data-testid="record-svg" width="50px" />
-            <div>VAULT</div>
-          </h1>
+    <section id="vault" className={`_main_section ${styles["vault"]}`}>
+      <div className={styles["vault-title"]}>
+        <h1>
+          <RecordVinyl data-testid="record-svg" width="50px" />
+          <div>VAULT</div>
+        </h1>
+      </div>
+      <div className={styles["vault-contents-wrapper"]}>
+        <div className={styles["vault-header"]}>
+          <p className={styles["vault-header-p-1"]}>
+            The vault is a repository of all <span>past</span> releases on BnG.
+            Take a look at the <span>artist</span> we have worked with thus far.
+          </p>
+          <p className={styles["vault-header-p-2"]}>
+            To see releases currently available, visit the{" "}
+            <HashLink
+              className={styles["showcase-link"]}
+              smooth
+              to="/#music-showcase-return"
+            >
+              music showcase
+            </HashLink>
+            .
+          </p>
         </div>
-        <div className={styles["vault-contents-wrapper"]}>
-          <div className={styles["vault-header"]}>
-            <h1>
-              The vault is a repository of all <span>past</span> releases on BnG. <br /> Take a look at the <span>artist</span> we have worked with
-              thus far.
-              <br />
-              <br />
-              To see releases currently available, visit the{" "}
-              <HashLink className={styles["showcase-link"]} smooth to="/#music-showcase-return">
-                music showcase
-              </HashLink>
-              .
-            </h1>
-          </div>
-          <div className={styles["vault-showcase"]}>
+        <div className={styles["vault-showcase"]}>
+          <div className={styles["vault-showcase-grid"]}>
             {isLoading && <ComponentLoading />}
-            {errorMessage === null ? releaseData && mapReleases(releaseArr) : errorMessage}
+            {errorMessage === null
+              ? releaseData && mapReleases(releaseArr)
+              : errorMessage}
           </div>
         </div>
-      </section>
-      {selectedRelease ? <VaultReleaseModal isModalOpen={isReleaseModalOpen} release={selectedRelease} handleModalClose={handleModalClose} /> : <></>}
-    </>
+      </div>
+    </section>
   );
 };
 

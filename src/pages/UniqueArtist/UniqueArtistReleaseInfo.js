@@ -38,7 +38,7 @@ const UniqueArtistReleaseInfo = ({ releases }) => {
   let { artistId } = useParams();
 
   //will redirect if artist id in url params does not match a current release id
-  if (!releaseIds.includes(Number(artistId))) {
+  if (!releaseIds.includes(+artistId)) {
     return <NotFound />;
   }
 

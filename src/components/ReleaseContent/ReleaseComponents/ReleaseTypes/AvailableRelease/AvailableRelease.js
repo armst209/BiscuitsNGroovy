@@ -1,23 +1,23 @@
 //styles
 import styles from "../ReleaseHover.module.scss";
 
-import { useState, lazy, Suspense } from "react";
-import ComponentLoading from "../../../../Loading/Component/ComponentLoading";
+//react imports
+import { useState } from "react";
+
+//component imports
 import AvailableReleaseHover from "./Hover/AvailableReleaseHover";
 import AvailableReleaseModal from "./Modal/AvailableReleaseModal";
-const ReleaseImage = lazy(() => import("../../ReleaseImage/ReleaseImage"));
+import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 
 const AvailableRelease = ({ release }) => {
   const [showAvaliableReleaseModal, setShowAvailableReleaseModal] =
     useState(false);
   return (
     <figure className={styles["hover-img"]}>
-      <Suspense fallback={<ComponentLoading />}>
-        <ReleaseImage
-          releaseImageSrc={release.art_url}
-          releaseAlt={release.name}
-        />
-      </Suspense>
+      <ReleaseImage
+        releaseImageSrc={release.art_url}
+        releaseAlt={release.name}
+      />
 
       <figcaption
         onClick={() => setShowAvailableReleaseModal(!showAvaliableReleaseModal)}
