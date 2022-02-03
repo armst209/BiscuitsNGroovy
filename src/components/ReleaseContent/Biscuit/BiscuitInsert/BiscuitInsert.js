@@ -4,20 +4,27 @@ const BiscuitInsert = ({
   showHideMusicPlayerContainerHandler,
   release,
 }) => {
+
+  // Conditionally run different sets of methods depending on what props have been passed.
+  const closeBiscuit = () => {
+    if(showHideBiscuitInsertHandler && showHideMusicPlayerContainerHandler) {
+      showHideBiscuitInsertHandler();
+      showHideMusicPlayerContainerHandler();
+    } else {
+      showHideBiscuitInsertHandler();
+    }
+  }
+  
   return (
     <section id={styles["biscuit-insert"]}>
       <div
         className={styles["biscuit-insert-close"]}
-        onClick={() => {
-          showHideBiscuitInsertHandler();
-          showHideMusicPlayerContainerHandler();
-        }}
+        onClick={() => closeBiscuit()}
       >
         X
       </div>
       <div className={styles["biscuit-insert-container"]}>
         <div className={styles["biscuit-insert-iframe-container-1"]}>
-          <span>PASSWORD: bubblegum </span>
           <iframe
             // src="https://player.vimeo.com/video/666613961?h=d72eaedb5e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             src={`${release.insert_link_2}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}

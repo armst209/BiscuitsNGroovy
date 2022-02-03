@@ -1,4 +1,9 @@
 {
   "cSpell.words": ["impt"],
-  "workbench.colorTheme": "Cyberpunk"
+  "workbench.colorTheme": "Cyberpunk",
+  "prettier.requireConfig": true,
+  "liveSassCompile.settings.includeItems": [
+    "src/pages/Vault/Vault.module.scss",
+    "src/pages/Vault/VaultReleaseModal.module.scss",
+  ]
 }

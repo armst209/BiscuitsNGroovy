@@ -12,6 +12,7 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 
 //react imports
 import useFetch from "../../customHooks/Fetch/useFetch";
+import { useEffect } from "react";
 
 const Collection = () => {
   //TOKEN
