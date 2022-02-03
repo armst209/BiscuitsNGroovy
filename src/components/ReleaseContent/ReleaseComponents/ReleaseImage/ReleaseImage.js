@@ -10,7 +10,7 @@ import ImageLoader from "../../../Loading/Image/ImageLoader";
 const ReleaseImage = ({ releaseImageSrc, releaseAlt }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   return (
-    <>
+    <div className={styles["release-image-container"]}>
       {!isImageLoaded && <ImageLoader />}
       <LazyLoadImage
         id={styles["release-image"]}
@@ -19,7 +19,7 @@ const ReleaseImage = ({ releaseImageSrc, releaseAlt }) => {
         effect="blur"
         afterLoad={() => setIsImageLoaded(true)}
       />
-    </>
+    </div>
   );
 };
 

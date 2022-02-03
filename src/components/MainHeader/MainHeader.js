@@ -14,7 +14,11 @@ const MainHeader = () => {
   const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);
 
   //handlers
-  const showLogoutLoaderHandler = () => setShowLogoutLoadingModal(true);
+  const showLogoutLoaderHandler = () => {
+    setShowLogoutLoadingModal((previousState) => {
+      return !previousState;
+    });
+  };
 
   const hideLogoutLoaderHandler = () => setShowLogoutLoadingModal(false);
 
@@ -40,3 +44,5 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
+
+

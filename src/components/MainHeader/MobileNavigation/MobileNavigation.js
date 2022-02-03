@@ -17,16 +17,16 @@ import "./MobileNavigationStyles.scss";
 //framer motion import
 import { motion } from "framer-motion";
 
+//framer motion variant
 const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: "-100%" },
 };
+
 const MobileNavigation = ({ showLogoutLoaderHandler }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const closeMobileMenuHandler = () => {
-    setShowMobileMenu(false);
-  };
+  const closeMobileMenuHandler = () => setShowMobileMenu(false);
 
   return (
     <>
@@ -107,6 +107,15 @@ const MobileNavigation = ({ showLogoutLoaderHandler }) => {
             </NavLink>
           </li>
 
+          <li>
+            <NavLink
+              onClick={() => closeMobileMenuHandler()}
+              activeClassName="active-link"
+              to="/vault"
+            >
+              Vault
+            </NavLink>
+          </li>
           <LoginAndSignUpMobile
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}

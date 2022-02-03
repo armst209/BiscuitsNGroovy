@@ -1,10 +1,15 @@
 //styles
 import styles from "../ReleaseHover.module.scss";
-import { useState } from "react";
+
+//react imports
+import { useState, useRef, useEffect } from "react";
+
+//component imports
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import ExpiredReleaseHover from "./Hover/ExpiredReleaseHover";
 import NFTViewModal from "./Modals/NFTModal/NFTViewModal";
 import InsertViewModal from "./Modals/InsertModal/InsertViewModal";
+import BiscuitInsert from "../../../Biscuit/BiscuitInsert/BiscuitInsert";
 
 const ExpiredRelease = ({ release }) => {
   const [showNFTModal, setShowNFTModal] = useState(false);
@@ -25,7 +30,7 @@ const ExpiredRelease = ({ release }) => {
   };
 
   return (
-    <figure className={styles["hover-img"]}>
+    <figure id="expired-release" className={styles["hover-img"]}>
       <ReleaseImage
         releaseImageSrc={release.art_url}
         releaseAlt={release.name}
@@ -46,10 +51,12 @@ const ExpiredRelease = ({ release }) => {
         />
       )}
       {showInsertModal && (
-        <InsertViewModal
-          release={release}
-          closeInsertView={closeInsertViewModalHandler}
-        />
+        <BiscuitInsert release={release} showHideBiscuitInsertHandler={closeInsertViewModalHandler}/>
+        //! Need to determine if we need an insert view modal. Depending on what future biscuit or inserts would include.
+        // <InsertViewModal
+        //   release={release}
+        //   closeInsertView={closeInsertViewModalHandler}
+        // />
       )}
     </figure>
   );

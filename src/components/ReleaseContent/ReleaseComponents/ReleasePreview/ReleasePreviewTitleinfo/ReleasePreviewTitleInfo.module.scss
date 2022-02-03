@@ -6,13 +6,23 @@
 
   .release-image-container {
     position: relative;
+    @media screen and (max-width: 400px) {
+      margin-top: 1rem;
+    }
   }
+
   .release-preview-title-info-price {
     padding-top: 0.5rem;
     div {
       color: var(--color1);
       font-family: var(--header-font);
       font-size: 3rem;
+    }
+  }
+  .release-description-button {
+    width: 200px;
+    @media screen and (max-width: 500px) {
+      margin-bottom: 1rem;
     }
   }
 }

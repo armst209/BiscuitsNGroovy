@@ -76,6 +76,14 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
+    path: "/vault",
+    component: lazy(() => import("../pages/Vault/Vault")),
+    key: "VAULT_PAGE",
+    exact: true,
+    private: false,
+    fallback: <Loading />,
+  },
+  {
     path: "/biscuit/:biscuitId",
     component: lazy(
       () => import("../components/ReleaseContent/Biscuit/Biscuit")
