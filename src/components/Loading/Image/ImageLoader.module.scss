@@ -4,8 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 300px;
-  max-height: 300px;
+  // max-width: 300px;
+  // max-height: 300px;
+  width: auto;
+  height: auto;
   border-radius: 0.5rem;
   position: absolute;
   z-index: 20;

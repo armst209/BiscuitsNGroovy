@@ -68,12 +68,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 0 1rem;
+
       @media screen and (max-width: 400px) {
         padding: 0;
       }
       .collection-library-grid-wrapper {
-        padding: 1rem;
         width: 100%;
         @media screen and (max-width: 500px) {
           border: none;

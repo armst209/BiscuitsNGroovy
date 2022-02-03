@@ -40,6 +40,11 @@ const ReleaseContainer = ({ release }) => {
     release && (
       <section id={styles.release}>
         <div className={styles["release-content-wrapper"]}>
+          <div className={styles["release-back-link"]}>
+            <NavHashLink smooth to="/#music-showcase-return">
+              <BackButton /> <div>Back to Showcase</div>
+            </NavHashLink>
+          </div>
           <div className={styles["release-preview-container"]}>
             <div className={styles["release-preview-content"]}>
               <div className={styles["release-content-left"]}>
@@ -52,10 +57,6 @@ const ReleaseContainer = ({ release }) => {
                       X
                     </div>
                     {release.description}
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Esse placeat est eos ipsa doloribus debitis suscipit porro
-                    voluptatum animi quis, minus repellat eum deserunt obcaecati
-                    dolore non cum dolorem quasi.
                   </div>
                 )}
                 <ReleasePreviewTitleInfo
@@ -74,11 +75,6 @@ const ReleaseContainer = ({ release }) => {
                 <div className={styles["release-preview-svg-divider"]}></div>
               </div>
             </div>
-          </div>
-          <div className={styles["release-back-link"]}>
-            <NavHashLink smooth to="/#music-showcase-return">
-              <BackButton /> <div>Back to Showcase</div>
-            </NavHashLink>
           </div>
         </div>
       </section>
