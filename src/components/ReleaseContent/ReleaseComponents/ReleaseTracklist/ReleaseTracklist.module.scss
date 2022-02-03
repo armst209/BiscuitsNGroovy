@@ -3,15 +3,17 @@
   border-bottom: 2px solid var(--color1);
   width: 100%;
   counter-reset: tracklist-counter;
+  max-height: 300px;
+  overflow-y: scroll;
 
   @media screen and (max-width: 1000px) {
     max-height: 200px;
-    overflow-y: scroll;
+ 
   }
 
   @media screen and (max-width: 500px) {
     max-height: 150px;
-    overflow-y: scroll;
+    
   }
   .tracklist-li {
     counter-increment: tracklist-counter;
