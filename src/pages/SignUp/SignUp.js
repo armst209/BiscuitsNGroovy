@@ -14,6 +14,11 @@ import { ReactComponent as QuestionIcon } from '../../assets/images/help_questio
 import styles from "./SignUp.module.scss";
 import Loading from "../../components/Loading/Loading";
 
+/**
+ * TODO: For future signup implementation, add progress bar - use progress HTML element
+ *
+ */
+
 const SignUp = () => {
   const [showSignUpInfo, setShowSignUpInfo] = useState(true);
   const [showFlowButtonLoader, setShowFlowButtonLoader] = useState(false);
@@ -27,8 +32,7 @@ const SignUp = () => {
   };
 
   return (
-    <section id={styles.signup}>
-      <FixedNavigationSpacer />
+    <section id={`${styles.signup}`} className="_main_section">
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>

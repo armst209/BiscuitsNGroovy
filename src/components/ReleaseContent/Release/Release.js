@@ -4,7 +4,6 @@ import useFetch from "../../../customHooks/Fetch/useAxiosFetch";
 import NotFound from "../../../pages/NotFound/NotFound";
 
 //component imports
-import FixedNavigationSpacer from "../../FixedNavigationSpacer/FixedNavigationSpacer";
 import ComponentLoading from "../../Loading/Component/ComponentLoading";
 import ReleaseContainer from "./ReleaseContainer/ReleaseContainer";
 

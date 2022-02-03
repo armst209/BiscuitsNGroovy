@@ -11,7 +11,7 @@ import styles from "./CollectionReleaseList.module.scss";
 import AvailableRelease from "../../ReleaseTypes/AvailableRelease/AvailableRelease";
 import ExpiredRelease from "../../ReleaseTypes/ExpiredRelease/ExpiredRelease";
 import ExpiredInfoModal from "../../ReleaseTypes/ExpiredRelease/Modals/ExpiredInfoModal/ExpiredInfoModal";
-import NoLiveReleases from "./NoReleases/NoLiveReleases";
+import NoLiveReleases from "../../NoReleases/NoLiveReleases";
 
 const CollectionReleaseList = memo(
   ({ releaseData, noReleaseDataComponent }) => {
@@ -40,7 +40,7 @@ const CollectionReleaseList = memo(
         {releaseData.length === 0 ? (
           noReleaseDataComponent
         ) : (
-          <section id={styles["collection-release-list"]}>
+          <div className={styles["collection-release-list"]}>
             <h1 className={styles["h1-title"]}>
               <div>Live Biscuits</div>
             </h1>
@@ -49,7 +49,7 @@ const CollectionReleaseList = memo(
                 styles["collection-release-list-live-releases-container"]
               }
             >
-              <div className={styles["release-grid"]}>
+              <div className={styles["release-live-grid"]}>
                 {filteredLiveReleases.length === 0 ? (
                   <NoLiveReleases />
                 ) : (
@@ -69,14 +69,14 @@ const CollectionReleaseList = memo(
                 styles["collection-release-list-released-releases-container"]
               }
             >
-              <div className={styles["release-grid"]}>
-                <div
-                  onClick={() => showExpiredInfoModalHandler()}
-                  className={styles["cant-play-releases-container"]}
-                >
-                  <QuestionIcon />
-                  <p>Why can't I stream my music?</p>
-                </div>
+              <div
+                onClick={() => showExpiredInfoModalHandler()}
+                className={styles["cant-play-releases-container"]}
+              >
+                <QuestionIcon />
+                <p>Why can't I play my releases?</p>
+              </div>
+              <div className={styles["release-released-grid"]}>
                 {filteredReleasedReleases.map((release) => {
                   return <ExpiredRelease key={release.id} release={release} />;
                 })}
@@ -88,7 +88,7 @@ const CollectionReleaseList = memo(
                 />
               )}
             </div>
-          </section>
+          </div>
         )}
       </>
     );

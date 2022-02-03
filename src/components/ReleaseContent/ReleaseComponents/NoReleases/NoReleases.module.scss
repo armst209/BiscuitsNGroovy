@@ -1,0 +1,19 @@
+#no-live-releases {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+  span {
+    color: var(--color1);
+  }
+  p {
+    font-family: var(--header-font);
+    margin: 1rem;
+    text-align: center;
+  }
+  button {
+    min-width: 200px;
+  }
+}

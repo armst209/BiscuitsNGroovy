@@ -2,15 +2,30 @@
   border-top: 2px solid var(--color1);
   border-bottom: 2px solid var(--color1);
   width: 100%;
-  @media screen and (max-width: 700px) {
-    max-height: 120px;
+  counter-reset: tracklist-counter;
+
+  @media screen and (max-width: 1000px) {
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-height: 150px;
     overflow-y: scroll;
   }
   .tracklist-li {
+    counter-increment: tracklist-counter;
     color: white;
     font-family: var(--header-font);
     list-style: none;
     font-size: 1.5rem;
+
+    &::before {
+      content: counter(tracklist-counter) ". ";
+      color: var(--color1);
+      font-weight: bold;
+      font-family: var(--header-font);
+    }
 
     @media screen and (max-width: 900px) {
       font-size: 1rem;

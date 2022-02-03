@@ -109,28 +109,6 @@
           display: none;
         }
       }
-      .music-showcase-grid {
-        width: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1rem;
-        box-shadow: var(--container-box-shadow);
-        // border: 2px solid var(--color2);
-        border-radius: 20px;
-        height: auto;
-
-        @media screen and (max-width: 1050px) {
-          width: 100%;
-          height: auto;
-        }
-        @media screen and (max-width: 350px) {
-          border: none;
-          padding: 0;
-        }
-      }
     }
   }
   .music-showcase-bottom-image-container {

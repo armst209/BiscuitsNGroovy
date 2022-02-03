@@ -2,7 +2,7 @@
 import styles from "../ReleaseHover.module.scss";
 
 //react imports
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 //component imports
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
@@ -30,7 +30,7 @@ const ExpiredRelease = ({ release }) => {
   };
 
   return (
-    <figure className={styles["hover-img"]}>
+    <figure id="expired-release" className={styles["hover-img"]}>
       <ReleaseImage
         releaseImageSrc={release.art_url}
         releaseAlt={release.name}

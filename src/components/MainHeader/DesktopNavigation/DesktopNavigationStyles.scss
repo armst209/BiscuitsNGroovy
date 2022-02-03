@@ -11,14 +11,12 @@
   li {
     padding: 0 10px;
 
-    // text-transform: uppercase;
     font-weight: normal;
     a {
       line-height: 22px;
       text-decoration: none;
       position: relative;
       padding: 5.2px 0;
-      // transition: color 0.1s, background-color 0.1s, padding 0.15s ease-in;
       transition: color 0.2s ease;
       color: white;
 
@@ -26,26 +24,6 @@
         color: var(--color1);
         box-shadow: var(--container-box-shadow);
       }
-
-      // &::before {
-      //   content: "";
-      //   display: block;
-      //   position: absolute;
-      //   bottom: 3px;
-      //   left: 0;
-      //   height: 1px;
-      //   width: 100%;
-      //   background-color: var(--color2);
-      //   transform-origin: right top;
-      //   transform: scale(0, 1);
-      //   transition: color 0.1s, transform 0.15s ease-out;
-      // }
-
-      // &:hover::before,
-      // &:focus::before {
-      //   transform-origin: left top;
-      //   transform: scale(1, 1);
-      // }
     }
   }
   .signup-button {

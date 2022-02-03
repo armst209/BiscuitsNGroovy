@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 
 //hash link import
 import { NavHashLink } from "react-router-hash-link";
+import Button from "../../../WrapperComponents/Button/Button";
 
 const ReleaseContainer = ({ release }) => {
   //selecting first release in release object
@@ -39,6 +40,11 @@ const ReleaseContainer = ({ release }) => {
     release && (
       <section id={styles.release}>
         <div className={styles["release-content-wrapper"]}>
+          <div className={styles["release-back-link"]}>
+            <NavHashLink smooth to="/#music-showcase-return">
+              <BackButton /> <div>Back to Showcase</div>
+            </NavHashLink>
+          </div>
           <div className={styles["release-preview-container"]}>
             <div className={styles["release-preview-content"]}>
               <div className={styles["release-content-left"]}>
@@ -53,7 +59,12 @@ const ReleaseContainer = ({ release }) => {
                     {release.description}
                   </div>
                 )}
-                <ReleasePreviewTitleInfo release={release} />
+                <ReleasePreviewTitleInfo
+                  release={release}
+                  showHideBiscuitDescriptionHandler={
+                    showHideBiscuitDescriptionHandler
+                  }
+                />
               </div>
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>
@@ -64,11 +75,6 @@ const ReleaseContainer = ({ release }) => {
                 <div className={styles["release-preview-svg-divider"]}></div>
               </div>
             </div>
-          </div>
-          <div className={styles["release-back-link"]}>
-            <NavHashLink smooth to="/#music-showcase-return">
-              <BackButton /> <div>Back to Showcase</div>
-            </NavHashLink>
           </div>
         </div>
       </section>

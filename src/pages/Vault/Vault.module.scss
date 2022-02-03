@@ -1,0 +1,129 @@
+.vault {
+  position: relative;
+  background: black;
+  color: white;
+  font-family: var(--font2);
+
+  .vault-title {
+    width: 100%;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    h1 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      font-family: var(--header-font);
+
+      font-weight: normal;
+      color: white;
+      background-color: transparent;
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: 3rem;
+      position: relative;
+      @media screen and (max-width: 500px) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .vault-contents-wrapper {
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 2rem;
+    background: black;
+    .vault-header {
+      width: 85%;
+      font-family: var(--header-font);
+      padding: 1rem;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+      border: 2px solid var(--color2);
+      border-radius: var(--main-border-radius);
+      .vault-header-p-1 {
+        margin-bottom: 1rem;
+      }
+
+      @media screen and (max-width: 1000px) {
+        font-size: 1rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+      h1 {
+        background-color: transparent;
+        color: white;
+        width: 100%;
+        font-weight: normal;
+
+        @media screen and (max-width: 450px) {
+          font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 400px) {
+          font-size: 1.3rem;
+        }
+        @media screen and (max-width: 350px) {
+          font-size: 1rem;
+        }
+        span {
+          color: var(--color1);
+        }
+      }
+      .showcase-link {
+        -webkit-text-decoration: underline 2px var(--color2);
+        text-decoration: underline 2px var(--color2);
+        color: var(--color1);
+
+        &:visited {
+          color: var(--color1);
+        }
+      }
+    }
+    .vault-showcase {
+      padding: 1rem;
+      border: 2px solid var(--color2);
+      border-radius: var(--main-border-radius);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

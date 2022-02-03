@@ -120,6 +120,10 @@
   --main-border-radius: 0.5rem;
 }
 
+/* global modal container */
+#modal-overlay-root {
+}
+
 /* body */
 body {
   background-color: #000;
