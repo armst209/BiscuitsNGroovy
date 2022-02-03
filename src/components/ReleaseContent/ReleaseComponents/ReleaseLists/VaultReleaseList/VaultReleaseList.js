@@ -1,6 +1,7 @@
 //react imports
 import { useState, useEffect, useMemo } from "react";
 import useFetch from "../../../../../customHooks/Fetch/useFetch";
+import ScrollWidget from "../../../../../Routes/ScrollWidget/ScrollWidget";
 
 //component imports
 import ComponentLoading from "../../../../Loading/Component/ComponentLoading";
@@ -10,6 +11,15 @@ import VaultCard from "../../ReleaseCard/CardTypes/VaultCard/VaultCard";
 import styles from "./VaultReleaseList.module.scss";
 const VaultReleaseList = () => {
   const [releaseArr, setReleaseArr] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modalStateCallback = (boolean) => {
+    setIsModalOpen(boolean);
+  }
+
+  useEffect(()=>{
+    console.log(isModalOpen);
+  },[isModalOpen])
 
   //useFetch - api call
   const {
@@ -47,7 +57,7 @@ const VaultReleaseList = () => {
   // Render releases in Vault container
   const mapReleases = (array) => {
     return array.map((release) => {
-      return <VaultCard key={release.release_id} release={release} />;
+      return <VaultCard key={release.release_id} release={release} toggleModalState={modalStateCallback} />;
     });
   };
   return (
@@ -56,6 +66,7 @@ const VaultReleaseList = () => {
       {errorMessage === null
         ? releaseData && mapReleases(releaseArr)
         : errorMessage}
+        {!isModalOpen &&<ScrollWidget/>}
     </div>
   );
 };

@@ -12,7 +12,7 @@ import { useState, createRef } from "react";
 //npm imports
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
-const VaultCard = ({ release }) => {
+const VaultCard = ({ release, toggleModalState }) => {
   const [showVaultModal, setShowVaultModal] = useState(false);
 
   //release object destructuring
@@ -22,11 +22,13 @@ const VaultCard = ({ release }) => {
   const showVaultModalHandler = () => {
     setShowVaultModal(true);
     disableBodyScroll(ref);
+    toggleModalState(true);
   };
 
   const hideVaultModalHandler = () => {
     setShowVaultModal(false);
     enableBodyScroll(ref);
+    toggleModalState(false);
   };
 
   //ref for vault modal
