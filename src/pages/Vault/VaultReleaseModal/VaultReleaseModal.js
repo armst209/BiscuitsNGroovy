@@ -34,7 +34,35 @@ const VaultReleaseModalOverlay = forwardRef(
       end_date,
       playlist,
       artist_name,
+      social
     } = release;
+
+    const socialLinks = (social) => {
+      if(/spotify/.test(social)){
+        return(
+          <a
+          href={social}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles["spotify"]}
+        >
+          <i className="fab fa-spotify"></i>
+        </a>
+        )
+
+      } else if (/tiktok/.test(social)){
+        return (        
+        <a
+          href={social}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles['tiktok']}
+        >
+          <i className="fab fa-tiktok"></i>
+        </a>)
+
+      }
+    }
 
     return (
       <div ref={ref} className={styles["vault-modal-wrapper"]}>
@@ -67,13 +95,7 @@ const VaultReleaseModalOverlay = forwardRef(
                   {dateConverter(start_date)} - {dateConverter(end_date)}
                 </span>
               </div>
-              <a
-                href="https://open.spotify.com/user/ajxyu54lfjlxoc8a7dzx59odj?si=crL_VRaXSUiBRDEW8-31xg&nd=1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-spotify"></i>
-              </a>
+              {social && socialLinks(social)}
             </div>
             <div className={styles["modal-body-right-side"]}>
               <p className={styles["modal-body-release-description"]}>
