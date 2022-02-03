@@ -38,11 +38,9 @@
       color: white;
       font-family: var(--header-font);
       font-size: var(--font2);
-      display: flex;
-      justify-content: right;
-      align-items: center;
 
       .vault-modal-close {
+        float: right;
         cursor: pointer;
       }
       span {
