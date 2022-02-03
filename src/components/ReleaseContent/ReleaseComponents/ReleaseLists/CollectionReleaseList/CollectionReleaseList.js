@@ -42,7 +42,7 @@ const CollectionReleaseList = memo(
         ) : (
           <div className={styles["collection-release-list"]}>
             <h1 className={styles["h1-title"]}>
-              <div>Live</div>
+              <div>Live Biscuits</div>
             </h1>
             <div
               className={
@@ -62,7 +62,7 @@ const CollectionReleaseList = memo(
               </div>
             </div>
             <h1 className={styles["h1-title"]}>
-              <div>Released</div>
+              <div>Expired Biscuits</div>
             </h1>
             <div
               className={

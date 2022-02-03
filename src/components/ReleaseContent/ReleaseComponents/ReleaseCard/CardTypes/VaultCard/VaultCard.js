@@ -44,9 +44,8 @@ const VaultCard = ({ release }) => {
           releaseImageSrc={release_art}
           releaseAlt={`vault-${artist_name}`}
         />
-
-        <figcaption>
-          {/* Hover state*/}
+ {/* Hover state*/}
+        <figcaption>  
           <div className={styles["release-overlay-container"]}>
             <h2>{artist_name}</h2>
           </div>

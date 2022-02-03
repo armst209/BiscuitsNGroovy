@@ -54,10 +54,12 @@ const VaultReleaseModalOverlay = forwardRef(
             <div className={styles["modal-body-left-side"]}>
               {/* Biscuits and groovy logo is redundant - not a unique link & already on bng site, users know */}
               {/* <MainHeaderLogo className={styles["logo"]} /> */}
+              <div className={styles["modal-body-left-release-image-container"]}>
               <ReleaseImage
                 releaseImageSrc={release_art}
                 alt={`${release_name} biscuit`}
               />
+              </div>
               <h1>{artist_name}</h1>
               <p className={styles["modal-release-name"]}>{release_name}</p>
               <div className={styles["date-wrapper"]}>

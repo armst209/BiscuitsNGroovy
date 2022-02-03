@@ -7,13 +7,15 @@ const VaultReleaseDescriptionModal = ({
 }) => {
   return (
     <div className={styles["vault-release-description-modal"]}>
-      <div
-        className={styles["vault-release-description-modal-close"]}
-        onClick={() => showHideVaultReleaseDescriptionHandler()}
-      >
-        X
-      </div>
+      <div className={styles["vault-release-description-modal-container"]}>
+        <div
+          className={styles["vault-release-description-modal-close"]}
+          onClick={() => showHideVaultReleaseDescriptionHandler()}
+          >
+         X
+        </div>
       <p>{releaseDescription}</p>
+      </div>
     </div>
   );
 };

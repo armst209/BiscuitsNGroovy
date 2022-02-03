@@ -8,7 +8,7 @@ function InsertViewModal({ release, closeInsertView }) {
         <div className="expired-modal-close" onClick={() => closeInsertView()}>
           X
         </div>
-        <BiscuitInsert />
+        <BiscuitInsert release={release}/>
       </div>
     </section>
   );
