@@ -41,14 +41,15 @@ const VaultCard = ({ release, toggleModalState }) => {
         onClick={() => {
           showVaultModalHandler();
         }}
+        data-testid="vault-release"
       >
         <ReleaseImage
           releaseImageSrc={release_art}
           releaseAlt={`vault-${artist_name}`}
         />
- {/* Hover state*/}
+      {/* Hover state*/}
         <figcaption>  
-          <div className={styles["release-overlay-container"]}>
+          <div>
             <h2>{artist_name}</h2>
           </div>
         </figcaption>
