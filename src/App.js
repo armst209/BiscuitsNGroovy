@@ -14,12 +14,15 @@ import Router from "./Routes/Router.tsx";
 import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
+import useTestAxiosFetch from "./customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   const gaTrackingId = "UA-211766799-1";
   ReactGA.initialize(gaTrackingId);
   ReactGA.pageview("/");
   // -------End of Google Analytics - DON'T REMOVE-------
+
 
   return (
     <div className="App">

@@ -86,14 +86,14 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
           <ValidationSuccess className="valid-check-icon newsletter-email-check" />
         )}
 
-        <Button
+        <button
           className="newsletter-form-button-container _button"
           type="submit"
         >
           <div className="newsletter-form-button-link">
             <span>Join</span>
           </div>
-        </Button>
+        </button>
       </fieldset>
     </form>
   );

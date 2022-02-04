@@ -37,7 +37,7 @@ function Hero() {
                     from your favorite artists. Prove your fandom
                   </div>
                   <div className="hero-buttons">
-                    <Button
+                    <button
                       className="start-button-container _button"
                       align="center"
                     >
@@ -48,7 +48,7 @@ function Hero() {
                       >
                         <span>Start Your Collection</span>
                       </NavHashLink>
-                    </Button>
+                    </button>
                   </div>
                 </section>
               </div>
