@@ -8,6 +8,7 @@ import VaultReleaseModal from "../../../../../../pages/Vault/VaultReleaseModal/V
 
 //react imports
 import { useState, createRef } from "react";
+import ReactDOM from "react-dom";
 
 //npm imports
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -55,12 +56,12 @@ const VaultCard = ({ release, toggleModalState }) => {
         </figcaption>
         {/* Modal */}
       </figure>
-      {showVaultModal && (
+      {showVaultModal && ReactDOM.createPortal(
         <VaultReleaseModal
           ref={ref}
           release={release}
           hideVaultModalHandler={hideVaultModalHandler}
-        />
+        />, document.getElementById("modal-overlay-root")
       )}
     </>
   );

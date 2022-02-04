@@ -12,34 +12,43 @@ const sampleRelease = {
   release_id: 24,
   release_name: "Trials and Errors",
   start_date: "2021-09-17T00:00:00.000Z",
+  social: "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
 };
 
-describe("Release content renders correctly in modal", () => {
-  beforeEach(() => {
-    render(<VaultReleaseModal release={sampleRelease} />);
-  });
 
-  test("Release content is in the modal", () => {
-    expect(
-      screen.getByRole("heading", { name: /trials and errors/i })
-    ).toBeInTheDocument();
+describe("Release content renders correctly in modal", () => {
+  // beforeEach(() => {
+  //   render(<VaultReleaseModal release={sampleRelease} />);
+  // });
+
+  test("Release name renders correctly", () => {
+    const {getByTestId} = render(<VaultReleaseModal release={sampleRelease} />);
+    expect(getByTestId("vault-release-name")).toBeInTheDocument();
+    expect(getByTestId("vault-release-name").textContent).toBe("Trials and Errors");
+
+    // expect(
+    //   screen.getByRole("heading", { name: /trials and errors/i })
+    // ).toBeInTheDocument();
   });
 
   test("Artist name is in the modal", () => {
-    expect(
-      screen.getByRole("heading", { name: /lingero/i })
+    const {getByRole} = render(<VaultReleaseModal release={sampleRelease} />);
+    expect(getByRole("heading", { name: /lingero/i })
     ).toBeInTheDocument();
   });
 
   test("track list shows", () => {
-    expect(screen.getAllByRole("listitem").length).toBe(3);
+    const {getAllByRole} = render(<VaultReleaseModal release={sampleRelease} />);
+    expect(getAllByRole("listitem").length).toBe(3);
   });
 
   test("release timeframe shows", () => {
-    expect(screen.getByText(/9\/17\/2021 \- 10\/1\/2021/i)).toBeInTheDocument();
+    const {getByText} = render(<VaultReleaseModal release={sampleRelease} />);
+    expect(getByText(/9\/17\/2021 \- 10\/1\/2021/i)).toBeInTheDocument();
   });
 
   test("modal close button shows", () => {
-    expect(screen.getByTestId("modal-close-button")).toBeInTheDocument();
+    const {getByTestId} = render(<VaultReleaseModal release={sampleRelease} />);
+    expect(getByTestId("modal-close-button")).toBeInTheDocument();
   });
 });

@@ -89,7 +89,10 @@ const VaultReleaseModalOverlay = forwardRef(
               />
               </div>
               <h1>{artist_name}</h1>
-              <p className={styles["modal-release-name"]}>{release_name}</p>
+              <p 
+                className={styles["modal-release-name"]}
+                data-testid="vault-release-name"
+              >{release_name}</p>
               <div className={styles["date-wrapper"]}>
                 <span className={styles["date"]}>
                   {dateConverter(start_date)} - {dateConverter(end_date)}
@@ -126,18 +129,12 @@ const VaultReleaseModalOverlay = forwardRef(
 
 const VaultReleaseModal = forwardRef(
   ({ release, hideVaultModalHandler }, ref) => {
-    return (
-      <>
-        {ReactDOM.createPortal(
-          <VaultReleaseModalOverlay
+    
+    return <VaultReleaseModalOverlay
             release={release}
             ref={ref}
             hideVaultModalHandler={hideVaultModalHandler}
-          />,
-          document.getElementById("modal-overlay-root")
-        )}
-      </>
-    );
+          />
   }
 );
 
