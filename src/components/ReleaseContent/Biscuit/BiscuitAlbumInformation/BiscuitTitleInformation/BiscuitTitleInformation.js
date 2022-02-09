@@ -20,6 +20,8 @@ const BiscuitTitleInformation = ({
       </h2>
 
       <div className={styles["biscuit-title-info-button-container"]}>
+        {/* Conditionally render "view insert" button */}
+        {release.insert_link_1 || release.insert_link_2 ? 
         <Button
           width="200px"
           className="_button"
@@ -27,7 +29,9 @@ const BiscuitTitleInformation = ({
           onClickFunction2={showHideMusicPlayerContainerHandler}
         >
           View Insert
-        </Button>
+        </Button> : null
+        
+      }
         <br />
         <button
           style={{ width: "200px" }}
