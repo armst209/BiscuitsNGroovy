@@ -16,7 +16,7 @@ import styles from "./VaultReleaseModal.module.scss";
 //utility imports
 import { dateConverter } from "../../../utils/UtilityFunctions";
 
-const VaultReleaseModalOverlay = forwardRef(
+const VaultReleaseModal = forwardRef(
   ({ release, hideVaultModalHandler }, ref) => {
     const [showHideVaultReleaseDescription, setShowHideReleaseDescription] =
       useState(false);
@@ -127,15 +127,15 @@ const VaultReleaseModalOverlay = forwardRef(
   }
 );
 
-const VaultReleaseModal = forwardRef(
-  ({ release, hideVaultModalHandler }, ref) => {
+// const VaultReleaseModal = forwardRef(
+//   ({ release, hideVaultModalHandler }, ref) => {
     
-    return <VaultReleaseModalOverlay
-            release={release}
-            ref={ref}
-            hideVaultModalHandler={hideVaultModalHandler}
-          />
-  }
-);
+//     return <VaultReleaseModalOverlay
+//             release={release}
+//             ref={ref}
+//             hideVaultModalHandler={hideVaultModalHandler}
+//           />
+//   }
+// );
 
 export default VaultReleaseModal;
