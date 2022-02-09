@@ -1,7 +1,6 @@
 //react imports
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import useTestAxiosFetch from "../../../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
-import useFetch from "../../../../../customHooks/Fetch/useFetch";
 
 //component imports
 import ComponentLoading from "../../../../Loading/Component/ComponentLoading";

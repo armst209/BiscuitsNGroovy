@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { NavHashLink, HashLink } from "react-router-hash-link";
 import "./FAQStyles.scss";
 
@@ -17,25 +16,22 @@ import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedN
 const FAQ = () => {
   const [showAnswer1, setShowAnswer1] = useState(false);
   const [showAnswer2, setShowAnswer2] = useState(false);
-  const [showAnswer3, setShowAnswer3] = useState(false);
   const [showAnswer4, setShowAnswer4] = useState(false);
   const [showAnswer5, setShowAnswer5] = useState(false);
   const [showAnswer6, setShowAnswer6] = useState(false);
   const [showAnswer7, setShowAnswer7] = useState(false);
   const [showAnswer8, setShowAnswer8] = useState(false);
-  const [showAnswer9, setShowAnswer9] = useState(false);
   const [showAnswer10, setShowAnswer10] = useState(false);
 
-  const [dropStyle1, setDropStyle1] = useState("dropdown");
-  const [dropStyle2, setDropStyle2] = useState("dropdown");
-  const [dropStyle3, setDropStyle3] = useState("dropdown");
-  const [dropStyle4, setDropStyle4] = useState("dropdown");
-  const [dropStyle5, setDropStyle5] = useState("dropdown");
-  const [dropStyle6, setDropStyle6] = useState("dropdown");
-  const [dropStyle7, setDropStyle7] = useState("dropdown");
-  const [dropStyle8, setDropStyle8] = useState("dropdown");
-  const [dropStyle9, setDropStyle9] = useState("dropdown");
-  const [dropStyle10, setDropStyle10] = useState("dropdown");
+  const [dropStyle1] = useState("dropdown");
+  const [dropStyle2] = useState("dropdown");
+  const [dropStyle4] = useState("dropdown");
+  const [dropStyle5] = useState("dropdown");
+  const [dropStyle6] = useState("dropdown");
+  const [dropStyle7] = useState("dropdown");
+  const [dropStyle8] = useState("dropdown");
+
+  const [dropStyle10] = useState("dropdown");
 
   return (
     <>
@@ -71,15 +67,7 @@ const FAQ = () => {
                     “What’s a Biscuit?”
                   </NavHashLink>
                 </li>
-                {/* <li>
-                  <div>
-                    With your purchase, you also get a collectible digital album
-                    cover NFT for no extra charge. The album art stays in Your
-                    Collection forever, even once the music has expired. Read
-                    more about our amazing NFTs{" "}
-                    <HashLink to="/faq#nft-scroll-purchase">below</HashLink>.
-                  </div>
-                </li> */}
+       
               </ul>
             </div>
           )}
@@ -87,7 +75,7 @@ const FAQ = () => {
           <h5
             onClick={() => {
               setShowAnswer2(!showAnswer2);
-              // setDropStyle2("icon_rotate");
+             
             }}
           >
             <div> Why does music expire?</div>
@@ -117,34 +105,6 @@ const FAQ = () => {
             </div>
           )}
 
-          {/* <h5
-            onClick={() => {
-              setShowAnswer3(!showAnswer3);
-              // setDropStyle3("icon_rotate");
-            }}
-          >
-            <div>Where do I find my purchased music?</div>
-            <img
-              className={`dropdown ${dropStyle3}`}
-              src={dropdown}
-              alt="dropdown"
-            />
-          </h5>
-          {showAnswer3 && (
-            <div className="answer">
-              <ul>
-                <li>
-                  <div>
-                    Access your music and album art from the My Collection page
-                    of your profile. Simply login, click the dropdown menu, and
-                    select My Collection. From here you’ll be able to click on a
-                    title to listen during the release period. If the period has
-                    ended, the title will be labelled “expired.”
-                  </div>
-                </li>
-              </ul>
-            </div>
-          )} */}
 
           <h5
             onClick={() => {
@@ -177,7 +137,7 @@ const FAQ = () => {
             id="NFT"
             onClick={() => {
               setShowAnswer5(!showAnswer5);
-              // setDropStyle5("icon_rotate");
+          
             }}
           >
             <div> What’s an NFT?</div>
@@ -215,7 +175,7 @@ const FAQ = () => {
           <h5
             onClick={() => {
               setShowAnswer6(!showAnswer6);
-              // setDropStyle6("icon_rotate");
+            
             }}
           >
             <div>Do I need cryptocurrency to pay?</div>
@@ -245,7 +205,7 @@ const FAQ = () => {
           <h5
             onClick={() => {
               setShowAnswer10(!showAnswer10);
-              // setDropStyle10("icon_rotate");
+           
             }}
           >
             <div>What is a Blocto/Flow account and why do I need it?</div>
@@ -289,7 +249,7 @@ const FAQ = () => {
           <h5
             onClick={() => {
               setShowAnswer7(!showAnswer7);
-              // setDropStyle7("icon_rotate");
+            
             }}
           >
             <div>Is this a subscription?</div>
@@ -318,7 +278,7 @@ const FAQ = () => {
           <h5
             onClick={() => {
               setShowAnswer8(!showAnswer8);
-              // setDropStyle8("icon_rotate");
+          
             }}
           >
             <div>Do you have an app?</div>
@@ -342,35 +302,6 @@ const FAQ = () => {
             </div>
           )}
 
-          {/* <h5
-            onClick={() => {
-              setShowAnswer9(!showAnswer9);
-              // setDropStyle9("icon_rotate");
-            }}
-          >
-            <div>How much does BnG pay artists?</div>
-            <img
-              className={`dropdown ${dropStyle9}`}
-              src={dropdown}
-              alt="dropdown"
-            />
-          </h5>
-          {showAnswer9 && (
-            <div className="answer">
-              <ul>
-                <li>
-                  <div>
-                    BnG pays artists 75% of the sales they generate (net of
-                    taxes and other fees). Artists have full control over the
-                    pricing of their releases, and get a transparent view of
-                    their earnings since fans are supporting them directly. Read
-                    more about how we help artists{" "}
-                    <Link to="/artists">here</Link>.
-                  </div>
-                </li>
-              </ul>
-            </div>
-          )} */}
 
           <div className="header-div">
             <img src={question} alt="question icon" />
@@ -508,70 +439,7 @@ const FAQ = () => {
                 </li>
               </ul>
             </div>
-            {/* <h3>
-              <div>The future of record collecting</div>
-            </h3>
-
-            <div>
-              <ul>
-                <li>
-                  <div>
-                    <div className="div-image">
-                      <img src={record_bullet} alt="record icon" />
-                    </div>
-                    <div className="div-content">
-                      Biscuits n Groovy will soon be launching a marketplace
-                      where fans can trade and resell their NFT album covers.
-                      Just like markets for sneakers or trading cards or vinyl
-                      records, our marketplace will bring together a community
-                      of collectors and fans.
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <div className="div-content">
-                      <div className="important-info">
-                        <div className="important-content">
-                          <div className="important-img">
-                            <img src={important} alt="important icon" />
-                          </div>
-                          <div className="important-paragraph">
-                            <span>
-                              So you may want to hang onto all your album covers
-                              to curate the perfect original collection. That
-                              way everyone can see you were an OG fan, before
-                              that band blew up. Or you may want to capitalize
-                              on a record that spikes in resale value, and cash
-                              in on your favorite artist’s crazy success. After
-                              all, you knew they would make it big.{" "}
-                              <strong>
-                                The best part? The artist benefits too
-                              </strong>
-                              , since they earn 5% on every resale of their
-                              NFTs.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <div className="div-image">
-                      <img src={record_bullet} alt="record icon" />
-                    </div>
-                    <div className="div-content">
-                      Unlike other NFT marketplaces, BnG will be artist and
-                      fan-friendly, free of the crypto jargon and stock charts
-                      that make our heads spin. We can’t wait for you to start
-                      trading!
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div> */}
+            
             <h3>
               <div>Back up… what are blockchains and tokens anyways?</div>
             </h3>

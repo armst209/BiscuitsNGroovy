@@ -41,7 +41,7 @@ const MusicShowcase = () => {
           <p className={styles["music-showcase-sub-title"]}>
             Available biscuits shown below. Click on a title for more details
           </p>
-          <div className={styles["music-showcase-content-wrapper"]}>
+          <div data-testid="music-showcase-grid" className={styles["music-showcase-content-wrapper"]}>
             {isLoading && <ComponentLoading />}
             {errorMessage === null ? (
               releaseData && (

@@ -2,13 +2,13 @@
 import styles from "../ReleaseHover.module.scss";
 
 //react imports
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 //component imports
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import ExpiredReleaseHover from "./Hover/ExpiredReleaseHover";
 import NFTViewModal from "./Modals/NFTModal/NFTViewModal";
-import InsertViewModal from "./Modals/InsertModal/InsertViewModal";
+// import InsertViewModal from "./Modals/InsertModal/InsertViewModal";
 import BiscuitInsert from "../../../Biscuit/BiscuitInsert/BiscuitInsert";
 
 const ExpiredRelease = ({ release }) => {

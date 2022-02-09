@@ -15,6 +15,7 @@ const MusicShowcaseCard = ({ release }) => {
 
   return (
     <>
+
       <div
         className="release-card"
         onClick={() =>

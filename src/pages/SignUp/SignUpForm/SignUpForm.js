@@ -16,7 +16,7 @@ import { ReactComponent as ValidationSuccess } from "../../../assets/images/chec
 
 //other imports
 import axios from "axios";
-import env from "react-dotenv";
+
 
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";

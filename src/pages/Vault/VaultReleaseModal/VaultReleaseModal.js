@@ -23,7 +23,7 @@ const VaultReleaseModalOverlay = forwardRef(
 
     //vault description handler
     const showHideVaultReleaseDescriptionHandler = () =>
-      setShowHideReleaseDescription(!showHideVaultReleaseDescription);
+      setShowHideReleaseDescription(previousShowHideVaultReleaseDescription=> !previousShowHideVaultReleaseDescription);
 
     //release object destructuring
     const {

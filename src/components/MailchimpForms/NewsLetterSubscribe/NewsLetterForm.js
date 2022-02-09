@@ -1,10 +1,17 @@
+//react imports
 import { useState, useEffect } from "react";
 import useValidation from "../../../customHooks/Validation/useValidation";
+
+//styles
 import "../../../customHooks/Validation/useValidationStyles.scss";
-import FormLoader from "../../Loading/Forms/FormLoader";
-import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import "./NewsLetterSubscribeStyles.scss";
-import Button from "../../WrapperComponents/Button/Button";
+
+//component imports
+import FormLoader from "../../Loading/Forms/FormLoader";
+
+//svg imports
+import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
+
 
 const NewsLetterForm = ({ status, message, onValidated }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -22,7 +29,15 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
     inputValidation,
   } = useValidation();
 
+
   useEffect(() => {
+
+      
+  const clearFields = () => {
+    setEmail("");
+  };
+
+
     if (status === "success") {
       setNewsletterLoader(false);
       clearFields();
@@ -43,11 +58,7 @@ const NewsLetterForm = ({ status, message, onValidated }) => {
     } else if (status === "sending") {
       setNewsletterLoader(true);
     }
-  }, [status]);
-
-  const clearFields = () => {
-    setEmail("");
-  };
+  }, [status, email,setEmailInputLoginClass,setShowEmailValidationCheck, setEmail]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

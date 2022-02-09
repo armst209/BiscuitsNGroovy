@@ -1,11 +1,8 @@
 //react imports
 import { NavHashLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
+
 //img imports
 import hero_image from "../../assets/images/hero-image.webp";
-
-//component imports
-import Button from "../WrapperComponents/Button/Button";
 
 //styles
 import "./HeroStyles.scss";

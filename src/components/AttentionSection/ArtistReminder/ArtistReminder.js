@@ -7,8 +7,7 @@ import styles from "./ArtistReminder.module.scss";
 //svg imports
 import { ReactComponent as ArtistIcon } from "../../../assets/images/speaker_yellow.svg";
 
-//component imports
-import Button from "../../WrapperComponents/Button/Button";
+
 
 const ArtistReminder = () => {
   return (
