@@ -2,7 +2,6 @@
 
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
-import env from "react-dotenv";
 
 var dev_is_inited_script = fcl.script`import BnGNFTContract from 0xProfile
 
@@ -27,7 +26,7 @@ pub fun main(targetAddress: Address) : Bool {
 `;
 
 var is_inited_script = null;
-if (process.env.REACT_APP_ENV == "prod") {
+if (process.env.REACT_APP_ENV === "prod") {
   is_inited_script = prod_is_inited_script;
 } else {
   is_inited_script = dev_is_inited_script;
@@ -90,7 +89,7 @@ transaction {
 }`;
 var init_tx = null;
 
-if (process.env.REACT_APP_ENV == "prod") {
+if (process.env.REACT_APP_ENV === "prod") {
   init_tx = prod_init_tx;
 } else {
   init_tx = dev_init_tx;

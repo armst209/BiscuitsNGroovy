@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Button from "../../../../WrapperComponents/Button/Button";
+
 import ReleaseButton from "../../ReleaseButton/ReleaseButton";
 import ReleaseImage from "../../ReleaseImage/ReleaseImage";
 import styles from "./ReleasePreviewTitleInfo.module.scss";
@@ -30,12 +30,12 @@ const ReleasePreviewTitleInfo = ({
 
       <div className={styles["button-container"]}>
         {showButton && (
-          <Button width={"200px"} display={"flex"} className="_button">
+          <button className={`_button ${styles["release-button-conditional"]}`}>
             <ReleaseButton
               release={release}
               hideButtonHandler={hideButtonHandler}
             />
-          </Button>
+          </button>
         )}
         <br></br>
         <button

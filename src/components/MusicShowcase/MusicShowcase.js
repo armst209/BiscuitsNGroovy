@@ -7,11 +7,12 @@ import ComponentLoading from "../../components/Loading/Component/ComponentLoadin
 import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
 
 //react imports
-import useFetch from "../../customHooks/Fetch/useFetch";
+import useTestAxiosFetch from "../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 //image imports
 import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
 import showcase from "../../assets/images/showcase-outline.webp";
+
 
 const MusicShowcase = () => {
   //TOKEN
@@ -21,7 +22,9 @@ const MusicShowcase = () => {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/releases`, {
+  } = useTestAxiosFetch({
+    url:`${process.env.REACT_APP_BACKEND_URL}/releases`, 
+    method:"GET",
     headers: { "x-access-token": token },
   });
 
@@ -38,7 +41,7 @@ const MusicShowcase = () => {
           <p className={styles["music-showcase-sub-title"]}>
             Available biscuits shown below. Click on a title for more details
           </p>
-          <div className={styles["music-showcase-content-wrapper"]}>
+          <div data-testid="music-showcase-grid" className={styles["music-showcase-content-wrapper"]}>
             {isLoading && <ComponentLoading />}
             {errorMessage === null ? (
               releaseData && (

@@ -36,6 +36,17 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
   } = useValidation();
 
   useEffect(() => {
+    
+  const clearFields = () => {
+    setEmail("");
+    setArtistName("");
+    setArtistPrefName("");
+    setArtistPhone("");
+    setManagerName("");
+    setManagerEmail("");
+    setArtistMessage("");
+  };
+
     if (status === "success") {
       setArtistFormLoader(false);
       setShowNewsletterArtistEmailValidationCheck(false);
@@ -59,17 +70,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
     } else if (status === "sending") {
       setArtistFormLoader(true);
     }
-  }, [status]);
-
-  const clearFields = () => {
-    setEmail("");
-    setArtistName("");
-    setArtistPrefName("");
-    setArtistPhone("");
-    setManagerName("");
-    setManagerEmail("");
-    setArtistMessage("");
-  };
+  }, [status, email, setEmail,setEmailInputLoginClass,setShowNewsletterArtistEmailValidationCheck]);
 
   const handleSubmit = (e) => {
     e.preventDefault(e);

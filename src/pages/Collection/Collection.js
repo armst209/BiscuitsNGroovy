@@ -11,8 +11,7 @@ import CollectionReleaseList from "../../components/ReleaseContent/ReleaseCompon
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 //react imports
-import useFetch from "../../customHooks/Fetch/useFetch";
-import { useEffect } from "react";
+import useTestAxiosFetch from "../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 const Collection = () => {
   //TOKEN
@@ -22,7 +21,9 @@ const Collection = () => {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/library`, {
+  } = useTestAxiosFetch({
+    url:`${process.env.REACT_APP_BACKEND_URL}/library`, 
+    method:"GET",
     headers: { "x-access-token": token },
   });
 

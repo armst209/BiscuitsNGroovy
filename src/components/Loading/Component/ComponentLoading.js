@@ -3,8 +3,8 @@ import "./ComponentLoadingStyles.scss";
 
 function ComponentLoading() {
   return (
-    <div id="loading">
-      <RecordSpinner className="rotate component-loading-svg " />
+    <div data-testid="component-loading"id="loading">
+      <RecordSpinner  className="rotate component-loading-svg " />
     </div>
   );
 }

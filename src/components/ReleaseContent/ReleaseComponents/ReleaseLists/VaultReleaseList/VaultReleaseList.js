@@ -1,6 +1,6 @@
 //react imports
-import { useState, useEffect, useMemo } from "react";
-import useFetch from "../../../../../customHooks/Fetch/useFetch";
+import { useState, useEffect } from "react";
+import useTestAxiosFetch from "../../../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 //component imports
 import ComponentLoading from "../../../../Loading/Component/ComponentLoading";
@@ -12,11 +12,7 @@ const VaultReleaseList = () => {
   const [releaseArr, setReleaseArr] = useState([]);
 
   //useFetch - api call
-  const {
-    responseData: releaseData,
-    isLoading,
-    errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/vault`);
+  const { responseData:releaseData, isLoading, errorMessage} = useTestAxiosFetch({url:`${process.env.REACT_APP_BACKEND_URL}/vault`})
 
   useEffect(() => {
     if (typeof releaseData === "object" && releaseData !== null) {
@@ -29,20 +25,6 @@ const VaultReleaseList = () => {
     // console.log(releaseData);
   }, [releaseData]);
 
-  // Check when modal is open, if open prevent background scroll.
-  //!! need to fix -- find a solution that doesnt direction manipulate the dom
-  //TODO: if no other option create a custom hook to be reused for each modal
-  // useEffect(() => {
-  //   if (isReleaseModalOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-  // }, [isReleaseModalOpen]);
-
-  // useEffect(() => {
-  //   console.log(selectedRelease);
-  // }, [selectedRelease]);
 
   // Render releases in Vault container
   const mapReleases = (array) => {

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 //component imports
 import SignUpForm from "./SignUpForm/SignUpForm";
-import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
 import FlowLoader from "../../components/Loading/Forms/FlowLoader";
 import { ReactComponent as QuestionIcon } from '../../assets/images/help_question_yellow.svg'

@@ -1,11 +1,8 @@
 //react imports
 import { NavHashLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
+
 //img imports
 import hero_image from "../../assets/images/hero-image.webp";
-
-//component imports
-import Button from "../WrapperComponents/Button/Button";
 
 //styles
 import "./HeroStyles.scss";
@@ -37,7 +34,7 @@ function Hero() {
                     from your favorite artists. Prove your fandom
                   </div>
                   <div className="hero-buttons">
-                    <Button
+                    <button
                       className="start-button-container _button"
                       align="center"
                     >
@@ -48,7 +45,7 @@ function Hero() {
                       >
                         <span>Start Your Collection</span>
                       </NavHashLink>
-                    </Button>
+                    </button>
                   </div>
                 </section>
               </div>

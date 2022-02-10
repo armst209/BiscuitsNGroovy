@@ -14,12 +14,14 @@ import Router from "./Routes/Router.tsx";
 import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
+
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   const gaTrackingId = "UA-211766799-1";
   ReactGA.initialize(gaTrackingId);
   ReactGA.pageview("/");
   // -------End of Google Analytics - DON'T REMOVE-------
+
 
   return (
     <div className="App">
