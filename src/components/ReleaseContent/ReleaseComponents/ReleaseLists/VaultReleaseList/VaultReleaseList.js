@@ -1,5 +1,5 @@
 //react imports
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect} from "react";
 import useFetch from "../../../../../customHooks/Fetch/useFetch";
 import ScrollWidget from "../../../../../Routes/ScrollWidget/ScrollWidget";
 
@@ -40,8 +40,7 @@ const VaultReleaseList = () => {
   }, [releaseData]);
 
   // Check when modal is open, if open prevent background scroll.
-  //!! need to fix -- find a solution that doesnt direction manipulate the dom
-  //TODO: if no other option create a custom hook to be reused for each modal
+
   // useEffect(() => {
   //   if (isReleaseModalOpen) {
   //     document.body.style.overflow = "hidden";

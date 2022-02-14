@@ -10,7 +10,7 @@ const MusicShowcaseCard = ({ release }) => {
 
   const { name, art_url } = release;
 
-  const showReleasePreviewModalHandler = () => setShowReleasePreview(true);
+  // const showReleasePreviewModalHandler = () => setShowReleasePreview(true);
   const hideReleasePreviewModalHandler = () => setShowReleasePreview(false);
 
   return (

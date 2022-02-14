@@ -8,7 +8,7 @@ import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "./MusicPlayerStyles.scss";
 
 //svg imports
-import { ReactComponent as TracklistIcon } from "../../../assets/images/playlist-white-btn.svg";
+// import { ReactComponent as TracklistIcon } from "../../../assets/images/playlist-white-btn.svg";
 
 //component imports
 import MarqueeWrapper from "./Marquee/MarqueeWrapper";
