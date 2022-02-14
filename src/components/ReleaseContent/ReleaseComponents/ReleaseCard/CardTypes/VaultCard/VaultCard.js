@@ -8,11 +8,12 @@ import VaultReleaseModal from "../../../../../../pages/Vault/VaultReleaseModal/V
 
 //react imports
 import { useState, createRef } from "react";
+import ReactDOM from "react-dom";
 
 //npm imports
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
-const VaultCard = ({ release }) => {
+const VaultCard = ({ release, toggleModalState }) => {
   const [showVaultModal, setShowVaultModal] = useState(false);
 
   //release object destructuring
@@ -22,11 +23,13 @@ const VaultCard = ({ release }) => {
   const showVaultModalHandler = () => {
     setShowVaultModal(true);
     disableBodyScroll(ref);
+    toggleModalState(true);
   };
 
   const hideVaultModalHandler = () => {
     setShowVaultModal(false);
     enableBodyScroll(ref);
+    toggleModalState(false);
   };
 
   //ref for vault modal
@@ -39,25 +42,26 @@ const VaultCard = ({ release }) => {
         onClick={() => {
           showVaultModalHandler();
         }}
+        data-testid="vault-release"
       >
         <ReleaseImage
           releaseImageSrc={release_art}
           releaseAlt={`vault-${artist_name}`}
         />
- {/* Hover state*/}
+      {/* Hover state*/}
         <figcaption>  
-          <div className={styles["release-overlay-container"]}>
+          <div>
             <h2>{artist_name}</h2>
           </div>
         </figcaption>
         {/* Modal */}
       </figure>
-      {showVaultModal && (
+      {showVaultModal && ReactDOM.createPortal(
         <VaultReleaseModal
           ref={ref}
           release={release}
           hideVaultModalHandler={hideVaultModalHandler}
-        />
+        />, document.getElementById("modal-overlay-root")
       )}
     </>
   );
