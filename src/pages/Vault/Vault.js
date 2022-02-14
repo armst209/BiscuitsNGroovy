@@ -6,6 +6,7 @@ import styles from "./Vault.module.scss";
 
 //svg imports
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
+
 import VaultReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/VaultReleaseList/VaultReleaseList";
 
 //Component imports
