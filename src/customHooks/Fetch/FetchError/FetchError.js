@@ -2,7 +2,7 @@
 import styles from "./FetchError.module.scss";
 //svg imports
 
-const FetchError = () => {
+const FetchError = ({errorMessage}) => {
   return (
     <>
       <p className={styles["fetch-error-message"]}>

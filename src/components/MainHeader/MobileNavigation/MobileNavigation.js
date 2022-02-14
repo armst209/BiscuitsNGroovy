@@ -23,7 +23,7 @@ const variants = {
   closed: { opacity: 0, x: "-100%" },
 };
 
-const MobileNavigation = ({ showLogoutLoaderHandler }) => {
+const MobileNavigation = ({ showHideLogoutLoaderHandler }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const closeMobileMenuHandler = () => setShowMobileMenu(false);
@@ -124,7 +124,7 @@ const MobileNavigation = ({ showLogoutLoaderHandler }) => {
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}
           />
-          <LogoutMobile showLogoutLoaderHandler={showLogoutLoaderHandler} />
+          <LogoutMobile showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
         </ul>
       </motion.aside>
     </>

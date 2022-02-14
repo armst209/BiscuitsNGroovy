@@ -4,34 +4,25 @@ import ReleasePreviewTitleInfo from "../../../../components/ReleaseContent/Relea
 
 //svg imports
 import { ReactComponent as BackButton } from "../../../../assets/images/arrow-back-yellow.svg";
-import { ReactComponent as RecordIcon } from "../../../../assets/images/vinyl_yellow.svg";
+
 
 //styles
 import styles from "./ReleaseContainer.module.scss";
 
 //react imports
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 
 //hash link import
 import { NavHashLink } from "react-router-hash-link";
-import Button from "../../../WrapperComponents/Button/Button";
+
 
 const ReleaseContainer = ({ release }) => {
   //selecting first release in release object
   release = release[0];
-  //hooks
-  const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
-
-  //state handlers
-  const showBiscuitInsertHandler = () => {
-    setShowBiscuitInsert(true);
-  };
-  const closeBiscuitInsertHandler = () => {
-    setShowBiscuitInsert(false);
-  };
 
   const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
+
 
   const showHideBiscuitDescriptionHandler = () =>
     setShowBiscuitDescription(!showBiscuitDescription);

@@ -13,8 +13,8 @@ import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
 
 const DesktopNavigation = ({
-  showLogoutLoaderHandler,
-  hideLogoutLoaderHandler,
+  showHideLogoutLoaderHandler,
+
 }) => {
   return (
     <>
@@ -86,8 +86,7 @@ const DesktopNavigation = ({
           </div>
 
           <Logout
-            showLogoutLoaderHandler={showLogoutLoaderHandler}
-            hideLogoutLoaderHandler={hideLogoutLoaderHandler}
+            showHideLogoutLoaderHandler={showHideLogoutLoaderHandler}
           />
         </div>
       </div>

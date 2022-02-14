@@ -14,13 +14,11 @@ const MainHeader = () => {
   const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);
 
   //handlers
-  const showLogoutLoaderHandler = () => {
+  const showHideLogoutLoaderHandler = () => {
     setShowLogoutLoadingModal((previousState) => {
       return !previousState;
     });
   };
-
-  const hideLogoutLoaderHandler = () => setShowLogoutLoadingModal(false);
 
   const handleFixedHeaderScroll = () => {
     window.scrollY > 15
@@ -28,15 +26,20 @@ const MainHeader = () => {
       : setHeaderScrolledClass("");
   };
 
+
   useEffect(() => {
+
     window.addEventListener("scroll", handleFixedHeaderScroll);
+    return ()=>{
+      console.log("cleanup");
+    }
   }, []);
 
   return (
     <header className={headerScrolledClass}>
       <nav>
-        <DesktopNavigation showLogoutLoaderHandler={showLogoutLoaderHandler} />
-        <MobileNavigation showLogoutLoaderHandler={showLogoutLoaderHandler} />
+        <DesktopNavigation showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
+        <MobileNavigation showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
         {showLogoutLoadingModal && <LogoutLoading />}
       </nav>
     </header>

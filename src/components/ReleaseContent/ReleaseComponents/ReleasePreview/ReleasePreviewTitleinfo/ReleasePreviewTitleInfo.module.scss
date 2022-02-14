@@ -19,6 +19,11 @@
       font-size: 3rem;
     }
   }
+.release-button-conditional{
+  display:flex;
+  width: 200px;
+}
+
   .release-description-button {
     width: 200px;
     @media screen and (max-width: 500px) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./AvailableReleaseModalStyles.scss";
 import { ReactComponent as ArrowBack } from "../../../../../../assets/images/arrow-back-yellow.svg";
 import MusicPlayer from "../../../../MusicPlayer/OldMusicPlayer.js";

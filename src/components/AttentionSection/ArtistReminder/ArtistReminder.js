@@ -7,8 +7,7 @@ import styles from "./ArtistReminder.module.scss";
 //svg imports
 import { ReactComponent as ArtistIcon } from "../../../assets/images/speaker_yellow.svg";
 
-//component imports
-import Button from "../../WrapperComponents/Button/Button";
+
 
 const ArtistReminder = () => {
   return (
@@ -34,7 +33,7 @@ const ArtistReminder = () => {
               </div>
             </div>
             <div className={styles["artists-reminder-link"]}>
-              <Button
+              <button
                 className={`${styles["for-artists-button-container"]} _button`}
                 align="center"
               >
@@ -44,7 +43,7 @@ const ArtistReminder = () => {
                 >
                   <span>For Artists</span>
                 </Link>
-              </Button>
+              </button>
             </div>
           </div>
         </div>
