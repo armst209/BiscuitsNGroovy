@@ -9,6 +9,9 @@ import DesktopNavigation from "./DesktopNavigation/DesktopNavigation";
 import MobileNavigation from "./MobileNavigation/MobileNavigation";
 import LogoutLoading from "../Loading/Logout/LogoutLoading";
 
+//context imports
+import LogoutModalContext from "../../store/logout-modal-context"
+
 const MainHeader = () => {
   const [headerScrolledClass, setHeaderScrolledClass] = useState("");
   const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);
@@ -20,32 +23,36 @@ const MainHeader = () => {
     });
   };
 
+  const contextValue = { showLogoutLoadingModal: showLogoutLoadingModal, handler: showHideLogoutLoaderHandler };
+
   const handleFixedHeaderScroll = () => {
     window.scrollY > 15
       ? setHeaderScrolledClass("header-scrolled")
       : setHeaderScrolledClass("");
   };
 
-
   useEffect(() => {
 
     window.addEventListener("scroll", handleFixedHeaderScroll);
-    return ()=>{
-      console.log("cleanup");
-    }
+
+    return () => {
+      window.removeEventListener("scroll", handleFixedHeaderScroll);
+    };
   }, []);
+
+
 
   return (
     <header className={headerScrolledClass}>
       <nav>
-        <DesktopNavigation showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
-        <MobileNavigation showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
-        {showLogoutLoadingModal && <LogoutLoading />}
+        <LogoutModalContext.Provider value={contextValue}>
+          <DesktopNavigation />
+          <MobileNavigation />
+        </LogoutModalContext.Provider>
       </nav>
-    </header>
+      {showLogoutLoadingModal && <LogoutLoading />}
+    </header >
   );
 };
 
 export default MainHeader;
-
-

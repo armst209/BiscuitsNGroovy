@@ -50,9 +50,7 @@ const Biscuit = () => {
           releases && (
             <BiscuitContainer
               release={releases.library}
-              showHideMusicPlayerContainerHandler={
-                showHideMusicPlayerContainerHandler
-              }
+              showHideMusicPlayerContainerHandler={showHideMusicPlayerContainerHandler}
               showMusicPlayerContainer={showMusicPlayerContainer}
               showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
             />

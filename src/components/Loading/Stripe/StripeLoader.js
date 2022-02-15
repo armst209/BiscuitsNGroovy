@@ -1,8 +1,15 @@
+//react imports
+import ReactDOM from "react-dom"
+
+//svg imports
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
+
+//styles
 import styles from "./StripeLoader.module.scss";
-function StripeLoader() {
+
+const StripeLoaderModal = () => {
   return (
-    <section id={styles["stripe-loader"]}>
+    <div id={styles["stripe-loader"]}>
       <div className={styles["stripe-loader-container"]}>
         <RecordSpinner className="rotate component-loading-svg" />
         <div className={styles["stripe-loader-message-container"]}>
@@ -11,7 +18,18 @@ function StripeLoader() {
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  )
+}
+
+const StripeLoader = () => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <StripeLoaderModal />,
+        document.getElementById("modal-overlay-root")
+      )}
+    </>
   );
 }
 
