@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IRoute } from "./config";
 const RouteWithSubRoutes = (route: IRoute) => {
-  /** Authenticated flags */
+  /** Authentication flags */
   let token = localStorage.getItem("token");
   let PR_Auth_Token = localStorage.getItem("PR_Auth_Token");
 

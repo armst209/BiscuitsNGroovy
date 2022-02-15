@@ -2,7 +2,7 @@
 import "./MainHeaderStyles.scss";
 
 //react imports
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 //component imports
 import DesktopNavigation from "./DesktopNavigation/DesktopNavigation";
@@ -14,16 +14,10 @@ import LogoutModalContext from "../../store/logout-modal-context"
 
 const MainHeader = () => {
   const [headerScrolledClass, setHeaderScrolledClass] = useState("");
-  const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);
 
-  //handlers
-  const showHideLogoutLoaderHandler = () => {
-    setShowLogoutLoadingModal((previousState) => {
-      return !previousState;
-    });
-  };
 
-  const contextValue = { showLogoutLoadingModal: showLogoutLoadingModal, handler: showHideLogoutLoaderHandler };
+  //getting context
+  const ctx = useContext(LogoutModalContext)
 
   const handleFixedHeaderScroll = () => {
     window.scrollY > 15
@@ -41,17 +35,14 @@ const MainHeader = () => {
   }, []);
 
 
-
   return (
     <header className={headerScrolledClass}>
       <nav>
-        <LogoutModalContext.Provider value={contextValue}>
-          <DesktopNavigation />
-          <MobileNavigation />
-        </LogoutModalContext.Provider>
+        <DesktopNavigation />
+        <MobileNavigation />
       </nav>
-      {showLogoutLoadingModal && <LogoutLoading />}
-    </header >
+      {ctx.showLogoutLoadingModal && <LogoutLoading />}
+    </header>
   );
 };
 

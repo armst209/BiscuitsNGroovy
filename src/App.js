@@ -14,6 +14,9 @@ import Router from "./Routes/Router.tsx";
 import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
+//context import
+import { LogoutModalContextProvider } from "./store/logout-modal-context";
+
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
@@ -25,7 +28,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <MainHeader />
+      <LogoutModalContextProvider>
+        <MainHeader />
+      </LogoutModalContextProvider>
       <Router routes={routes} />
       <Footer />
     </div>

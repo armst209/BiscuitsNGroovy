@@ -18,10 +18,10 @@ let token = localStorage.getItem("token");
 const Logout = () => {
 
   //getting context object
-  const logoutModalContext = useContext(LogoutModalContext);
+  const { handler: showLogoutLoadingHandler } = useContext(LogoutModalContext);
 
   const handleLogout = () => {
-    logoutModalContext.handler(); //showing loader
+    showLogoutLoadingHandler(); //showing loader
     localStorage.clear(); //clearing local storage
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirecting to homepage
   };
