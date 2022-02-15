@@ -5,7 +5,7 @@ import MusicPlayer from "./MusicPlayer";
 
 const MusicPlayerContainer = ({ release }) => {
   //hooks
-  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+  // const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 

@@ -38,11 +38,9 @@
       color: white;
       font-family: var(--header-font);
       font-size: var(--font2);
-      display: flex;
-      justify-content: right;
-      align-items: center;
 
       .vault-modal-close {
+        float: right;
         cursor: pointer;
       }
       span {
@@ -92,7 +90,7 @@
         align-items: center;
         -webkit-box-pack: start;
         -ms-flex-pack: start;
-        justify-content: start;
+        justify-content: flex-start;
 
         @media screen and (max-width: 1000px) {
           flex-grow: 0;
@@ -124,23 +122,41 @@
           color: white;
         }
         .date {
-          padding: 10px 0px;
+          margin: 10px 0px;
           display: inline;
           color: white;
           font-family: var(--header-font);
         }
         a {
           padding: 20px 0px;
-          color: white;
           text-decoration: none;
           font-size: 4rem;
-          color: #1db954;
-          -webkit-transition: 0.75s ease;
-          transition: 0.75s ease;
           &:hover {
-            color: rgba(#1db954, 0.8);
             cursor: pointer;
           }
+        }
+        .spotify {
+          -webkit-transition: 0.75s ease;
+          transition: 0.75s ease;
+          color: #1db954;
+          &:hover {
+            color: rgba(#1db954, 0.55);
+          }
+        }
+        .tiktok {
+          color: white;
+          animation-duration: 3.5s;
+          animation-iteration-count: infinite;
+          &:hover {
+            animation-name: tikTokColors;
+            animation-timing-function: linear;
+          }
+        }
+        @keyframes tikTokColors {
+          from {color: rgba(white, 0.7)}
+          33% {color: rgba(#25F4EE, 0.7)}
+          66% {color: rgba(#FE2C55, 0.7)}
+          to {color: rgba(white, 0.7)}
         }
       }
       .modal-body-right-side {
@@ -154,6 +170,9 @@
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
+        @media screen and (max-width: 768px) {
+          padding-bottom: 0px;
+        }
 
         button {
           display: none;
