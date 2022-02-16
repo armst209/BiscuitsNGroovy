@@ -41,7 +41,7 @@ const About = () => {
         <div className="about-title">
           <h1>
             <RecordVinyl width="50px" />
-            <div>MUSIC IS IDENTITY</div>
+            <div>ABOUT</div>
           </h1>
         </div>
         <div className="about-contents-wrapper">
