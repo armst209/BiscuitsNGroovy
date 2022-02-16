@@ -38,11 +38,9 @@
       color: white;
       font-family: var(--header-font);
       font-size: var(--font2);
-      display: flex;
-      justify-content: right;
-      align-items: center;
 
       .vault-modal-close {
+        float: right;
         cursor: pointer;
       }
       span {
@@ -92,7 +90,7 @@
         align-items: center;
         -webkit-box-pack: start;
         -ms-flex-pack: start;
-        justify-content: start;
+        justify-content: flex-start;
 
         @media screen and (max-width: 1000px) {
           flex-grow: 0;
@@ -123,25 +121,73 @@
           font-family: var(--header-font);
           color: white;
         }
-        .date {
-          padding: 10px 0px;
-          display: inline;
-          color: white;
-          font-family: var(--header-font);
-        }
-        a {
-          padding: 20px 0px;
-          color: white;
-          text-decoration: none;
-          font-size: 4rem;
-          color: #1db954;
-          -webkit-transition: 0.75s ease;
-          transition: 0.75s ease;
-          &:hover {
-            color: rgba(#1db954, 0.8);
-            cursor: pointer;
+        .date-wrapper{
+          margin: .5rem 0;
+          .date {
+            margin: 10px 0px;
+            display: inline;
+            color: var(--color1);
+            
+            font-family: var(--header-font);
           }
         }
+   
+
+        .artist-social-links{
+          width:100%;
+          height: auto;
+          display:flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: .5rem 0;
+
+          @media screen and (max-width: 768px) {
+            margin: .5rem 0 1rem 0;
+          }
+          h4{
+            color:white;
+            font-family:var(--header-font);
+            // margin-right: .3rem;
+          }
+        
+          .spotify {
+            -webkit-transition: 0.75s ease;
+            transition: 0.75s ease;
+            color: #1db954;
+            &:hover {
+              color: rgba(#1db954, 0.55);
+            }
+          }
+          .tiktok {
+            max-height: 35px;
+            max-width: 35px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            animation-duration: 3.5s;
+            animation-iteration-count: infinite;
+            &:hover {
+              animation-name: tikTokColors;
+              animation-timing-function: linear;
+            }
+           
+            svg{
+             width:100%;
+             height: 100%;
+            }
+        
+          }
+          @keyframes tikTokColors {
+            from {color: rgba(white, 0.7)}
+            33% {color: rgba(#25F4EE, 0.7)}
+            66% {color: rgba(#FE2C55, 0.7)}
+            to {color: rgba(white, 0.7)}
+          }
+        }
+       
+       
       }
       .modal-body-right-side {
         display: flex;
@@ -154,6 +200,9 @@
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
+        @media screen and (max-width: 768px) {
+          padding-bottom: 0px;
+        }
 
         button {
           display: none;

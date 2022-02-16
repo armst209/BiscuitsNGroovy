@@ -1,5 +1,5 @@
 // React Imports
-import ReactDOM from "react-dom";
+
 import { useState, forwardRef } from "react";
 
 // Component Imports
@@ -16,14 +16,14 @@ import styles from "./VaultReleaseModal.module.scss";
 //utility imports
 import { dateConverter } from "../../../utils/UtilityFunctions";
 
-const VaultReleaseModalOverlay = forwardRef(
+const VaultReleaseModal = forwardRef(
   ({ release, hideVaultModalHandler }, ref) => {
     const [showHideVaultReleaseDescription, setShowHideReleaseDescription] =
       useState(false);
 
     //vault description handler
     const showHideVaultReleaseDescriptionHandler = () =>
-      setShowHideReleaseDescription(previousShowHideVaultReleaseDescription=> !previousShowHideVaultReleaseDescription);
+      setShowHideReleaseDescription(previousShowHideVaultReleaseDescription => !previousShowHideVaultReleaseDescription);
 
     //release object destructuring
     const {
@@ -34,7 +34,35 @@ const VaultReleaseModalOverlay = forwardRef(
       end_date,
       playlist,
       artist_name,
+      social
     } = release;
+
+    const socialLinks = (social) => {
+      if (/spotify/.test(social)) {
+        return (
+          <a
+            href={social}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles["spotify"]}
+          >
+            <i className="fab fa-spotify"></i>
+          </a>
+        )
+
+      } else if (/tiktok/.test(social)) {
+        return (
+          <a
+            href={social}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles['tiktok']}
+          >
+            <i className="fab fa-tiktok"></i>
+          </a>)
+
+      }
+    }
 
     return (
       <div ref={ref} className={styles["vault-modal-wrapper"]}>
@@ -55,25 +83,26 @@ const VaultReleaseModalOverlay = forwardRef(
               {/* Biscuits and groovy logo is redundant - not a unique link & already on bng site, users know */}
               {/* <MainHeaderLogo className={styles["logo"]} /> */}
               <div className={styles["modal-body-left-release-image-container"]}>
-              <ReleaseImage
-                releaseImageSrc={release_art}
-                alt={`${release_name} biscuit`}
-              />
+                <ReleaseImage
+                  releaseImageSrc={release_art}
+                  alt={`${release_name} biscuit`}
+                />
               </div>
               <h1>{artist_name}</h1>
-              <p className={styles["modal-release-name"]}>{release_name}</p>
+              <p
+                className={styles["modal-release-name"]}
+                data-testid="vault-release-name"
+              >{release_name}</p>
               <div className={styles["date-wrapper"]}>
                 <span className={styles["date"]}>
                   {dateConverter(start_date)} - {dateConverter(end_date)}
                 </span>
               </div>
-              <a
-                href="https://open.spotify.com/user/ajxyu54lfjlxoc8a7dzx59odj?si=crL_VRaXSUiBRDEW8-31xg&nd=1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-spotify"></i>
-              </a>
+              <div className={styles["artist-social-links"]}>
+                {/* <h4>Connect: </h4> */}
+                {social && socialLinks(social)}
+              </div>
+
             </div>
             <div className={styles["modal-body-right-side"]}>
               <p className={styles["modal-body-release-description"]}>
@@ -102,21 +131,15 @@ const VaultReleaseModalOverlay = forwardRef(
   }
 );
 
-const VaultReleaseModal = forwardRef(
-  ({ release, hideVaultModalHandler }, ref) => {
-    return (
-      <>
-        {ReactDOM.createPortal(
-          <VaultReleaseModalOverlay
-            release={release}
-            ref={ref}
-            hideVaultModalHandler={hideVaultModalHandler}
-          />,
-          document.getElementById("modal-overlay-root")
-        )}
-      </>
-    );
-  }
-);
+// const VaultReleaseModal = forwardRef(
+//   ({ release, hideVaultModalHandler }, ref) => {
+
+//     return <VaultReleaseModalOverlay
+//             release={release}
+//             ref={ref}
+//             hideVaultModalHandler={hideVaultModalHandler}
+//           />
+//   }
+// );
 
 export default VaultReleaseModal;
