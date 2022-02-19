@@ -104,3 +104,19 @@ describe("Fetch data successfully and display correct data", ()=>{
     expect(element.length).toBe(2);
   })
 })
+
+describe("FAIL REQUEST", ()=>{
+  test("Correct error is displayed", async ()=>{
+    // Arrange - rewrite the response from server for test scenario.
+    server.use(
+      rest.get(`${process.env.REACT_APP_BACKEND_URL}/releases`, (req, res, ctx) => {
+        return res(ctx.status(404));
+      })
+    );
+
+    const {findByTestId, } = render(<MusicShowcase />)
+
+    const element = await findByTestId("error-message");
+    expect(element).toBeInTheDocument();
+  })
+})
