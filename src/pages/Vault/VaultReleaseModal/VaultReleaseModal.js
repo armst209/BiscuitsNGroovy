@@ -23,7 +23,7 @@ const VaultReleaseModal = forwardRef(
 
     //vault description handler
     const showHideVaultReleaseDescriptionHandler = () =>
-      setShowHideReleaseDescription(previousShowHideVaultReleaseDescription=> !previousShowHideVaultReleaseDescription);
+      setShowHideReleaseDescription(previousShowHideVaultReleaseDescription => !previousShowHideVaultReleaseDescription);
 
     //release object destructuring
     const {
@@ -38,28 +38,28 @@ const VaultReleaseModal = forwardRef(
     } = release;
 
     const socialLinks = (social) => {
-      if(/spotify/.test(social)){
-        return(
+      if (/spotify/.test(social)) {
+        return (
           <a
-          href={social}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles["spotify"]}
-        >
-          <i className="fab fa-spotify"></i>
-        </a>
+            href={social}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles["spotify"]}
+          >
+            <i className="fab fa-spotify"></i>
+          </a>
         )
 
-      } else if (/tiktok/.test(social)){
-        return (        
-        <a
-          href={social}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles['tiktok']}
-        >
-          <i className="fab fa-tiktok"></i>
-        </a>)
+      } else if (/tiktok/.test(social)) {
+        return (
+          <a
+            href={social}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles['tiktok']}
+          >
+            <i className="fab fa-tiktok"></i>
+          </a>)
 
       }
     }
@@ -83,13 +83,13 @@ const VaultReleaseModal = forwardRef(
               {/* Biscuits and groovy logo is redundant - not a unique link & already on bng site, users know */}
               {/* <MainHeaderLogo className={styles["logo"]} /> */}
               <div className={styles["modal-body-left-release-image-container"]}>
-              <ReleaseImage
-                releaseImageSrc={release_art}
-                alt={`${release_name} biscuit`}
-              />
+                <ReleaseImage
+                  releaseImageSrc={release_art}
+                  alt={`${release_name} biscuit`}
+                />
               </div>
               <h1>{artist_name}</h1>
-              <p 
+              <p
                 className={styles["modal-release-name"]}
                 data-testid="vault-release-name"
               >{release_name}</p>
@@ -98,7 +98,11 @@ const VaultReleaseModal = forwardRef(
                   {dateConverter(start_date)} - {dateConverter(end_date)}
                 </span>
               </div>
-              {social && socialLinks(social)}
+              <div className={styles["artist-social-links"]}>
+                {/* <h4>Connect: </h4> */}
+                {social && socialLinks(social)}
+              </div>
+
             </div>
             <div className={styles["modal-body-right-side"]}>
               <p className={styles["modal-body-release-description"]}>
@@ -129,7 +133,7 @@ const VaultReleaseModal = forwardRef(
 
 // const VaultReleaseModal = forwardRef(
 //   ({ release, hideVaultModalHandler }, ref) => {
-    
+
 //     return <VaultReleaseModalOverlay
 //             release={release}
 //             ref={ref}
