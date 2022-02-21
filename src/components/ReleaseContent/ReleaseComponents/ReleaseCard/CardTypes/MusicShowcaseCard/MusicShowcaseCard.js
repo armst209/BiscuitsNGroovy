@@ -14,10 +14,9 @@ const MusicShowcaseCard = ({ release }) => {
   const hideReleasePreviewModalHandler = () => setShowReleasePreview(false);
 
   return (
-    <>
-
+    <figure>
       <div
-      data-testid="available-release-card"
+        data-testid="available-release-card"
         className="release-card"
         onClick={() =>
           window.location.replace(
@@ -33,7 +32,7 @@ const MusicShowcaseCard = ({ release }) => {
           hideReleasePreviewModalHandler={hideReleasePreviewModalHandler}
         />
       )}
-    </>
+    </figure>
   );
 };
 

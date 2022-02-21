@@ -14,8 +14,6 @@ import Router from "./Routes/Router.tsx";
 import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
-//context import
-import { LogoutModalContextProvider } from "./store/logout-modal-context";
 
 
 const App = () => {
@@ -28,9 +26,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <LogoutModalContextProvider>
-        <MainHeader />
-      </LogoutModalContextProvider>
+      <MainHeader />
       <Router routes={routes} />
       <Footer />
     </div>
