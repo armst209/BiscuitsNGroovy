@@ -33,6 +33,13 @@
       place-content: center;
       grid-gap: 1rem;
 
+      @supports not (display: grid) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
 
       @media screen and (max-width: 400px){
         display:flex;
@@ -43,6 +50,15 @@
           min-width: 50%;
           scroll-snap-align: start;
         }
+
+        @supports not (scroll-snap-type:x mandatory) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+   
       }
       // grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(
       //     auto-fit,
@@ -65,21 +81,9 @@
       //   grid-gap: 0.5rem;
       // }
 
-      // @supports not (scroll-snap-type) {
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   gap: 1rem;
-      //   flex-wrap: wrap;
-      // }
+    
 
-      @supports not (display: grid) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
+     
     }
   }
   .cant-play-releases-container {
