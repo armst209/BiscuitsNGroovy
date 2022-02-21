@@ -12,7 +12,10 @@ import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
 
-const DesktopNavigation = () => {
+const DesktopNavigation = ({
+  showHideLogoutLoaderHandler
+
+}) => {
   return (
     <>
       <div className="left-links-container">
@@ -82,7 +85,7 @@ const DesktopNavigation = () => {
             <LoginAndSignUp />
           </div>
 
-          <Logout />
+          <Logout showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
         </div>
       </div>
     </>

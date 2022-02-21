@@ -1,6 +1,6 @@
 //react imports
-import { useState, useEffect} from "react";
-import useFetch from "../../../../../customHooks/Fetch/useFetch";
+import { useState, useEffect } from "react";
+import useFetch from "../../../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import ScrollWidget from "../../../../../Routes/ScrollWidget/ScrollWidget";
 
 //component imports
@@ -17,9 +17,9 @@ const VaultReleaseList = () => {
     setIsModalOpen(boolean);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(isModalOpen);
-  },[isModalOpen])
+  }, [isModalOpen])
 
   //useFetch - api call
   const {
@@ -65,7 +65,7 @@ const VaultReleaseList = () => {
       {errorMessage === null
         ? releaseData && mapReleases(releaseArr)
         : errorMessage}
-        {!isModalOpen &&<ScrollWidget/>}
+      {!isModalOpen && <ScrollWidget />}
     </div>
   );
 };
