@@ -17,6 +17,7 @@ const MusicShowcaseCard = ({ release }) => {
     <>
 
       <div
+      data-testid="available-release-card"
         className="release-card"
         onClick={() =>
           window.location.replace(
