@@ -29,28 +29,49 @@
     .release-live-grid {
       width: 100%;
       display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
       place-content: center;
       grid-gap: 1rem;
-      grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(
-          auto-fit,
-          minmax(200px, 1fr)
-        );
 
-      @media screen and (max-width: 600px) {
-        grid: repeat(auto-fit, minmax(150px, 1fr)) / repeat(
-            auto-fit,
-            minmax(150px, 1fr)
-          );
-        grid-gap: 0.8rem;
-      }
 
-      @media screen and (max-width: 450px) {
-        grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
-            auto-fit,
-            minmax(100px, 1fr)
-          );
-        grid-gap: 0.5rem;
+      @media screen and (max-width: 400px){
+        display:flex;
+        overflow:auto;
+        scroll-snap-type: x mandatory;
+
+        figure {
+          min-width: 50%;
+          scroll-snap-align: start;
+        }
       }
+      // grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(
+      //     auto-fit,
+      //     minmax(200px, 1fr)
+      //   );
+
+      // @media screen and (max-width: 600px) {
+      //   grid: repeat(auto-fit, minmax(150px, 1fr)) / repeat(
+      //       auto-fit,
+      //       minmax(150px, 1fr)
+      //     );
+      //   grid-gap: 0.8rem;
+      // }
+
+      // @media screen and (max-width: 450px) {
+      //   grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
+      //       auto-fit,
+      //       minmax(100px, 1fr)
+      //     );
+      //   grid-gap: 0.5rem;
+      // }
+
+      // @supports not (scroll-snap-type) {
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   gap: 1rem;
+      //   flex-wrap: wrap;
+      // }
 
       @supports not (display: grid) {
         display: flex;
