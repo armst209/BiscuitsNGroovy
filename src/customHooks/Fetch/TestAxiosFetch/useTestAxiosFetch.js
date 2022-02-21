@@ -31,7 +31,7 @@ const useTestAxiosFetch = (_requestData) => {
     const cancelTokenWithRequestData = { ...requestData, cancelToken: source.token };
 
     //status error handling, promise will only resolve if status is less than 500
-    const config = { ...cancelTokenWithRequestData }
+    const config = { ...cancelTokenWithRequestData, validateStatus: (status) => status < 500 }
 
 
     const fetchDataWithAxios = async () => {
