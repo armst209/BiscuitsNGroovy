@@ -1,14 +1,14 @@
 import useTestAxiosFetch from "./useTestAxiosFetch"
-import {server, rest} from "../../../testServer"
-import {renderHook} from "@testing-library/react-hooks"
+import { server, rest } from "../../../testServer"
+import { renderHook } from "@testing-library/react-hooks"
 import FetchError from "../FetchError/FetchError"
 
 test("fetch correctly", async () => {
   //Arrange & Act
-  const {result, waitForNextUpdate} = renderHook(()=> useTestAxiosFetch({
+  const { result, waitForNextUpdate } = renderHook(() => useTestAxiosFetch({
     url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
     method: "GET",
-    headers: {"x-access-token": null},
+    headers: { "x-access-token": null },
   }));
 
   // Assert
@@ -18,7 +18,7 @@ test("fetch correctly", async () => {
   await waitForNextUpdate();
 
   // Assert
-  expect(result.current.responseData).toEqual({release:[]})
+  expect(result.current.responseData).toEqual({ release: [] })
 });
 
 test("handles failure", async () => {
@@ -30,19 +30,19 @@ test("handles failure", async () => {
   );
 
   // Arrange & Act
-  const {result, waitForNextUpdate} = renderHook(()=> useTestAxiosFetch({
+  const { result, waitForNextUpdate } = renderHook(() => useTestAxiosFetch({
     url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
     method: "GET",
-    headers: {"x-access-token": null},
+    headers: { "x-access-token": null },
   }));
 
-    // Assert
-    expect(result.current.isLoading).toBeTruthy();
+  // Assert
+  expect(result.current.isLoading).toBeTruthy();
 
-    // Act
-    await waitForNextUpdate();
+  // Act
+  await waitForNextUpdate();
 
-    // Assert
-    expect(result.current.errorMessage).toEqual("$Status: 404 Message: Not Found");
-    expect(result.current.errorMessageComponent).toStrictEqual(<FetchError errorMessage={result.current.errorMessage}/> )
+  // Assert
+  expect(result.current.errorMessage).toEqual("$Status: 404 Message: Not Found");
+  expect(result.current.errorMessageComponent).toStrictEqual(<FetchError errorMessage={result.current.errorMessage} />)
 });

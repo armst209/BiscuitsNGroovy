@@ -8,6 +8,10 @@
       minmax(200px, 1fr)
     );
 
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
   @media screen and (max-width: 600px) {
     grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
         auto-fit,
@@ -15,12 +19,25 @@
       );
     grid-gap: 0.8rem;
   }
+  @media screen and (max-width: 400px){
+    display:flex;
+    justify-content: left;
+    overflow:auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
 
-  @media screen and (max-width: 300px) {
-    grid: repeat(auto-fit, minmax(75px, 1fr)) / repeat(
-        auto-fit,
-        minmax(75px, 1fr)
-      );
-    grid-gap: 0.5rem;
+ figure {
+      min-width: 60%;
+      scroll-snap-align: start;
+    }
+
+    @supports not (scroll-snap-type:x mandatory) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
   }
 }

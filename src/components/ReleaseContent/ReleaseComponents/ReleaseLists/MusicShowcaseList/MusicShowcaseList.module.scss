@@ -7,9 +7,32 @@
       minmax(100px, 1fr)
     );
 
-  @media screen and (max-width: 400px) {
-    grid-gap: 0.5rem;
-  }
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    @media screen and (max-width: 400px){
+      display:flex;
+      justify-content: left;
+      overflow:auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem;
+
+   figure {
+        min-width: 60%;
+        scroll-snap-align: start;
+      }
+
+      @supports not (scroll-snap-type:x mandatory) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+ 
+    }
 
   @supports not (display: grid) {
     display: flex;

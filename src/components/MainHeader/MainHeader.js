@@ -30,7 +30,7 @@ const MainHeader = () => {
   useEffect(() => {
 
     window.addEventListener("scroll", handleFixedHeaderScroll);
-    return ()=>{
+    return () => {
       console.log("cleanup");
     }
   }, []);
@@ -47,5 +47,3 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
-
-

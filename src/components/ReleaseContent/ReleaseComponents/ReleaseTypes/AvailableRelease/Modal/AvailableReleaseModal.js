@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./AvailableReleaseModalStyles.scss";
 import { ReactComponent as ArrowBack } from "../../../../../../assets/images/arrow-back-yellow.svg";
-import MusicPlayer from "../../../../MusicPlayer/OldMusicPlayer.js";
+// import MusicPlayer from "../../../../MusicPlayer/OldMusicPlayer.js";
+import MusicPlayer from "../../../../MusicPlayer/MusicPlayer.js";
 import { AnimatePresence, motion } from "framer-motion";
 
 import ComponentLoading from "../../../../../Loading/Component/ComponentLoading";

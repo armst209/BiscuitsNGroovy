@@ -11,7 +11,7 @@ import FetchError from "../FetchError/FetchError";
 
 
 const useTestAxiosFetch = (_requestData) => {
-  
+
   //state hooks
   const [responseData, setResponseData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,14 +28,14 @@ const useTestAxiosFetch = (_requestData) => {
     const source = cancelToken.source();
 
     //adding cancel token to config object
-    const cancelTokenWithRequestData = {...requestData, cancelToken:source.token};
+    const cancelTokenWithRequestData = { ...requestData, cancelToken: source.token };
 
     //status error handling, promise will only resolve if status is less than 500
-    const config = {...cancelTokenWithRequestData, validateStatus:(status)=> status < 500}
+    const config = { ...cancelTokenWithRequestData, validateStatus: (status) => status < 500 }
 
 
     const fetchDataWithAxios = async () => {
-      
+
       //loader is visible
       setIsLoading(true);
 
@@ -45,10 +45,10 @@ const useTestAxiosFetch = (_requestData) => {
         if (response.statusText !== "OK") {
           throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
         }
-       
+
         //assigning response data to variable
         const data = response.data;
-        
+
         //setting states if resolved
         setIsLoading(false);
         setResponseData(data);
@@ -62,7 +62,7 @@ const useTestAxiosFetch = (_requestData) => {
 
           //setting states if rejected
           setIsLoading(false);
-          setErrorMessageComponent(<FetchError errorMessage={error.message}/>);
+          setErrorMessageComponent(<FetchError errorMessage={error.message} />);
           setErrorMessage(error.message);
           // console.error(error);
         }

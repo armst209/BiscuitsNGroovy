@@ -13,6 +13,18 @@
     font-size: 2rem;
     width: 100%;
     padding: 1rem 0 1rem 0;
+
+    @media screen and(max-width: 600px) {
+      justify-content: center;
+  
+    }
+    @media screen and(max-width: 400px) {
+      text-decoration: underline 2px var(--color2);
+     }
+
+    @media screen and(max-width: 300px) {
+     font-size: 1.6rem;
+    }
   }
   .collection-release-list-live-releases-container,
   .collection-release-list-released-releases-container {
@@ -29,27 +41,12 @@
     .release-live-grid {
       width: 100%;
       display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
       place-content: center;
       grid-gap: 1rem;
-      grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(
-          auto-fit,
-          minmax(200px, 1fr)
-        );
-
-      @media screen and (max-width: 600px) {
-        grid: repeat(auto-fit, minmax(150px, 1fr)) / repeat(
-            auto-fit,
-            minmax(150px, 1fr)
-          );
-        grid-gap: 0.8rem;
-      }
-
-      @media screen and (max-width: 450px) {
-        grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
-            auto-fit,
-            minmax(100px, 1fr)
-          );
-        grid-gap: 0.5rem;
+      
+      &::-webkit-scrollbar {
+        height: 4px;
       }
 
       @supports not (display: grid) {
@@ -59,6 +56,29 @@
         gap: 1rem;
         flex-wrap: wrap;
       }
+
+      @media screen and (max-width: 400px){
+        display:flex;
+        justify-content: left;
+        overflow:auto;
+        scroll-snap-type: x mandatory;
+        padding: 1rem;
+
+        figure {
+          min-width: 60%;
+          scroll-snap-align: start;
+        }
+
+        @supports not (scroll-snap-type:x mandatory) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+   
+      }
+  
     }
   }
   .cant-play-releases-container {

@@ -68,10 +68,10 @@
 .hover-img {
   background-color: #000;
   color: #fff;
-  display: inline-block;
+  display: flex;
 
-  // width: 300px;
-  width: auto;
+  justify-content: center;
+  max-width: 300px;
   overflow: hidden;
   position: relative;
   text-align: center;

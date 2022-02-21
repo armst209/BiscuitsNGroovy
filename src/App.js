@@ -15,6 +15,7 @@ import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
 
+
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   const gaTrackingId = "UA-211766799-1";

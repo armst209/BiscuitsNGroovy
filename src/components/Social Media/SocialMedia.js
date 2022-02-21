@@ -1,3 +1,4 @@
+//styles
 import "./SocialMediaStyles.scss";
 
 const SocialMedia = () => {

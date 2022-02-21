@@ -9,6 +9,7 @@ import { ReactComponent as LoveSong } from "../../assets/images/love-song2.svg";
 import { ReactComponent as Voice } from "../../assets/images/voice.svg";
 import { ReactComponent as Collect } from "../../assets/images/collectshare.svg";
 import { ReactComponent as RecordHeader } from "../../assets/images/compact-disc-yellow.svg";
+
 const HowItWorks = () => {
   return (
     <section id={styles["how-it-works"]}>
