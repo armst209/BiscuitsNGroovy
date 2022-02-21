@@ -62,9 +62,9 @@ const useTestAxiosFetch = (_requestData) => {
 
           //setting states if rejected
           setIsLoading(false);
-          setErrorMessageComponent(<FetchError errorMessage={error}/>);
+          setErrorMessageComponent(<FetchError errorMessage={error.message}/>);
           setErrorMessage(error.message);
-          console.error(error);
+          // console.error(error);
         }
       }
     };

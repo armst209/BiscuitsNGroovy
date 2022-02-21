@@ -51,7 +51,7 @@ const MusicShowcase = () => {
                 />
               )
             ) : (
-              <div>{errorMessage}</div>
+              <div data-testid="error-message">{errorMessage}</div>
             )}
           </div>
         </div>
