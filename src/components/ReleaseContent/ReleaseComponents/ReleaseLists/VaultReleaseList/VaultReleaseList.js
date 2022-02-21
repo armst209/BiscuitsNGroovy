@@ -1,6 +1,7 @@
 //react imports
 import { useState, useEffect } from "react";
-import useFetch from "../../../../../customHooks/Fetch/useFetch";
+
+import useFetch from "../../../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import ScrollWidget from "../../../../../Routes/ScrollWidget/ScrollWidget";
 
 //component imports
@@ -16,13 +17,16 @@ const VaultReleaseList = () => {
   const modalStateCallback = (boolean) => {
     setIsModalOpen(boolean);
   }
-
+  
   //useFetch - api call
   const {
     responseData: releaseData,
     isLoading,
     errorMessage,
-  } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/vault`);
+  } = useFetch({
+    method: "GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}/vault`
+  });
 
   useEffect(() => {
     if (typeof releaseData === "object" && releaseData !== null) {

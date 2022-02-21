@@ -1,11 +1,12 @@
 //react imports
 import { useState } from "react";
+
+//component imports
 import ReleaseTracklistPlayer from "../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
 import MusicPlayer from "./MusicPlayer";
 
 const MusicPlayerContainer = ({ release }) => {
   //hooks
-  // const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
@@ -39,9 +40,6 @@ const MusicPlayerContainer = ({ release }) => {
         previousSongChangeHandler={previousSongChangeHandler}
         nextSongChangeHandler={nextSongChangeHandler}
         currentSongIndex={currentSongIndex}
-        // setCurrentMusicIndex={setCurrentMusicIndex}
-        // showTrackList={showTrackList}
-        // setShowTrackList={setShowTrackList}
         selectedTrack={selectedTrack}
         setSelectedTrack={setSelectedTrack}
       />

@@ -1,6 +1,10 @@
+
+//component imports
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import FormLoader from "../../Loading/Forms/FormLoader";
 import ArtistInformationForm from "./ArtistInformationForm";
+
+//styles
 import "./ArtistInformationContainerStyles.scss";
 
 const ArtistInformationContainer = () => {

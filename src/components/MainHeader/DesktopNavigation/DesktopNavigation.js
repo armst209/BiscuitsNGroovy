@@ -13,7 +13,7 @@ import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
 
 const DesktopNavigation = ({
-  showHideLogoutLoaderHandler,
+  showHideLogoutLoaderHandler
 
 }) => {
   return (
@@ -85,9 +85,7 @@ const DesktopNavigation = ({
             <LoginAndSignUp />
           </div>
 
-          <Logout
-            showHideLogoutLoaderHandler={showHideLogoutLoaderHandler}
-          />
+          <Logout showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
         </div>
       </div>
     </>

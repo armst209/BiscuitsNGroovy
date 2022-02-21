@@ -49,7 +49,7 @@ const CollectionReleaseList = memo(
                 styles["collection-release-list-live-releases-container"]
               }
             >
-              <div className={styles["release-live-grid"]}>
+              <div className={filteredLiveReleases.length === 1 ? styles["single-release-in-grid"] : styles["release-live-grid"]}>
                 {filteredLiveReleases.length === 0 ? (
                   <NoLiveReleases />
                 ) : (
@@ -76,7 +76,7 @@ const CollectionReleaseList = memo(
                 <QuestionIcon />
                 <p>Why can't I play my releases?</p>
               </div>
-              <div className={styles["release-released-grid"]}>
+              <div className={filteredReleasedReleases.length === 1 ? styles["single-release-in-grid"] : styles["release-released-grid"]}>
                 {filteredReleasedReleases.map((release) => {
                   return <ExpiredRelease key={release.id} release={release} />;
                 })}

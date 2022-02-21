@@ -14,12 +14,12 @@ const MusicShowcaseList = ({ releaseData, noReleaseDataComponent }) => {
       {releaseData.length === 0
         ? noReleaseDataComponent
         : releaseData.map((release) => {
-            return release.purchased ? (
-              ""
-            ) : (
-              <ReleaseCard data-testid="release-card-testing" key={release.id} release={release} />
-            );
-          })}
+          return release.purchased ? (
+            ""
+          ) : (
+            <ReleaseCard data-testid="release-card-testing" key={release.id} release={release} />
+          );
+        })}
     </div>
   );
 };
