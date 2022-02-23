@@ -17,7 +17,7 @@ const VaultReleaseList = () => {
   const modalStateCallback = (boolean) => {
     setIsModalOpen(boolean);
   }
-  
+
   //useFetch - api call
   const {
     responseData: releaseData,
@@ -36,7 +36,7 @@ const VaultReleaseList = () => {
       });
       setReleaseArr(objToArr);
     }
-    // console.log(releaseData);
+
   }, [releaseData]);
 
   // Render releases in Vault container
