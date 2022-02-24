@@ -34,12 +34,11 @@ const Biscuit = () => {
     responseData: releases,
     isLoading,
     errorMessage,
-  } = useFetch(
-    `${process.env.REACT_APP_BACKEND_URL}/library/${biscuitId}/biscuit`,
-    {
-      headers: { "x-access-token": token },
-    }
-  );
+  } = useFetch({
+    method: "GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}/library/${biscuitId}/biscuit`,
+    headers: { "x-access-token": token },
+  });
 
   return (
     <>
