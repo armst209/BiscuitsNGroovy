@@ -20,18 +20,16 @@ const MainHeader = () => {
     });
   };
 
-  const handleFixedHeaderScroll = () => {
-    window.scrollY > 15
-      ? setHeaderScrolledClass("header-scrolled")
-      : setHeaderScrolledClass("");
-  };
-
-
   useEffect(() => {
 
+    const handleFixedHeaderScroll = () => {
+      window.scrollY > 15
+        ? setHeaderScrolledClass("header-scrolled")
+        : setHeaderScrolledClass("");
+    };
     window.addEventListener("scroll", handleFixedHeaderScroll);
-    return ()=>{
-      console.log("cleanup");
+    return () => {
+      window.removeEventListener("scroll", handleFixedHeaderScroll);
     }
   }, []);
 
@@ -47,5 +45,3 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
-
-

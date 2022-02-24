@@ -7,7 +7,7 @@ import "./LogoutLoading.scss";
 //svg imports
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 
-const LogoutLoadingModalOverlay = () => {
+const LogoutLoadingModal = () => {
   return (
     <section id="logout-loading">
       <div className="logout-loading-container">
@@ -24,7 +24,7 @@ const LogoutLoading = () => {
   return (
     <>
       {ReactDOM.createPortal(
-        <LogoutLoadingModalOverlay />,
+        <LogoutLoadingModal />,
         document.getElementById("modal-overlay-root")
       )}
     </>

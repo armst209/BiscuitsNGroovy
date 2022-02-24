@@ -1,5 +1,11 @@
+
+//react imports
 import { Link } from "react-router-dom";
+
+//component imports
 import SocialMedia from "../Social Media/SocialMedia";
+
+//svg imports
 import { ReactComponent as FooterLogo } from "../../assets/images/bng_test.svg";
 
 import "./FooterStyles.scss";

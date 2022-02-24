@@ -1,5 +1,4 @@
-//styles
-// import styles from "./MainLogo.module.scss";
+
 const MainLogo = () => {
   return (
     <img
