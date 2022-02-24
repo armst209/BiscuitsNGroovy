@@ -3,7 +3,7 @@ import styles from "./MusicShowcase.module.scss";
 
 //component imports
 import MusicShowcaseList from "../ReleaseContent/ReleaseComponents/ReleaseLists/MusicShowcaseList/MusicShowcaseList";
-import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
+
 import NoReleasesMusicShowcase from "../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
 
 //react imports
@@ -11,7 +11,18 @@ import useTestAxiosFetch from "../../customHooks/Fetch/TestAxiosFetch/useTestAxi
 
 //image imports
 import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
+import { ReactComponent as RecordSpinner } from "../../assets/images/compact-disc-yellow.svg";
 import showcase from "../../assets/images/showcase-outline.webp";
+
+
+//loader for showcase releases
+const MusicShowcaseLoader = () => {
+  return (
+    <div className={styles["music-showcase-loader"]}>
+      <RecordSpinner className="rotate" />
+    </div>
+  )
+}
 
 
 const MusicShowcase = () => {
@@ -23,10 +34,12 @@ const MusicShowcase = () => {
     isLoading,
     errorMessage,
   } = useTestAxiosFetch({
-    url:`${process.env.REACT_APP_BACKEND_URL}/releases`, 
-    method:"GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
+    method: "GET",
     headers: { "x-access-token": token },
   });
+
+
 
   return (
     <section id={styles["music-showcase"]}>
@@ -42,7 +55,7 @@ const MusicShowcase = () => {
             Available biscuits shown below. Click on a title for more details
           </p>
           <div data-testid="music-showcase-grid" className={styles["music-showcase-content-wrapper"]}>
-            {isLoading && <ComponentLoading />}
+            {isLoading && <MusicShowcaseLoader />}
             {errorMessage === null ? (
               releaseData && (
                 <MusicShowcaseList

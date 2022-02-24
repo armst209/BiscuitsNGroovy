@@ -20,9 +20,6 @@ const MainHeader = () => {
     });
   };
 
-
-
-
   useEffect(() => {
 
     const handleFixedHeaderScroll = () => {
