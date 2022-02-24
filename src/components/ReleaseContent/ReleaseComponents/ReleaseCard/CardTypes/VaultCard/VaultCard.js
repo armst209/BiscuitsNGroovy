@@ -11,24 +11,29 @@ import { useState, createRef } from "react";
 import ReactDOM from "react-dom";
 
 //npm imports
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+// ! Disable body-scroll-lock due to ios issue. Research alternative  - ref can be removed.
+// import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const VaultCard = ({ release, toggleModalState }) => {
   const [showVaultModal, setShowVaultModal] = useState(false);
 
   //release object destructuring
   const { artist_name, release_art } = release;
-
+  
   //modal handlers
   const showVaultModalHandler = () => {
     setShowVaultModal(true);
-    disableBodyScroll(ref);
+    // ! Disable body-scroll-lock due to ios issue. Research alternative - refs can be removed.
+    // disableBodyScroll(ref);
+    document.body.style.overflow='hidden'
     toggleModalState(true);
   };
 
   const hideVaultModalHandler = () => {
     setShowVaultModal(false);
-    enableBodyScroll(ref);
+    // ! Disable body-scroll-lock due to ios issue. Research alternative - refs can be removed.
+    // enableBodyScroll(ref);
+    document.body.style.overflow = "scroll"
     toggleModalState(false);
   };
 

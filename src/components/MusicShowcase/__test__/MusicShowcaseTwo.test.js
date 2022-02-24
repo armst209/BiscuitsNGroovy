@@ -54,6 +54,17 @@ const sampleReleaseTwo = [
   }
 ]
 
+beforeEach(()=>{
+  let portalRoot = document.getElementById("modal-overlay-root");
+  if(!portalRoot){
+    portalRoot = document.createElement("div");
+    portalRoot.setAttribute("id", "modal-overlay-root");
+    document.body.appendChild(portalRoot)
+  }
+})
+
+afterEach(cleanup)
+
 describe("Fetch data successfully and display correct data", ()=>{
   test("No active release", async () => {
     // Arrange / Act
