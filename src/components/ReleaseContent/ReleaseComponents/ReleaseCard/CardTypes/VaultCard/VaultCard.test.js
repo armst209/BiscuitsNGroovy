@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router } from "react-router-dom";
 import {render, cleanup, fireEvent} from "@testing-library/react"
+import ReactDOM from "react-dom"
 
 import VaultCard from "./VaultCard";
 
@@ -23,13 +24,18 @@ const MockComponent = () => {
     <VaultCard release={sampleRelease} toggleModalState={toggleModalState} />
   </Router>
 }
+
+// TODO May have to change the portal test due to React-Modal .. implementation
+// beforeEach(()=>{
+//   let portalRoot = document.getElementById("modal-overlay-root");
+//   if(!portalRoot){
+//     portalRoot = document.createElement("div");
+//     portalRoot.setAttribute("id", "modal-overlay-root");
+//     document.body.appendChild(portalRoot)
+//   }
+// })
 beforeEach(()=>{
-  let portalRoot = document.getElementById("modal-overlay-root");
-  if(!portalRoot){
-    portalRoot = document.createElement("div");
-    portalRoot.setAttribute("id", "modal-overlay-root");
-    document.body.appendChild(portalRoot)
-  }
+  ReactDOM.findDOMNode()
 })
 
 afterEach(cleanup)

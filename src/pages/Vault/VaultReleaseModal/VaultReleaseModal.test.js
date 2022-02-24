@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { debug } from "console";
 import VaultReleaseModal from "./VaultReleaseModal";
 
 const sampleRelease = {
@@ -18,11 +19,11 @@ const sampleRelease = {
 
 describe("Release content renders correctly in modal", () => {
   // beforeEach(() => {
-  //   render(<VaultReleaseModal release={sampleRelease} />);
+  //   render(<VaultReleaseModal release={sampleRelease} isOpen={true} />);
   // });
 
   test("Release name renders correctly", () => {
-    const {getByTestId} = render(<VaultReleaseModal release={sampleRelease} />);
+    const {getByTestId} = render(<VaultReleaseModal release={sampleRelease} isOpen={true} />);
     expect(getByTestId("vault-release-name")).toBeInTheDocument();
     expect(getByTestId("vault-release-name").textContent).toBe("Trials and Errors");
 
@@ -32,23 +33,24 @@ describe("Release content renders correctly in modal", () => {
   });
 
   test("Artist name is in the modal", () => {
-    const {getByRole} = render(<VaultReleaseModal release={sampleRelease} />);
+    const {getByRole} = render(<VaultReleaseModal release={sampleRelease} isOpen={true} />);
+    debug()
     expect(getByRole("heading", { name: /lingero/i })
     ).toBeInTheDocument();
   });
 
   test("track list shows", () => {
-    const {getAllByRole} = render(<VaultReleaseModal release={sampleRelease} />);
+    const {getAllByRole} = render(<VaultReleaseModal release={sampleRelease} isOpen={true}/>);
     expect(getAllByRole("listitem").length).toBe(3);
   });
 
   test("release timeframe shows", () => {
-    const {getByText} = render(<VaultReleaseModal release={sampleRelease} />);
+    const {getByText} = render(<VaultReleaseModal release={sampleRelease} isOpen={true} />);
     expect(getByText(/9\/17\/2021 \- 10\/1\/2021/i)).toBeInTheDocument();
   });
 
   test("modal close button shows", () => {
-    const {getByTestId} = render(<VaultReleaseModal release={sampleRelease} />);
+    const {getByTestId} = render(<VaultReleaseModal release={sampleRelease} isOpen={true}/>);
     expect(getByTestId("modal-close-button")).toBeInTheDocument();
   });
 });
