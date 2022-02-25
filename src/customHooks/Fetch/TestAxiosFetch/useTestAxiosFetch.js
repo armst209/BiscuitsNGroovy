@@ -43,9 +43,9 @@ const useTestAxiosFetch = (_requestData) => {
       try {
         const response = await axios(config);
 
-        if (response.statusText !== "OK") {
-          throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
-        }
+        // if (response.status !== 200) {
+        //   throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
+        // }
 
         //assigning response data to variable
         const data = response.data;
