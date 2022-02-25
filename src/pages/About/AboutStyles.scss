@@ -256,6 +256,10 @@
             justify-content: center;
             align-items: center;
 
+            .selected-button{
+              text-decoration: underline 2px var(--color2);
+            }
+
             @media screen and (max-width: 400px) {
               flex-direction: column;
             }
