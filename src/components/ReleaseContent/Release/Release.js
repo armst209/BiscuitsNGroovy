@@ -1,13 +1,13 @@
 //react imports
 import { useParams } from "react-router-dom";
-import useFetch from "../../../customHooks/Fetch/useAxiosFetch";
+import useAxiosFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import NotFound from "../../../pages/NotFound/NotFound";
 
 //component imports
 import ComponentLoading from "../../Loading/Component/ComponentLoading";
 import ReleaseContainer from "./ReleaseContainer/ReleaseContainer";
 
-const Release = ({ link }) => {
+const Release = () => {
   //token
   let token = localStorage.getItem("token");
 
@@ -19,25 +19,26 @@ const Release = ({ link }) => {
     responseData: releases,
     isLoading,
     errorMessage,
-  } = useFetch(
-    `${process.env.REACT_APP_BACKEND_URL}/releases/${releaseId}/release`,
-    {
-      headers: { "x-access-token": token },
-    }
-  );
+  } = useAxiosFetch({
+    method: "GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}/releases/${releaseId}/release`,
+    headers: { "x-access-token": token },
+  });
+
+  console.log(releases);
 
   return (
-    <>
-      <section className="_main_section">
-        {isLoading && <ComponentLoading />}
-        {/* if release is null or not found, redirects to Not Found component */}
-        {!errorMessage ? (
-          releases && <ReleaseContainer release={releases.releases} />
-        ) : (
-          <NotFound />
-        )}
-      </section>
-    </>
+
+    <section className="_main_section">
+      {isLoading && <ComponentLoading />}
+      {/* if release is null or not found, redirects to Not Found component */}
+      {!errorMessage ? (
+        releases && <ReleaseContainer release={releases.releases} />
+      ) : (
+        <NotFound />
+      )}
+    </section>
+
   );
 };
 

@@ -31,7 +31,8 @@ const useTestAxiosFetch = (_requestData) => {
     const cancelTokenWithRequestData = { ...requestData, cancelToken: source.token };
 
     //status error handling, promise will only resolve if status is less than 500
-    const config = { ...cancelTokenWithRequestData, validateStatus: (status) => status < 500 }
+    // const config = { ...cancelTokenWithRequestData, validateStatus: (status) => status < 500 }
+    const config = { ...cancelTokenWithRequestData }
 
 
     const fetchDataWithAxios = async () => {
@@ -42,9 +43,9 @@ const useTestAxiosFetch = (_requestData) => {
       try {
         const response = await axios(config);
 
-        if (response.statusText !== "OK") {
-          throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
-        }
+        // if (response.status !== 200) {
+        //   throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
+        // }
 
         //assigning response data to variable
         const data = response.data;
