@@ -2,7 +2,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useModal from "../useModal";
 
-
 describe("useModal Custom Hook", () => {
 
     test("default of isModalShowing will be false", () => {

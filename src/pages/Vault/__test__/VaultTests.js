@@ -1,5 +1,5 @@
 import { render, screen, act } from "@testing-library/react";
-import Vault from "./Vault";
+import Vault from "../Vault";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const Component = () => {

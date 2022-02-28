@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router } from "react-router-dom";
-import {render, cleanup, fireEvent} from "@testing-library/react"
+import { render, cleanup, fireEvent } from "@testing-library/react"
 import ReactDOM from "react-dom"
 
 import VaultCard from "./VaultCard";
@@ -34,16 +34,16 @@ const MockComponent = () => {
 //     document.body.appendChild(portalRoot)
 //   }
 // })
-beforeEach(()=>{
+beforeEach(() => {
   ReactDOM.findDOMNode()
 })
 
 afterEach(cleanup)
 
-describe("Vault Card", () =>{
-  test("Body locks on modal open", ()=>{
+describe("Vault Card", () => {
+  test("Body locks on modal open", () => {
     // Arrange
-    const { getByTestId } = render(<MockComponent/>);
+    const { getByTestId } = render(<MockComponent />);
 
     // Act
     const release = getByTestId("vault-release");
@@ -61,4 +61,3 @@ describe("Vault Card", () =>{
   })
 });
 
-  
