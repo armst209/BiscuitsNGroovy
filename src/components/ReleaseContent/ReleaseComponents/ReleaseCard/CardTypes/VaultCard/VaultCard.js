@@ -7,8 +7,8 @@ import ReleaseImage from "../../../ReleaseImage/ReleaseImage";
 import VaultReleaseModal from "../../../../../../pages/Vault/VaultReleaseModal/VaultReleaseModal";
 
 //react imports
-import { useState, createRef } from "react";
-import ReactDOM from "react-dom";
+import { useState } from "react";
+import Modal from "react-modal";
 
 //npm imports
 // ! Disable body-scroll-lock due to ios issue. Research alternative  - ref can be removed.
@@ -19,6 +19,9 @@ const VaultCard = ({ release, toggleModalState }) => {
 
   //release object destructuring
   const { artist_name, release_art } = release;
+
+  // TODO Not sure where the best place to implement Modal.setAppElement.
+  Modal.setAppElement(document.getElementById('root'));
   
   //modal handlers
   const showVaultModalHandler = () => {
@@ -37,16 +40,22 @@ const VaultCard = ({ release, toggleModalState }) => {
     toggleModalState(false);
   };
 
-  //ref for vault modal
-  const ref = createRef();
+  // Keyboard accessibility for each Vault card.
+  const handleKeydown = (event) => {
+    if (event.keyCode === 13 || event.key === "Enter"){
+      showVaultModalHandler();
+    }
+  }
 
   return (
     <>
       <figure
+      tabIndex={0}
         className={hoverStyles["hover-img"]}
         onClick={() => {
           showVaultModalHandler();
         }}
+        onKeyDown={(event)=>{handleKeydown(event)}}
         data-testid="vault-release"
       >
         <ReleaseImage
@@ -61,13 +70,16 @@ const VaultCard = ({ release, toggleModalState }) => {
         </figcaption>
         {/* Modal */}
       </figure>
-      {showVaultModal && ReactDOM.createPortal(
+
+      <VaultReleaseModal release={release} isOpen={showVaultModal} hideVaultModalHandler={hideVaultModalHandler}/>
+
+      {/* {showVaultModal && ReactDOM.createPortal(
         <VaultReleaseModal
           ref={ref}
           release={release}
           hideVaultModalHandler={hideVaultModalHandler}
         />, document.getElementById("modal-overlay-root")
-      )}
+      )} */}
     </>
   );
 };
