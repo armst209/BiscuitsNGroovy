@@ -1,0 +1,35 @@
+#expired-info-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  background: black;
+  @media screen and (max-width: 400px) {
+    padding: 0;
+  }
+
+  .expired-info-modal-close {
+    font-family: var(--header-font);
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color:white;
+  }
+  .expired-info-modal-wrapper {
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--header-font);
+  }
+}

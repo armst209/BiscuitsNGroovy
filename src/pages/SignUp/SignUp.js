@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
 import FlowLoader from "../../components/Loading/Forms/FlowLoader";
+
+//svg imports
 import { ReactComponent as QuestionIcon } from '../../assets/images/help_question_yellow.svg'
 
 

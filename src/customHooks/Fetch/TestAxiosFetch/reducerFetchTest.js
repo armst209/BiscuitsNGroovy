@@ -1,94 +1,94 @@
 
 
-//react imports
-import { useState, useEffect, useRef, useReducer } from "react";
+// //react imports
+// import { useState, useEffect, useRef, useReducer } from "react";
 
-//axios import
-import axios from "axios";
+// //axios import
+// import axios from "axios";
 
-//component imports
-import FetchError from "../FetchError/FetchError";
-
-
-const useTestAxiosFetch = (_requestData) => {
-
-    //state hooks
-    const [responseData, setResponseData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(null);
-    const [errorMessageComponent, setErrorMessageComponent] = useState("");
-
-    const initialFetchState = {
-        responseData: null,
-        isLoading: false,
-        errorMessage: null,
-        errorMessageComponent: ""
-    }
+// //component imports
+// import FetchError from "../FetchError/FetchError";
 
 
-    const { fetchState, dispatch } = useReducer(() => { }, initialFetchState)
+// const useTestAxiosFetch = (_requestData) => {
 
-    //useRef for creating component instanced mutable object
-    const requestData = useRef(_requestData).current;
+//     //state hooks
+//     // const [responseData, setResponseData] = useState(null);
+//     // const [isLoading, setIsLoading] = useState(false);
+//     // const [errorMessage, setErrorMessage] = useState(null);
+//     // const [errorMessageComponent, setErrorMessageComponent] = useState("");
 
-    useEffect(() => {
-
-        //axios cancel token
-        const cancelToken = axios.CancelToken;
-        const source = cancelToken.source();
-
-        //adding cancel token to config object
-        const cancelTokenWithRequestData = { ...requestData, cancelToken: source.token };
-
-        //status error handling, promise will only resolve if status is less than 500
-        const config = { ...cancelTokenWithRequestData, validateStatus: (status) => status < 500 }
+//     // const initialFetchState = {
+//     //     responseData: null,
+//     //     isLoading: false,
+//     //     errorMessage: null,
+//     //     errorMessageComponent: ""
+//     // }
 
 
-        const fetchDataWithAxios = async () => {
+//     // const { fetchState, dispatch } = useReducer(() => { }, initialFetchState)
 
-            //loader is visible
-            setIsLoading(true);
+//     //useRef for creating component instanced mutable object
+//     const requestData = useRef(_requestData).current;
 
-            try {
-                const response = await axios(config);
+//     useEffect(() => {
 
-                if (response.statusText !== "OK") {
-                    throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
-                }
+//         //axios cancel token
+//         const cancelToken = axios.CancelToken;
+//         const source = cancelToken.source();
 
-                //assigning response data to variable
-                const data = response.data;
+//         //adding cancel token to config object
+//         const cancelTokenWithRequestData = { ...requestData, cancelToken: source.token };
 
-                //setting states if resolved
-                setIsLoading(false);
-                setResponseData(data);
-                setErrorMessage(null);
+//         //status error handling, promise will only resolve if status is less than 500
+//         const config = { ...cancelTokenWithRequestData, validateStatus: (status) => status < 500 }
 
-            } catch (error) {
-                if (axios.isCancel(error)) {
-                    //for testing axios cancel token and component unmounts
-                    console.log("Axios request cancelled");
-                } else {
 
-                    //setting states if rejected
-                    setIsLoading(false);
-                    setErrorMessageComponent(<FetchError errorMessage={error} />);
-                    setErrorMessage(error);
-                    console.error(error);
-                }
-            }
-        };
+//         const fetchDataWithAxios = async () => {
 
-        fetchDataWithAxios();
+//             //loader is visible
+//             setIsLoading(true);
 
-        //cleanup
-        return () => {
-            source.cancel("Axios request cancelled");
-        };
-    }, [requestData]);
+//             try {
+//                 const response = await axios(config);
 
-    // return { responseData, isLoading, errorMessage, errorMessageComponent };
-    return { fetchState }
-};
+//                 if (response.statusText !== "OK") {
+//                     throw new Error(`$Status: ${response.status} Message: ${response.statusText}`);
+//                 }
 
-export default useTestAxiosFetch;
+//                 //assigning response data to variable
+//                 const data = response.data;
+
+//                 //setting states if resolved
+//                 setIsLoading(false);
+//                 setResponseData(data);
+//                 setErrorMessage(null);
+
+//             } catch (error) {
+//                 if (axios.isCancel(error)) {
+//                     //for testing axios cancel token and component unmounts
+//                     console.log("Axios request cancelled");
+//                 } else {
+
+//                     //setting states if rejected
+//                     setIsLoading(false);
+//                     setErrorMessageComponent(<FetchError errorMessage={error} />);
+//                     setErrorMessage(error);
+//                     console.error(error);
+//                 }
+//             }
+//         };
+
+//         fetchDataWithAxios();
+
+//         //cleanup
+//         return () => {
+//             source.cancel("Axios request cancelled");
+//         };
+//     }, [requestData]);
+
+//     // return { responseData, isLoading, errorMessage, errorMessageComponent };
+//     return { fetchState }
+// };
+
+// export default useTestAxiosFetch;

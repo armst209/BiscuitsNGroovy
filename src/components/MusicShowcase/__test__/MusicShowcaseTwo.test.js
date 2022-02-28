@@ -1,8 +1,8 @@
 import React from "react"
-import {render, cleanup, waitFor} from "@testing-library/react"
-import MusicShowcase from "../MusicShowcase"
+import { render, cleanup, waitFor } from "@testing-library/react"
+import MusicShowcase from "../MusicShowcaseIndex"
 
-import {server, rest} from "../../../testServer"
+import { server, rest } from "../../../testServer"
 
 const sampleRelease = [
   {
@@ -54,9 +54,9 @@ const sampleReleaseTwo = [
   }
 ]
 
-beforeEach(()=>{
+beforeEach(() => {
   let portalRoot = document.getElementById("modal-overlay-root");
-  if(!portalRoot){
+  if (!portalRoot) {
     portalRoot = document.createElement("div");
     portalRoot.setAttribute("id", "modal-overlay-root");
     document.body.appendChild(portalRoot)
@@ -65,17 +65,17 @@ beforeEach(()=>{
 
 afterEach(cleanup)
 
-describe("Fetch data successfully and display correct data", ()=>{
+describe("Fetch data successfully and display correct data", () => {
   test("No active release", async () => {
     // Arrange / Act
     server.use(
       rest.get(`${process.env.REACT_APP_BACKEND_URL}/releases`, (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json({releases:[]}));
+        return res(ctx.status(200), ctx.json({ releases: [] }));
       })
     );
 
     // Act
-    const {findByTestId} = render(<MusicShowcase />)
+    const { findByTestId } = render(<MusicShowcase />)
     const element = await findByTestId("no-releases");
 
     // Assert
@@ -87,12 +87,12 @@ describe("Fetch data successfully and display correct data", ()=>{
     // Arrange / Act
     server.use(
       rest.get(`${process.env.REACT_APP_BACKEND_URL}/releases`, (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json({releases:sampleRelease}));
+        return res(ctx.status(200), ctx.json({ releases: sampleRelease }));
       })
     );
 
     //Act
-    const {findByTestId} = render(<MusicShowcase />)
+    const { findByTestId } = render(<MusicShowcase />)
 
     // Assert
     const element = await findByTestId("available-release-card");
@@ -103,12 +103,12 @@ describe("Fetch data successfully and display correct data", ()=>{
     // Arrange / Act
     server.use(
       rest.get(`${process.env.REACT_APP_BACKEND_URL}/releases`, (req, res, ctx) => {
-        return res(ctx.status(200), ctx.json({releases:sampleReleaseTwo}));
+        return res(ctx.status(200), ctx.json({ releases: sampleReleaseTwo }));
       })
     );
 
     // Act
-    const {findAllByTestId} = render(<MusicShowcase />)
+    const { findAllByTestId } = render(<MusicShowcase />)
 
     // Assert
     const element = await findAllByTestId("available-release-card");
@@ -116,8 +116,8 @@ describe("Fetch data successfully and display correct data", ()=>{
   })
 })
 
-describe("FAIL REQUEST", ()=>{
-  test("Correct error is displayed", async ()=>{
+describe("FAIL REQUEST", () => {
+  test("Correct error is displayed", async () => {
     // Arrange - rewrite the response from server for test scenario.
     server.use(
       rest.get(`${process.env.REACT_APP_BACKEND_URL}/releases`, (req, res, ctx) => {
@@ -125,7 +125,7 @@ describe("FAIL REQUEST", ()=>{
       })
     );
 
-    const {findByTestId, } = render(<MusicShowcase />)
+    const { findByTestId, } = render(<MusicShowcase />)
 
     const element = await findByTestId("error-message");
     expect(element).toBeInTheDocument();
