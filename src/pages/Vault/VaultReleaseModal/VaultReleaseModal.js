@@ -128,3 +128,4 @@ const VaultReleaseModal = ({ release, hideVaultModalHandler, isOpen }) => {
 ;
 
 export default VaultReleaseModal;
+

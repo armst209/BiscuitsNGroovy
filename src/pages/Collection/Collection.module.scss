@@ -1,0 +1,112 @@
+#collection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: none;
+  position: relative;
+
+  .collection-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--header-font);
+      letter-spacing: 0.1cm;
+      font-weight: normal;
+      color: white;
+      background-color: transparent;
+      padding: 1rem;
+
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      text-align: center;
+      font-size: 3rem;
+      position: relative;
+      @media screen and (max-width: 500px) {
+        flex-direction: column-reverse;
+        font-size: 2.5rem;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 2rem;
+      }
+
+      svg {
+        margin-right: 0.5rem;
+        @media screen and (max-width: 500px) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .collection-play-info-container {
+    position: absolute;
+  }
+
+  .collection-nav-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .collection-navigation {
+      width: 200px;
+    }
+    .collection-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (max-width: 400px) {
+        padding: 0;
+      }
+      .collection-library-grid-wrapper {
+        width: 100%;
+        @media screen and (max-width: 500px) {
+          border: none;
+          padding: 0;
+        }
+        .collection-library-grid {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: auto;
+          background-color: black;
+          position: relative;
+
+          .collection-loader{
+            background-color: #000;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+          
+            svg{
+              width: 100px;
+            }
+          }
+
+          @media screen and (max-width: 1050px) {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+

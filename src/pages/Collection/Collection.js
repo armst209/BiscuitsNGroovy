@@ -1,64 +1,30 @@
 //styles
-import "./CollectionStyles.scss";
-
-//svg imports
-import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
+import styles from "./Collection.module.scss";
 
 //component imports
-import ComponentLoading from "../../components/Loading/Component/ComponentLoading";
-import NoReleasesCollection from "../../components/ReleaseContent/ReleaseComponents/NoReleases/NoReleasesCollection";
-import CollectionReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/CollectionReleaseList/CollectionReleaseList";
-import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
+import Title from "../../UI/Title/Title";
 
-//react imports
-import useTestAxiosFetch from "../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+//utility imports
+import CollectionReleases from "./ReleaseList/CollectionReleases";
+
+
 
 const Collection = () => {
-  //TOKEN
-  let token = localStorage.getItem("token");
-
-  const {
-    responseData: releaseData,
-    isLoading,
-    errorMessage,
-  } = useTestAxiosFetch({
-    url:`${process.env.REACT_APP_BACKEND_URL}/library`, 
-    method:"GET",
-    headers: { "x-access-token": token },
-  });
 
   return (
-    <>
-      <FixedNavigationSpacer />
-      <section id="collection">
-        <div className="collection-title">
-          <h1>
-            <RecordVinyl width="50px" />
-            <div>COLLECTION</div>
-          </h1>
-        </div>
-
-        <div className="collection-nav-grid">
-          <div className="collection-container">
-            <div className="collection-library-grid-wrapper">
-              <div className="collection-library-grid">
-                {isLoading && <ComponentLoading />}
-                {errorMessage === null ? (
-                  releaseData && (
-                    <CollectionReleaseList
-                      releaseData={releaseData.library}
-                      noReleaseDataComponent={<NoReleasesCollection />}
-                    />
-                  )
-                ) : (
-                  <div>{errorMessage}</div>
-                )}
-              </div>
+    <section id={styles.collection} className="_main_section">
+      <Title title={"collection"} />
+      <div className={styles["collection-nav-grid"]}>
+        <div className={styles["collection-container"]}>
+          <div className={styles["collection-library-grid-wrapper"]}>
+            <div className={styles["collection-library-grid"]}>
+              <CollectionReleases />
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
+
   );
 };
 

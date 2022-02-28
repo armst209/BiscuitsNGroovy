@@ -1,0 +1,111 @@
+.collection-release-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .h1-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: var(--header-font);
+    font-size: 2rem;
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+
+    @media screen and(max-width: 600px) {
+      justify-content: center;
+  
+    }
+    @media screen and(max-width: 400px) {
+      text-decoration: underline 2px var(--color2);
+     }
+
+    @media screen and(max-width: 300px) {
+     font-size: 1.6rem;
+    }
+  }
+  .collection-release-list-live-releases-container,
+  .collection-release-list-released-releases-container {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 2px solid var(--color2);
+    padding: 1rem;
+    @media screen and (max-width: 400px) {
+      border: none;
+      padding: 0;
+    }
+
+    .single-release-in-grid{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .release-released-grid,
+    .release-live-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+      place-content: center;
+      grid-gap: 1rem;
+      
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      @supports not (display: grid) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      @media screen and (max-width: 400px){
+        display:flex;
+        justify-content: left;
+        overflow:auto;
+        scroll-snap-type: x mandatory;
+        padding: 1rem;
+
+        figure {
+          min-width: 60%;
+          scroll-snap-align: start;
+        }
+
+        @supports not (scroll-snap-type:x mandatory) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+   
+      }
+  
+    }
+  }
+  .cant-play-releases-container {
+    grid-template: "cant-play";
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--header-font);
+    padding: 1rem;
+    cursor: pointer;
+    @media screen and (max-width: 700px) {
+      justify-content: center;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 0.8rem;
+    }
+    svg {
+      margin-right: 0.5rem;
+      width: 40px;
+    }
+  }
+}

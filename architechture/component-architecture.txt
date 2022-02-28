@@ -1,0 +1,3 @@
+- following SOLID & DRY Principles 
+- SRP - single responsibility principle
+Rule of Thumb: every component should solve a specific problem.

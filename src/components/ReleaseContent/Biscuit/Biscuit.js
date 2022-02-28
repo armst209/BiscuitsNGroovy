@@ -1,7 +1,7 @@
 //react imports
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import useFetch from "../../../customHooks/Fetch/useAxiosFetch";
+import useFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 //component imports
 import BiscuitContainer from "./BiscuitContainer/BiscuitContainer";
@@ -34,12 +34,11 @@ const Biscuit = () => {
     responseData: releases,
     isLoading,
     errorMessage,
-  } = useFetch(
-    `${process.env.REACT_APP_BACKEND_URL}/library/${biscuitId}/biscuit`,
-    {
-      headers: { "x-access-token": token },
-    }
-  );
+  } = useFetch({
+    method: "GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}/library/${biscuitId}/biscuit`,
+    headers: { "x-access-token": token },
+  });
 
   return (
     <>

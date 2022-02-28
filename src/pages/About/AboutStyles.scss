@@ -11,7 +11,6 @@
   }
   .about-title {
     width: 100%;
-    padding-top: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,7 +172,7 @@
           align-items: center;
           width: 100%;
           .principle-img {
-            img {
+          svg {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -255,6 +254,10 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+
+            .selected-button{
+              text-decoration: underline 2px var(--color2);
+            }
 
             @media screen and (max-width: 400px) {
               flex-direction: column;

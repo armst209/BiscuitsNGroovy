@@ -1,5 +1,6 @@
 //react imports
 import { useState, useEffect } from "react";
+
 import useFetch from "../../../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import ScrollWidget from "../../../../../Routes/ScrollWidget/ScrollWidget";
 
@@ -16,7 +17,6 @@ const VaultReleaseList = () => {
   const modalStateCallback = (boolean) => {
     setIsModalOpen(boolean);
   }
-
 
   //useFetch - api call
   const {
@@ -36,9 +36,8 @@ const VaultReleaseList = () => {
       });
       setReleaseArr(objToArr);
     }
-    // console.log(releaseData);
-  }, [releaseData]);
 
+  }, [releaseData]);
 
   // Render releases in Vault container
   const mapReleases = (array) => {
