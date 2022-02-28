@@ -1,307 +1,142 @@
 
 //react imports
-import { useState } from "react";
 import { NavHashLink, HashLink } from "react-router-hash-link";
 
 //styles
 import "./FAQStyles.scss";
 
 //svg imports
-import dropdown from "../../assets/images/double-down-yellow.svg";
-import question from "../../assets/images/question2.svg";
-import record_bullet from "../../assets/images/vinyl_yellow.svg";
-import important from "../../assets/images/speaker_yellow.svg";
-import Title from "../../UI/Title/Title";
 
-//CSS Transition is a node package that handles CSS transitions in React and is imported above
-//Each FAQ dropdown ("answer") is wrapped in a "CSSTransition" element
-//useState is tied to the CSSTransition element which changes the state and transitions once the onClick event is triggered
+import { ReactComponent as Question } from "../../assets/images/question2.svg";
+import { ReactComponent as RecordBullet } from "../../assets/images/vinyl_yellow.svg";
+import { ReactComponent as Important } from "../../assets/images/speaker_yellow.svg";
+
+//component imports
+import Title from "../../UI/Title/Title";
+import FAQQuestion from "./FAQQuestion";
 
 const FAQ = () => {
-  const [showAnswer1, setShowAnswer1] = useState(false);
-  const [showAnswer2, setShowAnswer2] = useState(false);
-  const [showAnswer4, setShowAnswer4] = useState(false);
-  const [showAnswer5, setShowAnswer5] = useState(false);
-  const [showAnswer6, setShowAnswer6] = useState(false);
-  const [showAnswer7, setShowAnswer7] = useState(false);
-  const [showAnswer8, setShowAnswer8] = useState(false);
-  const [showAnswer10, setShowAnswer10] = useState(false);
-
-  const [dropStyle1] = useState("dropdown");
-  const [dropStyle2] = useState("dropdown");
-  const [dropStyle4] = useState("dropdown");
-  const [dropStyle5] = useState("dropdown");
-  const [dropStyle6] = useState("dropdown");
-  const [dropStyle7] = useState("dropdown");
-  const [dropStyle8] = useState("dropdown");
-
-  const [dropStyle10] = useState("dropdown");
 
   return (
 
     <section id="faq" className="_main_section">
       <Title title={"faq"} />
+
       <div className="faq-content">
-        <h5
-          onClick={() => {
-            setShowAnswer1(!showAnswer1);
-          }}
-        >
-          <div>What do I get with my purchase?</div>
-          <img
-            className={`dropdown ${dropStyle1}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
 
-        {showAnswer1 && (
-          <div className="answer">
-            <ul>
-              <li>
-                Check out{" "}
-                <NavHashLink to="/#whats-a-biscuit">
-                  “What’s a Biscuit?”
-                </NavHashLink>
-              </li>
-
-            </ul>
-          </div>
-        )}
-
-        <h5
-          onClick={() => {
-            setShowAnswer2(!showAnswer2);
-
-          }}
-        >
-          <div> Why does music expire?</div>
-          <img
-            className={`dropdown ${dropStyle2}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-
-        {showAnswer2 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  All music on BnG is released on a limited basis. So when
-                  it’s gone, it’s gone. We do this so we can offer affordable
-                  prices for fans, and still be able to pay artists better.
-                  Besides, we’re not just another streaming service. We’re
-                  built for superfans who want to experience music in the
-                  moment, setting themselves apart from the crowd. But don’t
-                  worry, you always keep your collectible album covers, so
-                  everyone will know that you’re a true fan.
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-
-
-        <h5
-          onClick={() => {
-            setShowAnswer4(!showAnswer4);
-            // setDropStyle4("icon_rotate");
-          }}
-        >
-          <div>Can I download my music?</div>
-          <img
-            className={`dropdown ${dropStyle4}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-        {showAnswer4 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  No, music purchased on BnG is not available for download.
-                  You can stream the music as much as you’d like during the
-                  release window.
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-
-        <h5
-          id="NFT"
-          onClick={() => {
-            setShowAnswer5(!showAnswer5);
-
-          }}
-        >
-          <div> What’s an NFT?</div>
-          <img
-            className={`dropdown ${dropStyle5}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-        {showAnswer5 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  We’re glad you asked! An NFT, or non-fungible token, is a
-                  digital collectible whose ownership is recorded on the
-                  blockchain. If that still sounds like gibberish to you,
-                  don’t worry! You don’t need to be an NFT expert to use BnG
-                  (most of our customers aren’t). The key idea to know is that
-                  NFTs give our album art a permanent stamp of authenticity,
-                  proving who the true owner is, so you can feel confident
-                  when showing off your collection.
-                </div>
-              </li>
-              <li>
-                <div>
-                  Want to really dig into NFTs? Read more{" "}
-                  <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-
-        <h5
-          onClick={() => {
-            setShowAnswer6(!showAnswer6);
-
-          }}
-        >
-          <div>Do I need cryptocurrency to pay?</div>
-          <img
-            className={`dropdown ${dropStyle6}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-        {showAnswer6 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  No, and in fact we don’t accept cryptocurrency at this time.
-                  Call us old-fashioned, but we like to stick with dollars
-                  around here. BnG accepts all major credit cards as payment.
-                  That means you don’t need a crypto wallet or cryptocurrency
-                  of any kind to purchase music and NFTs. Sadly you’ll have to
-                  find somewhere else to spend your dogecoin.
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-
-        <h5
-          onClick={() => {
-            setShowAnswer10(!showAnswer10);
-
-          }}
-        >
-          <div>What is a Blocto/Flow account and why do I need it?</div>
-          <img
-            className={`dropdown ${dropStyle10}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-        {showAnswer10 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  Blocto is a trusted, user-friendly wallet for crypto assets
-                  such as NFTs. We integrate with Blocto to seamlessly store
-                  your NFT album art, so you can view it in your BnG library
-                  as well as outside our platform. When you create an account
-                  on BnG, you’ll also be prompted to create a Blocto account
-                  (if you already have one, you can easily link that instead).
-                  Don’t worry! The process is super easy and we walk you
-                  through it when you sign up. Your Blocto account will be
-                  linked to your BnG account for easy access, so you don’t
-                  need to remember multiple logins. Blocto is designed to be
-                  so intuitive, you won’t even realize you’re interacting with
-                  the blockchain. Learn more
-                  <a
-                    href="https://blocto.portto.io/en/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    here
-                  </a>
-                  .
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-
-        <h5
-          onClick={() => {
-            setShowAnswer7(!showAnswer7);
-
-          }}
-        >
-          <div>Is this a subscription?</div>
-          <img
-            className={`dropdown ${dropStyle7}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-        {showAnswer7 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  Nope, BnG is not subscription-based. We give artists the
-                  freedom to price their own releases, so buying music on BnG
-                  is a one-time purchase. We don’t save your payment
-                  information, and you won’t be charged again (unless you buy
-                  more music, of course!)
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-
-        <h5
-          onClick={() => {
-            setShowAnswer8(!showAnswer8);
-
-          }}
-        >
-          <div>Do you have an app?</div>
-          <img
-            className={`dropdown ${dropStyle8}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        </h5>
-        {showAnswer8 && (
-          <div className="answer">
-            <ul>
-              <li>
-                <div>
-                  Currently we do not have an app. You can access BnG through
-                  any mobile browser, however, so you can still buy and stream
-                  music on your phone. Stay tuned for an app in the future!
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
+        <FAQQuestion title={"What do I get with my purchase?"} ul={<ul>
+          <li>
+            Check out{" "}
+            <NavHashLink to="/#whats-a-biscuit">
+              “What’s a Biscuit?”
+            </NavHashLink>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"Why does music expire?"} ul={<ul>
+          <li>
+            <div>
+              All music on BnG is released on a limited basis. So when
+              it’s gone, it’s gone. We do this so we can offer affordable
+              prices for fans, and still be able to pay artists better.
+              Besides, we’re not just another streaming service. We’re
+              built for superfans who want to experience music in the
+              moment, setting themselves apart from the crowd. But don’t
+              worry, you always keep your collectible album covers, so
+              everyone will know that you’re a true fan.
+            </div>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"Can I download my music?"} ul={<ul>
+          <li>
+            <div>
+              No, music purchased on BnG is not available for download.
+              You can stream the music as much as you’d like during the
+              release window.
+            </div>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"What’s an NFT?"} ul={<ul>
+          <li>
+            <div>
+              We’re glad you asked! An NFT, or non-fungible token, is a
+              digital collectible whose ownership is recorded on the
+              blockchain. If that still sounds like gibberish to you,
+              don’t worry! You don’t need to be an NFT expert to use BnG
+              (most of our customers aren’t). The key idea to know is that
+              NFTs give our album art a permanent stamp of authenticity,
+              proving who the true owner is, so you can feel confident
+              when showing off your collection.
+            </div>
+          </li>
+          <li>
+            <div>
+              Want to really dig into NFTs? Read more{" "}
+              <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
+            </div>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"Do I need cryptocurrency to pay?"} ul={<ul>
+          <li>
+            <div>
+              No, and in fact we don’t accept cryptocurrency at this time.
+              Call us old-fashioned, but we like to stick with dollars
+              around here. BnG accepts all major credit cards as payment.
+              That means you don’t need a crypto wallet or cryptocurrency
+              of any kind to purchase music and NFTs. Sadly you’ll have to
+              find somewhere else to spend your dogecoin.
+            </div>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"What is a Blocto/Flow account and why do I need it?"} ul={<ul>
+          <li>
+            <div>
+              Blocto is a trusted, user-friendly wallet for crypto assets
+              such as NFTs. We integrate with Blocto to seamlessly store
+              your NFT album art, so you can view it in your BnG library
+              as well as outside our platform. When you create an account
+              on BnG, you’ll also be prompted to create a Blocto account
+              (if you already have one, you can easily link that instead).
+              Don’t worry! The process is super easy and we walk you
+              through it when you sign up. Your Blocto account will be
+              linked to your BnG account for easy access, so you don’t
+              need to remember multiple logins. Blocto is designed to be
+              so intuitive, you won’t even realize you’re interacting with
+              the blockchain. Learn more
+              <a
+                href="https://blocto.portto.io/en/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                here
+              </a>
+              .
+            </div>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"Is this a subscription?"} ul={<ul>
+          <li>
+            <div>
+              Nope, BnG is not subscription-based. We give artists the
+              freedom to price their own releases, so buying music on BnG
+              is a one-time purchase. We don’t save your payment
+              information, and you won’t be charged again (unless you buy
+              more music, of course!)
+            </div>
+          </li>
+        </ul>} />
+        <FAQQuestion title={"Do you have an app?"} ul={<ul>
+          <li>
+            <div>
+              Currently we do not have an app. You can access BnG through
+              any mobile browser, however, so you can still buy and stream
+              music on your phone. Stay tuned for an app in the future!
+            </div>
+          </li>
+        </ul>} />
 
 
         <div className="header-div">
-          <img src={question} alt="question icon" />
+          <Question />
 
           <div>
             <div id="nft-scroll-purchase"></div>
@@ -328,7 +163,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="not-aligned-nfts-explained">
                     An NFT, or non-fungible token, is a digital collectible
@@ -343,7 +178,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="div-content">
                     When you purchase a biscuit on Biscuits n Groovy, you
@@ -357,7 +192,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="not-aligned-nfts-explained">
                     You don’t need cryptocurrency to collect biscuits on BnG.
@@ -374,7 +209,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="not-aligned-nfts-explained">
                     All your art lives in your Collection permanently,
@@ -392,7 +227,7 @@ const FAQ = () => {
                     <div className="important-info">
                       <div className="important-content">
                         <div className="important-img">
-                          <img src={important} alt="important icon" />
+                          <Important />
                         </div>
                         <div className="important-paragraph">
                           <span>
@@ -446,7 +281,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="div-content">
                     Many people hear “blockchain” or “crypto” and think of
@@ -464,7 +299,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="div-content">
                     Blockchains are great for recording transactions, like a
@@ -479,7 +314,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="div-content">
                     Non-fungible tokens (or NFTs), on the other hand, are
@@ -495,7 +330,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="div-content">
                     In practice, though, this doesn’t always work in the real
@@ -509,7 +344,7 @@ const FAQ = () => {
               <li>
                 <div>
                   <div className="div-image">
-                    <img src={record_bullet} alt="record icon" />
+                    <RecordBullet />
                   </div>
                   <div className="div-content">
                     A common reaction to NFTs is “okay, but why are these

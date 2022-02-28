@@ -199,7 +199,7 @@
           }
         }
       }
-      img {
+      svg {
         width: 10%;
         margin-right: 10px;
         @media screen and (max-width: 900px) {
@@ -258,7 +258,7 @@
           font-family: var(--header-font);
           padding: 0;
         }
-        img {
+        svg {
           width: 50px;
           top: -20%;
           right: 0%;
@@ -296,7 +296,7 @@
                   width: 15%;
                   padding-bottom: 10px;
                 }
-                img {
+                svg {
                   width: 80%;
                 }
               }
@@ -355,7 +355,7 @@
                         width: 15%;
                         padding-bottom: 10px;
                       }
-                      img {
+                      svg {
                         width: 100%;
                       }
                     }

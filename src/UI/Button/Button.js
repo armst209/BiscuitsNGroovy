@@ -2,6 +2,7 @@ const Button = ({
   children,
   className,
   ariaLabel,
+  dataTestId,
   type,
   width,
   height,
@@ -14,6 +15,7 @@ const Button = ({
       className={className}
       type={type}
       aria-label={ariaLabel}
+      data-testid={dataTestId}
       style={{
         width: width,
         height: height,

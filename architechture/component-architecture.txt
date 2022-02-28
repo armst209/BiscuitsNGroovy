@@ -1,3 +1,5 @@
-- following SOLID & DRY Principles 
+- following SOLID & DRY Principles
+- DRY - don't repeat yourself 
 - SRP - single responsibility principle
-Rule of Thumb: every component should solve a specific problem.
+- Rule of Thumb: every component should solve a specific problem.
+- Composition - splitting larger components into smaller components - using props.children
