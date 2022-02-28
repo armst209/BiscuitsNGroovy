@@ -26,21 +26,21 @@ const ExpiredReleaseHover = ({ showNFTView, showInsertView, release }) => {
       </div>
       {/* MOBILE VIEW: display:none above 768px */}
       <div className={styles["expired-hover-mobile-icons"]}>
-       {/* if both insert links are empty the "View Insert" button won't display */}
-       {!release.insert_link_1 && !release.insert_link_2 ? (
+        {/* if both insert links are empty the "View Insert" button won't display */}
+        {!release.insert_link_1 && !release.insert_link_2 ? (
           ""
         ) : (
           <div className={styles["insert-mobile-icon-container"]}>
-          <InsertIcon onClick={() => showInsertView()} />
-          <span className={styles["insert-span"]}>INSERT</span>
-        </div>
-         
+            <InsertIcon onClick={() => showInsertView()} />
+            <span className={styles["insert-span"]}>INSERT</span>
+          </div>
+
         )}
         <div className={styles["nft-mobile-icon-container"]}>
           <NFTIcon className={styles["nft-mobile-icon"]} onClick={() => showNFTView()} />
           <span className={styles["nft-span"]}>NFT</span>
         </div>
-        
+
       </div>
     </section>
   );

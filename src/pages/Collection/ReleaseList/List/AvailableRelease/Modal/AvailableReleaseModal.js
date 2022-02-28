@@ -16,8 +16,6 @@ import ReleaseImage from "../../../../../../components/ReleaseContent/ReleaseCom
 //framer motion
 import { AnimatePresence, motion } from "framer-motion";
 
-
-
 //variants for framer motion
 const tracklistAnimations = {
   visible: { y: 0 },

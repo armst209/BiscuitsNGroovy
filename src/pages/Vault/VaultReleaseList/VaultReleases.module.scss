@@ -4,6 +4,7 @@
     place-content: center;
     position:relative;
     grid-gap: 1rem;
+    min-height: 300px;
     grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(
         auto-fit,
         minmax(200px, 1fr)

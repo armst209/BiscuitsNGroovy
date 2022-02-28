@@ -3,14 +3,13 @@ import useTestAxiosFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTest
 
 //component imports
 import VaultLoader from "../Loader/VaultLoader";
-import VaultReleaseList from "./List/VaultReleaseList";
+import VaultReleaseListMap from "./List/VaultReleaseListMap";
 
 //styles
 import styles from "./VaultReleases.module.scss";
 
 //utility imports
 import { releaseObjectToArray } from "../../../utils/UtilityFunctions.js"
-
 
 const VaultReleases = () => {
 
@@ -25,13 +24,13 @@ const VaultReleases = () => {
     });
 
     //converting object of objects into array of objects
-    let releaseData = releaseObjectToArray(responseData)
+    let releaseData = releaseObjectToArray(responseData);
 
     return (
         <div className={styles["vault-showcase-grid"]}>
             {isLoading && <VaultLoader />}
             {errorMessage === null
-                ? releaseData && <VaultReleaseList releaseData={releaseData} />
+                ? releaseData && <VaultReleaseListMap releaseData={releaseData} />
                 : <div>{errorMessageComponent}</div>}
         </div>
     )

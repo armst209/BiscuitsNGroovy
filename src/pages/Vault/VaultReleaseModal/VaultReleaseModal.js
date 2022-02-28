@@ -2,17 +2,13 @@
 import { useState } from "react";
 
 // Component Imports
-import ReleaseImage from "../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
-import ReleaseTracklist from "../../../components/ReleaseContent/ReleaseComponents/ReleaseTracklist/ReleaseTracklist";
-import VaultReleaseDescriptionModal from "../VaultReleaseDescriptionModal/VaultReleaseDescriptionModal";
+import VaultReleaseDescriptionModal from "./VaultReleaseDescriptionModal/VaultReleaseDescriptionModal";
+import VaultReleaseModalHeader from "./VaultReleaseDescriptionModal/Header/VaultReleaseModalHeader";
+import VaultReleaseModalLeftSide from "./VaultReleaseDescriptionModal/Body/VaultReleaseModalLeftSide";
+import VaultReleaseModalRightSide from "./VaultReleaseDescriptionModal/Body/VaultReleaseModalRightSide";
 
 // Style Imports
 import styles from "./VaultReleaseModal.module.scss";
-
-
-//utility imports
-import { dateConverter } from "../../../utils/UtilityFunctions";
-import VaultSocialLinks from "./SocialLinks/VaultSocialLinks";
 
 const VaultReleaseModal = ({ release, toggleModal }) => {
   const [showHideVaultReleaseDescription, setShowHideReleaseDescription] =
@@ -21,75 +17,23 @@ const VaultReleaseModal = ({ release, toggleModal }) => {
   //vault description handler
   const showHideVaultReleaseDescriptionHandler = () => setShowHideReleaseDescription(prevState => !prevState);
 
-  //release object destructuring
-  const {
-    release_name,
-    release_art,
-    release_description,
-    start_date,
-    end_date,
-    playlist,
-    artist_name,
-    social
-  } = release;
-
-
   return (
     <section className={styles["vault-modal-wrapper"]} >
       <div className={styles["vault-modal-container"]}>
-        <div className={styles["modal-header"]}>
-          <button
-            aria-label="Close"
-            className={styles["vault-modal-close"]}
-            data-testid="modal-close-button"
-            onClick={() => toggleModal()}
-          >
-            X
-          </button>
-        </div>
+        <VaultReleaseModalHeader toggleModal={toggleModal} />
         <div className={styles["modal-body"]}>
-          <div className={styles["modal-body-left-side"]}>
-            <div className={styles["modal-body-left-release-image-container"]}>
-              <ReleaseImage
-                releaseImageSrc={release_art}
-                alt={`${release_name} biscuit`}
-              />
-            </div>
-            <h1>{artist_name}</h1>
-            <p
-              className={styles["modal-release-name"]}
-              data-testid="vault-release-name"
-            >{release_name}</p>
-            <div className={styles["date-wrapper"]}>
-              <span className={styles["date"]}>
-                {dateConverter(start_date)} - {dateConverter(end_date)}
-              </span>
-            </div>
-            <VaultSocialLinks social={social} />
-          </div>
-          <div className={styles["modal-body-right-side"]}>
-            <p className={styles["modal-body-release-description"]}>
-              {release_description}
-            </p>
-            <button
-              onClick={() => showHideVaultReleaseDescriptionHandler()}
-              className="_button"
-            >
-              Learn More
-            </button>
-            {showHideVaultReleaseDescription && (
-              <VaultReleaseDescriptionModal
-                showHideVaultReleaseDescriptionHandler={
-                  showHideVaultReleaseDescriptionHandler
-                }
-                releaseDescription={release_description}
-              />
-            )}
-            <ReleaseTracklist songs={playlist} />
-          </div>
+          <VaultReleaseModalLeftSide release={release} />
+          <VaultReleaseModalRightSide release={release} showHideVaultReleaseDescriptionHandler={showHideVaultReleaseDescriptionHandler} />
         </div>
       </div>
-
+      {showHideVaultReleaseDescription && (
+        <VaultReleaseDescriptionModal
+          showHideVaultReleaseDescriptionHandler={
+            showHideVaultReleaseDescriptionHandler
+          }
+          releaseDescription={release.release_description}
+        />
+      )}
     </section>)
 }
   ;

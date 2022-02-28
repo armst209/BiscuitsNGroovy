@@ -1,6 +1,5 @@
 
 
-
 /**
  * How We Serve Section Reducer - About Page
  * @param {*} state 
