@@ -12,20 +12,15 @@ import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-
 
 //component imports
 import HowWeServeSection from "./HowWeServeSection/HowWeServeSection";
+import Title from "../../UI/Title/Title";
 
 
 const About = () => {
 
-
   return (
 
     <section id="about" className="_main_section">
-      <div className="about-title">
-        <h1>
-          <RecordVinyl width="50px" />
-          <div>ABOUT</div>
-        </h1>
-      </div>
+      <Title title={"about"} />
       <div className="about-contents-wrapper">
         <div className="about-header">
           <h1>
