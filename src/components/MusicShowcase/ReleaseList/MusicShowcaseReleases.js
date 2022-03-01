@@ -1,12 +1,17 @@
 //component imports
 import MusicShowcaseLoader from "../Loader/MusicShowcaseLoader";
 import MusicShowcaseListWrapper from "./Wrapper/MusicShowcaseListWrapper";
+import AllReleasesPurchased from "./List/AllReleasesPurchased/AllReleasesPurchased";
 
 //react imports
 import useTestAxiosFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 //utility imports 
 import { token } from "../../../utils/UtilityVariables";
+
+//styles
+import styles from "./MusicShowcaseReleases.module.scss"
+
 
 const MusicShowcaseReleases = () => {
   const {
@@ -21,8 +26,10 @@ const MusicShowcaseReleases = () => {
   });
 
   return (
-    <>
+    <div data-testid="music-showcase-grid" className={styles[ "music-showcase-content-wrapper"]}>
       {isLoading && <MusicShowcaseLoader />}
+      {/* displays "check back soon for our next drop!" if user has purchased all releases */}
+      <AllReleasesPurchased releaseData={releaseData}/>
       {errorMessage === null ? (
         releaseData && (
           <MusicShowcaseListWrapper releaseData={releaseData.releases} />
@@ -30,7 +37,7 @@ const MusicShowcaseReleases = () => {
       ) : (
         <div data-testid="error-message">{errorMessageComponent}</div>
       )}
-    </>
+      </div>
   )
 }
 
