@@ -88,7 +88,6 @@ const SignUpForm = ({
         setUserNameInputLoginClass("input-error");
         break;
       case 422:
-        console.log("hit 422")
         setErrorMessages(error.response.data);
         // setEmailErrorMessage("Email or Username has already been taken")
         setShowEmailValidationCheck(false);
