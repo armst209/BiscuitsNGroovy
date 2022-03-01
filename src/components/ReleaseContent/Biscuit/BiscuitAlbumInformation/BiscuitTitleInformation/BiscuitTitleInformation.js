@@ -1,6 +1,6 @@
 import styles from "./BiscuitTitleInformation.module.scss";
 import ReleaseImage from "../../../ReleaseComponents/ReleaseImage/ReleaseImage";
-import Button from "../../../../WrapperComponents/Button/Button";
+import Button from "../../../../../UI/Button/Button";
 import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl_yellow.svg";
 
 const BiscuitTitleInformation = ({
@@ -21,17 +21,17 @@ const BiscuitTitleInformation = ({
 
       <div className={styles["biscuit-title-info-button-container"]}>
         {/* Conditionally render "view insert" button */}
-        {release.insert_link_1 || release.insert_link_2 ? 
-        <Button
-          width="200px"
-          className="_button"
-          onClickFunction={showHideBiscuitInsertHandler}
-          onClickFunction2={showHideMusicPlayerContainerHandler}
-        >
-          View Insert
-        </Button> : null
-        
-      }
+        {release.insert_link_1 || release.insert_link_2 ?
+          <Button
+            width="200px"
+            className="_button"
+            onClickFunction={showHideBiscuitInsertHandler}
+            onClickFunction2={showHideMusicPlayerContainerHandler}
+          >
+            View Insert
+          </Button> : null
+
+        }
         <br />
         <button
           style={{ width: "200px" }}

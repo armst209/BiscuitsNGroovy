@@ -5,27 +5,22 @@ import "./AboutStyles.scss";
 //img imports
 import about_main_img from "../../assets/images/about_story.webp";
 import bucket_hat from "../../assets/images/buckethats.webp";
-import disc_img from "../../assets/images/compact-disc-yellow.svg";
-import two_icon from "../../assets/images/hand2_yellow.svg";
-import one_icon from "../../assets/images/hand1_yellow.svg";
+import { ReactComponent as DiscImage } from "../../assets/images/compact-disc-yellow.svg";
+import { ReactComponent as TwoIcon } from "../../assets/images/hand2_yellow.svg";
+import { ReactComponent as OneIcon } from "../../assets/images/hand1_yellow.svg";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 
 //component imports
 import HowWeServeSection from "./HowWeServeSection/HowWeServeSection";
+import Title from "../../UI/Title/Title";
 
 
 const About = () => {
 
-
   return (
 
     <section id="about" className="_main_section">
-      <div className="about-title">
-        <h1>
-          <RecordVinyl width="50px" />
-          <div>ABOUT</div>
-        </h1>
-      </div>
+      <Title title={"about"} />
       <div className="about-contents-wrapper">
         <div className="about-header">
           <h1>
@@ -38,7 +33,7 @@ const About = () => {
             <div className="contents-img">
               <img src={bucket_hat} alt="bucket hats" />
             </div>
-            <img src={disc_img} alt="disc" className="disc_image" />
+            <DiscImage className="disc_image" />
           </div>
 
           <div className="contents-1-text">
@@ -58,7 +53,7 @@ const About = () => {
               </p>
               <div className="principle">
                 <div className="principle-img">
-                  <img src={one_icon} alt="hand icon" />
+                  <OneIcon alt="hand icon" />
                 </div>
                 <div className="principle-text">
                   Empower trailblazing artists
@@ -66,7 +61,7 @@ const About = () => {
               </div>
               <div className="principle">
                 <div className="principle-img">
-                  <img src={two_icon} alt="hand icon" />
+                  <TwoIcon alt="hand icon" />
                 </div>
                 <div className="principle-text">
                   Recognize and reward true fandom
@@ -78,7 +73,8 @@ const About = () => {
         </div>
       </div>
       <h1 className="story-h1">
-        <div>OUR STORY</div> <RecordVinyl width="50px" />
+        <div>OUR STORY</div>
+        <RecordVinyl width="50px" />
       </h1>
       <div className="about-contents-wrapper">
         <div className="about-contents-2">
@@ -93,7 +89,7 @@ const About = () => {
                     a record is called “the biscuit”
                   </div>
                 </div>
-                <img src={disc_img} alt="disc" className="disc_image" />
+                <DiscImage className="disc_image" />
               </div>
               The idea for Biscuits n Groovy started with a shared love for
               music. More specifically, with our co-founders Matt & Alison’s

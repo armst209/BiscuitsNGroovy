@@ -1,5 +1,5 @@
-import MusicShowcaseCard from "./CardTypes/MusicShowcaseCard/MusicShowcaseCard";
-import CollectionCard from "./CardTypes/CollectionCard/CollectionCard";
+import MusicShowcaseCard from "../../../MusicShowcase/Card/MusicShowcaseCard";
+import CollectionCard from "../../../../pages/Collection/CollectionCard/CollectionCard";
 
 const ReleaseCard = ({ release }) => {
   //**  if there is a "songs" & "isPlayable" property/check in the release object it will display CollectionCard, if not it displays MusicShowcaseCard */

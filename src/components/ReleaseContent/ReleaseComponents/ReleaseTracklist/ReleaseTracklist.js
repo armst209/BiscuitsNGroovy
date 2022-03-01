@@ -3,7 +3,7 @@ import styles from "./ReleaseTracklist.module.scss";
 
 const ReleaseTracklist = ({ songs }) => {
   return (
-    <ul className={styles["tracklist-ul"]}>
+    <ul tabIndex={0} className={styles["tracklist-ul"]}>
       {songs.map((name, order) => {
         return (
           <li
