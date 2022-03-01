@@ -3,6 +3,8 @@ import styles from "./NoReleasesCollection.module.scss";
 //react imports
 import { Link } from "react-router-dom";
 
+
+
 const NoReleasesCollection = () => {
   return (
     <div id={styles["no-releases-collection"]}>
