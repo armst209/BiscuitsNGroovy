@@ -1,48 +1,48 @@
-.spotify {
-  -webkit-transition: 0.75s ease;
-  transition: 0.75s ease;
-  color: #1db954;
-
-  &:hover {
-    color: rgba(#1db954, 0.55);
-  }
-}
-
-.tiktok {
-  max-height: 50px;
-  display: flex;
+.artist-social-links{
+  width:100%;
+  display:flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: white;
-  animation-duration: 3.5s;
-  animation-iteration-count: infinite;
+  margin: .5rem 0;
 
-  &:hover {
-    animation-name: tikTokColors;
-    animation-timing-function: linear;
+  @media screen and (max-width: 768px) {
+    margin: .5rem 0 1rem 0;
   }
 
-  svg {
-    width: 100%;
-    height: 100%;
+  a {
+    font-size: 4rem;
   }
 
-}
-
-@keyframes tikTokColors {
-  from {
-    color: rgba(white, 0.7)
+  .spotify {
+    -webkit-transition: 0.75s ease;
+    transition: 0.75s ease;
+    color: #1db954;
+    &:hover {
+      color: rgba(#1db954, 0.55);
+    }
   }
+    
+  .tiktok {
+    color: white;
+    max-width: 4rem;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+    &:hover {
+      animation-name: tikTokColors;
+      animation-timing-function: linear;
+    }
+      
+    svg{
+      width:100%;
+      height: 100%;
+    }
 
-  33% {
-    color: rgba(#25F4EE, 0.7)
+  @keyframes tikTokColors {
+    from {color: rgba(white, 0.7)}
+    33% {color: rgba(#25F4EE, 0.7)}
+    66% {color: rgba(#FE2C55, 0.7)}
+    to {color: rgba(white, 0.7)}
   }
-
-  66% {
-    color: rgba(#FE2C55, 0.7)
-  }
-
-  to {
-    color: rgba(white, 0.7)
-  }
+    
 }
