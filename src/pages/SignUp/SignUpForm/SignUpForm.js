@@ -70,16 +70,27 @@ const SignUpForm = ({
   const handleSuccess = (res) => {
     //fires after blocto account is set up
     localStorage.setItem("token", res.data.token); //sets user token
-    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
     hideSignUpButtonLoaderHandler(); //stops button loader
     hideSignUpLoaderHandler(); //stops page loader
+    window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
+  
   };
 
   const handleError = (error) => {
     hideSignUpButtonLoaderHandler();
+    hideSignUpLoaderHandler();
     switch (Number(error.response.status)) {
       case 409:
         setErrorMessages(error.response.data);
+        setShowEmailValidationCheck(false);
+        setShowUserNameValidationCheck(false);
+        setEmailInputLoginClass("input-error");
+        setUserNameInputLoginClass("input-error");
+        break;
+      case 422:
+        console.log("hit 422")
+        setErrorMessages(error.response.data);
+        // setEmailErrorMessage("Email or Username has already been taken")
         setShowEmailValidationCheck(false);
         setShowUserNameValidationCheck(false);
         setEmailInputLoginClass("input-error");
@@ -140,7 +151,7 @@ const SignUpForm = ({
             type="email"
             name="email"
             autoComplete="email"
-            onBlur={inputValidation}
+            onChange={inputValidation}
             required
           />
           {showEmailValidationCheck && (
@@ -159,7 +170,7 @@ const SignUpForm = ({
             type="text"
             name="username"
             autoComplete="username"
-            onBlur={inputValidation}
+            onChange={inputValidation}
             required
           />
           {/* check icon */}
