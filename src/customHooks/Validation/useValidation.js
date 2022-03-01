@@ -262,6 +262,7 @@ const useValidation = () => {
     errorMessages,
     setErrorMessages,
     emailErrorMessage,
+    setEmailErrorMessage,
     userNameErrorMessage,
     passwordErrorMessage,
     confirmPasswordErrorMessage,
