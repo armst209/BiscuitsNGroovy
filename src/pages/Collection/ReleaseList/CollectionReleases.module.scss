@@ -42,15 +42,18 @@
 
     .single-release-in-grid {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      gap: 1rem;
     }
 
     .release-released-grid,
     .release-live-grid {
-      width: 100%;
+      width: auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-rows: auto;
       place-content: center;
       grid-gap: 1rem;
       justify-items: center;
