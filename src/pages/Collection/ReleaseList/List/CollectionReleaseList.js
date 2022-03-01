@@ -22,11 +22,14 @@ const CollectionReleaseList = ({ releaseData }) => {
         return !release.isExpired;
     })
 
+    console.log(filteredReleasedReleases)
+
 
     return (
         <div className={styles["collection-release-list"]}>
             <LiveReleases filteredLiveReleases={filteredLiveReleases} />
-            <ReleasedReleases filteredReleasedReleases={filteredReleasedReleases} />
+            {filteredReleasedReleases.length === 0 ? "": <ReleasedReleases filteredReleasedReleases={filteredReleasedReleases} /> }
+           
         </div>
     )
 }

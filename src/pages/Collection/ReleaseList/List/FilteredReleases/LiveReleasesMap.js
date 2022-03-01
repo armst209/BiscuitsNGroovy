@@ -7,8 +7,9 @@ import NoLiveReleases from "./NoFilteredReleases/NoLiveReleases";
 import AvailableRelease from "../AvailableRelease/AvailableRelease";
 
 const LiveReleasesMap = ({ filteredLiveReleases }) => {
+
     return (
-        <div className={filteredLiveReleases.length === 1 ? styles["single-release-in-grid"] : styles["release-live-grid"]}>
+        <div className={filteredLiveReleases.length <= 4 ? styles["single-release-in-grid"] : styles["release-live-grid"]}>
             {filteredLiveReleases.length === 0 ? (
                 <NoLiveReleases />
             ) : (

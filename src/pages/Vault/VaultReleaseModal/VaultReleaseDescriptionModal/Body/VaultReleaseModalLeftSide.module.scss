@@ -45,27 +45,4 @@
       color: white;
     }
    
-
-    .artist-social-links{
-      width:100%;
-      height: auto;
-      display:flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      margin: .5rem 0;
-
-      @media screen and (max-width: 768px) {
-        margin: .5rem 0 1rem 0;
-      }
-      h4{
-        color:white;
-        font-family:var(--header-font);
-        
-      }
-    
-    
-    }
-   
-   
   }

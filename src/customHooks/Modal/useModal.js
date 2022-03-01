@@ -2,19 +2,16 @@
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom"
 
-//body scroll lock
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-
 
 const useModal = (idName) => {
     //state
-    const [isModalShowing, setIsModalShowing] = useState(false)
+    const [isModalShowing, setIsModalShowing] = useState(false);
+    
     //ref
     const modalRef = useRef(null);
 
     useEffect(() => {
-        const options = { reserveScrollBarGap: true };
-        isModalShowing ? disableBodyScroll(modalRef, options) : enableBodyScroll(modalRef);
+        isModalShowing ? document.body.style.overflow = "hidden": document.body.style.overflow="scroll";
     }, [isModalShowing, modalRef])
 
     //toggle modal function

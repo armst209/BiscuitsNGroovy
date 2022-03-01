@@ -31,7 +31,9 @@ const VaultSocialLinks = ({ social }) => {
     }
 
     return (
-        <>{socialLinks(social)}</>
+        <div className={styles["artist-social-links"]}>
+            {socialLinks(social)}
+        </div>
     )
 }
 
