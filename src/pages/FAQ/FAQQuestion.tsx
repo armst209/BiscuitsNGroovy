@@ -10,18 +10,20 @@ import styles from "./FAQQuestion.module.scss"
 
 interface FrequentlyAskedQuestion {
  title: string,
- ul:HTMLUListElement
+ content:HTMLUListElement
 }
 
-const FAQQuestion = ({title, ul}:FrequentlyAskedQuestion) => {
+const FAQQuestion = ({title, content}:FrequentlyAskedQuestion) => {
     const [showAnswer, setShowAnswer] = useState(false);
   return (
       <>
         <section id={styles["faq-question"]} onClick={()=>setShowAnswer(prevState=> !prevState)}>
-            <div>{title}</div>
-          <Dropdown className={showAnswer ? styles["icon_rotate"]: ""}/>
+            <div className={styles["faq-question-title"]}>{title}</div>
+            <div className={styles["faq-question-icon-container"]}>
+                <Dropdown className={showAnswer ? styles["icon_rotate"]: ""}/>
+            </div>
         </section>
-      {showAnswer && <div className="answer">{ul}</div>}
+        {showAnswer && <div className={styles.answer}><ul>{content}</ul></div>}
       </>
   )
 }

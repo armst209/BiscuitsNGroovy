@@ -21,43 +21,37 @@ const FAQ = () => {
 
     <section id="faq" className="_main_section">
       <Title title={"faq"} />
-
       <div className="faq-content">
-
-        <FAQQuestion title={"What do I get with my purchase?"} ul={<ul>
+        <FAQQuestion title={"What do I get with my purchase?"} content={
           <li>
             Check out{" "}
             <NavHashLink to="/#whats-a-biscuit">
               “What’s a Biscuit?”
             </NavHashLink>
           </li>
-        </ul>} />
-        <FAQQuestion title={"Why does music expire?"} ul={<ul>
+        } />
+        <FAQQuestion title={"Why does music expire?"} content={
           <li>
-            <div>
-              All music on BnG is released on a limited basis. So when
-              it’s gone, it’s gone. We do this so we can offer affordable
-              prices for fans, and still be able to pay artists better.
-              Besides, we’re not just another streaming service. We’re
-              built for superfans who want to experience music in the
-              moment, setting themselves apart from the crowd. But don’t
-              worry, you always keep your collectible album covers, so
-              everyone will know that you’re a true fan.
-            </div>
+            All music on BnG is released on a limited basis. So when
+            it’s gone, it’s gone. We do this so we can offer affordable
+            prices for fans, and still be able to pay artists better.
+            Besides, we’re not just another streaming service. We’re
+            built for superfans who want to experience music in the
+            moment, setting themselves apart from the crowd. But don’t
+            worry, you always keep your collectible album covers, so
+            everyone will know that you’re a true fan.
           </li>
-        </ul>} />
-        <FAQQuestion title={"Can I download my music?"} ul={<ul>
+        } />
+        <FAQQuestion title={"Can I download my music?"} content={
           <li>
-            <div>
-              No, music purchased on BnG is not available for download.
-              You can stream the music as much as you’d like during the
-              release window.
-            </div>
+            No, music purchased on BnG is not available for download.
+            You can stream the music as much as you’d like during the
+            release window.
           </li>
-        </ul>} />
-        <FAQQuestion title={"What’s an NFT?"} ul={<ul>
-          <li>
-            <div>
+        } />
+        <FAQQuestion title={"What’s an NFT?"} content={
+          <>
+            <li>
               We’re glad you asked! An NFT, or non-fungible token, is a
               digital collectible whose ownership is recorded on the
               blockchain. If that still sounds like gibberish to you,
@@ -66,30 +60,28 @@ const FAQ = () => {
               NFTs give our album art a permanent stamp of authenticity,
               proving who the true owner is, so you can feel confident
               when showing off your collection.
-            </div>
-          </li>
+            </li>
+            <li>
+              <p>
+                Want to really dig into NFTs? Read more
+                <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
+              </p>
+            </li>
+          </>
+        } />
+        <FAQQuestion title={"Do I need cryptocurrency to pay?"} content={
           <li>
-            <div>
-              Want to really dig into NFTs? Read more{" "}
-              <HashLink to="/faq#nft-scroll-purchase">here</HashLink>.
-            </div>
+            No, and in fact we don’t accept cryptocurrency at this time.
+            Call us old-fashioned, but we like to stick with dollars
+            around here. BnG accepts all major credit cards as payment.
+            That means you don’t need a crypto wallet or cryptocurrency
+            of any kind to purchase music and NFTs. Sadly you’ll have to
+            find somewhere else to spend your dogecoin.
           </li>
-        </ul>} />
-        <FAQQuestion title={"Do I need cryptocurrency to pay?"} ul={<ul>
+        } />
+        <FAQQuestion title={"What is a Blocto/Flow account and why do I need it?"} content={
           <li>
-            <div>
-              No, and in fact we don’t accept cryptocurrency at this time.
-              Call us old-fashioned, but we like to stick with dollars
-              around here. BnG accepts all major credit cards as payment.
-              That means you don’t need a crypto wallet or cryptocurrency
-              of any kind to purchase music and NFTs. Sadly you’ll have to
-              find somewhere else to spend your dogecoin.
-            </div>
-          </li>
-        </ul>} />
-        <FAQQuestion title={"What is a Blocto/Flow account and why do I need it?"} ul={<ul>
-          <li>
-            <div>
+            <p>
               Blocto is a trusted, user-friendly wallet for crypto assets
               such as NFTs. We integrate with Blocto to seamlessly store
               your NFT album art, so you can view it in your BnG library
@@ -101,43 +93,35 @@ const FAQ = () => {
               linked to your BnG account for easy access, so you don’t
               need to remember multiple logins. Blocto is designed to be
               so intuitive, you won’t even realize you’re interacting with
-              the blockchain. Learn more
-              <a
+              the blockchain. Learn more  <a
                 href="https://blocto.portto.io/en/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 here
-              </a>
-              .
-            </div>
+              </a>.
+            </p>
           </li>
-        </ul>} />
-        <FAQQuestion title={"Is this a subscription?"} ul={<ul>
+        } />
+        <FAQQuestion title={"Is this a subscription?"} content={
           <li>
-            <div>
-              Nope, BnG is not subscription-based. We give artists the
-              freedom to price their own releases, so buying music on BnG
-              is a one-time purchase. We don’t save your payment
-              information, and you won’t be charged again (unless you buy
-              more music, of course!)
-            </div>
+            Nope, BnG is not subscription-based. We give artists the
+            freedom to price their own releases, so buying music on BnG
+            is a one-time purchase. We don’t save your payment
+            information, and you won’t be charged again (unless you buy
+            more music, of course!)
           </li>
-        </ul>} />
-        <FAQQuestion title={"Do you have an app?"} ul={<ul>
+        } />
+        <FAQQuestion title={"Do you have an app?"} content={
           <li>
-            <div>
-              Currently we do not have an app. You can access BnG through
-              any mobile browser, however, so you can still buy and stream
-              music on your phone. Stay tuned for an app in the future!
-            </div>
+            Currently we do not have an app. You can access BnG through
+            any mobile browser, however, so you can still buy and stream
+            music on your phone. Stay tuned for an app in the future!
           </li>
-        </ul>} />
-
+        } />
 
         <div className="header-div">
           <Question />
-
           <div>
             <div id="nft-scroll-purchase"></div>
             <div>
@@ -364,7 +348,7 @@ const FAQ = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
 
   );
 };
