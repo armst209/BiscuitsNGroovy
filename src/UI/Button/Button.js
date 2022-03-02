@@ -1,28 +1,25 @@
 const Button = ({
   children,
+  id,
   className,
   ariaLabel,
   dataTestId,
   type,
   width,
   height,
-  display,
   onClick,
+  style
 }) => {
   return (
     <button
       onClick={() => onClick()}
+      id={id}
       className={className}
       type={type}
+      width={width}
+      height={height}
       aria-label={ariaLabel}
       data-testid={dataTestId}
-      style={{
-        width: width,
-        height: height,
-        display: display,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
     >
       {children}
     </button>
