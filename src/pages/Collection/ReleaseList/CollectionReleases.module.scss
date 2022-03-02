@@ -1,3 +1,5 @@
+@use "../../../utils/Sass/mixins/mixins";
+
 .collection-release-list {
   display: flex;
   flex-direction: column;
@@ -46,6 +48,14 @@
       justify-content: center;
       align-items: center;
       gap: 1rem;
+
+      @include mixins.carousel-media-query {
+        flex-wrap: nowrap;
+
+        &::-webkit-scrollbar {
+          height: 4px;
+        }
+      }
     }
 
     .release-released-grid,
@@ -70,28 +80,7 @@
         flex-wrap: wrap;
       }
 
-      @media screen and (max-width: 400px) {
-        display: flex;
-        justify-content: left;
-        overflow: auto;
-        scroll-snap-type: x mandatory;
-        padding: 1rem;
-
-        figure {
-          min-width: 60%;
-          scroll-snap-align: start;
-        }
-
-        @supports not (scroll-snap-type:x mandatory) {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
-
-      }
-
+      @include mixins.carousel-media-query()
     }
   }
 

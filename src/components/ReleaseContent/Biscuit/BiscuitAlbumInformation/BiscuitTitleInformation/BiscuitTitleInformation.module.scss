@@ -8,6 +8,7 @@
   .release-image-container {
     position: relative;
   }
+
   .biscuit-title-info-button-container {
     display: flex;
     flex-direction: column;
@@ -19,33 +20,46 @@
     font-family: var(--header-font);
 
     svg {
-      height:30px;
+      height: 30px;
+    }
+
+    .learn-more-btn-inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
     }
 
     @media screen and (max-width: 900px) {
       flex-direction: row;
-      Button {
+
+      button {
         margin: 0.5rem;
       }
     }
 
     @media screen and (max-width: 450px) {
       flex-direction: column;
-      Button {
+
+      button {
         margin: 0;
       }
     }
+
     p {
       display: flex;
       align-items: center;
     }
+
     svg {
       width: 30px;
       margin-left: 0.5rem;
     }
   }
+
   .release-preview-title-info-price {
     padding-top: 0.5rem;
+
     div {
       color: var(--color1);
       font-family: var(--header-font);
