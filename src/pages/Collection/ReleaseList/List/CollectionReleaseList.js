@@ -20,9 +20,7 @@ const CollectionReleaseList = ({ releaseData }) => {
     //filters live releases
     const filteredLiveReleases = releaseData.filter((release) => {
         return !release.isExpired;
-    })
-
-    console.log(filteredReleasedReleases)
+    });
 
 
     return (

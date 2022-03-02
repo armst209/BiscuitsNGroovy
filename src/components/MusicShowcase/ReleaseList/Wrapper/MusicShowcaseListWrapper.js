@@ -9,7 +9,7 @@ import styles from "./MusicShowcaseListWrapper.module.scss";
 const MusicShowcaseListWrapper = ({ releaseData }) => {
 
   return (
-    <div className={styles["music-showcase-list-grid"]}>
+    <div className={ releaseData.length <= 2 ? styles["single-release-in-grid"] : styles["music-showcase-list-grid"]}>
       {releaseData.length === 0
         ? <NoReleasesMusicShowcase />
         : <MusicShowcaseList releaseData={releaseData} />

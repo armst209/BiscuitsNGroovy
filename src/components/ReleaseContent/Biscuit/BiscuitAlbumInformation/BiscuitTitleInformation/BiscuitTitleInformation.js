@@ -23,19 +23,20 @@ const BiscuitTitleInformation = ({
         {/* Conditionally render "view insert" button */}
         {release.insert_link_1 || release.insert_link_2 ?
           <Button
-            width="200px"
+            width={"500px"}
             className="_button"
-            onClickFunction={showHideBiscuitInsertHandler}
-            onClickFunction2={showHideMusicPlayerContainerHandler}
+            onClick={()=> {showHideBiscuitInsertHandler(); showHideMusicPlayerContainerHandler();}}
+          
           >
             View Insert
           </Button> : null
 
         }
         <br />
-        <button
-          style={{ width: "200px" }}
+        <Button
+          // width={"200px"}
           className="_button"
+          style={{width:"500px"}}
           onClick={() => showHideBiscuitDescriptionHandler()}
         >
           <div
@@ -49,7 +50,7 @@ const BiscuitTitleInformation = ({
             <p>Learn more</p>
             <RecordIcon />
           </div>
-        </button>
+        </Button>
       </div>
     </section>
   );
