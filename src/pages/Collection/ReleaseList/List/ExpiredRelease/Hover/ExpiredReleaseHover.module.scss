@@ -34,15 +34,14 @@
         transition: 0.2s ease;
         transform: scale(1.1);
       }
-      // img {
-      //   width: 100px;
-      // }
+
       .nft-hover-name {
         width: 100%;
         font-size: 1rem;
         border-radius: 0.5rem;
         border: 2px solid var(--color2);
         padding: 1rem;
+
         &:hover {
           color: black;
           background-color: var(--color2);
@@ -50,54 +49,5 @@
       }
     }
   }
-  .expired-hover-mobile-icons {
-    position: absolute;
-    width: 100%;
-    height: 40px;
-    top: 0;
-    padding: 1rem;
-    right: 0;
-    display: none;
-    justify-content: right;
-    align-items: center;
-    margin-top: .5rem;
 
-  
-    svg {
-      width: 40px;
-      height: 40px;
-      padding: 0 0.5rem;
-     
-    }
-    .nft-mobile-icon-container, .insert-mobile-icon-container{
-      height: auto;
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      span{
-        font-size: .5rem;
-        position: absolute;
-        font-family:var(--header-font);
-      }
-      .nft-span{
-        top: 40px;
-      }
-      .insert-span{
-        top: 30px;
-      }
-      .nft-mobile-icon{
-        height: 60px;
-        filter: var(--color1-svg-filter);
-       
-      
-      }
-    }
-    
- 
-    @media screen and (max-width: 768px) {
-      display: flex;
-    }
-  }
 }

@@ -1,47 +1,44 @@
 //styles
 import styles from "./ExpiredReleaseHover.module.scss";
 
-//svg imports
-import { ReactComponent as InsertIcon } from "../../../../../../assets/images/love-song2.svg";
-import { ReactComponent as NFTIcon } from "../../../../../../assets/images/nftimage.svg";
+//useModal
+import useModal from "../../../../../../customHooks/Modal/useModal";
+
+//component imports
+import Button from "../../../../../../UI/Button/Button";
+import ExpiredMobileIcons from "./ExpiredMobileIcons/ExpiredMobileIcons";
+import NFTViewModal from "../Modals/NFTModal/NFTViewModal"
 
 /**
  *TODO: find proper mobile icons
  */
-const ExpiredReleaseHover = ({ showNFTView, showInsertView, release }) => {
+const ExpiredReleaseHover = ({ toggleInsertModal, release }) => {
+
+  const { isModalShowing:isNFTModalShowing, toggleModal:toggleNFTModal, Modal } = useModal("modal-overlay-root");
+
   return (
     <section id={styles["expired-hover"]}>
       <div className={styles["nft-hover-wrapper"]}>
-        <button onClick={() => showNFTView()}>
+        <Button onClick={() => toggleNFTModal()}>
           <div className={styles["nft-hover-name"]}>View NFT</div>
-        </button>
+        </Button>
         {/* if both insert links are empty the "View Insert" button won't display */}
         {!release.insert_link_1 && !release.insert_link_2 ? (
           ""
         ) : (
-          <button onClick={() => showInsertView()}>
+          <Button onClick={() => toggleInsertModal()}>
             <div className={styles["nft-hover-name"]}>View Insert</div>
-          </button>
+          </Button>
         )}
       </div>
       {/* MOBILE VIEW: display:none above 768px */}
-      <div className={styles["expired-hover-mobile-icons"]}>
-        {/* if both insert links are empty the "View Insert" button won't display */}
-        {!release.insert_link_1 && !release.insert_link_2 ? (
-          ""
-        ) : (
-          <div className={styles["insert-mobile-icon-container"]}>
-            <InsertIcon onClick={() => showInsertView()} />
-            <span className={styles["insert-span"]}>INSERT</span>
-          </div>
-
-        )}
-        <div className={styles["nft-mobile-icon-container"]}>
-          <NFTIcon className={styles["nft-mobile-icon"]} onClick={() => showNFTView()} />
-          <span className={styles["nft-span"]}>NFT</span>
-        </div>
-
-      </div>
+      <ExpiredMobileIcons release={release} toggleInsertModal={toggleInsertModal} toggleNFTModal={toggleNFTModal}/>
+      <Modal isModalShowing={isNFTModalShowing}>
+        <NFTViewModal
+          release={release}
+          toggleNFTModal={toggleNFTModal}
+        />
+      </Modal>
     </section>
   );
 };

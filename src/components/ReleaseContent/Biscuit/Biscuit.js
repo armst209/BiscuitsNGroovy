@@ -1,7 +1,9 @@
 //react imports
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, createContext } from "react";
 import useFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+import useModal from "../../../customHooks/Modal/useModal";
+import { MusicPlayerDisplayProvider } from "../../../utils/context/MusicPlayerDisplayProvider";
 
 //component imports
 import BiscuitContainer from "./BiscuitContainer/BiscuitContainer";
@@ -9,22 +11,16 @@ import ComponentLoading from "../../Loading/Component/ComponentLoading";
 import NotFound from "../../../pages/NotFound/NotFound";
 import BiscuitInsert from "./BiscuitInsert/BiscuitInsert";
 
+//utility imports
+import { token } from "../../../utils/UtilityVariables";
+
 
 const Biscuit = () => {
   //hooks
-  const [showBiscuitInsert, setShowBiscuitInsert] = useState(false);
   const [showMusicPlayerContainer, setShowMusicPlayerContainer] =
     useState(true);
 
-  //state handlers
-  const showHideBiscuitInsertHandler = () =>
-    setShowBiscuitInsert(!showBiscuitInsert);
-
-  const showHideMusicPlayerContainerHandler = () =>
-    setShowMusicPlayerContainer(!showMusicPlayerContainer);
-
-  //token
-  let token = localStorage.getItem("token");
+  const {isModalShowing, toggleModal:toggleInsertModal, Modal} = useModal("modal-overlay-root");
 
   //getting id from url parameter
   let { biscuitId } = useParams();
@@ -40,8 +36,10 @@ const Biscuit = () => {
     headers: { "x-access-token": token },
   });
 
+
+
   return (
-    <>
+    <MusicPlayerDisplayProvider>
       <section className="_main_section">
         {isLoading && <ComponentLoading />}
         {/* if release is null or not found, redirects to Not Found component */}
@@ -49,25 +47,18 @@ const Biscuit = () => {
           releases && (
             <BiscuitContainer
               release={releases.library}
-              showHideMusicPlayerContainerHandler={showHideMusicPlayerContainerHandler}
               showMusicPlayerContainer={showMusicPlayerContainer}
-              showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
+              toggleInsertModal={toggleInsertModal}
             />
           )
         ) : (
           <NotFound />
         )}
       </section>
-      {showBiscuitInsert && (
-        <BiscuitInsert
-          release={releases.library}
-          showHideMusicPlayerContainerHandler={
-            showHideMusicPlayerContainerHandler
-          }
-          showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
-        />
-      )}
-    </>
+      <Modal isModalShowing={isModalShowing}>
+       {releases && <BiscuitInsert release={releases.library} toggleInsertModal={toggleInsertModal}/>} 
+      </Modal>
+    </MusicPlayerDisplayProvider>
   );
 };
 export default Biscuit;

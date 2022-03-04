@@ -22,7 +22,7 @@ const tracklistAnimations = {
   hidden: { y: 0 },
 };
 
-function AvailableReleseModal({ release }) {
+function AvailableReleseModal({ release, toggleModal }) {
   const [showTrackList, setShowTrackList] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
   const [populateTracklist, setPopulateTracklist] = useState();
@@ -90,7 +90,7 @@ function AvailableReleseModal({ release }) {
           )}
         </div>
         {/* function call to close pop up */}
-        <div o className="close-album-info">
+        <div onClick={()=>toggleModal()} className="close-album-info">
           <ArrowBack className="back-arrow" />X
         </div>
       </div>
