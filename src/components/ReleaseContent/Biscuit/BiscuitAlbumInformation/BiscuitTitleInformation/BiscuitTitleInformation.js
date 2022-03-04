@@ -9,22 +9,14 @@ import Button from "../../../../../UI/Button/Button.tsx";
 //svg imports
 import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl_yellow.svg";
 
-import {useState, useContext} from "react";
-import { MusicPlayerDisplayContext } from "../../../../../utils/context/MusicPlayerDisplayProvider";
-
-
 const BiscuitTitleInformation = ({
   release,
   toggleInsertModal,
-  showHideBiscuitDescriptionHandler,
+  showHideMusicPlayer,
+  showHideBiscuitDescriptionHandler
 }) => {
   const { name, title, art_url } = release;
 
- 
-
-  const showHideMusicPlayerContainerHandler = () =>{
-    
-  }
   return (
     <section id={styles["biscuit-title-info"]}>
       <div className={styles["release-image-container"]}>
@@ -40,7 +32,7 @@ const BiscuitTitleInformation = ({
           <Button
             style={{width:"200px"}}
             className="_button"
-            onClick={()=> {toggleInsertModal(); showHideMusicPlayerContainerHandler();}}
+            onClick={()=> {toggleInsertModal(); showHideMusicPlayer();}}
           
           >
             View Insert

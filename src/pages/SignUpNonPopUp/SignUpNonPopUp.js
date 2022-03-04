@@ -16,12 +16,6 @@ import logo from "../../assets/images/bng_test.svg";
 import { config } from "@onflow/fcl";
 import env from "react-dotenv";
 
-//configure flow environment
-// config()
-//   .put("accessNode.api", process.env.REACT_APP_ACCESS_NODE) // Configure FCL's Access Node
-//   .put("challenge.handshake", process.env.REACT_APP_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-//   .put("0xProfile", process.env.REACT_APP_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
-
 //variants for framer motion
 const signUpModalBackground = {
   visible: { opacity: 1 },
@@ -29,7 +23,6 @@ const signUpModalBackground = {
 };
 //props passed as an object
 const SignUpNonPopUp = (props) => {
-  // console.log(process.env.REACT_APP_WALLET_DISCOVERY);
   const [email, setEmail] = useState("");
   const [name] = useState("");
   const [username, setUserName] = useState("");

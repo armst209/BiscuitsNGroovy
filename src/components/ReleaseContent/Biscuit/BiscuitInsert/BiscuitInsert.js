@@ -5,12 +5,13 @@ import styles from "./BiscuitInsert.module.scss";
 const BiscuitInsert = ({
  toggleInsertModal,
   release,
+  showHideMusicPlayer
 }) => {
   return (
     <section id={styles["biscuit-insert"]}>
       <div
         className={styles["biscuit-insert-close"]}
-        onClick={() => toggleInsertModal()}
+        onClick={() => {toggleInsertModal(); showHideMusicPlayer()}}
       >
         X
       </div>

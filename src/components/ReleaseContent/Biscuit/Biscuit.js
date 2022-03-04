@@ -1,9 +1,9 @@
 //react imports
 import { useParams } from "react-router-dom";
-import { useState, createContext } from "react";
 import useFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import useModal from "../../../customHooks/Modal/useModal";
-import { MusicPlayerDisplayProvider } from "../../../utils/context/MusicPlayerDisplayProvider";
+import {useState} from "react";
+
 
 //component imports
 import BiscuitContainer from "./BiscuitContainer/BiscuitContainer";
@@ -16,11 +16,11 @@ import { token } from "../../../utils/UtilityVariables";
 
 
 const Biscuit = () => {
-  //hooks
-  const [showMusicPlayerContainer, setShowMusicPlayerContainer] =
-    useState(true);
-
   const {isModalShowing, toggleModal:toggleInsertModal, Modal} = useModal("modal-overlay-root");
+ 
+  const [isMusicPlayerVisible, setIsMusicPlayerVisible] = useState(true);
+
+  const showHideMusicPlayer = ()=> {setIsMusicPlayerVisible(prevState => !prevState);};
 
   //getting id from url parameter
   let { biscuitId } = useParams();
@@ -39,7 +39,7 @@ const Biscuit = () => {
 
 
   return (
-    <MusicPlayerDisplayProvider>
+    <>
       <section className="_main_section">
         {isLoading && <ComponentLoading />}
         {/* if release is null or not found, redirects to Not Found component */}
@@ -47,8 +47,9 @@ const Biscuit = () => {
           releases && (
             <BiscuitContainer
               release={releases.library}
-              showMusicPlayerContainer={showMusicPlayerContainer}
               toggleInsertModal={toggleInsertModal}
+              showHideMusicPlayer={showHideMusicPlayer}
+              isMusicPlayerVisible={isMusicPlayerVisible}
             />
           )
         ) : (
@@ -56,9 +57,9 @@ const Biscuit = () => {
         )}
       </section>
       <Modal isModalShowing={isModalShowing}>
-       {releases && <BiscuitInsert release={releases.library} toggleInsertModal={toggleInsertModal}/>} 
+       {releases && <BiscuitInsert release={releases.library} toggleInsertModal={toggleInsertModal} showHideMusicPlayer={showHideMusicPlayer}/>} 
       </Modal>
-    </MusicPlayerDisplayProvider>
+    </>
   );
 };
 export default Biscuit;

@@ -5,7 +5,6 @@ import Title from "../Title"
 
 describe("Title Component",()=>{
 
-
     test("renders correct title passed by props",()=>{
         //Arrange
         render(<Title title={"My Title"}/>);
@@ -13,6 +12,5 @@ describe("Title Component",()=>{
 
         //Act
         expect(h1Element).toBeInTheDocument();
-
     })
 })
