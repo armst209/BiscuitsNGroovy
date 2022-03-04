@@ -5,7 +5,7 @@ const BiscuitDescription = ({ release, showHideBiscuitDescriptionHandler }) => {
     <div className={styles["biscuit-description"]}>
       <div
         className={styles["biscuit-description-close"]}
-        onClick={() => showHideBiscuitDescriptionHandler()}
+        onClick={() => {showHideBiscuitDescriptionHandler(); }}
       >
         X
       </div>

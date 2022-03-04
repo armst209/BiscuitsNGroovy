@@ -2,31 +2,20 @@
 import styles from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseTypes/ReleaseHover.module.scss"
 
 //react imports
-import { useState } from "react";
+import useModal from "../../../../../customHooks/Modal/useModal";
 
 //component imports
 import ReleaseImage from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 import ExpiredReleaseHover from "./Hover/ExpiredReleaseHover";
-import NFTViewModal from "./Modals/NFTModal/NFTViewModal";
 import BiscuitInsert from "../../../../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
 
 const ExpiredRelease = ({ release }) => {
-  const [showNFTModal, setShowNFTModal] = useState(false);
-  const [showInsertModal, setShowInsertModal] = useState(false);
 
-  const showNFTViewModalHandler = () => {
-    setShowNFTModal(true);
-  };
-  const closeNFTViewModalHandler = () => {
-    setShowNFTModal(false);
-  };
-
-  const showInsertViewModalHandler = () => {
-    setShowInsertModal(true);
-  };
-  const closeInsertViewModalHandler = () => {
-    setShowInsertModal(false);
-  };
+  const {
+    isModalShowing:isInsertModalShowing,
+    toggleModal:toggleInsertModal,
+    Modal
+  } = useModal("modal-overlay-root")
 
   return (
     <figure id="expired-release" className={styles["hover-img"]}>
@@ -36,27 +25,12 @@ const ExpiredRelease = ({ release }) => {
       />
       {/* Hover state */}
       <figcaption>
-        <ExpiredReleaseHover
-          release={release}
-          showNFTView={showNFTViewModalHandler}
-          showInsertView={showInsertViewModalHandler}
-        />
+        <ExpiredReleaseHover release={release} toggleInsertModal={toggleInsertModal}/>
       </figcaption>
-      {/* Modals */}
-      {showNFTModal && (
-        <NFTViewModal
-          release={release}
-          closeNFTView={closeNFTViewModalHandler}
-        />
-      )}
-      {showInsertModal && (
-        <BiscuitInsert release={release} showHideBiscuitInsertHandler={closeInsertViewModalHandler} />
-        //! Need to determine if we need an insert view modal. Depending on what future biscuit or inserts would include.
-        // <InsertViewModal
-        //   release={release}
-        //   closeInsertView={closeInsertViewModalHandler}
-        // />
-      )}
+      {/* Insert Modal */}
+      <Modal isModalShowing={isInsertModalShowing}>
+        <BiscuitInsert release={release} toggleInsertModal={toggleInsertModal}/>
+      </Modal>
     </figure>
   );
 };

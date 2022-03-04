@@ -25,8 +25,6 @@ const Release = () => {
     headers: { "x-access-token": token },
   });
 
-  console.log(releases);
-
   return (
 
     <section className="_main_section">

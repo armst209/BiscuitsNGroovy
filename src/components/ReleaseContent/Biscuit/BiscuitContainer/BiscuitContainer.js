@@ -1,31 +1,25 @@
 //react imports
-import { useState } from "react";
-
+import { useState} from "react";
 
 //styles
 import styles from "./BiscuitContainer.module.scss";
 
-//svg imports
 
 //component imports
-
 import BiscuitDescription from "../BiscuitDescription/BiscuitDescription";
-
-
-//music player import
 import MusicPlayerContainer from "../../MusicPlayer/MusicPlayerContainer";
 import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInformation/BiscuitTitleInformation";
 
 const BiscuitContainer = ({
   release,
-  showHideBiscuitInsertHandler,
-  showHideMusicPlayerContainerHandler,
-  showMusicPlayerContainer,
+  toggleInsertModal,
+  showHideMusicPlayer,
+  isMusicPlayerVisible
 }) => {
-  const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
 
-  const showHideBiscuitDescriptionHandler = () =>
-    setShowBiscuitDescription(!showBiscuitDescription);
+  const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
+  const showHideBiscuitDescriptionHandler = () => setShowBiscuitDescription(prevState => !prevState);
+
 
   return (
     release && (
@@ -44,10 +38,8 @@ const BiscuitContainer = ({
                 )}
                 <BiscuitTitleInformation
                   release={release}
-                  showHideMusicPlayerContainerHandler={
-                    showHideMusicPlayerContainerHandler
-                  }
-                  showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
+                  showHideMusicPlayer={showHideMusicPlayer}
+                  toggleInsertModal={toggleInsertModal}
                   showHideBiscuitDescriptionHandler={
                     showHideBiscuitDescriptionHandler
                   }
@@ -56,7 +48,7 @@ const BiscuitContainer = ({
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
-                    {showMusicPlayerContainer && (
+                    {isMusicPlayerVisible && (
                       <MusicPlayerContainer release={release} />
                     )}
                   </div>

@@ -24,7 +24,6 @@ const signUpModalBackground = {
 };
 //props passed as an object
 const SignUp = (props) => {
-  // console.log(process.env.REACT_APP_ACCESS_NODE);
   const [email, setEmail] = useState("");
   const [name] = useState("");
   const [username, setUserName] = useState("");

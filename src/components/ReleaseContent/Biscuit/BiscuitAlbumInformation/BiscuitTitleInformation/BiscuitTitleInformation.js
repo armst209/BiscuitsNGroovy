@@ -11,11 +11,12 @@ import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl
 
 const BiscuitTitleInformation = ({
   release,
-  showHideBiscuitInsertHandler,
-  showHideBiscuitDescriptionHandler,
-  showHideMusicPlayerContainerHandler,
+  toggleInsertModal,
+  showHideMusicPlayer,
+  showHideBiscuitDescriptionHandler
 }) => {
   const { name, title, art_url } = release;
+
   return (
     <section id={styles["biscuit-title-info"]}>
       <div className={styles["release-image-container"]}>
@@ -31,7 +32,7 @@ const BiscuitTitleInformation = ({
           <Button
             style={{width:"200px"}}
             className="_button"
-            onClick={()=> {showHideBiscuitInsertHandler(); showHideMusicPlayerContainerHandler();}}
+            onClick={()=> {toggleInsertModal(); showHideMusicPlayer();}}
           
           >
             View Insert

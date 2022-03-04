@@ -1,5 +1,3 @@
-//react imports
-import ReactDOM from "react-dom";
 
 //component imports
 import ReleaseImage from "../../../../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
@@ -7,11 +5,12 @@ import ReleaseImage from "../../../../../../../components/ReleaseContent/Release
 //styles
 import "./NFTViewModalStyles.scss";
 
-const NFTViewModalOverlay = ({ release, closeNFTView }) => {
-  return (
+const NFTExpiredModal = ({ release, toggleNFTModal}) => {
+
+  return ( 
     <section id="nft-expired-modal">
       <div className="nft-expired-modal-image-container">
-        <div onClick={() => closeNFTView()} className="nft-expired-modal-close">
+        <div onClick={() => toggleNFTModal()} className="nft-expired-modal-close">
           X
         </div>
         <ReleaseImage
@@ -23,15 +22,6 @@ const NFTViewModalOverlay = ({ release, closeNFTView }) => {
     </section>
   );
 };
-const NFTExpiredModal = ({ release, closeNFTView }) => {
-  return (
-    <>
-      {ReactDOM.createPortal(
-        <NFTViewModalOverlay release={release} closeNFTView={closeNFTView} />,
-        document.getElementById("modal-overlay-root")
-      )}
-    </>
-  );
-};
+
 
 export default NFTExpiredModal;

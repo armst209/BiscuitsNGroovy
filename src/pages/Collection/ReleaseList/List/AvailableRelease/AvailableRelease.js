@@ -2,7 +2,7 @@
 import styles from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseTypes/ReleaseHover.module.scss";
 
 //react imports
-import { useState } from "react";
+import useModal from "../../../../../customHooks/Modal/useModal";
 
 //component imports
 import AvailableReleaseHover from "./Hover/AvailableReleaseHover";
@@ -10,8 +10,13 @@ import AvailableReleaseModal from "./Modal/AvailableReleaseModal";
 import ReleaseImage from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 
 const AvailableRelease = ({ release }) => {
-  const [showAvaliableReleaseModal, setShowAvailableReleaseModal] =
-    useState(false);
+
+    const {
+      isModalShowing,
+      toggleModal,
+      Modal
+    } = useModal("modal-overlay-root");
+
   return (
     <figure className={styles["hover-img"]}>
       <ReleaseImage
@@ -20,19 +25,18 @@ const AvailableRelease = ({ release }) => {
       />
 
       <figcaption
-        onClick={() => setShowAvailableReleaseModal(!showAvaliableReleaseModal)}
+        onClick={() => toggleModal()}
       >
         {/* Hover state*/}
         <AvailableReleaseHover release={release} />
       </figcaption>
-      {/* Modal */}
-      {showAvaliableReleaseModal && (
+  
+      <Modal isModalShowing={isModalShowing}>
         <AvailableReleaseModal
           release={release}
-          showAvaliableReleaseModal={showAvaliableReleaseModal}
-          setShowAvailableReleaseModal={setShowAvailableReleaseModal}
+          toggleModal={toggleModal}
         />
-      )}
+      </Modal>
     </figure>
   );
 };
