@@ -24,6 +24,8 @@ const BiscuitInsert = ({
   release,
   showHideMusicPlayer
 }) => {
+
+  console.log(release);
   const { insert_link_1, insert_link_2, name } = release;
 
   return (

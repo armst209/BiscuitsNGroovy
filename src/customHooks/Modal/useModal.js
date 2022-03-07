@@ -12,6 +12,11 @@ const useModal = (idName) => {
 
     useEffect(() => {
         isModalShowing ? document.body.style.overflow = "hidden": document.body.style.overflow="scroll";
+
+        return ()=>{
+            document.body.removeAttribute("style")
+        }
+        
     }, [isModalShowing, modalRef])
 
     //toggle modal function
