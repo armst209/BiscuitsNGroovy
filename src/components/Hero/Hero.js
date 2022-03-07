@@ -9,7 +9,7 @@ import "./HeroStyles.scss";
 
 function Hero() {
   return (
-    <>
+  
       <section id="hero">
         <div className="hero-section">
           <div className="hero-section-outer-wrapper">
@@ -52,11 +52,11 @@ function Hero() {
             </div>
           </div>
         </div>
-        <section className="hero-image-container">
+        <div className="hero-image-container">
           <img className="hero-image" src={hero_image} alt="hero" />
-        </section>
+        </div>
       </section>
-    </>
+
   );
 }
 
