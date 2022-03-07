@@ -1,43 +1,48 @@
 //styles
 import styles from "./BiscuitInsert.module.scss";
 
+//component imports
+import VideoIFrame from "./Video/VideoIFrame";
+
+
+/**
+ * !!TEMPORARY FIX, NEED TO COME UP WITH SOLUTION THAT DOES NOT DIRECTLY MANIPULATE THE DOM OR ACCESS CSS MODULE ID
+ * @param {*} toggleModal 
+ * @param {*} showHidePlayer 
+ */
+const handleBiscuitInsertClose = (toggleModal, showHidePlayer) => {
+  toggleModal();
+  const biscuitContainer = document.getElementById("BiscuitContainer_biscuit__dkLHn");
+  if (document.body.contains(biscuitContainer)) {
+    showHidePlayer();
+  }
+};
+
 
 const BiscuitInsert = ({
- toggleInsertModal,
+  toggleInsertModal,
   release,
   showHideMusicPlayer
 }) => {
+
+  console.log(release);
+  const { insert_link_1, insert_link_2, name } = release;
+
   return (
-    <section id={styles["biscuit-insert"]}>
+    <section data-testid={"biscuit-insert-test-id"} id={styles["biscuit-insert"]}>
       <div
         className={styles["biscuit-insert-close"]}
-        onClick={() => {toggleInsertModal(); showHideMusicPlayer()}}
+        onClick={() => handleBiscuitInsertClose(toggleInsertModal, showHideMusicPlayer)}
       >
         X
       </div>
       <div className={styles["biscuit-insert-container"]}>
-        {!release.insert_link_2 ? "": <div className={styles["biscuit-insert-iframe-container-1"]}>
-          <iframe
-            src={`${release.insert_link_2}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title={release.title}
-          >
-          </iframe>
-        </div>}
-        {!release.insert_link_1 ? "": <div className={styles["biscuit-insert-iframe-container-2"]}>
-          <iframe
-            src={`${release.insert_link_1}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title={release.title}
-          ></iframe>
-        </div>}
+        {!insert_link_1 ? "" : insert_link_1.includes("video") ? <VideoIFrame insertLink={insert_link_1} className={"biscuit-insert-iframe-container-1"} title={name} /> : <img src={insert_link_1} alt={name} />}
+        {!insert_link_2 ? "" : insert_link_2.includes("video") ? <VideoIFrame insertLink={insert_link_2} className={"biscuit-insert-iframe-container-2"} /> : <img src={insert_link_2} alt={name} />}
       </div>
     </section>
   );
 };
 
 export default BiscuitInsert;
+

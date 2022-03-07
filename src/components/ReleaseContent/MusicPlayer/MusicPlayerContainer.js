@@ -29,7 +29,7 @@ const MusicPlayerContainer = ({ release, togglePlayMusic }) => {
   };
 
   return (
-    <>
+    <div id="music-player-container">
       <ReleaseTracklistPlayer
         songs={songs}
         setCurrentSongIndex={setCurrentSongIndex}
@@ -44,7 +44,7 @@ const MusicPlayerContainer = ({ release, togglePlayMusic }) => {
         selectedTrack={selectedTrack}
         setSelectedTrack={setSelectedTrack}
       />
-    </>
+    </div>
   );
 };
 
