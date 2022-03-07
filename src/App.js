@@ -1,6 +1,6 @@
-// -------Start of Google Analytics - DON'T REMOVE-------
+// Google Analytics imports
 import ReactGA from "react-ga";
-// -------End of Google Analytics - DON'T REMOVE-------
+
 
 //component imports
 import MainHeader from "./components/MainHeader/MainHeader";
@@ -14,22 +14,27 @@ import Router from "./Routes/Router.tsx";
 import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
-
+//react helmet
+import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   const gaTrackingId = "UA-211766799-1";
-  ReactGA.initialize(gaTrackingId);
-  ReactGA.pageview("/");
+  ReactGA.initialize(gaTrackingId, { debug: true, testMode: true });
   // -------End of Google Analytics - DON'T REMOVE-------
 
-
   return (
-    <div className="App">
-      <MainHeader />
-      <Router routes={routes} />
-      <Footer />
-    </div>
+    <HelmetProvider>
+      <main className="App">
+        <Helmet prioritizeSeoTags>
+          <meta name="description" content="Biscuits n Groovy - Music Streaming Service" />
+          <title>Biscuits n Groovy</title>
+        </Helmet>
+        <MainHeader />
+        <Router routes={routes} />
+        <Footer />
+      </main>
+    </HelmetProvider>
   );
 };
 

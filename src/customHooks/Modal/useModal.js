@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom"
 
-
 const useModal = (idName) => {
     //state
     const [isModalShowing, setIsModalShowing] = useState(false);
@@ -16,16 +15,21 @@ const useModal = (idName) => {
         return ()=>{
             document.body.removeAttribute("style")
         }
-        
+
     }, [isModalShowing, modalRef])
 
     //toggle modal function
     const toggleModal = () => setIsModalShowing(prevState => !prevState);
 
     //modal wrapper component
-    const Modal = ({ isModalShowing, children }) => isModalShowing ? ReactDOM.createPortal(<div ref={modalRef}>{children}</div>, document.getElementById(`${idName}`)) : null;
+    const Modal = ({ isModalShowing, children }) => {
+        return isModalShowing ? ReactDOM.createPortal(<div ref={modalRef}>{children}</div>, document.getElementById(`${idName}`)) : null;
+    }
+
+ 
+ 
 
     return { isModalShowing, toggleModal, Modal }
 
 }
-export default useModal
+export default useModal;

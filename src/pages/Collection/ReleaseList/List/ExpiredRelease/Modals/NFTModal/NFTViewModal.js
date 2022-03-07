@@ -5,7 +5,14 @@ import ReleaseImage from "../../../../../../../components/ReleaseContent/Release
 //styles
 import "./NFTViewModalStyles.scss";
 
+//Google Analytics imports
+import ReactGA from "react-ga";
+
 const NFTExpiredModal = ({ release, toggleNFTModal}) => {
+
+    // -------Start of Google Analytics - DON'T REMOVE-------
+    ReactGA.modalview(`${release.name}-NFTModal`);
+    // -------End of Google Analytics - DON'T REMOVE-------
 
   return ( 
     <section id="nft-expired-modal">
