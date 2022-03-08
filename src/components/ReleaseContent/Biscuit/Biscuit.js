@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import useModal from "../../../customHooks/Modal/useModal";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 
 
 //component imports
@@ -15,8 +14,6 @@ import BiscuitInsert from "./BiscuitInsert/BiscuitInsert";
 //utility imports
 import { token } from "../../../utils/UtilityVariables";
 
-//styles
-import styles from "./Biscuit.module.scss"
 
 const Biscuit = () => {
   const { isModalShowing, toggleModal: toggleInsertModal, Modal } = useModal("modal-overlay-root");
@@ -56,10 +53,6 @@ const Biscuit = () => {
   return (
     <>
       <section className="_main_section">
-        <div>
-          <Link className={styles["back-to-collection-link"]} to="/collection">Back To Collection</Link>
-        </div>
-
         {isLoading && <ComponentLoading />}
         {!errorMessage ? (
           releases && (

@@ -16,7 +16,7 @@ const PrivacyPolicy = (props) => {
               alt="megaphone"
             />
           </h3>
-          <p>
+          <div>
             <ul>
               <h2>Introduction</h2>
               <li>
@@ -218,7 +218,7 @@ const PrivacyPolicy = (props) => {
                 </strong>
               </li>
             </ul>
-          </p>
+          </div>
         </div>
       </div>
     </section>

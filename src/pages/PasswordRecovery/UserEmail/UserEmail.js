@@ -1,7 +1,15 @@
+//react imports
 import { useState } from "react";
+
+//component imports
 import FormLoader from "../../../components/Loading/Forms/FormLoader";
 import UserEmailSuccessModal from "../Modals/UserEmailSuccessModal";
 import UserEmailForm from "./UserEmailForm";
+
+//seo imports
+import SEOHelmet from "../../../utils/SEO/SEOHelmet";
+
+//styles
 import "./UserEmailStyles.scss";
 
 const UserEmail = () => {
@@ -10,6 +18,7 @@ const UserEmail = () => {
 
   return (
     <section id="user-email">
+      <SEOHelmet title="Password Recovery" content="" />
       <h2>Issues logging in? Reset Your Password</h2>
 
       <p className="user-email-subtitle">

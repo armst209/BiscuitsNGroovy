@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm/SignUpForm";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
 import FlowLoader from "../../components/Loading/Forms/FlowLoader";
+import Loading from "../../components/Loading/Loading";
 
 //svg imports
 import { ReactComponent as QuestionIcon } from '../../assets/images/help_question_yellow.svg'
@@ -13,7 +14,9 @@ import { ReactComponent as QuestionIcon } from '../../assets/images/help_questio
 
 //styles
 import styles from "./SignUp.module.scss";
-import Loading from "../../components/Loading/Loading";
+
+//seo imports
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
 
 /**
  * TODO: For future signup implementation, add progress bar - use progress HTML element
@@ -34,6 +37,7 @@ const SignUp = () => {
 
   return (
     <section id={`${styles.signup}`} className="_main_section">
+      <SEOHelmet title="Sign Up" content="Sign up to start your collection" />
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>

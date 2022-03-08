@@ -8,7 +8,7 @@ function NFTTerms() {
       <div className="nft-terms-wrapper">
         <div className="nft-terms-container">
           <h1>BISCUITS N GROOVY, LLC: TERMS REGARDING NON-FUNGIBLE TOKENS</h1>
-          <p>
+          <div>
             <ol>
               <li>
                 <strong>Part of Contract. </strong>
@@ -114,7 +114,7 @@ function NFTTerms() {
                 </ul>
               </li>
             </ol>
-          </p>
+          </div>
         </div>
       </div>
     </section>

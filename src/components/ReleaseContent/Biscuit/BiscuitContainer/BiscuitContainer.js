@@ -1,5 +1,6 @@
 //react imports
 import { useState } from "react";
+import { Link } from "react-router-dom"
 
 //styles
 import styles from "./BiscuitContainer.module.scss";
@@ -9,6 +10,12 @@ import styles from "./BiscuitContainer.module.scss";
 import BiscuitDescription from "../BiscuitDescription/BiscuitDescription";
 import MusicPlayerContainer from "../../MusicPlayer/MusicPlayerContainer";
 import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInformation/BiscuitTitleInformation";
+
+//svg imports
+import { ReactComponent as ArrowBack } from "../../../../assets/images/arrow-back-yellow.svg"
+
+
+
 
 const BiscuitContainer = ({
   release,
@@ -25,6 +32,10 @@ const BiscuitContainer = ({
   return (
     release && (
       <section id={styles.biscuit}>
+        <div className={styles["back-to-collection-link-container"]}>
+          <ArrowBack />
+          <Link className={styles["back-to-collection-link"]} to="/collection">Back To Collection</Link>
+        </div>
         <div className={styles["release-preview-modal"]}>
           <div className={styles["release-preview-container"]}>
             <div className={styles["release-preview-content"]}>

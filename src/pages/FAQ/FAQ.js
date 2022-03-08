@@ -14,12 +14,15 @@ import { ReactComponent as Important } from "../../assets/images/speaker_yellow.
 //component imports
 import Title from "../../UI/Title/Title";
 import FAQQuestion from "./FAQQuestion";
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
 
 const FAQ = () => {
 
   return (
 
+
     <section id="faq" className="_main_section">
+      <SEOHelmet title="Frequently Asked Questions" content="Questions? We’ve got answers. Feel free to contact us at: support@bngroovy.com." />
       <Title title={"faq"} />
       <div className="faq-content">
         <FAQQuestion title={"What do I get with my purchase?"} content={

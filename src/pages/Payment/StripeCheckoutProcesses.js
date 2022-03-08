@@ -17,6 +17,9 @@ import { token } from "../../utils/UtilityVariables";
 //component imports
 import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
 
+//Google Analytics imports
+import ReactGA from "react-ga";
+
 
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -26,9 +29,9 @@ import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
 
 
-  // -------Start of Google Analytics - DON'T REMOVE-------
+// -------Start of Google Analytics - DON'T REMOVE-------
 
-  // -------End of Google Analytics - DON'T REMOVE-------
+// -------End of Google Analytics - DON'T REMOVE-------
 
 const StripeCheckoutProcesses = ({ release }) => {
   const [message, setMessage] = useState("");
@@ -41,6 +44,7 @@ const StripeCheckoutProcesses = ({ release }) => {
 
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
+      ReactGA.pageview("/purchase-success");
       window.location.replace(
         process.env.REACT_APP_FRONTEND_URL + "/purchase-success"
       );
@@ -84,6 +88,7 @@ const StripeCheckoutProcesses = ({ release }) => {
     const result = await stripe.redirectToCheckout({
       sessionId: sessionId,
     });
+    ReactGA.pageview("/payments/create-checkout-session");
     setShowStripeLoader("");
     if (result.error) {
       // If `redirectToCheckout` fails due to a browser or network
@@ -124,7 +129,7 @@ const StripeCheckoutProcesses = ({ release }) => {
   return message ? (
     <Message message={message} />
   ) : (
-    
+
     <ProductDisplay
       handleClick={handleClick}
       showStripeLoader={showStripeLoader}

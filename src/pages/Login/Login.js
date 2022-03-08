@@ -11,11 +11,14 @@ import LoginForm from "./LoginForm/LoginForm";
 //svg imports
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 
+//seo imports
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
+
 
 const Login = () => {
   return (
-
     <section id="login-page" className="_main_section">
+      <SEOHelmet title="Login" content="" />
       <div className="login-title">
         <h1>
           <RecordVinyl width="50px" />

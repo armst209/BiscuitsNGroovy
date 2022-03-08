@@ -14,12 +14,16 @@ import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-
 import HowWeServeSection from "./HowWeServeSection/HowWeServeSection";
 import Title from "../../UI/Title/Title";
 
+//seo imports
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
+
 
 const About = () => {
 
   return (
 
     <section id="about" className="_main_section">
+      <SEOHelmet title="About" content="Biscuits n Groovy exists to create a more engaging and equitable digital music experience" />
       <Title title={"about"} />
       <div className="about-contents-wrapper">
         <div className="about-header">

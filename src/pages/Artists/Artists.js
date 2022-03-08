@@ -22,10 +22,18 @@ import record_vinyl from "../../assets/images/compact-disc-yellow.svg";
 //component imports
 import ArtistInformationContainer from "../../components/MailchimpForms/ArtistInformation/ArtistInformationContainer";
 
+//seo imports
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
+
 
 const Artists = () => {
   return (
     <section id="artists" className="_main_section">
+      <SEOHelmet title="About" content=" Biscuits n Groovy is a new kind of streaming platform,
+              empowering you to create and capture lasting value for new
+              music. By dropping with us, you’ll tap into your network of
+              superfans and earn an additional revenue stream, without any
+              impact to your existing distribution channels."/>
       <div className="artists-title">
         <h1>
           <img width="50px" src={record_vinyl} alt="record" />
