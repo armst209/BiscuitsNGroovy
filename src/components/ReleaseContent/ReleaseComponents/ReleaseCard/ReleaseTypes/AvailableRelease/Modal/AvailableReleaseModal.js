@@ -15,7 +15,6 @@ const tracklistAnimations = {
 };
 
 function AvailableReleaseModal({ release }) {
-  console.log(release.songs);
   const [showTrackList, setShowTrackList] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState("");
   const [populateTracklist, setPopulateTracklist] = useState();

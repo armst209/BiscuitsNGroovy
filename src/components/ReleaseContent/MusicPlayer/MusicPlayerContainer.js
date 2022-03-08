@@ -5,7 +5,10 @@ import { useState } from "react";
 import ReleaseTracklistPlayer from "../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
 import MusicPlayer from "./MusicPlayer";
 
-const MusicPlayerContainer = ({ release }) => {
+//styles
+import styles from "./MusicPlayerContainer.module.scss"
+
+const MusicPlayerContainer = ({ release, togglePlayMusic, forwardedRef }) => {
   //hooks
   const [selectedTrack, setSelectedTrack] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -29,21 +32,23 @@ const MusicPlayerContainer = ({ release }) => {
   };
 
   return (
-    <>
+    <div id={styles["music-player-container"]}>
       <ReleaseTracklistPlayer
         songs={songs}
         setCurrentSongIndex={setCurrentSongIndex}
       />
       <br></br>
       <MusicPlayer
+        forwardedRef={forwardedRef}
         songs={songs}
+        togglePlayMusic={togglePlayMusic}
         previousSongChangeHandler={previousSongChangeHandler}
         nextSongChangeHandler={nextSongChangeHandler}
         currentSongIndex={currentSongIndex}
         selectedTrack={selectedTrack}
         setSelectedTrack={setSelectedTrack}
       />
-    </>
+    </div>
   );
 };
 

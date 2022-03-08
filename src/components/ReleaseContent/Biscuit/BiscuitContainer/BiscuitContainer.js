@@ -1,35 +1,41 @@
 //react imports
 import { useState } from "react";
-
+import { Link } from "react-router-dom"
 
 //styles
 import styles from "./BiscuitContainer.module.scss";
 
-//svg imports
 
 //component imports
-
 import BiscuitDescription from "../BiscuitDescription/BiscuitDescription";
-
-
-//music player import
 import MusicPlayerContainer from "../../MusicPlayer/MusicPlayerContainer";
 import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInformation/BiscuitTitleInformation";
 
+//svg imports
+import { ReactComponent as ArrowBack } from "../../../../assets/images/arrow-back-yellow.svg"
+
+
+
+
 const BiscuitContainer = ({
   release,
-  showHideBiscuitInsertHandler,
-  showHideMusicPlayerContainerHandler,
-  showMusicPlayerContainer,
-}) => {
-  const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
+  toggleInsertModal,
+  pauseMusicHandler,
+  forwardedRef
 
-  const showHideBiscuitDescriptionHandler = () =>
-    setShowBiscuitDescription(!showBiscuitDescription);
+}) => {
+
+  const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
+  const showHideBiscuitDescriptionHandler = () => setShowBiscuitDescription(prevState => !prevState);
+
 
   return (
     release && (
       <section id={styles.biscuit}>
+        <div className={styles["back-to-collection-link-container"]}>
+          <ArrowBack />
+          <Link className={styles["back-to-collection-link"]} to="/collection">Back To Collection</Link>
+        </div>
         <div className={styles["release-preview-modal"]}>
           <div className={styles["release-preview-container"]}>
             <div className={styles["release-preview-content"]}>
@@ -44,10 +50,8 @@ const BiscuitContainer = ({
                 )}
                 <BiscuitTitleInformation
                   release={release}
-                  showHideMusicPlayerContainerHandler={
-                    showHideMusicPlayerContainerHandler
-                  }
-                  showHideBiscuitInsertHandler={showHideBiscuitInsertHandler}
+                  pauseMusicHandler={pauseMusicHandler}
+                  toggleInsertModal={toggleInsertModal}
                   showHideBiscuitDescriptionHandler={
                     showHideBiscuitDescriptionHandler
                   }
@@ -56,9 +60,7 @@ const BiscuitContainer = ({
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
-                    {showMusicPlayerContainer && (
-                      <MusicPlayerContainer release={release} />
-                    )}
+                    <MusicPlayerContainer release={release} forwardedRef={forwardedRef} />
                   </div>
                 </div>
                 <div className={styles["release-preview-svg-divider"]}></div>

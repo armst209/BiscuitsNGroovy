@@ -1,0 +1,24 @@
+@use "../../../utils/Sass/mixins/mixins";
+
+.vault-showcase-grid {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  position: relative;
+  grid-gap: 1rem;
+  min-height: 300px;
+  grid: repeat(auto-fit, minmax(200px, 1fr)) / repeat(auto-fit,
+      minmax(200px, 1fr));
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  @media screen and (max-width: 600px) {
+    grid: repeat(auto-fit, minmax(100px, 1fr)) / repeat(auto-fit,
+        minmax(100px, 1fr));
+    grid-gap: 0.8rem;
+  }
+
+  @include mixins.carousel-media-query();
+}

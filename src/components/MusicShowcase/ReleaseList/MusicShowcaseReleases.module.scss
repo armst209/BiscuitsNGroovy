@@ -1,0 +1,24 @@
+.music-showcase-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    .showcase-image {
+        width: 50%;
+        left: 0;
+        position: absolute;
+
+        @media screen and (max-width: 1050px) {
+            width: 900px;
+            height: 1000px;
+        }
+
+        @media screen and (max-width: 1050px) {
+            display: none;
+        }
+    }
+}

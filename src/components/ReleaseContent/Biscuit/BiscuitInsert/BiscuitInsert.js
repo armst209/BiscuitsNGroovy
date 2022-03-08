@@ -1,53 +1,53 @@
+//styles
 import styles from "./BiscuitInsert.module.scss";
+
+//component imports
+import VideoIFrame from "./Video/VideoIFrame";
+
+//Google Analytics imports
+import ReactGA from "react-ga";
+
+
 const BiscuitInsert = ({
-  showHideBiscuitInsertHandler,
-  showHideMusicPlayerContainerHandler,
+  toggleInsertModal,
   release,
+  playMusicHandler,
 }) => {
 
-  // Conditionally run different sets of methods depending on what props have been passed.
-  const closeBiscuit = () => {
-    if(showHideBiscuitInsertHandler && showHideMusicPlayerContainerHandler) {
-      showHideBiscuitInsertHandler();
-      showHideMusicPlayerContainerHandler();
-    } else {
-      showHideBiscuitInsertHandler();
+  // -------Start of Google Analytics - DON'T REMOVE-------
+  ReactGA.modalview(`${release.name}-BiscuitInsert`);
+  // -------End of Google Analytics - DON'T REMOVE-------
+
+  /**
+   * !! TEMPORARY FIX - NEED TO FIND SOLUTION THAT DOESNT MANIPULATE DOM
+   * @param {*} func1 
+   * @param {*} func2 
+   */
+  const handleInsertModalClose = (toggleInsert, playMusic) => {
+    toggleInsert();
+    const musicPlayerContainer = document.getElementById("music-player-container");
+    if (document.body.contains(musicPlayerContainer)) {
+      playMusic();
     }
   }
-  
+
+  const { insert_link_1, insert_link_2, name } = release;
+
   return (
-    <section id={styles["biscuit-insert"]}>
+    <section data-testid={"biscuit-insert-test-id"} id={styles["biscuit-insert"]}>
       <div
         className={styles["biscuit-insert-close"]}
-        onClick={() => closeBiscuit()}
+        onClick={() => handleInsertModalClose(toggleInsertModal, playMusicHandler)}
       >
         X
       </div>
       <div className={styles["biscuit-insert-container"]}>
-        <div className={styles["biscuit-insert-iframe-container-1"]}>
-          <iframe
-            // src="https://player.vimeo.com/video/666613961?h=d72eaedb5e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            src={`${release.insert_link_2}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title="Pink Walls Music Video.mp4"
-          ></iframe>
-        </div>
-        <div className={styles["biscuit-insert-iframe-container-2"]}>
-          <iframe
-            // src="https://player.vimeo.com/video/666615717?h=d3b17f1430&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-
-            src={`${release.insert_link_1}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title="Elle Lexxa Animation.mp4"
-          ></iframe>
-        </div>
+        {!insert_link_1 ? "" : insert_link_1.includes("video") ? <VideoIFrame insertLink={insert_link_1} className={"biscuit-insert-iframe-container-1"} title={name} /> : <img src={insert_link_1} alt={name} />}
+        {!insert_link_2 ? "" : insert_link_2.includes("video") ? <VideoIFrame insertLink={insert_link_2} className={"biscuit-insert-iframe-container-2"} /> : <img src={insert_link_2} alt={name} />}
       </div>
     </section>
   );
 };
 
 export default BiscuitInsert;
+

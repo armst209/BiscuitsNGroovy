@@ -8,7 +8,7 @@ function Subscriber() {
       <div className="sub-terms-wrapper">
         <div className="sub-terms-container">
           <h1>BISCUITS N GROOVY, LLC SUBSCRIBER TERMS OF SERVICE</h1>
-          <p>
+          <div>
             <ol>
               <li>
                 <strong>Parties; Effective Date. </strong> This Subscriber Terms
@@ -323,7 +323,7 @@ function Subscriber() {
                 heirs and personal representatives of Subscriber.
               </li>
             </ol>
-          </p>
+          </div>
         </div>
       </div>
     </section>

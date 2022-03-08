@@ -201,8 +201,7 @@ const useValidation = () => {
        */
       case "confirm-password":
         setConfirmPassword(value);
-        console.log(confirmPassword);
-        console.log(password);
+      
         if (password.trim() === confirmPassword.trim()) {
           setConfirmPasswordErrorMessage("Confirm Password");
           setShowConfirmPasswordValidationCheck(true);
@@ -262,6 +261,7 @@ const useValidation = () => {
     errorMessages,
     setErrorMessages,
     emailErrorMessage,
+    setEmailErrorMessage,
     userNameErrorMessage,
     passwordErrorMessage,
     confirmPasswordErrorMessage,

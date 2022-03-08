@@ -12,7 +12,7 @@ import "./FooterStyles.scss";
 
 function Footer() {
   return (
-    <section id="footer">
+    <footer id="footer">
       <div className="footer-content">
         <div className="footer-logo">
           <FooterLogo />
@@ -55,7 +55,7 @@ function Footer() {
       <div className="footer-copyright">
         <p>© {new Date().getFullYear()} Biscuits n Groovy, LLC </p>
       </div>
-    </section>
+    </footer>
   );
 }
 

@@ -18,6 +18,7 @@ const MusicPlayer = ({
   previousSongChangeHandler,
   nextSongChangeHandler,
   currentSongIndex,
+  forwardedRef
 }) => {
   const [recordImageClass, setRecordImageClass] = useState("");
 
@@ -31,6 +32,7 @@ const MusicPlayer = ({
 
   return (
     <AudioPlayer
+      ref={forwardedRef}
       preload="auto"
       autoPlay={true}
       hasDefaultKeyBindings={true}

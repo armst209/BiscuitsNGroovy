@@ -8,7 +8,7 @@ function PurchaseOfMusic() {
       <div className="pom-terms-wrapper">
         <div className="pom-terms-container">
           <h1>BISCUITS N GROOVY, LLC TERMS REGARDING PURCHASE OF MUSIC</h1>
-          <p>
+          <div>
             <ol>
               <li>
                 <strong>Purpose of Agreement. </strong>
@@ -115,7 +115,7 @@ function PurchaseOfMusic() {
                 </ul>
               </li>
             </ol>
-          </p>
+          </div>
         </div>
       </div>
     </section>

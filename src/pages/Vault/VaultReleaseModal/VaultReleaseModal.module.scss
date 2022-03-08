@@ -1,3 +1,7 @@
+.vault-modal-overlay {
+  z-index:var(--highest-index);
+}
+
 .vault-modal-wrapper {
   position: fixed;
   top: 0;
@@ -13,9 +17,9 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: rgba(black, 0.7);
-  z-index: var(--highest-index);
   padding:1rem;
+  z-index: var(--highest-index);
+  background-color: rgba(black, 0.7);
 
   @media screen and (max-width: 400px) {
     padding: 0;
@@ -33,28 +37,7 @@
       border: none;
     }
 
-    .modal-header {
-      position: relative;
-      color: white;
-      font-family: var(--header-font);
-      font-size: var(--font2);
-
-      .vault-modal-close {
-        float: right;
-        cursor: pointer;
-      }
-      span {
-        font-size: 24px;
-        position: fixed;
-        right: 40px;
-        top: 25px;
-        cursor: pointer;
-        @media screen and (max-width: 400px) {
-          top: 10px;
-          right: 20px;
-        }
-      }
-    }
+  
     .modal-body {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -74,183 +57,6 @@
       @media screen and (max-width: 500px) {
         margin: 5px;
         border: none;
-      }
-      .modal-body-left-side {
-        display: flex;
-        margin: 40px 20px 0px 20px;
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-
-        @media screen and (max-width: 1000px) {
-          flex-grow: 0;
-        }
-        @media screen and (max-width: 400px) {
-          margin: 5px 5px 5px 5px;
-        }
-
-        .modal-body-left-release-image-container{
-          @media screen and (max-width: 1000px) {
-            width: 250px;
-          }
-        }
-        .logo {
-          width: 100%;
-          margin-bottom: 1rem;
-          @media screen and (max-width: 500px) {
-            width: 70%;
-          }
-        }
-        h1 {
-          color: white;
-          padding: 1rem 0px;
-          text-align: center;
-          font-family: var(--header-font);
-        }
-        .modal-release-name {
-          font-family: var(--header-font);
-          color: white;
-        }
-        .date-wrapper{
-          margin: .5rem 0;
-          .date {
-            margin: 10px 0px;
-            display: inline;
-            color: var(--color1);
-            
-            font-family: var(--header-font);
-          }
-        }
-   
-
-        .artist-social-links{
-          width:100%;
-          height: auto;
-          display:flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          margin: .5rem 0;
-
-          @media screen and (max-width: 768px) {
-            margin: .5rem 0 1rem 0;
-          }
-          h4{
-            color:white;
-            font-family:var(--header-font);
-            // margin-right: .3rem;
-          }
-        
-          .spotify {
-            -webkit-transition: 0.75s ease;
-            transition: 0.75s ease;
-            color: #1db954;
-            &:hover {
-              color: rgba(#1db954, 0.55);
-            }
-          }
-          .tiktok {
-            max-height: 35px;
-            max-width: 35px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            animation-duration: 3.5s;
-            animation-iteration-count: infinite;
-            &:hover {
-              animation-name: tikTokColors;
-              animation-timing-function: linear;
-            }
-           
-            svg{
-             width:100%;
-             height: 100%;
-            }
-        
-          }
-          @keyframes tikTokColors {
-            from {color: rgba(white, 0.7)}
-            33% {color: rgba(#25F4EE, 0.7)}
-            66% {color: rgba(#FE2C55, 0.7)}
-            to {color: rgba(white, 0.7)}
-          }
-        }
-       
-       
-      }
-      .modal-body-right-side {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 40px;
-        padding-bottom: 50px;
-        width: 50%;
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        @media screen and (max-width: 768px) {
-          padding-bottom: 0px;
-        }
-
-        button {
-          display: none;
-          min-width: 200px;
-          @media screen and (max-width: 768px) {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          }
-        }
-        @media screen and (max-width: 992px) {
-          width: 100%;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-          -webkit-box-pack: start;
-          -ms-flex-pack: start;
-          justify-content: start;
-          margin: 0;
-          padding: 0;
-        }
-
-        .modal-body-release-description {
-          padding: 1rem 0;
-          text-align: center;
-          color: white;
-          font-family: var(--header-font);
-          margin-bottom: 1rem;
-
-          @media screen and (max-width: 1000px) {
-            font-size: 0.8rem;
-          }
-          @media screen and (max-width: 768px) {
-            display: none;
-          }
-        }
-
-        h1 {
-          color: white;
-          text-align: center;
-          font-family: var(--header-font);
-        }
       }
     }
   }

@@ -1,0 +1,62 @@
+.artist-social-links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: .5rem 0;
+
+  @media screen and (max-width: 768px) {
+    margin: .5rem 0 1rem 0;
+  }
+
+  a {
+    font-size: 4rem;
+  }
+
+  .spotify {
+    -webkit-transition: 0.75s ease;
+    transition: 0.75s ease;
+    color: #1db954;
+
+    &:hover {
+      color: rgba(#1db954, 0.55);
+    }
+  }
+
+  .tiktok {
+    color: white;
+    max-width: 4rem;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+
+    &:hover {
+      animation-name: tikTokColors;
+      animation-timing-function: linear;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes tikTokColors {
+      from {
+        color: rgba(white, 0.7)
+      }
+
+      33% {
+        color: rgba(#25F4EE, 0.7)
+      }
+
+      66% {
+        color: rgba(#FE2C55, 0.7)
+      }
+
+      to {
+        color: rgba(white, 0.7)
+      }
+    }
+
+  }
+}

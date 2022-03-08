@@ -4,26 +4,21 @@ import { HashLink } from "react-router-hash-link";
 //styles
 import styles from "./Vault.module.scss";
 
-//svg imports
-import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
-
-import VaultReleaseList from "../../components/ReleaseContent/ReleaseComponents/ReleaseLists/VaultReleaseList/VaultReleaseList";
+//component imports
+import Title from "../../UI/Title/Title";
+import VaultReleases from "./VaultReleaseList/VaultReleases";
+import ScrollWidget from "../../Routes/ScrollWidget/ScrollWidget";
 
 //Component imports
 
 const Vault = () => {
   return (
     <section id="vault" className={`_main_section ${styles["vault"]}`}>
-      <div className={styles["vault-title"]}>
-        <h1>
-          <RecordVinyl data-testid="record-svg" width="50px" />
-          <div>VAULT</div>
-        </h1>
-      </div>
+      <Title title={"vault"} />
       <div className={styles["vault-contents-wrapper"]}>
         <div className={styles["vault-header"]}>
           <p className={styles["vault-header-p-1"]}>
-          Explore all the biscuits we’ve dropped and the artists behind them.
+            Explore all the biscuits we’ve dropped and the artists behind them.
           </p>
           <p className={styles["vault-header-p-2"]}>
             To see releases currently available, visit the{" "}
@@ -38,9 +33,10 @@ const Vault = () => {
           </p>
         </div>
         <div className={styles["vault-showcase"]}>
-          <VaultReleaseList />
+          <VaultReleases />
         </div>
       </div>
+      <ScrollWidget />
     </section>
   );
 };

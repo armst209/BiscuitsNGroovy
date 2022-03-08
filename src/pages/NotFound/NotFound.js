@@ -1,10 +1,18 @@
+
+//svg imports
 import { ReactComponent as MagnifyingGlass } from "../../assets/images/search_white.svg";
-import "./NotFoundStyles.scss";
+
+//seo imports
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
+
+//styles
+import styles from "./NotFound.module.scss";
 
 function NotFound() {
   return (
-    <div id="not-found">
-      <div className="not-found-content">
+    <div id={styles["not-found"]}>
+      <SEOHelmet title="Not Found" content="" />
+      <div className={styles["not-found-content"]}>
         <h1>Sorry, we can't find the page you were looking for...</h1>
         <MagnifyingGlass />
       </div>
