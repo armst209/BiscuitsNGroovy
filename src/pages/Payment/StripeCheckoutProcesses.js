@@ -1,10 +1,23 @@
+
+//react imports
 import { useState, useEffect } from "react";
+
+//axios import
 import axios from "axios";
+
+//Stripe imports
 import { loadStripe } from "@stripe/stripe-js";
 
+//styles
 import "./StripeCheckoutProcessesStyles.scss";
+
+//utility imports
+import { token } from "../../utils/UtilityVariables";
+
+//component imports
 import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
-// import env from "react-dotenv";
+
+
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render. ??
@@ -12,8 +25,10 @@ import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
 //STRIPE
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
 
-//TOKEN
-let token = localStorage.getItem("token");
+
+  // -------Start of Google Analytics - DON'T REMOVE-------
+
+  // -------End of Google Analytics - DON'T REMOVE-------
 
 const StripeCheckoutProcesses = ({ release }) => {
   const [message, setMessage] = useState("");
@@ -109,6 +124,7 @@ const StripeCheckoutProcesses = ({ release }) => {
   return message ? (
     <Message message={message} />
   ) : (
+    
     <ProductDisplay
       handleClick={handleClick}
       showStripeLoader={showStripeLoader}

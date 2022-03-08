@@ -5,6 +5,10 @@ import "./ReleaseButtonStyles.scss";
 import StripeCheckoutProcesses from "../../../../pages/Payment/StripeCheckoutProcesses";
 import SignUpTpPurchaseButton from "./SignUpToPurchaseButton/SignUpTpPurchaseButton";
 
+//utility imports
+import { token } from "../../../../utils/UtilityVariables";
+
+
 /**
  * TODO:figure out ALL conditions for button logic, maybe add a switch statement
  * ! needs logic for purchase boolean - music showcase
@@ -18,8 +22,7 @@ import SignUpTpPurchaseButton from "./SignUpToPurchaseButton/SignUpTpPurchaseBut
   
  */
 const ReleaseButton = ({ release, hideButtonHandler }) => {
-  //TOKEN
-  const token = localStorage.getItem("token");
+
   //Purchased boolean
   const isPurchased = release.purchased;
 
@@ -30,6 +33,8 @@ const ReleaseButton = ({ release, hideButtonHandler }) => {
           //no button is displayed
           hideButtonHandler()
         ) : (
+
+       
           //displays buy now button - redirects to stripe checkout
           <StripeCheckoutProcesses release={release} />
         )

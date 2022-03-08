@@ -10,6 +10,8 @@ import AttentionSection from "../../components/AttentionSection/AttentionSection
 import FixedNavigationSpacer from "../../components/FixedNavigationSpacer/FixedNavigationSpacer";
 
 
+
+
 const Homepage = () => {
   return (
     <>

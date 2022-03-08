@@ -4,6 +4,10 @@ import styles from "./BiscuitInsert.module.scss";
 //component imports
 import VideoIFrame from "./Video/VideoIFrame";
 
+//Google Analytics imports
+import ReactGA from "react-ga";
+
+
 
 /**
  * !!TEMPORARY FIX, NEED TO COME UP WITH SOLUTION THAT DOES NOT DIRECTLY MANIPULATE THE DOM OR ACCESS CSS MODULE ID
@@ -24,8 +28,11 @@ const BiscuitInsert = ({
   release,
   showHideMusicPlayer
 }) => {
+  
+  // -------Start of Google Analytics - DON'T REMOVE-------
+  ReactGA.modalview(`${release.name}-BiscuitInsert`);
+  // -------End of Google Analytics - DON'T REMOVE-------
 
-  console.log(release);
   const { insert_link_1, insert_link_2, name } = release;
 
   return (

@@ -14,7 +14,6 @@ import BiscuitInsert from "./BiscuitInsert/BiscuitInsert";
 //utility imports
 import { token } from "../../../utils/UtilityVariables";
 
-
 const Biscuit = () => {
   const {isModalShowing, toggleModal:toggleInsertModal, Modal} = useModal("modal-overlay-root");
  
