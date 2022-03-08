@@ -15,7 +15,7 @@ const MusicShowcaseCard = ({ release }) => {
         className="release-card"
         onClick={() =>
           window.location.replace(
-            `${process.env.REACT_APP_FRONTEND_URL}/release/${release.id}`
+            `${process.env.REACT_APP_FRONTEND_URL}/release/${release.id}/${release.name}/${release.title}/`
           )
         }
       >

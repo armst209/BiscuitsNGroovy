@@ -84,7 +84,7 @@ const routes: IRoute[] = [
     fallback: <Loading />,
   },
   {
-    path: "/biscuit/:biscuitId/:releaseName/",
+    path: "/:biscuitId/:artistName/:releaseName/",
     component: lazy(
       () => import("../components/ReleaseContent/Biscuit/Biscuit")
     ),
@@ -104,7 +104,7 @@ const routes: IRoute[] = [
   },
 
   {
-    path: "/release/:releaseId",
+    path: "/release/:releaseId/:artistName/:releaseName/",
     component: lazy(
       () => import("../components/ReleaseContent/Release/Release")
     ),
