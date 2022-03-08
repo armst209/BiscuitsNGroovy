@@ -19,7 +19,7 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   const gaTrackingId = "UA-211766799-1";
-  ReactGA.initialize(gaTrackingId, { debug: true, testMode: true });
+  ReactGA.initialize(gaTrackingId, { debug: false, testMode: false });
   // -------End of Google Analytics - DON'T REMOVE-------
 
   return (
