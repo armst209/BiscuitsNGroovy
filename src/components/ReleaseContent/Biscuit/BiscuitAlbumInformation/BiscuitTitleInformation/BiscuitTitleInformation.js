@@ -12,7 +12,7 @@ import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl
 const BiscuitTitleInformation = ({
   release,
   toggleInsertModal,
-  showHideMusicPlayer,
+  pauseMusicHandler,
   showHideBiscuitDescriptionHandler
 }) => {
   const { name, title, art_url } = release;
@@ -30,10 +30,10 @@ const BiscuitTitleInformation = ({
         {/* Conditionally render "view insert" button */}
         {release.insert_link_1 || release.insert_link_2 ?
           <Button
-            style={{width:"200px"}}
+            style={{ width: "200px" }}
             className="_button"
-            onClick={()=> {toggleInsertModal(); showHideMusicPlayer();}}
-          
+            onClick={() => { toggleInsertModal(); pauseMusicHandler(); }}
+
           >
             View Insert
           </Button> : null
@@ -42,7 +42,7 @@ const BiscuitTitleInformation = ({
         <br />
         <Button
           className="_button"
-          style={{width:"200px"}}
+          style={{ width: "200px" }}
           onClick={() => showHideBiscuitDescriptionHandler()}
         >
           <div className={styles["learn-more-btn-inner"]}>

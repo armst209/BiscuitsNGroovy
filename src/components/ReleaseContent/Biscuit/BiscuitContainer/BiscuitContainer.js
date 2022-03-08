@@ -1,5 +1,5 @@
 //react imports
-import { useState} from "react";
+import { useState } from "react";
 
 //styles
 import styles from "./BiscuitContainer.module.scss";
@@ -13,8 +13,9 @@ import BiscuitTitleInformation from "../BiscuitAlbumInformation/BiscuitTitleInfo
 const BiscuitContainer = ({
   release,
   toggleInsertModal,
-  showHideMusicPlayer,
-  isMusicPlayerVisible
+  pauseMusicHandler,
+  forwardedRef
+
 }) => {
 
   const [showBiscuitDescription, setShowBiscuitDescription] = useState(false);
@@ -38,7 +39,7 @@ const BiscuitContainer = ({
                 )}
                 <BiscuitTitleInformation
                   release={release}
-                  showHideMusicPlayer={showHideMusicPlayer}
+                  pauseMusicHandler={pauseMusicHandler}
                   toggleInsertModal={toggleInsertModal}
                   showHideBiscuitDescriptionHandler={
                     showHideBiscuitDescriptionHandler
@@ -48,9 +49,7 @@ const BiscuitContainer = ({
               <div className={styles["release-content-right"]}>
                 <div className={styles["release-information"]}>
                   <div className={styles["release-tracklist"]}>
-                    {isMusicPlayerVisible && (
-                      <MusicPlayerContainer release={release} />
-                    )}
+                    <MusicPlayerContainer release={release} forwardedRef={forwardedRef} />
                   </div>
                 </div>
                 <div className={styles["release-preview-svg-divider"]}></div>

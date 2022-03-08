@@ -5,7 +5,7 @@ import { useState } from "react";
 import ReleaseTracklistPlayer from "../ReleaseComponents/ReleaseTracklist/ReleaseTracklistPlayer";
 import MusicPlayer from "./MusicPlayer";
 
-const MusicPlayerContainer = ({ release, togglePlayMusic }) => {
+const MusicPlayerContainer = ({ release, togglePlayMusic, forwardedRef }) => {
   //hooks
   const [selectedTrack, setSelectedTrack] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -36,6 +36,7 @@ const MusicPlayerContainer = ({ release, togglePlayMusic }) => {
       />
       <br></br>
       <MusicPlayer
+        forwardedRef={forwardedRef}
         songs={songs}
         togglePlayMusic={togglePlayMusic}
         previousSongChangeHandler={previousSongChangeHandler}

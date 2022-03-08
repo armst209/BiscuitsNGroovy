@@ -2,7 +2,8 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import useModal from "../../../customHooks/Modal/useModal";
-import {useState} from "react";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 
 //component imports
@@ -14,12 +15,28 @@ import BiscuitInsert from "./BiscuitInsert/BiscuitInsert";
 //utility imports
 import { token } from "../../../utils/UtilityVariables";
 
-const Biscuit = () => {
-  const {isModalShowing, toggleModal:toggleInsertModal, Modal} = useModal("modal-overlay-root");
- 
-  const [isMusicPlayerVisible, setIsMusicPlayerVisible] = useState(true);
+//styles
+import styles from "./Biscuit.module.scss"
 
-  const showHideMusicPlayer = ()=> {setIsMusicPlayerVisible(prevState => !prevState);};
+const Biscuit = () => {
+  const { isModalShowing, toggleModal: toggleInsertModal, Modal } = useModal("modal-overlay-root");
+
+  //ref for music player
+  const musicPlayerRef = useRef(null);
+
+  //music player handlers
+  const pauseMusicHandler = () => {
+    let isPaused = musicPlayerRef.current.audio.current.paused;
+    if (!isPaused) {
+      musicPlayerRef.current.audio.current.pause();
+    }
+  }
+  const playMusicHandler = () => {
+    let isPaused = musicPlayerRef.current.audio.current.paused;
+    if (isPaused) {
+      musicPlayerRef.current.audio.current.play();
+    }
+  }
 
   //getting id from url parameter
   let { biscuitId } = useParams();
@@ -36,19 +53,21 @@ const Biscuit = () => {
   });
 
 
-
   return (
     <>
       <section className="_main_section">
+        <div>
+          <Link className={styles["back-to-collection-link"]} to="/collection">Back To Collection</Link>
+        </div>
+
         {isLoading && <ComponentLoading />}
-        {/* if release is null or not found, redirects to Not Found component */}
         {!errorMessage ? (
           releases && (
             <BiscuitContainer
               release={releases.library}
               toggleInsertModal={toggleInsertModal}
-              showHideMusicPlayer={showHideMusicPlayer}
-              isMusicPlayerVisible={isMusicPlayerVisible}
+              pauseMusicHandler={pauseMusicHandler}
+              forwardedRef={musicPlayerRef}
             />
           )
         ) : (
@@ -56,7 +75,7 @@ const Biscuit = () => {
         )}
       </section>
       <Modal isModalShowing={isModalShowing}>
-       {releases && <BiscuitInsert release={releases.library} toggleInsertModal={toggleInsertModal} showHideMusicPlayer={showHideMusicPlayer}/>} 
+        {releases && <BiscuitInsert release={releases.library} toggleInsertModal={toggleInsertModal} playMusicHandler={playMusicHandler} forwardedRef={musicPlayerRef} />}
       </Modal>
     </>
   );

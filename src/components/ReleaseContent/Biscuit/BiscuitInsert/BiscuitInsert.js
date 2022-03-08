@@ -8,30 +8,28 @@ import VideoIFrame from "./Video/VideoIFrame";
 import ReactGA from "react-ga";
 
 
-
-/**
- * !!TEMPORARY FIX, NEED TO COME UP WITH SOLUTION THAT DOES NOT DIRECTLY MANIPULATE THE DOM OR ACCESS CSS MODULE ID
- * @param {*} toggleModal 
- * @param {*} showHidePlayer 
- */
-const handleBiscuitInsertClose = (toggleModal, showHidePlayer) => {
-  toggleModal();
-  const biscuitContainer = document.getElementById("BiscuitContainer_biscuit__dkLHn");
-  if (document.body.contains(biscuitContainer)) {
-    showHidePlayer();
-  }
-};
-
-
 const BiscuitInsert = ({
   toggleInsertModal,
   release,
-  showHideMusicPlayer
+  playMusicHandler,
 }) => {
-  
+
   // -------Start of Google Analytics - DON'T REMOVE-------
   ReactGA.modalview(`${release.name}-BiscuitInsert`);
   // -------End of Google Analytics - DON'T REMOVE-------
+
+  /**
+   * !! TEMPORARY FIX - NEED TO FIND SOLUTION THAT DOESNT MANIPULATE DOM
+   * @param {*} func1 
+   * @param {*} func2 
+   */
+  const handleInsertModalClose = (toggleInsert, playMusic) => {
+    toggleInsert();
+    const musicPlayerContainer = document.getElementById("music-player-container");
+    if (document.body.contains(musicPlayerContainer)) {
+      playMusic();
+    }
+  }
 
   const { insert_link_1, insert_link_2, name } = release;
 
@@ -39,7 +37,7 @@ const BiscuitInsert = ({
     <section data-testid={"biscuit-insert-test-id"} id={styles["biscuit-insert"]}>
       <div
         className={styles["biscuit-insert-close"]}
-        onClick={() => handleBiscuitInsertClose(toggleInsertModal, showHideMusicPlayer)}
+        onClick={() => handleInsertModalClose(toggleInsertModal, playMusicHandler)}
       >
         X
       </div>
