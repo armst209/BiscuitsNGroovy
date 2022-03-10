@@ -1,4 +1,4 @@
-import MusicShowcase from "../MusicShowcaseIndex";
+import MusicShowcase from "../MusicShowcaseIndex.section";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 

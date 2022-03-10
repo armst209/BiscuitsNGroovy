@@ -68,7 +68,7 @@ const ReleaseContainer = ({ release }) => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
     )
   );
 };
