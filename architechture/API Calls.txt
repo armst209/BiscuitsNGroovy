@@ -1,0 +1,5 @@
+Using React Query moving forward 
+Implemented Components: 
+    - MusicShowcaseIndex.section.js
+Docs: https://react-query.tanstack.com/
+Youtube Guide: https://www.youtube.com/playlist?list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2

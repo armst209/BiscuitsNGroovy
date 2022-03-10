@@ -2,7 +2,7 @@
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 
 //styles
-import styles from "../MusicShowcase.module.scss"
+import styles from "./MusicShowcaseLoader.module.scss"
 
 const MusicShowcaseLoader = () => {
     return (

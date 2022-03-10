@@ -1,6 +1,6 @@
 import React from "react"
 import { render, cleanup, waitFor } from "@testing-library/react"
-import MusicShowcase from "../MusicShowcaseIndex"
+import MusicShowcase from "../MusicShowcaseIndex.section"
 
 import { server, rest } from "../../../testServer"
 
