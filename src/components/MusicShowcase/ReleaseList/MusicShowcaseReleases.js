@@ -26,10 +26,10 @@ const MusicShowcaseReleases = () => {
   });
 
   return (
-    <div data-testid="music-showcase-grid" className={styles[ "music-showcase-content-wrapper"]}>
+    <div data-testid="music-showcase-grid" className={styles["music-showcase-content-wrapper"]}>
       {isLoading && <MusicShowcaseLoader />}
       {/* displays "check back soon for our next drop!" if user has purchased all releases */}
-      <AllReleasesPurchased releaseData={releaseData}/>
+      <AllReleasesPurchased releaseData={releaseData} />
       {errorMessage === null ? (
         releaseData && (
           <MusicShowcaseListWrapper releaseData={releaseData.releases} />
@@ -37,7 +37,7 @@ const MusicShowcaseReleases = () => {
       ) : (
         <div data-testid="error-message">{errorMessageComponent}</div>
       )}
-      </div>
+    </div>
   )
 }
 
