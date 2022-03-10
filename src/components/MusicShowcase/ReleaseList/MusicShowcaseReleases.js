@@ -24,7 +24,7 @@ const MusicShowcaseReleases = () => {
   const fetchMusicShowcaseReleases = () => {
     return axios({
       method: "GET",
-      url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/releases!`,
       headers: { "x-access-token": token },
     });
   }
