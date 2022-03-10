@@ -17,14 +17,13 @@ import styles from "./MusicShowcaseReleases.module.scss"
 import axios from "axios"
 
 
-
 const MusicShowcaseReleases = () => {
 
   //fetch callback
   const fetchMusicShowcaseReleases = () => {
     return axios({
       method: "GET",
-      url: `${process.env.REACT_APP_BACKEND_URL}/releases!`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
       headers: { "x-access-token": token },
     });
   }
