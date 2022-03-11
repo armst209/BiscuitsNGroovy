@@ -1,6 +1,6 @@
 //react imports
 import { useParams } from "react-router-dom";
-import useAxiosFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+import useAxiosFetch from "../../../hooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 import NotFound from "../../../pages/NotFound/NotFound";
 
 //component imports

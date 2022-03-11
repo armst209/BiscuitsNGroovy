@@ -6,7 +6,7 @@ import ReleaseImage from "../../../components/ReleaseContent/ReleaseComponents/R
 import VaultReleaseModal from "../VaultReleaseModal/VaultReleaseModal";
 
 //react imports
-import useModal from "../../../customHooks/Modal/useModal";
+import useModal from "../../../hooks/Modal/useModal";
 
 const VaultCard = ({ release }) => {
   const { isModalShowing, Modal, toggleModal } = useModal("modal-overlay-root")

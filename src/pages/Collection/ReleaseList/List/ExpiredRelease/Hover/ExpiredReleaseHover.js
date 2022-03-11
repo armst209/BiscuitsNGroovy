@@ -2,7 +2,7 @@
 import styles from "./ExpiredReleaseHover.module.scss";
 
 //useModal
-import useModal from "../../../../../../customHooks/Modal/useModal";
+import useModal from "../../../../../../hooks/Modal/useModal";
 
 //component imports
 import Button from "../../../../../../UI/Button/Button";
@@ -14,7 +14,7 @@ import NFTViewModal from "../Modals/NFTModal/NFTViewModal"
  */
 const ExpiredReleaseHover = ({ toggleInsertModal, release }) => {
 
-  const { isModalShowing:isNFTModalShowing, toggleModal:toggleNFTModal, Modal } = useModal("modal-overlay-root");
+  const { isModalShowing: isNFTModalShowing, toggleModal: toggleNFTModal, Modal } = useModal("modal-overlay-root");
 
   return (
     <section id={styles["expired-hover"]}>
@@ -32,7 +32,7 @@ const ExpiredReleaseHover = ({ toggleInsertModal, release }) => {
         )}
       </div>
       {/* MOBILE VIEW: display:none above 768px */}
-      <ExpiredMobileIcons release={release} toggleInsertModal={toggleInsertModal} toggleNFTModal={toggleNFTModal}/>
+      <ExpiredMobileIcons release={release} toggleInsertModal={toggleInsertModal} toggleNFTModal={toggleNFTModal} />
       <Modal isModalShowing={isNFTModalShowing}>
         <NFTViewModal
           release={release}

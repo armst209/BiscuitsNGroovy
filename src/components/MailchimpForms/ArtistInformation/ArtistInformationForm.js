@@ -1,9 +1,9 @@
 //react imports
 import { useState, useEffect } from "react";
-import useValidation from "../../../customHooks/Validation/useValidation";
+import useValidation from "../../../hooks/Validation/useValidation";
 
 //stlyes
-import "../../../customHooks/Validation/useValidationStyles.scss";
+import "../../../hooks/Validation/useValidationStyles.scss";
 
 //component imports
 import FormLoader from "../../Loading/Forms/FormLoader";
@@ -36,16 +36,16 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
   } = useValidation();
 
   useEffect(() => {
-    
-  const clearFields = () => {
-    setEmail("");
-    setArtistName("");
-    setArtistPrefName("");
-    setArtistPhone("");
-    setManagerName("");
-    setManagerEmail("");
-    setArtistMessage("");
-  };
+
+    const clearFields = () => {
+      setEmail("");
+      setArtistName("");
+      setArtistPrefName("");
+      setArtistPhone("");
+      setManagerName("");
+      setManagerEmail("");
+      setArtistMessage("");
+    };
 
     if (status === "success") {
       setArtistFormLoader(false);
@@ -70,7 +70,7 @@ const ArtistInformationForm = ({ status, message, onValidated }) => {
     } else if (status === "sending") {
       setArtistFormLoader(true);
     }
-  }, [status, email, setEmail,setEmailInputLoginClass,setShowNewsletterArtistEmailValidationCheck]);
+  }, [status, email, setEmail, setEmailInputLoginClass, setShowNewsletterArtistEmailValidationCheck]);
 
   const handleSubmit = (e) => {
     e.preventDefault(e);

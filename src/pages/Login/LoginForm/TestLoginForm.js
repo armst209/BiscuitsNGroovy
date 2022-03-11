@@ -1,10 +1,10 @@
 //react imports
 import { useState, useReducer } from "react";
-import useValidation from "../../../customHooks/Validation/useValidation";
+import useValidation from "../../../hooks/Validation/useValidation";
 
 //styles
 import "./LoginFormStyles.scss";
-import "../../../customHooks/Validation/useValidationStyles.scss";
+import "../../../hooks/Validation/useValidationStyles.scss";
 
 //svg imports
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";

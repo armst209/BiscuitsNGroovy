@@ -2,7 +2,7 @@
 import styles from "../../CollectionReleases.module.scss"
 
 //useModal
-import useModal from "../../../../../customHooks/Modal/useModal"
+import useModal from "../../../../../hooks/Modal/useModal"
 
 //component imports
 import ExpiredInfoModal from "../ExpiredRelease/Modals/ExpiredInfoModal/ExpiredInfoModal";

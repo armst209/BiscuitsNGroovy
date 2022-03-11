@@ -2,7 +2,7 @@
 import styles from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseTypes/ReleaseHover.module.scss"
 
 //react imports
-import useModal from "../../../../../customHooks/Modal/useModal";
+import useModal from "../../../../../hooks/Modal/useModal";
 
 //component imports
 import ReleaseImage from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
@@ -12,8 +12,8 @@ import BiscuitInsert from "../../../../../components/ReleaseContent/Biscuit/Bisc
 const ExpiredRelease = ({ release }) => {
 
   const {
-    isModalShowing:isInsertModalShowing,
-    toggleModal:toggleInsertModal,
+    isModalShowing: isInsertModalShowing,
+    toggleModal: toggleInsertModal,
     Modal
   } = useModal("modal-overlay-root")
 
@@ -25,11 +25,11 @@ const ExpiredRelease = ({ release }) => {
       />
       {/* Hover state */}
       <figcaption>
-        <ExpiredReleaseHover release={release} toggleInsertModal={toggleInsertModal}/>
+        <ExpiredReleaseHover release={release} toggleInsertModal={toggleInsertModal} />
       </figcaption>
       {/* Insert Modal */}
       <Modal isModalShowing={isInsertModalShowing}>
-        <BiscuitInsert release={release} toggleInsertModal={toggleInsertModal}/>
+        <BiscuitInsert release={release} toggleInsertModal={toggleInsertModal} />
       </Modal>
     </figure>
   );

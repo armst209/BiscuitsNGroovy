@@ -2,7 +2,7 @@
 import MusicShowcaseLoader from "../Loader/MusicShowcaseLoader";
 import MusicShowcaseList from "./List/MusicShowcaseList";
 import NoReleasesMusicShowcase from "../../ReleaseContent/ReleaseComponents/NoReleases/NoReleasesMusicShowcase";
-import FetchError from "../../../customHooks/Fetch/FetchError/FetchError";
+import FetchError from "../../../hooks/Fetch/FetchError/FetchError";
 
 //react imports
 import { useQuery } from "react-query";
@@ -19,6 +19,11 @@ import axios from "axios"
 
 const MusicShowcaseReleases = () => {
 
+  /**
+   * TODO - need to figure out when our data needs to be considered stale 
+   * TODO - need to figure out when our data needs to be refetched - possibly every hour?
+   */
+
   //fetch callback
   const fetchMusicShowcaseReleases = () => {
     return axios({
@@ -29,7 +34,7 @@ const MusicShowcaseReleases = () => {
   }
 
   //useQuery - refetch is set for every hour
-  const { isLoading, data: releaseData, isError, error, isFetching } = useQuery("music-showcase-releases", fetchMusicShowcaseReleases, { staleTime: 600000, refetchInterval: 3.6e+6, refetchOnWindowFocus: true, });
+  const { isLoading, data: releaseData, isError, error, isFetching } = useQuery("music-showcase-releases", fetchMusicShowcaseReleases, { staleTime: 600000, refetchInterval: 3.6e+6, refetchOnWindowFocus: true, refetchOnReconnect: true, refetchOnMount: false });
 
 
   //loading

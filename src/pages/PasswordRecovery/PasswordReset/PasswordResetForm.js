@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import "./PasswordResetFormStyles.scss";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
-import useValidation from "../../../customHooks/Validation/useValidation";
+import useValidation from "../../../hooks/Validation/useValidation";
 
 import axios from "axios";
 

@@ -1,7 +1,7 @@
 //react imports
 import { useParams } from "react-router-dom";
-import useFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
-import useModal from "../../../customHooks/Modal/useModal";
+import useFetch from "../../../hooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+import useModal from "../../../hooks/Modal/useModal";
 import { useRef } from "react";
 
 

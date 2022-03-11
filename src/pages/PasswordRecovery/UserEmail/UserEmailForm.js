@@ -1,7 +1,7 @@
 // import "../../../_global.css";
 import { useState } from "react";
-import useValidation from "../../../customHooks/Validation/useValidation";
-import "../../../customHooks/Validation/useValidationStyles.scss";
+import useValidation from "../../../hooks/Validation/useValidation";
+import "../../../hooks/Validation/useValidationStyles.scss";
 import axios from "axios";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";

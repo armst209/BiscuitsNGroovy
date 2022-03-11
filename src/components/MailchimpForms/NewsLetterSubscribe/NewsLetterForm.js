@@ -1,9 +1,9 @@
 //react imports
 import { useState, useEffect } from "react";
-import useValidation from "../../../customHooks/Validation/useValidation";
+import useValidation from "../../../hooks/Validation/useValidation";
 
 //styles
-import "../../../customHooks/Validation/useValidationStyles.scss";
+import "../../../hooks/Validation/useValidationStyles.scss";
 import "./NewsLetterSubscribeStyles.scss";
 
 //component imports

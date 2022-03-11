@@ -1,10 +1,10 @@
 //react imports
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import useValidation from "../../../customHooks/Validation/useValidation";
+import useValidation from "../../../hooks/Validation/useValidation";
 
 //styles
-import "../../../customHooks/Validation/useValidationStyles.scss";
+import "../../../hooks/Validation/useValidationStyles.scss";
 import "./SignUpFormStyles.scss";
 import styles from "../SignUp.module.scss";
 
@@ -73,7 +73,7 @@ const SignUpForm = ({
     hideSignUpButtonLoaderHandler(); //stops button loader
     hideSignUpLoaderHandler(); //stops page loader
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
-  
+
   };
 
   const handleError = (error) => {

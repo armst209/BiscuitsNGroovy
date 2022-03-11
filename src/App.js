@@ -16,10 +16,15 @@ import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 //react helmet
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
+
 //react query
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools"
+
 const queryClient = new QueryClient();
+
+
+
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
@@ -28,6 +33,7 @@ const App = () => {
   // -------End of Google Analytics - DON'T REMOVE-------
 
   return (
+
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <main className="App">
@@ -42,6 +48,7 @@ const App = () => {
       </HelmetProvider>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
+
   );
 };
 

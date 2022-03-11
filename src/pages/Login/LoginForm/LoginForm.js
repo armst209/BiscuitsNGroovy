@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import "./LoginFormStyles.scss";
-import "../../../customHooks/Validation/useValidationStyles.scss";
+import "../../../hooks/Validation/useValidationStyles.scss";
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
 import axios from "axios";
 
-import useValidation from "../../../customHooks/Validation/useValidation";
+import useValidation from "../../../hooks/Validation/useValidation";
 const LoginForm = () => {
   //useValidation hook
   const {

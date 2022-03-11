@@ -1,5 +1,5 @@
 //react imports
-import useTestAxiosFetch from "../../../customHooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+import useTestAxiosFetch from "../../../hooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 //component imports
 import VaultLoader from "../Loader/VaultLoader";
