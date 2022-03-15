@@ -20,11 +20,7 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 //react query
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools"
-
 const queryClient = new QueryClient();
-
-
-
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------

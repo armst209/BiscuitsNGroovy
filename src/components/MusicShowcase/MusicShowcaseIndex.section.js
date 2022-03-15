@@ -18,7 +18,7 @@ const MusicShowcase = () => {
         <div className={styles["music-showcase-content-container"]}>
           <h1>
             <div>MUSIC SHOWCASE</div>
-            <RecordHeaderIcon className={styles["record-header-icon"]} />
+            <RecordHeaderIcon role="img" className={styles["record-header-icon"]} />
           </h1>
           <p className={styles["music-showcase-sub-title"]}>
             Available biscuits shown below. Click on a title for more details
