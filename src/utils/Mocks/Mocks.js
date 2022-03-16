@@ -17,3 +17,61 @@ export const mockRelease = {
     start_date: "2022-03-01T00:00:00.000Z",
     title: "ANNOYING\r",
 }
+
+export const mockUser = {
+
+    gender: "female",
+    name: {
+        title: "Ms",
+        first: "Ella",
+        last: "Okkenhaug"
+    },
+    location: {
+        street: {
+            number: 3524,
+            name: "Oppsal terrasse"
+        },
+        city: "Sjøvegan",
+        state: "Nord-Trøndelag",
+        country: "Norway",
+        postcode: 6906,
+        coordinates: {
+            latitude: 57.0277,
+            longitude: 149.7527
+        },
+        timezone: {
+            offset: "+4:00",
+            description: "Abu Dhabi, Muscat, Baku, Tbilisi"
+        }
+    },
+    email: "ella.okkenhaug@example.com",
+    login: {
+        uuid: "49e95ab6-daba-49b9-aadf-31a0ba708b8b",
+        username: "yellowduck165",
+        password: "skolko",
+        salt: "NTNJUK3O",
+        md5: "00518039bcff0a2713df3747a732d986",
+        sha1: "be8718477269eb73a05307efa1d7c92113fec64a",
+        sha256: "7c950031fc612df7d5c1e693813acff2fd00cb8c05019cc5de0664ee075c852b"
+    },
+    dob: {
+        date: "1979-08-13T12:16:07.703Z",
+        age: 43
+    },
+    registered: {
+        date: "2002-12-26T02:59:37.795Z",
+        age: 20
+    },
+    phone: "64057576",
+    cell: "90891248",
+    id: {
+        name: "FN",
+        value: "13087927088"
+    },
+    picture: {
+        large: "https://randomuser.me/api/portraits/women/68.jpg",
+        medium: "https://randomuser.me/api/portraits/med/women/68.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/women/68.jpg"
+    },
+    nationality: "NO"
+}

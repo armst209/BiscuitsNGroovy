@@ -32,6 +32,33 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     fallback: <Loading />,
+
+  },
+  {
+    path: "/users",
+    component: lazy(() => import("../pages/Users/Users")),
+    key: "USERS_PAGE",
+    exact: true,
+    private: false,
+    fallback: <Loading />,
+    routes: [
+      {
+        path: "/display",
+        component: lazy(() => import("../pages/Users/UserDisplayPage")),
+        key: "USERS_DISPLAY",
+        exact: true,
+        private: false,
+        fallback: <Loading />
+      },
+      {
+        path: "/change",
+        component: lazy(() => import("../pages/Users/ChangeUserInfo")),
+        key: "USERS_CHANGE",
+        exact: true,
+        private: false,
+        fallback: <Loading />
+      }
+    ]
   },
   {
     path: "/signin",
