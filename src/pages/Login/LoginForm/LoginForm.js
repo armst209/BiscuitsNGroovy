@@ -9,6 +9,13 @@ import { ReactComponent as ValidationSuccess } from "../../../assets/images/chec
 import axios from "axios";
 
 import useValidation from "../../../hooks/Validation/useValidation";
+
+
+/**
+ * TODO: need to put window, local storage, & axios call in useEffect hook - setting these are considered side effect and need useEffect hook
+ * TODO: refactor state, useReducer or redux
+ * TODO: possibly using form library to simplify code
+ */
 const LoginForm = () => {
   //useValidation hook
   const {
