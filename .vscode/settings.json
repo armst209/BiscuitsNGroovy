@@ -1,5 +1,8 @@
 {
-  "cSpell.words": ["impt"],
+  "cSpell.words": [
+    "Formik",
+    "impt"
+  ],
   "workbench.colorTheme": "Cyberpunk",
   "prettier.requireConfig": true,
   "liveSassCompile.settings.includeItems": [

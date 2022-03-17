@@ -1,13 +1,19 @@
-
-
+//react imports
 import { useState } from "react";
+
+//styles
 import "./LoginFormStyles.scss";
 import "../../../hooks/Validation/useValidationStyles.scss";
+
+//svg imports
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
 import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
 import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
+
+//axios
 import axios from "axios";
 
+//useValidation hook
 import useValidation from "../../../hooks/Validation/useValidation";
 
 

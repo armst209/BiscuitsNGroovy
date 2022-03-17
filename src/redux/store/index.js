@@ -1,13 +1,13 @@
-import { createStore } from "redux";
-import { mockUser } from "../../utils/Mocks/Mocks";
 
-const initialState = { ...mockUser };
+//redux imports
+import { configureStore } from "@reduxjs/toolkit"
 
-const rootReducer = (state = initialState, action) => {
-    return state;
-}
+//slices
+import authenticationReducer from "../slices/authentication.slice"
 
-const store = createStore(rootReducer);
-console.log(store.getState());
+const store = configureStore({
+    reducer: { authentication: authenticationReducer }
+})
+
 
 export default store;
