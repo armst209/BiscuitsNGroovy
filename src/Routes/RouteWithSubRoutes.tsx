@@ -7,13 +7,19 @@ import { Redirect, Route } from "react-router-dom";
 import PageViewsTracking from "../utils/GoogleAnalytics/PageViewsTracking";
 
 //utility imports
-import { token, PR_Auth_Token } from "../utils/UtilityVariables";
+import { PR_Auth_Token } from "../utils/UtilityVariables";
+
+//redux imports
+import { useSelector, RootStateOrAny } from "react-redux";
 
 //route imports
 import { IRoute } from "./config";
 
 
 const RouteWithSubRoutes = (route: IRoute) => {
+
+ const isUserAuthenticated = useSelector((state:RootStateOrAny)=> { return state.authentication.isUserAuthenticated});
+ 
   return (
     <Suspense fallback={route.fallback}>
       <PageViewsTracking>
@@ -25,7 +31,7 @@ const RouteWithSubRoutes = (route: IRoute) => {
               <Redirect to={route.redirect} />
             ) : //PRIVATE
               route.private ? (
-                token ? (
+                isUserAuthenticated ? (
                   route.component && (
                     <route.component {...props} routes={route.routes} />
                   )
@@ -34,7 +40,7 @@ const RouteWithSubRoutes = (route: IRoute) => {
                 )
               ) : //CREDENTIALS
                 route.credentials ? (
-                  token ? (
+                  isUserAuthenticated ? (
                     <Redirect to="/" />
                   ) : (
                     route.component && (

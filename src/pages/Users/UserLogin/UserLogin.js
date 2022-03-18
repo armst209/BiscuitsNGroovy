@@ -67,14 +67,14 @@ const UserLogin = () => {
     const handleFormSubmit = (eventCredentials, actions) => {
         const onSuccess = (data) => {
             localStorage.setItem("token", data);
-            dispatch(authenticationActions.loggedIn);
+            dispatch(authenticationActions.loggedIn());
             window.location.replace(`${process.env.REACT_APP_FRONTEND_URL}/`);
         }
 
         const onError = (data) => {
             actions.setSubmitting(false);
             localStorage.removeItem("token");
-            dispatch(authenticationActions.loggedOut);
+            dispatch(authenticationActions.loggedOut());
             setFieldsOnError(data.response.status, actions);
         }
 

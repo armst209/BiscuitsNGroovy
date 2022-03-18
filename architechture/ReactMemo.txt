@@ -1,0 +1,2 @@
+possible using react memo HOC for memoization for purely visual components
+https://blog.bitsrc.io/how-to-make-your-react-application-even-faster-3efe9387cbb1

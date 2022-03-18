@@ -2,17 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialAuthState = { isUserAuthenticated: false, hasTokenBeenSet: false };
 
+const isLocalStorageTokenValid = !localStorage.getItem("token") ? false : true;
+console.log(isLocalStorageTokenValid);
+
 const authenticationSlice = createSlice({
     name: "authentication",
     initialState: initialAuthState,
     reducers: {
         loggedIn(state) {
-            state.isUserAuthenticated = true;
-            state.hasTokenBeenSet = true;
+            if (isLocalStorageTokenValid) {
+                state.isUserAuthenticated = isLocalStorageTokenValid;
+            }
         },
         loggedOut(state) {
-            state.isUserAuthenticated = false;
-            state.hasTokenBeenSet = false;
+            if (isLocalStorageTokenValid) {
+                state.isUserAuthenticated = isLocalStorageTokenValid;
+            }
         }
     }
 })

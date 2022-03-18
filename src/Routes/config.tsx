@@ -23,6 +23,7 @@ export interface IRoute {
   credentials?: boolean;
   //If route has password reset functionality
   resetCredentials?: boolean;
+
 }
 const routes: IRoute[] = [
   {

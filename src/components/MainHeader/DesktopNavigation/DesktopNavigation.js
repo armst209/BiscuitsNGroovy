@@ -7,6 +7,9 @@ import "./DesktopNavigationStyles.scss";
 //svg imports
 import { ReactComponent as MainHeaderLogo } from "../../../assets/images/bng-main-logo.svg";
 
+//redux imports
+import { useSelector } from "react-redux";
+
 //component imports
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../Logout/Logout";
@@ -16,6 +19,11 @@ const DesktopNavigation = ({
   showHideLogoutLoaderHandler
 
 }) => {
+
+  const isUserAuthenticated = useSelector(state => state.authentication.isUserAuthenticated);
+
+  console.log(isUserAuthenticated);
+
   return (
     <>
       <div className="left-links-container">
@@ -84,7 +92,6 @@ const DesktopNavigation = ({
             <CollectionButton />
             <LoginAndSignUp />
           </div>
-
           <Logout showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
         </div>
       </div>

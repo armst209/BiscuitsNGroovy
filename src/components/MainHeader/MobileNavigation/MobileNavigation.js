@@ -10,6 +10,9 @@ import CollectionButtonMobile from "../CollectionButton/CollectionButtonMobile";
 //svg imports
 import { ReactComponent as SettingsHamburgerIcon } from "../../../assets/images/settings.svg";
 import { ReactComponent as MainHeaderLogoMobile } from "../../../assets/images/bng-main-logo.svg";
+//redux imports
+
+import { useSelector } from "react-redux";
 
 //styles
 import "./MobileNavigationStyles.scss";
@@ -28,6 +31,7 @@ const MobileNavigation = ({ showHideLogoutLoaderHandler }) => {
 
   const closeMobileMenuHandler = () => setShowMobileMenu(false);
 
+  const isUserAuthenticated = useSelector(state => state.authentication.isUserAuthenticated);
   return (
     <>
       {/* Hamburger */}
@@ -116,14 +120,16 @@ const MobileNavigation = ({ showHideLogoutLoaderHandler }) => {
               Vault
             </NavLink>
           </li>
-          <LoginAndSignUpMobile
+          {!isUserAuthenticated && <LoginAndSignUpMobile
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}
-          />
-          <CollectionButtonMobile
+          />}
+
+          {isUserAuthenticated && <CollectionButtonMobile
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}
-          />
+          />}
+
           <LogoutMobile showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
         </ul>
       </motion.aside>
