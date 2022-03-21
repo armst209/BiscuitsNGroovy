@@ -27,11 +27,12 @@ const variants = {
 };
 
 const MobileNavigation = ({ showHideLogoutLoaderHandler }) => {
+  //redux authentication state
+  const isUserAuthenticated = useSelector(state => state.authentication.isLoggedIn);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const closeMobileMenuHandler = () => setShowMobileMenu(false);
 
-  const isUserAuthenticated = useSelector(state => state.authentication.isUserAuthenticated);
   return (
     <>
       {/* Hamburger */}
@@ -130,7 +131,7 @@ const MobileNavigation = ({ showHideLogoutLoaderHandler }) => {
             setShowMobileMenu={setShowMobileMenu}
           />}
 
-          <LogoutMobile showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
+          {isUserAuthenticated && <LogoutMobile showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />}
         </ul>
       </motion.aside>
     </>

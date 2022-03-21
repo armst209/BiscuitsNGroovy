@@ -18,7 +18,8 @@ import { IRoute } from "./config";
 
 const RouteWithSubRoutes = (route: IRoute) => {
 
- const isUserAuthenticated = useSelector((state:RootStateOrAny)=> { return state.authentication.isUserAuthenticated});
+ const isUserAuthenticated = useSelector((state:RootStateOrAny)=> state.authentication.isLoggedIn);
+ console.log(isUserAuthenticated);
  
   return (
     <Suspense fallback={route.fallback}>

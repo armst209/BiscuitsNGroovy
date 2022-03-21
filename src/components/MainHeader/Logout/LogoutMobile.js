@@ -5,33 +5,34 @@ import "./LogoutStyles.scss";
 import { ReactComponent as LogoutIcon } from "../../../assets/images/logout-yellow.svg";
 
 //redux imports
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { authenticationActions } from "../../../redux/slices/authentication.slice";
+import { LOGOUT } from "../../../redux/action-types/types";
 
 const Logout = ({ showHideLogoutLoaderHandler }) => {
 
-  const isUserAuthenticated = useSelector(state => state.authentication.isUserAuthenticated)
+  const currentAuthState = useSelector(state => state.authentication)
+  const dispatch = useDispatch();
+
   const handleLogout = () => {
     showHideLogoutLoaderHandler(); //showing loader
-    localStorage.clear(); //clearing local storage
+    dispatch(authenticationActions.logout(currentAuthState, { type: LOGOUT, payload: null }))
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirecting to homepage
   };
 
 
   return (
-    <>
-      {isUserAuthenticated &&
-        <li className="logout-button">
-          <div
-            onClick={() => {
-              handleLogout();
-            }}
-          >
-            Logout
-          </div>
-          <LogoutIcon />
-        </li>
-      }
-    </>
+
+    <li className="logout-button">
+      <div
+        onClick={handleLogout}
+      >
+        Logout
+      </div>
+      <LogoutIcon />
+    </li>
+
+
   );
 };
 

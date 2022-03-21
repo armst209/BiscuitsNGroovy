@@ -3,6 +3,7 @@ interface buttonProps{
   children:any,
   id:string | undefined
   className: string | undefined,
+  disabled: boolean | undefined,
   onClick: ()=> void,
   style: React.CSSProperties | undefined,
   name: string | undefined,
@@ -22,6 +23,7 @@ const Button = ({
   name,
   value,
   type,
+  disabled,
   onClick,
   style
 }:buttonProps) => {
@@ -33,6 +35,7 @@ const Button = ({
       type={type}
       name={name}
       value={value}
+      disabled={disabled}
       aria-label={ariaLabel}
       data-testid={dataTestId}
       style={style}

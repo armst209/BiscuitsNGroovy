@@ -8,7 +8,7 @@ import Input from "../../../UI/Forms/Inputs/Input/Input";
 import { useState } from "react";
 
 //redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authenticationActions } from "../../../redux/slices/authentication.slice";
 
 //styles
@@ -17,46 +17,24 @@ import styles from "./UserLogin.module.scss"
 //validation schema
 import { loginValidationSchema, setFieldsOnError } from "../../../UI/Forms/Validation/validationSchema";
 
-//react query
-import { useMutation } from "react-query";
 
-//axios
-import axios from "axios";
+//services
+import { loginRequest } from "../../../services/auth.service";
+
+//component imports
 import FormError from "../../../components/Errors/FormErrors/FormError";
+import ShowPasswordButton from "../../../UI/Forms/ShowPasswordButton/ShowPasswordButton";
 
 
 const UserLogin = () => {
-    const [type, setType] = useState("password");
-    const [passwordText, setPasswordText] = useState("Show Password");
-
     //redux dispatch hook
     const dispatch = useDispatch();
 
-    //show password handler
-    const showPasswordHandler = () => {
-        passwordText === "Show Password" ? setPasswordText("Hide Password") : setPasswordText("Show Password")
-        type === "password" ? setType("text") : setType("password")
-    }
+    const [type, setType] = useState("password");
+    const [passwordText, setPasswordText] = useState("Show Password");
+    const [submitError, setSubmitError] = useState(null)
 
-    //react query request key
-    const LOGIN_KEY = "login-request";
 
-    /**
-     * async POST request with axios library
-     * @param {*} credentials object that contains username and password strings
-     * @returns token from backend
-     */
-    const loginRequest = async (credentials) => {
-        const response = await axios({
-            method: "POST",
-            url: `${process.env.REACT_APP_BACKEND_URL}/login`,
-            data: credentials,
-        })
-        return response.data.token;
-    }
-
-    //react query 
-    const { mutate, error } = useMutation(loginRequest, LOGIN_KEY);
     /**
      * setting/removing token in local storage on success/on error
      * setting redux store "authentication" state
@@ -64,22 +42,20 @@ const UserLogin = () => {
      * @param {*} eventCredentials object that contains username and password strings
      * @param {*} actions Formik object that provides actions like setSubmitting 
      */
-    const handleFormSubmit = (eventCredentials, actions) => {
-        const onSuccess = (data) => {
-            localStorage.setItem("token", data);
-            dispatch(authenticationActions.loggedIn());
-            window.location.replace(`${process.env.REACT_APP_FRONTEND_URL}/`);
+
+    const handleFormSubmit = async (credentialsObj, { setSubmitting }) => {
+
+        setSubmitting(true);
+        const response = await loginRequest(credentialsObj);
+
+        if (response.statusText === "OK") {
+            dispatch(authenticationActions.loginSuccess(response.data));
+            setSubmitting(false);
+        } else {
+            setSubmitError(response);
+            dispatch(authenticationActions.loginFailure());
+            setSubmitting(false);
         }
-
-        const onError = (data) => {
-            actions.setSubmitting(false);
-            localStorage.removeItem("token");
-            dispatch(authenticationActions.loggedOut());
-            setFieldsOnError(data.response.status, actions);
-        }
-
-        mutate(eventCredentials, { onSuccess, onError })
-
     }
 
     return (
@@ -90,14 +66,14 @@ const UserLogin = () => {
                 onSubmit={handleFormSubmit}>
                 {({ isSubmitting, isValid }) =>
                     <Form className={styles}>
-                        {error && <FormError status={error.response.status} message={error.response.data} />}
+                        {submitError && <FormError status={submitError.status} message={submitError.data} />}
                         <Input label="Username" name="username" type="text" placeholder="Enter username" />
-                        <button type="button" onClick={showPasswordHandler}>{passwordText}</button>
+                        <ShowPasswordButton inputState={{ type, setType, passwordText, setPasswordText }} />
                         <Input label="Password" name="password" type={type} placeholder="Enter password" />
                         <button type="submit" disabled={!isValid || isSubmitting}>{isSubmitting ? "Loading..." : "Submit"}</button>
                     </Form>}
             </Formik>
-
+            {/* <button onClick={() => dispatch(authenticationActions.logout(currentState, { type: LOGOUT, payload: null }))}>Logout</button> */}
         </section>
     )
 }

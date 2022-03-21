@@ -20,9 +20,8 @@ const DesktopNavigation = ({
 
 }) => {
 
-  const isUserAuthenticated = useSelector(state => state.authentication.isUserAuthenticated);
+  const isUserAuthenticated = useSelector(state => state.authentication.isLoggedIn);
 
-  console.log(isUserAuthenticated);
 
   return (
     <>
@@ -89,10 +88,10 @@ const DesktopNavigation = ({
       <div className="right-links-container">
         <div className="right-links-inner-container">
           <div className="desktop-main-links">
-            <CollectionButton />
-            <LoginAndSignUp />
+            {isUserAuthenticated && <CollectionButton />}
+            {!isUserAuthenticated && <LoginAndSignUp />}
           </div>
-          <Logout showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />
+          {isUserAuthenticated && <Logout showHideLogoutLoaderHandler={showHideLogoutLoaderHandler} />}
         </div>
       </div>
     </>

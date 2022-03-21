@@ -69,7 +69,7 @@ const SignUpForm = ({
   //function sets token and redirects to homepage
   const handleSuccess = (res) => {
     //fires after blocto account is set up
-    localStorage.setItem("token", res.data.token); //sets user token
+    localStorage.setItem("auth_token", res.data.token); //sets user token
     hideSignUpButtonLoaderHandler(); //stops button loader
     hideSignUpLoaderHandler(); //stops page loader
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page

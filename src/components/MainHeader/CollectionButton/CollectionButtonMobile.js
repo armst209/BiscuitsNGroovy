@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
 const CollectionButtonMobile = ({ showMobileMenu, setShowMobileMenu }) => {
-  const token = localStorage.getItem("token");
-  return token ? (
+
+  return (
     <li>
       <NavLink
         onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -12,8 +12,6 @@ const CollectionButtonMobile = ({ showMobileMenu, setShowMobileMenu }) => {
         Collection
       </NavLink>
     </li>
-  ) : (
-    ""
   );
 };
 

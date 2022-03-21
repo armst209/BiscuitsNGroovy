@@ -4,14 +4,12 @@ import { NavLink } from "react-router-dom";
 //styles
 import "../MobileNavigation/MobileNavigationStyles.scss";
 
-//redux imports
-import { useSelector } from "react-redux";
 
 const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
 
-  const isUserAuthenticated = useSelector(state => state.authentication.isUserAuthenticated);
 
-  return !isUserAuthenticated ? (
+
+  return (
     <>
       <li onClick={() => setShowMobileMenu(!showMobileMenu)}>
         <NavLink activeClassName="active-link" to="/signin">
@@ -24,7 +22,7 @@ const LoginAndSignUpMobile = ({ showMobileMenu, setShowMobileMenu }) => {
         </NavLink>
       </li>
     </>
-  ) : null;
+  )
 };
 
 export default LoginAndSignUpMobile;
