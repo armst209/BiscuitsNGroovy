@@ -18,6 +18,7 @@ const HowWeServeSection = () => {
         isArtistButtonSelected: false,
     }
 
+    //no deep copy
     const [hwsState, dispatch] = useReducer(howWeServeAboutReducer, initialHwsState)
 
     return (

@@ -38,7 +38,7 @@ export const signupValidationSchema = Yup.object({
 })
 
 export const setFieldsOnError = (status, actions) => {
-
+    console.table(typeof actions, actions)
     switch (status) {
 
         case 404:

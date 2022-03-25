@@ -24,8 +24,8 @@ const queryClient = new QueryClient();
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
-  const gaTrackingId = "UA-211766799-1";
-  ReactGA.initialize(gaTrackingId, { debug: false, testMode: false });
+  // const gaTrackingId = "UA-211766799-1";
+  // ReactGA.initialize(gaTrackingId, { debug: false, testMode: false });
   // -------End of Google Analytics - DON'T REMOVE-------
 
   return (

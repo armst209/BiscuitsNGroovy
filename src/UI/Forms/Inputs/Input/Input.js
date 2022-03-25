@@ -20,3 +20,25 @@ const Input = ({ label, ...props }) => {
 }
 
 export default Input
+
+
+// import { useField } from "formik";
+// import { TextField, TextFieldProps } from "@mui/material"
+
+
+// type FormikTextFieldProps = {
+//     formikKey: string,
+// } & TextFieldProps
+
+// export const FormikTextField = ({ formikKey, ...props }: FormikTextFieldProps) => {
+//     const [field, meta, helpers] = useField(formikKey);
+//     return <TextField
+//         id={field.name}
+//         name={field.name}
+//         helperText={meta.touched ? meta.error : ""}
+//         error={meta.touched && Boolean(meta.error)}
+//         value={field.value}
+//         onChange={field.onChange}
+//         {...props}
+//     />
+// }
