@@ -1,9 +1,7 @@
 
 import * as Yup from "yup";
-//validator npm
-import validator from "validator";
 
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
 export const loginValidationSchema = Yup.object({
     username: Yup.string()
@@ -37,17 +35,4 @@ export const signupValidationSchema = Yup.object({
         .required('Required'),
 })
 
-export const setFieldsOnError = (status, actions) => {
-    console.table(typeof actions, actions)
-    switch (status) {
-
-        case 404:
-            actions.setFieldError("username", "fill out");
-            actions.setFieldTouched("username", true, false);
-            break;
-
-        default:
-            return status;
-    }
-}
 
