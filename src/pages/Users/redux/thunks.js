@@ -5,8 +5,11 @@ import axios from "axios"
 //action imports
 import { loginError, loginSuccess, postingCredentials } from "./actions";
 import { authenticationActions } from "../../../redux/slices/authentication/authentication.slice";
+import { USER_LOGIN_TYPES } from "./types";
+import { Redirect } from "react-router-dom";
 
 export const postUserCredentialsThunk = (credentials) => async (dispatch, getState) => {
+
     //dispatching loading action
     dispatch(postingCredentials());
     try {
@@ -18,19 +21,18 @@ export const postUserCredentialsThunk = (credentials) => async (dispatch, getSta
         //successful login
         dispatch(loginSuccess(response.data.token));
 
-        if (getState.status === "SUCCESS") {
+        //user is authenticated only if status === "LOGIN SUCCESS" && login.data (token) is not falsy
+        if (getState()?.login.status === USER_LOGIN_TYPES.SUCCESS && getState()?.login.data) {
             //successful user authentication
             dispatch(authenticationActions.USER_AUTHENTICATED(response.data.token));
+            window.location.replace(`${process.env.REACT_APP_FRONTEND_URL}/`);
         }
 
-        console.log(getState());
     } catch (error) {
         console.log(error.response);
-
         //removing token if incorrectly set
         dispatch(authenticationActions.USER_NOT_AUTHENTICATED());
         //login failure
-        dispatch(loginError(loginError(error.response)))
-        console.log(getState());
+        dispatch(loginError(error.response));
     }
 }

@@ -6,8 +6,8 @@ import MainHeader from "./components/MainHeader/MainHeader.header";
 import Footer from "./components/Footer/Footer.footer";
 
 //Routes & Router
-import routes from "./Routes/config.tsx";
-import Router from "./Routes/Router.tsx";
+import routes from "./Routes/routeConfig.tsx";
+import AllRoutes from "./Routes/Router.js";
 
 //styles
 import "./_global.css";
@@ -25,7 +25,7 @@ const queryClient = new QueryClient();
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   // const gaTrackingId = "UA-211766799-1";
-  // ReactGA.initialize(gaTrackingId, { debug: false, testMode: false });
+  // ReactGA.initialize(gaTrackingId, { debug: true, testMode: true });
   // -------End of Google Analytics - DON'T REMOVE-------
 
   return (
@@ -38,7 +38,7 @@ const App = () => {
             <meta name="description" content="Stream and collect exclusive biscuits from your favorite artists. Prove your fandom" />
           </Helmet>
           <MainHeader />
-          <Router routes={routes} />
+          <AllRoutes routes={routes} />
           <Footer />
         </main>
       </HelmetProvider>

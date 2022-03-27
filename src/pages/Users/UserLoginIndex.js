@@ -28,14 +28,16 @@ const UserLogin = () => {
     console.log(watch(["username", "password"]));
     console.log(errors);
 
+
+
     return (
         <section id={styles["user-login"]} className="_main_section">
             <form className={styles.form} onSubmit={handleSubmit((credentials) => dispatch(postUserCredentialsThunk(credentials)))}>
-                {loginState.error && <div>{loginState.error.payload.data}</div>}
+                {loginState.error && <div>{loginState.error.data}</div>}
                 <input placeholder="Enter Username" {...register("username")} />
-                {/* {errors.username && errors.username.type === "required" && <span>Required</span>}
-                {errors.username && errors.username.type === "minLength" && <span>Please fill out</span>} */}
+                {errors.username && <p>{errors.username.message}</p>}
                 <input type="password" placeholder="Enter Password" {...register("password")} />
+                {errors.password && <p>{errors.password.message}</p>}
                 <button type="submit">{loginState.status === "POSTING" ? "Loading..." : "Submit"}</button>
             </form>
         </section>

@@ -16,6 +16,9 @@ import axios from "axios";
 //useValidation hook
 import useValidation from "../../../hooks/Validation/useValidation";
 
+//redux imports
+import { useDispatch } from "react-redux";
+import { authenticationActions } from "../../../redux/slices/authentication/authentication.slice";
 
 /**
  * TODO: need to put window, local storage, & axios call in useEffect hook - setting these are considered side effect and need useEffect hook
@@ -23,6 +26,8 @@ import useValidation from "../../../hooks/Validation/useValidation";
  * TODO: possibly using form library to simplify code
  */
 const LoginForm = () => {
+  //redux dispatch
+  const dispatch = useDispatch();
   //useValidation hook
   const {
     userName,
@@ -80,6 +85,7 @@ const LoginForm = () => {
     //ON SUCCESS
     const handleSuccess = (res) => {
       localStorage.setItem("auth_token", res.data.token);
+      dispatch(authenticationActions.USER_AUTHENTICATED(res.data.token));
       window.location.replace(process.env.REACT_APP_FRONTEND_URL);
     };
 

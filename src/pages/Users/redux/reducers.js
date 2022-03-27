@@ -10,15 +10,15 @@ const userLoginReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case USER_LOGIN_TYPES.POSTING:
-            return { data: null, error: null, status: "POSTING" };
+            return { data: null, error: null, status: USER_LOGIN_TYPES.POSTING };
         case USER_LOGIN_TYPES.POSTED:
-            return { data: null, error: null, status: "POSTED" };
+            return { data: null, error: null, status: USER_LOGIN_TYPES.POSTED };
 
         case USER_LOGIN_TYPES.SUCCESS:
-            return { data: action.payload, error: null, status: "SUCCESS" }
+            return { data: action.payload, error: null, status: USER_LOGIN_TYPES.SUCCESS }
 
         case USER_LOGIN_TYPES.ERROR:
-            return { data: null, error: action.payload, status: "ERROR" }
+            return { data: null, error: action.payload, status: USER_LOGIN_TYPES.ERROR }
 
         default:
             return state;

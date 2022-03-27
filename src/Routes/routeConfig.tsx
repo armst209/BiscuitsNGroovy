@@ -1,7 +1,5 @@
 import { ComponentType, lazy, LazyExoticComponent, ReactNode } from "react";
 
-import Loading from "../components/Loading/Loading";
-
 export interface IRoute {
   // Path, like in basic prop
   path: string;
@@ -10,7 +8,7 @@ export interface IRoute {
   // Exact, like in basic prop
   exact: boolean;
   // Preloader for lazy loading
-  fallback: NonNullable<ReactNode> | null;
+  // fallback: NonNullable<ReactNode> | null;
   // Lazy Loaded component
   component?: LazyExoticComponent<ComponentType<any>>;
   // Sub routes
@@ -32,7 +30,7 @@ const routes: IRoute[] = [
     key: "ROOT",
     exact: true,
     private: false,
-    fallback: <Loading />,
+ 
 
   },
   {
@@ -41,7 +39,7 @@ const routes: IRoute[] = [
     key: "USERS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
+   
   },
   {
     path: "/signin",
@@ -50,7 +48,7 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     credentials: true,
-    fallback: <Loading />,
+    
   },
   {
     path: "/signup",
@@ -59,7 +57,7 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     credentials: true,
-    fallback: <Loading />,
+  
   },
   {
     path: "/about",
@@ -67,7 +65,7 @@ const routes: IRoute[] = [
     key: "ABOUT_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
+  
   },
   {
     path: "/faq",
@@ -75,7 +73,7 @@ const routes: IRoute[] = [
     key: "FAQ_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
+   
   },
   {
     path: "/artists",
@@ -83,7 +81,6 @@ const routes: IRoute[] = [
     key: "ARTISTS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/vault",
@@ -91,7 +88,6 @@ const routes: IRoute[] = [
     key: "VAULT_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/biscuit/:biscuitId/:artistName/:releaseName/",
@@ -101,7 +97,6 @@ const routes: IRoute[] = [
     key: "BISCUIT_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
 
   {
@@ -110,7 +105,6 @@ const routes: IRoute[] = [
     key: "COLLECTION_PAGE",
     exact: true,
     private: true,
-    fallback: <Loading />,
   },
 
   {
@@ -121,7 +115,6 @@ const routes: IRoute[] = [
     key: "RELEASE_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/password-recovery",
@@ -131,7 +124,6 @@ const routes: IRoute[] = [
     key: "PASSWORD_RECOVERY_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/password-recovery/reset/:userResetToken",
@@ -142,7 +134,6 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     resetCredentials: true,
-    fallback: <Loading />,
   },
   {
     path: "/purchase-success",
@@ -150,7 +141,6 @@ const routes: IRoute[] = [
     key: "PURCHASE_SUCCESS_PAGE",
     exact: true,
     private: true,
-    fallback: <Loading />,
   },
   {
     path: "/privacy-terms-of-use",
@@ -158,7 +148,6 @@ const routes: IRoute[] = [
     key: "TERMS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/privacy-policy",
@@ -168,7 +157,6 @@ const routes: IRoute[] = [
     key: "PRIVACY_POLICY_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/subscriber-terms-of-service",
@@ -176,7 +164,6 @@ const routes: IRoute[] = [
     key: "SUBCRIBER_TERMS_OF_SERVICE_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/music-purchase-terms",
@@ -186,7 +173,6 @@ const routes: IRoute[] = [
     key: "MUSIC_PURCHASE_TERMS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
   {
     path: "/nft-terms",
@@ -194,7 +180,6 @@ const routes: IRoute[] = [
     key: "NFT_TERMS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
 
   {
@@ -203,7 +188,6 @@ const routes: IRoute[] = [
     key: "BUY_TERMS_PAGE",
     exact: true,
     private: false,
-    fallback: <Loading />,
   },
 
   //Not Found Page - must be at the bottom
@@ -213,7 +197,6 @@ const routes: IRoute[] = [
     key: "NOT_FOUND_PAGE",
     exact: false,
     private: false,
-    fallback: <Loading />,
   },
 ];
 
