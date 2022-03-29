@@ -28,7 +28,8 @@ const variants = {
 
 const MobileNavigation = ({ showHideLogoutLoaderHandler }) => {
   //redux authentication state
-  const isUserAuthenticated = useSelector(state => state.authentication.isLoggedIn);
+  const isUserAuthenticated = useSelector(state => state.bng_user.authentication.isAuthenticated);
+
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const closeMobileMenuHandler = () => setShowMobileMenu(false);

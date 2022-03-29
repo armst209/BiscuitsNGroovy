@@ -6,7 +6,8 @@ import { ReactComponent as LogoutIcon } from "../../../assets/images/logout-yell
 
 //redux imports
 import { useDispatch } from "react-redux";
-import { authenticationActions } from "../../../redux/slices/authentication/authentication.slice";
+import { userLoggedOut, userNotAuthenticated } from "../../../pages/Users/redux/actions";
+import store from "../../../redux";
 
 
 const Logout = ({ showHideLogoutLoaderHandler }) => {
@@ -16,8 +17,12 @@ const Logout = ({ showHideLogoutLoaderHandler }) => {
 
   const handleLogout = () => {
     showHideLogoutLoaderHandler(); //showing loader
-    dispatch(authenticationActions.USER_NOT_AUTHENTICATED());
+    dispatch(userNotAuthenticated());
+    dispatch(userLoggedOut());
+    //setting local storage user 
+    localStorage.setItem("bng_user", JSON.stringify(store.getState().bng_user));
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirecting to homepage
+    dispatch(userLoggedOut());
   };
 
 

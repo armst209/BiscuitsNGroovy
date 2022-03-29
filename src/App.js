@@ -16,17 +16,26 @@ import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 //react helmet
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
-
 //react query
 import { QueryClientProvider, QueryClient } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools"
+import { ReactQueryDevtools } from "react-query/devtools";
+
+
+import { useDispatch, useSelector } from "react-redux";
+
+import store from "./redux";
+
 const queryClient = new QueryClient();
+
 
 const App = () => {
   // -------Start of Google Analytics - DON'T REMOVE-------
   // const gaTrackingId = "UA-211766799-1";
   // ReactGA.initialize(gaTrackingId, { debug: true, testMode: true });
   // -------End of Google Analytics - DON'T REMOVE-------
+
+
+  console.log(store.getState());
 
   return (
 

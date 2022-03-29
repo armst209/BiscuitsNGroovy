@@ -16,7 +16,8 @@ import { useSelector, RootStateOrAny } from "react-redux";
 
 const RouteWithSubRoutes = (route) => {
 
-  const isUserAuthenticated = useSelector((state) => state.authentication.isLoggedIn);
+  const isUserAuthenticated = useSelector((state) => state.bng_user.authentication.isAuthenticated);
+  console.log(isUserAuthenticated);
 
   const handleRouteRendering = (props) => {
     if (route.private) {

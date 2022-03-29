@@ -15,7 +15,7 @@
 
 // const RouteWithSubRoutes = (route: IRoute) => {
 
-//  const isUserAuthenticated = useSelector((state:RootStateOrAny)=> state.authentication.isLoggedIn);
+//  const isUserAuthenticated = useSelector((state:RootStateOrAny)=> state.authentication.isAuthenticated);
 //  console.log(isUserAuthenticated);
 
 //  const handleRouteRendering = (props:any)=>{

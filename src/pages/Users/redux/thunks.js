@@ -3,35 +3,44 @@
 import axios from "axios"
 
 //action imports
-import { loginError, loginSuccess, postingCredentials } from "./actions";
-import { authenticationActions } from "../../../redux/slices/authentication/authentication.slice";
-import { USER_LOGIN_TYPES } from "./types";
-import { Redirect } from "react-router-dom";
+import { authenticatingUser, loginError, loginSuccess, postedCredentials, postingCredentials, userAuthenticated, userLoggedIn, userNotAuthenticated } from "./actions";
+
+//type imports
+import { USER_LOGIN } from "./types";
 
 export const postUserCredentialsThunk = (credentials) => async (dispatch, getState) => {
 
-    //dispatching loading action
+    //posting credentials & authenticating dispatches 
     dispatch(postingCredentials());
+    dispatch(authenticatingUser());
     try {
         const response = await axios({
             method: "POST",
             url: `${process.env.REACT_APP_BACKEND_URL}/login`,
             data: credentials,
         });
+
         //successful login
         dispatch(loginSuccess(response.data.token));
-
+        console.log(getState().bng_user);
         //user is authenticated only if status === "LOGIN SUCCESS" && login.data (token) is not falsy
-        if (getState()?.login.status === USER_LOGIN_TYPES.SUCCESS && getState()?.login.data) {
+        if (getState()?.bng_user.login.status === USER_LOGIN.SUCCESS && getState()?.bng_user.login.data) {
             //successful user authentication
-            dispatch(authenticationActions.USER_AUTHENTICATED(response.data.token));
+            dispatch(userAuthenticated(response.data.token));
+            //credentials posted
+            dispatch(postedCredentials());
+            //user logged in
+            dispatch(userLoggedIn());
+            //setting user object in local storage
+            localStorage.setItem("bng_user", JSON.stringify(getState().bng_user));
+            //redirecting to homepage
             window.location.replace(`${process.env.REACT_APP_FRONTEND_URL}/`);
         }
 
     } catch (error) {
         console.log(error.response);
-        //removing token if incorrectly set
-        dispatch(authenticationActions.USER_NOT_AUTHENTICATED());
+        //user not authenticated
+        dispatch(userNotAuthenticated());
         //login failure
         dispatch(loginError(error.response));
     }

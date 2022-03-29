@@ -8,7 +8,7 @@ import App from "./App";
 import ScrollToTop from "./Routes/ScrollToTop";
 
 //redux imports
-import store from "./redux/store/index";
+import store from "./redux/index";
 import { Provider } from "react-redux"
 
 

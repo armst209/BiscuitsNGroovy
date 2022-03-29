@@ -14,12 +14,13 @@ import { loginValidationSchema } from "../../UI/Forms/Validation/validationSchem
 
 //styles
 import styles from "./UserLogin.module.scss";
+import { USER_LOGIN } from "./redux/types";
 
 
 const UserLogin = () => {
     //redux hooks
     const dispatch = useDispatch();
-    const loginState = useSelector(state => state.login);
+    const loginState = useSelector(state => state.bng_user.login);
 
     //react hook forms
     const { register, handleSubmit, formState: { errors }, watch } = useForm({ mode: "onBlur", resolver: yupResolver(loginValidationSchema), defaultValues: { username: "", password: "" } });
@@ -38,7 +39,7 @@ const UserLogin = () => {
                 {errors.username && <p>{errors.username.message}</p>}
                 <input type="password" placeholder="Enter Password" {...register("password")} />
                 {errors.password && <p>{errors.password.message}</p>}
-                <button type="submit">{loginState.status === "POSTING" ? "Loading..." : "Submit"}</button>
+                <button type="submit">{loginState.status === USER_LOGIN.POSTING ? "Loading..." : "Submit"}</button>
             </form>
         </section>
     )

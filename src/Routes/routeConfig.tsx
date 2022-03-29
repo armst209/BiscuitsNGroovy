@@ -43,7 +43,7 @@ const routes: IRoute[] = [
   },
   {
     path: "/signin",
-    component: lazy(() => import("../pages/Login/Login")),
+    component: lazy(() => import("../pages/Users/UserLoginIndex")),
     key: "SIGNIN_PAGE",
     exact: true,
     private: false,

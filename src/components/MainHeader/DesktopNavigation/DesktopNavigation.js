@@ -20,8 +20,7 @@ const DesktopNavigation = ({
 
 }) => {
 
-  const isUserAuthenticated = useSelector(state => state.authentication.isLoggedIn);
-
+  const isUserAuthenticated = useSelector(state => state.bng_user.authentication.isAuthenticated);
 
   return (
     <>
