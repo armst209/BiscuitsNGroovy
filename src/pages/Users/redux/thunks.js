@@ -38,10 +38,10 @@ export const postUserCredentialsThunk = (credentials) => async (dispatch, getSta
         }
 
     } catch (error) {
-        console.log(error.response);
+
         //user not authenticated
         dispatch(userNotAuthenticated());
         //login failure
-        dispatch(loginError(error.response));
+        dispatch(loginError(error.response ?? error));
     }
 }

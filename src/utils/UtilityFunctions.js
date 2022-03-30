@@ -27,3 +27,12 @@ export const releaseObjectToArray = (releaseData) => {
 }
 
 
+/**
+ * @param {*} pixels 
+ * @returns rem value
+ */
+export const pixelsToRem = (pixels) => {
+  return `${pixels / 16}rem`;
+};
+
+
