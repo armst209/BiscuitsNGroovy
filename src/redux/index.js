@@ -6,10 +6,10 @@ import thunk from "redux-thunk";
 
 //root reducers
 import rootReducer from "./reducers";
-import { composeWithDevToolsDevelopmentOnly } from '@redux-devtools/extension';
+import { composeWithDevToolsDevelopmentOnly, composeWithDevTools } from '@redux-devtools/extension';
 
 
-const store = createStore(rootReducer, composeWithDevToolsDevelopmentOnly(applyMiddleware(thunk)))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 console.log(store.getState());
 

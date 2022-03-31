@@ -18,7 +18,7 @@ import SEOHelmet from "../../utils/SEO/SEOHelmet";
 const Homepage = () => {
   return (
     <>
-      <SEOHelmet title="Home" content="" />
+      <SEOHelmet title="Home" content="Biscuits n Groovy - Music Streaming Service" />
       <FixedNavigationSpacer />
       <Hero />
       <HowItWorks />

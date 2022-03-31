@@ -22,7 +22,7 @@ export const postUserCredentialsThunk = (credentials) => async (dispatch, getSta
 
         //successful login
         dispatch(loginSuccess(response.data.token));
-        console.log(getState().bng_user);
+
         //user is authenticated only if status === "LOGIN SUCCESS" && login.data (token) is not falsy
         if (getState()?.bng_user.login.status === USER_LOGIN.SUCCESS && getState()?.bng_user.login.data) {
             //successful user authentication
@@ -31,6 +31,7 @@ export const postUserCredentialsThunk = (credentials) => async (dispatch, getSta
             dispatch(postedCredentials());
             //user logged in
             dispatch(userLoggedIn());
+            console.log(getState());
             //setting user object in local storage
             localStorage.setItem("bng_user", JSON.stringify(getState().bng_user));
             //redirecting to homepage
