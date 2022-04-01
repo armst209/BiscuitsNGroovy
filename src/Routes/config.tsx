@@ -27,7 +27,7 @@ export interface IRoute {
 const routes: IRoute[] = [
   {
     path: "/",
-    component: lazy(() => import("../pages/Homepage/Homepage")),
+    component: lazy(() => import("../pages/Home/Homepage")),
     key: "ROOT",
     exact: true,
     private: false,

@@ -13,7 +13,7 @@ const TermsOfService = () => {
      * TODO: add possible nested routes
      */
     <section id={styles["terms-of-service"]} className="_main_section">
-      <SEOHelmet title="Privacy Police & Terms of Use" content="" />
+      <SEOHelmet title="Privacy Policy & Terms of Use" content="" />
       <div className={styles["tos-title"]}>
         <h1>PRIVACY POLICY & TERMS OF USE </h1>
       </div>

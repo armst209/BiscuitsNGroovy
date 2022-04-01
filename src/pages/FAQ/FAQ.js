@@ -14,6 +14,8 @@ import { ReactComponent as Important } from "../../assets/images/speaker_yellow.
 //component imports
 import Title from "../../UI/Title/Title";
 import FAQQuestion from "./FAQQuestion";
+
+//seo imports
 import SEOHelmet from "../../utils/SEO/SEOHelmet";
 
 const FAQ = () => {

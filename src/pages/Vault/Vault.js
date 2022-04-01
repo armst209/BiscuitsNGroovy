@@ -9,11 +9,13 @@ import Title from "../../UI/Title/Title";
 import VaultReleases from "./VaultReleaseList/VaultReleases";
 import ScrollWidget from "../../Routes/ScrollWidget/ScrollWidget";
 
-//Component imports
 
+//seo imports
+import SEOHelmet from "../../utils/SEO/SEOHelmet";
 const Vault = () => {
   return (
     <section id="vault" className={`_main_section ${styles["vault"]}`}>
+      <SEOHelmet title="Vault" />
       <Title title={"vault"} />
       <div className={styles["vault-contents-wrapper"]}>
         <div className={styles["vault-header"]}>

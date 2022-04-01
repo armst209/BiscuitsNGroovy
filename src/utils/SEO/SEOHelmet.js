@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async"
 const SEOHelmet = ({ title, content }) => {
     return (
         <Helmet>
-            <title>{title}</title>
+            <title>{title} | Biscuits n Groovy</title>
             <meta name="description" content={content} />
         </Helmet>
     )

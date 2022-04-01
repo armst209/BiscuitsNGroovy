@@ -11,6 +11,7 @@ import { ReactComponent as OpenBook } from "../../assets/images/open-book.svg";
 const TermsList = () => {
   return (
     <section>
+
       <div className="term-link-wrapper">
         <div className="term-link-container">
           <div className="terms-image">
