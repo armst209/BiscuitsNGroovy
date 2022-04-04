@@ -37,7 +37,7 @@ const MusicShowcaseReleases = () => {
   const { isLoading, data: releaseData, isError, error, isFetching } = useQuery("music-showcase-releases", fetchMusicShowcaseReleases, { staleTime: 600000, refetchInterval: 3.6e+6, refetchOnWindowFocus: true, refetchOnReconnect: true, refetchOnMount: false });
 
 
-  //loading
+  //loading & fetching
   if (isLoading || isFetching) {
     return <MusicShowcaseLoader />
   }

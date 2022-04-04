@@ -9,11 +9,13 @@
     font-weight: normal;
     font-family: var(--header-font);
   }
+
   .about-title {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
     h1 {
       display: flex;
       justify-content: center;
@@ -28,9 +30,11 @@
       text-align: center;
       font-size: 3rem;
       position: relative;
+
       @media screen and (max-width: 600px) {
         flex-direction: column-reverse;
       }
+
       @media screen and (max-width: 350px) {
         font-size: 2rem;
       }
@@ -41,12 +45,14 @@
         left: 0;
         top: 0;
       }
+
       .spotlight-right {
         width: 50px;
         position: absolute;
         right: 0;
         top: 0;
       }
+
       svg {
         @media screen and (max-width: 500px) {
           padding-bottom: 0;
@@ -63,6 +69,7 @@
     align-items: center;
     padding-top: 2rem;
     background: black;
+
     .about-header {
       width: 85%;
       font-family: var(--header-font);
@@ -73,6 +80,7 @@
       margin-bottom: 4rem;
       border: 2px solid var(--color2);
       border-radius: 20px;
+
       @media screen and (max-width: 1000px) {
         font-size: 1rem;
       }
@@ -81,6 +89,7 @@
         margin-bottom: 1rem;
         width: 100%;
       }
+
       h1 {
         background-color: transparent;
         color: white;
@@ -94,9 +103,11 @@
         @media screen and (max-width: 400px) {
           font-size: 1.3rem;
         }
+
         @media screen and (max-width: 350px) {
           font-size: 1rem;
         }
+
         span {
           color: var(--color1);
         }
@@ -111,20 +122,25 @@
     flex-direction: row;
     font-weight: normal;
     width: 100%;
+
     @media screen and (max-width: 1000px) {
       flex-direction: column;
     }
+
     .contents-img-wrapper {
       position: relative;
+
       .disc_image {
         display: none;
         position: absolute;
         top: 50px;
         z-index: 0;
       }
+
       .contents-img {
         padding: 1rem;
         width: 500px;
+
         img {
           border-radius: 0.5rem;
         }
@@ -143,12 +159,15 @@
       font-size: 1.4rem;
       padding: 1rem;
       text-align: left;
+
       @media screen and (max-width: 1000px) {
         width: 100%;
       }
+
       @media screen and (max-width: 400px) {
         font-size: 1.2rem;
       }
+
       p {
         padding: 10px 0;
       }
@@ -156,23 +175,27 @@
       .principle-section {
         padding: 1rem;
         margin: 1rem 0;
+
         .two-principles {
           font-family: var(--header-font);
           font-size: 2rem;
           text-align: center;
           font-weight: normal;
+
           @media screen and (max-width: 400px) {
             font-size: 1.5rem;
           }
         }
+
         .principle {
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
           width: 100%;
+
           .principle-img {
-          svg {
+            svg {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -186,11 +209,13 @@
           }
         }
       }
+
       .artist-fans-serve-main-wrapper {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+
         .artists-fans-serve-container {
           display: flex;
           flex-direction: column;
@@ -206,10 +231,13 @@
             border: none;
             padding: 0;
           }
+
           ul {
             margin-left: 1rem;
+
             li {
               margin: 1rem 0;
+
               &::marker {
                 color: var(--color1);
                 font-family: var(--header-font);
@@ -222,6 +250,7 @@
 
             li {
               margin: 0.3rem 0;
+
               &::marker {
                 color: var(--color1);
                 font-family: var(--header-font);
@@ -229,43 +258,49 @@
 
               ol {
                 margin-left: 3rem;
+
                 li {
                   padding: 0.2rem 0;
                 }
               }
             }
           }
+
           .read-more-container {
             a {
               color: var(--color1);
               font-family: var(--header-font);
               text-decoration: underline 2px solid var(--color2);
+
               &:visited {
                 color: var(--color1);
               }
             }
           }
+
           h1 {
             font-family: var(--header-font);
             text-align: center;
           }
+
           .artists-fans-serve-button-container {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
 
-            .selected-button{
+            .selected-button {
               text-decoration: underline 2px var(--color2);
             }
 
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 500px) {
               flex-direction: column;
             }
 
             button {
               margin: 1rem 0.5rem;
-              @media screen and (max-width: 400px) {
+
+              @media screen and (max-width: 500px) {
                 width: 200px;
                 margin: 0.5rem;
               }
@@ -275,6 +310,7 @@
       }
     }
   }
+
   .story-h1 {
     width: 100%;
     text-align: center;
@@ -291,10 +327,12 @@
     @media screen and (max-width: 500px) {
       flex-direction: column;
     }
+
     @media screen and (max-width: 350px) {
       font-size: 2rem;
     }
   }
+
   .about-contents-2 {
     display: flex;
     justify-content: space-evenly;
@@ -316,40 +354,50 @@
       width: 85%;
       font-size: 1.4rem;
       padding: 1rem;
+
       @media screen and (max-width: 1000px) {
         width: 100%;
       }
+
       @media screen and (max-width: 400px) {
         font-size: 1.2rem;
       }
+
       .contents-img-wrapper {
         position: relative;
         float: right;
+
         .disc_image {
           display: none;
           position: absolute;
           bottom: 100px;
           z-index: 0;
         }
+
         .contents-img {
           padding: 1rem;
           width: 500px;
+
           .bng-caption {
             font-size: 1rem;
             text-align: center;
             font-family: var(--header-font);
             color: var(--color1);
+
             @media screen and (max-width: 400px) {
               font-size: 0.8rem;
             }
           }
+
           img {
             border-radius: 0.5rem;
           }
+
           position: relative;
           z-index: 5;
         }
       }
+
       .contents-2-wrapper {
         padding: 10px 0;
         text-align: left;

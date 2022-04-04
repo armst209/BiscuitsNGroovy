@@ -35,7 +35,7 @@ const About = () => {
         <div className="about-contents-1">
           <div className="contents-img-wrapper">
             <div className="contents-img">
-              <img src={bucket_hat} alt="bucket hats" />
+              <img src={bucket_hat} width="auto" height="auto" loading="eager" alt="Biscuit n Groovy Bucket Hats" title="Founders Matt & Allison wearing Biscuit n Groovy bucket hats" />
             </div>
             <DiscImage className="disc_image" />
           </div>
@@ -86,7 +86,7 @@ const About = () => {
             <div className="contents-2-wrapper">
               <div className="contents-img-wrapper">
                 <div className="contents-img">
-                  <img src={about_main_img} alt="about-main" />
+                  <img src={about_main_img} width="auto" height="auto" loading="lazy" alt="Co-Founder's Collection" title="Favorite vinyl from our co-founders’ collection" />
                   <div className="bng-caption">
                     Some favorites from our co-founders’ collection. In vinyl
                     manufacturing, the puck-shaped disc that gets pressed into
