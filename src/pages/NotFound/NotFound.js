@@ -1,9 +1,8 @@
-
 //svg imports
-import { ReactComponent as MagnifyingGlass } from "../../assets/images/search_white.svg";
+import { ReactComponent as MagnifyingGlass } from "common/assets/images/search_white.svg";
 
 //seo imports
-import SEOHelmet from "../../utils/SEO/SEOHelmet";
+import SEOHelmet from "common/utils/SEO/SEOHelmet";
 
 //styles
 import styles from "./NotFound.module.scss";

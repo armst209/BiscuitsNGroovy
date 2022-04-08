@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./SignUpNonPopUpStyles.scss";
-import {
-  minMaxLength,
-  validEmail,
-} from "../../components/SignUp/SignUpValidation";
+import { minMaxLength, validEmail } from "../../common/components/SignUp/SignUpValidation";
 import axios from "axios";
 import { motion } from "framer-motion";
-import LinkFlowButton from "../../components/SignUp/LinkFlowButton";
+import LinkFlowButton from "../../common/components/SignUp/LinkFlowButton";
 import * as fcl from "@onflow/fcl";
 import SignUpModal from "../SignUp/SignUpPopUp/SignUpPopUp";
 import question_mark from "../../assets/images/help_question_yellow.svg";
@@ -39,8 +36,7 @@ const SignUpNonPopUp = (props) => {
   function validateConfirmPassword(password, confirmpassword, formErrors) {
     formErrors = formErrors || {};
     if (password !== confirmpassword) {
-      formErrors.confirmpassword =
-        "Confirmed password is not matching with password";
+      formErrors.confirmpassword = "Confirmed password is not matching with password";
       return false;
     } else {
       delete formErrors.confirmpassword;
@@ -73,8 +69,7 @@ const SignUpNonPopUp = (props) => {
         } else {
           userExists(value).then((result) => {
             if (result) {
-              formErrors[name] =
-                "The email is already registered. Please use a different email.";
+              formErrors[name] = "The email is already registered. Please use a different email.";
             } else {
               delete formErrors[name];
             }
@@ -185,8 +180,7 @@ const SignUpNonPopUp = (props) => {
         // initial={{ y: -250 }}
         // animate={{ y: 0 }}
         // exit={{ y: "-100vh" }}
-        className="signup-wrapper-no-popup"
-      >
+        className="signup-wrapper-no-popup">
         <div className="signup-container-no-popup">
           <div className="signup-contents-no-popup">
             <motion.div
@@ -194,8 +188,7 @@ const SignUpNonPopUp = (props) => {
               whileHover={{ scale: 1.2 }}
               onClick={() => {
                 setShowModal(!showModal);
-              }}
-            >
+              }}>
               <img src={question_mark} alt="question mark" width="50px" />
             </motion.div>
             <div className="logo-no-popup">
@@ -209,18 +202,13 @@ const SignUpNonPopUp = (props) => {
                 onClick={() => {
                   props.showSignUpPopup(!props.signUpPopup);
                   props.showLoginPopup(!props.loginPopup);
-                }}
-              >
+                }}>
                 <span className="login-redirect-no-popup"> Login</span>
               </span>
             </p>
             <form noValidate>
               <input
-                className={
-                  formErrors && formErrors.email
-                    ? "form-control error"
-                    : "form-control"
-                }
+                className={formErrors && formErrors.email ? "form-control error" : "form-control"}
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -232,9 +220,7 @@ const SignUpNonPopUp = (props) => {
 
               <input
                 className={
-                  formErrors && formErrors.username
-                    ? "form-control error"
-                    : "form-control"
+                  formErrors && formErrors.username ? "form-control error" : "form-control"
                 }
                 placeholder="Username"
                 type="text"
@@ -247,9 +233,7 @@ const SignUpNonPopUp = (props) => {
 
               <input
                 className={
-                  formErrors && formErrors.password
-                    ? "form-control error"
-                    : "form-control"
+                  formErrors && formErrors.password ? "form-control error" : "form-control"
                 }
                 placeholder="Password"
                 type="password"
@@ -262,9 +246,7 @@ const SignUpNonPopUp = (props) => {
 
               <input
                 className={
-                  formErrors && formErrors.confirmpassword
-                    ? "form-control error"
-                    : "form-control"
+                  formErrors && formErrors.confirmpassword ? "form-control error" : "form-control"
                 }
                 placeholder="Confirm Password"
                 type="password"

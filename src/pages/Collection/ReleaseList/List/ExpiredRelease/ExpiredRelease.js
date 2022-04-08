@@ -1,28 +1,24 @@
 //styles
-import styles from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseTypes/ReleaseHover.module.scss"
+import styles from "../../../../../common/components/ReleaseContent/ReleaseComponents/ReleaseTypes/ReleaseHover.module.scss";
 
 //react imports
-import useModal from "../../../../../hooks/Modal/useModal";
+import useModal from "../../../../../common/hooks/Modal/useModal";
 
 //component imports
-import ReleaseImage from "../../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
+import ReleaseImage from "../../../../../common/components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 import ExpiredReleaseHover from "./Hover/ExpiredReleaseHover";
-import BiscuitInsert from "../../../../../components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
+import BiscuitInsert from "../../../../../common/components/ReleaseContent/Biscuit/BiscuitInsert/BiscuitInsert";
 
 const ExpiredRelease = ({ release }) => {
-
   const {
     isModalShowing: isInsertModalShowing,
     toggleModal: toggleInsertModal,
-    Modal
-  } = useModal("modal-overlay-root")
+    Modal,
+  } = useModal("modal-overlay-root");
 
   return (
     <figure id="expired-release" className={styles["hover-img"]}>
-      <ReleaseImage
-        releaseImageSrc={release.art_url}
-        releaseAlt={release.name}
-      />
+      <ReleaseImage releaseImageSrc={release.art_url} releaseAlt={release.name} />
       {/* Hover state */}
       <figcaption>
         <ExpiredReleaseHover release={release} toggleInsertModal={toggleInsertModal} />

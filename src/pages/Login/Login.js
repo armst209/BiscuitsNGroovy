@@ -1,4 +1,3 @@
-
 //styles
 import "./LoginStyles.scss";
 // react imports
@@ -12,8 +11,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import { ReactComponent as RecordVinyl } from "../../assets/images/compact-disc-yellow.svg";
 
 //seo imports
-import SEOHelmet from "../../utils/SEO/SEOHelmet";
-
+import SEOHelmet from "../../common/utils/SEO/SEOHelmet";
 
 const Login = () => {
   return (
@@ -41,7 +39,6 @@ const Login = () => {
         </div>
       </div>
     </section>
-
   );
 };
 

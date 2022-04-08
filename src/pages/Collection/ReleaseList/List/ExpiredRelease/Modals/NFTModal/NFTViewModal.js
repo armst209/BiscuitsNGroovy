@@ -1,6 +1,5 @@
-
 //component imports
-import ReleaseImage from "../../../../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
+import ReleaseImage from "../../../../../../../common/components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 
 //styles
 import "./NFTViewModalStyles.scss";
@@ -8,13 +7,12 @@ import "./NFTViewModalStyles.scss";
 //Google Analytics imports
 import ReactGA from "react-ga";
 
-const NFTExpiredModal = ({ release, toggleNFTModal}) => {
+const NFTExpiredModal = ({ release, toggleNFTModal }) => {
+  // -------Start of Google Analytics - DON'T REMOVE-------
+  ReactGA.modalview(`${release.name}-NFTModal`);
+  // -------End of Google Analytics - DON'T REMOVE-------
 
-    // -------Start of Google Analytics - DON'T REMOVE-------
-    ReactGA.modalview(`${release.name}-NFTModal`);
-    // -------End of Google Analytics - DON'T REMOVE-------
-
-  return ( 
+  return (
     <section id="nft-expired-modal">
       <div className="nft-expired-modal-image-container">
         <div onClick={() => toggleNFTModal()} className="nft-expired-modal-close">
@@ -29,6 +27,5 @@ const NFTExpiredModal = ({ release, toggleNFTModal}) => {
     </section>
   );
 };
-
 
 export default NFTExpiredModal;

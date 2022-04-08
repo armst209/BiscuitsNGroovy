@@ -2,10 +2,10 @@
 import { Link, Redirect } from "react-router-dom";
 
 //svg imports
-import { ReactComponent as BiscuitLove } from "../../assets/images/vinyl_yellow.svg";
+import { ReactComponent as BiscuitLove } from "common/assets/images/vinyl_yellow.svg";
 
 //styles
-import  styles from "./SuccessfulBuy.module.scss";
+import styles from "./SuccessfulBuy.module.scss";
 const SuccessBuy = () => {
   const isAuthenticated = localStorage.getItem("token");
 
@@ -25,6 +25,6 @@ const SuccessBuy = () => {
   ) : (
     <Redirect to={"/"} />
   );
-}
+};
 
 export default SuccessBuy;

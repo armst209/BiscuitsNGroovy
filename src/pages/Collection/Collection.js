@@ -2,13 +2,12 @@
 import styles from "./Collection.module.scss";
 
 //component imports
-import Title from "../../UI/Title/Title";
+import Title from "../../common/components/UI/Title/Title";
 
 //utility imports
 import CollectionReleases from "./ReleaseList/CollectionReleases";
 
 const Collection = () => {
-
   return (
     <section id={styles.collection} className="_main_section">
       <Title title={"collection"} />
@@ -22,7 +21,6 @@ const Collection = () => {
         </div>
       </div>
     </section>
-
   );
 };
 

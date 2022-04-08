@@ -1,15 +1,10 @@
-// import "../../../_global.css";
 import { useState } from "react";
-import useValidation from "../../../hooks/Validation/useValidation";
-import "../../../hooks/Validation/useValidationStyles.scss";
+import useValidation from "common/hooks/Validation/useValidation";
+import "common/hooks/Validation/useValidationStyles.scss";
 import axios from "axios";
-import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
-import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
-const UserEmailForm = ({
-  setShowEmailLoader,
-  showPassRecoveryModal,
-  setShowPassRecoveryModal,
-}) => {
+import { ReactComponent as ValidationSuccess } from "common/assets/images/check.svg";
+import { ReactComponent as Warning } from "common/assets/images/exclamation.svg";
+const UserEmailForm = ({ setShowEmailLoader, showPassRecoveryModal, setShowPassRecoveryModal }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const {
     email,
@@ -47,7 +42,7 @@ const UserEmailForm = ({
             <Warning className="warning-icon" />
             <div className="error-message-text-main">Email not found!</div>
           </div>
-        </>
+        </>,
       );
     };
 
@@ -72,8 +67,7 @@ const UserEmailForm = ({
         <label
           id="email-label"
           htmlFor="user-email-input"
-          className="label-error-message user-email-label"
-        >
+          className="label-error-message user-email-label">
           {emailErrorMessage}
         </label>
         <input
@@ -86,9 +80,7 @@ const UserEmailForm = ({
           placeholder="Ex: your@email.com"
           onChange={inputValidation}
         />
-        {showEmailValidationCheck && (
-          <ValidationSuccess className="valid-check-icon email-check" />
-        )}
+        {showEmailValidationCheck && <ValidationSuccess className="valid-check-icon email-check" />}
       </fieldset>
 
       <div className="user-email-button-container" align="center">

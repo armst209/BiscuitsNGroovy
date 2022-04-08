@@ -1,4 +1,4 @@
-import { ComponentType, lazy, LazyExoticComponent, ReactNode } from "react";
+import { ComponentType, lazy, LazyExoticComponent } from "react";
 
 export interface IRoute {
   // Path, like in basic prop
@@ -21,7 +21,6 @@ export interface IRoute {
   credentials?: boolean;
   //If route has password reset functionality
   resetCredentials?: boolean;
-
 }
 const routes: IRoute[] = [
   {
@@ -30,8 +29,6 @@ const routes: IRoute[] = [
     key: "ROOT",
     exact: true,
     private: false,
- 
-
   },
   {
     path: "/users",
@@ -39,7 +36,6 @@ const routes: IRoute[] = [
     key: "USERS_PAGE",
     exact: true,
     private: false,
-   
   },
   {
     path: "/signin",
@@ -48,7 +44,6 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     credentials: true,
-    
   },
   {
     path: "/signup",
@@ -57,7 +52,6 @@ const routes: IRoute[] = [
     exact: true,
     private: false,
     credentials: true,
-  
   },
   {
     path: "/about",
@@ -65,7 +59,6 @@ const routes: IRoute[] = [
     key: "ABOUT_PAGE",
     exact: true,
     private: false,
-  
   },
   {
     path: "/faq",
@@ -73,7 +66,6 @@ const routes: IRoute[] = [
     key: "FAQ_PAGE",
     exact: true,
     private: false,
-   
   },
   {
     path: "/artists",
@@ -91,9 +83,7 @@ const routes: IRoute[] = [
   },
   {
     path: "/biscuit/:biscuitId/:artistName/:releaseName/",
-    component: lazy(
-      () => import("../components/ReleaseContent/Biscuit/Biscuit")
-    ),
+    component: lazy(() => import("../common/components/ReleaseContent/Biscuit/Biscuit")),
     key: "BISCUIT_PAGE",
     exact: true,
     private: false,
@@ -109,27 +99,21 @@ const routes: IRoute[] = [
 
   {
     path: "/release/:releaseId/:artistName/:releaseName/",
-    component: lazy(
-      () => import("../components/ReleaseContent/Release/Release")
-    ),
+    component: lazy(() => import("../common/components/ReleaseContent/Release/Release")),
     key: "RELEASE_PAGE",
     exact: true,
     private: false,
   },
   {
     path: "/password-recovery",
-    component: lazy(
-      () => import("../pages/PasswordRecovery/UserEmail/UserEmail")
-    ),
+    component: lazy(() => import("../pages/PasswordRecovery/UserEmail/UserEmail")),
     key: "PASSWORD_RECOVERY_PAGE",
     exact: true,
     private: false,
   },
   {
     path: "/password-recovery/reset/:userResetToken",
-    component: lazy(
-      () => import("../pages/PasswordRecovery/PasswordReset/PasswordReset")
-    ),
+    component: lazy(() => import("../pages/PasswordRecovery/PasswordReset/PasswordReset")),
     key: "NEW_PASSWORD_PAGE",
     exact: true,
     private: false,
@@ -151,9 +135,7 @@ const routes: IRoute[] = [
   },
   {
     path: "/privacy-policy",
-    component: lazy(
-      () => import("../pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")
-    ),
+    component: lazy(() => import("../pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")),
     key: "PRIVACY_POLICY_PAGE",
     exact: true,
     private: false,
@@ -167,9 +149,7 @@ const routes: IRoute[] = [
   },
   {
     path: "/music-purchase-terms",
-    component: lazy(
-      () => import("../pages/TermsOfService/Terms/PurchaseOfMusic")
-    ),
+    component: lazy(() => import("../pages/TermsOfService/Terms/PurchaseOfMusic")),
     key: "MUSIC_PURCHASE_TERMS_PAGE",
     exact: true,
     private: false,

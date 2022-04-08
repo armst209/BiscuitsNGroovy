@@ -1,32 +1,27 @@
-
 //react imports
-import { Suspense } from "react";
 import { Redirect, Route } from "react-router-dom";
-
 
 //utility imports
 // import { PR_Auth_Token } from "../utils/UtilityVariables";
 
 //redux imports
-import { useSelector, RootStateOrAny } from "react-redux";
+import { useSelector } from "react-redux";
 
 //route imports
 // import { IRoute } from "./config";
 
-
 const RouteWithSubRoutes = (route) => {
-
   const isUserAuthenticated = useSelector((state) => state.bng_user.authentication.isAuthenticated);
   console.log(isUserAuthenticated);
 
   const handleRouteRendering = (props) => {
     if (route.private) {
       if (isUserAuthenticated) {
-        return <route.component {...props} routes={route.routes} />
+        return <route.component {...props} routes={route.routes} />;
       }
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
-    return <route.component {...props} routes={route.routes} />
+    return <route.component {...props} routes={route.routes} />;
   };
 
   return (
@@ -35,4 +30,3 @@ const RouteWithSubRoutes = (route) => {
 };
 
 export default RouteWithSubRoutes;
-

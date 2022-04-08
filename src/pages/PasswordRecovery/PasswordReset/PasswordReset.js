@@ -1,10 +1,9 @@
-
 //react imports
 import { useState } from "react";
 
 //styles
 import "./PasswordResetStyles.scss";
-import "../../../hooks/Validation/useValidationStyles.scss";
+import "../../../common/hooks/Validation/useValidationStyles.scss";
 
 //component imports
 import PasswordResetForm from "./PasswordResetForm";

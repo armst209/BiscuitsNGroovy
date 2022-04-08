@@ -3,7 +3,7 @@ import { useState } from "react";
 
 //styles
 import "./LoginFormStyles.scss";
-import "../../../hooks/Validation/useValidationStyles.scss";
+import "../../../common/hooks/Validation/useValidationStyles.scss";
 
 //svg imports
 import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
@@ -14,7 +14,7 @@ import { ReactComponent as ValidationSuccess } from "../../../assets/images/chec
 import axios from "axios";
 
 //useValidation hook
-import useValidation from "../../../hooks/Validation/useValidation";
+import useValidation from "../../../common/hooks/Validation/useValidation";
 
 //redux imports
 import { useDispatch } from "react-redux";

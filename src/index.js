@@ -8,25 +8,27 @@ import App from "./App";
 import ScrollToTop from "./Routes/ScrollToTop";
 
 //redux imports
-import store from "./redux/index";
-import { Provider as ReduxProvider } from "react-redux"
+import store from "./common/redux/index";
+import { Provider as ReduxProvider } from "react-redux";
 
 //material ui theme
 import { ThemeProvider } from "@mui/material/styles";
 import bngTheme from "./theme";
-
+import AlertProvider from "./common/components/UI/Alerts/AlertProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <ReduxProvider store={store}>
       <Router>
         <ThemeProvider theme={bngTheme}>
-          <ScrollToTop />
-          <App />
+          <AlertProvider>
+            <ScrollToTop />
+            <App />
+          </AlertProvider>
         </ThemeProvider>
       </Router>
     </ReduxProvider>
   </React.StrictMode>,
 
-  document.getElementById("root")
+  document.getElementById("root"),
 );

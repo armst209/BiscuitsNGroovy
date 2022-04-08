@@ -1,5 +1,5 @@
 //react imports
-import useTestAxiosFetch from "../../../hooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
+import useTestAxiosFetch from "../../../common/hooks/Fetch/TestAxiosFetch/useTestAxiosFetch";
 
 //component imports
 import VaultLoader from "../Loader/VaultLoader";
@@ -9,31 +9,27 @@ import VaultReleaseListMap from "./List/VaultReleaseListMap";
 import styles from "./VaultReleases.module.scss";
 
 //utility imports
-import { releaseObjectToArray } from "../../../utils/UtilityFunctions.js"
+import { releaseObjectToArray } from "../../../common/utils/UtilityFunctions.js";
 
 const VaultReleases = () => {
+  const { responseData, isLoading, errorMessage, errorMessageComponent } = useTestAxiosFetch({
+    method: "GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}/vault`,
+  });
 
-    const {
-        responseData,
-        isLoading,
-        errorMessage,
-        errorMessageComponent
-    } = useTestAxiosFetch({
-        method: "GET",
-        url: `${process.env.REACT_APP_BACKEND_URL}/vault`
-    });
+  //converting object of objects into array of objects
+  let releaseData = releaseObjectToArray(responseData);
 
-    //converting object of objects into array of objects
-    let releaseData = releaseObjectToArray(responseData);
+  return (
+    <div className={styles["vault-showcase-grid"]}>
+      {isLoading && <VaultLoader />}
+      {errorMessage === null ? (
+        releaseData && <VaultReleaseListMap releaseData={releaseData} />
+      ) : (
+        <div>{errorMessageComponent}</div>
+      )}
+    </div>
+  );
+};
 
-    return (
-        <div className={styles["vault-showcase-grid"]}>
-            {isLoading && <VaultLoader />}
-            {errorMessage === null
-                ? releaseData && <VaultReleaseListMap releaseData={releaseData} />
-                : <div>{errorMessageComponent}</div>}
-        </div>
-    )
-}
-
-export default VaultReleases
+export default VaultReleases;

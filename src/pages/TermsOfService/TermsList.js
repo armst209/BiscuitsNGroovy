@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./TermsListStyles.scss";
 
 //svg imports
-import { ReactComponent as OpenBook } from "../../assets/images/open-book.svg";
+import { ReactComponent as OpenBook } from "common/assets/images/open-book.svg";
 
 const TermsList = () => {
   return (
@@ -36,6 +36,6 @@ const TermsList = () => {
       </div>
     </section>
   );
-}
+};
 
 export default TermsList;

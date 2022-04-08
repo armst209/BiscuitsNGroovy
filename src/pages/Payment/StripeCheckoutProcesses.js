@@ -1,4 +1,3 @@
-
 //react imports
 import { useState, useEffect } from "react";
 
@@ -12,22 +11,19 @@ import { loadStripe } from "@stripe/stripe-js";
 import "./StripeCheckoutProcessesStyles.scss";
 
 //utility imports
-import { token } from "../../utils/UtilityVariables";
+import { token } from "../../common/utils/UtilityVariables";
 
 //component imports
-import StripeLoader from "../../components/Loading/Stripe/StripeLoader";
+import StripeLoader from "../../common/components/Loading/Stripe/StripeLoader";
 
 //Google Analytics imports
 import ReactGA from "react-ga";
-
-
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render. ??
 
 //STRIPE
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
-
 
 // -------Start of Google Analytics - DON'T REMOVE-------
 
@@ -45,14 +41,10 @@ const StripeCheckoutProcesses = ({ release }) => {
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
       ReactGA.pageview("/purchase-success");
-      window.location.replace(
-        process.env.REACT_APP_FRONTEND_URL + "/purchase-success"
-      );
+      window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/purchase-success");
     }
     if (query.get("canceled")) {
-      setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
+      setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
     }
   }, []);
 
@@ -61,7 +53,7 @@ const StripeCheckoutProcesses = ({ release }) => {
     setShowStripeLoader(
       <div className="stripe-loader-container">
         <StripeLoader />
-      </div>
+      </div>,
     );
     //check if a user is signed in with a FLOW wallet
 
@@ -118,8 +110,7 @@ const StripeCheckoutProcesses = ({ release }) => {
           alignItems: "center",
           width: "100%",
           height: "100%",
-        }}
-      >
+        }}>
         Buy Now
       </div>
       {showStripeLoader}
@@ -129,11 +120,7 @@ const StripeCheckoutProcesses = ({ release }) => {
   return message ? (
     <Message message={message} />
   ) : (
-
-    <ProductDisplay
-      handleClick={handleClick}
-      showStripeLoader={showStripeLoader}
-    />
+    <ProductDisplay handleClick={handleClick} showStripeLoader={showStripeLoader} />
   );
 };
 

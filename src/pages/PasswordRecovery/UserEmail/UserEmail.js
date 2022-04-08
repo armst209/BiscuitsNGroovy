@@ -2,12 +2,12 @@
 import { useState } from "react";
 
 //component imports
-import FormLoader from "../../../components/Loading/Forms/FormLoader";
+import FormLoader from "../../../common/components/Loading/Forms/FormLoader";
 import UserEmailSuccessModal from "../Modals/UserEmailSuccessModal";
 import UserEmailForm from "./UserEmailForm";
 
 //seo imports
-import SEOHelmet from "../../../utils/SEO/SEOHelmet";
+import SEOHelmet from "../../../common/utils/SEO/SEOHelmet";
 
 //styles
 import "./UserEmailStyles.scss";

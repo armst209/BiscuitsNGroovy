@@ -1,4 +1,3 @@
-
 //react imports
 import { Suspense } from "react";
 import { Switch } from "react-router-dom";
@@ -6,13 +5,12 @@ import { Switch } from "react-router-dom";
 
 //component imports
 import RouteWithSubRoutes from "./RouteWithSubRoutes";
-import Loading from "../components/Loading/Loading";
+import Loading from "../common/components/Loading/Loading";
 
 //Google Analytics import
-import PageViewsTracking from "../utils/GoogleAnalytics/PageViewsTracking";
+import PageViewsTracking from "../common/utils/GoogleAnalytics/PageViewsTracking";
 
 const Router = ({ routes }) => {
-
   return (
     <Suspense fallback={<Loading />}>
       <PageViewsTracking>

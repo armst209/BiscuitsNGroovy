@@ -1,14 +1,11 @@
 import { useParams } from "react-router-dom";
 import "./PasswordResetFormStyles.scss";
-import { ReactComponent as Warning } from "../../../assets/images/exclamation.svg";
-import useValidation from "../../../hooks/Validation/useValidation";
+import { ReactComponent as Warning } from "common/assets/images/exclamation.svg";
+import useValidation from "common/hooks/Validation/useValidation";
 
 import axios from "axios";
 
-const PasswordResetForm = ({
-  passwordResetSuccessModal,
-  setPasswordResetSuccessModal,
-}) => {
+const PasswordResetForm = ({ passwordResetSuccessModal, setPasswordResetSuccessModal }) => {
   const {
     password,
     passwordErrorMessage,
@@ -44,7 +41,7 @@ const PasswordResetForm = ({
             <div className="error-message-text-main">
               Please fill out form with correct information
             </div>
-          </div>
+          </div>,
         );
         // let errorType = error.response.status;
         // console.log(error.response);
@@ -83,10 +80,7 @@ const PasswordResetForm = ({
       <div className="pass-recovery-wrapper">
         <form onSubmit={submit}>
           <fieldset className="input-styles">
-            <label
-              className="label-error-message reset-password-label"
-              htmlFor="reset-password"
-            >
+            <label className="label-error-message reset-password-label" htmlFor="reset-password">
               {passwordErrorMessage}
             </label>
             <input
@@ -101,8 +95,7 @@ const PasswordResetForm = ({
             />
             <label
               className="label-error-message reset-password-confirm-label"
-              htmlFor="reset-password-confirm"
-            >
+              htmlFor="reset-password-confirm">
               {confirmPasswordErrorMessage}
             </label>
             <input

@@ -1,10 +1,10 @@
 //react imports
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import useValidation from "../../../hooks/Validation/useValidation";
+import useValidation from "common/hooks/Validation/useValidation";
 
 //styles
-import "../../../hooks/Validation/useValidationStyles.scss";
+import "common/hooks/Validation/useValidationStyles.scss";
 import "./SignUpFormStyles.scss";
 import styles from "../SignUp.module.scss";
 
@@ -12,11 +12,10 @@ import styles from "../SignUp.module.scss";
 import LinkFlowButton from "../LinkFlowButton";
 
 //svg imports
-import { ReactComponent as ValidationSuccess } from "../../../assets/images/check.svg";
+import { ReactComponent as ValidationSuccess } from "common/assets/images/check.svg";
 
 //other imports
 import axios from "axios";
-
 
 //Importing Flow Configuration
 import { config } from "@onflow/fcl";
@@ -73,7 +72,6 @@ const SignUpForm = ({
     hideSignUpButtonLoaderHandler(); //stops button loader
     hideSignUpLoaderHandler(); //stops page loader
     window.location.replace(process.env.REACT_APP_FRONTEND_URL + "/"); //redirects to home page
-
   };
 
   const handleError = (error) => {
@@ -157,10 +155,7 @@ const SignUpForm = ({
             <ValidationSuccess className="valid-check-icon email-check" />
           )}
 
-          <label
-            className="label-error-message username-label"
-            htmlFor="username"
-          >
+          <label className="label-error-message username-label" htmlFor="username">
             {userNameErrorMessage}
           </label>
           <input
@@ -177,10 +172,7 @@ const SignUpForm = ({
             <ValidationSuccess className="valid-check-icon username-signup-check" />
           )}
 
-          <label
-            className="label-error-message password-signup-label"
-            htmlFor="password"
-          >
+          <label className="label-error-message password-signup-label" htmlFor="password">
             {passwordErrorMessage}
           </label>
           <input
@@ -198,10 +190,7 @@ const SignUpForm = ({
           )}
 
           <div className="signup-checkbox-container">
-            <label
-              className="label-error-message terms-check-label"
-              htmlFor="terms-check"
-            >
+            <label className="label-error-message terms-check-label" htmlFor="terms-check">
               I have read and agree to the
               <Link to="/privacy-terms-of-use">Terms & Privacy</Link>
             </label>

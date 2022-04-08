@@ -29,13 +29,16 @@
       font-family: var(--header-font);
       padding: 0.5rem;
       text-align: center;
+
       a {
         color: var(--color2);
+
         &:visited {
           color: var(--color2);
         }
       }
     }
+
     form {
       color: white;
       display: flex;
@@ -50,6 +53,7 @@
       border-radius: 0.5rem;
       border: 2px solid var(--color2);
       width: 500px;
+
       @media screen and (max-width: 550px) {
         padding: 0;
         width: 100%;
@@ -85,7 +89,7 @@
 
           &:after {
             content: "";
-            background-image: url("../../../assets/images/emailsend.svg");
+            background-image: url("../../../common/assets/images/emailsend.svg");
             background-size: 30px;
             background-repeat: no-repeat;
             display: inline-block;

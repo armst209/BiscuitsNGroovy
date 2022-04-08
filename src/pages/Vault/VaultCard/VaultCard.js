@@ -1,15 +1,15 @@
 //styles
-import hoverStyles from "../VaultCard/Hover/VaultCardHover.module.scss"
+import hoverStyles from "../VaultCard/Hover/VaultCardHover.module.scss";
 
 //component imports
-import ReleaseImage from "../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
+import ReleaseImage from "../../../common/components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 import VaultReleaseModal from "../VaultReleaseModal/VaultReleaseModal";
 
 //react imports
-import useModal from "../../../hooks/Modal/useModal";
+import useModal from "../../../common/hooks/Modal/useModal";
 
 const VaultCard = ({ release }) => {
-  const { isModalShowing, Modal, toggleModal } = useModal("modal-overlay-root")
+  const { isModalShowing, Modal, toggleModal } = useModal("modal-overlay-root");
 
   //release object destructuring
   const { artist_name, release_art } = release;
@@ -17,9 +17,9 @@ const VaultCard = ({ release }) => {
   // Keyboard accessibility for each Vault card.
   const handleKeydown = (event) => {
     if (event.keyCode === 13 || event.key === "Enter") {
-      toggleModal()
-    };
-  }
+      toggleModal();
+    }
+  };
 
   return (
     <>
@@ -27,13 +27,11 @@ const VaultCard = ({ release }) => {
         tabIndex={0}
         className={hoverStyles["hover-img"]}
         onClick={() => toggleModal()}
-        onKeyDown={(event) => { handleKeydown(event) }}
-        data-testid="vault-release"
-      >
-        <ReleaseImage
-          releaseImageSrc={release_art}
-          releaseAlt={`vault-${artist_name}`}
-        />
+        onKeyDown={(event) => {
+          handleKeydown(event);
+        }}
+        data-testid="vault-release">
+        <ReleaseImage releaseImageSrc={release_art} releaseAlt={`vault-${artist_name}`} />
         {/* Hover state*/}
         <figcaption>
           <div>

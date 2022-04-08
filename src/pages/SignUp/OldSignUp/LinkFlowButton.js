@@ -1,11 +1,11 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { initAccount, accountIsInitialized } from "../../../utils/flow";
+import { initAccount, accountIsInitialized } from "../../../common/utils/flow";
 import * as fcl from "@onflow/fcl";
 import link_icon from "../../../assets/images/link.svg";
 import "./SignUpStyles.scss";
 import "./LinkFlowButtonStyles.scss";
-import ComponentLoading from "../../../components/Loading/Component/ComponentLoading.js";
+import ComponentLoading from "../../../common/components/Loading/Component/ComponentLoading.js";
 import write from "../../../assets/images/write.svg";
 function LinkFlowButton(props) {
   const [isInitialized, setIsInitialized] = useState(false);
@@ -17,7 +17,7 @@ function LinkFlowButton(props) {
     props.flowBtnLoader(
       <div className="flow-loader">
         <ComponentLoading />
-      </div>
+      </div>,
     );
     await initAccount();
     accountIsInitialized().then((firstAccountState) => {
@@ -37,11 +37,7 @@ function LinkFlowButton(props) {
   if (!isInitialized) {
     return (
       <>
-        <button
-          className="flow-button "
-          onClick={updateInitializedComponent}
-          type="submit"
-        >
+        <button className="flow-button " onClick={updateInitializedComponent} type="submit">
           Continue
           <img src={link_icon} alt="link icon" />
         </button>
@@ -54,8 +50,7 @@ function LinkFlowButton(props) {
           By signing up you agree to our{" "}
           <Link
             onClick={() => props.showSignUpPopup(!props.signUpPopup)}
-            to="/privacy-terms-of-use/terms-of-service/"
-          >
+            to="/privacy-terms-of-use/terms-of-service/">
             Terms of Service
           </Link>
         </p>
@@ -63,8 +58,7 @@ function LinkFlowButton(props) {
           className="flow-button"
           type="submit"
           onClick={props.submit}
-          disabled={Object.entries(props.formErrors || {}).length > 0}
-        >
+          disabled={Object.entries(props.formErrors || {}).length > 0}>
           Create Account
           <img className="signup-icon" src={write} alt="signup icon" />
         </button>

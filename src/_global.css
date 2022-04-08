@@ -24,9 +24,9 @@
 
 @font-face {
   font-family: "TTNormsPro-Rg";
-  src: url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
+  src: url("../src/common/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
       format("woff2"),
-    url("../src/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
+    url("../src/common/assets/fonts/TTNormsProRegular/MyFontsWebfontsKit/MyFontsWebfontsKit/webFonts/TTNormsProRg/font.woff")
       format("woff");
 }
 
@@ -54,16 +54,16 @@
 
 @font-face {
   font-family: "TTNormsPro-Normal";
-  src: url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff")
+  src: url("../src/common/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff")
       format("woff2"),
-    url("../src/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2")
+    url("../src/common/assets/fonts/TTNormsProNormal/MyFontsWebfontsKit/webFonts/TTNormsProNormal/font.woff2")
       format("woff");
 }
 
 /* HEADER FONT */
 @font-face {
   font-family: "futura-bold";
-  src: url("./assets/fonts/Futura-Bold/Futura-Bold.woff") format("woff");
+  src: url("./common/assets/fonts/Futura-Bold/Futura-Bold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -100,8 +100,8 @@
   /* colors */
   --color1: #f5ee0d;
   --color2: #25c1a9;
-  --color1-svg-filter: invert(80%) sepia(98%) saturate(446%) hue-rotate(357deg)
-    brightness(96%) contrast(101%);
+  --color1-svg-filter: invert(80%) sepia(98%) saturate(446%) hue-rotate(357deg) brightness(96%)
+    contrast(101%);
   --main-color-nav-footer-black: #000;
   --main-color-body-dark-grey: #161617;
   --main-color-nav-containers-darker-grey: #131212;
@@ -109,8 +109,7 @@
   --color-grayish: #dadce0;
   --bg-color: #131921;
   --footer-gray: #919496;
-  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   /* --container-box-shadow: 3px 3px 8px black; */
 
   /* z-index heights */
@@ -119,7 +118,6 @@
   /* border radius */
   --main-border-radius: 0.5rem;
 }
-
 
 /* body */
 body {

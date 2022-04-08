@@ -5,18 +5,17 @@ import { Link } from "react-router-dom";
 //component imports
 import SignUpForm from "./SignUpForm/SignUpForm";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
-import FlowLoader from "../../components/Loading/Forms/FlowLoader";
-import Loading from "../../components/Loading/Loading";
+import FlowLoader from "../../common/components/Loading/Forms/FlowLoader";
+import Loading from "../../common/components/Loading/Loading";
 
 //svg imports
-import { ReactComponent as QuestionIcon } from '../../assets/images/help_question_yellow.svg'
-
+import { ReactComponent as QuestionIcon } from "common/assets/images/help_question_yellow.svg";
 
 //styles
 import styles from "./SignUp.module.scss";
 
 //seo imports
-import SEOHelmet from "../../utils/SEO/SEOHelmet";
+import SEOHelmet from "common/utils/SEO/SEOHelmet";
 
 /**
  * TODO: For future signup implementation, add progress bar - use progress HTML element
@@ -41,7 +40,12 @@ const SignUp = () => {
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>
         <div className={styles["signup-contents"]}>
-          <QuestionIcon className={styles['question-icon']} onClick={() => { setShowSignUpInfo(true) }} />
+          <QuestionIcon
+            className={styles["question-icon"]}
+            onClick={() => {
+              setShowSignUpInfo(true);
+            }}
+          />
           <SignUpForm
             setShowFlowButtonLoader={setShowFlowButtonLoader}
             hideSignUpLoaderHandler={hideSignUpLoaderHandler}
