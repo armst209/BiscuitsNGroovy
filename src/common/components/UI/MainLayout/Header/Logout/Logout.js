@@ -7,7 +7,7 @@ import { ReactComponent as LogoutIcon } from "common/assets/images/logout-yellow
 //redux imports
 import { useDispatch } from "react-redux";
 // import { authenticationActions } from "../../../redux/slices/authentication/authentication.slice";
-import { userLoggedOut, userNotAuthenticated } from "../../../../../../pages/Users/redux/actions";
+import { userLoggedOut, userNotAuthenticated } from "pages/Users/redux/actions";
 
 const Logout = ({ showHideLogoutLoaderHandler }) => {
   const dispatch = useDispatch();

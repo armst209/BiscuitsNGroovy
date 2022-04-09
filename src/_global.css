@@ -20,7 +20,7 @@
 */
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/40e27c");
+/* @import url("//hello.myfonts.net/count/40e27c"); */
 
 @font-face {
   font-family: "TTNormsPro-Rg";
@@ -50,7 +50,7 @@
 */
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/40e284");
+/* @import url("//hello.myfonts.net/count/40e284"); */
 
 @font-face {
   font-family: "TTNormsPro-Normal";
@@ -63,7 +63,7 @@
 /* HEADER FONT */
 @font-face {
   font-family: "futura-bold";
-  src: url("./common/assets/fonts/Futura-Bold/Futura-Bold.woff") format("woff");
+  src: url("./common/assets/fonts/FuturaBold/Futura-Bold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

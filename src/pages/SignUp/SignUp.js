@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 //component imports
 import SignUpForm from "./SignUpForm/SignUpForm";
 import SignUpPopUp from "./SignUpPopUp/SignUpPopUp";
-import FlowLoader from "../../common/components/Loading/Forms/FlowLoader";
-import Loading from "../../common/components/Loading/Loading";
+import FlowLoader from "common/components/Loading/Forms/FlowLoader";
+import Loading from "common/components/Loading/Loading";
 
 //svg imports
 import { ReactComponent as QuestionIcon } from "common/assets/images/help_question_yellow.svg";
@@ -35,7 +35,7 @@ const SignUp = () => {
   };
 
   return (
-    <section id={`${styles.signup}`} className="_main_section">
+    <section id={`${styles.signup}`}>
       <SEOHelmet title="Sign Up" content="Sign up to start your collection" />
       <h2>Sign up to start your collection</h2>
       <div className={styles["signup-wrapper"]}>

@@ -17,7 +17,7 @@ import SEOHelmet from "common/utils/SEO/SEOHelmet";
 
 const FAQ = () => {
   return (
-    <section id="faq" className="_main_section">
+    <section id="faq">
       <SEOHelmet
         title="Frequently Asked Questions"
         content="Questions? We’ve got answers. Feel free to contact us at: support@bngroovy.com."

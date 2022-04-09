@@ -36,7 +36,7 @@ const Artists = () => {
     impact to your existing distribution channels."
       />
 
-      <section id="artists" className="_main_section">
+      <section id="artists">
         <div className="artists-title">
           <h1>
             <img width="50px" src={record_vinyl} alt="record" />

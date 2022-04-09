@@ -6,13 +6,14 @@
 
 export const dateConverter = (dateString) => {
   let convertedDate = new Date(dateString);
-  return `${convertedDate.getUTCMonth() + 1
-    }/${convertedDate.getUTCDate()}/${convertedDate.getUTCFullYear()}`;
+  return `${
+    convertedDate.getUTCMonth() + 1
+  }/${convertedDate.getUTCDate()}/${convertedDate.getUTCFullYear()}`;
 };
 
 /**
  * Release Object To Array - converts object of objects to array of objects.
- * @param {*} releaseData 
+ * @param {*} releaseData
  * @returns an array
  */
 //!! ask Erich/Maanuj if they can just return an array of objects instead of doing this
@@ -24,15 +25,12 @@ export const releaseObjectToArray = (releaseData) => {
     });
     return arrayFromObject;
   }
-}
-
+};
 
 /**
- * @param {*} pixels 
+ * @param {*} pixels
  * @returns rem value
  */
 export const pixelsToRem = (pixels) => {
   return `${pixels / 16}rem`;
 };
-
-

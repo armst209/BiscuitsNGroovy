@@ -18,7 +18,7 @@ import SEOHelmet from "common/utils/SEO/SEOHelmet";
 
 const About = () => {
   return (
-    <section id="about" className="_main_section">
+    <section id="about">
       <SEOHelmet
         title="About"
         content="Biscuits n Groovy exists to create a more engaging and equitable digital music experience"

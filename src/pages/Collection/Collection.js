@@ -9,7 +9,7 @@ import CollectionReleases from "./ReleaseList/CollectionReleases";
 
 const Collection = () => {
   return (
-    <section id={styles.collection} className="_main_section">
+    <section id={styles.collection}>
       <Title title={"collection"} />
       <div className={styles["collection-nav-grid"]}>
         <div className={styles["collection-container"]}>

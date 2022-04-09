@@ -7,12 +7,11 @@ import MusicShowcaseReleases from "./ReleaseList/MusicShowcaseReleases";
 
 //image imports
 import { ReactComponent as RecordHeaderIcon } from "../../assets/images/compact-disc-yellow.svg";
-
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 const MusicShowcase = () => {
   return (
-    <Container component="section" id={styles["music-showcase"]}>
+    <Box component="section" id={styles["music-showcase"]}>
       <div id="music-showcase-return"></div>
       <div className={styles["music-showcase-container"]}>
         <div className={styles["music-showcase-content-container"]}>
@@ -27,7 +26,7 @@ const MusicShowcase = () => {
         </div>
       </div>
       <LookUpImage />
-    </Container>
+    </Box>
   );
 };
 

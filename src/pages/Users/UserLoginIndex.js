@@ -36,7 +36,7 @@ const UserLogin = () => {
   console.log(errors);
 
   return (
-    <section id={styles["user-login"]} className="_main_section">
+    <section id={styles["user-login"]}>
       <form
         className={styles.form}
         onSubmit={handleSubmit((credentials) => dispatch(postUserCredentialsThunk(credentials)))}>

@@ -3,8 +3,8 @@ import Header from "./Header/MainHeader";
 import Footer from "./Footer/Footer";
 
 //routes
-import AllRoutes from "../../../../Routes/Router";
-import routes from "../../../../Routes/routeConfig";
+import AllRoutes from "Routes/Router";
+import routes from "Routes/routeConfig";
 
 //material ui imports
 import { Container } from "@mui/material";
@@ -15,6 +15,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
+
       <Container component="main" sx={theme.components.Main.baseStyle}>
         <AllRoutes routes={routes} />
       </Container>

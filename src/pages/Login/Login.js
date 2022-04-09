@@ -15,7 +15,7 @@ import SEOHelmet from "../../common/utils/SEO/SEOHelmet";
 
 const Login = () => {
   return (
-    <section id="login-page" className="_main_section">
+    <section id="login-page">
       <SEOHelmet title="Sign In" content="Sign In with Biscuits n Groovy " />
       <div className="login-title">
         <h1>

@@ -3,15 +3,17 @@ import styles from "./Title.module.scss";
 
 //svg imports
 import { ReactComponent as RecordVinyl } from "common/assets/images/compact-disc-yellow.svg";
+import { Typography, Box, useTheme } from "@mui/material";
 
 const Title = ({ title }) => {
+  const theme = useTheme();
   return (
-    <div className={styles["title"]}>
-      <h1>
-        <RecordVinyl />
-        <div>{title.toLocaleUpperCase()}</div>
-      </h1>
-    </div>
+    <Box sx={theme.components.PageTitle}>
+      <RecordVinyl />
+      <Typography variant="h1" style={{ fontFamily: "var(--header-font)", fontSize: "3rem" }}>
+        {title.toLocaleUpperCase()}
+      </Typography>
+    </Box>
   );
 };
 

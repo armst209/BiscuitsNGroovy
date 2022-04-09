@@ -21,7 +21,7 @@ const Vault = () => {
         title="Vault"
         content="Explore all the biscuits we’ve dropped and the artists behind them."
       />
-      <section id="vault" className={`_main_section ${styles["vault"]}`}>
+      <section id="vault" className={styles["vault"]}>
         <Title title={"vault"} />
         <div className={styles["vault-contents-wrapper"]}>
           <div className={styles["vault-header"]}>
