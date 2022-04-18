@@ -1,15 +1,15 @@
 //svg imports
-import { ReactComponent as RecordSpinner } from "../../../assets/images/compact-disc-yellow.svg";
+import { ReactComponent as RecordSpinner } from "common/assets/images/compact-disc-yellow.svg";
 
 //styles
-import styles from "./MusicShowcaseLoader.module.scss";
+import styles from "./Loader.module.scss";
 
 //material ui imports
 import { Box } from "@mui/material";
 
 const MusicShowcaseLoader = () => {
   return (
-    <Box className={styles["music-showcase-loader"]}>
+    <Box className={styles["loader"]}>
       <RecordSpinner className="rotate" />
     </Box>
   );

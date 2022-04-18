@@ -15,7 +15,6 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-
       <Container component="main" sx={theme.components.Main.baseStyle}>
         <AllRoutes routes={routes} />
       </Container>
