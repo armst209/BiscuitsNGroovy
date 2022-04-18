@@ -1,5 +1,5 @@
 //component imports
-import ReleaseImage from "../../ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
+import ReleaseImage from "common/components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 
 //Google Analytics imports
 import ReactGA from "react-ga";

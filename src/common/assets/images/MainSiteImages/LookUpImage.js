@@ -1,19 +1,15 @@
-
 //styles
-import styles from "./LookUpImage.module.scss"
+import styles from "./LookUpImage.module.scss";
 //image
 import LookUpWebp from "../showcase-outline.webp";
+import { Box } from "@mui/material";
 
 const LookUpImage = () => {
-    return (
-        <div className={styles["look-up-image-container"]}>
-            <img
-                className={styles["look-up-image"]}
-                src={LookUpWebp}
-                alt="bng artist"
-            />
-        </div>
-    )
-}
+  return (
+    <Box className={styles["look-up-image-container"]}>
+      <img className={styles["look-up-image"]} src={LookUpWebp} alt="bng artist" title="" />
+    </Box>
+  );
+};
 
-export default LookUpImage
+export default LookUpImage;
