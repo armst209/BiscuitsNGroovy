@@ -1,0 +1,14 @@
+.title {
+    font-family: var(--header-font);
+    color: red;
+    font-size: 3rem;
+}
+
+svg {
+    width: 50px;
+    margin: 0 0 .5rem 0;
+
+    @media screen and (min-width: 900px) {
+        margin: 0 .5rem;
+    }
+}

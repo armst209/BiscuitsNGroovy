@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 //component imports
 import DesktopNavigation from "./DesktopNavigation/DesktopNavigation";
 import MobileNavigation from "./MobileNavigation/MobileNavigation";
-import LogoutLoading from "../../../Loading/Logout/LogoutLoading";
+import LogoutLoading from "../../../components/Loading/Logout/LogoutLoading";
 
 //react helmet
 import { Helmet } from "react-helmet-async";

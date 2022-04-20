@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 //component imports
-import SocialMedia from "../../../Social Media/SocialMedia";
+import SocialMedia from "../../../components/Social Media/SocialMedia";
 
 //svg imports
 import { ReactComponent as FooterLogo } from "common/assets/images/bng_test.svg";

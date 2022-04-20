@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 //component imports
 import ScrollToTop from "common/components/ScrollToTop/ScrollToTop";
-import MainLayout from "./common/components/UI/MainLayout/MainLayout";
+import MainLayout from "./common/UI/MainLayout/MainLayout";
 
 const App = () => {
   return (

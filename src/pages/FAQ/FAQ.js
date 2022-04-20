@@ -11,7 +11,7 @@ import { ReactComponent as RecordBullet } from "common/assets/images/vinyl_yello
 import { ReactComponent as Important } from "common/assets/images/speaker_yellow.svg";
 
 //component imports
-import Title from "common/components/UI/Title/Title";
+import Title from "common/UI/Title/Title";
 import FAQQuestion from "./FAQQuestion";
 import SEOHelmet from "common/utils/SEO/SEOHelmet";
 
@@ -240,7 +240,8 @@ const FAQ = () => {
                               <a
                                 href="https://www.onflow.org/"
                                 target="_blank"
-                                rel="noopener noreferrer">
+                                rel="noopener noreferrer"
+                              >
                                 here
                               </a>
                             </div>

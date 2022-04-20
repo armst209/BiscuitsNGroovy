@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 //yup validation
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginValidationSchema } from "../../common/components/UI/Forms/Validation/validationSchema";
+import { loginValidationSchema } from "../../common/UI/Forms/Validation/validationSchema";
 
 //styles
 import styles from "./UserLogin.module.scss";
@@ -39,7 +39,8 @@ const UserLogin = () => {
     <section id={styles["user-login"]}>
       <form
         className={styles.form}
-        onSubmit={handleSubmit((credentials) => dispatch(postUserCredentialsThunk(credentials)))}>
+        onSubmit={handleSubmit((credentials) => dispatch(postUserCredentialsThunk(credentials)))}
+      >
         {loginState.error && <div>{loginState.error.data}</div>}
         <input placeholder="Enter Username" {...register("username")} />
         {errors.username && <p>{errors.username.message}</p>}

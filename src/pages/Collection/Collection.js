@@ -2,7 +2,7 @@
 import styles from "./Collection.module.scss";
 
 //component imports
-import Title from "../../common/components/UI/Title/Title";
+import Title from "../../common/UI/Title/Title";
 
 //utility imports
 import CollectionReleases from "./ReleaseList/CollectionReleases";

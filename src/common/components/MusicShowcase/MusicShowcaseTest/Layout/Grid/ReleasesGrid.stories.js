@@ -1,7 +1,7 @@
 //component imports
 import ReleasesGrid from "./ReleasesGrid";
 import NoReleasesComponent from "../NoReleases/NoReleases";
-import Loader from "../Loader/Loader";
+import Loader from "common/UI/Loader/ComponentLoader";
 
 //react query
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -21,9 +21,3 @@ export const Grid = () => (
 export const NoReleases = () => <NoReleasesComponent />;
 
 export const Loading = () => <Loader />;
-
-const Template = (args) => (
-  <QueryClientProvider client={queryClient}>
-    <ReleasesGrid {...args} />
-  </QueryClientProvider>
-);

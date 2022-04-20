@@ -2,7 +2,7 @@
 import styles from "./VaultReleaseModalRightSide.module.scss";
 
 //component imports
-import Button from "../../../../../common/components/UI/Button/Button";
+import Button from "../../../../../common/UI/Button/Button";
 import ReleaseTracklist from "../../../../../common/components/ReleaseContent/ReleaseComponents/ReleaseTracklist/ReleaseTracklist";
 
 const VaultReleaseModalRightSide = ({ release, showHideVaultReleaseDescriptionHandler }) => {

@@ -2,7 +2,7 @@
 import styles from "./VaultReleaseModalHeader.module.scss";
 
 //component imports
-import Button from "../../../../../common/components/UI/Button/Button";
+import Button from "../../../../../common/UI/Button/Button";
 
 const VaultReleaseModalHeader = ({ toggleModal }) => {
   return (
@@ -11,7 +11,8 @@ const VaultReleaseModalHeader = ({ toggleModal }) => {
         ariaLabel="Close"
         className={styles["vault-modal-close"]}
         dataTestId="modal-close-button"
-        onClick={() => toggleModal()}>
+        onClick={() => toggleModal()}
+      >
         X
       </Button>
     </div>

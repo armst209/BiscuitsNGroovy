@@ -7,10 +7,15 @@ import styles from "./Loader.module.scss";
 //material ui imports
 import { Box } from "@mui/material";
 
+//component imports
+import Rotate360 from "common/UI/Animations/Rotate360";
+
 const MusicShowcaseLoader = () => {
   return (
-    <Box className={styles["loader"]}>
-      <RecordSpinner className="rotate" />
+    <Box className={styles.loader}>
+      <Rotate360>
+        <RecordSpinner />
+      </Rotate360>
     </Box>
   );
 };

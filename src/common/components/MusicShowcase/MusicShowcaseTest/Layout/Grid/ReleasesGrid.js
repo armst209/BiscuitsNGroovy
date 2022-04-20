@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 import MusicShowcaseCard from "../Card/Card";
 import NoReleases from "../NoReleases/NoReleases";
 import Loader from "../Loader/Loader";
+import { mockRelease } from "common/utils/Mocks/Mocks";
 
 //redux imports
 import { fetchMusicShowcaseReleases } from "../../redux/thunks";
@@ -40,11 +41,12 @@ const ReleasesGrid = () => {
   if (releaseData?.data.releases.length === 0) {
     return <NoReleases />;
   }
+
   return (
     <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="center">
-      {releaseData.data.releases.map((release) => {
+      {releaseData.map((release) => {
         return (
-          <Grid item xs={2} sm={4} md={4} key={release.id}>
+          <Grid item key={release.id}>
             <MusicShowcaseCard release={release} />
           </Grid>
         );

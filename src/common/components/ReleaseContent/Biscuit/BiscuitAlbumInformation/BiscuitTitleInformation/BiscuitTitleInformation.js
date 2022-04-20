@@ -3,7 +3,7 @@ import styles from "./BiscuitTitleInformation.module.scss";
 
 //component imports
 import ReleaseImage from "../../../ReleaseComponents/ReleaseImage/ReleaseImage";
-import Button from "../../../../UI/Button/Button.js";
+import Button from "../../../../../UI/Button/Button.js";
 
 //svg imports
 import { ReactComponent as RecordIcon } from "../../../../../assets/images/vinyl_yellow.svg";

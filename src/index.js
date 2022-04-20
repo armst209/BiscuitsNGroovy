@@ -14,7 +14,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import bngTheme from "./theme";
 
 //alerts-toasts-notifications
-import AlertProvider from "./common/components/UI/Alerts/AlertProvider";
+import AlertProvider from "./common/UI/Alerts/AlertProvider";
 
 //react helmet
 import { HelmetProvider } from "react-helmet-async";
@@ -34,8 +34,6 @@ console.log(store.getState());
 // const gaTrackingId = "UA-211766799-1";
 // ReactGA.initialize(gaTrackingId, { debug: true, testMode: true });
 // -------End of Google Analytics - DON'T REMOVE-------
-
-console.log(window);
 
 ReactDOM.render(
   <React.StrictMode>

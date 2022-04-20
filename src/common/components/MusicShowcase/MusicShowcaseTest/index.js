@@ -1,6 +1,9 @@
+//material ui imports
 import { Box } from "@mui/material";
-import ReleasesGrid from "./Layout/Grid/ReleasesGridsGrid";
-import Title from "common/components/UI/Title/Title";
+
+//component imports
+import ReleasesGrid from "./Layout/Grid/ReleasesGrid";
+import Title from "common/UI/Title/Title";
 
 const MusicShowcaseIndex = () => {
   return (
@@ -9,8 +12,9 @@ const MusicShowcaseIndex = () => {
         title="Music Showcase"
         subtitle="Available biscuits shown below. Click on a title for more details"
         variant="h2"
-        sx=""
-        direction="column"
+        component="h2"
+        sx={{ color: "#FFF" }}
+        direction="row"
       />
       <ReleasesGrid />
     </Box>

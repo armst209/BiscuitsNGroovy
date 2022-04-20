@@ -5,7 +5,7 @@ import styles from "./ExpiredReleaseHover.module.scss";
 import useModal from "../../../../../../common/hooks/Modal/useModal";
 
 //component imports
-import Button from "../../../../../../common/components/UI/Button/Button";
+import Button from "../../../../../../common/UI/Button/Button";
 import ExpiredMobileIcons from "./ExpiredMobileIcons/ExpiredMobileIcons";
 import NFTViewModal from "../Modals/NFTModal/NFTViewModal";
 
