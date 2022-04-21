@@ -12,6 +12,8 @@ import LogoutLoading from "../../../components/Loading/Logout/LogoutLoading";
 //react helmet
 import { Helmet } from "react-helmet-async";
 
+import { Box } from "@mui/material";
+
 const Header = () => {
   const [headerScrolledClass, setHeaderScrolledClass] = useState("");
   const [showLogoutLoadingModal, setShowLogoutLoadingModal] = useState(false);

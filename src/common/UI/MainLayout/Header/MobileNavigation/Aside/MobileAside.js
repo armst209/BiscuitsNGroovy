@@ -44,7 +44,7 @@ const MobileAside = ({ showMobileMenu, setShowMobileMenu, showHideLogoutLoaderHa
           <li key={link.id}>
             <NavLink
               onClick={() => closeMobileMenuHandler()}
-              style={({ isActive }) => (isActive ? components.Link.activeStyle : {})}
+              style={({ isActive }) => (isActive ? components.Link.mobile.activeStyle : {})}
               to={link.path}
             >
               {link.name}
