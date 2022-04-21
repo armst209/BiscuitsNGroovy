@@ -2,8 +2,9 @@
 import "./_global.css";
 import "@fortawesome/fontawesome-free/js/all"; //for social media icons
 
-//react router
-import { BrowserRouter as Router } from "react-router-dom";
+//route imports
+import AllRoutes from "Routes/Router";
+import routes from "Routes/routesConfiguration";
 
 //component imports
 import ScrollToTop from "common/components/ScrollToTop/ScrollToTop";
@@ -12,10 +13,10 @@ import MainLayout from "./common/UI/MainLayout/MainLayout";
 const App = () => {
   return (
     <>
-      <Router>
-        <ScrollToTop />
-        <MainLayout />;
-      </Router>
+      <ScrollToTop />
+      <MainLayout>
+        <AllRoutes routes={routes} />
+      </MainLayout>
     </>
   );
 };

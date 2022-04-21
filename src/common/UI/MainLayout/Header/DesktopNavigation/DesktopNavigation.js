@@ -2,10 +2,10 @@
 import { Link, NavLink } from "react-router-dom";
 
 //styles
-import "./DesktopNavigationStyles.scss";
+import styles from "./DesktopNavigation.module.scss";
 
 //svg imports
-import { ReactComponent as MainHeaderLogo } from "common/assets/images/bng-main-logo.svg/";
+import { ReactComponent as MainHeaderLogo } from "common/assets/images/bng-main-logo.svg";
 
 //redux imports
 import { useSelector } from "react-redux";
@@ -15,69 +15,39 @@ import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import Logout from "../Logout/Logout";
 import CollectionButton from "../CollectionButton/CollectionButton";
 
+//material ui imports
+import { useTheme } from "@mui/material";
+
+import { linkNames } from "../Navigation/links";
+
 const DesktopNavigation = ({ showHideLogoutLoaderHandler }) => {
+  const { components } = useTheme();
   const isUserAuthenticated = useSelector((state) => state.bng_user.authentication.isAuthenticated);
 
   return (
     <>
-      <div className="left-links-container">
-        <div className="logo-container">
+      <div className={styles["left-links-container"]}>
+        <div className={styles["logo-container"]}>
           <Link className="logo-link" to="/">
-            <MainHeaderLogo className="main-header-logo" />
+            <MainHeaderLogo className={styles["main-header-logo"]} />
           </Link>
         </div>
-        <ul className="desktop-main-links">
-          <li>
-            <NavLink
-              activeStyle={{
-                borderBottom: "2px solid var(--color1)",
-              }}
-              exact
-              to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              activeStyle={{
-                borderBottom: "2px solid var(--color1)",
-              }}
-              to="/about">
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              activeStyle={{
-                borderBottom: "2px solid var(--color1)",
-              }}
-              to="/faq">
-              FAQ
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              activeStyle={{
-                borderBottom: "2px solid var(--color1)",
-              }}
-              to="/artists">
-              Artists
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              activeStyle={{
-                borderBottom: "2px solid var(--color1)",
-              }}
-              to="/vault">
-              Vault
-            </NavLink>
-          </li>
+        <ul className={styles["desktop-main-links"]}>
+          {linkNames.map((link) => (
+            <li key={link.id}>
+              <NavLink
+                style={({ isActive }) => (isActive ? components.Link.activeStyle : {})}
+                to={link.path}
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="right-links-container">
-        <div className="right-links-inner-container">
-          <div className="desktop-main-links">
+      <div className={styles["right-links-container"]}>
+        <div className={styles["right-links-inner-container"]}>
+          <div className={styles["desktop-main-links"]}>
             {isUserAuthenticated && <CollectionButton />}
             {!isUserAuthenticated && <LoginAndSignUp />}
           </div>

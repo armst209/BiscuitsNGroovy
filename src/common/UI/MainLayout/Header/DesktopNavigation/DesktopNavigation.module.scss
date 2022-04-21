@@ -12,6 +12,7 @@
     padding: 0 10px;
 
     font-weight: normal;
+
     a {
       line-height: 22px;
       text-decoration: none;
@@ -26,6 +27,7 @@
       }
     }
   }
+
   .signup-button {
     display: flex;
     flex-direction: row;
@@ -53,6 +55,7 @@
   justify-content: left;
   width: 50%;
   height: 100%;
+
   .logo-container {
     display: flex;
     justify-content: left;
@@ -69,8 +72,7 @@
       width: 200px;
       margin-right: 1rem;
 
-      .main-header-logo {
-      }
+      .main-header-logo {}
     }
   }
 }
@@ -83,6 +85,7 @@
   // width: 50%;
   height: 100%;
   color: white;
+
   .right-links-inner-container {
     display: flex;
     justify-content: center;
@@ -95,4 +98,9 @@
   @media screen and (min-width: 950px) {
     display: flex;
   }
+}
+
+
+.active-link {
+  border-bottom: 2px solid var(--color1)
 }

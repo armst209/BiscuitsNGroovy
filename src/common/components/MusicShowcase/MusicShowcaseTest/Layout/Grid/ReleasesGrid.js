@@ -44,7 +44,7 @@ const ReleasesGrid = () => {
 
   return (
     <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="center">
-      {releaseData.map((release) => {
+      {releaseData.data.releases.map((release) => {
         return (
           <Grid item key={release.id}>
             <MusicShowcaseCard release={release} />

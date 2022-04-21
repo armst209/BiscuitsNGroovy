@@ -15,7 +15,7 @@ const Title = ({ title, subtitle, variant, component, sx }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <RecordVinyl className={styles.svg} />
+        <RecordVinyl className={styles["title-svg"]} />
         <Typography variant={variant ?? "h1"} component={component ?? "h1"}>
           {title.toLocaleUpperCase()}
         </Typography>

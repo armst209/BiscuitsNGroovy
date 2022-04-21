@@ -1,5 +1,5 @@
 //react imports
-import { Link, Redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 //svg imports
 import { ReactComponent as BiscuitLove } from "common/assets/images/vinyl_yellow.svg";
@@ -18,7 +18,7 @@ const SuccessBuy = () => {
   const isUserAuthenticated = useSelector((state) => state.bng_user.authentication.isAuthenticated);
 
   if (!isUserAuthenticated) {
-    return <Redirect to={"/"} />;
+    return <Navigate replace to={"/"} />;
   }
 
   return (

@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
 
-const CollectionButtonMobile = ({ showMobileMenu, setShowMobileMenu }) => {
+//material ui imports
+import { useTheme } from "@mui/material";
 
+const CollectionButtonMobile = ({ showMobileMenu, setShowMobileMenu }) => {
+  const { components } = useTheme();
   return (
     <li>
       <NavLink
         onClick={() => setShowMobileMenu(!showMobileMenu)}
-        activeClassName="active-link"
+        style={({ isActive }) => (isActive ? components.Link.mobile.activeStyle : {})}
         to="/collection"
       >
         Collection

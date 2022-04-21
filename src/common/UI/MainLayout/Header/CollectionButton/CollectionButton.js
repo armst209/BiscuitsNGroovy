@@ -1,24 +1,21 @@
-
 //react imports
 import { NavLink } from "react-router-dom";
 
+//material ui imports
+import { useTheme } from "@mui/material";
+
 const CollectionButton = () => {
-
+  const { components } = useTheme();
   return (
-
     <li>
       <NavLink
-        activeStyle={{
-          borderBottom: "2px solid var(--color1)",
-        }}
+        style={({ isActive }) => (isActive ? components.Link.activeStyle : {})}
         to="/collection"
       >
-        <div> Collection</div>
+        Collection
       </NavLink>
-    </li >
-
-  )
-
+    </li>
+  );
 };
 
 export default CollectionButton;

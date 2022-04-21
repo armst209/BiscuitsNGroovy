@@ -1,15 +1,15 @@
 import "./PasswordRecoverySuccessModalStyles.scss";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PasswordRecoverySuccessModal = () => {
-  const history = useHistory();
+  const navigateTo = useNavigate();
   return (
     <div id="password-recovery-success-modal">
       <div className="password-recovery-success-modal-container">
         <div
           className="password-recovery-success-modal-close"
           onClick={() => {
-            history.push("/");
+            navigateTo("/", { replace: true });
           }}
         >
           X

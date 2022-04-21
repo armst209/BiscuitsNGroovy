@@ -20,6 +20,7 @@ import record_vinyl from "common/assets/images/compact-disc-yellow.svg";
 
 //component imports
 import ArtistInformationContainer from "common/components/MailchimpForms/ArtistInformation/ArtistInformationContainer";
+import Title from "common/UI/Title/Title";
 
 //seo imports
 import SEOHelmet from "common/utils/SEO/SEOHelmet";
@@ -37,12 +38,13 @@ const Artists = () => {
       />
 
       <section id="artists">
-        <div className="artists-title">
+        <Title title={"artists"} />
+        {/* <div className="artists-title">
           <h1>
             <img width="50px" src={record_vinyl} alt="record" />
             <div>ARTISTS</div>
           </h1>
-        </div>
+        </div>  */}
 
         <div className="artists-wrapper">
           <div className="art-image-container">

@@ -18,11 +18,11 @@ const Homepage = () => {
         title="New Music Is Our Jam"
         content="Stream and collect exclusive biscuits from your favorite artists. Prove your fandom"
       />
-      <Hero />
+      {/* <Hero /> */}
       <HowItWorks />
       <MusicShowcase />
       <KnowYourCollection />
-      <AttentionSection />
+      {/* <AttentionSection />  */}
     </>
   );
 };

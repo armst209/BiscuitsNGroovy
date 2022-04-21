@@ -1,37 +1,6 @@
 import colors from "./colors";
-import { futuraBold, ttNorms } from "./typography";
-import FuturaBoldTTF from "common/assets/fonts/FuturaBold/HussarBoldWeb-bf92.woff";
 
 const components = {
-  // MuiCSSBaseline: {
-  //   styleOverrides: `
-  //   @import url("//hello.myfonts.net/count/40e284");
-  //   @import url("//hello.myfonts.net/count/40e27c");
-  //   @font-face {
-  //     font-family: "TTNormsPro-Normal";
-  //     src: url(${TTNORMS_PRO_NORMAL_WOFF2})
-  //         format("woff2"),
-  //       url(${TTNORMS_PRO_NORMAL_WOFF})
-  //         format("woff");
-  //   },
-  //   @font-face {
-  //     font-family: "TTNormsPro-Rg";
-  //     src: url(${TTNORMS_PRO_REGULAR_WOFF2})
-  //         format("woff2"),
-  //         url(${TTNORMS_PRO_REGULAR_WOFF})
-  //     format("woff");
-  //   },
-  //   @font-face {
-  //     font-family: "futura-bold";
-  //     src: url(${FUTURA_BOLD}) format("woff");
-  //     font-weight: normal;
-  //     font-style: normal;
-  //   }
-  //   `,
-  // },
-  MuiCssBaseline: {
-    styleOverrides: `@font-face {font-family: "Futura Bold", font-style: normal, font-weight: normal, src: local('Futura Bold'), url(${FuturaBoldTTF}) format('woff');}`,
-  },
   Main: {
     baseStyle: {
       minHeight: "800px",
@@ -100,6 +69,16 @@ const components = {
         "@media screen and (max-width: 400px)": {
           position: "static",
         },
+      },
+    },
+  },
+
+  Link: {
+    baseStyle: {},
+    activeStyle: { borderBottom: `2px solid ${colors.primary}` },
+    mobile: {
+      activeStyle: {
+        borderBottom: `2px solid ${colors.secondary}`,
       },
     },
   },
