@@ -1,20 +1,20 @@
+
 //react imports
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 
 //component imports
 import App from "./App";
 import ScrollToTop from "./Routes/ScrollToTop";
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
-    <Router>
-      <ScrollToTop />
-      <App />
-    </Router>
-  </React.StrictMode>,
-
-  document.getElementById("root")
+  <Router>
+    <ScrollToTop />
+    <App />
+  </Router>
+</React.StrictMode>
 );
