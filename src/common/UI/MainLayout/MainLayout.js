@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <Container component="main" sx={theme.components.Main.baseStyle}>
+      <Container component="section" sx={theme.components.Main.baseStyle}>
         {children}
       </Container>
       <Footer />

@@ -3,9 +3,10 @@ import { Box } from "@mui/material";
 
 //component imports
 import ReleasesGrid from "./Layout/Grid/ReleasesGrid";
-import Title from "common/UI/Title/Title";
+import Title from "@common/UI/Title/Title";
 
 const MusicShowcaseIndex = () => {
+  console.log("parent render");
   return (
     <Box component="section">
       <Title

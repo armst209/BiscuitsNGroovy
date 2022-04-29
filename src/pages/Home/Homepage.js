@@ -1,9 +1,9 @@
 //styles
-import "./HomepageStyles.scss";
+// import "./HomepageStyles.scss";
 
 //component imports
 import HowItWorks from "../../common/components/HowItWorks/HowItWorks";
-import MusicShowcase from "../../common/components/MusicShowcase/MusicShowcaseTest/index";
+import MusicShowcase from "../../common/components/MusicShowcase/index";
 import KnowYourCollection from "../../common/components/KnowYourCollection/KnowYourCollection";
 import Hero from "../../common/components/Hero/Hero";
 import AttentionSection from "../../common/components/AttentionSection/AttentionSection";
@@ -19,9 +19,9 @@ const Homepage = () => {
         content="Stream and collect exclusive biscuits from your favorite artists. Prove your fandom"
       />
       {/* <Hero /> */}
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <MusicShowcase />
-      <KnowYourCollection />
+      {/* <KnowYourCollection /> */}
       {/* <AttentionSection />  */}
     </>
   );

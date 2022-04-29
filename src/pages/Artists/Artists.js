@@ -39,12 +39,6 @@ const Artists = () => {
 
       <section id="artists">
         <Title title={"artists"} />
-        {/* <div className="artists-title">
-          <h1>
-            <img width="50px" src={record_vinyl} alt="record" />
-            <div>ARTISTS</div>
-          </h1>
-        </div>  */}
 
         <div className="artists-wrapper">
           <div className="art-image-container">
@@ -56,9 +50,9 @@ const Artists = () => {
                 <div className="artists-impt-text">
                   <p>
                     Interested in releasing with Biscuits n Groovy? Contact us{" "}
-                    <NavHashLink className="below-link" to="/artists#artists-form">
+                    <HashLink className="below-link" to="/artists#artists-form">
                       here
-                    </NavHashLink>{" "}
+                    </HashLink>{" "}
                     and we’ll be in touch ASAP.
                   </p>
                 </div>

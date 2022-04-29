@@ -5,13 +5,12 @@ import { Grid } from "@mui/material";
 import MusicShowcaseCard from "../Card/Card";
 import NoReleases from "../NoReleases/NoReleases";
 import Loader from "../Loader/Loader";
-import { mockRelease } from "common/utils/Mocks/Mocks";
 
 //redux imports
-import { fetchMusicShowcaseReleases } from "../../redux/thunks";
+// import { fetchMusicShowcaseReleases } from "../../redux/thunks";
 
 //react query
-import { useQuery } from "react-query";
+import useFetchReleases from "./hooks/useFetchReleases";
 
 const ReleasesGrid = () => {
   //useQuery - refetch is set for every hour
@@ -21,13 +20,7 @@ const ReleasesGrid = () => {
     isError,
     error,
     isFetching,
-  } = useQuery("music-showcase-releases", fetchMusicShowcaseReleases, {
-    staleTime: 600000,
-    refetchInterval: 3.6e6,
-    refetchOnWindowFocus: true,
-    refetchOnReconnect: true,
-    refetchOnMount: false,
-  });
+  } = useFetchReleases(600000, 3.6e6, true, true, false);
 
   if (isLoading || isFetching) {
     return <Loader />;
@@ -43,7 +36,12 @@ const ReleasesGrid = () => {
   }
 
   return (
-    <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="center">
+    <Grid
+      data-testid="releases-grid"
+      container
+      spacing={2}
+      columns={{ xs: 4, sm: 8, md: 12 }}
+      justifyContent="center">
       {releaseData.data.releases.map((release) => {
         return (
           <Grid item key={release.id}>

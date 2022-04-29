@@ -1,5 +1,5 @@
 import axios from "axios";
-import { token } from "common/utils/UtilityVariables.js";
+import { token } from "@utils/UtilityVariables.js";
 
 export const fetchMusicShowcaseReleases = () => {
   return axios({

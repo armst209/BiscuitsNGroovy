@@ -2,17 +2,17 @@
 import { useState } from "react";
 
 //svg imports
-import { ReactComponent as Dropdown } from "common/assets/images/double-down-yellow.svg";
+import { ReactComponent as Dropdown } from "@images/double-down-yellow.svg";
 
 //styles
 import styles from "./FAQQuestion.module.scss";
 
-interface FrequentlyAskedQuestion {
-  title: string;
-  content: HTMLUListElement;
-}
+// interface FrequentlyAskedQuestion {
+//   title: string;
+//   content: HTMLUListElement;
+// }
 
-const FAQQuestion = ({ title, content }: FrequentlyAskedQuestion) => {
+const FAQQuestion = ({ title, content }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
     <>

@@ -1,16 +1,16 @@
 //react imports
 import { Suspense } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 //component imports
-import Loading from "common/components/Loading/Loading";
+import Loading from "@components/Loading/Loading";
+import Homepage from "@pages/Home/Homepage";
 
 //redux imports
 import { useSelector } from "react-redux";
 
 //Google Analytics import
-import PageViewsTracking from "common/utils/GoogleAnalytics/PageViewsTracking";
-import Homepage from "pages/Home/Homepage";
+import PageViewsTracking from "@utils/GoogleAnalytics/PageViewsTracking";
 
 const Router = ({ routes }) => {
   const isUserAuthenticated = useSelector((state) => state.bng_user.authentication.isAuthenticated);

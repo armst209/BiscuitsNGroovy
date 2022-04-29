@@ -6,9 +6,9 @@ import "./FAQStyles.scss";
 
 //svg imports
 
-import { ReactComponent as Question } from "common/assets/images/question2.svg";
-import { ReactComponent as RecordBullet } from "common/assets/images/vinyl_yellow.svg";
-import { ReactComponent as Important } from "common/assets/images/speaker_yellow.svg";
+import { ReactComponent as Question } from "@images/question2.svg";
+import { ReactComponent as RecordBullet } from "@images/vinyl_yellow.svg";
+import { ReactComponent as Important } from "@images/speaker_yellow.svg";
 
 //component imports
 import Title from "common/UI/Title/Title";

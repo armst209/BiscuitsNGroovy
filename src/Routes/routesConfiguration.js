@@ -128,7 +128,7 @@ const routes = [
     private: false,
   },
 
-  //Not Found Page - must be at the bottom - React router V6 - route order doesn't matter
+  //Not Found Page - React router V6 - route order doesn't matter
   {
     path: "*",
     element: lazy(() => import("../pages/NotFound/NotFound")),

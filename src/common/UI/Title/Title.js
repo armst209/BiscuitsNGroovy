@@ -8,7 +8,7 @@ import { Typography, Box, Stack } from "@mui/material";
 const Title = ({ title, subtitle, variant, component, sx }) => {
   const responsiveness = { xs: "column-reverse", sm: "column-reverse", md: "row-reverse" };
   return (
-    <Box paddingBottom="3rem" textAlign="center" sx={sx ?? null}>
+    <Box data-testid="title-component" paddingBottom="3rem" textAlign="center" sx={sx ?? null}>
       <Stack
         paddingBottom=".5rem"
         direction={responsiveness}
