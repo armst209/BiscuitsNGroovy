@@ -26,7 +26,7 @@
     "formik-mui": "^4.0.0-alpha.3",
     "framer-motion": "^6.5.1",
     "imagehover.css": "^2.0.0",
-    "notistack": "^2.0.3",
+    "notistack": "^2.0.5",
     "prefixfree": "^1.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
