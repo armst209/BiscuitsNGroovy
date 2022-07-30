@@ -1,7 +1,0 @@
-Music Showcase
-Collection 
-Login
-Sign Up 
-Custom Hooks
-Vault
-Mailchimp Forms

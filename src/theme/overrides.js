@@ -1,11 +1,11 @@
 // import { futuraBold, ttNorms } from "./typography";
 
-// const overrides = {
+const overrides = {
 //   MuiCssBaseline: {
 //     "@global": {
 //       "@font-face": [futuraBold, ttNorms],
 //     },
 //   },
-// };
+};
 
-// export default overrides;
+export default overrides;

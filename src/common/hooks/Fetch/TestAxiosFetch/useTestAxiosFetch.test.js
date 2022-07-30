@@ -7,7 +7,7 @@ test("fetch correctly", async () => {
   //Arrange & Act
   const { result, waitForNextUpdate } = renderHook(() =>
     useTestAxiosFetch({
-      url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
+      url: `${import.meta.env.VITE_BACKEND_URL}/releases`,
       method: "GET",
       headers: { "x-access-token": null },
     }),
@@ -26,7 +26,7 @@ test("fetch correctly", async () => {
 test("handles failure", async () => {
   // Arrange - rewrite the response from server for test scenario.
   server.use(
-    rest.get(`${process.env.REACT_APP_BACKEND_URL}/releases`, (req, res, ctx) => {
+    rest.get(`${import.meta.env.VITE_BACKEND_URL}/releases`, (req, res, ctx) => {
       return res(ctx.status(404));
     }),
   );
@@ -34,7 +34,7 @@ test("handles failure", async () => {
   // Arrange & Act
   const { result, waitForNextUpdate } = renderHook(() =>
     useTestAxiosFetch({
-      url: `${process.env.REACT_APP_BACKEND_URL}/releases`,
+      url: `${import.meta.env.VITE_BACKEND_URL}/releases`,
       method: "GET",
       headers: { "x-access-token": null },
     }),
