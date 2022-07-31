@@ -11,7 +11,7 @@ import NoReleasesCollection from "../NoReleases/NoReleasesCollection";
 import CollectionReleaseList from "./List/CollectionReleaseList";
 
 //react query
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const CollectionReleases = () => {
   const fetchLibraryCollection = () => {

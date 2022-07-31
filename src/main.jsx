@@ -24,9 +24,9 @@ import { HelmetProvider } from "react-helmet-async";
 import ReactGA from "react-ga";
 
 //react query
-import { QueryClientProvider, QueryClient } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import Loading from "./common/components/Loading/Loading";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Loading from "@/common/components/Loading/Loading";
 
 const queryClient = new QueryClient();
 
@@ -49,7 +49,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </Suspense>
             </BrowserRouter>
           </HelmetProvider>
-          <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+          <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
         </QueryClientProvider>
         {/* </AlertProvider> */}
       </ThemeProvider>
