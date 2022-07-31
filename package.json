@@ -98,7 +98,7 @@
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.2",
     "@types/body-scroll-lock": "^3.1.0",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^28.1.6",
     "@types/prop-types": "^15.7.4",
     "@types/react-helmet": "^6.1.5",
     "@types/react-mailchimp-subscribe": "^2.1.1",
