@@ -10,7 +10,7 @@
     "@hookform/resolvers": "^2.8.8",
     "@mui/material": "^5.9.2",
     "@onflow/fcl": "^0.0.77",
-    "@onflow/types": "^0.0.5",
+    "@onflow/types": "^1.0.3",
     "@redux-devtools/extension": "^3.2.2",
     "@reduxjs/toolkit": "^1.8.0",
     "@stripe/react-stripe-js": "^1.5.0",
