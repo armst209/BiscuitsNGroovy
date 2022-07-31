@@ -1,14 +1,28 @@
-import { lazy } from "react";
 import { useSelector } from "react-redux";
 import { useRoutes } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import About from "../pages/About/About";
-import Artists from "../pages/Artists/Artists";
-import FAQ from "../pages/FAQ/FAQ";
-import Homepage from "../pages/Home/Homepage";
-import SignUp from "../pages/SignUp/SignUp";
-import UserLogin from "../pages/Users/UserLoginIndex";
-import Vault from "../pages/Vault/Vault";
+
+//component imports
+import About from "@/pages/About/About";
+import Artists from "@/pages/Artists/Artists";
+import FAQ from "@/pages/FAQ/FAQ";
+import Homepage from "@/pages/Home/Homepage";
+import SignUp from "@/pages/SignUp/SignUp";
+import UserLogin from "@/pages/Users/UserLoginIndex";
+import Vault from "@/pages/Vault/Vault";
+import NotFound from "@/pages/NotFound/NotFound";
+import SuccessfulSignUp from "@/pages/SuccessfulSignUp/SuccessfulSignUp";
+import BiscuitAlbumInformation from "@/common/components/ReleaseContent/Biscuit/BiscuitAlbumInformation/BiscuitAlbumInformation";
+import Collection from "@/pages/Collection/Collection";
+import Release from "@/common/components/ReleaseContent/Release/Release";
+import UserEmail from "@/pages/PasswordRecovery/UserEmail/UserEmail";
+import PasswordReset from "@/pages/PasswordRecovery/PasswordReset/PasswordReset";
+import NFTTerms from "../pages/TermsOfService/Terms/NFTTerms";
+import PurchaseOfMusic from "../pages/TermsOfService/Terms/PurchaseOfMusic";
+import Subscriber from "../pages/TermsOfService/Terms/Subscriber";
+import PrivacyPolicy from "../pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy";
+import TermsOfService from "../pages/TermsOfService/TermsOfService";
+import SuccessBuy from "../pages/SuccessfulPurchase/SuccessBuy";
 
 const RoutesConfiguration = () => {
   const isUserAuthenticated = useSelector((state) => state.bng_user.authentication.isAuthenticated);
@@ -48,67 +62,59 @@ const RoutesConfiguration = () => {
     },
     {
       path: "/biscuit/:biscuitId/:artistName/:releaseName/",
-      element: lazy(() => import("../common/components/ReleaseContent/Biscuit/Biscuit")),
+      element: <BiscuitAlbumInformation />,
     },
 
     {
       path: "/collection",
-      element: isUserAuthenticated ? (
-        lazy(() => import("../pages/Collection/Collection"))
-      ) : (
-        <Navigate to="/" />
-      ),
+      element: isUserAuthenticated ? <Collection /> : <Navigate to="/" />,
     },
 
     {
       path: "/release/:releaseId/:artistName/:releaseName/",
-      element: lazy(() => import("../common/components/ReleaseContent/Release/Release")),
+      element: <Release />,
     },
     {
       path: "/password-recovery",
-      element: lazy(() => import("../pages/PasswordRecovery/UserEmail/UserEmail")),
+      element: <UserEmail />,
     },
     {
       path: "/password-recovery/reset/:userResetToken",
-      element: lazy(() => import("../pages/PasswordRecovery/PasswordReset/PasswordReset")),
+      element: <PasswordReset />,
     },
     {
       path: "/purchase-success",
-      element: isUserAuthenticated ? (
-        lazy(() => import("../pages/SuccessfulPurchase/SuccessBuy"))
-      ) : (
-        <Navigate to="/" />
-      ),
+      element: isUserAuthenticated ? <SuccessBuy /> : <Navigate to="/" />,
     },
     {
       path: "/privacy-terms-of-use",
-      element: lazy(() => import("../pages/TermsOfService/TermsOfService")),
+      element: <TermsOfService />,
     },
     {
       path: "/privacy-policy",
-      element: lazy(() => import("../pages/TermsOfService/Terms/PrivacyPolicy/PrivacyPolicy")),
+      element: <PrivacyPolicy />,
     },
     {
       path: "/subscriber-terms-of-service",
-      element: lazy(() => import("../pages/TermsOfService/Terms/Subscriber")),
+      element: <Subscriber />,
     },
     {
       path: "/music-purchase-terms",
-      element: lazy(() => import("../pages/TermsOfService/Terms/PurchaseOfMusic")),
+      element: <PurchaseOfMusic />,
     },
     {
       path: "/nft-terms",
-      element: lazy(() => import("../pages/TermsOfService/Terms/NFTTerms")),
+      element: <NFTTerms />,
     },
 
     {
       path: "/purchase",
-      element: lazy(() => import("../pages/SuccessfulPurchase/SuccessBuy")),
+      element: <SuccessfulSignUp />,
     },
 
     {
       path: "*",
-      element: lazy(() => import("../pages/NotFound/NotFound")),
+      element: <NotFound />,
     },
   ]);
 

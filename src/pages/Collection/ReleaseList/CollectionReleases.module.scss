@@ -16,16 +16,15 @@
     width: 100%;
     padding: 1rem 0 1rem 0;
 
-    @media screen and(max-width: 600px) {
+    @media screen and (max-width: 600px) {
       justify-content: center;
-
     }
 
-    @media screen and(max-width: 400px) {
+    @media screen and (max-width: 400px) {
       text-decoration: underline 2px var(--color2);
     }
 
-    @media screen and(max-width: 300px) {
+    @media screen and (max-width: 300px) {
       font-size: 1.6rem;
     }
   }
@@ -80,7 +79,7 @@
         flex-wrap: wrap;
       }
 
-      @include mixins.carousel-media-query()
+      @include mixins.carousel-media-query();
     }
   }
 

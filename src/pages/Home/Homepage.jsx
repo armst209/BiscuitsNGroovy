@@ -1,5 +1,5 @@
 //styles
-import style from "./Homepage.module.scss"
+import style from "./Homepage.module.scss";
 
 //component imports
 import HowItWorks from "../../common/components/HowItWorks/HowItWorks";
@@ -14,16 +14,15 @@ import SEOHelmet from "../../common/utils/SEO/SEOHelmet";
 const Homepage = () => {
   return (
     <>
-    <h1 style={{color:"white"}}>Homepage</h1>
-      {/* <SEOHelmet
+      <SEOHelmet
         title="New Music Is Our Jam"
         content="Stream and collect exclusive biscuits from your favorite artists. Prove your fandom"
-      /> */}
-      {/* <Hero />
-      <HowItWorks /> */}
+      />
+      <Hero />
+      <HowItWorks />
       {/* <MusicShowcase /> */}
-      {/* <KnowYourCollection />
-      <AttentionSection /> */}
+      <KnowYourCollection />
+      <AttentionSection />
     </>
   );
 };

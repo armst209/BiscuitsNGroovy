@@ -9,9 +9,7 @@ import { useTheme } from "@mui/material";
 import HeroImage from "../../assets/images/hero-image.webp";
 
 //styles
-// import styles from "./Hero.module.scss";
-
-
+import styles from "./Hero.module.scss";
 
 const Hero = () => {
   const theme = useTheme();
@@ -33,8 +31,7 @@ const Hero = () => {
                   <NavHashLink
                     className={styles["hero-subtitle-link"]}
                     smooth
-                    to="#whats-a-biscuit"
-                  >
+                    to="#whats-a-biscuit">
                     biscuits
                   </NavHashLink>{" "}
                   from your favorite artists. Prove your fandom
@@ -44,8 +41,7 @@ const Hero = () => {
                     <NavHashLink
                       className={styles["start-button-link"]}
                       smooth
-                      to="/#music-showcase-return"
-                    >
+                      to="/#music-showcase-return">
                       <span>Start Your Collection</span>
                     </NavHashLink>
                   </button>

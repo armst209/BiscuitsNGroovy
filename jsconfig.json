@@ -1,15 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "jsx": "react",
     "paths": {
-      "@common/*": ["common/*"],
-      "@pages/*": ["pages/*"],
-      "@components/*": ["common/components/*"],
-      "@images/*": ["common/assets/images/*"],
-      "@utils/*": ["common/utils/*"],
-      "@hook/*/": ["common/hooks/"]
+     "@/*":["src/*"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*", "build"]

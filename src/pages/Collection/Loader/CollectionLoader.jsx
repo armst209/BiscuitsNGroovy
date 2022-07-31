@@ -2,7 +2,7 @@
 import styles from "../Collection.module.scss";
 
 //svg imports
-import { ReactComponent as RecordSpinner } from "common/assets/images/compact-disc-yellow.svg";
+import { ReactComponent as RecordSpinner } from "@/common/assets/images/compact-disc-yellow.svg";
 
 const CollectionLoader = () => {
   return (
