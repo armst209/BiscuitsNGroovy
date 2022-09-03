@@ -1,14 +1,15 @@
 //component imports
-import ReleaseImage from "../../../../components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
+import ReleaseImage from "../../../../../common/components/ReleaseContent/ReleaseComponents/ReleaseImage/ReleaseImage";
 
 //Google Analytics imports
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
+import { Link } from "react-router-dom";
 
 const MusicShowcaseCard = ({ release }) => {
   const { name, art_url, id, title } = release;
 
   return (
-    <ReactGA.OutboundLink
+    <Link
       eventLabel={`${name}-Release`}
       to={`/release/${id}/${name.replaceAll(" ", "")}/${title.replaceAll(" ", "")}/`}>
       <figure>
@@ -16,7 +17,7 @@ const MusicShowcaseCard = ({ release }) => {
           <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
         </div>
       </figure>
-    </ReactGA.OutboundLink>
+    </Link>
   );
 };
 

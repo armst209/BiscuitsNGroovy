@@ -12,13 +12,13 @@ import styles from "./VaultReleaseModal.module.scss";
 
 
 // Google Analytics imports
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 
 
 const VaultReleaseModal = ({ release, toggleModal }) => {
 
   // -------Start of Google Analytics - DON'T REMOVE-------
-  ReactGA.modalview(`${release.release_name}-VaultModal`)
+  // ReactGA.modalview(`${release.release_name}-VaultModal`)
   // -------End of Google Analytics - DON'T REMOVE-------
 
   const [showHideVaultReleaseDescription, setShowHideReleaseDescription] =

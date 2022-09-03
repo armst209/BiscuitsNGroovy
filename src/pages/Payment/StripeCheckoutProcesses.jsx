@@ -17,7 +17,7 @@ import { token } from "../../common/utils/UtilityVariables";
 import StripeLoader from "../../common/components/Loading/Stripe/StripeLoader";
 
 //Google Analytics imports
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render. ??
@@ -40,7 +40,7 @@ const StripeCheckoutProcesses = ({ release }) => {
 
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
-      ReactGA.pageview("/purchase-success");
+      // ReactGA.pageview("/purchase-success");
       window.location.replace(import.meta.env.VITE_FRONTEND_URL + "/purchase-success");
     }
     if (query.get("canceled")) {
