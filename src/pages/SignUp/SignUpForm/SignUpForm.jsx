@@ -8,8 +8,7 @@ import "../../../common/hooks/Validation/useValidationStyles.scss";
 import "./SignUpFormStyles.scss";
 import styles from "../SignUp.module.scss";
 
-//component imports
-import LinkFlowButton from "../LinkFlowButton";
+
 
 //svg imports
 import { ReactComponent as ValidationSuccess } from "../../../common/assets/images/check.svg";
@@ -17,16 +16,7 @@ import { ReactComponent as ValidationSuccess } from "../../../common/assets/imag
 //other imports
 import axios from "axios";
 
-//Importing Flow Configuration
-import { config } from "@onflow/fcl";
-import * as fcl from "@onflow/fcl";
 
-//configure flow environment
-//points to env.js not global prod and dev envs
-config()
-  .put("accessNode.api", import.meta.env.VITE_ACCESS_NODE) // Configure FCL's Access Node
-  .put("challenge.handshake", import.meta.env.VITE_WALLET_DISCOVERY) // Configure FCL's Wallet Discovery mechanism
-  .put("0xProfile", import.meta.env.VITE_CONTRACT_PROFILE); // Will let us use `0xProfile` in our Cadence
 
 const SignUpForm = ({
   setShowFlowButtonLoader,
@@ -106,15 +96,7 @@ const SignUpForm = ({
     showSignUpLoaderHandler();
     showSignUpButtonLoaderHandler();
 
-    // if flow account is not linked throw error
-    let currUser = await fcl.currentUser().snapshot();
-    if (currUser.addr === null) {
-      console.log("Error");
-      return;
-    }
-
-    let flow_address = currUser.addr;
-
+ 
     axios({
       method: "post",
       url: `${import.meta.env.VITE_BACKEND_URL}/registration`,
@@ -123,7 +105,7 @@ const SignUpForm = ({
         name: "",
         username,
         password,
-        flow_address,
+       
       },
     })
       .then((res) => {
@@ -205,13 +187,7 @@ const SignUpForm = ({
           </div>
         </fieldset>
       </form>
-      {/* Link Blocto Account/Create Account button */}
-      <LinkFlowButton
-        submit={submit}
-        setShowFlowButtonLoader={setShowFlowButtonLoader}
-        setErrorMessages={setErrorMessages}
-        isButton={isButtonLoading}
-      />
+ 
     </>
   );
 };

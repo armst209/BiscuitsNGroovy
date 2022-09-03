@@ -3,7 +3,7 @@ import style from "./Homepage.module.scss";
 
 //component imports
 import HowItWorks from "../../common/components/HowItWorks/HowItWorks";
-import MusicShowcase from "../../common/components/MusicShowcase/index";
+import MusicShowcase from "./MusicShowcase/index";
 import KnowYourCollection from "../../common/components/KnowYourCollection/KnowYourCollection";
 import Hero from "../../common/components/Hero/Hero";
 import AttentionSection from "../../common/components/AttentionSection/AttentionSection";

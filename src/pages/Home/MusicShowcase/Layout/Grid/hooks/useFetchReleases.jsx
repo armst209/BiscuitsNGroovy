@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchMusicShowcaseReleases } from "../../../../../components/MusicShowcase/redux/thunks";
+import { fetchMusicShowcaseReleases } from "../../../redux/thunks";
 
 const useFetchReleases = (
   staleTime,

@@ -1,4 +1,4 @@
-import MusicShowcaseCard from "../../../MusicShowcase/Card/MusicShowcaseCard";
+import MusicShowcaseCard from "../../../../../pages/Home/MusicShowcase/Card/MusicShowcaseCard";
 import CollectionCard from "../../../../../pages/Collection/CollectionCard/CollectionCard";
 
 const ReleaseCard = ({ release }) => {

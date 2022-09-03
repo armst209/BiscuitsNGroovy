@@ -5,7 +5,7 @@ import styles from "./BiscuitInsert.module.scss";
 import VideoIFrame from "./Video/VideoIFrame";
 
 //Google Analytics imports
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 
 
 const BiscuitInsert = ({
@@ -15,7 +15,7 @@ const BiscuitInsert = ({
 }) => {
 
   // -------Start of Google Analytics - DON'T REMOVE-------
-  ReactGA.modalview(`${release.name}-BiscuitInsert`);
+  // ReactGA.modalview(`${release.name}-BiscuitInsert`);
   // -------End of Google Analytics - DON'T REMOVE-------
 
   /**

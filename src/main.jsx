@@ -21,7 +21,7 @@ import AlertProvider from "./common/UI/Alerts/AlertProvider";
 import { HelmetProvider } from "react-helmet-async";
 
 // Google Analytics imports
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 
 //react query
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
