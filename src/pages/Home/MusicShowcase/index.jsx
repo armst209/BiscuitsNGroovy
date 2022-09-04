@@ -3,13 +3,12 @@ import { Box } from "@mui/material";
 
 //component imports
 import ReleasesGrid from "./Layout/Grid/ReleasesGrid";
-import Title from "../../../common/UI/Title/Title";
+import HeaderTitle from "../../../common/UI/HeaderTitle/HeaderTitle";
 
-const MusicShowcaseIndex = () => {
-
+const MusicShowcase = () => {
   return (
     <Box component={"section"}>
-      <Title
+      <HeaderTitle
         title="Music Showcase"
         subtitle="Available biscuits shown below. Click on a title for more details"
         variant="h2"
@@ -22,4 +21,4 @@ const MusicShowcaseIndex = () => {
   );
 };
 
-export default MusicShowcaseIndex;
+export default MusicShowcase;

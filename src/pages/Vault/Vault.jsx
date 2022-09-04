@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 import styles from "./Vault.module.scss";
 
 //component imports
-import Title from "../../common/UI/Title/Title";
+import Title from "../../common/UI/HeaderTitle/HeaderTitle";
 import VaultReleases from "./VaultReleaseList/VaultReleases";
 import ScrollWidget from "../../common/components/ScrollWidget/ScrollWidget";
 

@@ -1,16 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchMusicShowcaseReleases } from "../../../redux/thunks";
+import { getReleases } from "../../../redux/thunks";
+import PropTypes from "prop-types";
 
 const useFetchReleases = (
-  staleTime,
-  refetchInterval,
-  refetchOnWindowFocus,
-  refetchOnReconnect,
-  refetchOnMount,
+  staleTime = null,
+  refetchInterval = null,
+  refetchOnWindowFocus = false,
+  refetchOnReconnect = false,
+  refetchOnMount = false,
+  url = "",
 ) => {
   const { isLoading, data, isError, error, isFetching } = useQuery(
-    "music-showcase-releases",
-    fetchMusicShowcaseReleases,
+    ["music-showcase-releases"],
+    () => getReleases(url),
     {
       staleTime,
       refetchInterval,
@@ -21,6 +23,15 @@ const useFetchReleases = (
   );
 
   return { isLoading, data, isError, error, isFetching };
+};
+
+useFetchReleases.propTypes = {
+  staleTime: PropTypes.number,
+  refetchInterval: PropTypes.number,
+  refetchOnWindowFocus: PropTypes.bool,
+  refetchOnReconnect: PropTypes.bool,
+  refetchOnMount: PropTypes.bool,
+  url: PropTypes.string.isRequired,
 };
 
 export default useFetchReleases;

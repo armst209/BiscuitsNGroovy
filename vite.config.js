@@ -33,14 +33,7 @@ export default defineConfig({
       },
     }),
   ],
-  test: {
-    globals: true,
-    environment: "jsdom",
-    coverage: {
-      reporter: ["text", "json", "html"],
-      provider: "istanbul", // or 'c8'
-    },
-  },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

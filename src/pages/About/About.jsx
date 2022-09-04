@@ -11,7 +11,7 @@ import { ReactComponent as RecordVinyl } from "../../common/assets/images/compac
 
 //component imports
 import HowWeServeSection from "./HowWeServeSection/HowWeServeSection";
-import Title from "../../common/UI/Title/Title";
+import Title from "../../common/UI/HeaderTitle/HeaderTitle";
 
 //seo imports
 import SEOHelmet from "../../common/utils/SEO/SEOHelmet";

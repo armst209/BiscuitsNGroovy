@@ -1,10 +1,10 @@
 import axios from "axios";
-import { token } from "../../../../common/utils/UtilityVariables.js";
 
-export const fetchMusicShowcaseReleases = ({url}) => {
-  return axios({
+export const getReleases = (url) => {
+  const response = axios({
     method: "GET",
-    url: `${import.meta.env.VITE_BACKEND_URL}/${url}`,
-    headers: { "x-access-token": token },
+    url: `http://localhost:3000/${url}`,
   });
+
+  return response;
 };

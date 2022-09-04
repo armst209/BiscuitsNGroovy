@@ -20,7 +20,7 @@ const Homepage = () => {
       />
       <Hero />
       <HowItWorks />
-      {/* <MusicShowcase /> */}
+      <MusicShowcase />
       <KnowYourCollection />
       <AttentionSection />
     </>

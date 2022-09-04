@@ -20,7 +20,7 @@ import record_vinyl from "../../common/assets/images/compact-disc-yellow.svg";
 
 //component imports
 import ArtistInformationContainer from "../../common/components/MailchimpForms/ArtistInformation/ArtistInformationContainer";
-import Title from "../../common/UI/Title/Title";
+import Title from "../../common/UI/HeaderTitle/HeaderTitle";
 
 //seo imports
 import SEOHelmet from "../../common/utils/SEO/SEOHelmet";

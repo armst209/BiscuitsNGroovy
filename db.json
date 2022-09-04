@@ -1,0 +1,57 @@
+{
+  "releases": [
+    {
+      "id": 0,
+      "artist": "KuroiOto",
+      "featuredArtists": [],
+      "albumTitle": "Black, Brown & White",
+      "numberOfTracks": 8,
+      "yearOfRelease": 2014,
+      "musicLabel": "BLAT!",
+      "management": "BLAT!",
+      "releaseDate": "March 31, 2014",
+      "description": "With Black Brown & White, Detroit producer KuroiOto teams with Producers I Know and illustrator Sean Mack to craft a musical and visual ode to black women. Between two EPs, KuroiOto uses jazz and R&B samples, vocal loops, and more for his soulful soundbeds, while Sean Mack provides a different illustration for each song.",
+      "trackList": {
+        "Track 1": "Nothing Is Golden",
+        "Track 2": "RED",
+        "Track 3": "Peace of Mind",
+        "Track 4": "Everything Is Brown",
+        "Track 5": "TooColdStaysInsideSipsTeaBeat",
+        "Track 6": "The Winterlude",
+        "Track 7": "White",
+        "Track 8": "Spring Breaks"
+      }
+    },
+    {
+      "id": 1,
+      "artist": "KuroiOto",
+      "featuredArtists": [
+        "DaLyn",
+        "Yellokake",
+        "Courtney Hurtt",
+        "James Gardin",
+        "Wayno",
+        "Jahshua Smith",
+        "Rafael",
+        "Sareem Poems"
+      ],
+      "albumTitle": "23",
+      "numberOfTracks": 8,
+      "yearOfRelease": 2016,
+      "musicLabel": "BLAT!",
+      "management": "BLAT!",
+      "releaseDate": "October 20, 2016",
+      "description": "A long lost project that never got released. Unmixed and unmastered. Enjoy.",
+      "trackList": {
+        "Track 1": "23 ft. DaLyn",
+        "Track 2": "Ambitions (Young & Restless) ft. Yellokake",
+        "Track 3": "Useless Moments ft. Courtney Hurtt",
+        "Track 4": "Demons Interlude ft. Yellokake",
+        "Track 5": "Demons ft. James Gardin, Wayno, Jahshua Smith & Rafael",
+        "Track 6": "Ambition's Reprise ft. Sareem Poems",
+        "Track 7": "(Bonus) D.L.M. ft. Rafael & Yellokake",
+        "Track 8": "Spring Breaks"
+      }
+    }
+  ]
+}

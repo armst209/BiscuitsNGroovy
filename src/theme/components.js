@@ -1,6 +1,8 @@
 import colors from "./colors";
 
 const components = {
+  MuiTypography: {},
+
   Main: {
     baseStyle: {
       minHeight: "800px",

@@ -4,17 +4,19 @@ import ReleaseImage from "../../../../../common/components/ReleaseContent/Releas
 //Google Analytics imports
 // import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 
 const MusicShowcaseCard = ({ release }) => {
-  const { name, art_url, id, title } = release;
+  const { artist, id, albumTitle } = release;
 
   return (
-    <Link
-      eventLabel={`${name}-Release`}
-      to={`/release/${id}/${name.replaceAll(" ", "")}/${title.replaceAll(" ", "")}/`}>
+    <Link>
       <figure>
         <div data-testid="available-release-card" className="release-card">
-          <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
+          // <ReleaseImage releaseImageSrc={art_url} releaseAlt={name} />
+          <Box>
+            {artist} - {albumTitle}
+          </Box>
         </div>
       </figure>
     </Link>
