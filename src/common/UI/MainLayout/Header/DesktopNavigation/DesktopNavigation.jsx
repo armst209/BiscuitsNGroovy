@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./DesktopNavigation.module.scss";
 
 //svg imports
-import { ReactComponent as MainHeaderLogo } from "../../../../assets/images/bng-main-logo.svg";
+import MainHeaderLogo from "../../../../assets/images/bng_logo_webp.webp";
 
 //redux imports
 import { useSelector } from "react-redux";
@@ -29,7 +29,7 @@ const DesktopNavigation = ({ showHideLogoutLoaderHandler }) => {
       <div className={styles["left-links-container"]}>
         <div className={styles["logo-container"]}>
           <Link to="/">
-            <MainHeaderLogo />
+            <img src={MainHeaderLogo} style={{ width: "175px" }} />
           </Link>
         </div>
         <ul className={styles["desktop-main-links"]}>

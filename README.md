@@ -165,3 +165,9 @@ For questions or support, please contact the development team.
 ---
 
 **Made with ❤️ for music lovers everywhere**
+
+---
+
+## Images
+
+![Description of image](src\common\assets\showcase\site-capture.png)
