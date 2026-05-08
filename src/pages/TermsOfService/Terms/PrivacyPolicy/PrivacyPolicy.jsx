@@ -1,10 +1,10 @@
-import "./PrivacyPolicyStyles.scss";
-import speaker from "../../../../common/assets/images/speaker_yellow.svg";
+// import "./PrivacyPolicyStyles.scss";
+// import speaker from "../../../../common/assets/images/speaker_yellow.svg";
 
 const PrivacyPolicy = (props) => {
   return (
     <section id="privacy-policy">
-      <div className="privacy-policy-wrapper">
+      {/* <div className="privacy-policy-wrapper">
         <div className="privacy-policy-container">
           <h1>BISCUITS N GROOVY, LLC PRIVACY POLICY</h1>
           <h3>
@@ -182,7 +182,7 @@ const PrivacyPolicy = (props) => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

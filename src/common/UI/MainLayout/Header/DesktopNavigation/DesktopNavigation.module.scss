@@ -60,10 +60,16 @@
     display: flex;
     justify-content: left;
     align-items: center;
+
     height: auto;
     position: relative;
     z-index: 9999;
-    width: auto;
+    width: 200px;
+
+    svg {
+      height: 50px;
+      width: 200px;
+    }
 
     .logo-link {
       justify-content: left;
@@ -72,7 +78,9 @@
       width: 200px;
       margin-right: 1rem;
 
-      .main-header-logo {}
+      .main-header-logo {
+        width: 400px;
+      }
     }
   }
 }
@@ -100,7 +108,6 @@
   }
 }
 
-
 .active-link {
-  border-bottom: 2px solid var(--color1)
+  border-bottom: 2px solid var(--color1);
 }

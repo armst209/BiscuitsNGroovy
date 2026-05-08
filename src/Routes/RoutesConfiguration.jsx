@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
-import { useRoutes } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { useRoutes, Navigate } from "react-router-dom";
 
 //component imports
 import About from "@/pages/About/About";
@@ -61,17 +60,15 @@ const RoutesConfiguration = () => {
       element: <Vault />,
     },
     {
-      path: "/biscuit/:biscuitId/:artistName/:releaseName/",
+      path: "/biscuit/:biscuitId/:artistName/:releaseName",
       element: <BiscuitAlbumInformation />,
     },
-
     {
       path: "/collection",
       element: isUserAuthenticated ? <Collection /> : <Navigate to="/" />,
     },
-
     {
-      path: "/release/:releaseId/:artistName/:releaseName/",
+      path: "/release/:releaseId/:artistName/:releaseName",
       element: <Release />,
     },
     {
@@ -106,12 +103,10 @@ const RoutesConfiguration = () => {
       path: "/nft-terms",
       element: <NFTTerms />,
     },
-
     {
       path: "/purchase",
       element: <SuccessfulSignUp />,
     },
-
     {
       path: "*",
       element: <NotFound />,

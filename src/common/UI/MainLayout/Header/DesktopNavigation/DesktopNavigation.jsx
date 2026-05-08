@@ -28,8 +28,8 @@ const DesktopNavigation = ({ showHideLogoutLoaderHandler }) => {
     <>
       <div className={styles["left-links-container"]}>
         <div className={styles["logo-container"]}>
-          <Link className="logo-link" to="/">
-            <MainHeaderLogo className={styles["main-header-logo"]} />
+          <Link to="/">
+            <MainHeaderLogo />
           </Link>
         </div>
         <ul className={styles["desktop-main-links"]}>
@@ -37,8 +37,7 @@ const DesktopNavigation = ({ showHideLogoutLoaderHandler }) => {
             <li key={link.id}>
               <NavLink
                 style={({ isActive }) => (isActive ? components.Link.activeStyle : {})}
-                to={link.path}
-              >
+                to={link.path}>
                 {link.name}
               </NavLink>
             </li>
