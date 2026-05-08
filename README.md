@@ -170,4 +170,4 @@ For questions or support, please contact the development team.
 
 ## Images
 
-![Description of image](src\common\assets\showcase\site-capture.png)
+![Site Capture](src/common/assets/showcase/site-capture.png)
